@@ -1,0 +1,27 @@
+{
+  "name": "swift-do",
+  "version": "1.0.0",
+  "description": "swift do",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swiftdo/swiftdo.git"
+  },
+  "keywords": [
+    "swift",
+    "swiftui"
+  ],
+  "author": "laijihua",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swiftdo/swiftdo/issues"
+  },
+  "homepage": "https://github.com/swiftdo/swiftdo#readme",
+  "devDependencies": {
+    "vuepress": "^1.5.1"
+  }
+}
