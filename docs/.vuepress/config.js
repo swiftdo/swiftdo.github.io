@@ -56,6 +56,7 @@ module.exports = {
 
 function getSwiftSidebar() {
     return [
+        '',
         'swift',
         'swiftui'
     ]
@@ -63,18 +64,22 @@ function getSwiftSidebar() {
 
 function getFlutterSidebar() {
     return [
+        '',
         'flutter'
     ]
 }
 
 function getFigmaSidebar() {
     return [
+        '',
+        'dart',
         'figma'
     ]
 }
 
 function getToolsSidebar() {
     return [
+        '',
         'tools'
     ]
 }
