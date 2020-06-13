@@ -14,6 +14,7 @@ module.exports = {
         '@vuepress/active-header-links',
         '@vuepress/nprogress',
         '@vuepress/medium-zoom',
+        'vuepress-plugin-auto-sidebar',
     ],
 
     themeConfig: {
@@ -21,6 +22,7 @@ module.exports = {
         repo: 'swiftdo/swiftdo',
         editLinks: true,
         smoothScroll: true,
+        sidebar: 'auto',
         lastUpdated: '上次更新',
         nav: [{
                 text: 'Swift',
@@ -44,20 +46,13 @@ module.exports = {
             }
         ],
 
-        sidebarDepath: 2,
-        sidebar: {
-            '/swift/': getSwiftSidebar(),
-            '/flutter/': getFlutterSidebar(),
-            '/figma/': getFigmaSidebar(),
-            '/tools/': getToolsSidebar(),
-        }
+
     },
 }
 
 function getSwiftSidebar() {
     return [
         '',
-        'swift',
         'swiftui'
     ]
 }
@@ -65,21 +60,18 @@ function getSwiftSidebar() {
 function getFlutterSidebar() {
     return [
         '',
-        'flutter'
     ]
 }
 
 function getFigmaSidebar() {
     return [
         '',
-        'dart',
-        'figma'
     ]
 }
 
 function getToolsSidebar() {
     return [
         '',
-        'tools'
+        'VuePress',
     ]
 }

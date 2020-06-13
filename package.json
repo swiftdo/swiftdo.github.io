@@ -27,6 +27,7 @@
     "@vuepress/plugin-back-to-top": "^1.5.1",
     "@vuepress/plugin-medium-zoom": "^1.5.1",
     "@vuepress/plugin-nprogress": "^1.5.1",
-    "vuepress": "^1.5.1"
+    "vuepress": "^1.5.1",
+    "vuepress-plugin-auto-sidebar": "^1.4.1"
   }
 }
