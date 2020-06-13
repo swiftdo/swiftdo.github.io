@@ -5,9 +5,12 @@ module.exports = {
     head: [
         ['link', {
             rel: 'icon',
-            href: 'favicon.icon'
+            href: '/favicon.ico'
         }],
     ],
+    themeConfig: {
+        logo: 'logo.png'
+    },
     plugins: ['@vuepress/back-to-top',
         '@vuepress/active-header-links',
         '@vuepress/nprogress',
