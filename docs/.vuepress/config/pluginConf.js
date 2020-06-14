@@ -19,6 +19,9 @@ module.exports = {
     'vuepress-plugin-google-adsense': {
         ad_client: 'ca-pub-4465026491979447'
     },
+    'sitemap': {
+        hostname: 'https://swiftdo.github.io'
+    }
 
 
 }

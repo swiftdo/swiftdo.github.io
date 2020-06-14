@@ -1,3 +1,9 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+---
+
 ### VuePress
 
 ## VuePress 是什么？

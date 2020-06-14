@@ -32,5 +32,8 @@
     "vuepress": "^1.5.1",
     "vuepress-plugin-auto-sidebar": "^1.4.1",
     "vuepress-plugin-google-adsense": "^0.1.0"
+  },
+  "dependencies": {
+    "vuepress-plugin-sitemap": "^2.3.1"
   }
 }
