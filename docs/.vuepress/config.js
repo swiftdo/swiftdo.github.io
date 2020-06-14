@@ -20,7 +20,7 @@ module.exports = {
         ],
         ['meta', {
             name: 'google-site-verification',
-            content: 'jCq4bLGkXN0qa18VWM7TP7k-LmSE9jNlKEHNk1b-AK0'
+            content: 'YSHTZDsyPVQ3h65Hf_kAkCw3CE6OJxVh3w0h3ymkIGI'
         }],
     ],
 
