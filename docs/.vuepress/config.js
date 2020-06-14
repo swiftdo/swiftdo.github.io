@@ -1,6 +1,6 @@
 module.exports = {
     base: '/swiftdo/',
-    title: 'Oldbirds',
+    title: 'OldBirds',
     description: 'Swift learning',
     head: [
         ['link', {
@@ -25,8 +25,8 @@ module.exports = {
         sidebar: 'auto',
         lastUpdated: '上次更新',
         nav: [{
-                text: 'Swift',
-                link: '/swift/'
+                text: 'SwiftUI',
+                link: '/swiftui/'
             },
             {
                 text: 'Flutter',
@@ -42,36 +42,10 @@ module.exports = {
             },
             {
                 text: '关于',
-                link: '/about.html'
+                link: '/about/'
             }
         ],
 
 
     },
-}
-
-function getSwiftSidebar() {
-    return [
-        '',
-        'swiftui'
-    ]
-}
-
-function getFlutterSidebar() {
-    return [
-        '',
-    ]
-}
-
-function getFigmaSidebar() {
-    return [
-        '',
-    ]
-}
-
-function getToolsSidebar() {
-    return [
-        '',
-        'VuePress',
-    ]
 }
