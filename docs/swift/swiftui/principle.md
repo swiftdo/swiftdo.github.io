@@ -2,7 +2,7 @@
 sitemap:
   exclude: false
   changefreq: hourly
-title: '实现原理'
+title: '理解'
 ---
 
 ## 单表达式隐式返回值
