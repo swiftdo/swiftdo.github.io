@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>实现原理 | OldBirds</title>
+    <meta name="generator" content="VuePress 1.5.1">
+    <link rel="icon" href="/favicon.ico">
+    <script data-ad-client="ca-pub-4465026491979447" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script data-ad-client="ca-pub-4465026491979447" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script data-ad-client="ca-pub-4465026491979447" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta name="description" content="过来人的笔记，带你最佳实践，@OldBirds公众号">
+    <meta name="google-site-verification" content="YSHTZDsyPVQ3h65Hf_kAkCw3CE6OJxVh3w0h3ymkIGI">
+    <link rel="preload" href="/assets/css/0.styles.765564d0.css" as="style"><link rel="preload" href="/assets/js/app.39477c26.js" as="script"><link rel="preload" href="/assets/js/2.fa1e857c.js" as="script"><link rel="preload" href="/assets/js/11.3b7998f8.js" as="script"><link rel="preload" href="/assets/js/3.7ba844a7.js" as="script"><link rel="prefetch" href="/assets/js/10.5dd06315.js"><link rel="prefetch" href="/assets/js/12.346a5053.js"><link rel="prefetch" href="/assets/js/13.f28a003f.js"><link rel="prefetch" href="/assets/js/14.c0de3b27.js"><link rel="prefetch" href="/assets/js/4.6d3b8f92.js"><link rel="prefetch" href="/assets/js/5.ed83750a.js"><link rel="prefetch" href="/assets/js/6.40d9d303.js"><link rel="prefetch" href="/assets/js/7.8d135d57.js"><link rel="prefetch" href="/assets/js/8.8ee22ec2.js"><link rel="prefetch" href="/assets/js/9.2da3c6d4.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.765564d0.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="logo.png" alt="OldBirds" class="logo"> <span class="site-name can-hide">OldBirds</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Swift" class="dropdown-title"><span class="title">Swift</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/swift/swiftui/" class="nav-link router-link-active">
+  SwiftUI
+</a></li><li class="dropdown-item"><!----> <a href="/swift/vapor/" class="nav-link">
+  Vapor
+</a></li></ul></div></div><div class="nav-item"><a href="/flutter/" class="nav-link">
+  Flutter
+</a></div><div class="nav-item"><a href="/figma/" class="nav-link">
+  Figma
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/vuepress/" class="nav-link">
+  VuePress
+</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">
+  关于
+</a></div> <a href="https://github.com/swiftdo/swiftdo.github.io" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Swift" class="dropdown-title"><span class="title">Swift</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/swift/swiftui/" class="nav-link router-link-active">
+  SwiftUI
+</a></li><li class="dropdown-item"><!----> <a href="/swift/vapor/" class="nav-link">
+  Vapor
+</a></li></ul></div></div><div class="nav-item"><a href="/flutter/" class="nav-link">
+  Flutter
+</a></div><div class="nav-item"><a href="/figma/" class="nav-link">
+  Figma
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/vuepress/" class="nav-link">
+  VuePress
+</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">
+  关于
+</a></div> <a href="https://github.com/swiftdo/swiftdo.github.io" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>SWIFTUI</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/swift/swiftui/" aria-current="page" class="sidebar-link">开始</a></li><li><a href="/swift/swiftui/principle.html" aria-current="page" class="active sidebar-link">实现原理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/swift/swiftui/principle.html#单表达式隐式返回值" class="sidebar-link">单表达式隐式返回值</a></li><li class="sidebar-sub-header"><a href="/swift/swiftui/principle.html#opaque-result-type" class="sidebar-link">opaque result type</a></li><li class="sidebar-sub-header"><a href="/swift/swiftui/principle.html#viewbuilder-functionbuilder" class="sidebar-link">@ViewBuilder &amp; @_functionBuilder</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="单表达式隐式返回值"><a href="#单表达式隐式返回值" class="header-anchor">#</a> 单表达式隐式返回值</h2> <div class="language-swift extra-class"><pre class="language-swift"><code><span class="token comment">// before swift 5.0</span>
+<span class="token keyword">struct</span> <span class="token builtin">Rectangle</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> width <span class="token operator">=</span> <span class="token number">0.0</span><span class="token punctuation">,</span> height <span class="token operator">=</span> <span class="token number">0.0</span>
+    <span class="token keyword">var</span> area1<span class="token punctuation">:</span> <span class="token builtin">Double</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> width <span class="token operator">*</span> height
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">func</span> <span class="token function">area2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Double</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> width <span class="token operator">*</span> height
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// after switft 5.1</span>
+<span class="token keyword">struct</span> <span class="token builtin">Rectangle</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> width <span class="token operator">=</span> <span class="token number">0.0</span><span class="token punctuation">,</span> height <span class="token operator">=</span> <span class="token number">0.0</span>
+    <span class="token keyword">var</span> area1<span class="token punctuation">:</span> <span class="token builtin">Double</span> <span class="token punctuation">{</span> width <span class="token operator">*</span> height <span class="token punctuation">}</span>
+
+    <span class="token keyword">func</span> <span class="token function">area2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Double</span> <span class="token punctuation">{</span> width <span class="token operator">*</span> height <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="propertywarpper"><a href="#propertywarpper" class="header-anchor">#</a> @propertyWarpper</h3> <div class="language-swift extra-class"><pre class="language-swift"><code><span class="token comment">// before swift 5.0</span>
+<span class="token keyword">struct</span> <span class="token builtin">User</span> <span class="token punctuation">{</span>
+    <span class="token keyword">static</span> <span class="token keyword">var</span> usesTouchID<span class="token punctuation">:</span> <span class="token builtin">Bool</span> <span class="token punctuation">{</span>
+        <span class="token keyword">get</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token builtin">UserDefaults</span><span class="token punctuation">.</span>standard<span class="token punctuation">.</span><span class="token function">bool</span><span class="token punctuation">(</span>forKey<span class="token punctuation">:</span> <span class="token string">&quot;USES_TOUCH_ID&quot;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">set</span> <span class="token punctuation">{</span>
+            <span class="token builtin">UserDefaults</span><span class="token punctuation">.</span>standard<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> forKey<span class="token punctuation">:</span> <span class="token string">&quot;USES_TOUCH_ID&quot;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">static</span> <span class="token keyword">var</span> isLoggedIn<span class="token punctuation">:</span> <span class="token builtin">Bool</span> <span class="token punctuation">{</span>
+        <span class="token keyword">get</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token builtin">UserDefaults</span><span class="token punctuation">.</span>standard<span class="token punctuation">.</span><span class="token function">bool</span><span class="token punctuation">(</span>forKey<span class="token punctuation">:</span> <span class="token string">&quot;LOGGED_IN&quot;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">set</span> <span class="token punctuation">{</span>
+            <span class="token builtin">UserDefaults</span><span class="token punctuation">.</span>standard<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> forKey<span class="token punctuation">:</span> <span class="token string">&quot;LOGGED_IN&quot;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// after switft 5.1</span>
+@propertyWrapper
+<span class="token keyword">struct</span> <span class="token builtin">UserDefault</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 这里的属性 key 和 defaultValue 还有 init 方法都是实际业务中的业务代码</span>
+    <span class="token keyword">let</span> key<span class="token punctuation">:</span> <span class="token builtin">String</span>
+    <span class="token keyword">let</span> defaultValue<span class="token punctuation">:</span> T
+
+    <span class="token keyword">init</span><span class="token punctuation">(</span><span class="token number">_</span> key<span class="token punctuation">:</span> <span class="token builtin">String</span><span class="token punctuation">,</span> defaultValue<span class="token punctuation">:</span> T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">self</span><span class="token punctuation">.</span>key <span class="token operator">=</span> key
+        <span class="token keyword">self</span><span class="token punctuation">.</span>defaultValue <span class="token operator">=</span> defaultValue
+        <span class="token builtin">UserDefaults</span><span class="token punctuation">.</span>standard<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span>defaults<span class="token punctuation">:</span> <span class="token punctuation">[</span>key<span class="token punctuation">:</span> defaultValue<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// wrappedValue 是 @propertyWrapper 必须实现的属性。</span>
+    <span class="token comment">// 当操作我们包裹的属性时，其具体的set get 方法走这里。</span>
+    <span class="token keyword">var</span> wrappedValue<span class="token punctuation">:</span> T <span class="token punctuation">{</span>
+        <span class="token keyword">get</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token builtin">UserDefaults</span><span class="token punctuation">.</span>standard<span class="token punctuation">.</span><span class="token function">object</span><span class="token punctuation">(</span>forKey<span class="token punctuation">:</span> key<span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">?</span> T <span class="token operator">?</span><span class="token operator">?</span>  defaultValue
+        <span class="token punctuation">}</span>
+        <span class="token keyword">set</span> <span class="token punctuation">{</span>
+            <span class="token builtin">UserDefaults</span><span class="token punctuation">.</span>standard<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> forKey<span class="token punctuation">:</span> key<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">struct</span> <span class="token builtin">User</span> <span class="token punctuation">{</span>
+    @<span class="token function">UserDefault</span><span class="token punctuation">(</span><span class="token string">&quot;USES_TOUCH_ID&quot;</span><span class="token punctuation">,</span> defaultValue<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+    <span class="token keyword">static</span> <span class="token keyword">var</span> usesTouchID<span class="token punctuation">:</span> <span class="token builtin">Bool</span>
+
+    @<span class="token function">UserDefault</span><span class="token punctuation">(</span><span class="token string">&quot;LOGGED_IN&quot;</span><span class="token punctuation">,</span> defaultValue<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+    <span class="token keyword">var</span> isLoggedIn<span class="token punctuation">:</span> <span class="token builtin">Bool</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token function">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token builtin">User</span><span class="token punctuation">.</span>usesTouchID <span class="token operator">=</span> <span class="token boolean">true</span>
+<span class="token keyword">let</span> usesTouchID <span class="token operator">=</span> <span class="token builtin">User</span><span class="token punctuation">.</span>$usesTouchID
+<span class="token keyword">let</span> isLoggedIn <span class="token operator">=</span> user<span class="token punctuation">.</span>$isLoggedIn
+</code></pre></div><p>实际上属性包装器是在编译时期翻译为一下的代码, 并且编译器禁止使用 <code>$</code> 开头的标识符</p> <div class="language-swift extra-class"><pre class="language-swift"><code><span class="token keyword">struct</span> <span class="token builtin">User</span> <span class="token punctuation">{</span>
+    <span class="token keyword">static</span> <span class="token keyword">var</span> $usesTouchID <span class="token operator">=</span> <span class="token builtin">UserDefault</span><span class="token operator">&lt;</span><span class="token builtin">Bool</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token string">&quot;USES_TOUCH_ID&quot;</span><span class="token punctuation">,</span> defaultValue<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+    <span class="token keyword">static</span> <span class="token keyword">var</span> usesTouchID<span class="token punctuation">:</span> <span class="token builtin">Bool</span> <span class="token punctuation">{</span>
+        <span class="token keyword">set</span> <span class="token punctuation">{</span>
+            $usesTouchID<span class="token punctuation">.</span>value <span class="token operator">=</span> newValue
+        <span class="token punctuation">}</span>
+        <span class="token keyword">get</span> <span class="token punctuation">{</span>
+            $usesTouchID<span class="token punctuation">.</span>value
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    @<span class="token function">UserDefault</span><span class="token punctuation">(</span><span class="token string">&quot;LOGGED_IN&quot;</span><span class="token punctuation">,</span> defaultValue<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+    <span class="token keyword">var</span> isLoggedIn<span class="token punctuation">:</span> <span class="token builtin">Bool</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="如何理解-state-binding、-environmentobject-和-objectbinding？"><a href="#如何理解-state-binding、-environmentobject-和-objectbinding？" class="header-anchor">#</a> 如何理解 <code>@State</code> <code>@Binding</code>、<code>@EnvironmentObject</code> 和 <code>@ObjectBinding</code>？</h3> <ul><li>@State - 视图和数据存在依赖，数据变化要同步到视图；</li> <li>@Binding - 父子视图直接有数据的依赖，数据变化要同步到父子视图；</li> <li>@BindableObject - 外部数据结构与 SwiftUI 建立数据存在依赖；</li> <li>@EnvironmentObject - 跨组件快速访问全局数据源；</li></ul> <h2 id="opaque-result-type"><a href="#opaque-result-type" class="header-anchor">#</a> opaque result type</h2> <p>在 Swift 5.0 之前我们如果想返回抽象类型一般使用 <code>Generic Type</code> 或者 <code>Protocol</code>, 使用泛型会显示的暴露一些信息给 <code>API</code> 使用者，不是完整的类型抽象</p> <p>但是使用 <code>Protocol</code> 也有几个限制: 泛型返回值在运行时都是一个容器，效率较差，返回值不能调用自身类型的方法，协议不允许拥有关联类型，由于编译时丢失了类型信息，编译器无法推断类型，导致无法使用 <code>==</code> 运算符。</p> <p>这个特性使用 <code>some</code> 修饰协议返回值，具有一下特性:</p> <ul><li>所有的条件分支只能返回一个特定类型，不同则会编译报错</li> <li>方法使用者依旧无法知道类型，（使用方不透明）</li> <li>编译器知情具体类型，因此可以使用类型推断。</li></ul> <h2 id="viewbuilder-functionbuilder"><a href="#viewbuilder-functionbuilder" class="header-anchor">#</a> @ViewBuilder &amp; @_functionBuilder</h2> <p>SwiftUI DSL 的需要：</p> <ul><li>从表达方式上从简：尽量省略不必要的逗号，<code>return</code>，中括号等等。</li> <li>支持简单的逻辑控制，比如 <code>if</code> 控制语句。</li> <li>强类型：<code>some View</code> 代表了一个复合的强类型，在 <code>View</code> 发生改变的时候，复合的强类型有助于做 <code>View diff</code> 优化。</li> <li>与 Swift 已有的语法不冲突</li></ul> <div class="language-swift extra-class"><pre class="language-swift"><code><span class="token comment">// 定义</span>
+<span class="token keyword">struct</span> <span class="token builtin">VStack</span><span class="token operator">&lt;</span><span class="token builtin">Content</span><span class="token operator">&gt;</span> <span class="token keyword">where</span> <span class="token builtin">Content</span> <span class="token punctuation">:</span> <span class="token builtin">View</span> <span class="token punctuation">{</span>
+  <span class="token keyword">init</span><span class="token punctuation">(</span>alignment<span class="token punctuation">:</span> <span class="token builtin">HorizontalAlignment</span> <span class="token operator">=</span> <span class="token punctuation">.</span>center<span class="token punctuation">,</span> spacing<span class="token punctuation">:</span> <span class="token builtin">Length</span><span class="token operator">?</span> <span class="token operator">=</span> <span class="token constant">nil</span><span class="token punctuation">,</span>
+  @<span class="token builtin">ViewBuilder</span> content<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Content</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 使用</span>
+<span class="token keyword">struct</span> <span class="token builtin">ContentView</span> <span class="token punctuation">:</span> <span class="token builtin">View</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> body<span class="token punctuation">:</span> some <span class="token builtin">View</span> <span class="token punctuation">{</span>
+    <span class="token function">VStack</span><span class="token punctuation">(</span>alignment<span class="token punctuation">:</span> <span class="token punctuation">.</span>leading<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">&quot;Hello, World&quot;</span><span class="token punctuation">)</span>
+      <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">&quot;Leon Lu&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>如何在一个容器类型 <code>VStack</code> 的构造函数的闭包中平铺其包含的两个 <code>Text</code>；另一方面，在闭包的函数声明中，我们看到了 <code>@ViewBuidler</code> 的修饰；
+其实不难推测，为了编译通过， <code>ViewBuidler</code> 对于这个闭包中的代码在编译阶段 “动了手脚”，那么这是如何做到的呢？来看 <code>ViewBuilder</code> 中的关键方法：</p> <div class="language-swift extra-class"><pre class="language-swift"><code><span class="token keyword">static</span> <span class="token keyword">func</span> <span class="token function">buildBlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">EmptyView</span>
+<span class="token keyword">static</span> <span class="token keyword">func</span> buildBlock<span class="token operator">&lt;</span><span class="token builtin">Content</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token builtin">Content</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">Content</span>
+<span class="token keyword">static</span> <span class="token keyword">func</span> buildBlock<span class="token operator">&lt;</span><span class="token builtin">C0</span><span class="token punctuation">,</span> <span class="token builtin">C1</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token builtin">C0</span><span class="token punctuation">,</span> <span class="token builtin">C1</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">TupleView</span><span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token builtin">C0</span><span class="token punctuation">,</span> <span class="token builtin">C1</span><span class="token punctuation">)</span><span class="token operator">&gt;</span>
+<span class="token keyword">static</span> <span class="token keyword">func</span> buildBlock<span class="token operator">&lt;</span><span class="token builtin">C0</span><span class="token punctuation">,</span> <span class="token builtin">C1</span><span class="token punctuation">,</span> <span class="token builtin">C2</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token builtin">C0</span><span class="token punctuation">,</span> <span class="token builtin">C1</span><span class="token punctuation">,</span> <span class="token builtin">C2</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">TupleView</span><span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token builtin">C0</span><span class="token punctuation">,</span> <span class="token builtin">C1</span><span class="token punctuation">,</span> <span class="token builtin">C2</span><span class="token punctuation">)</span><span class="token operator">&gt;</span>
+<span class="token keyword">static</span> <span class="token keyword">func</span> buildBlock<span class="token operator">&lt;</span><span class="token builtin">C0</span><span class="token punctuation">,</span> <span class="token builtin">C1</span><span class="token punctuation">,</span> <span class="token builtin">C2</span><span class="token punctuation">,</span> <span class="token builtin">C3</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token builtin">C0</span><span class="token punctuation">,</span> <span class="token builtin">C1</span><span class="token punctuation">,</span> <span class="token builtin">C2</span><span class="token punctuation">,</span> <span class="token builtin">C3</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">TupleView</span><span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token builtin">C0</span><span class="token punctuation">,</span> <span class="token builtin">C1</span><span class="token punctuation">,</span> <span class="token builtin">C2</span><span class="token punctuation">,</span> <span class="token builtin">C3</span><span class="token punctuation">)</span><span class="token operator">&gt;</span>
+<span class="token keyword">static</span> <span class="token keyword">func</span> buildBlock<span class="token operator">&lt;</span><span class="token builtin">C0</span><span class="token punctuation">,</span> <span class="token builtin">C1</span><span class="token punctuation">,</span> <span class="token builtin">C2</span><span class="token punctuation">,</span> <span class="token builtin">C3</span><span class="token punctuation">,</span> <span class="token builtin">C4</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token builtin">C0</span><span class="token punctuation">,</span> <span class="token builtin">C1</span><span class="token punctuation">,</span> <span class="token builtin">C2</span><span class="token punctuation">,</span> <span class="token builtin">C3</span><span class="token punctuation">,</span> <span class="token builtin">C4</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">TupleView</span><span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token builtin">C0</span><span class="token punctuation">,</span> <span class="token builtin">C1</span><span class="token punctuation">,</span> <span class="token builtin">C2</span><span class="token punctuation">,</span> <span class="token builtin">C3</span><span class="token punctuation">,</span> <span class="token builtin">C4</span><span class="token punctuation">)</span><span class="token operator">&gt;</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre></div><p>我们的两个 <code>Text</code> 的例子中，编译器自动（根据名称的约定）使用了</p> <div class="language-swift extra-class"><pre class="language-swift"><code><span class="token keyword">static</span> <span class="token keyword">func</span> buildBlock<span class="token operator">&lt;</span><span class="token builtin">C0</span><span class="token punctuation">,</span> <span class="token builtin">C1</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token builtin">C0</span><span class="token punctuation">,</span> <span class="token builtin">C1</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">TupleView</span><span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token builtin">C0</span><span class="token punctuation">,</span> <span class="token builtin">C1</span><span class="token punctuation">)</span><span class="token operator">&gt;</span>
+</code></pre></div><p>方法，这时候 <code>VStack</code> 的类型就成为了 <code>VStack&lt;TupleView&lt;(Text,Text)&gt;&gt;</code> 了。经过 <code>ViewBuilder</code> 转换后的代码：</p> <div class="language-swift extra-class"><pre class="language-swift"><code><span class="token keyword">struct</span> <span class="token builtin">ContentView</span> <span class="token punctuation">:</span> <span class="token builtin">View</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> body<span class="token punctuation">:</span> some <span class="token builtin">View</span> <span class="token punctuation">{</span>
+    <span class="token function">VStack</span><span class="token punctuation">(</span>alignment<span class="token punctuation">:</span> <span class="token punctuation">.</span>leading<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token builtin">ViewBuilder</span><span class="token punctuation">.</span><span class="token function">buildBlock</span><span class="token punctuation">(</span><span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">&quot;Hello, World&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">&quot;Leon Lu&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>值得一提的是，由于 <code>buildBlock</code> 的 overload 版本最多泛型参数是 10 个。所以当超过 10 个的时候可以使用 <code>Group</code> 包一下； 如果有循环可以展开，则可以使用 <code>ForEach</code>。</p> <p><strong>分支条件的情况</strong></p> <p><code>ViewBuilder</code> 中还有两个函数被用来构建含分支条件时候的类型</p> <div class="language-swift extra-class"><pre class="language-swift"><code><span class="token keyword">static</span> <span class="token keyword">func</span> buildEither<span class="token operator">&lt;</span><span class="token builtin">TrueContent</span><span class="token punctuation">,</span> <span class="token builtin">FalseContent</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token builtin">first</span><span class="token punctuation">:</span> <span class="token builtin">TrueContent</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span>
+ <span class="token builtin">ConditionalContent</span><span class="token operator">&lt;</span><span class="token builtin">TrueContent</span><span class="token punctuation">,</span> <span class="token builtin">FalseContent</span><span class="token operator">&gt;</span>
+
+<span class="token keyword">static</span> <span class="token keyword">func</span> buildEither<span class="token operator">&lt;</span><span class="token builtin">TrueContent</span><span class="token punctuation">,</span> <span class="token builtin">FalseContent</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>second<span class="token punctuation">:</span> <span class="token builtin">FalseContent</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> 
+ <span class="token builtin">ConditionalContent</span><span class="token operator">&lt;</span><span class="token builtin">TrueContent</span><span class="token punctuation">,</span> <span class="token builtin">FalseContent</span><span class="token operator">&gt;</span>
+</code></pre></div><p>如果根据不同条件返回不同的视图，那么生成的类型中包含两个类型。</p> <div class="language-swift extra-class"><pre class="language-swift"><code><span class="token keyword">struct</span> <span class="token builtin">SlideViewer</span><span class="token punctuation">:</span> <span class="token builtin">View</span> <span class="token punctuation">{</span>
+  @<span class="token builtin">State</span> <span class="token keyword">private</span> <span class="token keyword">var</span> isEditing <span class="token operator">=</span> <span class="token boolean">false</span>
+  @<span class="token builtin">Binding</span> <span class="token keyword">var</span> slide<span class="token punctuation">:</span> <span class="token builtin">Slide</span>
+
+  <span class="token keyword">var</span> body<span class="token punctuation">:</span> some <span class="token builtin">View</span> <span class="token punctuation">{</span>
+    <span class="token builtin">VStack</span> <span class="token punctuation">{</span>
+      <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">&quot;Slide #<span class="token interpolation"><span class="token delimiter variable">\(</span>slide<span class="token punctuation">.</span>number<span class="token delimiter variable">)</span></span>&quot;</span><span class="token punctuation">)</span>
+
+      <span class="token keyword">if</span> isEditing <span class="token punctuation">{</span>
+        <span class="token function">TextFiled</span><span class="token punctuation">(</span>$slide<span class="token punctuation">.</span>title<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token function">Text</span><span class="token punctuation">(</span>slide<span class="token punctuation">.</span>title<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>此时，<code>VStack</code> 的类型变成了 <code>VStack&lt;TupleView&lt;(Text, ConditionalContent&lt;TextField,Text&gt;)&gt;&gt;</code></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">6/14/2020, 12:44:16 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/swift/swiftui/" class="prev router-link-active">
+        开始
+      </a></span> <!----></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.39477c26.js" defer></script><script src="/assets/js/2.fa1e857c.js" defer></script><script src="/assets/js/11.3b7998f8.js" defer></script><script src="/assets/js/3.7ba844a7.js" defer></script>
+  </body>
+</html>
