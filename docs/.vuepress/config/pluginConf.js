@@ -10,11 +10,15 @@ module.exports = {
             buttonText: "刷新"
         }
     },
-    'vuepress-plugin-auto-sidebar': {
-        titleMode: "uppercase",
-    },
     '@vuepress/google-analytics': {
         'ga': 'UA-141621537-2'
     },
+    'vuepress-plugin-auto-sidebar': {
+        titleMode: "uppercase",
+    },
+    'vuepress-plugin-google-adsense': {
+        ad_client: 'ca-pub-4465026491979447'
+    },
+
 
 }
