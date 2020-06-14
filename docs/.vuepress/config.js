@@ -1,7 +1,7 @@
 module.exports = {
     base: '/swiftdo/',
     title: 'OldBirds',
-    description: 'Swift learning',
+    description: '专注于编程素质的反思和提升',
     head: [
         ['link', {
             rel: 'icon',
