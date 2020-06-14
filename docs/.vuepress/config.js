@@ -2,7 +2,7 @@ const pluginConf = require('./config/pluginConf.js');
 const navConf = require('./config/navConf.js');
 
 module.exports = {
-    base: '/swiftdo/',
+    base: '/',
     title: 'OldBirds',
     description: '过来人的笔记，带你最佳实践，@OldBirds公众号',
     head: [
@@ -14,7 +14,7 @@ module.exports = {
     plugins: pluginConf,
     themeConfig: {
         logo: 'logo.png',
-        repo: 'swiftdo/swiftdo',
+        repo: 'swiftdo/swiftdo.github.io',
         editLinks: true,
         editLinkText: '编辑文档！',
         smoothScroll: true,
