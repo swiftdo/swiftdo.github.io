@@ -15,10 +15,7 @@ module.exports = {
     themeConfig: {
         logo: 'logo.png',
         repo: 'swiftdo/swiftdo.github.io',
-        editLinks: true,
-        editLinkText: '编辑文档！',
         smoothScroll: true,
-        docsDir: 'docs',
         lastUpdated: '上次更新',
         nav: navConf,
     },
