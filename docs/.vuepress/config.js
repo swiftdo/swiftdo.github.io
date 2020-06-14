@@ -4,7 +4,7 @@ const navConf = require('./config/navConf.js');
 module.exports = {
     base: '/swiftdo/',
     title: 'OldBirds',
-    description: '过来人的学习笔记，带你最佳实践，@OldBirds 公众号',
+    description: '过来人的笔记，带你最佳实践，@OldBirds公众号',
     head: [
         ['link', {
             rel: 'icon',
