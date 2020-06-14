@@ -27,11 +27,11 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "3a6a727f10d4d14f7599574bb57c45e4"
+    "revision": "f97e3679b2f3ef9281364cfbe5925d79"
   },
   {
     "url": "about/index.html",
-    "revision": "b8e2ef4a525c5faf96d9bfee4fea3ddb"
+    "revision": "4df7dfb2373ece32ea2bd1ba5412aa25"
   },
   {
     "url": "assets/css/0.styles.765564d0.css",
@@ -42,8 +42,8 @@ self.__precacheManifest = [
     "revision": "83621669651b9a3d4bf64d1a670ad856"
   },
   {
-    "url": "assets/js/10.94d170c2.js",
-    "revision": "5a1a9582b6a6fa0f5708bc9eb808cd7b"
+    "url": "assets/js/10.0e7ab212.js",
+    "revision": "e6a138c2a154cd613e1d2f2f808443e9"
   },
   {
     "url": "assets/js/11.3b7998f8.js",
@@ -98,20 +98,20 @@ self.__precacheManifest = [
     "revision": "c1e3c96b635eeeadbf10a791492ae0dc"
   },
   {
-    "url": "assets/js/app.7e137055.js",
-    "revision": "c5346cfe4ec4c306a172dfc81f9bcd14"
+    "url": "assets/js/app.5323034c.js",
+    "revision": "5bcfc8d2bcb9448f5878817a901146ea"
   },
   {
     "url": "figma/index.html",
-    "revision": "d7054609fdaedf7742839890bb387451"
+    "revision": "b1b29f57df0fea6fd65680401ccc088d"
   },
   {
     "url": "flutter/index.html",
-    "revision": "210c0bb30720749802c47dafb3305612"
+    "revision": "99bcf509b4dd49c89c927565e5cfec9d"
   },
   {
     "url": "index.html",
-    "revision": "3bc79101ea8da14571f0e08a36ca3157"
+    "revision": "36cf99726a2d62d26bfff98a881b5733"
   },
   {
     "url": "logo.png",
@@ -119,23 +119,23 @@ self.__precacheManifest = [
   },
   {
     "url": "swift/swiftui/index.html",
-    "revision": "43bb4077145ce7209a7a7ee50a98485d"
+    "revision": "149528fe74ed82da0c6e7278bd97e7ed"
   },
   {
     "url": "swift/swiftui/principle.html",
-    "revision": "b06e183a4327269eba64f7d56e77e84b"
+    "revision": "beb8ce56361a6cbe275a65dfd8dcd151"
   },
   {
     "url": "swift/vapor/index.html",
-    "revision": "d679006c0c785366d7790972e983eeb2"
+    "revision": "2c0d98da6d1a6dcd9663555d8e6d46ef"
   },
   {
     "url": "tools/vuepress/deploy.html",
-    "revision": "be523554c5991a124926c75670fbcd71"
+    "revision": "991c49843777358e29a1cc15fdc9ed75"
   },
   {
     "url": "tools/vuepress/index.html",
-    "revision": "988e1dc7c38ccac0f82c0753f729b043"
+    "revision": "a1b299dec20702a726db0e7cf39e7eef"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
