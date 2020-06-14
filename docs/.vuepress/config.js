@@ -17,7 +17,11 @@ module.exports = {
                 async: true,
                 src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
             }
-        ]
+        ],
+        ['meta', {
+            name: 'google-site-verification',
+            content: 'jCq4bLGkXN0qa18VWM7TP7k-LmSE9jNlKEHNk1b-AK0'
+        }],
     ],
 
     plugins: pluginConf,
