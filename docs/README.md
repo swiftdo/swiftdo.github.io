@@ -2,7 +2,7 @@
 home: true
 heroImage: /logo.png
 actionText: 开始阅读 →
-actionLink: /swiftui/
+actionLink: /swift/swiftui/
 footer: MIT Licensed | Copyright © 2020-至今 OldBirds 公众号
 features:
 - title: 简洁至上
