@@ -27,11 +27,11 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "3ee686656bec2a3a2ecf44180d72fb46"
+    "revision": "1567c09f92446f4dfef5ba9daeb7513d"
   },
   {
     "url": "about/index.html",
-    "revision": "00f9d108f6c783eddcc00d44c938169f"
+    "revision": "865bd030dc2d1396635e4391f6590403"
   },
   {
     "url": "assets/css/0.styles.765564d0.css",
@@ -90,20 +90,20 @@ self.__precacheManifest = [
     "revision": "c1e3c96b635eeeadbf10a791492ae0dc"
   },
   {
-    "url": "assets/js/app.bd2dafb8.js",
-    "revision": "309151948056f3dd5d68ab2764ba9bd5"
+    "url": "assets/js/app.aed233ea.js",
+    "revision": "f9558d075796cb6e5893a73bab3c71a1"
   },
   {
     "url": "figma/index.html",
-    "revision": "03d05c1913d1e6580b64a99a573ea6eb"
+    "revision": "86af380525e4fafb9b3184e4bc757b1b"
   },
   {
     "url": "flutter/index.html",
-    "revision": "31e6e8838c2acffe9899479bd639b09a"
+    "revision": "445e2f8a942c069d59820202af432240"
   },
   {
     "url": "index.html",
-    "revision": "48b90677aece4f4b13babd7565e3a190"
+    "revision": "4cc0505de4705d486be52cd3500ebcf0"
   },
   {
     "url": "logo.png",
@@ -111,15 +111,15 @@ self.__precacheManifest = [
   },
   {
     "url": "swift/swiftui/index.html",
-    "revision": "e8f683c646b2018197da19d3fb254984"
+    "revision": "01cf0acfa71a60849fd697f802ad56e2"
   },
   {
     "url": "swift/vapor/index.html",
-    "revision": "eb0bc9f7b04b5f93b27957b695c08318"
+    "revision": "c090105e6a780c683c64c22d89beab71"
   },
   {
     "url": "tools/vuepress/index.html",
-    "revision": "fd2bb4f093224c0eceae011a38bc445b"
+    "revision": "8f5683032f322efcc77c5b6129c0454e"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
