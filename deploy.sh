@@ -16,11 +16,6 @@ git init
 git add -A
 git commit -m 'deploy'
 
-# 如果发布到 https://<USERNAME>.github.io
 git push -f git@github.com:swiftdo/swiftdo.github.io.git master
-
-
-# 如果发布到 https://<USERNAME>.github.io/<REPO>
-# git push -f git@github.com:swiftdo/swiftdo.git master:gh-pages
 
 cd -
