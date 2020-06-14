@@ -16,3 +16,11 @@ SwiftUI 是一种非常简单的创新方法，可以利用 Swift 的强大能�
 * SwiftUI 教程： [https://developer.apple.com/tutorials/swiftui/](https://developer.apple.com/tutorials/swiftui/)
 * SwiftUI 文档： [https://developer.apple.com/documentation/swiftui/](https://developer.apple.com/documentation/swiftui/)
 * 斯坦福系列课程：[https://www.youtube.com/watch?v=jbtqIBpUG7g](https://www.youtube.com/watch?v=jbtqIBpUG7g)
+
+## 相关文章
+
+* [系列文章深度解读|SwiftUI 背后那些事儿](https://developer.aliyun.com/article/706780)
+* [干货 | 关于SwiftUI，看这一篇就够了](https://cloud.tencent.com/developer/article/1511093)
+* [View Communication Patterns in SwiftUI](https://blog.csdn.net/kmyhy/article/details/97176972)
+* [Fucking SwiftUI](https://fuckingswiftui.com/)
+* [swift-developer-roadmap](https://trello.com/b/hLGyiEEE/swift-developer-roadmap)

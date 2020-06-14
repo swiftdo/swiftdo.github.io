@@ -1,10 +1,9 @@
 ---
+title: '介绍'
 sitemap:
   exclude: false
   changefreq: hourly
 ---
-
-### VuePress
 
 ## VuePress 是什么？
 
@@ -90,6 +89,12 @@ blog //项目文件夹
   └── package.json
 ```
 
-上面的步骤官方文档比较详细，本文还是说下部署。
+官方文档比较详细，建议直接采用文档的步骤。
 
-## 部署
+## 配置参考
+
+有些细节的东西，可能在官方文档上没有提现出来，我们可以借鉴别人的的一些配置。这里推荐几个：
+
+* [VuePress 官方文档](https://github.com/vuejs/vuepress/blob/master/packages/docs/docs/README.md)
+* [shanyuhai123/documents](https://github.com/shanyuhai123/documents)
+* ...
