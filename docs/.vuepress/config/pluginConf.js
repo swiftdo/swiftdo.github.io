@@ -13,4 +13,8 @@ module.exports = {
     'vuepress-plugin-auto-sidebar': {
         titleMode: "uppercase",
     },
+    '@vuepress/google-analytics': {
+        'ga': 'UA-141621537-2'
+    },
+
 }

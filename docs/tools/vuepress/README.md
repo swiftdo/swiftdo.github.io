@@ -1,4 +1,4 @@
-## VuePress
+### VuePress
 
 ## VuePress 是什么？
 
@@ -67,4 +67,23 @@ cd docs
 mkdir .vuepress
 ```
 
-这个文件夹中你就可以放[配置](https://vuepress.vuejs.org/zh/config/)了
+这个文件夹中你就可以放[配置](https://vuepress.vuejs.org/zh/config/)了。
+
+### 目录结构
+
+```json
+blog //项目文件夹
+  ├─── docs
+  │   ├──── README.md //一般用来做首页
+  │   └──── .vuepress //用于存放全局的配置、组件、静态资源等
+  |      ├── components //该目录中的 Vue 组件将会被自动注册为全局组件
+  │      ├── public // 静态资源目录
+  |      ├── override.styl //用于重写默认颜色常量，或者设置新的 stylus 颜色常量。(定义的样式常量可以在vue组件中直接使用)
+  |      ├── style.styl //会被自动应用的全局样式文件,具有比默认样式更高的优先级(需要覆盖的默认样式代码写在该文件里)
+  │      └── config.js  //配置文件的入口文件(即配置性的东西基本在这配置)
+  └── package.json
+```
+
+上面的步骤官方文档比较详细，本文还是说下部署。
+
+## 部署
