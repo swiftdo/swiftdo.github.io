@@ -1,4 +1,4 @@
-# VuePress
+## VuePress
 
 ## VuePress 是什么？
 
@@ -12,13 +12,14 @@
 
 详情请看官网 [VuePress](https://vuepress.vuejs.org/zh/)
 
-## 全局安装
+## 安装
+### 全局安装
 
 ```sh
 npm install -g vuepress
 ```
 
-## 创建项目
+### 创建项目
 
 ```sh
 mkdir blog & cd blog
