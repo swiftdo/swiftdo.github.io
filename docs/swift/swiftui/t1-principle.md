@@ -116,7 +116,7 @@ struct User {
 * @BindableObject - 外部数据结构与 SwiftUI 建立数据存在依赖；
 * @EnvironmentObject - 跨组件快速访问全局数据源；
 
-## opaque result type
+## 关于 some View
 
 在 Swift 5.0 之前我们如果想返回抽象类型一般使用 `Generic Type` 或者 `Protocol`, 使用泛型会显示的暴露一些信息给 `API` 使用者，不是完整的类型抽象
 
@@ -187,7 +187,7 @@ struct ContentView: View {
 2. 新建一个 `View` 的时候，我们都需要去考虑会是什么类型。
 3. 其实我们只关心返回的是不是一个 `View`，而对实际上它是什么类型并不感兴趣。
 
-`some View` 向编译器作出保证，每次 `body` 得到的一定是某一个确定的，遵守 `View` 协议的类型，但是请编译器“网开一面”，不要再细究具体的类型。返回类型`确定单一`这个条件十分重要，比如，下面的代码也是无法通过的：
+`some View` 这种写法使用了 `Swift 5.1` 的 [Opaque return types特性](https://github.com/apple/swift-evolution/blob/master/proposals/0244-opaque-result-types.md)，它向编译器作出保证，每次 `body` 得到的一定是某一个确定的，遵守 `View` 协议的类型，但是请编译器“网开一面”，不要再细究具体的类型。返回类型`确定单一`这个条件十分重要，比如，下面的代码也是无法通过的：
 
 ```swift
 let someCondition: Bool
@@ -210,7 +210,7 @@ var body: some View {
 
 这是一个`编译期间的特性`，在保证 `associatedtype protocol` 的功能的前提下，使用 `some` 可以抹消具体的类型。这个特性用在 `SwiftUI` 上简化了书写难度，让不同 `View` 声明的语法上更加统一。
 
-## @ViewBuilder & @_functionBuilder
+## 关于 ViewBuilder
 
 SwiftUI DSL 的需要：
 
