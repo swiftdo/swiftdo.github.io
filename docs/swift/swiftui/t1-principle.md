@@ -29,7 +29,7 @@ struct Rectangle {
 }
 ```
 
-### @propertyWarpper
+## 关于 propertyWarpper
 
 ```swift
 // before swift 5.0
@@ -307,4 +307,38 @@ struct SlideViewer: View {
 
 ```swift
 VStack<TupleView<(Text, ConditionalContent<TextField,Text>)>>
+```
+
+## 关于 View 的生命周期
+
+在 `UIKit` 开发时，我们经常会接触一些像是 `viewDidLoad`，`viewWillAppear` 这样的生命周期的方法，并在里面进行一些配置。`SwiftUI` 里也有一部分这类生命周期的方法，比如 `.onAppear` 和 `.onDisappear`。但是相对于 `UIKit` 来说，`SwiftUI` 中能 `hook` 的生命周期方法比较少，而且相对要通用一些。
+
+```swift
+struct ContentView: View {
+    var body: some View {
+        NavigationView {
+            VStack {
+                NavigationLink(destination: DetailView()) {
+                    Text("Hello World")
+                }
+            }
+        }.onAppear {
+            print("ContentView appeared!")
+        }.onDisappear {
+            print("ContentView disappeared!")
+        }
+    }
+}
+
+struct DetailView: View {
+    var body: some View {
+        VStack {
+            Text("Second View")
+        }.onAppear {
+                print("DetailView appeared!")
+        }.onDisappear {
+                print("DetailView disappeared!")
+        }
+    }
+}
 ```
