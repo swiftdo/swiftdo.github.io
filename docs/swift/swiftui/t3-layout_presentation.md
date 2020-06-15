@@ -399,12 +399,11 @@ struct ModalDetail: Identifiable {
     var id: String {
         return body
     }
-    
     let body: String
 }
 ```
 
-## AcionSheet
+## ActionSheet
 
 > 文档：[https://developer.apple.com/documentation/swiftui/actionsheet](https://developer.apple.com/documentation/swiftui/actionsheet)
 

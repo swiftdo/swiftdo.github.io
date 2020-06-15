@@ -16,7 +16,7 @@ GitHub Pages 是 GitHub 提供的一个网页寄存服务，于 2008 年推出�
 
 更多细节请阅读[官方文档](https://help.github.com/cn/github/working-with-github-pages/about-github-pages)
 
-## 使用 Travis CI 自动更新 GitHub Pages
+## 使用 Travis CI 自动更新
 
 [Travis CI](https://travis-ci.org/) 提供的是持续集成服务（Continuous Integration，简称 CI）。我们在软件开发过程中，有构建、测试、部署这些必不可少的步骤，而这些会花掉我们很多的时间。为了提高软件开发的效率，现在涌现了很多自动化工具。[Travis CI](https://travis-ci.org/) 是目前[市场份额](https://github.blog/2017-11-07-github-welcomes-all-ci-tools/)最大的一个，而且有很详细的文档以及可以和 Github 很好的对接。
 
@@ -100,6 +100,7 @@ deploy:
   github_token: $GITHUB_TOKEN # 在 GitHub 中生成，用于允许 Travis 向你的仓库推送代码。在 Travis 的项目设置页面进行配置，设置为 secure variable
   repo: swiftdo/swiftdo.github.io
   target_branch: master
+  fqdn: oldbird.run # CNAME 的域名
   keep_history: true
   on:
     branch: master
