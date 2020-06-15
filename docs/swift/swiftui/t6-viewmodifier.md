@@ -76,7 +76,7 @@ extension View {
 ```swift
 Color.blue
     .frame(width: 300, height: 200)
-    .watermarked(with: "Oldbirds with Swiftui")
+    .od_watermarked(with: "Oldbirds with Swiftui")
 ```
 
 这块可以比较方便抽出产品的品牌样式，比如：
