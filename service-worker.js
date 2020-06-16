@@ -27,11 +27,11 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "8c994eb3719bd6e451e1b23e365f4c1b"
+    "revision": "5a8925d277ac6c12334733fc3c697e9b"
   },
   {
     "url": "about/index.html",
-    "revision": "ee3ff388179bc75e180754178d1b177c"
+    "revision": "667e73d5a6663d8d259ac7f409a2fcdc"
   },
   {
     "url": "assets/css/0.styles.765564d0.css",
@@ -118,20 +118,20 @@ self.__precacheManifest = [
     "revision": "c1e3c96b635eeeadbf10a791492ae0dc"
   },
   {
-    "url": "assets/js/app.7d9596d6.js",
-    "revision": "edc41cc3dd801876de250543394d79c4"
+    "url": "assets/js/app.09192238.js",
+    "revision": "0bcd5a481b782b352374e821eba95fff"
   },
   {
     "url": "figma/index.html",
-    "revision": "12fc0af4e52ae7bd224fc1a92c0b6dfc"
+    "revision": "9dfad7295dffce4f6e988269a9495a4b"
   },
   {
     "url": "flutter/index.html",
-    "revision": "3cace51142a9ffaa3fe4b36b19fc96de"
+    "revision": "b3027eb1a2e1dfb926fe1c9ab33bea42"
   },
   {
     "url": "index.html",
-    "revision": "b7d3e86ca9a98bdfe1124e6e6f57cea7"
+    "revision": "ee99b207e97acf43f4a61d60c2db71e7"
   },
   {
     "url": "logo.png",
@@ -139,43 +139,43 @@ self.__precacheManifest = [
   },
   {
     "url": "swift/swiftui/index.html",
-    "revision": "fa07d314aa972361b6614d3d91b0ffdf"
+    "revision": "d7dcf88b4b76f21417306f8c9df9937a"
   },
   {
     "url": "swift/swiftui/t1-principle.html",
-    "revision": "004733d1f25674d7c3c61949f124ac69"
+    "revision": "972ca6501ad5867c1d83ed810b6193ee"
   },
   {
     "url": "swift/swiftui/t2-views_control.html",
-    "revision": "6c98b2bafdc53564a3d93f1c076e4bff"
+    "revision": "ae6dc6f3aa3121019341f7a3bcf4a970"
   },
   {
     "url": "swift/swiftui/t3-layout_presentation.html",
-    "revision": "91f08f746f95ce4c9a466ed7f7a9a025"
+    "revision": "f044676df97d6ccf84d967e1a4c278fb"
   },
   {
     "url": "swift/swiftui/t4-uikit_in_swiftui.html",
-    "revision": "6562163d41c21c741718e81a65bca248"
+    "revision": "c6cf67ac1b52550a674920cb744f649c"
   },
   {
     "url": "swift/swiftui/t5-swiftui_in_uikit.html",
-    "revision": "a832dde37dab96086857e0f0f2ce1b8c"
+    "revision": "b414f871d9cd628b89b365772e482282"
   },
   {
     "url": "swift/swiftui/t6-viewmodifier.html",
-    "revision": "fe04ab5ea86efa7a4378b3a7a46ce36f"
+    "revision": "39bc3b81fbf20802155c672ce062382b"
   },
   {
     "url": "swift/vapor/index.html",
-    "revision": "853d9d1f9ae9cc1178b138a3c84fa718"
+    "revision": "727dccfdf1b5708496816ade8bde7d55"
   },
   {
     "url": "tools/vuepress/deploy.html",
-    "revision": "20b6be02f4920bf22e3d3e58b3dfeb67"
+    "revision": "fd9af9e6362ca96240092215d6254e2c"
   },
   {
     "url": "tools/vuepress/index.html",
-    "revision": "d19b0213a156f2dbb468101fb693f564"
+    "revision": "d73dab5fd886629869c38455abdc1fb0"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
