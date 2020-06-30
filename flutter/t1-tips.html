@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Flutter 5 Tips of the Week - 001 | OldBirds</title>
+    <meta name="generator" content="VuePress 1.5.1">
+    <link rel="icon" href="/favicon.ico">
+    <script data-ad-client="ca-pub-4465026491979447" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script data-ad-client="ca-pub-4465026491979447" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script data-ad-client="ca-pub-4465026491979447" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta name="description" content="过来人的笔记，带你最佳实践，@OldBirds公众号">
+    <meta name="google-site-verification" content="6EogPdlAJYusvUHenXWXCGX-oVrqdeBnY-WsURHuKAA">
+    <link rel="preload" href="/assets/css/0.styles.765564d0.css" as="style"><link rel="preload" href="/assets/js/app.11fe9e37.js" as="script"><link rel="preload" href="/assets/js/2.017a221c.js" as="script"><link rel="preload" href="/assets/js/10.fe0b927e.js" as="script"><link rel="preload" href="/assets/js/3.0a0abe6c.js" as="script"><link rel="prefetch" href="/assets/js/11.85cc337b.js"><link rel="prefetch" href="/assets/js/12.d1c5de9c.js"><link rel="prefetch" href="/assets/js/13.fa757e19.js"><link rel="prefetch" href="/assets/js/14.7ff6f135.js"><link rel="prefetch" href="/assets/js/15.2b2f85db.js"><link rel="prefetch" href="/assets/js/16.ab5006f8.js"><link rel="prefetch" href="/assets/js/17.4a3e6fb2.js"><link rel="prefetch" href="/assets/js/18.0b0d8864.js"><link rel="prefetch" href="/assets/js/19.b75f1495.js"><link rel="prefetch" href="/assets/js/20.b1359292.js"><link rel="prefetch" href="/assets/js/21.907a507e.js"><link rel="prefetch" href="/assets/js/4.30f180f8.js"><link rel="prefetch" href="/assets/js/5.ed83750a.js"><link rel="prefetch" href="/assets/js/6.40d9d303.js"><link rel="prefetch" href="/assets/js/7.8d135d57.js"><link rel="prefetch" href="/assets/js/8.8ee22ec2.js"><link rel="prefetch" href="/assets/js/9.65031172.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.765564d0.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="logo.png" alt="OldBirds" class="logo"> <span class="site-name can-hide">OldBirds</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Swift" class="dropdown-title"><span class="title">Swift</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/swift/swiftui/" class="nav-link">
+  SwiftUI
+</a></li><li class="dropdown-item"><!----> <a href="/swift/vapor/" class="nav-link">
+  Vapor
+</a></li></ul></div></div><div class="nav-item"><a href="/flutter/" class="nav-link router-link-active">
+  Flutter
+</a></div><div class="nav-item"><a href="/figma/" class="nav-link">
+  Figma
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/vuepress/" class="nav-link">
+  VuePress
+</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">
+  关于
+</a></div> <a href="https://github.com/swiftdo/swiftdo.github.io" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Swift" class="dropdown-title"><span class="title">Swift</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/swift/swiftui/" class="nav-link">
+  SwiftUI
+</a></li><li class="dropdown-item"><!----> <a href="/swift/vapor/" class="nav-link">
+  Vapor
+</a></li></ul></div></div><div class="nav-item"><a href="/flutter/" class="nav-link router-link-active">
+  Flutter
+</a></div><div class="nav-item"><a href="/figma/" class="nav-link">
+  Figma
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><span class="title">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/vuepress/" class="nav-link">
+  VuePress
+</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">
+  关于
+</a></div> <a href="https://github.com/swiftdo/swiftdo.github.io" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>FLUTTER</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/flutter/" aria-current="page" class="sidebar-link">flutter</a></li><li><a href="/flutter/t1-tips.html" aria-current="page" class="active sidebar-link">Flutter 5 Tips of the Week - 001</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/flutter/t1-tips.html#tip1-stless-stful" class="sidebar-link">Tip1 stless &amp; stful</a></li><li class="sidebar-sub-header"><a href="/flutter/t1-tips.html#tip2-if-null-运算符" class="sidebar-link">Tip2 If Null 运算符(??)</a></li><li class="sidebar-sub-header"><a href="/flutter/t1-tips.html#tip3-级联调用" class="sidebar-link">Tip3 级联调用 (..)</a></li><li class="sidebar-sub-header"><a href="/flutter/t1-tips.html#tip4-spacer-widget" class="sidebar-link">Tip4 Spacer Widget</a></li><li class="sidebar-sub-header"><a href="/flutter/t1-tips.html#tip5-点击区域变大" class="sidebar-link">Tip5 点击区域变大</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="flutter-5-tips-of-the-week-001"><a href="#flutter-5-tips-of-the-week-001" class="header-anchor">#</a> Flutter 5 Tips of the Week - 001</h1> <h2 id="tip1-stless-stful"><a href="#tip1-stless-stful" class="header-anchor">#</a> Tip1 <code>stless</code> &amp; <code>stful</code></h2> <p>我们可以键入 <code>stless</code> 和 <code>stful</code>，会出现代码补全提示。</p> <p><img src="http://blog.loveli.site/2020-06-19-01stlesstful.gif" alt="01stlesstfu"></p> <h2 id="tip2-if-null-运算符"><a href="#tip2-if-null-运算符" class="header-anchor">#</a> Tip2 <code>If Null</code> 运算符(<code>??</code>)</h2> <p>dart 有两个运算符，可让您简明地评估可能需要 <code>if-else</code> 语句的表达式:</p> <ul><li><p>如果条件为真，返回 expr1，否则返回 expr2。</p> <div class="language-dart extra-class"><pre class="language-dart"><code>condition <span class="token operator">?</span> expr1 <span class="token punctuation">:</span> expr2
+</code></pre></div></li> <li><p>如果 expr1 为非空，则返回其值；否则，计算并返回 expr2 的值。</p> <div class="language-dart extra-class"><pre class="language-dart"><code>expr1 <span class="token operator">?</span><span class="token operator">?</span> expr2
+</code></pre></div></li></ul> <p>当你需要根据布尔表达式赋值时，考虑使用 <code>?:</code></p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token keyword">var</span> visibility <span class="token operator">=</span> isPublic <span class="token operator">?</span> <span class="token string">'public'</span> <span class="token punctuation">:</span> <span class="token string">'private'</span><span class="token punctuation">;</span>
+</code></pre></div><p>如果布尔表达式测试为空，考虑使用 <code>??</code></p> <div class="language-dart extra-class"><pre class="language-dart"><code>String <span class="token function">playerName</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> name <span class="token operator">?</span><span class="token operator">?</span> <span class="token string">'Guest'</span><span class="token punctuation">;</span>
+</code></pre></div><p>要仅在变量为<code>null</code>时赋值，请使用 <code>??=</code> 运算符：</p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token comment">// 如果 b 为空，则 value 分配给 b；否则，b 保持不变</span>
+b <span class="token operator">?</span><span class="token operator">?</span><span class="token operator">=</span> value<span class="token punctuation">;</span>
+</code></pre></div><h2 id="tip3-级联调用"><a href="#tip3-级联调用" class="header-anchor">#</a> Tip3 级联调用 (<code>..</code>)</h2> <p>使用级联调用，可以简化在一个对象上执行的多个操作。</p> <p>除了方法调用之外，你还可以获取同一个对象上的成员变量。这样做通常省去了创建临时变量的步骤，同时允许你写出更流畅的代码。</p> <p>我们定义一个 Student 对象，然后创建一个 Student 对象，通过级联表达式依次调用它的各个方法和 setter 属性。</p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token keyword">class</span> <span class="token class-name">Student</span> <span class="token punctuation">{</span>
+  
+  String string<span class="token punctuation">;</span>
+  
+  <span class="token keyword">void</span> <span class="token function">testMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;This is a  test method&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">void</span> <span class="token function">testMethod1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;This is a  test method1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  String <span class="token function">printString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;string: $string&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> string<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token function">testMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token function">testMethod1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span>string <span class="token operator">=</span> <span class="token string">&quot;flutter tips in Oldbirds&quot;</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token function">printString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="tip4-spacer-widget"><a href="#tip4-spacer-widget" class="header-anchor">#</a> Tip4 Spacer Widget</h2> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token keyword">class</span> <span class="token class-name">Spacer</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token comment">/// Creates a flexible space to insert into a [Flexible] widget.</span>
+  <span class="token comment">///</span>
+  <span class="token comment">/// The [flex] parameter may not be null or less than one.</span>
+  <span class="token keyword">const</span> <span class="token function">Spacer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>Key key<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>flex <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">:</span> <span class="token keyword">assert</span><span class="token punctuation">(</span>flex <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token keyword">assert</span><span class="token punctuation">(</span>flex <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token keyword">super</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">/// 用于确定占用多少空间的弹性系数。</span>
+  <span class="token comment">/// 在放置不灵活的子对象后，根据子对象的弹性系数，将自由空间按比例分割，</span>
+  <span class="token comment">/// 从而确定[间隔对象]在主轴中可以占用的空间量。默认为1。</span>
+  <span class="token keyword">final</span> int flex<span class="token punctuation">;</span>
+
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">Expanded</span><span class="token punctuation">(</span>
+      flex<span class="token punctuation">:</span> flex<span class="token punctuation">,</span>
+      child<span class="token punctuation">:</span> <span class="token keyword">const</span> SizedBox<span class="token punctuation">.</span><span class="token function">shrink</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><code>Spacer</code> 的通过 <code>Expanded</code> 的实现的，和 <code>Expanded</code> 的区别是：<strong><code>Expanded</code> 可以设置子控件，而 <code>Spacer</code> 的子控件尺寸是 0</strong>，因此 <code>Spacer</code> 适用于撑开 <code>Row</code>、<code>Column</code>、<code>Flex</code>的子控件的空隙。</p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token function">Row</span><span class="token punctuation">(</span>
+  children<span class="token punctuation">:</span> <span class="token operator">&lt;</span>Widget<span class="token operator">&gt;</span><span class="token punctuation">[</span>
+    <span class="token function">Container</span><span class="token punctuation">(</span>width<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span>height<span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">,</span>color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>green<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">Spacer</span><span class="token punctuation">(</span>flex<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">Container</span><span class="token punctuation">(</span>width<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span>height<span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">,</span>color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>blue<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">Spacer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">Container</span><span class="token punctuation">(</span>width<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span>height<span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">,</span>color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>red<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+</code></pre></div><p>效果如下：</p> <p><img src="http://blog.loveli.site/2020-06-19-15925765686019.jpg" alt=""></p> <p><strong>总结：</strong></p> <ul><li>Spacer是通过 Expanded 来实现的，Expanded 继承自 Flexible。</li> <li>填满剩余空间直接使用 Expanded 更方便。</li> <li>Spacer用于撑开Row、Column、Flex的子控件的空隙。</li></ul> <h2 id="tip5-点击区域变大"><a href="#tip5-点击区域变大" class="header-anchor">#</a> Tip5 点击区域变大</h2> <p>使用 <code>GestureDetector</code> 包裹 <code>Container</code>，发现在 <code>Container</code> 内容为空的区域点击时，捕捉不到 <code>onTap</code> 点击事件。</p> <p>在 <code>GestureDetector</code> 里面添加属性：<code>behavior: HitTestBehavior.opaque</code> 即可：</p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token function">GestureDetector</span><span class="token punctuation">(</span>
+    behavior<span class="token punctuation">:</span> HitTestBehavior<span class="token punctuation">.</span>opaque<span class="token punctuation">,</span>
+    onTap<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&quot;hehe&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    child<span class="token punctuation">:</span> <span class="token function">Padding</span><span class="token punctuation">(</span>
+        padding<span class="token punctuation">:</span> EdgeInsets<span class="token punctuation">.</span><span class="token function">only</span><span class="token punctuation">(</span>left<span class="token punctuation">:</span> <span class="token number">150.0</span><span class="token punctuation">,</span>top<span class="token punctuation">:</span> <span class="token number">150.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        child<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">'Hello World'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+</code></pre></div><p><code>HitTestBehavior</code> 用于控制事件的传递方式：</p> <ul><li><p><strong>HitTestBehavior.deferToChild</strong>
+只有有子 Widget 通过了 <code>Hit-Test</code>，才接收一系列的事件，接收区域也会被限制在该子 Widget 区域中。</p></li> <li><p><strong>HitTestBehavior.opaque</strong>
+Widget  能够通过 <code>Hit-Test</code>，接收事件，且能阻止在它之前的 Widget（直观来看就是被它挡住的 Widget）接收事件。简单来说就是事件 <code>不能透传</code>。</p></li> <li><p><strong>HitTestBehavior.translucent</strong>
+Widget 能够通过 <code>Hit-Test</code>，接收事件，且不会阻止它之前的 Widget（直观来看就是被它挡住的 Widget）接收事件。简单来说就是事件 能透传</p></li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">6/30/2020, 1:25:08 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/flutter/" class="prev router-link-active">
+        flutter
+      </a></span> <!----></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.11fe9e37.js" defer></script><script src="/assets/js/2.017a221c.js" defer></script><script src="/assets/js/10.fe0b927e.js" defer></script><script src="/assets/js/3.0a0abe6c.js" defer></script>
+  </body>
+</html>
