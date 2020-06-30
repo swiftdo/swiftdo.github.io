@@ -155,10 +155,13 @@ GestureDetector(
 `HitTestBehavior` 用于控制事件的传递方式：
 
 * **HitTestBehavior.deferToChild**
+
     只有有子 Widget 通过了 `Hit-Test`，才接收一系列的事件，接收区域也会被限制在该子 Widget 区域中。
 
 * **HitTestBehavior.opaque**
+
     Widget  能够通过 `Hit-Test`，接收事件，且能阻止在它之前的 Widget（直观来看就是被它挡住的 Widget）接收事件。简单来说就是事件 `不能透传`。
 
 * **HitTestBehavior.translucent**
+
     Widget 能够通过 `Hit-Test`，接收事件，且不会阻止它之前的 Widget（直观来看就是被它挡住的 Widget）接收事件。简单来说就是事件 能透传
