@@ -1,4 +1,9 @@
-# Flutter 5 Tips of the Week - 001
+---
+title: 'tips'
+sitemap:
+  exclude: false
+  changefreq: hourly
+---
 
 ## Tip1 `stless` & `stful`
 
