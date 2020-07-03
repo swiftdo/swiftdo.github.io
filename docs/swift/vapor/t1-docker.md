@@ -5,9 +5,59 @@ sitemap:
 title: 'Docker篇'
 ---
 
-## docker & vapor 
+## docker & vapor
 
 ## docker compose
+
+## 是什么？
+
+
+常用的几个命令
+
+```sh
+docker-compose up app
+docker-compose up db
+docker-compose down # 会删除容器，但是不会删除数据卷
+docker-compose down -v # 会删除容器，且删除数据卷
+
+```
+
+## 数据持久化
+
+数据主要分为两类：持久化和非持久化数据。持久化数据是需要保存的，而非持久化数据不需要。默认情况下，所有容器都有与自身声明周期相同的非持久化存储——本地存储，它非常适用于非持久化数据。但是，如果容器需要创建长期保存的数据，最好将数据存储到 Docker 卷中
+
+```sh
+docker volume create myvol # 创建数据卷 myvol，默认情况下，新卷创建使用local 驱动，但是可以通过-d 参数来指定不同的驱动
+docker volume ls # 查看所有数据卷
+docker volume inspect myvol # 用于查看卷的详细信息。可以使用该命令查看卷在Docker主机文件系统中的具体位置
+docker volume prune # 会删除未装入到某个容器或者服务的所有卷 ，所以谨慎使用
+docker volume rm # 允许删除指定卷
+```
+
+### inspect
+
+```sh
+$ docker volume inspect oldbirds_db_data
+
+[
+    {
+        "CreatedAt": "2020-07-03T13:03:04Z",
+        "Driver": "local",
+        "Labels": {
+            "com.docker.compose.project": "oldbirds",
+            "com.docker.compose.version": "1.24.1",
+            "com.docker.compose.volume": "db_data"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/oldbirds_db_data/_data",
+        "Name": "oldbirds_db_data",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+```
+
+* Driver和Scope都是 local，只能用于当前 Docker 主机上的容器。
+* Mountpoint 说明卷位于 Docker 主机上的位置。
 
 ### docker-compose.yml
 
@@ -34,5 +84,11 @@ docker system prune
 
 可参考文章：[Docker磁盘空间使用分析与清理](https://www.jianshu.com/p/7aeafe2ea792)
 
-## 如何在本机上连接 docker 上的 postgres ？
+## 容器间互联
 
+如何在本机上连接 docker 上的 postgres ？
+
+### docker-compose 中 links 和 depends_on 区别
+
+depends_on: 指定本容器启动依赖的容器必须启动
+links: 包装容器如果 ip 变化也能访问(基本已经弃用，因为不适用 link 任然可以通过容器名称访问)
