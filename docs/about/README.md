@@ -9,13 +9,11 @@ sitemap:
 
 畅聊技术，不限技术领域
 
-![swiftoldbirds](/swiftoldbird.jpeg)
-
+<img src="./swiftoldbird.jpeg" width="160" height="160">
 
 vapor 国内群，各种疑难解答
 
-![vapor-zh](/vapor-zh.jpeg)
-
+<img src="./vapor-zh.jpeg" width="160" height="160">
 
 ## 官方公众号
 
