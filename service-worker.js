@@ -27,11 +27,11 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "c9cdb4638c1e33a066b21b52482ec8e4"
+    "revision": "fccd16d0e3e04900157e08f2851d66ea"
   },
   {
     "url": "about/index.html",
-    "revision": "d70d1ca31bb2bf81c87143ad95ff69ea"
+    "revision": "44a68305a3f332100ea0a49f8d22e25d"
   },
   {
     "url": "assets/css/0.styles.765564d0.css",
@@ -74,8 +74,8 @@ self.__precacheManifest = [
     "revision": "35e1656b1992239c251bc66a9f75ed76"
   },
   {
-    "url": "assets/js/18.dbb21737.js",
-    "revision": "7e10914e9cc534cb96332f226df79deb"
+    "url": "assets/js/18.77d5be28.js",
+    "revision": "6f16cbb557073f274a7c606058d79686"
   },
   {
     "url": "assets/js/19.a8bb84c4.js",
@@ -114,8 +114,8 @@ self.__precacheManifest = [
     "revision": "ed3a912b0d6bb65ffb7a888087e61aa8"
   },
   {
-    "url": "assets/js/7.8d135d57.js",
-    "revision": "a4f0003b3e40752071f9ebc923a43a24"
+    "url": "assets/js/7.2808847f.js",
+    "revision": "7c87dfc64f76465be36fe2a3f8db9308"
   },
   {
     "url": "assets/js/8.8ee22ec2.js",
@@ -126,24 +126,24 @@ self.__precacheManifest = [
     "revision": "33979625e1576092bbe346350f5707d0"
   },
   {
-    "url": "assets/js/app.454a87b5.js",
-    "revision": "f0003437a92f572592d5c56cb6e294e7"
+    "url": "assets/js/app.3e4608d5.js",
+    "revision": "01ed2acf1888dc313834b681ec02d523"
   },
   {
     "url": "figma/index.html",
-    "revision": "ce01f9875dd11c36f00bcaae2c060409"
+    "revision": "4398db556f265c1e5fc691a63767874f"
   },
   {
     "url": "flutter/index.html",
-    "revision": "dc9ad6b08c66924cdbfa41428e29ff57"
+    "revision": "567c0d1019c84bcf06151d16eda48124"
   },
   {
     "url": "flutter/t1-tips.html",
-    "revision": "041e8accbecedaf719fd9765fccfecfc"
+    "revision": "56c033e957393dd79492ca28a9bb32db"
   },
   {
     "url": "index.html",
-    "revision": "e05323a9bfadaacfb895105b38ce9a39"
+    "revision": "a7d79f49476d985181867424d6bea48d"
   },
   {
     "url": "logo.png",
@@ -151,47 +151,55 @@ self.__precacheManifest = [
   },
   {
     "url": "swift/swiftui/index.html",
-    "revision": "18048cb876fdd3cb596ec3cf91e75671"
+    "revision": "bbc76aa71c0005f9663e34ac5a6d791b"
   },
   {
     "url": "swift/swiftui/t1-principle.html",
-    "revision": "d863ada1f1ded24bf0b7de36432e7ebb"
+    "revision": "3f5389405fe62caf1889a783417d675d"
   },
   {
     "url": "swift/swiftui/t2-views_control.html",
-    "revision": "2c6e2437871ba8b7ce22c7b571d7e05c"
+    "revision": "7985dfec965ac67e11ee242623dc6882"
   },
   {
     "url": "swift/swiftui/t3-layout_presentation.html",
-    "revision": "01172d85a4a8f385461c02d49d18f9e4"
+    "revision": "a3ce758578ee4d2f1195853cd8975202"
   },
   {
     "url": "swift/swiftui/t4-uikit_in_swiftui.html",
-    "revision": "6bb87b1ac92d3607805fa00edc2006b6"
+    "revision": "110a4d5f3d9ea946f118defe523929d4"
   },
   {
     "url": "swift/swiftui/t5-swiftui_in_uikit.html",
-    "revision": "6e4054886e4db5e1a0a145837e4ca371"
+    "revision": "c50c0135369eaeb29c26023d53984f4f"
   },
   {
     "url": "swift/swiftui/t6-viewmodifier.html",
-    "revision": "896a18f91d460157ff6cbaa1f04a2aee"
+    "revision": "4199ee129d6037388bc631f548509842"
   },
   {
     "url": "swift/vapor/index.html",
-    "revision": "af7beff1282db5d16eba9cef08dfcd97"
+    "revision": "b040a49d09c736c73fc02705bbb51b2e"
   },
   {
     "url": "swift/vapor/t1-docker.html",
-    "revision": "185d07afd4cc2637dbe4a947d283b10c"
+    "revision": "a8de071027ea3e4b4734b29547f38236"
+  },
+  {
+    "url": "swiftoldbird.jpeg",
+    "revision": "99e1b091a757e3f1542d8e33cc99cbd2"
   },
   {
     "url": "tools/vuepress/deploy.html",
-    "revision": "eee8c0942240a70779f883600ac873b6"
+    "revision": "aeaaff536958564e98cdee9752ad62e7"
   },
   {
     "url": "tools/vuepress/index.html",
-    "revision": "c4fe799c6ad3cc160728e4abcfa5c85a"
+    "revision": "5fa6a5283b04ffd33d102b402ce97521"
+  },
+  {
+    "url": "vapor-zh.jpeg",
+    "revision": "d1ed04e40811559da80fc6465413e372"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
