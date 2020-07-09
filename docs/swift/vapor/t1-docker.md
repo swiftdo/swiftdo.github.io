@@ -9,10 +9,9 @@ title: 'Docker篇'
 
 ## docker compose
 
-## 是什么？
+容器运行可以有很多参数，比如指定映射宿主主机的端口、环境变量等等，包在一个 docker run 命令后就太麻烦了，所以通常用 docker-compose 来组织运行，它可以运行多个容器，并且可以指定依赖关系，以 YAML 格式存储可读性更高。
 
-
-常用的几个命令
+**常用的几个命令**
 
 ```sh
 docker-compose up app

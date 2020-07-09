@@ -3,7 +3,7 @@ home: true
 heroImage: /logo.png
 actionText: 开始阅读 →
 actionLink: /swift/swiftui/
-footer: MIT Licensed | Copyright © 2020-至今 OldBirds 公众号
+footer: MIT Licensed | Copyright © 2020-至今 OldBirds 公众号 | <a href="http://www.beian.miit.gov.cn/" target="_blank"> 备案号：粤ICP备18007810号-1</a>
 features:
 - title: SwiftUI
   details: SwiftUI 是一种非常简单的创新方法，可以利用 Swift 的强大能力在所有苹果设备平台上构建用户界面。通过 SwiftUI，开发者仅使用一组工具和 API 就能为所有苹果设备构建用户界面。
