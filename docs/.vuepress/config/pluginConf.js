@@ -21,7 +21,7 @@ module.exports = {
     },
     'sitemap': {
         hostname: 'https://swiftdo.github.io'
-    }
-
+    },
+    'image': true
 
 }
