@@ -27,11 +27,11 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "19c0bad479babd006cc776fb57639edc"
+    "revision": "577055e4c6908cbc1d06552df521e091"
   },
   {
     "url": "about/index.html",
-    "revision": "57e33fbe9c77b3540a569e55f8d3e77c"
+    "revision": "ce2a86d077dec9741484dbf0cd6905a0"
   },
   {
     "url": "assets/css/0.styles.765564d0.css",
@@ -146,24 +146,24 @@ self.__precacheManifest = [
     "revision": "c058a6a443685c4f9f562d40c08a8344"
   },
   {
-    "url": "assets/js/app.48cbd7e9.js",
-    "revision": "fa6f5cbb5840d0396d0014f5ad49d3b1"
+    "url": "assets/js/app.391c79b8.js",
+    "revision": "d3870d113d728b7894dae593d25fff19"
   },
   {
     "url": "figma/index.html",
-    "revision": "97341b2d15dcd0e0d32153864268baef"
+    "revision": "a80ca577ad88a13185f5aebc1c2b27ef"
   },
   {
     "url": "flutter/index.html",
-    "revision": "c5463dc54ae70b018202dee8d93d9a7c"
+    "revision": "17dd3aa0a5a259486b6014d49d829441"
   },
   {
     "url": "flutter/t1-tips.html",
-    "revision": "b851f68f409a9ac8d47ac86793572795"
+    "revision": "d02a275f342a97510aa63e0ce35687b2"
   },
   {
     "url": "index.html",
-    "revision": "dee8ad5985622594a311399debdd3fe0"
+    "revision": "656b8a6b7c6ad5551c206ee69969a660"
   },
   {
     "url": "logo.png",
@@ -171,59 +171,59 @@ self.__precacheManifest = [
   },
   {
     "url": "swift/swiftui/index.html",
-    "revision": "61a6ac0bdd14f1528e66a7a133c64afa"
+    "revision": "14f4d66d784d9b0564434fa5c9afb950"
   },
   {
     "url": "swift/swiftui/t1-principle.html",
-    "revision": "f79b4da2f85b12d926cbb7d737f9d90a"
+    "revision": "7e0709bbfe539e6f5b22cda5d344021e"
   },
   {
     "url": "swift/swiftui/t2-views_control.html",
-    "revision": "57b404cb63d57f1599319fee75903a1f"
+    "revision": "606f6ca34846266e38391c8d75cd61a1"
   },
   {
     "url": "swift/swiftui/t3-layout_presentation.html",
-    "revision": "b07766f88cc4e1344633efbb573aeeed"
+    "revision": "7f028080af381480e395aec53121c2f7"
   },
   {
     "url": "swift/swiftui/t4-uikit_in_swiftui.html",
-    "revision": "345343ad8677b17aad1dac95c365c4e4"
+    "revision": "732606f9721c1c1942ff24f51c2ed0eb"
   },
   {
     "url": "swift/swiftui/t5-swiftui_in_uikit.html",
-    "revision": "ded51401c3f2ebf55331fb569f32d405"
+    "revision": "a7d95cc58823594c8bec78520a9c116f"
   },
   {
     "url": "swift/swiftui/t6-viewmodifier.html",
-    "revision": "e18c0729d9bb5b80d66d674f64b3da80"
+    "revision": "9ae24cacad8b7aae9790c065c3f502c0"
   },
   {
     "url": "swift/vapor/index.html",
-    "revision": "cda08ae030f25a446232d9a0fae453d1"
+    "revision": "81f6736c250800e5efab2c97202f0ed0"
   },
   {
     "url": "swift/vapor/t1-install.html",
-    "revision": "b02cf2a665c4ac36874fa3832210c5b8"
+    "revision": "33c8a17759651e4e78c689f1a2902112"
   },
   {
     "url": "swift/vapor/t2-quickstart.html",
-    "revision": "4bdbcf4c8e6715fbc965319211534ec5"
+    "revision": "68a28166506d3aa93b9688848e8a878c"
   },
   {
     "url": "swift/vapor/t3-turotial.html",
-    "revision": "c1040d066463cd86e14040d6709cf37a"
+    "revision": "c416965c23bd5c552a1bbdbc460c9b54"
   },
   {
     "url": "swift/vapor/t4-advanced.html",
-    "revision": "3783b7f2707330f8919afd7575fc1c85"
+    "revision": "09a9446b2905ad46211f094c4a777c23"
   },
   {
     "url": "swift/vapor/t5-deploy.html",
-    "revision": "bd717c3638200de877814c9d55370192"
+    "revision": "56b55dabbbf51c03e275e2107dadc1cd"
   },
   {
     "url": "swift/vapor/t9-docker.html",
-    "revision": "1539e578f5594fc993d23b1f821c0cb1"
+    "revision": "7cc6896cb4e3dae622728163a4c86311"
   },
   {
     "url": "swiftoldbird.jpeg",
@@ -231,11 +231,11 @@ self.__precacheManifest = [
   },
   {
     "url": "tools/vuepress/deploy.html",
-    "revision": "849fd3ad792813497b3fa040757b08a8"
+    "revision": "58603a5a4eafa9c11ec965aff85a4866"
   },
   {
     "url": "tools/vuepress/index.html",
-    "revision": "fe02f2c3b5efe638dd4db1b076f6cef7"
+    "revision": "42ad7a5971eea42589e70d4c71752420"
   },
   {
     "url": "vapor-zh.jpeg",
