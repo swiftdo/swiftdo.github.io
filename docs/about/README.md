@@ -17,6 +17,6 @@ vapor 国内群，各种疑难解答
 
 ## 官方公众号
 
-更多文章阅读请关注我们的官方公众号：
+更多文章阅读请关注官方公众号 **OldBirds** ：
 
-![wechat](/wechat.bmp =377x125)
+![wechat](/wechat.png =377x125)
