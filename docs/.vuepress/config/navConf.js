@@ -23,7 +23,12 @@ module.exports = [{
         items: [{
             text: 'VuePress',
             link: '/tools/vuepress/'
-        }]
+        },
+        {
+            text: 'Git',
+            link: '/tools/git/'
+        },
+    ]
     },
     {
         text: '关于',
