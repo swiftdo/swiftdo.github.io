@@ -19,4 +19,4 @@ vapor 国内群，各种疑难解答
 
 更多文章阅读请关注我们的官方公众号：
 
-![wechat](/wechat.png =377x125)
+![wechat](/wechat.bmp =377x125)
