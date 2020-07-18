@@ -236,3 +236,317 @@ $ docker-compose --version
 * **environment**
   * 设置环境变量。
   * 这里采用引用 `shared_environment` 来共享配置。
+
+## https + ningx + postgresql 配置
+
+假设我们要部署:
+项目：`todo`
+域名：`oldbirds.com`
+邮箱：`test@gmail.com`
+
+
+```yml
+version: "3.7"
+
+volumes:
+  db_data:
+  pgadmin-data:
+
+x-shared_environment: &shared_environment
+  LOG_LEVEL: ${LOG_LEVEL:-debug}
+  DATABASE_HOST: db
+  DATABASE_NAME: vapor_database
+  DATABASE_USERNAME: vapor_username
+  DATABASE_PASSWORD: vapor_password
+  VIRTUAL_HOST: oldbirds.com
+  LETSENCRYPT_HOST: oldbirds.com
+  LETSENCRYPT_EMAIL: test@gmail.com
+
+services:
+  app:
+    image: todo:latest
+    build:
+      context: .
+    environment:
+      <<: *shared_environment
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
+    command:
+      [
+        "serve",
+        "--env",
+        "production",
+        "--hostname",
+        "0.0.0.0",
+        "--port",
+        "8080",
+      ]
+
+  migrate:
+    image: todo:latest
+    build:
+      context: .
+    environment:
+      <<: *shared_environment
+    depends_on:
+      - db
+    command: ["migrate", "--yes"]
+    deploy:
+      replicas: 0
+
+  revert:
+    image: todo:latest
+    build:
+      context: .
+    environment:
+      <<: *shared_environment
+    depends_on:
+      - db
+    command: ["migrate", "--revert", "--yes"]
+    deploy:
+      replicas: 0
+
+  db:
+    image: postgres:12-alpine
+    volumes:
+      - db_data:/var/lib/postgresql/data/pgdata
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_USER: vapor_username
+      POSTGRES_PASSWORD: vapor_password
+      POSTGRES_DB: vapor_database
+    ports:
+      - "15432:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: test@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: oldbirds
+    ports:
+      - "15000:80"
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    labels:
+      com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: "true"
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: unless-stopped
+    volumes:
+      - ./volumes/nginx/conf:/etc/nginx/conf.d
+      - ./volumes/nginx/vhost:/etc/nginx/vhost.d
+      - ./volumes/nginx/html:/usr/share/nginx/html
+      - ./volumes/nginx/certs:/etc/nginx/certs
+      - ./volumes/nginx/dhparam:/etc/nginx/dhparam
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    container_name: letsencrypt
+    depends_on:
+      - nginx-proxy
+    restart: unless-stopped
+    volumes:
+      - ./volumes/nginx/certs:/etc/nginx/certs
+      - ./volumes/nginx/vhost:/etc/nginx/vhost.d
+      - ./volumes/nginx/html:/usr/share/nginx/html
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+```
+
+然后我们需要在根目录下创建 volumes 文件夹：
+
+```sh
+├── Dockerfile
+├── Package.resolved
+├── Package.swift
+├── Sources
+├── Tests
+├── docker-compose.yml
+└── volumes
+    └── nginx
+        ├── certs
+        ├── conf
+        ├── dhparam
+        ├── html
+        └── vhost
+```
+
+那么如何使用？
+
+启动 app
+
+```sh
+docker-compose up -d app
+```
+
+数据库迁移
+
+```sh
+docker-compose up -d migrate
+```
+
+这样我们就启动好了应用，下一步开启 https:
+
+```sh
+docker-compose up -d letsencrypt
+```
+
+这一步会开启 nginx，自动扫描到 `app` 服务，`app` 容器的环境配置中
+
+```yml
+LETSENCRYPT_HOST: oldbirds.com
+LETSENCRYPT_EMAIL: test@gmail.com
+```
+
+会被识别到，然后自动生成 https 的证书，以及配置 nginx 代理。
+
+部署理论上完成了，但是这里有一个坑：在生成 https 的在证书的时候，letsencrypt 会去校验域名的访问性。
+所以是本机的话，这一步会失败。
+
+所以要生成 https 的访问，需要你放到服务器中，本地用 http://localhost:8080 去访问吧。
+
+### 阿里云容器服务
+
+上面的部署方案可以在服务器中部署，但是有个比较严重的问题：每次部署需要提交代码，然后服务拉取最新代码后，`docker-compose build` 需要重新构建镜像。
+
+```yml
+app:
+    image: todo:latest
+    build:
+      context: .
+    ...
+```
+
+在服务器中构建镜像是比较灾难的，因为网不行，还有就是机器不行，构建能否成功，还得靠运气。再一个，本地已经 build 了一次，docker 是隔离环境的，按理生成的镜像应该是一样的，那么为什么服务器还要去重复这种 build 工作，这不是自讨苦吃么？
+
+一般是将构建好的镜像推送到 docker 官方的管理平台。毕竟是国外的管理平台，网速还是有点被限制。幸运的是阿里提供了[免费的镜像存储服务](https://help.aliyun.com/document_detail/60743.html?spm=a2c4g.11174283.6.549.185845413UYPAm)。
+
+![](https://i2.wp.com/img-blog.csdnimg.cn/20200522153016220.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODY0MzAz,size_16,color_FFFFFF,t_70)
+
+容器镜像服务直接按官方文档来就行，这里主要说的是迭代流程：
+
+* 代码开发
+* 镜像生成
+* 将本地镜像推送到阿里云容器镜像存储平台
+* 将本地代码中依赖的镜像修改为最新的版本，提交代码，然后服务器拉取最新代码。
+* `docker-compose up app` 完成部署。
+
+最终的 `docker-compose.yml`：
+
+```yml
+version: "3.7"
+
+volumes:
+  db_data:
+  pgadmin-data:
+
+x-shared_environment: &shared_environment
+  LOG_LEVEL: ${LOG_LEVEL:-debug}
+  DATABASE_HOST: db
+  DATABASE_NAME: vapor_database
+  DATABASE_USERNAME: vapor_username
+  DATABASE_PASSWORD: vapor_password
+  VIRTUAL_HOST: oldbirds.com
+  LETSENCRYPT_HOST: oldbirds.com
+  LETSENCRYPT_EMAIL: test@gmail.com
+
+services:
+  app:
+    image: registry.cn-hangzhou.aliyuncs.com/oldbirds/todo:1.1.0
+    environment:
+      <<: *shared_environment
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
+    command:
+      [
+        "serve",
+        "--env",
+        "production",
+        "--hostname",
+        "0.0.0.0",
+        "--port",
+        "8080",
+      ]
+
+  migrate:
+    image: registry.cn-hangzhou.aliyuncs.com/oldbirds/todo:1.1.0
+    environment:
+      <<: *shared_environment
+    depends_on:
+      - db
+    command: ["migrate", "--yes"]
+    deploy:
+      replicas: 0
+
+  revert:
+    image: registry.cn-hangzhou.aliyuncs.com/oldbirds/todo:1.1.0
+    environment:
+      <<: *shared_environment
+    depends_on:
+      - db
+    command: ["migrate", "--revert", "--yes"]
+    deploy:
+      replicas: 0
+
+  db:
+    image: postgres:12-alpine
+    volumes:
+      - db_data:/var/lib/postgresql/data/pgdata
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_USER: vapor_username
+      POSTGRES_PASSWORD: vapor_password
+      POSTGRES_DB: vapor_database
+    ports:
+      - "15432:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: test@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: oldbirds
+    ports:
+      - "15000:80"
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    labels:
+      com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: "true"
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: unless-stopped
+    volumes:
+      - ./volumes/nginx/conf:/etc/nginx/conf.d
+      - ./volumes/nginx/vhost:/etc/nginx/vhost.d
+      - ./volumes/nginx/html:/usr/share/nginx/html
+      - ./volumes/nginx/certs:/etc/nginx/certs
+      - ./volumes/nginx/dhparam:/etc/nginx/dhparam
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    container_name: letsencrypt
+    depends_on:
+      - nginx-proxy
+    restart: unless-stopped
+    volumes:
+      - ./volumes/nginx/certs:/etc/nginx/certs
+      - ./volumes/nginx/vhost:/etc/nginx/vhost.d
+      - ./volumes/nginx/html:/usr/share/nginx/html
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+```
+
+ 服务 `app`、`migrate`、`revert` 的 `image` 修改成直接指向阿里云 `registry.cn-hangzhou.aliyuncs.com/oldbirds/todo:1.1.0`
