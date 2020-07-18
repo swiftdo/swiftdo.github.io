@@ -386,6 +386,8 @@ services:
 docker-compose up -d app
 ```
 
+> `-d` 可以在后台运行
+
 数据库迁移
 
 ```sh
