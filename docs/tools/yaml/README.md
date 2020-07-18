@@ -345,9 +345,9 @@ sample3:
 
 在 merge 中，定义了四个锚点，分别在 sample 中使用。
 
-sample1={r=10, y=2, x=1}
-sample2={other=haha, x=1, y=2, r=10}
-sample3={r=100, y=2, x=1}
+* sample1={r=10, y=2, x=1}
+* sample2={other=haha, x=1, y=2, r=10}
+* sample3={r=100, y=2, x=1}
 
 ## 参考链接
 
