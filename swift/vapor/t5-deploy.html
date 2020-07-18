@@ -11,7 +11,7 @@
     <script data-ad-client="ca-pub-4465026491979447" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <meta name="description" content="过来人的笔记，带你最佳实践，@OldBirds公众号">
     <meta name="google-site-verification" content="6EogPdlAJYusvUHenXWXCGX-oVrqdeBnY-WsURHuKAA">
-    <link rel="preload" href="/assets/css/0.styles.765564d0.css" as="style"><link rel="preload" href="/assets/js/app.9db9a7d4.js" as="script"><link rel="preload" href="/assets/js/2.0e06c8e3.js" as="script"><link rel="preload" href="/assets/js/23.f651d62a.js" as="script"><link rel="preload" href="/assets/js/3.fa8cdf39.js" as="script"><link rel="prefetch" href="/assets/js/10.a28526b0.js"><link rel="prefetch" href="/assets/js/11.2c3d1b0d.js"><link rel="prefetch" href="/assets/js/12.12898468.js"><link rel="prefetch" href="/assets/js/13.59e7316f.js"><link rel="prefetch" href="/assets/js/14.4da972b1.js"><link rel="prefetch" href="/assets/js/15.d5e39fb2.js"><link rel="prefetch" href="/assets/js/16.d601c640.js"><link rel="prefetch" href="/assets/js/17.464cb943.js"><link rel="prefetch" href="/assets/js/18.f89b841b.js"><link rel="prefetch" href="/assets/js/19.24edb0ee.js"><link rel="prefetch" href="/assets/js/20.5ba19067.js"><link rel="prefetch" href="/assets/js/21.d292c77c.js"><link rel="prefetch" href="/assets/js/22.c3658222.js"><link rel="prefetch" href="/assets/js/24.83d04574.js"><link rel="prefetch" href="/assets/js/25.772d8d00.js"><link rel="prefetch" href="/assets/js/26.ec11fa2f.js"><link rel="prefetch" href="/assets/js/27.d757b25c.js"><link rel="prefetch" href="/assets/js/28.e06e4ea7.js"><link rel="prefetch" href="/assets/js/29.cf55a0dd.js"><link rel="prefetch" href="/assets/js/30.310790b2.js"><link rel="prefetch" href="/assets/js/4.4ab78c50.js"><link rel="prefetch" href="/assets/js/5.efe1834d.js"><link rel="prefetch" href="/assets/js/6.351593d0.js"><link rel="prefetch" href="/assets/js/7.67006398.js"><link rel="prefetch" href="/assets/js/8.c3aa6057.js"><link rel="prefetch" href="/assets/js/9.cb500d15.js">
+    <link rel="preload" href="/assets/css/0.styles.765564d0.css" as="style"><link rel="preload" href="/assets/js/app.fff31893.js" as="script"><link rel="preload" href="/assets/js/2.0e06c8e3.js" as="script"><link rel="preload" href="/assets/js/23.1a64bdf1.js" as="script"><link rel="preload" href="/assets/js/3.fa8cdf39.js" as="script"><link rel="prefetch" href="/assets/js/10.a28526b0.js"><link rel="prefetch" href="/assets/js/11.2c3d1b0d.js"><link rel="prefetch" href="/assets/js/12.12898468.js"><link rel="prefetch" href="/assets/js/13.59e7316f.js"><link rel="prefetch" href="/assets/js/14.4da972b1.js"><link rel="prefetch" href="/assets/js/15.d5e39fb2.js"><link rel="prefetch" href="/assets/js/16.d601c640.js"><link rel="prefetch" href="/assets/js/17.464cb943.js"><link rel="prefetch" href="/assets/js/18.f89b841b.js"><link rel="prefetch" href="/assets/js/19.24edb0ee.js"><link rel="prefetch" href="/assets/js/20.5ba19067.js"><link rel="prefetch" href="/assets/js/21.d292c77c.js"><link rel="prefetch" href="/assets/js/22.c3658222.js"><link rel="prefetch" href="/assets/js/24.83d04574.js"><link rel="prefetch" href="/assets/js/25.772d8d00.js"><link rel="prefetch" href="/assets/js/26.ec11fa2f.js"><link rel="prefetch" href="/assets/js/27.d757b25c.js"><link rel="prefetch" href="/assets/js/28.e06e4ea7.js"><link rel="prefetch" href="/assets/js/29.cf55a0dd.js"><link rel="prefetch" href="/assets/js/30.310790b2.js"><link rel="prefetch" href="/assets/js/4.4ab78c50.js"><link rel="prefetch" href="/assets/js/5.efe1834d.js"><link rel="prefetch" href="/assets/js/6.351593d0.js"><link rel="prefetch" href="/assets/js/7.67006398.js"><link rel="prefetch" href="/assets/js/8.c3aa6057.js"><link rel="prefetch" href="/assets/js/9.cb500d15.js">
     <link rel="stylesheet" href="/assets/css/0.styles.765564d0.css">
   </head>
   <body>
@@ -267,7 +267,7 @@
         ├── html
         └── vhost
 </code></pre></div><p>那么如何使用？</p> <p>启动 app</p> <div class="language-sh extra-class"><pre class="language-sh"><code>docker-compose up -d app
-</code></pre></div><p>数据库迁移</p> <div class="language-sh extra-class"><pre class="language-sh"><code>docker-compose up -d migrate
+</code></pre></div><blockquote><p><code>-d</code> 可以在后台运行</p></blockquote> <p>数据库迁移</p> <div class="language-sh extra-class"><pre class="language-sh"><code>docker-compose up -d migrate
 </code></pre></div><p>这样我们就启动好了应用，下一步开启 https:</p> <div class="language-sh extra-class"><pre class="language-sh"><code>docker-compose up -d letsencrypt
 </code></pre></div><p>这一步会开启 nginx，自动扫描到 <code>app</code> 服务，<code>app</code> 容器的环境配置中</p> <div class="language-yml extra-class"><pre class="language-yml"><code><span class="token key atrule">LETSENCRYPT_HOST</span><span class="token punctuation">:</span> oldbirds.com
 <span class="token key atrule">LETSENCRYPT_EMAIL</span><span class="token punctuation">:</span> test@gmail.com
@@ -383,7 +383,7 @@
       <span class="token punctuation">-</span> ./volumes/nginx/vhost<span class="token punctuation">:</span>/etc/nginx/vhost.d
       <span class="token punctuation">-</span> ./volumes/nginx/html<span class="token punctuation">:</span>/usr/share/nginx/html
       <span class="token punctuation">-</span> /var/run/docker.sock<span class="token punctuation">:</span>/var/run/docker.sock<span class="token punctuation">:</span>ro
-</code></pre></div><p>服务 <code>app</code>、<code>migrate</code>、<code>revert</code> 的 <code>image</code> 修改成直接指向阿里云 <code>registry.cn-hangzhou.aliyuncs.com/oldbirds/todo:1.1.0</code></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">7/18/2020, 12:38:49 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+</code></pre></div><p>服务 <code>app</code>、<code>migrate</code>、<code>revert</code> 的 <code>image</code> 修改成直接指向阿里云 <code>registry.cn-hangzhou.aliyuncs.com/oldbirds/todo:1.1.0</code></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">7/18/2020, 12:39:57 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
       ←
       <a href="/swift/vapor/t4-advanced.html" class="prev">
         进阶
@@ -392,6 +392,6 @@
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
-    <script src="/assets/js/app.9db9a7d4.js" defer></script><script src="/assets/js/2.0e06c8e3.js" defer></script><script src="/assets/js/23.f651d62a.js" defer></script><script src="/assets/js/3.fa8cdf39.js" defer></script>
+    <script src="/assets/js/app.fff31893.js" defer></script><script src="/assets/js/2.0e06c8e3.js" defer></script><script src="/assets/js/23.1a64bdf1.js" defer></script><script src="/assets/js/3.fa8cdf39.js" defer></script>
   </body>
 </html>
