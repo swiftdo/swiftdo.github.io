@@ -21,14 +21,18 @@ module.exports = [{
     {
         text: '工具',
         items: [{
-            text: 'VuePress',
-            link: '/tools/vuepress/'
-        },
-        {
-            text: 'Git',
-            link: '/tools/git/'
-        },
-    ]
+                text: 'VuePress',
+                link: '/tools/vuepress/'
+            },
+            {
+                text: 'Git',
+                link: '/tools/git/'
+            },
+            {
+                text: 'YAML',
+                link: '/tools/yaml/'
+            },
+        ]
     },
     {
         text: '关于',
