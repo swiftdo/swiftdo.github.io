@@ -226,7 +226,7 @@ $ docker-compose --version
 ### 指令
 
 * **version**
-  * 表示我们的compose文件的版本，目前有1，2，3，每个版本语法不尽相同，这里是 3.7 的版本。具体可参考 [docker-compose 文档](https://docs.docker.com/compose/compose-file/compose-versioning/)。
+  * 表示我们的compose文件的版本，目前有 1，2，3，每个版本语法不尽相同，这里是 3.7 的版本。具体可参考 [docker-compose 文档](https://docs.docker.com/compose/compose-file/compose-versioning/)。
 * **services**
   * 我们要开始定义服务，每个docker容器为一个服务
 * **app**
@@ -426,9 +426,9 @@ app:
     ...
 ```
 
-在服务器中构建镜像是比较灾难的，因为网不行，还有就是机器不行，构建能否成功，还得靠运气。再一个，本地已经 build 了一次，docker 是隔离环境的，按理生成的镜像应该是一样的，那么为什么服务器还要去重复这种 build 工作，这不是自讨苦吃么？
+在服务器中构建镜像是比较灾难的，网络和机器本身的性能的制约等因素，构建出一个镜像得花好半天，当然能构建成功运气也是极好的。另一个因素是，本地已经 build 了一次，docker 是隔离环境的，生成的镜像应该不管在哪个机器(系统)上都可以工作，服务器 build 的工作完全是可以避免的。
 
-一般是将构建好的镜像推送到 docker 官方的管理平台。毕竟是国外的管理平台，网速还是有点被限制。幸运的是阿里提供了[免费的镜像存储服务](https://help.aliyun.com/document_detail/60743.html?spm=a2c4g.11174283.6.549.185845413UYPAm)。
+一般是将构建好的镜像推送到 docker 官方的管理平台。毕竟是国外的管理平台，有诸多不便之处。幸运的是阿里提供了[免费的镜像存储服务](https://help.aliyun.com/document_detail/60743.html?spm=a2c4g.11174283.6.549.185845413UYPAm)。
 
 ![](https://i2.wp.com/img-blog.csdnimg.cn/20200522153016220.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODY0MzAz,size_16,color_FFFFFF,t_70)
 
@@ -551,4 +551,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
 ```
 
- 服务 `app`、`migrate`、`revert` 的 `image` 修改成直接指向阿里云 `registry.cn-hangzhou.aliyuncs.com/oldbirds/todo:1.1.0`
+ 服务 `app`、`migrate`、`revert` 的 `image` 修改成直接指向阿里云 `registry.cn-hangzhou.aliyuncs.com/oldbirds/todo:1.1.0`。
+
+ 
