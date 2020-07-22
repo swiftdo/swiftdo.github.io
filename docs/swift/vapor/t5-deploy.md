@@ -551,6 +551,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
 ```
 
- 服务 `app`、`migrate`、`revert` 的 `image` 修改成直接指向阿里云 `registry.cn-hangzhou.aliyuncs.com/oldbirds/todo:1.1.0`。
+记得将服务 `app`、`migrate`、`revert` 的 `image` 修改成 `registry.cn-hangzhou.aliyuncs.com/oldbirds/todo:1.1.0`。
 
- 
+
