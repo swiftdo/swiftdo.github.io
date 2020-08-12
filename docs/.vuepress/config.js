@@ -2,6 +2,7 @@ const pluginConf = require('./config/pluginConf.js');
 const navConf = require('./config/navConf.js');
 
 module.exports = {
+    theme: 'reco',
     base: '/',
     title: 'OldBirds',
     description: '过来人的笔记，带你最佳实践，@OldBirds公众号',
