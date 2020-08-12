@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Flutter中的消息传递 | OldBirds</title>
+    <meta name="generator" content="VuePress 1.5.3">
+    <link rel="icon" href="/favicon.ico">
+    <script data-ad-client="ca-pub-4465026491979447" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script data-ad-client="ca-pub-4465026491979447" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script data-ad-client="ca-pub-4465026491979447" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta name="description" content="过来人的笔记，带你最佳实践，@OldBirds公众号">
+    <meta name="google-site-verification" content="6EogPdlAJYusvUHenXWXCGX-oVrqdeBnY-WsURHuKAA">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="preload" href="/assets/css/0.styles.39a5b3fe.css" as="style"><link rel="preload" href="/assets/js/app.20c33361.js" as="script"><link rel="preload" href="/assets/js/3.c5c69ad1.js" as="script"><link rel="preload" href="/assets/js/1.bf4cb53b.js" as="script"><link rel="preload" href="/assets/js/19.3097ea19.js" as="script"><link rel="preload" href="/assets/js/8.2a1ec8ba.js" as="script"><link rel="prefetch" href="/assets/js/10.bc69588d.js"><link rel="prefetch" href="/assets/js/11.4737e7cc.js"><link rel="prefetch" href="/assets/js/12.9df92401.js"><link rel="prefetch" href="/assets/js/13.2aa5cf53.js"><link rel="prefetch" href="/assets/js/14.7fc9b944.js"><link rel="prefetch" href="/assets/js/15.d6d9a11d.js"><link rel="prefetch" href="/assets/js/16.06002e15.js"><link rel="prefetch" href="/assets/js/17.7f584568.js"><link rel="prefetch" href="/assets/js/18.634679da.js"><link rel="prefetch" href="/assets/js/20.c393cd73.js"><link rel="prefetch" href="/assets/js/21.3953ea04.js"><link rel="prefetch" href="/assets/js/22.730f40d5.js"><link rel="prefetch" href="/assets/js/23.ffe10d10.js"><link rel="prefetch" href="/assets/js/24.3fbb288b.js"><link rel="prefetch" href="/assets/js/25.0bded2fe.js"><link rel="prefetch" href="/assets/js/26.06877065.js"><link rel="prefetch" href="/assets/js/27.679a536f.js"><link rel="prefetch" href="/assets/js/28.c567e3e8.js"><link rel="prefetch" href="/assets/js/29.5968e3f5.js"><link rel="prefetch" href="/assets/js/30.7952202f.js"><link rel="prefetch" href="/assets/js/31.696321dc.js"><link rel="prefetch" href="/assets/js/32.85e9cfd0.js"><link rel="prefetch" href="/assets/js/33.72ee8dc7.js"><link rel="prefetch" href="/assets/js/34.739649ba.js"><link rel="prefetch" href="/assets/js/35.0c31a36f.js"><link rel="prefetch" href="/assets/js/36.be05d98d.js"><link rel="prefetch" href="/assets/js/37.1efecab5.js"><link rel="prefetch" href="/assets/js/38.6fc9bb45.js"><link rel="prefetch" href="/assets/js/39.2c36c81b.js"><link rel="prefetch" href="/assets/js/4.abfa018d.js"><link rel="prefetch" href="/assets/js/5.dcc4e78a.js"><link rel="prefetch" href="/assets/js/6.2f5eb645.js"><link rel="prefetch" href="/assets/js/7.f4ea7564.js"><link rel="prefetch" href="/assets/js/9.c577c35f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.39a5b3fe.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-dad8a512><div data-v-dad8a512><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-dad8a512 data-v-dad8a512><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-dad8a512 data-v-dad8a512><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>OldBirds</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>oldbirds</span>
+            
+          <!---->
+          2020
+        </a></span></div></div> <div class="hide" data-v-dad8a512><header class="navbar" data-v-dad8a512><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="OldBirds" class="logo"> <span class="site-name">OldBirds</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      Swift
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/swift/swiftui/" class="nav-link"><i class="iconfont undefined"></i>
+  SwiftUI
+</a></li><li class="dropdown-item"><!----> <a href="/swift/vapor/" class="nav-link"><i class="iconfont undefined"></i>
+  Vapor
+</a></li></ul></div></div><div class="nav-item"><a href="/flutter/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
+  Flutter
+</a></div><div class="nav-item"><a href="/figma/" class="nav-link"><i class="iconfont undefined"></i>
+  Figma
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      基础
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/basis/algorithms/" class="nav-link"><i class="iconfont undefined"></i>
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/basis/os/" class="nav-link"><i class="iconfont undefined"></i>
+  操作系统
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      工具
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/vuepress/" class="nav-link"><i class="iconfont undefined"></i>
+  VuePress
+</a></li><li class="dropdown-item"><!----> <a href="/tools/git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/tools/yaml/" class="nav-link"><i class="iconfont undefined"></i>
+  YAML
+</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link"><i class="iconfont undefined"></i>
+  关于
+</a></div> <a href="https://github.com/swiftdo/swiftdo.github.io" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask" data-v-dad8a512></div> <aside class="sidebar" data-v-dad8a512><div class="personal-info-wrapper" data-v-ca798c94 data-v-dad8a512><img src="/logo.png" alt="author-avatar" class="personal-img" data-v-ca798c94> <h3 class="name" data-v-ca798c94>
+    oldbirds
+  </h3> <div class="num" data-v-ca798c94><div data-v-ca798c94><h3 data-v-ca798c94>0</h3> <h6 data-v-ca798c94>Article</h6></div> <div data-v-ca798c94><h3 data-v-ca798c94>0</h3> <h6 data-v-ca798c94>Tag</h6></div></div> <hr data-v-ca798c94></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      Swift
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/swift/swiftui/" class="nav-link"><i class="iconfont undefined"></i>
+  SwiftUI
+</a></li><li class="dropdown-item"><!----> <a href="/swift/vapor/" class="nav-link"><i class="iconfont undefined"></i>
+  Vapor
+</a></li></ul></div></div><div class="nav-item"><a href="/flutter/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
+  Flutter
+</a></div><div class="nav-item"><a href="/figma/" class="nav-link"><i class="iconfont undefined"></i>
+  Figma
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      基础
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/basis/algorithms/" class="nav-link"><i class="iconfont undefined"></i>
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/basis/os/" class="nav-link"><i class="iconfont undefined"></i>
+  操作系统
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      工具
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/vuepress/" class="nav-link"><i class="iconfont undefined"></i>
+  VuePress
+</a></li><li class="dropdown-item"><!----> <a href="/tools/git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/tools/yaml/" class="nav-link"><i class="iconfont undefined"></i>
+  YAML
+</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link"><i class="iconfont undefined"></i>
+  关于
+</a></div> <a href="https://github.com/swiftdo/swiftdo.github.io" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>FLUTTER</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/flutter/" aria-current="page" class="sidebar-link">flutter</a></li><li><a href="/flutter/t1-tips.html" class="sidebar-link">tips</a></li><li><a href="/flutter/t2-what.html" class="sidebar-link">什么是 Widgets、RenderObjects 和 Elements？</a></li><li><a href="/flutter/t3-messages.html" aria-current="page" class="active sidebar-link">Flutter中的消息传递</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-dad8a512><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>Flutter中的消息传递</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>oldbirds</span>
+            
+          <!---->
+          2020
+        </a></span></div></div> <div data-v-dad8a512><main class="page"><div class="page-title" style="display:none;"><h1>Flutter中的消息传递</h1> <div data-v-3b7f5bdf><i class="iconfont reco-account" data-v-3b7f5bdf><span data-v-3b7f5bdf>oldbirds</span></i> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default" style="display:none;"><h2 id="inheritedwidget"><a href="#inheritedwidget" class="header-anchor">#</a> InheritedWidget</h2> <p>InheritedWidget 是 Flutter 中非常重要的一个功能型 Widget，它可以高效的将数据在 Widget 树中向下传递、共享，这在一些需要在 Widget 树中共享数据的场景中非常方便，我们经常通过这样的方式，通过 BuildContext，可以拿到 Theme 和 MediaQuery。</p> <p>在 <code>StatefulWidget</code> 中，State 对象有一个回调 <code>didChangeDependencies</code>，它会在 &quot;依赖&quot; 发生变化时被 Flutter Framework 调用。而这个 “依赖” 指的就是是否使用了父 widget 中 InheritedWidget 的数据，如果使用了，则代表有依赖，如果没有则代表没有依赖。这种机制可以使子组件在依赖的主题、locale 等发生变化时有机会做一些事情，比如：</p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token comment">//得到状态栏的高度</span>
+<span class="token keyword">var</span> statusBarHeight <span class="token operator">=</span> MediaQuery<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">.</span>padding<span class="token punctuation">.</span>top<span class="token punctuation">;</span>
+<span class="token comment">//复制合并出新的主题</span>
+<span class="token keyword">var</span> copyTheme <span class="token operator">=</span>Theme<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">copyWith</span><span class="token punctuation">(</span>primaryColor<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>blue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="使用-inheritedwidget"><a href="#使用-inheritedwidget" class="header-anchor">#</a> 使用 InheritedWidget</h3> <p>主要涉及：</p> <ul><li>创建一个继承自 InheritedWidget 的类，使用时将其插入 Widget 树中</li> <li>通过 BuildContext 对象提供的 inheritFromWidgetOfExactType 方法查找 Widget 树中最近的一个特定类型的 InheritedWidget 类的实例</li></ul> <p>共享数据类：</p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token keyword">class</span> <span class="token class-name">InheritedContext</span> <span class="token keyword">extends</span> <span class="token class-name">InheritedWidget</span> <span class="token punctuation">{</span>
+
+  <span class="token comment">//数据</span>
+  <span class="token keyword">final</span> InheritedTestModel inheritedTestModel<span class="token punctuation">;</span>
+
+  <span class="token comment">//点击+号的方法</span>
+  <span class="token keyword">final</span> <span class="token function">Function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> increment<span class="token punctuation">;</span>
+
+  <span class="token comment">//点击-号的方法</span>
+  <span class="token keyword">final</span> <span class="token function">Function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> reduce<span class="token punctuation">;</span>
+
+  <span class="token function">InheritedContext</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    Key key<span class="token punctuation">,</span>
+    <span class="token metadata symbol">@required</span> <span class="token keyword">this</span><span class="token punctuation">.</span>inheritedTestModel<span class="token punctuation">,</span>
+    <span class="token metadata symbol">@required</span> <span class="token keyword">this</span><span class="token punctuation">.</span>increment<span class="token punctuation">,</span>
+    <span class="token metadata symbol">@required</span> <span class="token keyword">this</span><span class="token punctuation">.</span>reduce<span class="token punctuation">,</span>
+    <span class="token metadata symbol">@required</span> Widget child<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">,</span> child<span class="token punctuation">:</span> child<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> InheritedContext <span class="token function">of</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> context<span class="token punctuation">.</span><span class="token function">inheritFromWidgetOfExactType</span><span class="token punctuation">(</span>InheritedContext<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">//是否重建widget就取决于数据是否相同</span>
+  <span class="token metadata symbol">@override</span>
+  bool <span class="token function">updateShouldNotify</span><span class="token punctuation">(</span>InheritedContext oldWidget<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> inheritedTestModel <span class="token operator">!=</span> oldWidget<span class="token punctuation">.</span>inheritedTestModel<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>在 widget 中引入共享数据</p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token metadata symbol">@override</span>
+Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">InheritedContext</span><span class="token punctuation">(</span>
+      inheritedTestModel<span class="token punctuation">:</span> inheritedTestModel<span class="token punctuation">,</span>
+      increment<span class="token punctuation">:</span> _incrementCount<span class="token punctuation">,</span>
+      reduce<span class="token punctuation">:</span> _reduceCount<span class="token punctuation">,</span>
+      child<span class="token punctuation">:</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span>
+        appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>
+          title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">'InheritedWidgetTest'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        body<span class="token punctuation">:</span> <span class="token function">Column</span><span class="token punctuation">(</span>
+          children<span class="token punctuation">:</span> <span class="token operator">&lt;</span>Widget<span class="token operator">&gt;</span><span class="token punctuation">[</span>
+            <span class="token function">Padding</span><span class="token punctuation">(</span>
+              padding<span class="token punctuation">:</span> <span class="token keyword">const</span> EdgeInsets<span class="token punctuation">.</span><span class="token function">only</span><span class="token punctuation">(</span>left<span class="token punctuation">:</span> <span class="token number">10.0</span><span class="token punctuation">,</span> top<span class="token punctuation">:</span> <span class="token number">10.0</span><span class="token punctuation">,</span> right<span class="token punctuation">:</span> <span class="token number">10.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              child<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">'我们常使用的\nTheme.of(context).textTheme\nMediaQuery.of(context).size等\n就是通过InheritedWidget实现的'</span><span class="token punctuation">,</span>
+                style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>fontSize<span class="token punctuation">:</span> <span class="token number">20.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">CustomerWidgetA</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">CustomerWidgetB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">CustomerWidgetC</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><p>在子树中获取共享值（从上向下传递）</p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token keyword">class</span> <span class="token class-name">CustomerWidgetB</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">final</span> inheritedContext <span class="token operator">=</span> InheritedContext<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">final</span> inheritedTestModel <span class="token operator">=</span> inheritedContext<span class="token punctuation">.</span>inheritedTestModel<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token function">Padding</span><span class="token punctuation">(</span>
+      padding<span class="token punctuation">:</span> <span class="token keyword">const</span> EdgeInsets<span class="token punctuation">.</span><span class="token function">only</span><span class="token punctuation">(</span>left<span class="token punctuation">:</span> <span class="token number">10.0</span><span class="token punctuation">,</span> top<span class="token punctuation">:</span> <span class="token number">10.0</span><span class="token punctuation">,</span> right<span class="token punctuation">:</span> <span class="token number">10.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      child<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>
+        <span class="token string">'当前count:${inheritedTestModel.count}'</span><span class="token punctuation">,</span>
+        style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>fontSize<span class="token punctuation">:</span> <span class="token number">20.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="notification"><a href="#notification" class="header-anchor">#</a> Notification</h2> <p>Notification 跟 InheritedWidget 恰恰相反，是从子节点向父节点发送消息在 Widget 树中，每一个节点都可以分发通知，通知会沿着当前节点（context）向上传递，所有父节点都可以通过 NotificationListener 来监听通知，Flutter 中称这种通知由子向父的传递为“通知冒泡”（Notification Bubbling）。Flutter 中很多地方使用了通知，如可滚动 (Scrollable) Widget 中滑动时就会分发 ScrollNotification，而 Scrollbar 正是通过监听ScrollNotification 来确定滚动条位置的。</p> <h3 id="使用notification"><a href="#使用notification" class="header-anchor">#</a> 使用Notification</h3> <ul><li>自定义通知，要继承自Notification类</li> <li>分发通知，Notification 有一个 dispatch(context) 方法，它是用于分发通知的，我们说过 context 实际上就是操作 Element 的一个接口，它与 Element 树上的节点是对应的，通知会从 context 对应的 Element 节点向上冒泡。</li></ul> <p>自定义通知类</p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token keyword">class</span> <span class="token class-name">CustomerNotification</span> <span class="token keyword">extends</span> <span class="token class-name">Notification</span> <span class="token punctuation">{</span>
+  <span class="token function">CustomerNotification</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">final</span> String msg<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>调用代码：</p> <div class="language-dart extra-class"><pre class="language-dart"><code><span class="token keyword">class</span> <span class="token class-name">NotificationStudyState</span> <span class="token keyword">extends</span> <span class="token class-name">State</span><span class="token operator">&lt;</span>NotificationStudy<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  String _msg <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//监听通知</span>
+    <span class="token keyword">return</span> NotificationListener<span class="token operator">&lt;</span>CustomerNotification<span class="token operator">&gt;</span><span class="token punctuation">(</span>
+      onNotification<span class="token punctuation">:</span> <span class="token punctuation">(</span>notification<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          _msg <span class="token operator">+=</span> notification<span class="token punctuation">.</span>msg <span class="token operator">+</span> <span class="token string">&quot;  &quot;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      child<span class="token punctuation">:</span> <span class="token function">Center</span><span class="token punctuation">(</span>
+        child<span class="token punctuation">:</span> <span class="token function">Column</span><span class="token punctuation">(</span>
+          mainAxisSize<span class="token punctuation">:</span> MainAxisSize<span class="token punctuation">.</span>min<span class="token punctuation">,</span>
+          children<span class="token punctuation">:</span> <span class="token operator">&lt;</span>Widget<span class="token operator">&gt;</span><span class="token punctuation">[</span>
+            <span class="token function">Builder</span><span class="token punctuation">(</span>
+              builder<span class="token punctuation">:</span> <span class="token punctuation">(</span>context<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 需要是子树</span>
+                <span class="token keyword">return</span> <span class="token function">RaisedButton</span><span class="token punctuation">(</span>
+                  <span class="token comment">//按钮点击时分发通知</span>
+                  onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">CustomerNotification</span><span class="token punctuation">(</span><span class="token string">&quot;Hello NotificationStudy&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                  child<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">&quot;Send Notification&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">Text</span><span class="token punctuation">(</span>_msg<span class="token punctuation">)</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">8/12/2020, 1:32:43 AM</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><!----><!----><!----></div></div>
+    <script src="/assets/js/app.20c33361.js" defer></script><script src="/assets/js/3.c5c69ad1.js" defer></script><script src="/assets/js/1.bf4cb53b.js" defer></script><script src="/assets/js/19.3097ea19.js" defer></script><script src="/assets/js/8.2a1ec8ba.js" defer></script>
+  </body>
+</html>
