@@ -26,10 +26,14 @@ module.exports = {
 
     plugins: pluginConf,
     themeConfig: {
+        record: '粤ICP备18007810号-1',
+        recordLink: 'http://www.beian.miit.gov.cn/',
+        startYear: '2020',
         logo: 'logo.png',
         repo: 'swiftdo/swiftdo.github.io',
         smoothScroll: true,
         lastUpdated: '上次更新',
         nav: navConf,
+        author: 'oldbirds'
     },
 }
