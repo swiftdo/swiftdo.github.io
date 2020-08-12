@@ -1,9 +1,11 @@
 ---
-title: 'Flutter中的消息传递'
+title: 'Flutter中的通信传值'
 sitemap:
   exclude: false
   changefreq: hourly
 ---
+
+除了常规的通过方法参数，以及事件回调进行组件间传值外，Flutter 提供了一些更为强大的传值方式。
 
 ## InheritedWidget
 
@@ -165,5 +167,47 @@ class NotificationStudyState extends State<NotificationStudy> {
 }
 ```
 
+## 组件与组件间的传值
 
+运用 event_bus 来实现传值。
 
+```dart
+import 'package:event_bus/event_bus.dart';
+```
+
+使用的步骤：
+
+* 新建消息监测类
+* 监测类变化
+* 触发消息变化
+
+具体代码如下：
+
+创建监测类
+
+```dart
+import 'package:event_bus/event_bus.dart';
+EventBus eventBus = new EventBus();
+class TransEvent{
+  String text;
+  TransEvent(this.text);
+}
+```
+
+监测类变化
+
+```dart
+ eventBus.on<TransEvent>().listen((TransEvent data) => show(data.text));
+
+ void show(String val) {
+    setState(() {
+      data = val;
+    });
+  }
+```
+
+触发消息变化
+
+```dart
+eventBus.fire(TransEvent('$inputText'));
+```
