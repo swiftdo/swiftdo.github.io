@@ -46,6 +46,14 @@ module.exports = [{
     },
     {
         text: '关于',
-        link: '/about/'
+        items: [{
+                text: '关于我们',
+                link: '/about/index'
+            },
+            {
+                text: 'APP',
+                link: '/about/app'
+            }
+        ]
     }
 ]
