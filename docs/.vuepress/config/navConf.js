@@ -48,11 +48,11 @@ module.exports = [{
         text: '关于',
         items: [{
                 text: '关于我们',
-                link: '/about/index'
+                link: '/about/index/'
             },
             {
                 text: 'APP',
-                link: '/about/app'
+                link: '/about/app/'
             }
         ]
     }
