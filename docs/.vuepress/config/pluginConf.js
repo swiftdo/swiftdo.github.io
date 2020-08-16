@@ -22,6 +22,26 @@ module.exports = {
     'sitemap': {
         hostname: 'https://swiftdo.github.io'
     },
-    'image': true
-
+    'image': true,
+    '@vuepress-yard/vuepress-plugin-window': {
+        title: "OldBirds", //vuepress公告插件 先安装在配置 npm install @vuepress-yard/vuepress-plugin-window --save
+        contentInfo: {
+            title: "更多高质内容，请关注官方公众号",
+            needImg: true,
+            imgUrl: "/wechat_cobe.jpg",
+            content: "",
+            contentStyle: ""
+        },
+        bottomInfo: {
+            btnText: '关于',
+            linkTo: '/about/index/'
+        },
+        closeOnce: false
+    },
+    "vuepress-plugin-nuggets-style-copy": {
+        copyText: "复制代码",
+        tip: {
+            content: "复制成功!"
+        }
+    }
 }
