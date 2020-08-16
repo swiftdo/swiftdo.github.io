@@ -31,6 +31,7 @@
     "@vuepress/plugin-pwa": "^1.5.1",
     "vuepress": "^1.5.2",
     "vuepress-plugin-auto-sidebar": "^1.4.1",
+    "vuepress-plugin-baidu-autopush": "^1.0.1",
     "vuepress-plugin-google-adsense": "^0.1.0",
     "vuepress-plugin-image": "^1.0.4",
     "vuepress-plugin-nuggets-style-copy": "^1.0.3",

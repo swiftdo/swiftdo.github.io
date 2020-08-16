@@ -44,4 +44,5 @@ module.exports = {
             content: "复制成功!"
         }
     },
+    'vuepress-plugin-baidu-autopush': {}
 }
