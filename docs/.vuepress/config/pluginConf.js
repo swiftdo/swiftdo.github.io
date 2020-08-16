@@ -24,7 +24,7 @@ module.exports = {
     },
     'image': true,
     '@vuepress-yard/vuepress-plugin-window': {
-        title: "OldBirds", //vuepress公告插件 先安装在配置 npm install @vuepress-yard/vuepress-plugin-window --save
+        title: "OldBirds",
         contentInfo: {
             title: "更多高质内容，请关注官方公众号",
             needImg: true,
@@ -36,7 +36,7 @@ module.exports = {
             btnText: '关于',
             linkTo: '/about/index/'
         },
-        closeOnce: false
+        closeOnce: true,
     },
     "vuepress-plugin-nuggets-style-copy": {
         copyText: "复制代码",
