@@ -23,6 +23,10 @@ module.exports = {
         ['meta', {
             name: 'viewport',
             content: 'width=device-width,initial-scale=1,user-scalable=no'
+        }],
+        ['meta', {
+            name: 'keywords',
+            content: 'oldbirds,oldbird,公众号,swift,swiftui,flutter,vapor,ios,figma,数据结构,算法,书单,vuepresss,git,yaml,设计模式,编程'
         }]
     ],
     markdown: {
