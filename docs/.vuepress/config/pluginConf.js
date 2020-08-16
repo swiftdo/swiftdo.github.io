@@ -20,7 +20,7 @@ module.exports = {
         ad_client: 'ca-pub-4465026491979447'
     },
     'sitemap': {
-        hostname: 'https://swiftdo.github.io'
+        hostname: 'https://oldbird.run'
     },
     'image': true,
     '@vuepress-yard/vuepress-plugin-window': {
@@ -44,7 +44,4 @@ module.exports = {
             content: "复制成功!"
         }
     },
-    "markdown": {
-        plugins: ['task-lists']
-    }
 }
