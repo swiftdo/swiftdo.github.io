@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "@vuepress-yard/vuepress-plugin-window": "^1.0.10",
+    "markdown-it-task-lists": "^2.1.1",
     "vuepress-plugin-sitemap": "^2.3.1"
   }
 }

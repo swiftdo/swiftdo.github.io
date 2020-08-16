@@ -43,5 +43,8 @@ module.exports = {
         tip: {
             content: "复制成功!"
         }
+    },
+    "markdown": {
+        plugins: ['task-lists']
     }
 }

@@ -7,12 +7,27 @@ module.exports = {
     title: 'OldBirds',
     description: '过来人的笔记，带你最佳实践，@OldBirds公众号',
     head: [
-        ['link', { rel: 'icon', href: '/favicon.ico'}],
-        [ "script", { "data-ad-client": "ca-pub-4465026491979447",async: true,src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}],
-        ['meta', { name: 'google-site-verification', content: '6EogPdlAJYusvUHenXWXCGX-oVrqdeBnY-WsURHuKAA'}],
-        ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }]
+        ['link', {
+            rel: 'icon',
+            href: '/favicon.ico'
+        }],
+        ["script", {
+            "data-ad-client": "ca-pub-4465026491979447",
+            async: true,
+            src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        }],
+        ['meta', {
+            name: 'google-site-verification',
+            content: '6EogPdlAJYusvUHenXWXCGX-oVrqdeBnY-WsURHuKAA'
+        }],
+        ['meta', {
+            name: 'viewport',
+            content: 'width=device-width,initial-scale=1,user-scalable=no'
+        }]
     ],
-
+    markdown: {
+        plugins: ['task-lists']
+    },
     plugins: pluginConf,
     themeConfig: {
         record: '粤ICP备18007810号-1',
