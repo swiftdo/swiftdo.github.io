@@ -13,4 +13,6 @@ features:
   details: Figma 是一个基于浏览器的协作式 UI 设计工具，Figma 从推出至今越来越受到 UI 设计师的青睐，如今也有很多的设计团队投入了 Figma 的怀抱。
 - title: Vapor
   details: Vapor 是 Swift 最流行的 Web 网络框架。它可以为你的网站或 API 提供精美的页面展示和简易的使用方式。
+- title: Basic
+  details: 各行有各行的基础知识，或曰基本功。现实的不断变化，如何抓住事物的本质，就需要扎实的基本功。抓住不变的东西，以不变应万变。
 ---
