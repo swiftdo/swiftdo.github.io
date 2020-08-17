@@ -44,7 +44,6 @@ module.exports = [{
             },
         ]
     },
-    { text: '时间轴', link: '/timeline/'},
     {
         text: '关于',
         items: [{
