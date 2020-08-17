@@ -3,6 +3,10 @@ title: '部署'
 sitemap:
   exclude: false
   changefreq: hourly
+date: 2020-08-17
+tags:
+- tools
+- vuepress
 ---
 
 ## GitHub Pages

@@ -3,6 +3,10 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: '谈谈 ViewModifier'
+date: 2020-08-17
+tags:
+- swift
+- swiftui
 ---
 
 ## 介绍

@@ -1,5 +1,8 @@
 ---
 title: 'tips'
+date: 2020-08-17
+tags:
+- flutter
 sitemap:
   exclude: false
   changefreq: hourly

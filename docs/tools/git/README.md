@@ -3,6 +3,10 @@ title: 'Git'
 sitemap:
   exclude: false
   changefreq: hourly
+date: 2020-08-17
+tags:
+- tools
+- git
 ---
 
 ## 提交规范

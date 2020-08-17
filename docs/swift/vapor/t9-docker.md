@@ -3,6 +3,10 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: 'Docker篇'
+date: 2020-08-17
+tags:
+- swift
+- vapor
 ---
 
 ## docker & vapor

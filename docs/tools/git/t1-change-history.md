@@ -3,6 +3,10 @@ title: '删除历史文件'
 sitemap:
   exclude: false
   changefreq: hourly
+date: 2020-08-17
+tags:
+- tools
+- git
 ---
 
 可能你有过以下的经历：

@@ -3,6 +3,10 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: 'Docker 部署'
+date: 2020-08-17
+tags:
+- swift
+- vapor
 ---
 
 使用 Docker 部署您的 Vapor 应用程序有几个好处：

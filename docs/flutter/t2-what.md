@@ -1,5 +1,8 @@
 ---
 title: '什么是 Widgets、RenderObjects 和 Elements？'
+date: 2020-08-17
+tags:
+- flutter
 sitemap:
   exclude: false
   changefreq: hourly

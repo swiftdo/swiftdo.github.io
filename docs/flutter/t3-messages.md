@@ -1,5 +1,8 @@
 ---
 title: 'Flutter中的通信传值'
+date: 2020-08-17
+tags:
+- flutter
 sitemap:
   exclude: false
   changefreq: hourly

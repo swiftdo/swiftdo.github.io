@@ -3,6 +3,10 @@ title: 'Yaml'
 sitemap:
   exclude: false
   changefreq: hourly
+date: 2020-08-16
+tags:
+- tools
+- yaml
 ---
 
 ## 介绍

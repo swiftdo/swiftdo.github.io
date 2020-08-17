@@ -3,6 +3,10 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: '安装'
+date: 2020-08-17
+tags:
+- swift
+- vapor
 ---
 
 在使用 Vapor 的时候，需要先安装好 Swift，然后安装 `Toolbox`(非必须)。

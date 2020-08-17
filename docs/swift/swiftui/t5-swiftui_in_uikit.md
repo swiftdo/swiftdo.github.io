@@ -3,6 +3,10 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: 'UIKit 中的 SwiftUI'
+date: 2020-08-17
+tags:
+- swift
+- swiftui
 ---
 
 ## UIHostingController

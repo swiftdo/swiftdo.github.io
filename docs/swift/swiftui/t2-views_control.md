@@ -3,6 +3,10 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: '视图和控件'
+date: 2020-08-17
+tags:
+- swift
+- swiftui
 ---
 
 ## Text
