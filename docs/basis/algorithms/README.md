@@ -25,7 +25,7 @@ tags:
   * [x] [希尔排序](/basis/algorithms/t4-shell-sort)
   * [x] [快速排序](/basis/algorithms/t5-quick-sort)
   * [x] [堆排序](/basis/algorithms/t6-heap-sort)
-  * [ ] [归并排序](/basis/algorithms/t7-merge-sort)
+  * [x] [归并排序](/basis/algorithms/t7-merge-sort)
   * [ ] [基数排序](/basis/algorithms/t8-basic-sort)
   * [ ] [计数排序](/basis/algorithms/t9-count-sort)
   * [ ] [桶排序](/basis/algorithms/t10-bucket-sort)
