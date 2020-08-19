@@ -32,11 +32,7 @@ module.exports = [{
         }]
     },
     {
-        text: '书单',
-        link: '/book/'
-    },
-    {
-        text: '书单',
+        text: '工具',
         items: [{
                 text: 'VuePress',
                 link: '/tools/vuepress/'
@@ -50,6 +46,10 @@ module.exports = [{
                 link: '/tools/yaml/'
             },
         ]
+    },
+    {
+        text: '书单',
+        link: '/book/'
     },
     {
         text: '关于',
