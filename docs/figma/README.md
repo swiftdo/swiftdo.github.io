@@ -1,4 +1,5 @@
 ---
+title: 'Figma'
 sitemap:
   exclude: false
   changefreq: hourly
