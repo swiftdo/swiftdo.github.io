@@ -21,6 +21,9 @@ module.exports = [{
     {
         text: '基础',
         items: [{
+            text: '概要',
+            link: '/basis/index/'
+        },{
             text: '数据结构与算法',
             link: '/basis/algorithms/'
         }, {
