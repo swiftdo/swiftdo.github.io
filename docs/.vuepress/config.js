@@ -11,11 +11,6 @@ module.exports = {
             rel: 'icon',
             href: '/favicon.ico'
         }],
-        ["script", {
-            "data-ad-client": "ca-pub-4465026491979447",
-            async: true,
-            src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-        }],
         ['meta', {
             name: 'google-site-verification',
             content: '6EogPdlAJYusvUHenXWXCGX-oVrqdeBnY-WsURHuKAA'
