@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Sitemap: https:/oldbird.run/sitemap.xml
+Host: https://oldbird.run
