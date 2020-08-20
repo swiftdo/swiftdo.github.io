@@ -16,9 +16,6 @@ module.exports = {
     'vuepress-plugin-auto-sidebar': {
         titleMode: "uppercase",
     },
-    'vuepress-plugin-google-adsense': {
-        ad_client: 'ca-pub-4465026491979447'
-    },
     'sitemap': {
         hostname: 'https://oldbird.run'
     },
