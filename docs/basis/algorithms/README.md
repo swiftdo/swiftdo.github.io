@@ -28,6 +28,6 @@ tags:
   * [x] [归并排序](/basis/algorithms/t7-merge-sort)
   * [ ] [基数排序](/basis/algorithms/t8-basic-sort)
   * [x] [计数排序](/basis/algorithms/t9-count-sort)
-  * [ ] [桶排序](/basis/algorithms/t10-bucket-sort)
+  * [x] [桶排序](/basis/algorithms/u1-bucket-sort)
 
   ![排序](http://blog.loveli.site/15541716797540.jpg)
