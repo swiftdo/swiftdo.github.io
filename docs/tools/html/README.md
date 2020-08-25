@@ -153,11 +153,11 @@ html,body{
 
 当主轴沿水平方向时，具体含义为
 
-• flex-start：左对齐
-• flex-end：右对齐
-• center：居中对齐
-• space- between：两端对齐
-• space-around：沿轴线均匀分布
+* flex-start：左对齐
+* flex-end：右对齐
+* center：居中对齐
+* space- between：两端对齐
+* space-around：沿轴线均匀分布
 
 ```css
 .flex-container{
@@ -186,11 +186,12 @@ html,body{
 决定了item在交叉轴上(Y轴)的对齐方式，可能的值有flex-start | flex-end | center | baseline | stretch
 
 当主轴水平(Y轴)时，其具体含义为：
-• flex-start：顶端对齐
-• flex-end：底部对齐
-• center：竖直方向上居中对齐
-• baseline：item第一行文字的底部对齐
-• stretch：当item未设置高度时，item将和容器等高对齐
+
+* flex-start：顶端对齐
+* flex-end：底部对齐
+* center：竖直方向上居中对齐
+* baseline：item第一行文字的底部对齐
+* stretch：当item未设置高度时，item将和容器等高对齐
 
 ```css
 .flex-container{
@@ -223,12 +224,13 @@ html,body{
 该属性定义了当有多根主轴时，即item不止一行时，多行在交叉轴轴上的对齐方式。注意当有多行时，定义了align-content后，align-items属性将失效。
 
 align-content可能值含义如下（假设主轴为水平方向）：
-• flex-start：左对齐
-• flex-end：右对齐
-• center：居中对齐
-• space- between：两端对齐
-• space-around：沿轴线均匀分布
-• stretch：各行将根据其flex-grow值伸展以充分占据剩余空间
+
+* flex-start：左对齐
+* flex-end：右对齐
+* center：居中对齐
+* space- between：两端对齐
+* space-around：沿轴线均匀分布
+* stretch：各行将根据其flex-grow值伸展以充分占据剩余空间
 
 > 1、设置flex-wrap：wrap，不然默认 nowrap 按照比例排满一行。
 >  2、父节点 flex-container 与子节点 flex-item 存在高度差，才能起到作用
