@@ -30,7 +30,7 @@ tags:
 6. align-content          多行在交叉轴轴上的对齐方式
 
 ```html
-<div class="flex-container">
+<div class="flex-box">
     <div class="flex-item red">
       1
     </div>
@@ -50,7 +50,7 @@ tags:
 html,body{
     background: #f7f7f7;
 }
-.flex-container{
+.flex-box{
     display: flex
     color: #fff;
 }
@@ -85,7 +85,7 @@ html,body{
 * column-reverse：主轴竖直，项目从下至上排列，与column反向
 
 ```css
-.flex-container{
+.flex-box{
     display: flex;
     height: 100px;
     flex-direction: row; /* 1 */
@@ -116,7 +116,7 @@ html,body{
 * wrap-reverse：换行，第一行在下面
 
 ```csss
-.flex-container{
+.flex-box{
   display: flex;
   color: #fff;
   flex-wrap: nowrap; /* 1 */
@@ -142,7 +142,7 @@ html,body{
 是flex-direction和flex-wrap的简写形式，如：row wrap | column wrap-reverse等。默认值为row nowrap，即横向排列不换行。 
 
 ```css
-.flex-container{
+.flex-box{
   flex-flow: row nowrap;
 }
 ```
@@ -160,7 +160,7 @@ html,body{
 * space-around：沿轴线均匀分布
 
 ```css
-.flex-container{
+.flex-box{
   justify-content: flex-start; /* 1 */
   justify-content: flex-end; /* 2 */
   justify-content: center; /* 3 */
@@ -194,7 +194,7 @@ html,body{
 * stretch：当item未设置高度时，item将和容器等高对齐
 
 ```css
-.flex-container{
+.flex-box{
   height: 200px;
   align-items: flex-start; /* 1 */
   align-items: flex-end; /* 2 */
@@ -233,10 +233,10 @@ align-content可能值含义如下（假设主轴为水平方向）：
 * stretch：各行将根据其flex-grow值伸展以充分占据剩余空间
 
 > 1、设置flex-wrap：wrap，不然默认 nowrap 按照比例排满一行。
->  2、父节点 flex-container 与子节点 flex-item 存在高度差，才能起到作用
+>  2、父节点 flex-box 与子节点 flex-item 存在高度差，才能起到作用
 
 ```css
-.flex-container{
+.flex-box{
   flex-wrap: wrap;
   height:300px;
   background: #969799;
