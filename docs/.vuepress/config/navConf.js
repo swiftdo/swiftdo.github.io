@@ -45,6 +45,10 @@ module.exports = [{
                 text: 'YAML',
                 link: '/tools/yaml/'
             },
+            {
+                text: 'HTML',
+                link: '/tools/html/'
+            }
         ]
     },
     {
