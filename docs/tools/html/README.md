@@ -1,5 +1,5 @@
 ---
-title: 'HTML Flex 布局'
+title: 'Flex 布局'
 sitemap:
   exclude: false
   changefreq: hourly
@@ -18,7 +18,7 @@ tags:
 * display: flex; (本文章为此为主)
 * display: inline-flex;
 
-两者区别主要是父容器的宽度，flex 是 100%， 而 inline-flex 会根据子元素的宽度适应。
+两者区别主要是父容器的宽度，flex 是 100%，而 inline-flex 会根据子元素的宽度适应。
 
 ## 父节点容器
 
@@ -266,3 +266,65 @@ align-content可能值含义如下（假设主轴为水平方向）：
 4. flex-basis                     规定item项目的宽度
 5. flex                           是flex-grow flex-shrink flex-basis的总和
 6. align-self                     允许item自己在交叉轴(竖方向)有对齐方式
+
+
+### order
+
+order 的值是整数，默认为 0，整数越小，item 排列越靠前。
+
+```css
+.flex-box {
+  flex-flow: wrap;
+}
+
+.flex-items {
+  order:1;
+}
+```
+
+### flex-grow
+
+定义了当 flex 容器有多余空间时，item是否放大。默认值为 0，即当有多余空间时也不放大；可能的值为整数，表示不同 item 的放大比例。
+
+如果所有项目的 flex-grow 属性都为 1，则它们将等分剩余空间（如果有的话）。
+如果一个项目的 flex-grow 属性为 2，其他项目都为 1，则前者占据的剩余空间将比其他项多一倍。
+
+![](http://blog.loveli.site/2020-08-26-15984468078894.jpg)
+
+
+
+### flex-shrink
+
+定义了当容器空间不足时，item是否缩小。默认值为 1，表示当空间不足时，item 自动缩小，其可能的值为整数，表示不同 item 的缩小比例。
+
+如果所有项目的 flex-shrink 属性都为 1，当空间不足时，都将等比例缩小。
+如果一个项目的 flex-shrink 属性为 0，其他项目都为 1，则空间不足时，前者不缩小。
+
+![](http://blog.loveli.site/2020-08-26-15984469356935.jpg)
+
+### flex-basis
+
+定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为 auto，即项目的本来大小。
+
+```css
+.item {
+  flex-basis: <length> | auto; /* default auto */
+}
+```
+
+它可以设为跟 width 或 height 属性一样的值（比如350px），则项目将占据固定空间。
+
+### flex
+
+flex 属性是 flex-grow, flex-shrink 和 flex-basis 的简写，默认值为 0 1 auto。后两个属性可选。
+
+### align-self
+
+允许单个项目有与其他项目不一样的对齐方式，可覆盖 align-items 属性。默认值为 auto，表示继承父元素的 align-items 属性，如果没有父元素，则等同于 stretch。
+
+* auto：和父元素align-self的值一致
+* flex-start：顶端对齐
+* flex-end：底部对齐
+* center：竖直方向上居中对齐
+* baseline：item第一行文字的底部对齐
+* stretch：当item未设置高度时，item将和容器等高对齐
