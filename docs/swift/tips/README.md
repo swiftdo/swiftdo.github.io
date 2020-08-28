@@ -59,3 +59,73 @@ struct GeneralProduct: Codable {
 }
 ```
 
+
+### 扩展：数据解析精度问题
+
+```swift
+
+enum DecimalType: Codable {
+    case decimal(Decimal)
+    case string(String)
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        do {
+          self = try .decimal(container.decode(Decimal.self))
+        } catch DecodingError.typeMismatch {
+          do {
+            self = try .string(container.decode(String.self))
+          } catch DecodingError.typeMismatch {
+            throw DecodingError.typeMismatch(MetadataType.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Encoded payload not of an expected type"))
+          }
+        }
+    }
+
+    func encode(to encoder: Encoder) throws {
+    var container = encoder.singleValueContainer()
+        switch self {
+        case .decimal(let decimal):
+          try container.encode(decimal)
+        case .string(let string):
+          try container.encode(string)
+        }
+    }
+    
+    var showString: String {
+        switch self {
+        case .decimal(let decimal):
+            return decimal.description
+        case .string(let string):
+            return string
+        }
+    }
+}
+
+struct TestModel : Codable{
+    
+    var price: DecimalType
+    var name: String
+}
+
+func tryParse(string: String) throws -> String? {
+    if let jsonData = string.data(using: .utf8) {
+        let decoder = JSONDecoder()
+        let result = try decoder.decode(TestModel.self, from: jsonData)
+        return result.price.showString
+    } else {
+        return nil;
+    }
+}
+
+func tryPrint() throws {
+
+    guard let tmpA = try tryParse(string: "{\"name\":\"xiaoming\",\"price\":10.98}"), let tmpB = try tryParse(string: "{\"name\":\"xiaoming\",\"price\":\"11.11\"}") else {
+        return
+    }
+    print("double: \(tmpA), string: \(tmpB)")
+}
+
+
+try tryPrint() // double: 10.98, string: 11.11
+```
+
