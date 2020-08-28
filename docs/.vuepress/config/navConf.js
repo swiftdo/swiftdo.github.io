@@ -8,6 +8,10 @@ module.exports = [{
                 text: 'Vapor',
                 link: '/swift/vapor/'
             },
+            {
+                text: 'Tips',
+                link: '/swift/tips/'
+            }
         ]
     },
     {
