@@ -9,7 +9,7 @@ tags:
 - tips
 ---
 
-## 支持值的类型可能为String和Int的Cobale解析
+## 支持值的类型可能为 String 和 Int 的 Codale 解析
 
 ```swift
 enum MetadataType: Codable {
