@@ -7,7 +7,6 @@ sitemap:
   exclude: false
   changefreq: hourly
 ---
-
 先来看一下官方的那个原始的 Counter 例子:
 
 ```dart
@@ -51,9 +50,9 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 ```
 
-可以看到，在这个 _MyHomePageState 类中，View 与 Model 混合在一起。如果页面比较复杂的话，类就变得臃肿且State 更加难以管理。
+可以看到，在这个`_MyHomePageState`类中，`View`与`Model`混合在一起。如果页面比较复杂的话，类就变得臃肿且`State`更加难以管理。
 
-为了将 View 与 Model 分离，可以采取 `mixin` 这种办法(之一)。
+为了将`View`与`Model`分离，可以采取`mixin`这种办法(之一)。
 
 对上面的代码改造后如下：
 
@@ -109,14 +108,19 @@ class _MyHomePageState extends State<MyHomePage> with _CounterStateMixin {
 
 ## 优点
 
-* 简单：
-    不需要引入第三方库，如果用MVP或者其他方式来实现解耦的话很可能需要多创建几个类，写很多模板代码，甚至需要IDE插件的帮助。
-* 副作用小：
-    使用 mixin，运行时可以认为完全和原来那个 State 是一致的，与生命周期相关的函数如 initState()，didUpdateWidget()，dispose() 等都可以在 mixin 中覆写。如果使用 MVP 的话可能需要自己处理State 的生命周期，否则有可能会遇到内存泄漏或者空指针等问题。mixin 是对 State 的扩展，所以也会继承其局限性(可以考虑通过拆分Widget，接入状态管理等方法来解决）。
-* 复用：
-    拆出来的 `StateMixin` 是可以复用的。例如你想在页面上放两个功能相同但是显示不一样的 counter，让两个State 都混入同一个 `_CounterStateMixin` 就可以了
+**简单**：
 
-## mixin 小技巧
+不需要引入第三方库，如果用MVP或者其他方式来实现解耦的话很可能需要多创建几个类，写很多模板代码，甚至需要IDE插件的帮助。
+
+**副作用小**：
+
+使用 mixin，运行时可以认为完全和原来那个 State 是一致的，与生命周期相关的函数如 initState()，didUpdateWidget()，dispose() 等都可以在 mixin 中覆写。如果使用 MVP 的话可能需要自己处理State 的生命周期，否则有可能会遇到内存泄漏或者空指针等问题。mixin 是对 State 的扩展，所以也会继承其局限性(可以考虑通过拆分Widget，接入状态管理等方法来解决）。
+
+**复用**：
+
+拆出来的 `StateMixin` 是可以复用的。例如你想在页面上放两个功能相同但是显示不一样的 counter，让两个State 都混入同一个 `_CounterStateMixin` 就可以了
+
+## mixin 额外小技巧
 
 ```dart
 mixin AfterLayoutMixin<T extends StatefulWidget> on State<T> {
