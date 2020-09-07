@@ -623,6 +623,172 @@ $ swift run
 
 ## Heroku 部署
 
+[Heroku](https://www.heroku.com/) 平台的灵活性极高且支持多种编程语言。若想把程序部署到 Heroku 上，开发者可以直接使用 Git 把程序推送到 Heroku 的 Git 服务器上。在服务器上, git push 命令会自动触发安装、配置和部署程序。
+
+### 注册 Heroku 账户
+
+您将需要一个heroku帐户，如果您没有，请在此处注册：[https://signup.heroku.com/](https://signup.heroku.com/)
+
+### 安装 CLI
+
+确保已安装 heroku cli 工具。
+
+* HomeBrew
+
+    ```sh
+    brew install heroku/brew/heroku
+    ```
+
+* 其他安装选项
+  在此处查看替代安装选项：[https://devcenter.heroku.com/articles/heroku-cli#download-and-install](https://devcenter.heroku.com/articles/heroku-cli#download-and-install).
+
+### 登录
+安装cli后，请输入以下内容：
+
+```sh
+$ heroku login
+```
+
+用以下命令来验证邮箱是否登录：
+
+```sh
+$ heroku auth:whoami
+```
+
+### 创建一个应用程序
+
+访问 `[dashboard.heroku.com](https://dashboard.heroku.com)`，登录您的帐户，并从右上角的下拉列表中创建一个新应用程序。按照 Heroku 提供的提示进行操作即可。
+
+
+### Git
+
+Heroku 使用 Git 部署您的应用程序，因此您需要将项目放入 Git 存储库（如果尚未安装）。
+
+#### 初始化 Git
+
+如果需要将 Git 添加到项目中，请在终端中输入以下命令：
+
+```sh
+$ git init
+```
+
+#### Master 分支
+
+默认情况下，Heroku 部署 master 分支。在推送之前，请确保所有更改都已签入该分支。
+
+检查您当前的分支：
+
+```sh
+$ git branch
+```
+
+星号表示当前分支：
+
+```sh
+* master
+  commander
+  other-branches
+```
+
+如果您当前不在 `master` 分支上，请输入以下命令切换到 `master` 分支：
+
+```sh
+$ git checkout master
+```
+
+#### 提交变更
+
+如果此命令产生输出，则您有未提交更改：
+
+```sh
+$ git status --porcelain
+```
+
+使用以下命名进行提交：
+
+```sh
+$ git add .
+$ git commit -m "我代码修改的描述"
+```
+
+#### 与 Heroku 连接
+
+将您的应用程序与 heroku 连接（替换为您的应用程序名称）
+
+```sh
+$ heroku git:remote -a your-apps-name-here
+```
+
+#### 设置 Buildpack
+
+设置 buildpack 告诉 heroku 如何处理这个 vapor 项目。
+
+```sh
+$ heroku buildpacks:set vapor/vapor
+```
+
+#### Swift 版本文件
+
+buildpack 会寻找一个.swift-version 文件，获知使用的 swift 版本。 （可根据自己的项目来替换下面的 5.2.1）
+
+```sh
+echo "5.2.1" > .swift-version
+```
+
+这将创建 `.swift-version` 文件，内容为 5.2.1。
+
+#### Procfile
+
+Heroku 使用 Procfile 知道如何运行您的应用程序，我们可以使用下面：
+
+```sh
+web: Run serve --env production --hostname 0.0.0.0 --port $PORT
+```
+
+可以使用以下终端命令进行创建:
+
+```sh
+echo "web: Run serve --env production" \
+  "--hostname 0.0.0.0 --port \$PORT" > Procfile
+```
+
+#### 提交变更
+
+我们只是添加了这些文件，但尚未提交。如果我们推送，heroku 将找不到它们。
+
+提交，使用下面命令：
+
+```sh
+$ git add .
+$ git commit -m "adding heroku build files"
+```
+
+#### 部署到 Heroku
+
+您已经准备好部署，可以在终端上运行它。构建可能需要一段时间。
+
+```sh
+$ git push heroku master
+```
+
+#### Scale Up
+
+成功构建之后，您需要添加至少一台服务器，一台网络是免费的，您可以通过以下方式获得它：
+
+```sh
+heroku ps:scale web=1
+```
+
+#### 持续部署
+
+每当您想更新时，只需将最新的更改放入master并推送到heroku，它将重新部署。
+
+#### Postgres
+
+##### 添加PostgreSQL数据库
+
+
+
 ## 前后端分离
 
 ### 模块拆分
