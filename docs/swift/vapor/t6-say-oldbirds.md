@@ -787,7 +787,67 @@ heroku ps:scale web=1
 
 ##### 添加PostgreSQL数据库
 
+在 [dashboard.heroku.com](https://dashboard.heroku.com) 访问您的应用程序，然后转到 `Add-ons` 部分。
 
+从这里输入 `postgres`，您将看到`Heroku Postgres`的选项，选择它。
+
+选择`hobby dev free plan`，并进行配置。 剩下的事由 Heroku 完成。
+
+完成后，您将看到数据库显示在 `Resources` 选项卡下。
+
+##### 配置数据库
+
+现在，我们必须告诉我们的应用程序如何访问数据库。在项目的根目录中，运行以下命令：
+
+```sh
+$ heroku config
+```
+
+这将会有如下输出：
+
+```sh
+=== today-i-learned-vapor Config Vars
+DATABASE_URL: postgres://cybntsgadydqzm:2d9dc7f6d964f4750da1518ad71hag2ba729cd4527d4a18c70e024b11cfa8f4b@ec2-54-221-192-231.compute-1.amazonaws.com:5432/dfr89mvoo550b4
+```
+
+`DATABASE_URL` 此处将代表 postgres 数据库。不要将这个 URL 写入到你的代码中，这也是一个坏习惯。
+
+下面是一个数据库配置的样例
+
+```swift
+if let databaseURL = Environment.get("DATABASE_URL") {
+    app.databases.use(try .postgres(
+        url: databaseURL
+    ), as: .psql)
+} else {
+    // ...
+}
+```
+
+如果您使用 `Heroku Postgres's standard plan`，则需要 `Unverified TLS `。
+
+不要忘记提交你所做的修改：
+
+```sh
+git add .
+git commit -m "configured heroku database"
+```
+
+##### 还原数据库
+
+你可以使用 heroku 的 run 命令执行 `revert` 或者其他命令。默认情况下执行的是 `Run`。
+
+还原数据库：
+
+```sh
+$ heroku run Run -- revert --all --yes --env production
+```
+
+迁移：
+
+```sh
+$ heroku run Run -- migrate --env production
+```
 
 ## 前后端分离
 
