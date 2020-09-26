@@ -27,23 +27,23 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "92126e1d8845b2073fc189021f3495ac"
+    "revision": "ce8c2dbeaf4bd04d8d669c9a69cae537"
   },
   {
     "url": "about/app/index.html",
-    "revision": "55530604f177144e9077a63d4451a1c2"
+    "revision": "5143585657c0a8c68d6bb3e1ed35504d"
   },
   {
     "url": "about/app/t1-protocol.html",
-    "revision": "b2a53b12921c6842b35166f1472d8fd0"
+    "revision": "eba39bf6733d8224a612ca40c1b2208b"
   },
   {
     "url": "about/app/t2-secrect.html",
-    "revision": "9d1ff6713ab5bb1952cfb8584ee68fcc"
+    "revision": "fd8aa528f9f5dd59cf92ccc3a3b3cdac"
   },
   {
     "url": "about/index/index.html",
-    "revision": "469bdce8758ec0568f88b199a2258114"
+    "revision": "0b7460841ccf4cc6f3db930e3e9aa7f6"
   },
   {
     "url": "assets/css/0.styles.625902b5.css",
@@ -86,32 +86,32 @@ self.__precacheManifest = [
     "revision": "caf55862f5a08a974fb76c6cc5c6e277"
   },
   {
-    "url": "assets/js/17.dc7a9df9.js",
-    "revision": "3d0545d2baf56d643d5f86f7d1179909"
+    "url": "assets/js/17.8d8673b1.js",
+    "revision": "d277c51ef7ba04b7e490d1a9a5fde331"
   },
   {
-    "url": "assets/js/18.7500f234.js",
-    "revision": "26d1af4475d330452817924500ccc066"
+    "url": "assets/js/18.2e3e5777.js",
+    "revision": "2f4583f02d1069d7a39194571fbeedca"
   },
   {
     "url": "assets/js/19.1064ffef.js",
     "revision": "9f850135cebab76fab145b05d1d7efb6"
   },
   {
-    "url": "assets/js/20.ec1e80ba.js",
-    "revision": "11ed63d77461b89bab48ff33dc6233ed"
+    "url": "assets/js/20.4eb22213.js",
+    "revision": "1df4ff4a8ec2dc25b0932f0ce0c98700"
   },
   {
-    "url": "assets/js/21.8f17b6b0.js",
-    "revision": "31dfffdeb68541fdc5298eb74ead1eae"
+    "url": "assets/js/21.98262725.js",
+    "revision": "1bc7303d302251b79841e0919d00ed0b"
   },
   {
-    "url": "assets/js/22.f464170f.js",
-    "revision": "448af79229a63f56abc4a1c79ea8a97d"
+    "url": "assets/js/22.4641f8f7.js",
+    "revision": "7786a2dbb11a636b1380001c8c23873a"
   },
   {
-    "url": "assets/js/23.228231e7.js",
-    "revision": "8a16c6619be9534ae0fe3fdbd0990676"
+    "url": "assets/js/23.474984ec.js",
+    "revision": "26a9f2277b523d05912fc134ae6abadc"
   },
   {
     "url": "assets/js/24.a85ec7dc.js",
@@ -258,28 +258,28 @@ self.__precacheManifest = [
     "revision": "f279784cf0da6b05ac81ded50927d501"
   },
   {
-    "url": "assets/js/57.5b690886.js",
-    "revision": "d1cd90c70561f32743dd0025329be85a"
+    "url": "assets/js/57.0303a35f.js",
+    "revision": "fca28e61c4d584f9aaffe526e52369f6"
   },
   {
     "url": "assets/js/58.16167865.js",
     "revision": "17759323336d3bcad58ce5f9de102329"
   },
   {
-    "url": "assets/js/59.2d144aa9.js",
-    "revision": "41bf30ccd7ea6b1af331ab9f11668c36"
+    "url": "assets/js/59.8ac5fc4f.js",
+    "revision": "113299cbde664e25c7d921aefd10087b"
   },
   {
     "url": "assets/js/6.52cab3c6.js",
     "revision": "d6bca7b5b6a81de53146b3507674fcdc"
   },
   {
-    "url": "assets/js/60.0d645063.js",
-    "revision": "1dff8038b62a1b59c0f469760928d5f4"
+    "url": "assets/js/60.de8f3f80.js",
+    "revision": "93f1cea09cf90b03c32820b8421e837c"
   },
   {
-    "url": "assets/js/61.7b915231.js",
-    "revision": "89ea047bcf1e38dca3a6cc646fcaa8a6"
+    "url": "assets/js/61.1c0b1b48.js",
+    "revision": "998a5591e770eb7eda0698cfb25df88c"
   },
   {
     "url": "assets/js/62.858890cc.js",
@@ -298,8 +298,8 @@ self.__precacheManifest = [
     "revision": "166d0005651352c9ddcc510107c3af12"
   },
   {
-    "url": "assets/js/app.b155d2c8.js",
-    "revision": "84d7e3a98e0f4d8ed91493c3a6aea08b"
+    "url": "assets/js/app.c42c57ab.js",
+    "revision": "0e3705bbaa42085e20ad3c91402f9c44"
   },
   {
     "url": "author.jpeg",
@@ -307,103 +307,103 @@ self.__precacheManifest = [
   },
   {
     "url": "basis/algorithms/index.html",
-    "revision": "62cc69507e58b933f55785742585eefa"
+    "revision": "0b11acc29f876bc625287ef7cf25b430"
   },
   {
     "url": "basis/algorithms/t1-buble-sort.html",
-    "revision": "ba99fa32a676c6d8e64196b932cde8e8"
+    "revision": "1559b7f900b460776adfb442ca29d07a"
   },
   {
     "url": "basis/algorithms/t2-selection-sort.html",
-    "revision": "88786cafacb57dbff66c8e5dbe88e6b2"
+    "revision": "475edaa297121f9f4e07ed73fe3c9e8f"
   },
   {
     "url": "basis/algorithms/t3-insertion-sort.html",
-    "revision": "ce60336ce9f4a7db5ecb46f81c401a8d"
+    "revision": "5a13751083706436dc0d750dcd724594"
   },
   {
     "url": "basis/algorithms/t4-shell-sort.html",
-    "revision": "9e3d48fe547ef14ebed7dff752e6a6e7"
+    "revision": "ad8072d0627417a61cfd051a2a157b0a"
   },
   {
     "url": "basis/algorithms/t5-quick-sort.html",
-    "revision": "17a3b58f2628ac93b414cd34578b011a"
+    "revision": "4e54520f3957cf637d7ff3fd03efb019"
   },
   {
     "url": "basis/algorithms/t6-heap-sort.html",
-    "revision": "d1b3e58fa2eceb778c12aff29ec52389"
+    "revision": "1ec70f6a3c6977bbcef6f6d60f13ba34"
   },
   {
     "url": "basis/algorithms/t7-merge-sort.html",
-    "revision": "c0441e937fbf54f3aaf7e703a7ec39ab"
+    "revision": "7f37684d54e932efcfb13119e1c777a5"
   },
   {
     "url": "basis/algorithms/t8-radix-sort.html",
-    "revision": "ba6df96bf1c306e817f8e7a9bda55661"
+    "revision": "8f03f887c652b3215962e5a991501073"
   },
   {
     "url": "basis/algorithms/t9-count-sort.html",
-    "revision": "3928c9dcbb9ae8758985740a1c71d142"
+    "revision": "d65edbb89e94f45063b38e5fd673b10e"
   },
   {
     "url": "basis/algorithms/u1-bucket-sort.html",
-    "revision": "a4df9188b4fa74ca43f6f8a32dd90c8c"
+    "revision": "bbe4a913b08b920f5e4c5da2f25bfaa5"
   },
   {
     "url": "basis/index/index.html",
-    "revision": "28f3912a66c9bd1fd942dca71a7893a2"
+    "revision": "74c4580261293a6664ba028e0f04074a"
   },
   {
     "url": "basis/os/index.html",
-    "revision": "e0537b62540c09801d0e3049a1f8b0c3"
+    "revision": "30e752f0b1283a54fce203c2882eb591"
   },
   {
     "url": "book/index.html",
-    "revision": "2f5898dafdf5bb38754f4f2ca4a9c1ba"
+    "revision": "d97b2ce6fe457a167a19b59a990a16b7"
   },
   {
     "url": "book/t-find-books.html",
-    "revision": "5acc2455bbe3555fb323460c0a5bcb2d"
+    "revision": "387764be269794bc835e447690eb37be"
   },
   {
     "url": "categories/index.html",
-    "revision": "fe10869635bc989e4a2c39f741af2c70"
+    "revision": "f3bdacdbb7c678b996c70f816a6502b1"
   },
   {
     "url": "figma/index.html",
-    "revision": "b897a88847ba03f90357578506164e80"
+    "revision": "5444c4cf253407c77fbd147592d6a8db"
   },
   {
     "url": "flutter/index.html",
-    "revision": "3d59c7378d04dbffb4f384a27c2a1188"
+    "revision": "0e0b9d890ca9f48ca7da7d9770d7dc62"
   },
   {
     "url": "flutter/t1-tips.html",
-    "revision": "186e1d0a42efc52d66e896fc937b100f"
+    "revision": "fa45e242dcccbc276a7eb10aa6d27002"
   },
   {
     "url": "flutter/t2-what.html",
-    "revision": "16d61649ddede689ab418ed924ee80bd"
+    "revision": "157fb65268daa5e3d96cc630f712eafe"
   },
   {
     "url": "flutter/t3-messages.html",
-    "revision": "1a5420dbea66089588ac22156f6e580b"
+    "revision": "9e4ea90a5811695263180710ec24c213"
   },
   {
     "url": "flutter/t3-mixin.html",
-    "revision": "5a3065932564b124e154b2b61dc8a206"
+    "revision": "7377d0a65f780c68b27395b9a06520c7"
   },
   {
     "url": "flutter/t4-flutter-web-deploy.html",
-    "revision": "2a23888f5b7a8d49a6793c0ae6eb3049"
+    "revision": "2c73a477986208d919ffe77c1093960d"
   },
   {
     "url": "flutter/t4-lifecycle.html",
-    "revision": "9f0b57a1ddb644d4dae0580e694d9ffd"
+    "revision": "d5ba2c4a6ca388f59d404d88284919a2"
   },
   {
     "url": "index.html",
-    "revision": "e7940189efeb8917fa03892d6ed53880"
+    "revision": "f15d9ea16506a754c899ac3dd8ac4786"
   },
   {
     "url": "logo.png",
@@ -411,67 +411,67 @@ self.__precacheManifest = [
   },
   {
     "url": "swift/swiftui/index.html",
-    "revision": "bb80e868f84ab78a937909fbe135ea6d"
+    "revision": "5d7c054e49282fe89150f3c40558df62"
   },
   {
     "url": "swift/swiftui/t1-principle.html",
-    "revision": "2639b9b5f12ff47ae4e01d9835bd8230"
+    "revision": "5af99e4c62a368816f6aac819521739f"
   },
   {
     "url": "swift/swiftui/t2-views_control.html",
-    "revision": "d941e04d7525bf30eda3e2bea7120cc9"
+    "revision": "fc785d378bdf22efa298350bbf27fd1a"
   },
   {
     "url": "swift/swiftui/t3-layout_presentation.html",
-    "revision": "1052f1971c516601016bfc422c97fd4b"
+    "revision": "d7146a5b97d319d25be9c361d9622988"
   },
   {
     "url": "swift/swiftui/t4-uikit_in_swiftui.html",
-    "revision": "e832b30bcb93a5a888aa24f317106554"
+    "revision": "21aa4412f15f8660897d29d7029b05c2"
   },
   {
     "url": "swift/swiftui/t5-swiftui_in_uikit.html",
-    "revision": "022cf673269b181d0ecefb1b6b3e5c92"
+    "revision": "3156c71f9fc5e2beb8f30c21009ff8de"
   },
   {
     "url": "swift/swiftui/t6-viewmodifier.html",
-    "revision": "1db4afad4fece3880e8f625a3c59b38a"
+    "revision": "7a8a5f18031d68806b305f4f2ffcfc59"
   },
   {
     "url": "swift/tips/index.html",
-    "revision": "6edecdf556ce367c1f7117ce2d0120f1"
+    "revision": "88edd782930c64ccb74720121bb356c8"
   },
   {
     "url": "swift/vapor/index.html",
-    "revision": "8529922f2133cd1d1818af717c6e7c4f"
+    "revision": "c746216e6eed3614ec5640cacb5b3447"
   },
   {
     "url": "swift/vapor/t1-install.html",
-    "revision": "15b970d00e4dfd88ee38af605545795d"
+    "revision": "43d85abf4a30675c0f2ab3b5be953c88"
   },
   {
     "url": "swift/vapor/t2-quickstart.html",
-    "revision": "20818896f071e73ebb545d0400c7f086"
+    "revision": "03f06665398764037eb853092139eff7"
   },
   {
     "url": "swift/vapor/t3-turotial.html",
-    "revision": "fc68c2001a839a1013672a6e8aada35c"
+    "revision": "5c742ea8083324abf5aeb21d2bc1be23"
   },
   {
     "url": "swift/vapor/t4-advanced.html",
-    "revision": "63129c97b3765bc736913496d25293d8"
+    "revision": "83bb80c1ca7b03302c9f65620b0b5d74"
   },
   {
     "url": "swift/vapor/t5-deploy.html",
-    "revision": "366b8bf867999988f86941a9e207f5b3"
+    "revision": "036f4098a9fcd534c270e55b0d94db6e"
   },
   {
     "url": "swift/vapor/t6-say-oldbirds.html",
-    "revision": "595d741839c003ec77b17be71c46a81b"
+    "revision": "3976e7508d23a03086756558cbce48c7"
   },
   {
     "url": "swift/vapor/t9-docker.html",
-    "revision": "6fdda48b4d2506aad2e662fc965ff080"
+    "revision": "06724cf49424939830ab4f87487ca606"
   },
   {
     "url": "swiftoldbird.jpeg",
@@ -479,103 +479,103 @@ self.__precacheManifest = [
   },
   {
     "url": "tag/flutter/index.html",
-    "revision": "b1632b87a88d61c184908d47783d0a49"
+    "revision": "d1c8c0a8b4ff0648d52f1e3ab14ceba0"
   },
   {
     "url": "tag/git/index.html",
-    "revision": "f930a96d0dccba55f9cea74175769fa0"
+    "revision": "69bc3d74acc422ac3647cc6c467ebe78"
   },
   {
     "url": "tag/html/index.html",
-    "revision": "3727134c1a39778e0d29587b6bf467ae"
+    "revision": "fffd3c56fbb00056ddd743d3a2306b94"
   },
   {
     "url": "tag/index.html",
-    "revision": "902853c7859db2c361a16adf6392f711"
+    "revision": "0b9d6431c2161e3ebf0eb218f6b92fac"
   },
   {
     "url": "tag/swift/index.html",
-    "revision": "f5731a96c71223adea783488b70ac7a4"
+    "revision": "52861d43a8fcaca964a6c76be2978d77"
   },
   {
     "url": "tag/swift/page/2/index.html",
-    "revision": "a5d27401ef87e58eb3eced65aba7c11a"
+    "revision": "03c2d4dcfe04468bb218fd27e7b0b534"
   },
   {
     "url": "tag/swiftui/index.html",
-    "revision": "31a8b0cf95eecad863642d5eb1f31c1b"
+    "revision": "e4e9d52d2d3812c169fb19420ba4bc46"
   },
   {
     "url": "tag/tips/index.html",
-    "revision": "dc5d49e63f12ba322f3ef96997f9b64a"
+    "revision": "f4266dd8b96ee468be75930dba234ab0"
   },
   {
     "url": "tag/tools/index.html",
-    "revision": "eec9af1fc05c5b36e7687ea7cde5762b"
+    "revision": "a905b8352123116085791aa786bf17a2"
   },
   {
     "url": "tag/vapor/index.html",
-    "revision": "177c7ec7a65c0466a911c63084487751"
+    "revision": "f9f64100288918266a0de5167b39e10e"
   },
   {
     "url": "tag/vuepress/index.html",
-    "revision": "ff1f507f5c8968675fe3b1f1f4c68356"
+    "revision": "cce427863c0c9d9b1da30173f7864d21"
   },
   {
     "url": "tag/yaml/index.html",
-    "revision": "17cac3fcc5764c94871d8d3881b43aae"
+    "revision": "55cd7756a5cd7aba339277df5234f467"
   },
   {
     "url": "tag/书单/index.html",
-    "revision": "926741f0780fbe6d4f5b196a69a9e3b4"
+    "revision": "909aed4f31a229559700dce9f4b7ff11"
   },
   {
     "url": "tag/基础/index.html",
-    "revision": "a6b584fa91a53cfe3784ae34a6599c91"
+    "revision": "f8e1145ce6023ae5f930930dafe28d35"
   },
   {
     "url": "tag/基础/page/2/index.html",
-    "revision": "6f8420666fa6ac5a2e62ac7603529c93"
+    "revision": "5d99f6e5365e8144c4b53247858d70f9"
   },
   {
     "url": "tag/数据结构与算法/index.html",
-    "revision": "aeff66bf45331cc49dd499ba30b0fe36"
+    "revision": "52f6e367ea5a8cbfe969bc7d7604f3cb"
   },
   {
     "url": "tag/数据结构与算法/page/2/index.html",
-    "revision": "0eae606086de55e02b42c9333697acd0"
+    "revision": "2121865c6775fcd3bfd2611b92d3a5a5"
   },
   {
     "url": "timeline/index.html",
-    "revision": "84c56eb9c33f20b5b27eb977d8160539"
+    "revision": "c1fa89dac91f8166cd9104fb908de263"
   },
   {
     "url": "tools/git/index.html",
-    "revision": "8806b4c03128c7c1ba1b96dd67519ae2"
+    "revision": "51bb3566178396a857b0010e22e8463a"
   },
   {
     "url": "tools/git/t1-change-history.html",
-    "revision": "4bae3eba8d8b6be570429cde22a5c585"
+    "revision": "3701a1a8aeba39899ec46d41bef32a67"
   },
   {
     "url": "tools/git/t2-git-submodule.html",
-    "revision": "8089491187c9376cd8c15406df9c5461"
+    "revision": "4a3baedf0c566482c54249d00f46133e"
   },
   {
     "url": "tools/html/index.html",
-    "revision": "644bb6829a12eabab96e09f3c79ab784"
+    "revision": "9527f7eb86a0bae6cb2459fa9ebaebe3"
   },
   {
     "url": "tools/vuepress/deploy.html",
-    "revision": "77b52899a11e3fb22f4a68bc267fa058"
+    "revision": "48508988f1cd7005b099c9a8578abe5f"
   },
   {
     "url": "tools/vuepress/index.html",
-    "revision": "bc61723df4f0773218b7ceef9234b2d6"
+    "revision": "52d65e462110d4d3b847d5eed99a23e7"
   },
   {
     "url": "tools/yaml/index.html",
-    "revision": "9eac5511d38945666110fea9915bce71"
+    "revision": "3dc1d911894872cb360c8c2c6d280009"
   },
   {
     "url": "vapor-zh.jpeg",
