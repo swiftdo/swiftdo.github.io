@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>在 Docker 上部署一个 Flutter Web 应用 | OldBirds</title>
+    <meta name="generator" content="VuePress 1.6.0">
+    <link rel="icon" href="/favicon.ico">
+    <script data-ad-client="ca-pub-4465026491979447" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta name="description" content="过来人的笔记，带你最佳实践，@OldBirds公众号">
+    <meta name="google-site-verification" content="6EogPdlAJYusvUHenXWXCGX-oVrqdeBnY-WsURHuKAA">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="keywords" content="oldbirds,oldbird,公众号,swift,swiftui,flutter,vapor,ios,figma,数据结构,算法,书单,vuepresss,git,yaml,设计模式,编程">
+    <link rel="preload" href="/assets/css/0.styles.625902b5.css" as="style"><link rel="preload" href="/assets/js/app.3313c864.js" as="script"><link rel="preload" href="/assets/js/3.1394f437.js" as="script"><link rel="preload" href="/assets/js/1.ed13abcb.js" as="script"><link rel="preload" href="/assets/js/39.133792d6.js" as="script"><link rel="preload" href="/assets/js/8.2c0db0b1.js" as="script"><link rel="prefetch" href="/assets/js/10.d33307ad.js"><link rel="prefetch" href="/assets/js/11.5e6ede6c.js"><link rel="prefetch" href="/assets/js/12.32c8b7e6.js"><link rel="prefetch" href="/assets/js/13.eafd63ba.js"><link rel="prefetch" href="/assets/js/14.145fbab5.js"><link rel="prefetch" href="/assets/js/15.5f7b5bec.js"><link rel="prefetch" href="/assets/js/16.ee6de255.js"><link rel="prefetch" href="/assets/js/17.dc7a9df9.js"><link rel="prefetch" href="/assets/js/18.7500f234.js"><link rel="prefetch" href="/assets/js/19.a4e9c3bb.js"><link rel="prefetch" href="/assets/js/20.78870bfc.js"><link rel="prefetch" href="/assets/js/21.8f17b6b0.js"><link rel="prefetch" href="/assets/js/22.f464170f.js"><link rel="prefetch" href="/assets/js/23.228231e7.js"><link rel="prefetch" href="/assets/js/24.a85ec7dc.js"><link rel="prefetch" href="/assets/js/25.5d6d0d49.js"><link rel="prefetch" href="/assets/js/26.62a6e1e6.js"><link rel="prefetch" href="/assets/js/27.6ba1e350.js"><link rel="prefetch" href="/assets/js/28.84791a07.js"><link rel="prefetch" href="/assets/js/29.25d3a50e.js"><link rel="prefetch" href="/assets/js/30.40a2119f.js"><link rel="prefetch" href="/assets/js/31.e23ff899.js"><link rel="prefetch" href="/assets/js/32.565bffa6.js"><link rel="prefetch" href="/assets/js/33.8bebf36a.js"><link rel="prefetch" href="/assets/js/34.5ea8ca3c.js"><link rel="prefetch" href="/assets/js/35.938f5118.js"><link rel="prefetch" href="/assets/js/36.21569c25.js"><link rel="prefetch" href="/assets/js/37.6699dd40.js"><link rel="prefetch" href="/assets/js/38.8165e559.js"><link rel="prefetch" href="/assets/js/4.cd5ac232.js"><link rel="prefetch" href="/assets/js/40.456d243f.js"><link rel="prefetch" href="/assets/js/41.c9baf80a.js"><link rel="prefetch" href="/assets/js/42.9bdfd1e9.js"><link rel="prefetch" href="/assets/js/43.4f110d19.js"><link rel="prefetch" href="/assets/js/44.118565fb.js"><link rel="prefetch" href="/assets/js/45.b7815f99.js"><link rel="prefetch" href="/assets/js/46.14a2c067.js"><link rel="prefetch" href="/assets/js/47.99efcc00.js"><link rel="prefetch" href="/assets/js/48.5884c853.js"><link rel="prefetch" href="/assets/js/49.486e39c2.js"><link rel="prefetch" href="/assets/js/5.d2a7825b.js"><link rel="prefetch" href="/assets/js/50.af20ceff.js"><link rel="prefetch" href="/assets/js/51.40e1c1e0.js"><link rel="prefetch" href="/assets/js/52.588ec5f5.js"><link rel="prefetch" href="/assets/js/53.4016e231.js"><link rel="prefetch" href="/assets/js/54.fa818264.js"><link rel="prefetch" href="/assets/js/55.6b650aed.js"><link rel="prefetch" href="/assets/js/56.c19b0343.js"><link rel="prefetch" href="/assets/js/57.72ac167a.js"><link rel="prefetch" href="/assets/js/58.f037578f.js"><link rel="prefetch" href="/assets/js/59.9a112671.js"><link rel="prefetch" href="/assets/js/6.52cab3c6.js"><link rel="prefetch" href="/assets/js/60.a7e0b33b.js"><link rel="prefetch" href="/assets/js/61.749712f0.js"><link rel="prefetch" href="/assets/js/62.2fd41b91.js"><link rel="prefetch" href="/assets/js/63.d6b6e1e3.js"><link rel="prefetch" href="/assets/js/7.a5327269.js"><link rel="prefetch" href="/assets/js/9.7001545e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.625902b5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-2d5f533b><div data-v-2d5f533b><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-2d5f533b data-v-2d5f533b><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-2d5f533b data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>OldBirds</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>oldbirds</span>
+            
+          <!---->
+          2020
+        </a></span></div></div> <div class="hide" data-v-2d5f533b><header class="navbar" data-v-2d5f533b><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="OldBirds" class="logo"> <span class="site-name">OldBirds</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      Swift
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/swift/swiftui/" class="nav-link"><i class="iconfont undefined"></i>
+  SwiftUI
+</a></li><li class="dropdown-item"><!----> <a href="/swift/vapor/" class="nav-link"><i class="iconfont undefined"></i>
+  Vapor
+</a></li><li class="dropdown-item"><!----> <a href="/swift/tips/" class="nav-link"><i class="iconfont undefined"></i>
+  Tips
+</a></li></ul></div></div><div class="nav-item"><a href="/flutter/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
+  Flutter
+</a></div><div class="nav-item"><a href="/figma/" class="nav-link"><i class="iconfont undefined"></i>
+  Figma
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      基础
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/basis/index/" class="nav-link"><i class="iconfont undefined"></i>
+  概要
+</a></li><li class="dropdown-item"><!----> <a href="/basis/algorithms/" class="nav-link"><i class="iconfont undefined"></i>
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/basis/os/" class="nav-link"><i class="iconfont undefined"></i>
+  操作系统
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      工具
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/vuepress/" class="nav-link"><i class="iconfont undefined"></i>
+  VuePress
+</a></li><li class="dropdown-item"><!----> <a href="/tools/git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/tools/yaml/" class="nav-link"><i class="iconfont undefined"></i>
+  YAML
+</a></li><li class="dropdown-item"><!----> <a href="/tools/html/" class="nav-link"><i class="iconfont undefined"></i>
+  HTML
+</a></li></ul></div></div><div class="nav-item"><a href="/book/" class="nav-link"><i class="iconfont undefined"></i>
+  书单
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      关于
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/about/index/" class="nav-link"><i class="iconfont undefined"></i>
+  关于我们
+</a></li><li class="dropdown-item"><!----> <a href="/about/app/" class="nav-link"><i class="iconfont undefined"></i>
+  APP
+</a></li></ul></div></div> <a href="https://github.com/swiftdo/swiftdo.github.io" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="outbound-link-title" role="img" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><title id="outbound-link-title">(opens new window)</title> <path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask" data-v-2d5f533b></div> <aside class="sidebar" data-v-2d5f533b><div class="personal-info-wrapper" data-v-ca798c94 data-v-2d5f533b><img src="/logo.png" alt="author-avatar" class="personal-img" data-v-ca798c94> <h3 class="name" data-v-ca798c94>
+    oldbirds
+  </h3> <div class="num" data-v-ca798c94><div data-v-ca798c94><h3 data-v-ca798c94>0</h3> <h6 data-v-ca798c94>Article</h6></div> <div data-v-ca798c94><h3 data-v-ca798c94>13</h3> <h6 data-v-ca798c94>Tag</h6></div></div> <hr data-v-ca798c94></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      Swift
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/swift/swiftui/" class="nav-link"><i class="iconfont undefined"></i>
+  SwiftUI
+</a></li><li class="dropdown-item"><!----> <a href="/swift/vapor/" class="nav-link"><i class="iconfont undefined"></i>
+  Vapor
+</a></li><li class="dropdown-item"><!----> <a href="/swift/tips/" class="nav-link"><i class="iconfont undefined"></i>
+  Tips
+</a></li></ul></div></div><div class="nav-item"><a href="/flutter/" class="nav-link router-link-active"><i class="iconfont undefined"></i>
+  Flutter
+</a></div><div class="nav-item"><a href="/figma/" class="nav-link"><i class="iconfont undefined"></i>
+  Figma
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      基础
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/basis/index/" class="nav-link"><i class="iconfont undefined"></i>
+  概要
+</a></li><li class="dropdown-item"><!----> <a href="/basis/algorithms/" class="nav-link"><i class="iconfont undefined"></i>
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/basis/os/" class="nav-link"><i class="iconfont undefined"></i>
+  操作系统
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      工具
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/vuepress/" class="nav-link"><i class="iconfont undefined"></i>
+  VuePress
+</a></li><li class="dropdown-item"><!----> <a href="/tools/git/" class="nav-link"><i class="iconfont undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/tools/yaml/" class="nav-link"><i class="iconfont undefined"></i>
+  YAML
+</a></li><li class="dropdown-item"><!----> <a href="/tools/html/" class="nav-link"><i class="iconfont undefined"></i>
+  HTML
+</a></li></ul></div></div><div class="nav-item"><a href="/book/" class="nav-link"><i class="iconfont undefined"></i>
+  书单
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont undefined"></i>
+      关于
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/about/index/" class="nav-link"><i class="iconfont undefined"></i>
+  关于我们
+</a></li><li class="dropdown-item"><!----> <a href="/about/app/" class="nav-link"><i class="iconfont undefined"></i>
+  APP
+</a></li></ul></div></div> <a href="https://github.com/swiftdo/swiftdo.github.io" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="outbound-link-title" role="img" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><title id="outbound-link-title">(opens new window)</title> <path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>FLUTTER</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/flutter/" aria-current="page" class="sidebar-link">flutter</a></li><li><a href="/flutter/t1-tips.html" class="sidebar-link">tips</a></li><li><a href="/flutter/t2-what.html" class="sidebar-link">什么是 Widgets、RenderObjects 和 Elements？</a></li><li><a href="/flutter/t3-messages.html" class="sidebar-link">Flutter中的通信传值</a></li><li><a href="/flutter/t3-mixin.html" class="sidebar-link">分离 View 与 Model 方案之 mixin</a></li><li><a href="/flutter/t4-lifecycle.html" class="sidebar-link">生命周期</a></li><li><a href="/flutter/t5-flutter-web-deploy.html" class="sidebar-link">在 Github 上部署一个 Flutter Web 应用</a></li><li><a href="/flutter/t6-docker-web-deploy.html" aria-current="page" class="active sidebar-link">在 Docker 上部署一个 Flutter Web 应用</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>在 Docker 上部署一个 Flutter Web 应用</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>oldbirds</span>
+            
+          <!---->
+          2020
+        </a></span></div></div> <div data-v-2d5f533b><main class="page"><div class="page-title" style="display:none;"><h1 class="title">在 Docker 上部署一个 Flutter Web 应用</h1> <div data-v-3b7f5bdf><i class="iconfont reco-account" data-v-3b7f5bdf><span data-v-3b7f5bdf>oldbirds</span></i> <i class="iconfont reco-date" data-v-3b7f5bdf><span data-v-3b7f5bdf>2020-09-26</span></i> <!----> <i class="iconfont reco-tag tags" data-v-3b7f5bdf><span class="tag-item" data-v-3b7f5bdf>flutter</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><p>之前整理过一篇 <a href="https://mp.weixin.qq.com/s/i864_-vEpD9vLHUrvLPz2w" target="_blank" rel="noopener noreferrer">在 Github 上部署一个 Flutter Web 应用<svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="outbound-link-title" role="img" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><title id="outbound-link-title">(opens new window)</title> <path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 的文章，可以很好的以 Github Pages 的方式进行部署。</p> <p>近期在做 <a href="https://github.com/swiftdo/boke" target="_blank" rel="noopener noreferrer">swiftdo/boke<svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="outbound-link-title" role="img" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><title id="outbound-link-title">(opens new window)</title> <path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 项目，采用 Docker 部署方案，前后端分离且用 Flutter Web 编写前端页面。所以在 Docker 的部署编排上，如何将前端的部署也整合到整个项目部署流程中，这是本文要讲的内容。</p> <p>首先前后端有各自仓库：</p> <ul><li>后端项目 boke： <code>https://github.com/swiftdo/boke.git</code></li> <li>前端项目 boke-flutter: <code>https://github.com/swiftdo/boke-flutter.git</code></li></ul> <p>后端项目 boke 已完成 Docker 部署编排，如果要将 <code>boke-flutter</code> 的部署也安排到 <code>boke</code> 的部署中，必须将 <code>boke-flutter</code> 放入到 <code>boke</code> 中。为了实现这个目的，将采用 <code>git submodule</code>。</p> <h2 id="步骤"><a href="#步骤" class="header-anchor">#</a> 步骤</h2> <p>在 <code>boke</code> 项目中，添加 <code>submodule</code>:</p> <div class="language-sh extra-class"><pre class="language-sh"><code>$ <span class="token function">git</span> submodule <span class="token function">add</span> https://github.com/swiftdo/boke-flutter.git
+</code></pre></div><p>完成添加后，会在 <code>boke</code> 项目中会多出个 <code>boke-flutter</code> 的目录。在原有的 <code>docker-compose.yml</code> 中，我们已经完成了后端项目的部署，那么如何加入前端的部署，我们的目的是啥？</p> <p>目的：开启前端项目</p> <p><strong>前端项目如何开启?</strong></p> <p>将 <code>boke-flutter</code> 项目编译完成后，通过 nginx 进行部署即可。</p> <p>所以，需要实现：</p> <div class="language-yml extra-class"><pre class="language-yml"><code><span class="token key atrule">web</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> boke<span class="token punctuation">-</span>flutter<span class="token punctuation">:</span>latest
+    <span class="token key atrule">build</span><span class="token punctuation">:</span>
+      <span class="token key atrule">context</span><span class="token punctuation">:</span> ./boke<span class="token punctuation">-</span>flutter/
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;8090:80&quot;</span>
+</code></pre></div><p>下一步，为 boke-flutter 编写 <code>Dockerfile</code> 即可。</p> <blockquote><p>Dockerfile 存放在 boke-flutter 根目录下</p></blockquote> <div class="language-sh extra-class"><pre class="language-sh"><code>FROM cirrusci/flutter:beta AS boke
+
+RUN <span class="token function">useradd</span> --user-group --create-home --system --skel /dev/null --home-dir /app cirrus
+RUN <span class="token builtin class-name">export</span> <span class="token assign-left variable">PUB_HOSTED_URL</span><span class="token operator">=</span>https://pub.flutter-io.cn
+RUN <span class="token builtin class-name">export</span> <span class="token assign-left variable">FLUTTER_STORAGE_BASE_URL</span><span class="token operator">=</span>https://storage.flutter-io.cn
+WORKDIR /app
+RUN <span class="token function">sudo</span> <span class="token function">chown</span> -R cirrus:cirrus /app
+RUN flutter config --enable-web
+COPY lib /app/lib
+COPY assets /app/assets
+COPY plugins /app/plugins
+COPY web /app/web
+COPY pubspec.yaml /app/pubspec.yaml
+
+RUN flutter build web  -v
+
+FROM nginx
+EXPOSE <span class="token number">80</span>
+COPY --from<span class="token operator">=</span>boke /app/build/web /usr/share/nginx/html
+</code></pre></div><p>开启前端：</p> <div class="language-sh extra-class"><pre class="language-sh"><code>$ docker-compose up -d web
+</code></pre></div><p>这样就完成了整个前后端的编排。</p> <p>整个编排配置，可以直接查看 <code>https://github.com/swiftdo/boke.git</code> 下的 <code>docker-compose.yml</code>。</p> <p>更多文章阅读，请关注微信公众号: OldBirds。</p></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">9/26/2020, 11:48:35 AM</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><!----><!----><!----><!----></div></div>
+    <script src="/assets/js/app.3313c864.js" defer></script><script src="/assets/js/3.1394f437.js" defer></script><script src="/assets/js/1.ed13abcb.js" defer></script><script src="/assets/js/39.133792d6.js" defer></script><script src="/assets/js/8.2c0db0b1.js" defer></script>
+  </body>
+</html>
