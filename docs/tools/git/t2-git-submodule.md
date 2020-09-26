@@ -17,6 +17,18 @@ git clone --recursive https://github.com/chaconinc/MainProject
 git submodule update --remote
 ```
 
+如果，git clone 的时候忘记 `--recursive`, 可以：
+
+```sh
+git submodule update --init
+```
+
+如果还要初始化、抓取并检出任何嵌套的子模块，请使用：
+
+```sh
+git submodule update --init --recursive
+```
+
 假定我们有两个项目：`project-main` 和 `project-sub-1`，其中 `project-main` 表示主项目，而 `project-sub-1` 表示子模块项目。
 
 其中 `project-main` 的远程仓库地址为 `https://github.com/username/project-main.git`，而 `project-sub-1` 的远程仓库地址为 `https://github.com/username/project-sub-1.git`。
