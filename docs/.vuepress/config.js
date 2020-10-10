@@ -35,7 +35,7 @@ module.exports = {
     plugins: pluginConf,
     themeConfig: {
         record: '粤ICP备18007810号-1',
-        recordLink: 'http://www.beian.miit.gov.cn/',
+        recordLink: 'https://beian.miit.gov.cn/#/Integrated/index',
         startYear: '2020',
         logo: '/logo.png',
         authorAvatar: '/logo.png',
@@ -43,6 +43,7 @@ module.exports = {
         smoothScroll: true,
         lastUpdated: '上次更新',
         nav: navConf,
-        author: 'oldbirds'
+        author: 'oldbirds',
+        subSidebar: 'auto'
     },
 }
