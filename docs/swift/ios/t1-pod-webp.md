@@ -68,8 +68,8 @@ fatal: unable to access 'https://chromium.googlesource.com/webm/libwebp/': Faile
     },
     ```
 
-    homepage 改为 `https://github.com/webmproject/`
-    source->git 改为 `https://github.com/webmproject/libwebp.git`
+    * homepage 改为 `https://github.com/webmproject/`
+    * source->git 改为 `https://github.com/webmproject/libwebp.git`
 
 * 最后重新执行 `pod install`
 
