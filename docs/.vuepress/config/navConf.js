@@ -37,6 +37,9 @@ module.exports = [{
         }, {
             text: '操作系统',
             link: '/basis/os/'
+        }, {
+            text: '设计模式',
+            link: '/basis/design/'
         }]
     },
     {
