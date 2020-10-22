@@ -82,13 +82,66 @@ struct MyRectangle: View {
 在 `GeometryProxy` 类中有两个计算型属性，一个方法，和一个下标取值。
 
 ```swift
+// The size of the container view.
 public var size: CGSize { get } // 父级视图建议的大小
+
+// The safe area inset of the container view.
 public var safeAreaInsets: EdgeInsets { get }
+
+// Returns the container view’s bounds rectangle, converted to a defined coordinate space.
 public func frame(in coordinateSpace: CoordinateSpace) -> CGRect
+
+
 public subscript<T>(anchor: Anchor<T>) -> T where T : Equatable { get }
 ```
 
-* **frame 方法**：暴露给我们了父级视图建议区域的大小位置，可以通过 `.local, .global, .named`来获取不同的坐标空间。`.named()`用来获取一个被命名的坐标空间，我们可以通过这个命名来获取其他`view`坐标空间。
+* **frame 方法**：暴露给我们了父级视图建议区域的大小位置，可以通过 `coordinateSpace`来获取不同的坐标空间。
+
+    ```swift
+    enum CoordinateSpace {
+        case global
+        case local
+        case named(AnyHashable)
+    }
+    ```
+    
+    * `global`的意思是获取基于整块屏幕的坐标位置
+    * `local`指的是容器视图，也就是`GeometryReader`的内部的相对位置。对于 `local` 怎么使用，这里有一张图，它比较清楚地解释了`local`中的位置参数。
+
+        ![](http://blog.loveli.site/mweb/16033300134485.jpg)
+
+    * `.name(AnyHashable)` 是获取相对坐标，比方下面的例子相对于蓝色 stack view 的坐标。
+    
+        ![](http://blog.loveli.site/mweb/16033307451728.jpg)
+
+        ```swift
+        struct ContentView: View {
+            var body: some View {
+                    VStack {
+                        Image("tony")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 300)
+                                .overlay(
+                                    GeometryReader {  geometry in
+                                        Text(geometry.frame(in: .named("blue view")).origin.debugDescription)
+                                            .background(Color.yellow)
+                                    }
+                        )
+                    }
+                    .frame(width: 400, height: 600)
+                    .background(Color.blue)
+                    .coordinateSpace(name: "blue view")
+                }
+        }
+        ```
+        
+        给 `VStack` 设置 `.coordinateSpace(name: "blue view")`，之后即可找出相对于 `blue view`的坐标。
+        
+        ```swift
+        geometry.frame(in: .named("blue view")).origin.debugDescription
+        ```
+    
 
 * **subscript**: 通过下标取值来获取一个锚点。可以获取视图树中任何子级视图的 size 和 x，y
 
