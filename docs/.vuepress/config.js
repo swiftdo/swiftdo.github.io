@@ -30,8 +30,10 @@ module.exports = {
         }]
     ],
     markdown: {
-        plugins: ['task-lists']
+        plugins: ['task-lists','markdown-it-plantuml' ],
     },
+    
+    
     plugins: pluginConf,
     themeConfig: {
         record: '粤ICP备18007810号-1',

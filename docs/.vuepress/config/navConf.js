@@ -59,6 +59,10 @@ module.exports = [{
             {
                 text: 'HTML',
                 link: '/tools/html/'
+            },
+            {
+                text: 'PlantUML',
+                link: '/tools/plantuml/'
             }
         ]
     },
