@@ -49,12 +49,10 @@ module.exports = {
         subSidebar: 'auto',
         vssueConfig: {
             platform: 'github-v4',
-            locale: 'zh',
             owner: 'swiftdo',
             repo: 'swiftdo.github.io',
             clientId: 'e43a2d1d85c12901c127',
-            clientSecret: 'aa769adc5d844cb5cfb88eb3aa0ca46fc070ee34',
-            autoCreateIssue:true
+            clientSecret: 'aa769adc5d844cb5cfb88eb3aa0ca46fc070ee34'
         }
     },
 }
