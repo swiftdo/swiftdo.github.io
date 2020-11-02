@@ -11,14 +11,13 @@ module.exports = {
         }
     },
     '@vssue/vuepress-plugin-vssue': {
-        platform: 'github-v4', //v3的platform是github，v4的是github-v4
-        locale: 'zh', //语言
-        // 其他的 Vssue 配置
-        owner: 'oheroj', //github账户名
-        repo: 'swiftdo', //github一个项目的名称
-        clientId: 'e43a2d1d85c12901c127',//注册的Client ID
-        clientSecret: 'aa769adc5d844cb5cfb88eb3aa0ca46fc070ee34',//注册的Client Secret
-        autoCreateIssue:true // 自动创建评论，默认是false，最好开启，这样首次进入页面的时候就不用去点击创建评论的按钮了。
+        platform: 'github-v4',
+        locale: 'zh',
+        owner: 'oheroj',
+        repo: 'swiftdo',
+        clientId: 'e43a2d1d85c12901c127',
+        clientSecret: 'aa769adc5d844cb5cfb88eb3aa0ca46fc070ee34',
+        autoCreateIssue:true
     },
     '@vuepress/google-analytics': {
         'ga': 'UA-141621537-2'
