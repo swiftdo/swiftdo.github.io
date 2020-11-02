@@ -51,8 +51,8 @@ module.exports = {
             platform: 'github-v4',
             owner: 'swiftdo',
             repo: 'swiftdo.github.io',
-            clientId: 'e43a2d1d85c12901c127',
-            clientSecret: 'aa769adc5d844cb5cfb88eb3aa0ca46fc070ee34'
+            clientId: 'c91ff3d0b5753a4788de',
+            clientSecret: 'ad67e4630d3bf3709badbfcfe6c5dfdc21d4c04a'
         }
     },
 }
