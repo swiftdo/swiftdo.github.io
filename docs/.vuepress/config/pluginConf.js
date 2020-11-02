@@ -10,15 +10,6 @@ module.exports = {
             buttonText: "刷新"
         }
     },
-    '@vssue/vuepress-plugin-vssue': {
-        platform: 'github-v4',
-        locale: 'zh',
-        owner: 'oheroj',
-        repo: 'swiftdo',
-        clientId: 'e43a2d1d85c12901c127',
-        clientSecret: 'aa769adc5d844cb5cfb88eb3aa0ca46fc070ee34',
-        autoCreateIssue:true
-    },
     '@vuepress/google-analytics': {
         'ga': 'UA-141621537-2'
     },
