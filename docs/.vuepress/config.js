@@ -48,7 +48,7 @@ module.exports = {
         author: 'oldbirds',
         subSidebar: 'auto',
         vssueConfig: {
-            platform: 'github-v4',
+            platform: 'github',
             owner: 'swiftdo',
             repo: 'swiftdo.github.io',
             clientId: 'c91ff3d0b5753a4788de',

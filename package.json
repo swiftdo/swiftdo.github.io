@@ -38,7 +38,7 @@
     "vuepress-theme-reco": "^1.5.5"
   },
   "dependencies": {
-    "@vssue/api-github-v4": "^1.4.0",
+    "@vssue/api-github-v3": "^1.4.4",
     "@vssue/vuepress-plugin-vssue": "^1.4.6",
     "@vuepress-yard/vuepress-plugin-window": "^1.0.10",
     "markdown-it-task-lists": "^2.1.1",
