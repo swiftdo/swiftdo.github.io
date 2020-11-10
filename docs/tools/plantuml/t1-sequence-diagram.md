@@ -1,54 +1,20 @@
 ---
-title: 'plantuml 安装'
+title: '时序图'
 sitemap:
   exclude: false
   changefreq: hourly
-date: 2020-10-25
+date: 2020-11-10
 tags:
 - tools
 - plantuml
 ---
-
-PlantUML 是一个开源项目，支持快速绘制:
-* 时序图
-* 用例图 
-* 类图
-* 活动图 
-* 组件图 
-* 状态图 
-* 对象图 
-* 部署图 
-* 定时图
-
-同时还支持以下非 UML 图: 
-
-* 线框图形界面
-* 架构图
-* 规范和描述语言 (SDL)
-* Ditaa diagram
-* 甘特图
-* MindMap diagram
-* Work Breakdown Structure diagram
-* 以 AsciiMath 或 JLaTeXMath 符号的数学公式
-
-通过简单直观的语言来定义这些示意图。
-
-> 比较类似的画图工具：mermaid, viz, echarts, plantuml, sequence, flow 等。
-
-## 安装
-
-VScode 上利用 PlantUML 插件和 Markdown Preview Enhance 插件实现快速绘图，并导出图像。前者支持 `*.wsd, *.pu, *.puml, *.plantuml, *.iuml` 格式的文件，后者支持在 `Markdown` 中直接绘图和预览，并通过其他插件将 `Markdown` 文件导出为其他格式。
-
-* 首先你需要安装 VS CODE
-* 安装 Plantuml 插件
-* `brew install plantuml`
 
 
 ## 时序图
 
 时序图(Sequence Diagram)，又名序列图、循序图，是一种 UML 交互图。它通过描述对象之间发送消息的时间顺序显示多个对象之间的动态协作。
 
-### 时序图的角色
+## 时序图的角色
 
 我们在画时序图时会涉及下面7种元素：
 
@@ -99,9 +65,9 @@ VScode 上利用 PlantUML 插件和 Markdown Preview Enhance 插件实现快速�
 
 ![](http://blog.loveli.site/mweb/Screen%20Shot%202020-11-09%20at%202.07.17%20PM.png)
 
-### plantuml
+## plantuml
 
-#### 请求、回调、渲染
+### 请求、回调、渲染
 ```
 @startuml test
 participant c as "Client"
@@ -146,7 +112,7 @@ destroy c
 @enduml
 
 
-#### 自我调用
+### 自我调用
 
 ```
 @startuml test2
@@ -185,7 +151,7 @@ deactivate c
 @enduml
 
 
-#### 入口和出口
+### 入口和出口
 
 ```
 @startuml test3
@@ -211,7 +177,7 @@ participant s as "Server"
 @enduml
 
 
-#### 逻辑分支
+### 逻辑分支
 
 ```
 @startuml test4
@@ -243,7 +209,7 @@ end
 @enduml
 
 
-#### 循环
+### 循环
 
 ```
 @startuml test5
@@ -271,7 +237,7 @@ end
 @enduml
 
 
-#### 自定义组
+### 自定义组
 
 ```
 @startuml test6
@@ -298,7 +264,7 @@ end
 @enduml
 
 
-#### 注解
+### 注解
 
 ```
 @startuml test7
@@ -334,7 +300,7 @@ s --> c: callback
 note right: right note
 @enduml
 
-#### 分隔线 
+### 分隔线 
 
 ```
 @startuml test8
@@ -366,7 +332,7 @@ s --> c: callback
 @enduml
 
 
-#### 外框
+### 外框
 
 ```
 @startuml test9
@@ -386,3 +352,4 @@ box "Box" #LightBlue
     participant c as "Client"
 end box 
 @enduml
+
