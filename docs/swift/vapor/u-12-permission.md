@@ -353,7 +353,7 @@ func can(id: UUID?, permission: ETNameSpace.Permission) throws -> EventLoopFutur
 }
 ```
 
-在路由中，我们希望接口只允许符合某个权限才允许访问，那么我们可以创建个中间件 PermissionMiddleware:
+在路由中，我们希望接口只符合某个权限才允许访问，那么可以创建个中间件 `PermissionMiddleware` 进行限制
 
 ```swift
 import Vapor
