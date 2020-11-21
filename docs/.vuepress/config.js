@@ -32,8 +32,6 @@ module.exports = {
     markdown: {
         plugins: ['task-lists','markdown-it-plantuml' ],
     },
-    
-    
     plugins: pluginConf,
     themeConfig: {
         record: '粤ICP备18007810号-1',
@@ -47,13 +45,13 @@ module.exports = {
         nav: navConf,
         author: 'oldbirds',
         subSidebar: 'auto',
-        vssueConfig: {
-            platform: 'github',
-            owner: 'swiftdo',
-            repo: 'swiftdo.github.io',
-            clientId: 'c91ff3d0b5753a4788de',
-            clientSecret: 'ad67e4630d3bf3709badbfcfe6c5dfdc21d4c04a',
-            autoCreateIssue: true
-        }
+        // vssueConfig: {
+        //     platform: 'github',
+        //     owner: 'swiftdo',
+        //     repo: 'swiftdo.github.io',
+        //     clientId: 'c91ff3d0b5753a4788de',
+        //     clientSecret: 'ad67e4630d3bf3709badbfcfe6c5dfdc21d4c04a',
+        //     autoCreateIssue: true
+        // }
     },
 }

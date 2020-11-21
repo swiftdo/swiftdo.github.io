@@ -38,12 +38,10 @@
     "vuepress-theme-reco": "^1.5.7"
   },
   "dependencies": {
-    "@vssue/api-github-v3": "^1.4.4",
-    "@vssue/vuepress-plugin-vssue": "^1.4.6",
     "@vuepress-reco/vuepress-plugin-comments": "^1.5.7",
     "@vuepress-yard/vuepress-plugin-window": "^1.0.10",
     "esm": "^3.2.25",
-    "markdown-it": "^12.0.2",
+    "markdown-it": "^11.0.1",
     "markdown-it-task-lists": "^2.1.1",
     "vuepress-plugin-robots": "^1.0.1",
     "vuepress-plugin-sitemap": "^2.3.1"
