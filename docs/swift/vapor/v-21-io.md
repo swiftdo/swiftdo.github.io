@@ -267,6 +267,73 @@ epoll 相较于 select/poll，多了两次系统调用，其中 epoll_create 建
 
 ![](http://blog.loveli.site/2020-11-22-16059762518059.jpg)
 
+
+```python
+import socket
+import select
+
+connections = {}
+addresses = {}
+
+
+def main(server_address):
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    s.bind(server_address)
+    s.listen(10)
+
+    # 创建一个 epoll 对象
+    epoll = select.epoll()
+
+    # 将创建的套接字添加到 epoll 的事件监听中
+    epoll.register(s.fileno(), select.EPOLLIN | select.EPOLLET)
+
+    # 循环等待客户端的到来或者对方发送数据
+    while True:
+        # epoll 进行 fd 扫描的地方 -- 未指定超时时间则为阻塞等待
+        epoll_list = epoll.poll()
+
+        for fd, events in epoll_list:
+            # 如果是socket创建的套接字被激活
+            if fd == s.fileno():
+                new_socket, new_address = s.accept()
+                connections[new_socket.fileno()] = new_socket
+                addresses[new_socket.fileno()] = new_address
+
+                # 向 epoll 中注册 新socket 的 可读 事件
+                epoll.register(new_socket.fileno(),
+                               select.EPOLLIN | select.EPOLLET)
+
+            # 如果是客户端发送数据
+            elif events == select.EPOLLIN:
+                # 从激活 fd 上接收
+                recvData = connections[fd].recv(1024).decode("utf-8")
+
+                if recvData:
+                    deal_with_request(recvData,
+                                      connections[new_socket.fileno()])
+                else:
+                    # 从 epoll 中移除该 连接 fd
+                    epoll.unregister(fd)
+                    # server 侧主动关闭该 连接 fd
+                    connections[fd].close()
+
+                    del connections[fd]
+                    del addresses[fd]
+
+
+def deal_with_request(request, client_socket):
+    # 将header返回给浏览器
+    client_socket.send(request.encode('utf-8'))
+
+
+# 设定服务器的端口
+SERVER_ADDR = (HOST, PORT) = "", 8889
+
+if __name__ == '__main__':
+    main(SERVER_ADDR)
+```
+
 ### I/O模型之信号驱动IO(SIGIO)
 
 信号驱动 IO 与 BIO 和 NIO 最大的区别就在于，在 IO 执行的数据准备阶段，**不会阻塞用户进程**。
@@ -286,7 +353,6 @@ epoll 相较于 select/poll，多了两次系统调用，其中 epoll_create 建
 ![](http://blog.loveli.site/2020-11-22-16059764518724.jpg)
 
 所以，之所以称为异步 I/O，取决于 I/O 执行的第二阶段是否阻塞。因此前面讲的 BIO，NIO 和 SIGIO 均为同步 IO。
-
 
 ![](http://blog.loveli.site/2020-11-22-16059764725587.jpg)
 
