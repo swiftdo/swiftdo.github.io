@@ -10,7 +10,7 @@ tags:
 - swiftnio
 ---
 
-为什么 SwiftNIO 能够实现高性能、高并发的需求，需要大量的实战，才能不断体会它的原理。接下来会写几个 SwiftNIO 的实战样例，体会它的强大之处。
+为什么 `SwiftNIO` 能够实现高性能、高并发的需求，需要大量的实战，才能不断体会它的原理。接下来会写几个 `SwiftNIO` 的实战样例，体会它的强大之处。
 
 ## 文本修改服务器的需求
 
@@ -332,3 +332,98 @@ $ nc ::1 8888
 输入消息，然后按 Enter。您应该看到回显后的文本已修改。
 
 ![-w367](http://blog.loveli.site/2020-11-29-16066221925549.png)
+
+## 源码
+
+实现的完整源码：
+
+```swift
+import Foundation
+import NIO
+
+let group = MultiThreadedEventLoopGroup(numberOfThreads: System.coreCount)
+
+let bootstrap = ServerBootstrap(group: group)
+    /// ① 配置 ServerChannel
+    .serverChannelOption(ChannelOptions.backlog, value: 256)
+    .serverChannelOption(ChannelOptions.socketOption(.so_reuseaddr), value: 1)
+    /// ②  子 channel 的初始化
+    /// (当 一个连接被我们服务器接收)
+    .childChannelInitializer { channel  in
+        /// ③  将 Handles 添加到管道中
+        channel.pipeline.addHandlers([BackPressureHandler(), UpcaseHandler(), VowelsHandler(), ColourHandler()])
+    }
+    /// ④  配置子channel
+    .childChannelOption(ChannelOptions.socketOption(.so_reuseaddr), value: 1)
+    .childChannelOption(ChannelOptions.maxMessagesPerRead, value: 16)
+    .childChannelOption(ChannelOptions.recvAllocator, value: AdaptiveRecvByteBufferAllocator())
+
+
+let defaultHost = "::1"
+let defaultPort = 8888
+
+let channel = try bootstrap.bind(host: defaultHost, port: defaultPort).wait()
+print("Server started and listening on \(channel.localAddress!)")
+
+try channel.closeFuture.wait()
+print("Server closed")
+
+
+final class UpcaseHandler: ChannelInboundHandler {
+    typealias InboundIn =  ByteBuffer
+    typealias InboundOut = [CChar]
+
+    func channelRead(context: ChannelHandlerContext, data: NIOAny) {
+        let inBuf = self.unwrapInboundIn(data)
+        let str = inBuf.getString(at: 0, length: inBuf.readableBytes)
+        let result = str?.uppercased() ?? ""
+        let cresult = result.cString(using: .utf8) ?? []
+        context.fireChannelRead(self.wrapInboundOut(cresult))
+    }
+}
+
+final class VowelsHandler:ChannelInboundHandler {
+    public typealias InboundIn = [CChar]
+    public typealias InboundOut = ByteBuffer
+
+    func channelRead(context: ChannelHandlerContext, data: NIOAny) {
+        let inBuff = self.unwrapInboundIn(data)
+        let str = String(cString: inBuff)
+
+        let vowels: [Character] = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
+
+        let result = String(str.map { vowels.contains($0) ? Character("*") : $0 })
+
+        var buffOut = context.channel.allocator.buffer(capacity: result.count)
+        buffOut.writeString(result)
+
+        context.fireChannelRead(self.wrapInboundOut(buffOut))
+    }
+
+    func channelReadComplete(context: ChannelHandlerContext) {
+        context.flush()
+    }
+
+    func errorCaught(context: ChannelHandlerContext, error: Error) {
+        print("error: ", error)
+        context.close(promise: nil)
+    }
+
+}
+
+final class ColourHandler: ChannelInboundHandler {
+    typealias InboundIn = ByteBuffer
+    typealias InboundOut = ByteBuffer
+
+
+    func channelRead(context: ChannelHandlerContext, data: NIOAny) {
+        let inBuff = self.unwrapInboundIn(data)
+        let str = inBuff.getString(at: 0, length: inBuff.readableBytes) ?? ""
+        let result = "\u{1B}[32m\(str)\u{1B}[0m"
+
+        var buff = context.channel.allocator.buffer(capacity: result.count )
+        buff.writeString(result)
+        context.write(self.wrapInboundOut(buff), promise: nil)
+    }
+}
+```
