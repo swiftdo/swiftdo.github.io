@@ -10,7 +10,18 @@ tags:
 - swiftnio
 ---
 
-为什么 `SwiftNIO` 能够实现高性能、高并发的需求，需要大量的实战，才能不断体会它的原理。接下来会写几个 `SwiftNIO` 的实战样例，体会它的强大之处。
+
+为什么 `SwiftNIO` 能够实现高性能、高并发的需求?
+
+> Netty是一个高性能、异步事件驱动的 NIO 框架，它提供了对TCP、UDP和文件传输的支持，作为一个异步 NIO 框架，Netty 的所有 IO 操作都是异步非阻塞的，通过 Future-Listener 机制，用户可以方便的主动获取或者通过通知机制获得 IO 操作结果。
+
+SwiftNIO 是 Netty 的 Swift 版本实现。
+
+但是我们对 Netty 并不熟悉，无法体会其特性。
+
+所以接下来会写几个 `SwiftNIO` 的实战样例，体会它的强大之处。
+
+> 待我们熟练了 `SwiftNIO` 的使用，再多个角度分析其高性能、高并发的原理。
 
 ## 文本修改服务器的需求
 
@@ -106,8 +117,11 @@ let bootstrap = ServerBootstrap(group: group)
 ```
 
 ① 对于服务器通道，定义 `backlog` 选项，该选项用于指定挂起的连接队列的最大长度。如果队列已满时新连接倒带，则客户端将收到错误消息。设置 `.so_reuseaddr`，它指定套接字可以绑定到地址的规则。
+
 ② 定义通道初始化器。
-③ 将处理程序添加到通道的管道中。`BackPressureHandler` 由 `SwiftNIO` 提供给了我们，当无法以足够快的速度回写时，停止从远程对等方读取，一旦待处理数据已写入，它将再次开始读取。我们可以一次添加一个处理程序，也可以通过传递一组处理程序来添加多个处理程序。
+
+③ 将处理程序添加到通道的管道中。`BackPressureHandler` 由 `SwiftNIO` 提供给了我们————当无法以足够快的速度回写时，停止从远程对等方读取，一旦待处理数据已写入，它将再次开始读取。我们可以一次添加一个处理程序，也可以通过传递一组处理程序来添加多个处理程序。
+
 ④ 我们定义 childChannelOptions
 
 > **Bootstrap**
@@ -164,20 +178,19 @@ print("Server closed")
 
 ## 创建通道处理程序 
 
-每个处理程序在我们的 channel pipline 中都处于特定位置，如果要将数据从一个处理程序传递到下一个处理程序，则需要确保一个处理程序的输出类型与以下一个处理程序的输入类型匹配。有两种处理程序：
+每个处理程序在我们的通道的管道中都处于特定位置，如果要将数据从一个处理程序传递到下一个处理程序，则需要确保一个处理程序的输出类型与以下一个处理程序的输入类型匹配。有两种处理程序类型：
 
 * ChannelOutboundHandler
 * ChannelInboundHandler
 
-区别在于事件的发源地或发源地。
+区别在于事件的发源地。
 
 选择实现哪种类型的处理程序时，请记住以下几点：
 
-* 如果事件源自源，请使用 `ChannelInboundHandler`
+* 如果事件来自源，请使用 `ChannelInboundHandler`
 * 如果要将事件传递给源，请使用 `ChannelOutboundHandler`
 
 在本例中，由于事件来自源，即客户端连接到我们的服务器，因此我们将使用 `ChannelInboutHandler`
-
 
 ```swift
 Client: hello
@@ -301,7 +314,7 @@ final class ColourHandler: ChannelInboundHandler {
 }
 ```
 
-在这个处理程序中，我们知道没有下一个 hannder, 因此不需要传递数据给下一个管道。我们需要将数据回传给客户端，采用 contenxt 的 `write` 方法。强烈建议你查阅 [ChannelHandlerContext](https://apple.github.io/swift-nio/docs/current/NIO/Classes/ChannelHandlerContext.html) 的所有文档，它包含了很多有用的信息。
+在这个处理程序中，我们知道没有下一个 hannder，因此不需要传递数据给下一个管道。我们需要将数据回传给客户端，采用 contenxt 的 `write` 方法。强烈建议查阅 [ChannelHandlerContext](https://apple.github.io/swift-nio/docs/current/NIO/Classes/ChannelHandlerContext.html) 的所有文档，它包含了很多有用的信息。
 
 ## 运行服务器
 
