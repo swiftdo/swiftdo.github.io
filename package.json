@@ -35,10 +35,10 @@
     "vuepress-plugin-baidu-autopush": "^1.0.1",
     "vuepress-plugin-image": "^1.0.4",
     "vuepress-plugin-nuggets-style-copy": "^1.0.3",
-    "vuepress-theme-reco": "^1.5.7"
+    "vuepress-theme-reco": "^1.6.1"
   },
   "dependencies": {
-    "@vuepress-reco/vuepress-plugin-comments": "^1.5.7",
+    "@vuepress-reco/vuepress-plugin-comments": "^1.6.0",
     "@vuepress-yard/vuepress-plugin-window": "^1.0.10",
     "esm": "^3.2.25",
     "markdown-it": "^11.0.1",
