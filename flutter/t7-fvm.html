@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>在 Docker 上部署一个 Flutter Web 应用 | OldBirds</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    <link rel="icon" href="/favicon.ico">
+    <script data-ad-client="ca-pub-4465026491979447" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta name="description" content="过来人的笔记，带你最佳实践，@OldBirds公众号">
+    <meta name="google-site-verification" content="6EogPdlAJYusvUHenXWXCGX-oVrqdeBnY-WsURHuKAA">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="keywords" content="oldbirds,oldbird,公众号,swift,swiftui,flutter,vapor,ios,figma,数据结构,算法,书单,vuepresss,git,yaml,设计模式,编程">
+    
+    <link rel="preload" href="/assets/css/0.styles.ef8fbc08.css" as="style"><link rel="preload" href="/assets/js/app.95b393a1.js" as="script"><link rel="preload" href="/assets/js/3.1b0902a1.js" as="script"><link rel="preload" href="/assets/js/1.a23113d3.js" as="script"><link rel="preload" href="/assets/js/8.9a4a9dd8.js" as="script"><link rel="prefetch" href="/assets/js/10.e2cce4b3.js"><link rel="prefetch" href="/assets/js/11.c9745764.js"><link rel="prefetch" href="/assets/js/12.49def26c.js"><link rel="prefetch" href="/assets/js/13.2d6171c6.js"><link rel="prefetch" href="/assets/js/14.3f74a4b1.js"><link rel="prefetch" href="/assets/js/15.bfa0770d.js"><link rel="prefetch" href="/assets/js/16.a5e1c9f3.js"><link rel="prefetch" href="/assets/js/17.dc987c41.js"><link rel="prefetch" href="/assets/js/18.bf7b1e37.js"><link rel="prefetch" href="/assets/js/19.cc51179b.js"><link rel="prefetch" href="/assets/js/20.c1a612f9.js"><link rel="prefetch" href="/assets/js/21.85927cdf.js"><link rel="prefetch" href="/assets/js/22.7c8f04d2.js"><link rel="prefetch" href="/assets/js/23.577ce3af.js"><link rel="prefetch" href="/assets/js/24.b88ad7c5.js"><link rel="prefetch" href="/assets/js/25.3182394a.js"><link rel="prefetch" href="/assets/js/26.fb1b6b52.js"><link rel="prefetch" href="/assets/js/27.50d208bb.js"><link rel="prefetch" href="/assets/js/28.abfe1ab8.js"><link rel="prefetch" href="/assets/js/29.c1e39a16.js"><link rel="prefetch" href="/assets/js/30.3a8e1dad.js"><link rel="prefetch" href="/assets/js/31.4b330b51.js"><link rel="prefetch" href="/assets/js/32.65834969.js"><link rel="prefetch" href="/assets/js/33.d8fef21e.js"><link rel="prefetch" href="/assets/js/34.6c134203.js"><link rel="prefetch" href="/assets/js/35.375aede9.js"><link rel="prefetch" href="/assets/js/36.572d6680.js"><link rel="prefetch" href="/assets/js/37.70a93f7e.js"><link rel="prefetch" href="/assets/js/38.8384d80c.js"><link rel="prefetch" href="/assets/js/39.2cd1419d.js"><link rel="prefetch" href="/assets/js/4.0cf07b02.js"><link rel="prefetch" href="/assets/js/40.84d69d29.js"><link rel="prefetch" href="/assets/js/41.83cd9f32.js"><link rel="prefetch" href="/assets/js/42.965d7a6c.js"><link rel="prefetch" href="/assets/js/43.569961d8.js"><link rel="prefetch" href="/assets/js/44.7627da33.js"><link rel="prefetch" href="/assets/js/45.ee47df22.js"><link rel="prefetch" href="/assets/js/46.452ac3a3.js"><link rel="prefetch" href="/assets/js/47.1da7cab9.js"><link rel="prefetch" href="/assets/js/48.ef58f318.js"><link rel="prefetch" href="/assets/js/49.81d88c6c.js"><link rel="prefetch" href="/assets/js/5.e00cae0f.js"><link rel="prefetch" href="/assets/js/50.2bea3e86.js"><link rel="prefetch" href="/assets/js/51.62267db6.js"><link rel="prefetch" href="/assets/js/52.cd32977a.js"><link rel="prefetch" href="/assets/js/53.2d4c43f8.js"><link rel="prefetch" href="/assets/js/54.293c15c5.js"><link rel="prefetch" href="/assets/js/55.6bf15713.js"><link rel="prefetch" href="/assets/js/56.89f1b903.js"><link rel="prefetch" href="/assets/js/57.46444141.js"><link rel="prefetch" href="/assets/js/58.7c02b433.js"><link rel="prefetch" href="/assets/js/59.d48c00f8.js"><link rel="prefetch" href="/assets/js/6.6e678aff.js"><link rel="prefetch" href="/assets/js/60.59162d19.js"><link rel="prefetch" href="/assets/js/61.a001904b.js"><link rel="prefetch" href="/assets/js/62.90150ae3.js"><link rel="prefetch" href="/assets/js/63.120cf9e0.js"><link rel="prefetch" href="/assets/js/64.d8abfb8e.js"><link rel="prefetch" href="/assets/js/65.36f0e40f.js"><link rel="prefetch" href="/assets/js/66.d2201198.js"><link rel="prefetch" href="/assets/js/67.93f84304.js"><link rel="prefetch" href="/assets/js/68.9d146b1d.js"><link rel="prefetch" href="/assets/js/69.fc9c0cd7.js"><link rel="prefetch" href="/assets/js/7.923ac453.js"><link rel="prefetch" href="/assets/js/70.f2e6fd25.js"><link rel="prefetch" href="/assets/js/71.f183ded1.js"><link rel="prefetch" href="/assets/js/72.b20353b4.js"><link rel="prefetch" href="/assets/js/73.033e7bd6.js"><link rel="prefetch" href="/assets/js/74.6c31a7c8.js"><link rel="prefetch" href="/assets/js/75.37b0ddb2.js"><link rel="prefetch" href="/assets/js/76.78027693.js"><link rel="prefetch" href="/assets/js/77.55487e01.js"><link rel="prefetch" href="/assets/js/78.d54968e3.js"><link rel="prefetch" href="/assets/js/79.14269b63.js"><link rel="prefetch" href="/assets/js/80.680caf72.js"><link rel="prefetch" href="/assets/js/81.9dea144d.js"><link rel="prefetch" href="/assets/js/82.435d656f.js"><link rel="prefetch" href="/assets/js/83.bf0f14b0.js"><link rel="prefetch" href="/assets/js/84.259abfd6.js"><link rel="prefetch" href="/assets/js/85.aa073478.js"><link rel="prefetch" href="/assets/js/86.b6d67314.js"><link rel="prefetch" href="/assets/js/9.7a64c4f8.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ef8fbc08.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-ed7af0ae><div data-v-ed7af0ae><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-ed7af0ae data-v-ed7af0ae><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-faa80d68 data-v-ed7af0ae data-v-ed7af0ae><h3 class="title" style="display:none;" data-v-faa80d68 data-v-faa80d68>OldBirds</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-faa80d68 data-v-faa80d68><input type="password" value="" data-v-faa80d68> <span data-v-faa80d68>Konck! Knock!</span> <button data-v-faa80d68>OK</button></label> <div class="footer" style="display:none;" data-v-faa80d68 data-v-faa80d68><span data-v-faa80d68><i class="iconfont reco-theme" data-v-faa80d68></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-faa80d68>vuePress-theme-reco</a></span> <span data-v-faa80d68><i class="iconfont reco-copyright" data-v-faa80d68></i> <a data-v-faa80d68><span data-v-faa80d68>oldbirds</span>
+            
+          <span data-v-faa80d68>2020 - </span>
+          2021
+        </a></span></div></div> <div class="hide" data-v-ed7af0ae><header class="navbar" data-v-ed7af0ae><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="OldBirds" class="logo"> <span class="site-name">OldBirds</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      Swift
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/swift/swiftui/" class="nav-link"><i></i>
+  SwiftUI
+</a></li><li class="dropdown-item"><!----> <a href="/swift/vapor/" class="nav-link"><i></i>
+  Vapor
+</a></li><li class="dropdown-item"><!----> <a href="/swift/ios/" class="nav-link"><i></i>
+  iOS
+</a></li><li class="dropdown-item"><!----> <a href="/swift/tips/" class="nav-link"><i></i>
+  Tips
+</a></li></ul></div></div><div class="nav-item"><a href="/flutter/" class="nav-link router-link-active"><i></i>
+  Flutter
+</a></div><div class="nav-item"><a href="/figma/" class="nav-link"><i></i>
+  Figma
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      基础
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/basis/index/" class="nav-link"><i></i>
+  概要
+</a></li><li class="dropdown-item"><!----> <a href="/basis/algorithms/" class="nav-link"><i></i>
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/basis/os/" class="nav-link"><i></i>
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/basis/design/" class="nav-link"><i></i>
+  设计模式
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      工具
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/vuepress/" class="nav-link"><i></i>
+  VuePress
+</a></li><li class="dropdown-item"><!----> <a href="/tools/git/" class="nav-link"><i></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/tools/yaml/" class="nav-link"><i></i>
+  YAML
+</a></li><li class="dropdown-item"><!----> <a href="/tools/html/" class="nav-link"><i></i>
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/tools/plantuml/" class="nav-link"><i></i>
+  PlantUML
+</a></li></ul></div></div><div class="nav-item"><a href="/book/" class="nav-link"><i></i>
+  书单
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      关于
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/about/index/" class="nav-link"><i></i>
+  关于我们
+</a></li><li class="dropdown-item"><!----> <a href="/about/app/" class="nav-link"><i></i>
+  APP
+</a></li></ul></div></div> <a href="https://github.com/swiftdo/swiftdo.github.io" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask" data-v-ed7af0ae></div> <aside class="sidebar" data-v-ed7af0ae><div class="personal-info-wrapper" data-v-1f4c79ea data-v-ed7af0ae><img src="/logo.png" alt="author-avatar" class="personal-img" data-v-1f4c79ea> <h3 class="name" data-v-1f4c79ea>
+    oldbirds
+  </h3> <div class="num" data-v-1f4c79ea><div data-v-1f4c79ea><h3 data-v-1f4c79ea>0</h3> <h6 data-v-1f4c79ea>Article</h6></div> <div data-v-1f4c79ea><h3 data-v-1f4c79ea>17</h3> <h6 data-v-1f4c79ea>Tag</h6></div></div> <ul class="social-links" data-v-1f4c79ea></ul> <hr data-v-1f4c79ea></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      Swift
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/swift/swiftui/" class="nav-link"><i></i>
+  SwiftUI
+</a></li><li class="dropdown-item"><!----> <a href="/swift/vapor/" class="nav-link"><i></i>
+  Vapor
+</a></li><li class="dropdown-item"><!----> <a href="/swift/ios/" class="nav-link"><i></i>
+  iOS
+</a></li><li class="dropdown-item"><!----> <a href="/swift/tips/" class="nav-link"><i></i>
+  Tips
+</a></li></ul></div></div><div class="nav-item"><a href="/flutter/" class="nav-link router-link-active"><i></i>
+  Flutter
+</a></div><div class="nav-item"><a href="/figma/" class="nav-link"><i></i>
+  Figma
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      基础
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/basis/index/" class="nav-link"><i></i>
+  概要
+</a></li><li class="dropdown-item"><!----> <a href="/basis/algorithms/" class="nav-link"><i></i>
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/basis/os/" class="nav-link"><i></i>
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/basis/design/" class="nav-link"><i></i>
+  设计模式
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      工具
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/vuepress/" class="nav-link"><i></i>
+  VuePress
+</a></li><li class="dropdown-item"><!----> <a href="/tools/git/" class="nav-link"><i></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/tools/yaml/" class="nav-link"><i></i>
+  YAML
+</a></li><li class="dropdown-item"><!----> <a href="/tools/html/" class="nav-link"><i></i>
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/tools/plantuml/" class="nav-link"><i></i>
+  PlantUML
+</a></li></ul></div></div><div class="nav-item"><a href="/book/" class="nav-link"><i></i>
+  书单
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      关于
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/about/index/" class="nav-link"><i></i>
+  关于我们
+</a></li><li class="dropdown-item"><!----> <a href="/about/app/" class="nav-link"><i></i>
+  APP
+</a></li></ul></div></div> <a href="https://github.com/swiftdo/swiftdo.github.io" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>FLUTTER</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/flutter/" aria-current="page" class="sidebar-link">flutter</a></li><li><a href="/flutter/t1-tips.html" class="sidebar-link">tips</a></li><li><a href="/flutter/t2-what.html" class="sidebar-link">什么是 Widgets、RenderObjects 和 Elements？</a></li><li><a href="/flutter/t3-messages.html" class="sidebar-link">Flutter中的通信传值</a></li><li><a href="/flutter/t3-mixin.html" class="sidebar-link">分离 View 与 Model 方案之 mixin</a></li><li><a href="/flutter/t4-lifecycle.html" class="sidebar-link">生命周期</a></li><li><a href="/flutter/t5-flutter-web-deploy.html" class="sidebar-link">在 Github 上部署一个 Flutter Web 应用</a></li><li><a href="/flutter/t6-docker-web-deploy.html" class="sidebar-link">在 Docker 上部署一个 Flutter Web 应用</a></li><li><a href="/flutter/t7-fvm.html" aria-current="page" class="active sidebar-link">在 Docker 上部署一个 Flutter Web 应用</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-faa80d68 data-v-ed7af0ae><h3 class="title" style="display:none;" data-v-faa80d68 data-v-faa80d68>在 Docker 上部署一个 Flutter Web 应用</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-faa80d68 data-v-faa80d68><input type="password" value="" data-v-faa80d68> <span data-v-faa80d68>Konck! Knock!</span> <button data-v-faa80d68>OK</button></label> <div class="footer" style="display:none;" data-v-faa80d68 data-v-faa80d68><span data-v-faa80d68><i class="iconfont reco-theme" data-v-faa80d68></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-faa80d68>vuePress-theme-reco</a></span> <span data-v-faa80d68><i class="iconfont reco-copyright" data-v-faa80d68></i> <a data-v-faa80d68><span data-v-faa80d68>oldbirds</span>
+            
+          <span data-v-faa80d68>2020 - </span>
+          2021
+        </a></span></div></div> <div data-v-ed7af0ae><main class="page"><!----> <!----> <!----> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><!----><!----><!----><!----></div></div>
+    <script src="/assets/js/app.95b393a1.js" defer></script><script src="/assets/js/3.1b0902a1.js" defer></script><script src="/assets/js/1.a23113d3.js" defer></script><script src="/assets/js/8.9a4a9dd8.js" defer></script>
+  </body>
+</html>
