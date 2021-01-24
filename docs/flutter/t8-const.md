@@ -293,4 +293,4 @@ class Point {
     )
     ```
     
-    我们尝试创建 Text 的常量实例，但是，我们说过 const 构造函数的条件比较苛刻，其成员必须是常量，"hello" 是字面量，可以省略 const 关键字。同样 Dart 也会尝试将 `TextStyle` 创建为常量，因为它知道 `TextStyle` 必须为常量才满足 `const Text()` 的调用。但是由于 `TextStyle` 依赖于变量 size, 但 size 不是常数，知道运行时才具有值。所以不满足 const 构造函数条件报错。要解决此问题，必须替换 size 为常量或者直接使用数字。
+    我们尝试创建 Text 的常量实例，但是，我们说过 const 构造函数的条件比较苛刻，其成员必须是常量，"hello" 是字面量，可以省略 const 关键字。同样 Dart 也会尝试将 `TextStyle` 创建为常量，因为它知道 `TextStyle` 必须为常量才满足 `const Text()` 的调用。但是由于 `TextStyle` 依赖于变量 size, 但 size 不是常数，直到运行时才具有值。所以不满足 const 构造函数条件报错。要解决此问题，必须替换 size 为常量或者直接使用数字。
