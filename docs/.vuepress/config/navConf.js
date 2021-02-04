@@ -23,6 +23,10 @@ module.exports = [{
         link: '/flutter/'
     },
     {
+        text: 'AI',
+        link: '/ai/'
+    },
+    {
         text: 'Figma',
         link: '/figma/'
     },
