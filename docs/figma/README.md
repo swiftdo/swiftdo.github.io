@@ -64,3 +64,7 @@ Figma = Sketch（UI 设计）+ InVision（原型设计） + Zeplin（标注）+ 
 ## 參考文章
 
 * [Frames and Groups – Figma](https://help.figma.com/hc/en-us/articles/360039832054-Frames-and-Groups)
+
+
+## 设计的视频
+* [如何成为一名优秀的设计师：罗子雄@TEDxChongqing](https://www.youtube.com/watch?v=ocReynMrkms): 看 + 做 + 想
