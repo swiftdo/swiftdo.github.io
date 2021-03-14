@@ -36,6 +36,10 @@ tags:
 * 《重构》
 * 《修改代码的艺术》
 
+## 写作
+
+* [《给程序员的写作课》](https://thewriter.dev/misconceptions/)
+
 ## 设计
 
 * 《写给大家看的设计书》
