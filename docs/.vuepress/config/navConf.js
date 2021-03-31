@@ -15,6 +15,11 @@ module.exports = [{
             {
                 text: 'Tips',
                 link: '/swift/tips/'
+            },
+            {
+                text: '函数式编程',
+                link: '/swift/fp/'
+
             }
         ]
     },
