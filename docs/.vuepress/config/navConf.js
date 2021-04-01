@@ -24,12 +24,12 @@ module.exports = [{
         ]
     },
     {
-        text: 'Flutter',
-        link: '/flutter/'
-    },
-    {
         text: 'Haskell',
         link: '/haskell/'
+    },
+    {
+        text: 'Flutter',
+        link: '/flutter/'
     },
     {
         text: 'AI',
