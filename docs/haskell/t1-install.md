@@ -11,23 +11,28 @@ tags:
 通过 brew 进行安装：
 
 ```sh
-brew install ghc
-brew install cabal-install
 brew install haskell-stack
+stack setup
 ```
 
-分别装了编译器，包装器，集成工具。
-
-创建 `Main.hs`:
-
-```hs
-main = do 
-    print "Hello world"
-```
-
-编译，执行：
+stack 安装依赖库：
 
 ```sh
-ghc main.hs -o main
-./main
+stack install <lib name>
+```
+
+ghci 的使用：
+
+```sh
+stack ghci
+```
+
+
+
+创建项目:
+
+```sh
+stack new hello
+cd hello
+stack run
 ```
