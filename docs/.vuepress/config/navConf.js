@@ -28,6 +28,10 @@ module.exports = [{
         link: '/flutter/'
     },
     {
+        text: 'Haskell',
+        link: '/haskell/'
+    },
+    {
         text: 'AI',
         link: '/ai/'
     },
