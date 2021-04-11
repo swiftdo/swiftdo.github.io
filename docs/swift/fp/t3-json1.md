@@ -9,7 +9,6 @@ tags:
 - 函数式编程
 - json
 ---
-
 我们将开发一个小而完整的 Swift 库，这个库用于处理和序列化 JSON 数据。
 
 > 项目源码：[https://github.com/swiftdo/json](https://github.com/swiftdo/json)
@@ -87,7 +86,7 @@ extension JSON {
 }
 ```
 
-完成上面这两部，可以快速构建一个 JSON 实例：
+完成上面两步，可以快速构建一个 JSON 实例：
 
 ```swift
 let json = JSON([
@@ -103,7 +102,7 @@ let json = JSON([
 ])
 ```
 
-为了检测我们构建的内容，我们需要打印下 `json`，所以我们让 JSON 实现 `CustomStringConvertible`：
+为了能够通过 `print(json)` 输出实例的内容，我们让 JSON 实现`CustomStringConvertible`协议即可：
 
 ```swift
 extension JSON: CustomStringConvertible {
@@ -127,11 +126,11 @@ extension JSON: CustomStringConvertible {
 Object(["c": Int(1, "a": Array([Int(8, Int(9, Int(10]), "b": Double(10.2), "d": Object(["name": String(world), "temp": Bool(true), "say": String(hello), "old": Null])])
 ```
 
-虽然可以打印 json, 但是结果不够直观，也不容易阅读。下一步，我们将实现美观地输出JSON。
+虽然可以打印出结果, 但是输出不够直观，不容易阅读。下一步，我们将实现美观地输出JSON。
 
 ## 打印 JSON
 
-我们需要实现将 json 打印为：
+我们需要实现一个函数，将 json 实例输出为：
 
 ```json
 {
@@ -172,10 +171,10 @@ func prettyJson(level: Int = 0, json: JSON) -> String {
 }
 ```
 
-在 `prettyJson` 函数中：
+在 `prettyJson` 函数参数列表中：
 
-* level：缩进层级，默认为第0层
-* json: 使我们需要格式化的 JSON
+* **level**：缩进层级(空格数)，默认为第0层
+* **json**: 使我们需要格式化的 JSON
 
 ### string
 
@@ -322,7 +321,8 @@ Object(["c": Int(1, "b": Double(10.2), "d": Object(["temp": Bool(true), "name": 
 
 本篇我们通过 `JSON` 定义 json 数据。然后通过 `prettyJson` 美化 JSON 的输出。整体来讲，还是比较容易的。
 
-下篇，我们将会讲解将 json 字符串解析为 JSON，尽情期待。
+下篇，我们将会讲解将 json 字符串解析为 JSON，敬请期待!
 
 如果您想加入我们的 Swift 微信交流群，可以关注微信公众号 **OldBirds**
+
 
