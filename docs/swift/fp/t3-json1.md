@@ -324,5 +324,3 @@ Object(["c": Int(1, "b": Double(10.2), "d": Object(["temp": Bool(true), "name": 
 下篇，我们将会讲解将 json 字符串解析为 JSON，敬请期待!
 
 如果您想加入我们的 Swift 微信交流群，可以关注微信公众号 **OldBirds**
-
-
