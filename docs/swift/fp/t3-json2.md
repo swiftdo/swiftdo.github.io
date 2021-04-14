@@ -65,7 +65,6 @@ null
 
 ![](http://blog.loveli.site/mweb/16183222059726.jpg)
 
-
 ## null、false、true
 
 这3个解析的方式是一样的：判断首字符，然后匹配后续字符即可。
@@ -194,7 +193,6 @@ func readJsonNumber(str: String, index: Int) throws -> (JSON, Int) {
 * 去除引号 `"` 后的空白字符后，判断下个字符是否为 `:`，是的话，读取 `:` 的非空格，调用 `readElement` 函数。
 * 读取完成后，读取到后续的非空字符，如果是 `}`, 说明读取完成；如果是 `,`，循环读取操作
 
-
 ```swift
 /// 解析JSON字符串为对象结构, index 代表下一个字符的下标
 func parseObject(str: String, index: Int) throws -> (JSON, Int) {
@@ -245,8 +243,6 @@ func parseObject(str: String, index: Int) throws -> (JSON, Int) {
 }
 ```
 
-
-
 ## array
 
 ```swift
@@ -274,11 +270,3 @@ func parseArray(str: String, index: Int) throws -> (JSON, Int) {
     return (.array(arr), ind)
 }
 ```
-
-
-
-
-
-
-
-
