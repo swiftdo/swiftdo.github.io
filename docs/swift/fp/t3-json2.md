@@ -40,9 +40,8 @@ public enum JSON {
 12.3
 true
 null
-// 两种复合类型：
-[1, 2, 3]         //数组：值的有序序列
-{"a": 1, "b": 2}  // 对象：是“名字/值”对的无序集合
+[1, 2, 3]
+{"a": 1, "b": 2}
 ```
 
 将 json 解析到 JSON，我们需要做如下解析：
@@ -245,6 +244,8 @@ func parseObject(str: String, index: Int) throws -> (JSON, Int) {
 
 ## array
 
+数组的解析跟对象的解析还是比较相像的，去除空格，`,` 用来分割每个元素。如果遇到字符`]`，代表此次的数组字符串解析完毕。
+
 ```swift
 /// 解析JSON字符串为数组结构
 func parseArray(str: String, index: Int) throws -> (JSON, Int) {
@@ -270,3 +271,82 @@ func parseArray(str: String, index: Int) throws -> (JSON, Int) {
     return (.array(arr), ind)
 }
 ```
+
+## readElement 
+
+通过读取的首字母来调用各自的解析函数：
+
+```swift
+func readElement(str: String, index: Int) throws -> (JSON, Int) {
+    var ind = index
+    let c = str[ind]
+    ind += 1
+    switch c {
+    case "[":
+        return try parseArray(str: str, index: ind)
+    case "{":
+        return try parseObject(str: str, index: ind)
+    case "\"":
+        let (str, ids) = try readString(str: str, index: ind)
+        return (.string(str), ids)
+    case "t":
+        return try readJsonTrue(str: str, index: ind)
+    case "f":
+        return try readJsonFalse(str: str, index: ind)
+    case "n":
+        return try readJsonNull(str: str, index: ind)
+    case _ where isNumber(c: c):
+        return try readJsonNumber(str: str, index: ind)
+    default:
+        throw ParserError(msg: "未知 element: \(c)")
+    }
+}
+```
+
+## 测试
+
+```swift
+
+let str = "{  \"a\":[8,-9,+10],\"c\":{\"temp\":true,\"say\":\"hello\",\"name\":\"world\"},   \"b\":10.2}"
+
+print("json 字符串::\n\(str) \n")
+
+do {
+    // 解析 json 字符串
+    let result = try parseJson(str: str)
+    print("\n返回结果::")
+    // 格式化 json 字符串
+    print(prettyJson(json: result))
+} catch  {
+    print(error)
+}
+```
+
+结果显示：
+
+```swift
+json 字符串::
+{  "a":[8,-9,+10],"c":{"temp":true,"say":"hello","name":"world"},   "b":10.2} 
+
+
+返回结果::
+{
+    "b":10.2,
+    "a":[
+        8,
+        -9,
+        10
+    ],
+    "c":{
+        "name":"world",
+        "say":"hello",
+        "temp":true
+    }
+}
+```
+
+## 总结
+
+从头读取到字符的末尾，通过读取首字符，按照 json 的数据格式规则，完成对应格式的解析。对象和数组的解析中用到了递归。解析难度在于是否清晰 json 的数据规则，以及字符串下标的移动。
+
+第一版本的json解析已完成，如若有疑问，或者想加入 Swift 微信群，请关注我们的微信公众号：**OldBirds**
