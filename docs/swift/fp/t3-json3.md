@@ -23,8 +23,6 @@ tags:
 * 语法分析：把程序的结构识别出来，并形成一棵便于由计算机处理的抽象语法树(AST)。可以用递归下降的算法来实现。
 * 语义分析：消除语义模糊，生成一些属性信息，让计算机能够依据这些信息生成目标代码。
 
-
-
 ## 实现概要
 
 JSON 解析器从本质上来说就是根据 JSON 文法规则创建的状态机，输入是 json 字符串，输出是 JSON 对象。上文[《Swift 码了个 JSON 解析器(二)》](https://oldbird.run/swift/fp/t3-json2.html)我们就是从第一个字符开始解析，然后根据json 的语法解析成 JSON。但是在本文，这个过程将划分为两个阶段：词法分析和语法分析。
@@ -259,7 +257,195 @@ struct JsonTokenizer {
 
 ## 完成语法解析
 
+语法分析过程以词法分析阶段解析出的 `Token` 序列作为输入，输出 `JSON Object` 或 `JSON Array`。
 
 
+```swift
+// 语法解析
+struct JsonParser {
+    private var tokenizer: JsonTokenizer
+    
+    private init(text: String) {
+        tokenizer = JsonTokenizer(string: text)
+    }
+    
+    static func parse(text: String) throws -> JSON? {
+        var parser = JsonParser(text: text)
+        return try parser.parse()
+    }
 
-## 生成 JSON 
+    private mutating func parse() throws  -> JSON? {
+        guard let token = try tokenizer.nextToken() else {
+            return nil
+        }
+        switch token {
+            // 如果 [
+        case .arrBegin:
+            return try JSON(parserArr())
+
+            // 如果 {
+        case .objBegin:
+            return try JSON(parserObj())
+
+        default:
+            return nil
+        }
+    }
+}
+```
+
+语法分析器的实现的核心就是 `parserArr` 和 `parserObj`。
+
+在 `parserArr` 中，通过 `.sepComma` 分割每个元素，如果遇到 `.arrEnd`，说明 array 的读取完成，返回结果。而每个元素是一个JSON 数据，可以采用递归。
+
+```swift
+private mutating func parserArr() throws -> [JSON] {
+    var arr: [JSON] = []
+    repeat {
+        guard let ele = try parseElement() else {
+            throw ParserError(msg: "parserArr 解析失败")
+        }
+
+        /// 作为元素
+        arr.append(ele)
+        
+        guard let next = try tokenizer.nextToken() else {
+            throw ParserError(msg: "parserArr 解析失败")
+        }
+        
+        /// 如果是 ], 说明 结束
+        if case JsonToken.arrEnd = next {
+            break
+        }
+        
+        /// 如果下一个元素不是 `,`, 那么说明不符合 json array 的定义，抛出异常
+        if JsonToken.sepComma != next {
+            throw ParserError(msg: "parserArr 解析失败")
+        }
+        
+    } while true
+
+    return arr
+}
+```
+
+parserObj 中，也是通过`.sepComma` Token 分隔，读取到 `.objEnd` 代表完成 object 的解析。与 parserArr 的区别是，每个元素是键值对。
+
+```swift
+private mutating func parserObj() throws -> [String: JSON] {
+    var obj: [String: JSON] = [:]
+
+    repeat {
+        
+        guard let next = try tokenizer.nextToken(), case let .string(key) = next else {
+            throw ParserError(msg: "parserObj 错误, key 不存在")
+        }
+        
+        if obj.keys.contains(key) {
+            throw ParserError(msg: "parserObj 错误, 已经存在key: \(key)")
+        }
+        
+        guard let comma = try tokenizer.nextToken(), case JsonToken.sepColon = comma else {
+            throw ParserError(msg: "parserObj 错误，：不存在")
+        }
+        
+        guard let value = try parseElement() else {
+            throw ParserError(msg: "parserObj 错误，值不存在")
+        }
+        
+        obj[key] = value
+        
+        guard let nex = try tokenizer.nextToken() else {
+            throw ParserError(msg: "parserObj 错误， 下一个值不存在")
+        }
+        
+        if case JsonToken.objEnd = nex {
+            break
+        }
+        
+        if JsonToken.sepComma != nex {
+            throw ParserError(msg: "parserObj 错误，, 不存在")
+        }
+    } while true
+
+    return obj
+}
+```
+
+根据 JSON 的定义，将一个或者多个 Token 解析成对应的 JSON 类型。
+
+```swift
+private mutating func parseElement() throws -> JSON? {
+    guard let nextToken = try tokenizer.nextToken() else {
+        return nil
+    }
+    
+    switch nextToken {
+    case .arrBegin:
+        return try JSON(parserArr())
+    case .objBegin:
+        return try JSON(parserObj())
+    case .bool(let b):
+        return .bool(b == "true")
+    case .null:
+        return .null
+    case .string(let str):
+        return .string(str)
+    case .number(let n):
+        if n.contains("."), let v = Double(n) {
+            return .double(v)
+        } else if let v = Int(n) {
+            return .int(v)
+        } else {
+            throw ParserError(msg: "number 转换失败")
+        }
+    default:
+        throw ParserError(msg: "未知 element: \(nextToken)")
+    }
+}
+```
+
+## 测试
+
+完成
+
+```swift
+let str = "{  \"a\":[8,-9,+10],\"c\":{\"temp\":true,\"say\":\"hello\",\"name\":\"world\"},   \"b\":10.2}"
+
+/// 通过 paser2.0 进行解析
+do {
+    if let result2 = try JsonParser.parse(text: str) {
+        print("\n\n✅ Parser2.0 返回结果：")
+        print(prettyJson(json: result2))
+    } else {
+        print("\n\n❎ Parser2 解析为空")
+    }
+} catch {
+    print("\n\n❎ Paser2.0 error:\(error)")
+}
+```
+
+结果显示：
+
+```json
+✅ Parser2.0 返回结果：
+{
+    "a":[
+        8,
+        -9,
+        10
+    ],
+    "c":{
+        "name":"world",
+        "say":"hello",
+        "temp":true
+    },
+    "b":10.2
+}
+```
+
+## 总结
+
+通过词法解析，和语法解析，将解析任务划分了2个阶段，代码上的清晰度提升是非常直观的。词法解析隐藏了下标的移动，以及过滤无用的字符，传递给语法解析都是有意义的信息。而语法解析只负责 JSON 的识别，无需关注游标的移动。
+
+对比上篇的解析步骤，本文的方法是更加有条理的。当然性能上没后上篇的好。但功能更加明确，流程更加清晰，对于类似解析可以直接套用此思路。
