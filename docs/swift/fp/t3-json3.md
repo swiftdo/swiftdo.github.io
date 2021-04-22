@@ -15,7 +15,7 @@ tags:
 
 > 项目源码：[https://github.com/swiftdo/json](https://github.com/swiftdo/json)
 
-在上文 [Swift 码了个 JSON 解析器(二)]中，我们将 json 字符串成功解析为 JSON 数据。本文是《Swift 码了个 JSON 解析器》系列的第三篇，我们将优化上文的解析器，即我们 Parser2 版本。
+在上文 [Swift 码了个 JSON 解析器(二)](https://oldbird.run/swift/fp/t3-json2.html)中，我们将 json 字符串成功解析为 JSON 数据。本文是《Swift 码了个 JSON 解析器》系列的第三篇，我们将优化上文的解析器，让其解析过程更加清晰。
 
 最近在学习编译原理的相关知识，所以将从编译的角度去理解这个过程。在编译器前端一般会有三个步骤：
 
@@ -25,7 +25,7 @@ tags:
 
 ## 实现概要
 
-JSON 解析器从本质上来说就是根据 JSON 文法规则创建的状态机，输入是 json 字符串，输出是 JSON 对象。上文[《Swift 码了个 JSON 解析器(二)》](https://oldbird.run/swift/fp/t3-json2.html)我们就是从第一个字符开始解析，然后根据json 的语法解析成 JSON。但是在本文，这个过程将划分为两个阶段：词法分析和语法分析。
+JSON 解析器从本质上来说就是根据 JSON 文法规则创建的状态机，输入是 json 字符串，输出是 JSON 对象。上文[《Swift 码了个 JSON 解析器(二)》](https://oldbird.run/swift/fp/t3-json2.html)我们就是从第一个字符开始解析，然后根据 json 的语法解析成 JSON。但是在本文，这个过程将划分为两个阶段：词法分析和语法分析。
 
 在词法分析阶段，目标是将字符串解析成一组 Token 序列。比如：
 
@@ -296,7 +296,7 @@ struct JsonParser {
 
 语法分析器的实现的核心就是 `parserArr` 和 `parserObj`。
 
-在 `parserArr` 中，通过 `.sepComma` 分割每个元素，如果遇到 `.arrEnd`，说明 array 的读取完成，返回结果。而每个元素是一个JSON 数据，可以采用递归。
+在 `parserArr` 中，通过 `.sepComma` 分割每个元素，如果遇到 `.arrEnd`，说明 array 的读取完成，返回结果。而每个元素是一个JSON 数据，可以采用递归处理。
 
 ```swift
 private mutating func parserArr() throws -> [JSON] {
@@ -329,7 +329,7 @@ private mutating func parserArr() throws -> [JSON] {
 }
 ```
 
-parserObj 中，也是通过`.sepComma` Token 分隔，读取到 `.objEnd` 代表完成 object 的解析。与 parserArr 的区别是，每个元素是键值对。
+`parserObj` 这个方法，也是通过`.sepComma` 分隔，当读取到 `.objEnd` 代表完成 object 的解析。与 parserArr 的区别是，每个元素是键值对。
 
 ```swift
 private mutating func parserObj() throws -> [String: JSON] {
@@ -446,6 +446,6 @@ do {
 
 ## 总结
 
-通过词法解析，和语法解析，将解析任务划分了2个阶段，代码上的清晰度提升是非常直观的。词法解析隐藏了下标的移动，以及过滤无用的字符，传递给语法解析都是有意义的信息。而语法解析只负责 JSON 的识别，无需关注游标的移动。
+通过词法分析，和语法分析，将解析任务划分了2个阶段，大幅提升了代码清晰度。词法解析隐藏了下标的移动，以及过滤无用的字符，传递给语法解析都是有意义的数据。而语法解析只负责 JSON 的识别，无需关注游标的移动。
 
-对比上篇的解析步骤，本文的方法是更加有条理的。当然性能上没后上篇的好。但功能更加明确，流程更加清晰，对于类似解析可以直接套用此思路。
+对比上篇的解析步骤，本文的方法无疑是更具条理的。虽然性能上会弱一些，但明确清晰的过程更让人推崇，对于类似解析，完全可以套用。
