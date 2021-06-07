@@ -10,7 +10,6 @@ sitemap:
 
 ## 1. 使用 AppBar
 
-
 ```dart
 appBar: AppBar(
           title: Text('appbar', style: TextStyle(color: Colors.black),),
