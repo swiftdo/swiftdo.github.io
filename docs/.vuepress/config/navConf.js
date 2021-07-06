@@ -81,7 +81,7 @@ module.exports = [{
 },
 {
     text: '书单',
-    link: '/book/'
+    link: 'https://oldbird.run/books/#/'
 },
 {
     text: '关于',
