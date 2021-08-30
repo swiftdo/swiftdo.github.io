@@ -24,6 +24,10 @@ module.exports = [{
     ]
 },
 {
+    text: 'Python',
+    link: '/python/'
+},
+{
     text: 'Haskell',
     link: '/haskell/'
 },
