@@ -34,8 +34,10 @@ module.exports = {
     },
     plugins: pluginConf,
     themeConfig: {
-        record: '粤ICP备18007810号-1',
-        recordLink: 'https://beian.miit.gov.cn/#/Integrated/index',
+        record: '赣ICP备2021010021号-1',
+        recordLink: 'https://beian.miit.gov.cn/',
+        cyberSecurityRecord: '#',
+        cyberSecurityLink: '#',
         startYear: '2020',
         logo: '/logo.png',
         authorAvatar: '/logo.png',
