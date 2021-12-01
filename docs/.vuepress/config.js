@@ -36,8 +36,8 @@ module.exports = {
     themeConfig: {
         record: '赣ICP备2021010021号-1',
         recordLink: 'https://beian.miit.gov.cn/',
-        cyberSecurityRecord: '#',
-        cyberSecurityLink: '#',
+        cyberSecurityRecord: '赣公网安备 36011102000528号',
+        cyberSecurityLink: 'http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=36011102000528',
         startYear: '2020',
         logo: '/logo.png',
         authorAvatar: '/logo.png',

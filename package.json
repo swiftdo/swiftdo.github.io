@@ -23,19 +23,19 @@
   },
   "homepage": "https://github.com/swiftdo/swiftdo#readme",
   "devDependencies": {
-    "@vuepress/plugin-active-header-links": "^1.7.1",
-    "@vuepress/plugin-back-to-top": "^1.7.1",
-    "@vuepress/plugin-google-analytics": "^1.7.1",
-    "@vuepress/plugin-medium-zoom": "^1.7.1",
-    "@vuepress/plugin-nprogress": "^1.7.1",
-    "@vuepress/plugin-pwa": "^1.7.1",
+    "@vuepress/plugin-active-header-links": "^1.8.2",
+    "@vuepress/plugin-back-to-top": "^1.8.2",
+    "@vuepress/plugin-google-analytics": "^1.8.2",
+    "@vuepress/plugin-medium-zoom": "^1.8.2",
+    "@vuepress/plugin-nprogress": "^1.8.2",
+    "@vuepress/plugin-pwa": "^1.8.2",
     "markdown-it-plantuml": "^1.4.1",
-    "vuepress": "^1.7.1",
-    "vuepress-plugin-auto-sidebar": "^1.5.0",
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-auto-sidebar": "^2.3.2",
     "vuepress-plugin-baidu-autopush": "^1.0.1",
     "vuepress-plugin-image": "^1.0.4",
     "vuepress-plugin-nuggets-style-copy": "^1.0.3",
-    "vuepress-theme-reco": "^1.6.1"
+    "vuepress-theme-reco": "^1.6.6"
   },
   "dependencies": {
     "@vuepress-reco/vuepress-plugin-comments": "^1.6.0",
