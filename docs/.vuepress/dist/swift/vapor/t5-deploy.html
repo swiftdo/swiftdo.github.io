@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Docker 部署 | OldBirds</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <script data-ad-client="ca-pub-4465026491979447" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta name="description" content="过来人的笔记，带你最佳实践，@OldBirds公众号">
+    <meta name="google-site-verification" content="6EogPdlAJYusvUHenXWXCGX-oVrqdeBnY-WsURHuKAA">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="keywords" content="oldbirds,oldbird,公众号,swift,swiftui,flutter,vapor,ios,figma,数据结构,算法,书单,vuepresss,git,yaml,设计模式,编程">
+    
+    <link rel="preload" href="/assets/css/0.styles.69e419d6.css" as="style"><link rel="preload" href="/assets/js/app.2dd3bab0.js" as="script"><link rel="preload" href="/assets/js/3.668e4ee8.js" as="script"><link rel="preload" href="/assets/js/1.4399cd74.js" as="script"><link rel="preload" href="/assets/js/92.fb045afe.js" as="script"><link rel="preload" href="/assets/js/8.ab5c9a38.js" as="script"><link rel="prefetch" href="/assets/js/10.7f9aeb1b.js"><link rel="prefetch" href="/assets/js/100.de223812.js"><link rel="prefetch" href="/assets/js/101.ccb22a13.js"><link rel="prefetch" href="/assets/js/102.a52fda9e.js"><link rel="prefetch" href="/assets/js/103.d00d75d0.js"><link rel="prefetch" href="/assets/js/104.e2a14b51.js"><link rel="prefetch" href="/assets/js/105.a23b7c09.js"><link rel="prefetch" href="/assets/js/106.da136b16.js"><link rel="prefetch" href="/assets/js/107.0a0707c1.js"><link rel="prefetch" href="/assets/js/108.c82f0a2e.js"><link rel="prefetch" href="/assets/js/109.029b3a5d.js"><link rel="prefetch" href="/assets/js/11.7944bcf1.js"><link rel="prefetch" href="/assets/js/110.50261536.js"><link rel="prefetch" href="/assets/js/111.67a8e3fc.js"><link rel="prefetch" href="/assets/js/112.bdafaf22.js"><link rel="prefetch" href="/assets/js/113.32cd3584.js"><link rel="prefetch" href="/assets/js/114.8dc25528.js"><link rel="prefetch" href="/assets/js/12.54fa7ec3.js"><link rel="prefetch" href="/assets/js/13.e7ac0ead.js"><link rel="prefetch" href="/assets/js/14.f030f7f3.js"><link rel="prefetch" href="/assets/js/15.e025c68a.js"><link rel="prefetch" href="/assets/js/16.e2c0ac97.js"><link rel="prefetch" href="/assets/js/17.75741269.js"><link rel="prefetch" href="/assets/js/18.42f3bdfd.js"><link rel="prefetch" href="/assets/js/19.eed91a9f.js"><link rel="prefetch" href="/assets/js/20.e87795fd.js"><link rel="prefetch" href="/assets/js/21.b3948449.js"><link rel="prefetch" href="/assets/js/22.344067f6.js"><link rel="prefetch" href="/assets/js/23.1ccb7d2f.js"><link rel="prefetch" href="/assets/js/24.33f4ffea.js"><link rel="prefetch" href="/assets/js/25.08bafbe9.js"><link rel="prefetch" href="/assets/js/26.afbfbdd4.js"><link rel="prefetch" href="/assets/js/27.1286d258.js"><link rel="prefetch" href="/assets/js/28.40b573f7.js"><link rel="prefetch" href="/assets/js/29.183c7fed.js"><link rel="prefetch" href="/assets/js/30.cc59aec7.js"><link rel="prefetch" href="/assets/js/31.43a21c08.js"><link rel="prefetch" href="/assets/js/32.71074b12.js"><link rel="prefetch" href="/assets/js/33.f52cd980.js"><link rel="prefetch" href="/assets/js/34.17d9babc.js"><link rel="prefetch" href="/assets/js/35.7517d76a.js"><link rel="prefetch" href="/assets/js/36.9c32a1af.js"><link rel="prefetch" href="/assets/js/37.5c613eb6.js"><link rel="prefetch" href="/assets/js/38.f97bc0b2.js"><link rel="prefetch" href="/assets/js/39.8491da6d.js"><link rel="prefetch" href="/assets/js/4.1df20184.js"><link rel="prefetch" href="/assets/js/40.b2afb996.js"><link rel="prefetch" href="/assets/js/41.50c623a0.js"><link rel="prefetch" href="/assets/js/42.a0a7c21b.js"><link rel="prefetch" href="/assets/js/43.42536988.js"><link rel="prefetch" href="/assets/js/44.eff66ece.js"><link rel="prefetch" href="/assets/js/45.2d0a77cd.js"><link rel="prefetch" href="/assets/js/46.342d7f48.js"><link rel="prefetch" href="/assets/js/47.e3b62026.js"><link rel="prefetch" href="/assets/js/48.20afcee5.js"><link rel="prefetch" href="/assets/js/49.7c43692e.js"><link rel="prefetch" href="/assets/js/5.f2af34c5.js"><link rel="prefetch" href="/assets/js/50.578c988a.js"><link rel="prefetch" href="/assets/js/51.f5cc2a2c.js"><link rel="prefetch" href="/assets/js/52.2ab558e1.js"><link rel="prefetch" href="/assets/js/53.aa7b5313.js"><link rel="prefetch" href="/assets/js/54.ce357159.js"><link rel="prefetch" href="/assets/js/55.a500d9a3.js"><link rel="prefetch" href="/assets/js/56.ff4d0cac.js"><link rel="prefetch" href="/assets/js/57.480ea637.js"><link rel="prefetch" href="/assets/js/58.c66006fc.js"><link rel="prefetch" href="/assets/js/59.bc4bf97a.js"><link rel="prefetch" href="/assets/js/6.c23386da.js"><link rel="prefetch" href="/assets/js/60.5a044bcd.js"><link rel="prefetch" href="/assets/js/61.7d368fc2.js"><link rel="prefetch" href="/assets/js/62.a6ea8b98.js"><link rel="prefetch" href="/assets/js/63.b8aa3581.js"><link rel="prefetch" href="/assets/js/64.6faab53d.js"><link rel="prefetch" href="/assets/js/65.962f730e.js"><link rel="prefetch" href="/assets/js/66.f4139570.js"><link rel="prefetch" href="/assets/js/67.70b28099.js"><link rel="prefetch" href="/assets/js/68.d4c38d47.js"><link rel="prefetch" href="/assets/js/69.9052d098.js"><link rel="prefetch" href="/assets/js/7.cf204011.js"><link rel="prefetch" href="/assets/js/70.3ae0b6a1.js"><link rel="prefetch" href="/assets/js/71.ae93cf2f.js"><link rel="prefetch" href="/assets/js/72.c3f618cd.js"><link rel="prefetch" href="/assets/js/73.281420e2.js"><link rel="prefetch" href="/assets/js/74.16686775.js"><link rel="prefetch" href="/assets/js/75.2446d468.js"><link rel="prefetch" href="/assets/js/76.c89d70bb.js"><link rel="prefetch" href="/assets/js/77.783f220d.js"><link rel="prefetch" href="/assets/js/78.ed9b82b0.js"><link rel="prefetch" href="/assets/js/79.f8ee8715.js"><link rel="prefetch" href="/assets/js/80.c5162f72.js"><link rel="prefetch" href="/assets/js/81.e334078d.js"><link rel="prefetch" href="/assets/js/82.bf15ed9a.js"><link rel="prefetch" href="/assets/js/83.62511f1b.js"><link rel="prefetch" href="/assets/js/84.59f9732d.js"><link rel="prefetch" href="/assets/js/85.3dcb10f2.js"><link rel="prefetch" href="/assets/js/86.9451259d.js"><link rel="prefetch" href="/assets/js/87.174bfc14.js"><link rel="prefetch" href="/assets/js/88.23f0b362.js"><link rel="prefetch" href="/assets/js/89.c8124f37.js"><link rel="prefetch" href="/assets/js/9.5014cf32.js"><link rel="prefetch" href="/assets/js/90.1f2b67e2.js"><link rel="prefetch" href="/assets/js/91.8528c3b7.js"><link rel="prefetch" href="/assets/js/93.b7e30f44.js"><link rel="prefetch" href="/assets/js/94.44559c55.js"><link rel="prefetch" href="/assets/js/95.73262756.js"><link rel="prefetch" href="/assets/js/96.25215091.js"><link rel="prefetch" href="/assets/js/97.5e68c5dd.js"><link rel="prefetch" href="/assets/js/98.e93985eb.js"><link rel="prefetch" href="/assets/js/99.60be0a23.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.69e419d6.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-1156296a><div data-v-1156296a><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-1156296a data-v-1156296a><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-4e82dffc data-v-1156296a data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>OldBirds</h3> <p class="description" data-v-4e82dffc data-v-4e82dffc>过来人的笔记，带你最佳实践，@OldBirds公众号</p> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>oldbirds</span>
+            
+          <span data-v-4e82dffc>2020 - </span>
+          2021
+        </a></span></div></div> <div class="hide" data-v-1156296a><header class="navbar" data-v-1156296a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="OldBirds" class="logo"> <span class="site-name">OldBirds</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      Swift
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://oldbird.run/swiftui/#/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  SwiftUI
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="/swift/vapor/" class="nav-link router-link-active"><i class="undefined"></i>
+  Vapor
+</a></li><li class="dropdown-item"><!----> <a href="/swift/ios/" class="nav-link"><i class="undefined"></i>
+  iOS
+</a></li><li class="dropdown-item"><!----> <a href="/swift/tips/" class="nav-link"><i class="undefined"></i>
+  Tips
+</a></li><li class="dropdown-item"><!----> <a href="/swift/fp/" class="nav-link"><i class="undefined"></i>
+  函数式编程
+</a></li></ul></div></div><div class="nav-item"><a href="/python/" class="nav-link"><i class="undefined"></i>
+  Python
+</a></div><div class="nav-item"><a href="/haskell/" class="nav-link"><i class="undefined"></i>
+  Haskell
+</a></div><div class="nav-item"><a href="/flutter/" class="nav-link"><i class="undefined"></i>
+  Flutter
+</a></div><div class="nav-item"><a href="/ai/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></div><div class="nav-item"><a href="/figma/" class="nav-link"><i class="undefined"></i>
+  Figma
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      基础
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/basis/index/" class="nav-link"><i class="undefined"></i>
+  概要
+</a></li><li class="dropdown-item"><!----> <a href="/basis/algorithms/" class="nav-link"><i class="undefined"></i>
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/basis/os/" class="nav-link"><i class="undefined"></i>
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="https://oldbird.run/design-patterns/#/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  设计模式
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      工具
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/vuepress/" class="nav-link"><i class="undefined"></i>
+  VuePress
+</a></li><li class="dropdown-item"><!----> <a href="/tools/git/" class="nav-link"><i class="undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/tools/yaml/" class="nav-link"><i class="undefined"></i>
+  YAML
+</a></li><li class="dropdown-item"><!----> <a href="/tools/html/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/tools/plantuml/" class="nav-link"><i class="undefined"></i>
+  PlantUML
+</a></li></ul></div></div><div class="nav-item"><a href="https://oldbird.run/books/#/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  书单
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      关于
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/about/index/" class="nav-link"><i class="undefined"></i>
+  关于我们
+</a></li><li class="dropdown-item"><!----> <a href="/about/app/" class="nav-link"><i class="undefined"></i>
+  APP
+</a></li></ul></div></div> <a href="https://github.com/swiftdo/swiftdo.github.io" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask" data-v-1156296a></div> <aside class="sidebar" data-v-1156296a><div class="personal-info-wrapper" data-v-828910c6 data-v-1156296a><img src="/logo.png" alt="author-avatar" class="personal-img" data-v-828910c6> <h3 class="name" data-v-828910c6>
+    oldbirds
+  </h3> <div class="num" data-v-828910c6><div data-v-828910c6><h3 data-v-828910c6>101</h3> <h6 data-v-828910c6>Articles</h6></div> <div data-v-828910c6><h3 data-v-828910c6>22</h3> <h6 data-v-828910c6>Tags</h6></div></div> <ul class="social-links" data-v-828910c6></ul> <hr data-v-828910c6></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      Swift
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://oldbird.run/swiftui/#/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  SwiftUI
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="/swift/vapor/" class="nav-link router-link-active"><i class="undefined"></i>
+  Vapor
+</a></li><li class="dropdown-item"><!----> <a href="/swift/ios/" class="nav-link"><i class="undefined"></i>
+  iOS
+</a></li><li class="dropdown-item"><!----> <a href="/swift/tips/" class="nav-link"><i class="undefined"></i>
+  Tips
+</a></li><li class="dropdown-item"><!----> <a href="/swift/fp/" class="nav-link"><i class="undefined"></i>
+  函数式编程
+</a></li></ul></div></div><div class="nav-item"><a href="/python/" class="nav-link"><i class="undefined"></i>
+  Python
+</a></div><div class="nav-item"><a href="/haskell/" class="nav-link"><i class="undefined"></i>
+  Haskell
+</a></div><div class="nav-item"><a href="/flutter/" class="nav-link"><i class="undefined"></i>
+  Flutter
+</a></div><div class="nav-item"><a href="/ai/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></div><div class="nav-item"><a href="/figma/" class="nav-link"><i class="undefined"></i>
+  Figma
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      基础
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/basis/index/" class="nav-link"><i class="undefined"></i>
+  概要
+</a></li><li class="dropdown-item"><!----> <a href="/basis/algorithms/" class="nav-link"><i class="undefined"></i>
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/basis/os/" class="nav-link"><i class="undefined"></i>
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="https://oldbird.run/design-patterns/#/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  设计模式
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      工具
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/vuepress/" class="nav-link"><i class="undefined"></i>
+  VuePress
+</a></li><li class="dropdown-item"><!----> <a href="/tools/git/" class="nav-link"><i class="undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/tools/yaml/" class="nav-link"><i class="undefined"></i>
+  YAML
+</a></li><li class="dropdown-item"><!----> <a href="/tools/html/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/tools/plantuml/" class="nav-link"><i class="undefined"></i>
+  PlantUML
+</a></li></ul></div></div><div class="nav-item"><a href="https://oldbird.run/books/#/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  书单
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      关于
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/about/index/" class="nav-link"><i class="undefined"></i>
+  关于我们
+</a></li><li class="dropdown-item"><!----> <a href="/about/app/" class="nav-link"><i class="undefined"></i>
+  APP
+</a></li></ul></div></div> <a href="https://github.com/swiftdo/swiftdo.github.io" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Vapor</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/swift/vapor/" aria-current="page" class="sidebar-link">开始</a></li><li><a href="/swift/vapor/t1-install.html" class="sidebar-link">安装</a></li><li><a href="/swift/vapor/t2-quickstart.html" class="sidebar-link">快速上手</a></li><li><a href="/swift/vapor/t3-turotial.html" class="sidebar-link">入门</a></li><li><a href="/swift/vapor/t4-advanced.html" class="sidebar-link">进阶</a></li><li><a href="/swift/vapor/t5-deploy.html" aria-current="page" class="active sidebar-link">Docker 部署</a></li><li><a href="/swift/vapor/t6-say-oldbirds.html" class="sidebar-link">实战：say-oldbirds</a></li><li><a href="/swift/vapor/t9-docker.html" class="sidebar-link">Docker篇</a></li><li><a href="/swift/vapor/u-11-auth.html" class="sidebar-link">Vapor 之 auth 概念</a></li><li><a href="/swift/vapor/u-12-permission.html" class="sidebar-link">Vapor 之用户角色的权限系统</a></li><li><a href="/swift/vapor/v-20-read-code.html" class="sidebar-link">Vapor 源码阅读方法</a></li><li><a href="/swift/vapor/v-21-io.html" class="sidebar-link">swift-nio原理之I/O模型篇</a></li><li><a href="/swift/vapor/v-22-bio2.html" class="sidebar-link">伪异步改进同步阻塞I/O模型</a></li><li><a href="/swift/vapor/v-23-swiftnio-do-text.html" class="sidebar-link">SwiftNIO 实战之文本修改服务器</a></li><li><a href="/swift/vapor/v-24-swift-zhan-package.html" class="sidebar-link">SwiftNIO 实战之TCP粘包/拆包问题</a></li><li><a href="/swift/vapor/v-25-swiftnio-do-serisize.html" class="sidebar-link">SwiftNIO 实战之序列化</a></li><li><a href="/swift/vapor/v-26-swfitnio-grpc-1.html" class="sidebar-link">SwiftNIO 实战之基于Protobuf 的 RPC 框架（1）</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-4e82dffc data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>Docker 部署</h3> <!----> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>oldbirds</span>
+            
+          <span data-v-4e82dffc>2020 - </span>
+          2021
+        </a></span></div></div> <div data-v-1156296a><main class="page"><section><div class="page-title"><h1 class="title">Docker 部署</h1> <div data-v-1ff7123e><i class="iconfont reco-account" data-v-1ff7123e><span data-v-1ff7123e>oldbirds</span></i> <i class="iconfont reco-date" data-v-1ff7123e><span data-v-1ff7123e>8/17/2020</span></i> <!----> <i class="tags iconfont reco-tag" data-v-1ff7123e><span class="tag-item" data-v-1ff7123e>swift</span><span class="tag-item" data-v-1ff7123e>vapor</span></i></div></div> <div class="theme-reco-content content__default"><p>使用 Docker 部署您的 Vapor 应用程序有几个好处：</p> <ol><li>在不同环境中保持一致性，Docker 在容器内部维护所有配置和依赖关系。使用 Docker 容器，可以实现开发、测试和生产环境的统一化和标准化。支持多种操作系统。</li> <li>Docker 确保您的应用程序和所分配的资源在容器间相互隔离。</li> <li>您可以使用 docker-compose 或 Kubernetes 来编排部署所需的多种服务(例如Redis，Postgres，nginx等)。docker 在部署过程中，将安装，配置等重复的部分自动化完成。只需要在第一次部署时，构建完可用的 docker镜像（装好集装箱），在以后使用中，短短的几行命令就可以直接拉取镜像，根据这个镜像创建出一个容器，把服务跑起来了。所需要的仅仅是安装了 docker 的服务器，一个Dockerfile 文件（装箱清单），以及比较流畅的网络而已，真可谓『一次构建，到处部署』</li> <li>...</li></ol> <h2 id="安装-docker"><a href="#安装-docker" class="header-anchor">#</a> 安装 Docker</h2> <p>因各平台的安装工具不一，直接参考 Docker 官方提供的安装即可：<a href="https://docs.docker.com/desktop/" target="_blank" rel="noopener noreferrer">https://docs.docker.com/desktop/<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="配置"><a href="#配置" class="header-anchor">#</a> 配置</h2> <p>在我们使用 <code>vapor new todo</code> 的时候，它已经为我们生成了一份 docker 的配置文件。</p> <div class="language-sh extra-class"><pre class="language-sh"><code>./
+├── .dockerignore
+├── Dockerfile
+├── Package.resolved
+├── Package.swift
+├── Sources
+│   ├── App
+│   └── Run
+├── Tests
+│   └── AppTests
+└── docker-compose.yml
+</code></pre></div><p><code>Dockerfile</code> 、<code>docker-compose.yml</code> 和 <code>.dockerignore</code> 就是 docker 所需的配置。</p> <h2 id="dockerfile"><a href="#dockerfile" class="header-anchor">#</a> Dockerfile</h2> <p>Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。</p> <div class="language-dockerfile extra-class"><pre class="language-dockerfile"><code><span class="token comment"># ================================</span>
+<span class="token comment"># Build image</span>
+<span class="token comment"># ================================</span>
+<span class="token instruction"><span class="token keyword">FROM</span> swift:5.2-bionic <span class="token keyword">as</span> build</span>
+<span class="token instruction"><span class="token keyword">WORKDIR</span> /build</span>
+
+<span class="token comment"># First just resolve dependencies.</span>
+<span class="token comment"># This creates a cached layer that can be reused</span>
+<span class="token comment"># as long as your Package.swift/Package.resolved</span>
+<span class="token comment"># files do not change.</span>
+<span class="token instruction"><span class="token keyword">COPY</span> ./Package.* ./</span>
+<span class="token instruction"><span class="token keyword">RUN</span> swift package resolve</span>
+
+<span class="token comment"># Copy entire repo into container</span>
+<span class="token instruction"><span class="token keyword">COPY</span> . .</span>
+
+<span class="token comment"># Compile with optimizations</span>
+<span class="token instruction"><span class="token keyword">RUN</span> swift build --enable-test-discovery -c release</span>
+
+<span class="token comment"># ================================</span>
+<span class="token comment"># Run image</span>
+<span class="token comment"># ================================</span>
+<span class="token instruction"><span class="token keyword">FROM</span> swift:5.2-bionic-slim</span>
+
+<span class="token comment"># Create a vapor user and group with /app as its home directory</span>
+<span class="token instruction"><span class="token keyword">RUN</span> useradd --user-group --create-home --system --skel /dev/null --home-dir /app vapor</span>
+
+<span class="token comment"># Switch to the new home directory</span>
+<span class="token instruction"><span class="token keyword">WORKDIR</span> /app</span>
+
+<span class="token comment"># Copy build artifacts</span>
+<span class="token instruction"><span class="token keyword">COPY</span> <span class="token options"><span class="token property">--from</span><span class="token punctuation">=</span><span class="token string">build</span> <span class="token property">--chown</span><span class="token punctuation">=</span><span class="token string">vapor:vapor</span></span> /build/.build/release /app</span>
+<span class="token comment"># Uncomment the next line if you need to load resources from the `Public` directory</span>
+<span class="token comment">#COPY --from=build --chown=vapor:vapor /build/Public /app/Public</span>
+
+<span class="token comment"># Ensure all further commands run as the vapor user</span>
+<span class="token instruction"><span class="token keyword">USER</span> vapor:vapor</span>
+
+<span class="token comment"># Let Docker bind to port 8080</span>
+<span class="token instruction"><span class="token keyword">EXPOSE</span> 8080</span>
+
+<span class="token comment"># Start the Vapor service when the image is run, default to listening on 8080 in production environment</span>
+<span class="token instruction"><span class="token keyword">ENTRYPOINT</span> [<span class="token string">&quot;./Run&quot;</span>]</span>
+<span class="token instruction"><span class="token keyword">CMD</span> [<span class="token string">&quot;serve&quot;</span>, <span class="token string">&quot;--env&quot;</span>, <span class="token string">&quot;production&quot;</span>, <span class="token string">&quot;--hostname&quot;</span>, <span class="token string">&quot;0.0.0.0&quot;</span>, <span class="token string">&quot;--port&quot;</span>, <span class="token string">&quot;8080&quot;</span>]</span>
+</code></pre></div><h3 id="dockerfile-指令"><a href="#dockerfile-指令" class="header-anchor">#</a> Dockerfile 指令</h3> <ul><li><p><strong>FROM</strong></p> <ul><li>格式
+<ul><li><code>FROM &lt;image&gt; [AS &lt;name&gt;]</code></li> <li>或者 <code>FROM &lt;image&gt;[:&lt;tag&gt;] [AS &lt;name&gt;]</code></li> <li>或者 <code>FROM &lt;image&gt;[@&lt;digest&gt;] [AS &lt;name&gt;]</code></li></ul></li> <li>FROM 指令初始化新的构建阶段并为后续指令设置基本映像。因此，有效的 Dockerfile 必须以 FROM 指令开头.</li> <li>FROM 可以出现多次在同一个 Dockerfile 文件中，为了创建多个镜像，或者使用一个作为另一个镜像的依赖，只要在每个新的 FROM 执行之前记录上一个镜像的 ID。每个 FROM 指令都会清空之前命令创建的任何状态。</li> <li>可选的，每个 FROM 指令都可以通过<code>AS name</code>提供一个名词，该名词可以在子 FROM 指令和 COPY --from&lt;name|index&gt;指令中指待该镜像。</li> <li>tag 和 digest 值是可选的，如果省略他们，将使用 latest 版本，如果未找到将会抛出异常。
+尽可能的使用官方镜像作为基础镜像。</li></ul></li> <li><p><strong>WORKDIR</strong></p> <ul><li>格式：
+<ul><li><code>WORKDIR &lt;工作目录路径&gt;</code></li></ul></li> <li>指定工作目录。用 WORKDIR 指定的工作目录，会在构建镜像的每一层中都存在。（WORKDIR 指定的工作目录，必须是提前创建好的）。</li> <li><code>docker build</code> 构建镜像过程中的，每一个 RUN 命令都是新建的一层。只有通过 WORKDIR 创建的目录才会一直存在。</li></ul></li> <li><p><strong>COPY</strong></p> <ul><li><p>格式：</p> <ul><li><code>COPY [--chown=&lt;user&gt;:&lt;group&gt;] &lt;源路径1&gt;... &lt;目标路径&gt;</code></li> <li><code>COPY [--chown=&lt;user&gt;:&lt;group&gt;] [&quot;&lt;源路径1&gt;&quot;,... &quot;&lt;目标路径&gt;&quot;]</code></li> <li><code>[--chown=&lt;user&gt;:&lt;group&gt;]</code>：可选参数，用户改变复制到容器内文件的拥有者和属组。</li> <li><code>&lt;目标路径&gt;</code>：容器内的指定路径，该路径不用事先建好，路径不存在的话，会自动创建。</li></ul></li> <li><p>COPY 指令从复制新文件或目录，并将它们添加到路径的容器的文件系统中。</p></li> <li><p>是绝对路径，或相对于 WORKDIR 的路径，源将在目标容器中复制到该路径中。</p> <div class="language-dockerfile extra-class"><pre class="language-dockerfile"><code><span class="token instruction"><span class="token keyword">COPY</span> test relativeDir/   # adds <span class="token string">&quot;test&quot;</span> to `WORKDIR`/relativeDir/</span>
+<span class="token instruction"><span class="token keyword">COPY</span> test /absoluteDir/  # adds <span class="token string">&quot;test&quot;</span> to /absoluteDir/</span>
+</code></pre></div></li></ul></li> <li><p><strong>RUN</strong></p> <ul><li>格式：
+<ul><li><code>RUN &lt;命令行命令&gt;</code></li> <li><code>RUN [&quot;可执行文件&quot;, &quot;参数1&quot;, &quot;参数2&quot;]</code></li></ul></li> <li>RUN 指令将执行任何命令在当前镜像的一个新层上并提交结果。提交后的镜像将会在下一步中使用。</li></ul></li> <li><p><strong>USER</strong></p> <ul><li>格式：
+<ul><li><code>USER &lt;用户名&gt;[:&lt;用户组&gt;]</code></li></ul></li> <li>用于指定执行后续命令的用户和用户组，这边只是切换后续命令执行的用户（用户和用户组必须提前已经存在）。</li></ul></li> <li><p><strong>EXPOSE</strong></p> <ul><li>格式：
+<ul><li><code>EXPOSE &lt;端口1&gt; [&lt;端口2&gt;...]</code></li></ul></li> <li>仅仅只是声明端口。</li> <li>作用：
+<ul><li>帮助镜像使用者理解这个镜像服务的守护端口，以方便配置映射。</li> <li>在运行时使用随机端口映射时，也就是 <code>docker run -P</code> 时，会自动随机映射 EXPOSE 的端口</li></ul></li></ul></li> <li><p><strong>CMD</strong></p> <ul><li>格式：
+<ul><li><code>CMD &lt;shell 命令&gt;</code></li> <li><code>CMD [&quot;&lt;可执行文件或命令&gt;&quot;,&quot;&lt;param1&gt;&quot;,&quot;&lt;param2&gt;&quot;,...]</code></li> <li><code>CMD [&quot;&lt;param1&gt;&quot;,&quot;&lt;param2&gt;&quot;,...] # 该写法是为 ENTRYPOINT 指令指定的程序提供默认参数</code></li></ul></li> <li>为启动的容器指定默认要运行的程序，程序运行结束，容器也就结束。CMD 指令指定的程序可被 docker run 命令行参数中指定要运行的程序所覆盖。</li> <li>如果 Dockerfile 中如果存在多个 CMD 指令，仅最后一个生效</li></ul></li> <li><p><strong>ENTRYPOINT</strong></p> <ul><li><p>格式：</p> <ul><li><code>ENTRYPOINT [&quot;&lt;executeable&gt;&quot;,&quot;&lt;param1&gt;&quot;,&quot;&lt;param2&gt;&quot;,...]</code></li></ul></li> <li><p>类似于 CMD 指令，但其不会被 docker run 的命令行参数指定的指令所覆盖，而且这些命令行参数会被当作参数送给 ENTRYPOINT 指令指定的程序。但是, 如果运行 docker run 时使用了 --entrypoint 选项，此选项的参数可当作要运行的程序覆盖 ENTRYPOINT 指令指定的程序。</p></li> <li><p>可以搭配 CMD 命令使用：一般是变参才会使用 CMD ，这里的 CMD 等于是在给 ENTRYPOINT 传参</p> <div class="language-dockerfile extra-class"><pre class="language-dockerfile"><code><span class="token instruction"><span class="token keyword">ENTRYPOINT</span> [<span class="token string">&quot;./Run&quot;</span>]</span>
+<span class="token instruction"><span class="token keyword">CMD</span> [<span class="token string">&quot;serve&quot;</span>, <span class="token string">&quot;--env&quot;</span>, <span class="token string">&quot;production&quot;</span>, <span class="token string">&quot;--hostname&quot;</span>, <span class="token string">&quot;0.0.0.0&quot;</span>, <span class="token string">&quot;--port&quot;</span>, <span class="token string">&quot;8080&quot;</span>]</span>
+</code></pre></div></li></ul></li></ul> <h2 id="dockerignore"><a href="#dockerignore" class="header-anchor">#</a> .dockerignore</h2> <p>要排除与构建无关的文件（不重构源存储库），请使用.dockerignore文件。此文件支持类似于.gitignore文件的排除模式</p> <h2 id="docker-compose-yml"><a href="#docker-compose-yml" class="header-anchor">#</a> docker-compose.yml</h2> <p>Compose 是用于定义和运行多容器 Docker 应用程序的工具。通过 Compose，您可以使用 YML 文件来配置应用程序需要的所有服务。然后，使用一个命令，就可以从 YML 文件配置中创建并启动所有服务。</p> <p>如果你还不了解 YML 文件配置，可以先阅读 <a href="/tools/yaml/">YAML 入门教程</a>。</p> <p>Compose 使用的三个步骤：</p> <ul><li>使用 Dockerfile 定义应用程序的环境。</li> <li>使用 docker-compose.yml 定义构成应用程序的服务，这样它们可以在隔离环境中一起运行。</li> <li>最后，执行 docker-compose up 命令来启动并运行整个应用程序。</li></ul> <div class="language-yml extra-class"><pre class="language-yml"><code><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">'3.7'</span>
+
+<span class="token key atrule">x-shared_environment</span><span class="token punctuation">:</span> <span class="token important">&amp;shared_environment</span>
+  <span class="token key atrule">LOG_LEVEL</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span>LOG_LEVEL<span class="token punctuation">:</span><span class="token punctuation">-</span>debug<span class="token punctuation">}</span>
+
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">app</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> todo<span class="token punctuation">:</span>latest
+    <span class="token key atrule">build</span><span class="token punctuation">:</span>
+      <span class="token key atrule">context</span><span class="token punctuation">:</span> .
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">&lt;&lt;</span><span class="token punctuation">:</span> <span class="token important">*shared_environment</span>
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">'8080:8080'</span>
+    <span class="token comment"># user: '0' # uncomment to run as root for testing purposes even though Dockerfile defines 'vapor' user.</span>
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;serve&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;--env&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;production&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;--hostname&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;0.0.0.0&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;--port&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;8080&quot;</span><span class="token punctuation">]</span>
+</code></pre></div><p>该 Compose 文件定义了一个个服务：app。</p> <p>启动这个容器：</p> <div class="language-sh extra-class"><pre class="language-sh"><code>$ docker-compose up
+</code></pre></div><p>关闭：</p> <div class="language-sh extra-class"><pre class="language-sh"><code>$ docker-compose down
+</code></pre></div><p>关闭以后，这容器文件还是存在的，写在里面的数据不会丢失。下次启动的时候，还可以复用。下面的命令可以在容器停止运行的时候把容器文件也删除。</p> <div class="language-sh extra-class"><pre class="language-sh"><code>$ docker-compose down -v
+</code></pre></div><h3 id="安装"><a href="#安装" class="header-anchor">#</a> 安装</h3> <p>Mac 和 Windows 在安装 docker 的时候，会一起安装 docker compose。Linux 系统下的安装参考<a href="https://docs.docker.com/compose/install/#install-compose" target="_blank" rel="noopener noreferrer">官方文档<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。</p> <p>安装完成后，运行下面的命令。</p> <div class="language-sh extra-class"><pre class="language-sh"><code>$ docker-compose --version
+</code></pre></div><h3 id="指令"><a href="#指令" class="header-anchor">#</a> 指令</h3> <ul><li><strong>version</strong> <ul><li>表示我们的compose文件的版本，目前有 1，2，3，每个版本语法不尽相同，这里是 3.7 的版本。具体可参考 <a href="https://docs.docker.com/compose/compose-file/compose-versioning/" target="_blank" rel="noopener noreferrer">docker-compose 文档<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。</li></ul></li> <li><strong>services</strong> <ul><li>我们要开始定义服务，每个docker容器为一个服务</li></ul></li> <li><strong>app</strong> <ul><li>这里我们定义了第一个服务，app 为其名字</li></ul></li> <li><strong>build</strong> <ul><li>指定该容器的构建参数</li></ul></li> <li><strong>environment</strong> <ul><li>设置环境变量。</li> <li>这里采用引用 <code>shared_environment</code> 来共享配置。</li></ul></li></ul> <h2 id="https-ningx-postgresql-配置"><a href="#https-ningx-postgresql-配置" class="header-anchor">#</a> https + ningx + postgresql 配置</h2> <p>假设我们要部署:
+项目：<code>todo</code>
+域名：<code>oldbirds.com</code>
+邮箱：<code>test@gmail.com</code></p> <div class="language-yml extra-class"><pre class="language-yml"><code><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&quot;3.7&quot;</span>
+
+<span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+  <span class="token key atrule">db_data</span><span class="token punctuation">:</span>
+  <span class="token key atrule">pgadmin-data</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">x-shared_environment</span><span class="token punctuation">:</span> <span class="token important">&amp;shared_environment</span>
+  <span class="token key atrule">LOG_LEVEL</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span>LOG_LEVEL<span class="token punctuation">:</span><span class="token punctuation">-</span>debug<span class="token punctuation">}</span>
+  <span class="token key atrule">DATABASE_HOST</span><span class="token punctuation">:</span> db
+  <span class="token key atrule">DATABASE_NAME</span><span class="token punctuation">:</span> vapor_database
+  <span class="token key atrule">DATABASE_USERNAME</span><span class="token punctuation">:</span> vapor_username
+  <span class="token key atrule">DATABASE_PASSWORD</span><span class="token punctuation">:</span> vapor_password
+  <span class="token key atrule">VIRTUAL_HOST</span><span class="token punctuation">:</span> oldbirds.com
+  <span class="token key atrule">LETSENCRYPT_HOST</span><span class="token punctuation">:</span> oldbirds.com
+  <span class="token key atrule">LETSENCRYPT_EMAIL</span><span class="token punctuation">:</span> test@gmail.com
+
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">app</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> todo<span class="token punctuation">:</span>latest
+    <span class="token key atrule">build</span><span class="token punctuation">:</span>
+      <span class="token key atrule">context</span><span class="token punctuation">:</span> .
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">&lt;&lt;</span><span class="token punctuation">:</span> <span class="token important">*shared_environment</span>
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> db
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;8080:8080&quot;</span>
+    <span class="token key atrule">command</span><span class="token punctuation">:</span>
+      <span class="token punctuation">[</span>
+        <span class="token string">&quot;serve&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;--env&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;production&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;--hostname&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;0.0.0.0&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;--port&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;8080&quot;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span>
+
+  <span class="token key atrule">migrate</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> todo<span class="token punctuation">:</span>latest
+    <span class="token key atrule">build</span><span class="token punctuation">:</span>
+      <span class="token key atrule">context</span><span class="token punctuation">:</span> .
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">&lt;&lt;</span><span class="token punctuation">:</span> <span class="token important">*shared_environment</span>
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> db
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;migrate&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;--yes&quot;</span><span class="token punctuation">]</span>
+    <span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+      <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">0</span>
+
+  <span class="token key atrule">revert</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> todo<span class="token punctuation">:</span>latest
+    <span class="token key atrule">build</span><span class="token punctuation">:</span>
+      <span class="token key atrule">context</span><span class="token punctuation">:</span> .
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">&lt;&lt;</span><span class="token punctuation">:</span> <span class="token important">*shared_environment</span>
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> db
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;migrate&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;--revert&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;--yes&quot;</span><span class="token punctuation">]</span>
+    <span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+      <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">0</span>
+
+  <span class="token key atrule">db</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> postgres<span class="token punctuation">:</span>12<span class="token punctuation">-</span>alpine
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> db_data<span class="token punctuation">:</span>/var/lib/postgresql/data/pgdata
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">PGDATA</span><span class="token punctuation">:</span> /var/lib/postgresql/data/pgdata
+      <span class="token key atrule">POSTGRES_USER</span><span class="token punctuation">:</span> vapor_username
+      <span class="token key atrule">POSTGRES_PASSWORD</span><span class="token punctuation">:</span> vapor_password
+      <span class="token key atrule">POSTGRES_DB</span><span class="token punctuation">:</span> vapor_database
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;15432:5432&quot;</span>
+
+  <span class="token key atrule">pgadmin</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> dpage/pgadmin4<span class="token punctuation">:</span>latest
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> pgadmin<span class="token punctuation">-</span>data<span class="token punctuation">:</span>/var/lib/pgadmin
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">PGADMIN_DEFAULT_EMAIL</span><span class="token punctuation">:</span> test@gmail.com
+      <span class="token key atrule">PGADMIN_DEFAULT_PASSWORD</span><span class="token punctuation">:</span> oldbirds
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;15000:80&quot;</span>
+
+  <span class="token key atrule">nginx-proxy</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> jwilder/nginx<span class="token punctuation">-</span>proxy
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> nginx<span class="token punctuation">-</span>proxy
+    <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy</span><span class="token punctuation">:</span> <span class="token string">&quot;true&quot;</span>
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;80:80&quot;</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;443:443&quot;</span>
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> unless<span class="token punctuation">-</span>stopped
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> ./volumes/nginx/conf<span class="token punctuation">:</span>/etc/nginx/conf.d
+      <span class="token punctuation">-</span> ./volumes/nginx/vhost<span class="token punctuation">:</span>/etc/nginx/vhost.d
+      <span class="token punctuation">-</span> ./volumes/nginx/html<span class="token punctuation">:</span>/usr/share/nginx/html
+      <span class="token punctuation">-</span> ./volumes/nginx/certs<span class="token punctuation">:</span>/etc/nginx/certs
+      <span class="token punctuation">-</span> ./volumes/nginx/dhparam<span class="token punctuation">:</span>/etc/nginx/dhparam
+      <span class="token punctuation">-</span> /var/run/docker.sock<span class="token punctuation">:</span>/tmp/docker.sock<span class="token punctuation">:</span>ro
+
+  <span class="token key atrule">letsencrypt</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> jrcs/letsencrypt<span class="token punctuation">-</span>nginx<span class="token punctuation">-</span>proxy<span class="token punctuation">-</span>companion
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> letsencrypt
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> nginx<span class="token punctuation">-</span>proxy
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> unless<span class="token punctuation">-</span>stopped
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> ./volumes/nginx/certs<span class="token punctuation">:</span>/etc/nginx/certs
+      <span class="token punctuation">-</span> ./volumes/nginx/vhost<span class="token punctuation">:</span>/etc/nginx/vhost.d
+      <span class="token punctuation">-</span> ./volumes/nginx/html<span class="token punctuation">:</span>/usr/share/nginx/html
+      <span class="token punctuation">-</span> /var/run/docker.sock<span class="token punctuation">:</span>/var/run/docker.sock<span class="token punctuation">:</span>ro
+</code></pre></div><p>然后我们需要在根目录下创建 volumes 文件夹：</p> <div class="language-sh extra-class"><pre class="language-sh"><code>├── Dockerfile
+├── Package.resolved
+├── Package.swift
+├── Sources
+├── Tests
+├── docker-compose.yml
+└── volumes
+    └── nginx
+        ├── certs
+        ├── conf
+        ├── dhparam
+        ├── html
+        └── vhost
+</code></pre></div><p>那么如何使用？</p> <p>启动 app</p> <div class="language-sh extra-class"><pre class="language-sh"><code>docker-compose up -d app
+</code></pre></div><blockquote><p><code>-d</code> 可以在后台运行</p></blockquote> <p>数据库迁移</p> <div class="language-sh extra-class"><pre class="language-sh"><code>docker-compose up -d migrate
+</code></pre></div><p>这样我们就启动好了应用，下一步开启 https:</p> <div class="language-sh extra-class"><pre class="language-sh"><code>docker-compose up -d letsencrypt
+</code></pre></div><p>这一步会开启 nginx，自动扫描到 <code>app</code> 服务，<code>app</code> 容器的环境配置中</p> <div class="language-yml extra-class"><pre class="language-yml"><code><span class="token key atrule">LETSENCRYPT_HOST</span><span class="token punctuation">:</span> oldbirds.com
+<span class="token key atrule">LETSENCRYPT_EMAIL</span><span class="token punctuation">:</span> test@gmail.com
+</code></pre></div><p>会被识别到，然后自动生成 https 的证书，以及配置 nginx 代理。</p> <p>部署理论上完成了，但是这里有一个坑：在生成 https 的在证书的时候，letsencrypt 会去校验域名的访问性。
+所以是本机的话，这一步会失败。</p> <p>所以要生成 https 的访问，需要你放到服务器中，本地用 http://localhost:8080 去访问吧。</p> <h3 id="阿里云容器服务"><a href="#阿里云容器服务" class="header-anchor">#</a> 阿里云容器服务</h3> <p>上面的部署方案可以在服务器中部署，但是有个比较严重的问题：每次部署需要提交代码，然后服务拉取最新代码后，<code>docker-compose build</code> 需要重新构建镜像。</p> <div class="language-yml extra-class"><pre class="language-yml"><code><span class="token key atrule">app</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> todo<span class="token punctuation">:</span>latest
+    <span class="token key atrule">build</span><span class="token punctuation">:</span>
+      <span class="token key atrule">context</span><span class="token punctuation">:</span> .
+    <span class="token punctuation">...</span>
+</code></pre></div><p>在服务器中构建镜像是比较灾难的，网络和机器本身的性能的制约等因素，构建出一个镜像得花好半天，当然能构建成功运气也是极好的。另一个因素是，本地已经 build 了一次，docker 是隔离环境的，生成的镜像应该不管在哪个机器(系统)上都可以工作，服务器 build 的工作完全是可以避免的。</p> <p>一般是将构建好的镜像推送到 docker 官方的管理平台。毕竟是国外的管理平台，有诸多不便之处。幸运的是阿里提供了<a href="https://help.aliyun.com/document_detail/60743.html?spm=a2c4g.11174283.6.549.185845413UYPAm" target="_blank" rel="noopener noreferrer">免费的镜像存储服务<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。</p> <p><img src="https://i2.wp.com/img-blog.csdnimg.cn/20200522153016220.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODY0MzAz,size_16,color_FFFFFF,t_70" alt="" loading="lazy" style="min-width:100px;min-height:100px;background:url(data:image/gif;base64,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) no-repeat center;background-size:30px 30px;"></p> <p>容器镜像服务直接按官方文档来就行，这里主要说的是迭代流程：</p> <ul><li>代码开发</li> <li>镜像生成</li> <li>将本地镜像推送到阿里云容器镜像存储平台</li> <li>将本地代码中依赖的镜像修改为最新的版本，提交代码，然后服务器拉取最新代码。</li> <li><code>docker-compose up app</code> 完成部署。</li></ul> <p>最终的 <code>docker-compose.yml</code>：</p> <div class="language-yml extra-class"><pre class="language-yml"><code><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">&quot;3.7&quot;</span>
+
+<span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+  <span class="token key atrule">db_data</span><span class="token punctuation">:</span>
+  <span class="token key atrule">pgadmin-data</span><span class="token punctuation">:</span>
+
+<span class="token key atrule">x-shared_environment</span><span class="token punctuation">:</span> <span class="token important">&amp;shared_environment</span>
+  <span class="token key atrule">LOG_LEVEL</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span>LOG_LEVEL<span class="token punctuation">:</span><span class="token punctuation">-</span>debug<span class="token punctuation">}</span>
+  <span class="token key atrule">DATABASE_HOST</span><span class="token punctuation">:</span> db
+  <span class="token key atrule">DATABASE_NAME</span><span class="token punctuation">:</span> vapor_database
+  <span class="token key atrule">DATABASE_USERNAME</span><span class="token punctuation">:</span> vapor_username
+  <span class="token key atrule">DATABASE_PASSWORD</span><span class="token punctuation">:</span> vapor_password
+  <span class="token key atrule">VIRTUAL_HOST</span><span class="token punctuation">:</span> oldbirds.com
+  <span class="token key atrule">LETSENCRYPT_HOST</span><span class="token punctuation">:</span> oldbirds.com
+  <span class="token key atrule">LETSENCRYPT_EMAIL</span><span class="token punctuation">:</span> test@gmail.com
+
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">app</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> registry.cn<span class="token punctuation">-</span>hangzhou.aliyuncs.com/oldbirds/todo<span class="token punctuation">:</span>1.1.0
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">&lt;&lt;</span><span class="token punctuation">:</span> <span class="token important">*shared_environment</span>
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> db
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;8080:8080&quot;</span>
+    <span class="token key atrule">command</span><span class="token punctuation">:</span>
+      <span class="token punctuation">[</span>
+        <span class="token string">&quot;serve&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;--env&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;production&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;--hostname&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;0.0.0.0&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;--port&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;8080&quot;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span>
+
+  <span class="token key atrule">migrate</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> registry.cn<span class="token punctuation">-</span>hangzhou.aliyuncs.com/oldbirds/todo<span class="token punctuation">:</span>1.1.0
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">&lt;&lt;</span><span class="token punctuation">:</span> <span class="token important">*shared_environment</span>
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> db
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;migrate&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;--yes&quot;</span><span class="token punctuation">]</span>
+    <span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+      <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">0</span>
+
+  <span class="token key atrule">revert</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> registry.cn<span class="token punctuation">-</span>hangzhou.aliyuncs.com/oldbirds/todo<span class="token punctuation">:</span>1.1.0
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">&lt;&lt;</span><span class="token punctuation">:</span> <span class="token important">*shared_environment</span>
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> db
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;migrate&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;--revert&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;--yes&quot;</span><span class="token punctuation">]</span>
+    <span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+      <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">0</span>
+
+  <span class="token key atrule">db</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> postgres<span class="token punctuation">:</span>12<span class="token punctuation">-</span>alpine
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> db_data<span class="token punctuation">:</span>/var/lib/postgresql/data/pgdata
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">PGDATA</span><span class="token punctuation">:</span> /var/lib/postgresql/data/pgdata
+      <span class="token key atrule">POSTGRES_USER</span><span class="token punctuation">:</span> vapor_username
+      <span class="token key atrule">POSTGRES_PASSWORD</span><span class="token punctuation">:</span> vapor_password
+      <span class="token key atrule">POSTGRES_DB</span><span class="token punctuation">:</span> vapor_database
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;15432:5432&quot;</span>
+
+  <span class="token key atrule">pgadmin</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> dpage/pgadmin4<span class="token punctuation">:</span>latest
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> pgadmin<span class="token punctuation">-</span>data<span class="token punctuation">:</span>/var/lib/pgadmin
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">PGADMIN_DEFAULT_EMAIL</span><span class="token punctuation">:</span> test@gmail.com
+      <span class="token key atrule">PGADMIN_DEFAULT_PASSWORD</span><span class="token punctuation">:</span> oldbirds
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;15000:80&quot;</span>
+
+  <span class="token key atrule">nginx-proxy</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> jwilder/nginx<span class="token punctuation">-</span>proxy
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> nginx<span class="token punctuation">-</span>proxy
+    <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy</span><span class="token punctuation">:</span> <span class="token string">&quot;true&quot;</span>
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;80:80&quot;</span>
+      <span class="token punctuation">-</span> <span class="token string">&quot;443:443&quot;</span>
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> unless<span class="token punctuation">-</span>stopped
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> ./volumes/nginx/conf<span class="token punctuation">:</span>/etc/nginx/conf.d
+      <span class="token punctuation">-</span> ./volumes/nginx/vhost<span class="token punctuation">:</span>/etc/nginx/vhost.d
+      <span class="token punctuation">-</span> ./volumes/nginx/html<span class="token punctuation">:</span>/usr/share/nginx/html
+      <span class="token punctuation">-</span> ./volumes/nginx/certs<span class="token punctuation">:</span>/etc/nginx/certs
+      <span class="token punctuation">-</span> ./volumes/nginx/dhparam<span class="token punctuation">:</span>/etc/nginx/dhparam
+      <span class="token punctuation">-</span> /var/run/docker.sock<span class="token punctuation">:</span>/tmp/docker.sock<span class="token punctuation">:</span>ro
+
+  <span class="token key atrule">letsencrypt</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> jrcs/letsencrypt<span class="token punctuation">-</span>nginx<span class="token punctuation">-</span>proxy<span class="token punctuation">-</span>companion
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> letsencrypt
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> nginx<span class="token punctuation">-</span>proxy
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> unless<span class="token punctuation">-</span>stopped
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> ./volumes/nginx/certs<span class="token punctuation">:</span>/etc/nginx/certs
+      <span class="token punctuation">-</span> ./volumes/nginx/vhost<span class="token punctuation">:</span>/etc/nginx/vhost.d
+      <span class="token punctuation">-</span> ./volumes/nginx/html<span class="token punctuation">:</span>/usr/share/nginx/html
+      <span class="token punctuation">-</span> /var/run/docker.sock<span class="token punctuation">:</span>/var/run/docker.sock<span class="token punctuation">:</span>ro
+</code></pre></div><p>服务 <code>app</code>、<code>migrate</code>、<code>revert</code> 的 <code>image</code> 修改成直接指向阿里云的镜像地址 <code>registry.cn-hangzhou.aliyuncs.com/oldbirds/todo:1.1.0</code>。</p></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">8/17/2020, 9:41:21 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/swift/vapor/t4-advanced.html" class="prev">
+            进阶
+          </a></span> <span class="next"><a href="/swift/vapor/t6-say-oldbirds.html">
+            实战：say-oldbirds
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-70334359><li class="level-2" data-v-70334359><a href="/swift/vapor/t5-deploy.html#安装-docker" class="sidebar-link reco-side-安装-docker" data-v-70334359>安装 Docker</a></li><li class="level-2" data-v-70334359><a href="/swift/vapor/t5-deploy.html#配置" class="sidebar-link reco-side-配置" data-v-70334359>配置</a></li><li class="level-2" data-v-70334359><a href="/swift/vapor/t5-deploy.html#dockerfile" class="sidebar-link reco-side-dockerfile" data-v-70334359>Dockerfile</a></li><li class="level-3" data-v-70334359><a href="/swift/vapor/t5-deploy.html#dockerfile-指令" class="sidebar-link reco-side-dockerfile-指令" data-v-70334359>Dockerfile 指令</a></li><li class="level-2" data-v-70334359><a href="/swift/vapor/t5-deploy.html#dockerignore" class="sidebar-link reco-side-dockerignore" data-v-70334359>.dockerignore</a></li><li class="level-2" data-v-70334359><a href="/swift/vapor/t5-deploy.html#docker-compose-yml" class="sidebar-link reco-side-docker-compose-yml" data-v-70334359>docker-compose.yml</a></li><li class="level-3" data-v-70334359><a href="/swift/vapor/t5-deploy.html#安装" class="sidebar-link reco-side-安装" data-v-70334359>安装</a></li><li class="level-3" data-v-70334359><a href="/swift/vapor/t5-deploy.html#指令" class="sidebar-link reco-side-指令" data-v-70334359>指令</a></li><li class="level-2" data-v-70334359><a href="/swift/vapor/t5-deploy.html#https-ningx-postgresql-配置" class="sidebar-link reco-side-https-ningx-postgresql-配置" data-v-70334359>https + ningx + postgresql 配置</a></li><li class="level-3" data-v-70334359><a href="/swift/vapor/t5-deploy.html#阿里云容器服务" class="sidebar-link reco-side-阿里云容器服务" data-v-70334359>阿里云容器服务</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><!----><!----><!----><!----></div></div>
+    <script src="/assets/js/app.2dd3bab0.js" defer></script><script src="/assets/js/3.668e4ee8.js" defer></script><script src="/assets/js/1.4399cd74.js" defer></script><script src="/assets/js/92.fb045afe.js" defer></script><script src="/assets/js/8.ab5c9a38.js" defer></script>
+  </body>
+</html>

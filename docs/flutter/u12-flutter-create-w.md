@@ -1,12 +1,14 @@
 ---
-title: 'Flutter 自定义 Widget'
-date: 2021-0-11
+title: "Flutter 自定义 Widget"
+date: 2021-01-11
 tags:
-- flutter
+  - flutter
 sitemap:
   exclude: false
   changefreq: hourly
 ---
+
+Flutter 自定义 Widget
 
 ```dart
 Everything’s a widget
@@ -30,7 +32,7 @@ class Opacity extends SingleChildRenderObjectWidget {
   }) : assert(opacity != null && opacity >= 0.0 && opacity <= 1.0),
        assert(alwaysIncludeSemantics != null),
        super(key: key, child: child);
-       
+
   final double opacity;
   final bool alwaysIncludeSemantics;
 
@@ -137,7 +139,7 @@ class RenderOpacity extends RenderProxyBox {
     if (wasVisible != (_alpha != 0) && !alwaysIncludeSemantics)
       markNeedsSemanticsUpdate();
   }
-  
+
   bool get alwaysIncludeSemantics => _alwaysIncludeSemantics;
   bool _alwaysIncludeSemantics;
   set alwaysIncludeSemantics(bool value) {
@@ -191,18 +193,17 @@ context.pushOpacity(offset, _alpha, super.paint, oldLayer: layer as OpacityLayer
 
 最后从 Opacity 中，我们可以总结如下：
 
-* Opacity 并非继承自 StatelessWidget 或 StatefulWidget, 而是一个 SingleChildRenderObjectWidget
-* Widget 仅持有渲染器会用到的配置信息
-* RenderOpacity 完成实际布局/渲染工作，Widget 布局的核心在于 RenderObject
-* RenderOpacity 覆盖了 paint 方法。在这个方法中调用 pushOpacity() 来为 Widget 添加不透明度
-
+- Opacity 并非继承自 StatelessWidget 或 StatefulWidget, 而是一个 SingleChildRenderObjectWidget
+- Widget 仅持有渲染器会用到的配置信息
+- RenderOpacity 完成实际布局/渲染工作，Widget 布局的核心在于 RenderObject
+- RenderOpacity 覆盖了 paint 方法。在这个方法中调用 pushOpacity() 来为 Widget 添加不透明度
 
 到这里我们基本知道 Opacity 大体实现，但是还是有很多疑问对吧？
 
-* SingleChildRenderObjectWidget 做了啥？
-* 不是三棵树么，在 Opacity 只看到 Widget 和 RenderObject，Element 呢？
-* 现有的 Widget 的继承结构如何？
-* RenderProxyBox、RenderBox、RenderObject 各自都做了什么?
+- SingleChildRenderObjectWidget 做了啥？
+- 不是三棵树么，在 Opacity 只看到 Widget 和 RenderObject，Element 呢？
+- 现有的 Widget 的继承结构如何？
+- RenderProxyBox、RenderBox、RenderObject 各自都做了什么?
 
 那么接下来，我们一起来解答这些问题。
 
@@ -255,13 +256,13 @@ abstract class Widget extends DiagnosticableTree {
 }
 ```
 
-从这个Widget类的申明中，我们可以得到如下一些信息:
+从这个 Widget 类的申明中，我们可以得到如下一些信息:
 
-- Widget类继承自DiagnosticableTree，主要作用是提供调试信息。 
-- Key: 主要的作用是决定是否在下一次build时复用旧的widget，决定的条件在canUpdate()方法中 
-- createElement()：正如前文所述一个 Widget 可以对应多个 Element；Flutter Framework在构建 UI 时，会先调用此方法生成对应节点的 Element 对象。此方法是Flutter Framework 隐式调用的，在我们开发过程中基本不会调用到。
-- debugFillProperties 复写父类的方法，主要是设置DiagnosticableTree的一些特性。 
-- canUpdate() 是一个静态方法，它主要用于在Widget树重新build时复用旧的widget。具体来说，是否使用新的Widget对象去更新旧UI树上所对应的 Element 对象的配置；并且通过其源码我们可以知道，只要 newWidget 与 oldWidget 的runtimeType 和 key 同时相等时就会用 newWidget 去更新 Element 对象的配置，否则就会创建新的 Element。
+- Widget 类继承自 DiagnosticableTree，主要作用是提供调试信息。
+- Key: 主要的作用是决定是否在下一次 build 时复用旧的 widget，决定的条件在 canUpdate()方法中
+- createElement()：正如前文所述一个 Widget 可以对应多个 Element；Flutter Framework 在构建 UI 时，会先调用此方法生成对应节点的 Element 对象。此方法是 Flutter Framework 隐式调用的，在我们开发过程中基本不会调用到。
+- debugFillProperties 复写父类的方法，主要是设置 DiagnosticableTree 的一些特性。
+- canUpdate() 是一个静态方法，它主要用于在 Widget 树重新 build 时复用旧的 widget。具体来说，是否使用新的 Widget 对象去更新旧 UI 树上所对应的 Element 对象的配置；并且通过其源码我们可以知道，只要 newWidget 与 oldWidget 的 runtimeType 和 key 同时相等时就会用 newWidget 去更新 Element 对象的配置，否则就会创建新的 Element。
 
 ### RenderObjectWidget
 
@@ -272,7 +273,7 @@ abstract class RenderObjectWidget extends Widget {
   @override
   @factory
   RenderObjectElement createElement();
-  
+
   @protected
   @factory
   RenderObject createRenderObject(BuildContext context);
@@ -285,17 +286,15 @@ abstract class RenderObjectWidget extends Widget {
 }
 ```
 
-RenderObjectWidget 用来配置 RenderObject。其 createElement() 函数返回RenderObjectElement。由其子类实现。相对于上面说的其他 Widget。这里多了一个createRenderObject()方法。用来实例化 RenderObject。
+RenderObjectWidget 用来配置 RenderObject。其 createElement() 函数返回 RenderObjectElement。由其子类实现。相对于上面说的其他 Widget。这里多了一个 createRenderObject()方法。用来实例化 RenderObject。
 
-RenderObjectWidget 只是个配置，当配置发生变化需要应用到现有的 RenderObject上的时候，Flutter框架会调用 updateRenderObject() 来把新的配置设置给相应的RenderObject。
+RenderObjectWidget 只是个配置，当配置发生变化需要应用到现有的 RenderObject 上的时候，Flutter 框架会调用 updateRenderObject() 来把新的配置设置给相应的 RenderObject。
 
 RenderObjectWidget 有三个比较重要的子类：
 
 - LeafRenderObjectWidget 这个 Widget 配置的节点处于树的最底层，它是没有孩子的。对应 LeafRenderObjectElement。
-- SingleChildRenderObjectWidget，只含有一个孩子。对应SingleChildRenderObjectElement。
-- MultiChildRenderObjectWidget，有多个孩子。对应MultiChildRenderObjectElement。
-
-
+- SingleChildRenderObjectWidget，只含有一个孩子。对应 SingleChildRenderObjectElement。
+- MultiChildRenderObjectWidget，有多个孩子。对应 MultiChildRenderObjectElement。
 
 ## 现有的 Widget 的继承结构如何？
 
@@ -305,8 +304,8 @@ RenderObjectWidget 有三个比较重要的子类：
 
 ![](http://blog.loveli.site/mweb/16155563318031.jpg)
 
-
 ### LeafRenderObjectWidget 继承关系图：
+
 ![](http://blog.loveli.site/mweb/16155563445065.jpg)
 
 ### SingleChildRenderObjectWidget 继承关系图
@@ -317,21 +316,19 @@ RenderObjectWidget 有三个比较重要的子类：
 
 ![](http://blog.loveli.site/mweb/16155564431428.jpg)
 
-
-### ProxyWidget 继承关系图  
+### ProxyWidget 继承关系图
 
 ![](http://blog.loveli.site/mweb/16155564169235.jpg)
 
 ProxyWidget 作为一个抽象的代理 Widget，并没有实质性的作用。只是在父类和子类需要传递信息时使用；主要有 InheritedWidget 和 ParentDataWidget 两类；InheritedWidget 和 ParentDataWidget 涉及内容较多，后续文章我们再深入研究；
 
-### StatelessWidget继承关系图
+### StatelessWidget 继承关系图
 
 ![](http://blog.loveli.site/mweb/16155564637494.jpg)
 
 ### StatefulWidget 继承关系图
 
 ![](http://blog.loveli.site/mweb/16155564723993.jpg)
-
 
 ## Opacity 只看到 Widget 和 RenderObject，Element 呢？
 
@@ -367,26 +364,26 @@ RenderOpacity → RenderProxyBox → RenderBox → RenderObject → AbstractNode
 
 我们可以通过 Element.renderObject 来获取，并且 RenderObject 的主要职责是布局和绘制，所有的 RenderObject 组成一棵渲染树 Render Tree。
 
-RenderObject 类本身实现了一套基础的布局和绘制协议，但是并没有定义子节点模型（如一个节点可以有几个子节点，没有子节点？一个？两个？或者更多？）。 它也没有定义坐标系统（如子节点定位是在笛卡尔坐标中还是极坐标？）和具体的布局协议（是通过宽高还是通过constraint和size?，或者是否由父节点在子节点布局之前或之后设置子节点的大小和位置等）。为此，Flutter提供了一个RenderBox类，它继承自`RenderObject`，布局坐标系统采用笛卡尔坐标系，这和Android和iOS原生坐标系是一致的，都是屏幕的左上角是原点，然后分宽高两个轴，大多数情况下，我们直接使用RenderBox 就可以了，除非遇到要自定义布局模型或坐标系统的情况。
+RenderObject 类本身实现了一套基础的布局和绘制协议，但是并没有定义子节点模型（如一个节点可以有几个子节点，没有子节点？一个？两个？或者更多？）。 它也没有定义坐标系统（如子节点定位是在笛卡尔坐标中还是极坐标？）和具体的布局协议（是通过宽高还是通过 constraint 和 size?，或者是否由父节点在子节点布局之前或之后设置子节点的大小和位置等）。为此，Flutter 提供了一个 RenderBox 类，它继承自`RenderObject`，布局坐标系统采用笛卡尔坐标系，这和 Android 和 iOS 原生坐标系是一致的，都是屏幕的左上角是原点，然后分宽高两个轴，大多数情况下，我们直接使用 RenderBox 就可以了，除非遇到要自定义布局模型或坐标系统的情况。
 
 ### RenderBox
-如果想更近一步了解 RenderBox, 可参考阅读：
-* [RenderObject和RenderBox](https://book.flutterchina.club/chapter14/render_object.html#_14-3-1-%E5%B8%83%E5%B1%80%E8%BF%87%E7%A8%8B)
-* [flutter的RenderBox使用说明书&原理浅析](https://www.cnblogs.com/joahyau/p/12931941.html#%E4%BA%8C%E3%80%81%E5%AE%B9%E5%99%A8%E7%B1%BB%E5%9E%8B%E7%9A%84renderbox)
 
+如果想更近一步了解 RenderBox, 可参考阅读：
+
+- [RenderObject 和 RenderBox](https://book.flutterchina.club/chapter14/render_object.html#_14-3-1-%E5%B8%83%E5%B1%80%E8%BF%87%E7%A8%8B)
+- [flutter 的 RenderBox 使用说明书&原理浅析](https://www.cnblogs.com/joahyau/p/12931941.html#%E4%BA%8C%E3%80%81%E5%AE%B9%E5%99%A8%E7%B1%BB%E5%9E%8B%E7%9A%84renderbox)
 
 我们在回顾下下我们分析的过程：
 
 1. 查看 Opacity 的源码，我们知道 Opacity 的一个继承关系，认识到 Widge 仅仅是个配置，布局和渲染都是 RenderObject 干的活。
-2. 然后我们整理了 Flutter 常用的 Widget 的继承关系图，知道了LeafRenderObjectWidget，SingleChildRenderObjectWidget，MultiChildRenderObjectWidget 此类 Widge 的用途。
+2. 然后我们整理了 Flutter 常用的 Widget 的继承关系图，知道了 LeafRenderObjectWidget，SingleChildRenderObjectWidget，MultiChildRenderObjectWidget 此类 Widge 的用途。
 3. 最后分析 RenderObject 的一些子类，从而对 布局和绘制有个初步的了解。
 
 整个分析过程下来，我们将会比较清晰的认识到三棵树各自的职责，以及它们之间的关联。
 
 为了更具化整个过程，加深对知识点的理解，我们一起来自定义一个 Widget 吧。
 
-
-## 自定义 Widget 
+## 自定义 Widget
 
 完成一个 Widget，是一个圆，圆中心直接显示 OldBirds 文本，且这个圆有个外边框。
 
@@ -406,7 +403,7 @@ class CircleLogoWidget extends SingleChildRenderObjectWidget {
 
 ```
 
-使我们的 CircleLogoWidget 继承于 SingleChildRenderObjectWidget 会默认实现一个 createRenderObject 方法，会让你返回一个RenderObject，这个对象负责对你 Widget 的绘制和布局，我们这边返回 `CircleLogoRenderBox`：
+使我们的 CircleLogoWidget 继承于 SingleChildRenderObjectWidget 会默认实现一个 createRenderObject 方法，会让你返回一个 RenderObject，这个对象负责对你 Widget 的绘制和布局，我们这边返回 `CircleLogoRenderBox`：
 
 ```dart
 
@@ -459,7 +456,7 @@ class CircleLogoRenderBox extends RenderConstrainedBox {
 class MainPage extends StatelessWidget {
   final String title;
   MainPage({this.title});
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -476,35 +473,29 @@ class MainPage extends StatelessWidget {
         onPressed: (){},
         tooltip: 'Increment',
         child: Icon(Icons.add),
-      ), 
+      ),
     );
   }
 }
 ```
 
-我们借助于 SingleChildRenderObjectWidget完成自定义 CircleLogoWidget
+我们借助于 SingleChildRenderObjectWidget 完成自定义 CircleLogoWidget
 然后通过使用 TextPainter 来绘制文字， canvans 调用 `drawCircle` 以 offset 为圆心，半径为 80 绘制了一个圆，完成了我们想要的效果。
-
 
 ## 总结
 
 本文从 Opcity 的源码的深入解读，再不断的深入源码，引出 RenderObject，然后梳理了 Widget、Element 和 RenderObject 三者之间的关系，更近一步的理解 Flutter 的绘制原理，最后实现了一个可自定义绘制的 Widget。
 
-
 ## 练习
 
 相信看完此片文章，回答以下问题应该是比较容易的
 
-* build 方法是在什么时候调用的？
-* BuildContext 是什么？
-* Widget 频繁更改创建是否会影响性能？复用和更新机制是什么样的？
-* 创建 Widget 里面的 Key 到底是什么作用？
-* state 里面为啥可以直接获取到 widget 对象？
+- build 方法是在什么时候调用的？
+- BuildContext 是什么？
+- Widget 频繁更改创建是否会影响性能？复用和更新机制是什么样的？
+- 创建 Widget 里面的 Key 到底是什么作用？
+- state 里面为啥可以直接获取到 widget 对象？
 
 ## 参阅
 
-* [Flutter渲染之Widget、Element 和 RenderObject](https://juejin.cn/post/6845166891539906574)
-
-
-
-
+- [Flutter 渲染之 Widget、Element 和 RenderObject](https://juejin.cn/post/6845166891539906574)
