@@ -92,7 +92,8 @@ autostart=true
 autorestart=true
 user = root
 ##log文件的位置
-stdout_logfile=/www/wwwroot/www.itswcg.site/logs/uwsgi_supervisor.log
+stdout_logfile=/var/log/supervisor/%(program_name)-stdout.log
+stderr_logfile=/var/log/supervisor/%(program_name)-stderr.log
 ```
 
 启动
