@@ -2,7 +2,7 @@
 sitemap:
   exclude: false
   changefreq: hourly
-title: "宝塔面板 + flask + nginx + uwsgi"
+title: "宝塔面板 + flask + nginx + uwsgi + supervisord"
 date: 2021-12-04
 tags:
   - python
@@ -70,3 +70,48 @@ server {
   }
 }
 ```
+
+## 配置supervisor
+
+supervisor能同时启动多个应用，能自动重启应用，保证可用性。
+
+安装
+
+```shell
+sudo apt-get install supervisor
+```
+
+在 /etc/supervisor/conf.d 下添加<name>.conf文件(resume.conf)，内容如下
+
+```nginx
+[program:resume] #resume是<name>
+##注意项目目录和uwsgi的配置文件地址
+command=/www/wwwroot/www.itswcg.site/venv/bin/uwsgi /www/wwwroot/www.itswcg.site/config.ini
+directory=/www/wwwroot/www.itswcg.site
+autostart=true
+autorestart=true
+user = root
+##log文件的位置
+stdout_logfile=/www/wwwroot/www.itswcg.site/logs/uwsgi_supervisor.log
+```
+
+启动
+
+```shell
+supervisord -c /etc/supervisor/supervisord.conf
+```
+
+客户端管理
+
+```shell
+supervisorctl
+```
+
+这样你就不用每次重启时都运行
+
+```
+$uwsgi config.ini
+```
+
+supervisor 帮你自动重启
+还有别忘了在宝塔面板安全中，放行端口
