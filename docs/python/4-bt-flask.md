@@ -115,4 +115,13 @@ $uwsgi config.ini
 ```
 
 supervisor 帮你自动重启
-还有别忘了在宝塔面板安全中，放行端口
+还有别忘了在宝塔面板安全中，放行端口。
+
+几个常用命令
+
+```shell
+sudo supervisorctl reread
+sudo supervisorctl restart all
+sudo supervisorctl add hello
+sudo supervisorctl start hello
+```
