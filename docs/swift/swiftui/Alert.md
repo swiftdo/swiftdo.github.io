@@ -1,3 +1,14 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+  - swiftui
+---
+
 # Alert
 
 > 文档：[https://developer.apple.com/documentation/swiftui/alert](https://developer.apple.com/documentation/swiftui/alert)
@@ -26,7 +37,7 @@ var body: some View {
         self.error = AlertError(reason: "Reason")
     }.alert(item: $error, content: { error in
         alert(reason: error.reason)
-    })    
+    })
 }
 
 func alert(reason: String) -> Alert {
@@ -40,7 +51,7 @@ struct AlertError: Identifiable {
     var id: String {
         return reason
     }
-    
+
     let reason: String
 }
 ```

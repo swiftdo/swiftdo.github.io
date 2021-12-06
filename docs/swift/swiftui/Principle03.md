@@ -1,12 +1,22 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+  - swiftui
+---
+
 # 关于 some View
 
 ## 协议
 
 Swift 协议的一个强大之处：
 
-* 可以作为类型约束；
-* associated type，让协议可以实现一定程度的范型。
-
+- 可以作为类型约束；
+- associated type，让协议可以实现一定程度的范型。
 
 但是这两个又是是互相矛盾的。
 
@@ -82,13 +92,13 @@ func are<Sequence: MySequence>(_ s1: Sequence, lessThan s2: Sequence) -> Bool {
 
 想了解更多协议抽象，不妨阅读 [《Protocol Oriented: Swift 协议陷阱之 Associated Type》](https://zhuanlan.zhihu.com/p/80672557)
 
-## Opaque Type 
+## Opaque Type
 
 这个特性使用 `some` 修饰协议返回值，具有一下特性:
 
-* 所有的条件分支只能返回一个特定类型，不同则会编译报错
-* 方法使用者依旧无法知道类型，（使用方不透明）
-* 编译器知情具体类型，因此可以使用类型推断。
+- 所有的条件分支只能返回一个特定类型，不同则会编译报错
+- 方法使用者依旧无法知道类型，（使用方不透明）
+- 编译器知情具体类型，因此可以使用类型推断。
 
 ```swift
 struct ContentView: View {
@@ -149,13 +159,13 @@ struct ContentView: View {
 2. 新建一个 `View` 的时候，我们都需要去考虑会是什么类型。
 3. 其实我们只关心返回的是不是一个 `View`，而对实际上它是什么类型并不感兴趣。
 
-`some View` 这种写法使用了 `Swift 5.1` 的 [Opaque return types特性](https://github.com/apple/swift-evolution/blob/master/proposals/0244-opaque-result-types.md)，它向编译器作出保证，每次 `body` 得到的一定是某一个确定的，遵守 `View` 协议的类型，但是请编译器“网开一面”，不要再细究具体的类型。返回类型`确定单一`这个条件十分重要，比如，下面的代码也是无法通过的：
+`some View` 这种写法使用了 `Swift 5.1` 的 [Opaque return types 特性](https://github.com/apple/swift-evolution/blob/master/proposals/0244-opaque-result-types.md)，它向编译器作出保证，每次 `body` 得到的一定是某一个确定的，遵守 `View` 协议的类型，但是请编译器“网开一面”，不要再细究具体的类型。返回类型`确定单一`这个条件十分重要，比如，下面的代码也是无法通过的：
 
 ```swift
 let someCondition: Bool
 
-// Error: Function declares an opaque return type, 
-// but the return statements in its body do not have 
+// Error: Function declares an opaque return type,
+// but the return statements in its body do not have
 // matching underlying types.
 var body: some View {
     if someCondition {

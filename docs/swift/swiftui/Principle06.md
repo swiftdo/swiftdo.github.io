@@ -1,10 +1,20 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+  - swiftui
+---
 
 ## @State
 
 通过使用 `@State` 修饰器我们可以关联出 `View` 的状态. SwiftUI 将会把使用过 @State 修饰器的属性存储到一个特殊的内存区域，并且这个区域和 View struct 是隔离的. 当 @State 装饰过的属性发生了变化，SwiftUI 会根据新的属性值重新创建视图
 
 > 被设计用于存储当前视图的本地数据，支持对值类型的修饰，不适用于复杂的引用类型。
-> 
+>
 > `@State` 用于 `View` 中的私有状态值，一般来说它所修饰的都应该是 `struct` 值，并且不应该被其他的 `view` 看到。它代表了 `SwiftUI` 中作用范围最小，本身也最简单的状态，比如一个 Bool，一个 Int 或者一个 String。简单说，如果一个状态能够被标记为 private 并且它是值类型，那么 `@State` 是适合的
 
 ```swift
@@ -35,6 +45,7 @@ struct ProductsView: View {
 
 > 如果我们有两个 SwiftUI 的视图，并且我们用相同的结构体实例赋给它们，它们实际上是各自拥有一份唯一的结构体拷贝；如果其中一个改变，另外一个并不会随着改变。另一方面，如果我们创建一个类实例，赋给两个视图，它们会共享改变。
 > 对于 SwiftUI 开发者，这意味着如果我们想在多个视图之间共享数据，或者说让两个或者更多视图引用相同的数据，以便一个改变，全部跟随改变 —— 这种情况下我们需要用类而不是结构体。
+>
 > ```swift
 > struct User {
 >     var firstName = "Bilbo"
@@ -51,19 +62,23 @@ struct ProductsView: View {
 >     }
 > }
 > ```
+>
 > 所以，我们是不是可以把 User 结构体改成一个类，把下面的代码：
+>
 > ```swift
 > struct User {
 > ```
+>
 > 改成这样：
+>
 > ```swift
 > class User {
 > ```
+>
 > 现在运行代码，看看会发生什么？
 > app 无法正常工作。 当我们像之前那样往文本框里输入字符串时，文本视图不再改变了。这是为什么？
 > 当我们使用`@State`的时候，我们是在要求`SwiftUI`为我们监视某个属性的变化。这样让我们改变一个字符串，反转一个布尔型，或者往数组里加东西的时候，属性会变化，而 `SwiftUI` 会重新调用视图的`body`属性。
 > 当`User`还是一个结构体的时候，每当我们修改它的属性时，`Swift` 实际上创建了一个新的结构体实例。`@State`能够看穿这种变化，并自动重新载入视图。现在我们把它改成类，这种行为不再发生：因为`Swift`能够直接修改目标对象的值 —— 没有新实例产生。
-
 
 但是通过 `@Binding` 修饰器修饰后，属性变成了一个引用类型，传递变成了引用传递，这样父子视图的状态就能关联起来了。
 
@@ -71,7 +86,7 @@ struct ProductsView: View {
 
 struct FilterView: View {
     @Binding var showFavorited: Bool
-    
+
     var body: some View {
         Toggle(isOn: $showFavorited, label: {
             Text("toggle")
@@ -81,13 +96,13 @@ struct FilterView: View {
 
 struct Learn: View {
     @State private var showFavorited: Bool = false
-    
+
     var body: some View {
         NavigationView(content: {
             VStack(content: {
                 FilterView(showFavorited: $showFavorited)
                     .navigationTitle(Text("Learn"))
-                
+
                 if showFavorited {
                     Text("OK").font(.title)
                 } else {
@@ -98,8 +113,8 @@ struct Learn: View {
     }
 }
 ```
-在 `FilterView` 视图里用 `@Binding` 修饰 `showFavorited` 属性, 在传递属性是使用 `$` 来传递 `showFavorited` 属性的引用，这样 `FilterView` 视图就能读写父视图 `ProductsView` 里的状态值了，并且值发生了修改 `SwiftUI` 会更新 `ProductsView` 和 `FilterView` 视图。
 
+在 `FilterView` 视图里用 `@Binding` 修饰 `showFavorited` 属性, 在传递属性是使用 `$` 来传递 `showFavorited` 属性的引用，这样 `FilterView` 视图就能读写父视图 `ProductsView` 里的状态值了，并且值发生了修改 `SwiftUI` 会更新 `ProductsView` 和 `FilterView` 视图。
 
 ## @ObservedObject
 
@@ -132,17 +147,17 @@ struct Mine: View {
 ```swift
 class BookingStore: ObservableObject {
     var objectWillChange = PassthroughSubject<Void, Never>()
-    
+
     var bookingName: String = "" {
         didSet { updateUI() }
     }
-    
+
     var seats: Int = 1 {
         didSet {
             updateUI()
         }
     }
-    
+
     func updateUI() {
         objectWillChange.send()
     }
@@ -175,9 +190,9 @@ class User: ObservableObject {
 
 
 struct EditView: View {
-    
+
     @EnvironmentObject var user: User
-    
+
     var body: some View {
         TextField("Name", text: $user.name)
     }
@@ -185,7 +200,7 @@ struct EditView: View {
 
 struct DisplayView: View {
     @EnvironmentObject var user: User
-    
+
     var body: some View {
         Text(user.name)
     }
@@ -193,7 +208,7 @@ struct DisplayView: View {
 
 struct LearnEnvironmentObject: View {
     let user = User()
-    
+
     var body: some View {
         VStack {
             EditView()
@@ -221,8 +236,7 @@ struct CalendarView: View {
 
 通过 `@Environment` 修饰的属性，我们开一个监听系统级别信息的变换，这个例子里一旦 Calendar, Locale, ColorScheme 发生了变换，我们定义的 CalendarView 就会刷新
 
-
-## @StateObject 
+## @StateObject
 
 `@StateObject` 是 `@State` 的升级版。`@State`这种底层存储被 SwiftUI “全面接管” 的状态不同，`@ObservedObject` 只是在 `View` 和 `Model` 之间添加订阅关系，而不影响存储。`SwiftUI` 将为 `@State` 创建额外的存储空间，来保证在`View`刷新 (也就是重新创建时)，状态能够保持。但这对`@ObservedObject`并不适用。`@StateObject` 则是针对 `ObservableObject class` 的存储。它保证这个 `class` 实例不会随着 View 被重新创建。
 
@@ -291,8 +305,8 @@ struct Test1: View {
 }
 ```
 
-当进点击+1按钮时，无论是`@StateObject`或是`@ObservedObject`其都表现出一致的状态，两个`View`都可以正常的显示当前按钮的点击次数，不过当点击刷新按钮时，`CountViewState` 中的数值仍然正常，不过`CountViewObserved`中的计数值被清零了。
-可以看出，当点击刷新时，`CountViewObserved`中的实例被重新创建了，并销毁了之前的实例（`CountViewObserved`视图并没有被重新创建，仅是重新求了body的值）。
+当进点击+1 按钮时，无论是`@StateObject`或是`@ObservedObject`其都表现出一致的状态，两个`View`都可以正常的显示当前按钮的点击次数，不过当点击刷新按钮时，`CountViewState` 中的数值仍然正常，不过`CountViewObserved`中的计数值被清零了。
+可以看出，当点击刷新时，`CountViewObserved`中的实例被重新创建了，并销毁了之前的实例（`CountViewObserved`视图并没有被重新创建，仅是重新求了 body 的值）。
 
 ```sh
 type:Observed id:443 init
@@ -309,11 +323,9 @@ type:Observed id:103 deinit
 
 `@ObservableObject`在视图外部，并且不存储在视图中。它是一种引用类型，不在本地存储，而仅具有对该值的引用。这不是框架自动管理的，而是由开发人员。这适用于外部数据，例如数据库或由代码管理的模型。
 
-
 ### @State VS @Binding
 
-`@State`只能在当前修饰的属性改变时会触发UI刷新，所以很适合值类型，因为对值类型里面属性的更新，也会触发整个值类型的重新设置。不过值类型在传递时会发生复制操作，所以给传递后的值类型即使属性更新了也不会触发最初的传过来的值类型的重新赋值，所以界面并不会刷新，此时需要用`@Binding`，因为它可以将值类型转为引用类型，这样在传递时，其实是一个引用，任何一方修改属性都会触发值类型的重新设置，UI界面也随之更新。
-
+`@State`只能在当前修饰的属性改变时会触发 UI 刷新，所以很适合值类型，因为对值类型里面属性的更新，也会触发整个值类型的重新设置。不过值类型在传递时会发生复制操作，所以给传递后的值类型即使属性更新了也不会触发最初的传过来的值类型的重新赋值，所以界面并不会刷新，此时需要用`@Binding`，因为它可以将值类型转为引用类型，这样在传递时，其实是一个引用，任何一方修改属性都会触发值类型的重新设置，UI 界面也随之更新。
 
 ## 总结：
 

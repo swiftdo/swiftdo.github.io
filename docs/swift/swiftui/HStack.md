@@ -1,3 +1,14 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+  - swiftui
+---
+
 # HStack
 
 > 文档：[https://developer.apple.com/documentation/swiftui/hstack](https://developer.apple.com/documentation/swiftui/hstack)
@@ -19,11 +30,11 @@ struct HStackPage: View {
                             .stroke(lineWidth: 4)
                             .foregroundColor(.blue)
                 )
-            
+
             Text("Hello, World!")
             Spacer()
         }.padding()
-      
+
     }
 }
 ```
@@ -42,8 +53,8 @@ HStack 的定义：
 
 HStack 构造函数的参数说明：
 
-* `spacing: CGFloat?`，设置子视图之间的空隙
-* `alignment: VerticalAlignment`, 子视图的垂直对齐方式
+- `spacing: CGFloat?`，设置子视图之间的空隙
+- `alignment: VerticalAlignment`, 子视图的垂直对齐方式
 
 spacing 比较容易设置和理解，下面着重介绍下 alignment。
 
@@ -53,11 +64,11 @@ spacing 比较容易设置和理解，下面着重介绍下 alignment。
 
 它是个结构体，有以下几个静态属性：
 
-* static let bottom: VerticalAlignment
-* static let center: VerticalAlignment
-* static let firstTextBaseline: VerticalAlignment
-* static let lastTextBaseline: VerticalAlignment
-* static let top: VerticalAlignment
+- static let bottom: VerticalAlignment
+- static let center: VerticalAlignment
+- static let firstTextBaseline: VerticalAlignment
+- static let lastTextBaseline: VerticalAlignment
+- static let top: VerticalAlignment
 
 为了更深刻的理解这几种布局的差异，首先创建个通用组件 `HStackCaseItem`，便于代码的复用：
 
@@ -69,18 +80,18 @@ struct HStackCaseItem: View {
             Text("A\nB")
                 .frame(width: 50)
                 .background(Color.yellow)
-            
+
             Text("\(alignment.name)\nhello\nworld\nOldBirds")
                 .foregroundColor(.white)
                 .frame(width:150)
                 .background(Color.red)
                 .padding([.bottom, .top])
                 .background(Color.red.opacity(0.5))
-                
+
             Text("OldBirds")
                 .background(Color.green)
                 .foregroundColor(.white)
-            
+
          }.background(Color.gray)
     }
 }
@@ -129,11 +140,11 @@ struct CasePage: View {
 
 通过预览效果，可以比较容易发现 `alignment` 间的差异。
 
-* `.top`: 子视图局顶部对齐
-* `.center`: 子视图局中心对齐
-* `.bottom`: 子视图局底部对齐
-* `.firstTextBaseline`: 表示所有 text 的以各自最上边的那一行的 base line对齐
-* `.lastTextBaseline`: 表示所有text的以最下边的那一行的 base line 对齐。
+- `.top`: 子视图局顶部对齐
+- `.center`: 子视图局中心对齐
+- `.bottom`: 子视图局底部对齐
+- `.firstTextBaseline`: 表示所有 text 的以各自最上边的那一行的 base line 对齐
+- `.lastTextBaseline`: 表示所有 text 的以最下边的那一行的 base line 对齐。
 
 ## 利用 padding 让 HStack 的视图重叠效果
 
@@ -157,12 +168,3 @@ struct CircleRow:View {
 ```
 
 ![](http://blog.loveli.site/tuc/20210630222516.png)
-
-
-
-
-
-
-
-
-

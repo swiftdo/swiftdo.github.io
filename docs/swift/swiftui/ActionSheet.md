@@ -1,3 +1,14 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+  - swiftui
+---
+
 # ActionSheet
 
 > 文档：[https://developer.apple.com/documentation/swiftui/actionsheet](https://developer.apple.com/documentation/swiftui/actionsheet)
@@ -14,10 +25,10 @@ var actionSheet: ActionSheet {
                 message: Text("Description"),
                 buttons: [
                     .default(Text("OK"), action: {
-                        
+
                     }),
                     .destructive(Text("Delete"), action: {
-                        
+
                     })
                 ]
     )
@@ -48,10 +59,10 @@ func sheet(detail: String) -> ActionSheet {
                 message: Text(detail),
                 buttons: [
                     .default(Text("OK"), action: {
-                        
+
                     }),
                     .destructive(Text("Delete"), action: {
-                        
+
                     })
                 ]
     )
@@ -61,7 +72,7 @@ struct SheetDetail: Identifiable {
     var id: String {
         return body
     }
-    
+
     let body: String
 }
 ```

@@ -1,3 +1,13 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+  - swiftui
+---
 
 # GeometryReader
 
@@ -25,12 +35,11 @@ struct MyRectangle: View {
 
 ![](http://blog.loveli.site/mweb/16032475574382.jpg)
 
-正如你所看到的，`MyRectangle()`，不用去设置 size，它只有一个任务，就是画矩形。让SwiftUI 自己去管理好父级期望的子视图的大小和位置。 这个例子里 Vstack 就是父级视图。
+正如你所看到的，`MyRectangle()`，不用去设置 size，它只有一个任务，就是画矩形。让 SwiftUI 自己去管理好父级期望的子视图的大小和位置。 这个例子里 Vstack 就是父级视图。
 
 > 如果你想要知道更多关于父级视图如何确定子视图的位置和大小：[Building Custom Views With SwiftUI](https://developer.apple.com/videos/play/wwdc2019/237/)
 
-父级视图会自动为子视图找到合适的尺寸和位置。但是如果你想要自定义绘制一个矩形，大小是父级视图的一半。位置位于父级视图右边距里5像素的视图。其实也并不复杂，这个时候可以用`GeometryReader` 作为解决方案。
-
+父级视图会自动为子视图找到合适的尺寸和位置。但是如果你想要自定义绘制一个矩形，大小是父级视图的一半。位置位于父级视图右边距里 5 像素的视图。其实也并不复杂，这个时候可以用`GeometryReader` 作为解决方案。
 
 ## 子视图做了什么？
 
@@ -40,7 +49,6 @@ struct MyRectangle: View {
 `GeometryReader`让你定义了它的`content`。 但是与其他`View`不同。你可以拿到一些你在其他`View`中拿不到的信息。
 
 ![](http://blog.loveli.site/mweb/16032478700155.jpg)
-
 
 ```swift
 struct ContentView : View {
@@ -61,7 +69,7 @@ struct MyRectangle: View {
                                  width: geometry.size.width / 2.0,
                                  height: geometry.size.height / 2.0))
                 .fill(Color.blue)
-            
+
         }
     }
 }
@@ -87,56 +95,54 @@ public func frame(in coordinateSpace: CoordinateSpace) -> CGRect
 public subscript<T>(anchor: Anchor<T>) -> T where T : Equatable { get }
 ```
 
-* **frame 方法**：暴露给我们了父级视图建议区域的大小位置，可以通过 `coordinateSpace`来获取不同的坐标空间。
+- **frame 方法**：暴露给我们了父级视图建议区域的大小位置，可以通过 `coordinateSpace`来获取不同的坐标空间。
+
+  ```swift
+  enum CoordinateSpace {
+      case global
+      case local
+      case named(AnyHashable)
+  }
+  ```
+
+  - `global`的意思是获取基于整块屏幕的坐标位置
+  - `local`指的是容器视图，也就是`GeometryReader`的内部的相对位置。对于 `local` 怎么使用，这里有一张图，它比较清楚地解释了`local`中的位置参数。
+
+    ![](http://blog.loveli.site/mweb/16033300134485.jpg)
+
+  - `.name(AnyHashable)` 是获取相对坐标，比方下面的例子相对于蓝色 stack view 的坐标。
+
+    ![](http://blog.loveli.site/mweb/16033307451728.jpg)
 
     ```swift
-    enum CoordinateSpace {
-        case global
-        case local
-        case named(AnyHashable)
+    struct ContentView: View {
+        var body: some View {
+                VStack {
+                    Image("tony")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 300)
+                            .overlay(
+                                GeometryReader {  geometry in
+                                    Text(geometry.frame(in: .named("blue view")).origin.debugDescription)
+                                        .background(Color.yellow)
+                                }
+                    )
+                }
+                .frame(width: 400, height: 600)
+                .background(Color.blue)
+                .coordinateSpace(name: "blue view")
+            }
     }
     ```
-    
-    * `global`的意思是获取基于整块屏幕的坐标位置
-    * `local`指的是容器视图，也就是`GeometryReader`的内部的相对位置。对于 `local` 怎么使用，这里有一张图，它比较清楚地解释了`local`中的位置参数。
 
-        ![](http://blog.loveli.site/mweb/16033300134485.jpg)
+    给 `VStack` 设置 `.coordinateSpace(name: "blue view")`，之后即可找出相对于 `blue view`的坐标。
 
-    * `.name(AnyHashable)` 是获取相对坐标，比方下面的例子相对于蓝色 stack view 的坐标。
-    
-        ![](http://blog.loveli.site/mweb/16033307451728.jpg)
+    ```swift
+    geometry.frame(in: .named("blue view")).origin.debugDescription
+    ```
 
-        ```swift
-        struct ContentView: View {
-            var body: some View {
-                    VStack {
-                        Image("tony")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 300)
-                                .overlay(
-                                    GeometryReader {  geometry in
-                                        Text(geometry.frame(in: .named("blue view")).origin.debugDescription)
-                                            .background(Color.yellow)
-                                    }
-                        )
-                    }
-                    .frame(width: 400, height: 600)
-                    .background(Color.blue)
-                    .coordinateSpace(name: "blue view")
-                }
-        }
-        ```
-        
-        给 `VStack` 设置 `.coordinateSpace(name: "blue view")`，之后即可找出相对于 `blue view`的坐标。
-        
-        ```swift
-        geometry.frame(in: .named("blue view")).origin.debugDescription
-        ```
-    
-
-* **subscript**: 通过下标取值来获取一个锚点。可以获取视图树中任何子级视图的 size 和 x，y
-
+- **subscript**: 通过下标取值来获取一个锚点。可以获取视图树中任何子级视图的 size 和 x，y
 
 ## 实战
 
@@ -154,7 +160,6 @@ Text("hello").background(Color.red)
 
 ![](http://blog.loveli.site/mweb/16032495562741.jpg)
 
-
 ```swift
 struct ContentView : View {
     var body: some View {
@@ -162,11 +167,11 @@ struct ContentView : View {
             Text("SwiftUI")
                 .foregroundColor(.black).font(.title).padding(15)
                 .background(RoundedCorners(color: .green, tr: 30, bl: 30))
-            
+
             Text("Lab")
                 .foregroundColor(.black).font(.title).padding(15)
                 .background(RoundedCorners(color: .blue, tl: 30, br: 30))
-            
+
         }.padding(20).border(Color.gray).shadow(radius: 3)
     }
 }
@@ -177,20 +182,20 @@ struct RoundedCorners: View {
     var tr: CGFloat = 0.0
     var bl: CGFloat = 0.0
     var br: CGFloat = 0.0
-    
+
     var body: some View {
         GeometryReader { geometry in
             Path { path in
-                
+
                 let w = geometry.size.width
                 let h = geometry.size.height
-                
+
                 // We make sure the redius does not exceed the bounds dimensions
                 let tr = min(min(self.tr, h/2), w/2)
                 let tl = min(min(self.tl, h/2), w/2)
                 let bl = min(min(self.bl, h/2), w/2)
                 let br = min(min(self.br, h/2), w/2)
-                
+
                 path.move(to: CGPoint(x: w / 2.0, y: 0))
                 path.addLine(to: CGPoint(x: w - tr, y: 0))
                 path.addArc(center: CGPoint(x: w - tr, y: tr), radius: tr, startAngle: Angle(degrees: -90), endAngle: Angle(degrees: 0), clockwise: false)
@@ -207,7 +212,7 @@ struct RoundedCorners: View {
 }
 ```
 
-另外，我们对自定义的Overlay设置透明度为0.5，设置在Text上。 代码如下：
+另外，我们对自定义的 Overlay 设置透明度为 0.5，设置在 Text 上。 代码如下：
 
 ```swift
 Text("SwiftUI")

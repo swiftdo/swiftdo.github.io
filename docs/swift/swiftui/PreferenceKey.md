@@ -1,3 +1,14 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+  - swiftui
+---
+
 # PreferenceKey
 
 > [Inspecting the View Tree – Part 1: PreferenceKey](https://swiftui-lab.com/communicating-with-the-view-tree-part-1/)
@@ -16,10 +27,9 @@
 
 SwiftUI 有一个让我们去给`View`添加很多属性的机制。这些属性我们叫做`Preferences`。 它们可以轻松的沿视图层次结构传递，甚至在这些些偏好设置更改时执行回调。
 
-有没有想过`NavigationView`是如何通过`.navigationBarTitle()`来获取 title。请注意`.navigationBarTitle()`并没有直接修改`NavigationView`。而是在沿着`View`的层级去调用。那么它是怎么做到的呢？ 
+有没有想过`NavigationView`是如何通过`.navigationBarTitle()`来获取 title。请注意`.navigationBarTitle()`并没有直接修改`NavigationView`。而是在沿着`View`的层级去调用。那么它是怎么做到的呢？
 
-
-## 独立的Views
+## 独立的 Views
 
 为了更好的了解今天的话题，我们先用一个没有使用偏好的例子开始。在例子中，先创建一个显示月份名的`View`。当月份标签被点击的时候，会在月份标签上面慢慢的显示一个边框(从之前选中的月份标签移除)。
 
@@ -32,36 +42,36 @@ import SwiftUI
 
 struct EasyExample : View {
     @State private var activeIdx: Int = 0
-    
+
     var body: some View {
         VStack {
             Spacer()
-            
+
             HStack {
                 MonthView(activeMonth: $activeIdx, label: "January", idx: 0)
                 MonthView(activeMonth: $activeIdx, label: "February", idx: 1)
                 MonthView(activeMonth: $activeIdx, label: "March", idx: 2)
                 MonthView(activeMonth: $activeIdx, label: "April", idx: 3)
             }
-            
+
             Spacer()
-            
+
             HStack {
                 MonthView(activeMonth: $activeIdx, label: "May", idx: 4)
                 MonthView(activeMonth: $activeIdx, label: "June", idx: 5)
                 MonthView(activeMonth: $activeIdx, label: "July", idx: 6)
                 MonthView(activeMonth: $activeIdx, label: "August", idx: 7)
             }
-            
+
             Spacer()
-            
+
             HStack {
                 MonthView(activeMonth: $activeIdx, label: "September", idx: 8)
                 MonthView(activeMonth: $activeIdx, label: "October", idx: 9)
                 MonthView(activeMonth: $activeIdx, label: "November", idx: 10)
                 MonthView(activeMonth: $activeIdx, label: "December", idx: 11)
             }
-            
+
             Spacer()
         }
     }
@@ -71,7 +81,7 @@ struct MonthView: View {
     @Binding var activeMonth: Int
     let label: String
     let idx: Int
-    
+
     var body: some View {
         Text(label)
             .padding(10)
@@ -82,7 +92,7 @@ struct MonthView: View {
 
 struct MonthBorder: View {
     let show: Bool
-    
+
     var body: some View {
         RoundedRectangle(cornerRadius: 15)
             .stroke(lineWidth: 3.0).foregroundColor(show ? Color.red : Color.clear)
@@ -97,8 +107,7 @@ struct MonthBorder: View {
 
 ![ezgif.com-gif-maker-2](http://blog.loveli.site/mweb/ezgif.com-gif-maker-2.gif)
 
-
-边框并不是月份的一部分，你需要创建一个单独的边框View，并相应的改变位置和大小，这意味着必须有一种方式去跟踪每个月份的大小和位置。
+边框并不是月份的一部分，你需要创建一个单独的边框 View，并相应的改变位置和大小，这意味着必须有一种方式去跟踪每个月份的大小和位置。
 
 解决这个问题的一种方式就是： 每一个月份标签都通过`GeometryReader`去获得自身的大小和位置。每个月份标签依次更新父级视图中的存放位置的数组(通过 @Binding )。 一旦父级视图找到了每一个子视图的位置和大小，边框就可以很容易的替换了。这个方案还不错，但子级视图修改数组的时候可能会产生问题。
 
@@ -132,7 +141,7 @@ struct MyTextPreferenceKey: PreferenceKey {
     typealias Value = [MyTextPreferenceData]
 
     static var defaultValue: [MyTextPreferenceData] = []
-    
+
     static func reduce(value: inout [MyTextPreferenceData], nextValue: () -> [MyTextPreferenceData]) {
         value.append(contentsOf: nextValue())
     }
@@ -146,7 +155,7 @@ struct MonthView: View {
     @Binding var activeMonth: Int
     let label: String
     let idx: Int
-    
+
     var body: some View {
         Text(label)
             .padding(10)
@@ -156,7 +165,7 @@ struct MonthView: View {
 
 struct MyPreferenceViewSetter: View {
     let idx: Int
-    
+
     var body: some View {
         GeometryReader { geometry in
             Rectangle()
@@ -169,10 +178,10 @@ struct MyPreferenceViewSetter: View {
 
 
 struct ContentView : View {
-    
+
     @State private var activeIdx: Int = 0
     @State private var rects: [CGRect] = Array<CGRect>(repeating: CGRect(), count: 12)
-    
+
     var body: some View {
         ZStack(alignment: .topLeading) {
         /// 创建一个单独的边框视图，该视图将更改其偏移量和frame以匹配与最后点击的视图相对应的矩形
@@ -180,35 +189,35 @@ struct ContentView : View {
                 .frame(width: rects[activeIdx].size.width, height: rects[activeIdx].size.height)
                 .offset(x: rects[activeIdx].minX, y: rects[activeIdx].minY)
                 .animation(.easeInOut(duration: 1.0))
-            
+
             VStack {
                 Spacer()
-                
+
                 HStack {
                     MonthView(activeMonth: $activeIdx, label: "January", idx: 0)
                     MonthView(activeMonth: $activeIdx, label: "February", idx: 1)
                     MonthView(activeMonth: $activeIdx, label: "March", idx: 2)
                     MonthView(activeMonth: $activeIdx, label: "April", idx: 3)
                 }
-                
+
                 Spacer()
-                
+
                 HStack {
                     MonthView(activeMonth: $activeIdx, label: "May", idx: 4)
                     MonthView(activeMonth: $activeIdx, label: "June", idx: 5)
                     MonthView(activeMonth: $activeIdx, label: "July", idx: 6)
                     MonthView(activeMonth: $activeIdx, label: "August", idx: 7)
                 }
-                
+
                 Spacer()
-                
+
                 HStack {
                     MonthView(activeMonth: $activeIdx, label: "September", idx: 8)
                     MonthView(activeMonth: $activeIdx, label: "October", idx: 9)
                     MonthView(activeMonth: $activeIdx, label: "November", idx: 10)
                     MonthView(activeMonth: $activeIdx, label: "December", idx: 11)
                 }
-                
+
                 Spacer()
                 }.onPreferenceChange(MyTextPreferenceKey.self) { preferences in
                     for p in preferences {
@@ -220,7 +229,7 @@ struct ContentView : View {
 }
 ```
 
-当设备旋转，或者window的大小改变， 下面的代码都会被调用：
+当设备旋转，或者 window 的大小改变， 下面的代码都会被调用：
 
 ```swift
 .onPreferenceChange(MyTextPreferenceKey.self) { preferences in
@@ -232,6 +241,6 @@ struct ContentView : View {
 
 ## 明智地使用 Preference
 
-当我们使用preferences，可能会使用子级视图的几何信息来布局它们的一个顶层视图(ancestors)，如果是这样的话，你应该注意。 如果顶层视图影响了子级视图的布局，反过来子级视图也会影响顶层视图，就会陷入一个递归循环中。
+当我们使用 preferences，可能会使用子级视图的几何信息来布局它们的一个顶层视图(ancestors)，如果是这样的话，你应该注意。 如果顶层视图影响了子级视图的布局，反过来子级视图也会影响顶层视图，就会陷入一个递归循环中。
 
-可能有时候程序会卡死，或者屏幕会闪动来持续的重新绘制。或者CPU会达到一个峰值，这些都会暗示你错误的使用了preferences。
+可能有时候程序会卡死，或者屏幕会闪动来持续的重新绘制。或者 CPU 会达到一个峰值，这些都会暗示你错误的使用了 preferences。

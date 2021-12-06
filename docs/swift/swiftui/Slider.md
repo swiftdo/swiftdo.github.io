@@ -1,3 +1,14 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+  - swiftui
+---
+
 # Slider
 
 > 文档：[https://developer.apple.com/documentation/swiftui/slider](https://developer.apple.com/documentation/swiftui/slider)

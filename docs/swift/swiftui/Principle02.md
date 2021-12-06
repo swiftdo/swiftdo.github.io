@@ -1,3 +1,14 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+  - swiftui
+---
+
 # 关于 propertyWarpper
 
 每次属性更改时，将其新值打印到 `Xcode` 控制台:
@@ -5,12 +16,12 @@
 ```swift
 struct Bar {
     private var _x = 0
-    
+
     var x: Int {
         get { _x }
         set {
             _x = newValue
-            print("New value is \(newValue)") 
+            print("New value is \(newValue)")
         }
     }
 }
@@ -25,16 +36,16 @@ bar.x = 1 // Prints 'New value is 1'
 @propertyWrapper
 struct ConsoleLogged<Value> {
     private var value: Value
-    
+
     init(wrappedValue: Value) {
         self.value = wrappedValue
     }
 
     var wrappedValue: Value {
         get { value }
-        set { 
+        set {
             value = newValue
-            print("New value is \(newValue)") 
+            print("New value is \(newValue)")
         }
     }
 }
@@ -64,8 +75,8 @@ struct Bar {
 
 有两个要求：
 
-* 必须使用属性 `@propertyWrapper` 进行定义。
-* 它必须具有 `wrappedValue` 属性。
+- 必须使用属性 `@propertyWrapper` 进行定义。
+- 它必须具有 `wrappedValue` 属性。
 
 下面就是最简单的包装器:
 
@@ -81,15 +92,14 @@ struct Text {
 }
 
 var t = Text()
-print(t.x) 
+print(t.x)
 print(t.y)
 ```
 
 以上两种声明之间有区别：
 
-* `@Wrapper var x: Int = 2` 编译器隐式地调用 `init(wrappedValue:)` 用2初始化x。
-* `@Wrapper(wrappedValue: 10) var y` 初始化方法被明确指定为属性的一部分。
-
+- `@Wrapper var x: Int = 2` 编译器隐式地调用 `init(wrappedValue:)` 用 2 初始化 x。
+- `@Wrapper(wrappedValue: 10) var y` 初始化方法被明确指定为属性的一部分。
 
 ## 访问属性包装器
 
@@ -99,7 +109,7 @@ print(t.y)
 @propertyWrapper
 struct Wrapper<Value>{
     var wrappedValue: Value
-    
+
     func log() {
         print("\(wrappedValue)")
     }
@@ -108,7 +118,7 @@ struct Wrapper<Value>{
 
 但如何才能去调用 `log`?
 
-通过定义 `projectedValue` 属性，属性包装器可以公开更多API
+通过定义 `projectedValue` 属性，属性包装器可以公开更多 API
 
 > `projectedValue` 的类型没有任何限制
 > `$属性名` 是访问包装器属性
@@ -117,9 +127,9 @@ struct Wrapper<Value>{
 @propertyWrapper
 struct Wrapper<Value>{
     var wrappedValue: Value
-    
+
     var projectedValue: Wrapper<Value> { return self }
-    
+
     func log() {
         print("\(wrappedValue)")
     }
@@ -127,7 +137,7 @@ struct Wrapper<Value>{
 
 struct Text {
     @Wrapper var x: Int = 2
-    
+
     func foo() {
         print(x) // 'wrappedValue'
         print(_x) // wrapper type itself, 私有的
@@ -147,14 +157,14 @@ t.$x.log() // 2
 @propertyWrapper
 struct SmallNumber {
     private var number: Int
-    
+
     var projectedValue: Bool
-    
+
     init() {
         self.number = 0
         self.projectedValue = false
     }
-    
+
     var wrappedValue: Int {
         get {return number}
         set {
@@ -185,7 +195,6 @@ print(somes.$someNumber) // true
 
 ## 推荐阅读
 
-* [官方文档: Property Wrappers](https://docs.swift.org/swift-book/LanguageGuide/Properties.html#ID617)
-* [相关提案](https://github.com/apple/swift-evolution/blob/master/proposals/0258-property-wrappers.md)
-* [Property wrappers in Swift](https://www.swiftbysundell.com/articles/property-wrappers-in-swift/)
-
+- [官方文档: Property Wrappers](https://docs.swift.org/swift-book/LanguageGuide/Properties.html#ID617)
+- [相关提案](https://github.com/apple/swift-evolution/blob/master/proposals/0258-property-wrappers.md)
+- [Property wrappers in Swift](https://www.swiftbysundell.com/articles/property-wrappers-in-swift/)

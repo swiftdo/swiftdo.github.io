@@ -1,3 +1,14 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+  - swiftui
+---
+
 # Button
 
 > 文档：[https://developer.apple.com/documentation/swiftui/button](https://developer.apple.com/documentation/swiftui/button)
@@ -29,7 +40,7 @@ Button("Click Me") {
 
 ```swift
 Button(action: {
-                
+
 }, label: {
     Image(systemName: "clock")
     Text("Click Me")
@@ -43,13 +54,12 @@ Button(action: {
 
 为了更好的运用 Button，下面我们将一起来实现一些常见的效果：
 
-* 如何创建一个简单的按钮并处理用户的选择？
-* 如何自定义按钮的背景、填充和字体？
-* 如何给按钮添加边框？
-* 如何创建同时包含图像和文本的按钮？
-* 如何创建具有渐变背景和阴影的按钮？
-* 如何创建圆角按钮且添加外圆角边框？
-
+- 如何创建一个简单的按钮并处理用户的选择？
+- 如何自定义按钮的背景、填充和字体？
+- 如何给按钮添加边框？
+- 如何创建同时包含图像和文本的按钮？
+- 如何创建具有渐变背景和阴影的按钮？
+- 如何创建圆角按钮且添加外圆角边框？
 
 ## 如何创建一个简单的按钮并处理用户的选择？
 
@@ -63,7 +73,7 @@ struct CasePage: View {
         VStack {
             Text(change ? "欢迎关注 OldBirds 公众号": "OldBirds")
             .font(.title)
-            
+
             Button("welcome") {
                 self.change.toggle()
             }.padding()
@@ -72,33 +82,32 @@ struct CasePage: View {
 }
 ```
 
-![](http://blog.loveli.site/tuc/111ee.gif ':size=300')
-
+![](http://blog.loveli.site/tuc/111ee.gif ":size=300")
 
 ## 如何自定义按钮的背景、填充和字体？
 
 ```swift
 Button(action: {
     self.change.toggle()
-    
+
 }, label: {
     Text("Hello World")
         .padding()
         .background(Color.purple)
         .foregroundColor(.white)
         .font(.title)
-        
+
 }).padding()
 ```
 
-![](http://blog.loveli.site/tuc/111ee002.gif ':size=300')
+![](http://blog.loveli.site/tuc/111ee002.gif ":size=300")
 
 特别强调：modifier 的顺序非常重要，假设我们把 `padding` 移动，不在 `background` 的前面，效果是不一样的。
 
 ```swift
 Button(action: {
     self.change.toggle()
-    
+
 }, label: {
     Text("Hello World")
         .background(Color.purple)
@@ -108,8 +117,7 @@ Button(action: {
 }).padding()
 ```
 
-![](http://blog.loveli.site/tuc/111ee003.gif ':size=300')
-
+![](http://blog.loveli.site/tuc/111ee003.gif ":size=300")
 
 ## 如何给按钮添加边框？
 
@@ -126,9 +134,7 @@ Button(action: {
 })
 ```
 
-![](http://blog.loveli.site/tuc/111ee004.gif ':size=300')
-
-
+![](http://blog.loveli.site/tuc/111ee004.gif ":size=300")
 
 ## 如何创建同时包含图像和文本的按钮？
 
@@ -136,7 +142,7 @@ Button(action: {
 Button(action: {
     self.change.toggle()
 }, label: {
-    HStack(content: { 
+    HStack(content: {
         Image(systemName: "trash")
         Text("Hello World")
             .foregroundColor(.black)
@@ -145,11 +151,11 @@ Button(action: {
     .padding()
     .background(Color.purple)
     .border(Color.red, width: 5)
-    
+
 })
 ```
 
-![](http://blog.loveli.site/tuc/111ee005.gif ':size=300')
+![](http://blog.loveli.site/tuc/111ee005.gif ":size=300")
 
 ## 如何创建具有渐变背景和阴影的按钮？
 
@@ -170,12 +176,12 @@ Button(action: {
 })
 ```
 
-![](http://blog.loveli.site/tuc/111ee006.gif ':size=300')
+![](http://blog.loveli.site/tuc/111ee006.gif ":size=300")
 
 ## 如何创建圆角按钮且添加外圆角边框？
 
 ```swift
- 
+
 Button(action: {
     self.change.toggle()
 }, label: {
@@ -194,12 +200,12 @@ Button(action: {
 })
 ```
 
-![](http://blog.loveli.site/tuc/111ee007.gif ':size=300')
+![](http://blog.loveli.site/tuc/111ee007.gif ":size=300")
 
 ## 推荐阅读
 
-* [A Beginner’s Guide to SwiftUI Buttons](https://www.appcoda.com/swiftui-buttons/#button-full-width)
-* [SwiftUI 的按鈕 — button](https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swiftui-%E7%9A%84%E6%8C%89%E9%88%95-button-89d1c35d99dc)
-* [Build your own button component library in SwiftUI from scratch](https://www.calincrist.com/blog/2020-05-12-step-up-your-button-theme-in-swiftui/)
-* [Create and Customize a Button with SwiftUI](https://programmingwithswift.com/create-and-customize-a-button-with-swiftui/)
-* [SwiftUI: Buttons](https://whatdidilearn.info/2020/05/16/swiftui-buttons.html)
+- [A Beginner’s Guide to SwiftUI Buttons](https://www.appcoda.com/swiftui-buttons/#button-full-width)
+- [SwiftUI 的按鈕 — button](https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swiftui-%E7%9A%84%E6%8C%89%E9%88%95-button-89d1c35d99dc)
+- [Build your own button component library in SwiftUI from scratch](https://www.calincrist.com/blog/2020-05-12-step-up-your-button-theme-in-swiftui/)
+- [Create and Customize a Button with SwiftUI](https://programmingwithswift.com/create-and-customize-a-button-with-swiftui/)
+- [SwiftUI: Buttons](https://whatdidilearn.info/2020/05/16/swiftui-buttons.html)

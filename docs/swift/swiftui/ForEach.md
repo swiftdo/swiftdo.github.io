@@ -1,3 +1,13 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+  - swiftui
+---
 
 # ForEach
 
@@ -29,7 +39,7 @@ struct TodoItem: Identifiable {
     TodoItem(task: "关注OldBirds公众号", imgName: "link"),
     TodoItem(task: "6点半跑步2公里", imgName: "moon"),
 ]
-    
+
 var body: some View {
     NavigationView {
         List {
@@ -61,9 +71,10 @@ var body: some View {
 ## `ForEach` 的初始化方法
 
 ForEach 是一个从元素可识别的数据集合中创建视图。它支持三种类型初始化方式：
-* 通过 range 迭代
-* 对由实现 `Identifiable` 的元素组成的集合迭代
-* 对由可被标志，但没有实现 `Identifiable` 的元素组成的集合迭代
+
+- 通过 range 迭代
+- 对由实现 `Identifiable` 的元素组成的集合迭代
+- 对由可被标志，但没有实现 `Identifiable` 的元素组成的集合迭代
 
 ### range
 
@@ -71,7 +82,7 @@ ForEach 是一个从元素可识别的数据集合中创建视图。它支持三
 
 ```swift
 struct ContentView: View {
-    
+
     let data = ["写一篇SwiftUI文章",
                 "看WWDC视频",
                 "订外卖",
@@ -94,7 +105,7 @@ struct ContentView: View {
 
 ```swift
 struct ContentView: View {
-    
+
     @State var data = ["写一篇SwiftUI文章",
                 "看WWDC视频",
                 "订外卖",
@@ -113,7 +124,7 @@ struct ContentView: View {
             }.padding()
         }
     }
-    
+
     func addTodo() {
         data.append("Hello SwiftUI")
     }
@@ -166,7 +177,7 @@ id 要求我们传入的是一个 `KeyPath`，且`ID`必须实现`Hashable`。�
 
 ![](http://blog.loveli.site/mweb/16262535194278.jpg)
 
-但是我们得确保task的唯一性，为什么呢？
+但是我们得确保 task 的唯一性，为什么呢？
 
 ## `TodoItem` 为啥要实现 Identifiable?
 
@@ -188,7 +199,7 @@ struct ContentView: View {
         TodoItem(task: "关注OldBirds公众号", imgName: "link"),
         TodoItem(task: "6点半跑步2公里", imgName: "moon"),
     ]
-    
+
     var body: some View {
         VStack {
             List {
@@ -204,7 +215,7 @@ struct ContentView: View {
             }.padding()
         }
     }
-    
+
     func addTodo() {
         listData.append(TodoItem(task: "写一篇SwiftUI文章", imgName: "moon"))
     }
@@ -212,7 +223,6 @@ struct ContentView: View {
 ```
 
 ![-w1365](http://blog.loveli.site/mweb/16262557143716.jpg)
-
 
 我们让`TodoItem`不实现`Identifiable`, 用`\.task`传递给 id。我们希望点击添加按钮的时候，列表会同步刷新，且新增的图标是个`月亮`。但是事情并没有顺从你的心意：
 
@@ -222,15 +232,4 @@ struct ContentView: View {
 
 ## 总结
 
-ForEach 的使用还是比较简单的，有三种初始化方式，通过range 迭代的时候，记得保证集合是个常量。第二种通过 Identifiable 保证元素唯一，通常做法用UUID 作为id。第三种，通过指定KeyPath，需要保证实现了 Hashable，且最好做到唯一，不然显示会错乱。
-
-
-
-
-
-
-
-
-
-
-
+ForEach 的使用还是比较简单的，有三种初始化方式，通过 range 迭代的时候，记得保证集合是个常量。第二种通过 Identifiable 保证元素唯一，通常做法用 UUID 作为 id。第三种，通过指定 KeyPath，需要保证实现了 Hashable，且最好做到唯一，不然显示会错乱。

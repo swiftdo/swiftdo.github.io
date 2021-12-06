@@ -1,11 +1,22 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+  - swiftui
+---
+
 # 关于 ViewBuilder
 
 SwiftUI DSL 的需要：
 
-* 从表达方式上从简：尽量省略不必要的逗号，`return`，中括号等等。
-* 支持简单的逻辑控制，比如 `if` 控制语句。
-* 强类型：`some View` 代表了一个复合的强类型，在 `View` 发生改变的时候，复合的强类型有助于做 `View diff` 优化。
-* 与 Swift 已有的语法不冲突
+- 从表达方式上从简：尽量省略不必要的逗号，`return`，中括号等等。
+- 支持简单的逻辑控制，比如 `if` 控制语句。
+- 强类型：`some View` 代表了一个复合的强类型，在 `View` 发生改变的时候，复合的强类型有助于做 `View diff` 优化。
+- 与 Swift 已有的语法不冲突
 
 ```swift
 // 定义
@@ -38,7 +49,7 @@ static func buildBlock<C0, C1, C2, C3, C4>(C0, C1, C2, C3, C4) -> TupleView<(C0,
 ...
 ```
 
-我们的两个 `Text` 的例子中，编译器自动（根据名称的约定）使用了 
+我们的两个 `Text` 的例子中，编译器自动（根据名称的约定）使用了
 
 ```swift
 static func buildBlock<C0, C1>(C0, C1) -> TupleView<(C0, C1)>
@@ -66,7 +77,7 @@ struct ContentView : View {
 static func buildEither<TrueContent, FalseContent>(first: TrueContent) ->
  ConditionalContent<TrueContent, FalseContent>
 
-static func buildEither<TrueContent, FalseContent>(second: FalseContent) -> 
+static func buildEither<TrueContent, FalseContent>(second: FalseContent) ->
  ConditionalContent<TrueContent, FalseContent>
 ```
 

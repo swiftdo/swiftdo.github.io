@@ -1,3 +1,14 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+  - swiftui
+---
+
 # EditButton
 
 > 文档：[https://developer.apple.com/documentation/swiftui/editbutton](https://developer.apple.com/documentation/swiftui/editbutton)
@@ -82,7 +93,6 @@ var body: some View {
 
 ![](http://blog.loveli.site/mweb/16259265826634.jpg)
 
-
 ## 获取当前的 EditMode
 
 可以通过下面的方法获取当前的`EditMode`，并实现更复杂的编辑操。
@@ -126,9 +136,9 @@ var body: some View {
 
 `EditMode` 是一个枚举，指示用户是否可以编辑其内容：
 
-* active 激活状态：视图内容可以编辑。
-* inactive 非激活状态：无法编辑视图内容。
-* transient 临时状态：视图处于临时编辑模式。
+- active 激活状态：视图内容可以编辑。
+- inactive 非激活状态：无法编辑视图内容。
+- transient 临时状态：视图处于临时编辑模式。
 
 现在可以通过 `isEditModel` 来获取到当前的编辑状态，那么能否自己手动去改变 `isEditModel` 的值呢？
 

@@ -1,3 +1,14 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+  - swiftui
+---
+
 # List
 
 > 文档：[https://developer.apple.com/documentation/swiftui/list](https://developer.apple.com/documentation/swiftui/list)
@@ -21,7 +32,6 @@ struct LearnPage: View {
 ```
 
 ![-w1060](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/87728e8f02aa4886aaed9cb29813fca8~tplv-k3u1fbpfcp-zoom-1.image)
-
 
 List 可以是单个组件，也可以是组合组件，表单里的内容是可以混搭的。以下示例中列表的前几行都由图像和文本组件组成的 `HStack`，最后一行是单个 `Text`：
 
@@ -54,8 +64,8 @@ struct LearnPage: View {
     }
 }
 ```
-![-w1065](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2fabd5119bbb452aa58c23c821d928a6~tplv-k3u1fbpfcp-zoom-1.image)
 
+![-w1065](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2fabd5119bbb452aa58c23c821d928a6~tplv-k3u1fbpfcp-zoom-1.image)
 
 ## 创建一个动态列表
 
@@ -72,7 +82,7 @@ struct TodoItem: Identifiable {
 }
 
 struct LearnPage: View {
-    
+
     var listData: [TodoItem] = [
         TodoItem(task: "写一篇SwiftUI文章", imgName: "pencil.circle"),
         TodoItem(task: "看WWDC视频", imgName: "square.and.pencil"),
@@ -80,7 +90,7 @@ struct LearnPage: View {
         TodoItem(task: "关注OldBirds公众号", imgName: "link"),
         TodoItem(task: "6点半跑步2公里", imgName: "moon"),
     ]
-    
+
     var body: some View {
         List(listData) { item in
             HStack{
@@ -129,7 +139,7 @@ var body: some View {
                 }
             }
         }
-        
+
         Section(header: Text("其他内容")) {
             Text("Hello World")
         }
@@ -173,7 +183,7 @@ SwiftUI 提供了非常便利的方案：
 
 ```swift
 struct LearnPage: View {
-    
+
     @State var listData: [TodoItem] = [
         TodoItem(task: "写一篇SwiftUI文章", imgName: "pencil.circle"),
         TodoItem(task: "看WWDC视频", imgName: "square.and.pencil"),
@@ -181,7 +191,7 @@ struct LearnPage: View {
         TodoItem(task: "关注OldBirds公众号", imgName: "link"),
         TodoItem(task: "6点半跑步2公里", imgName: "moon"),
     ]
-    
+
     var body: some View {
         NavigationView {
             List {
@@ -203,12 +213,12 @@ struct LearnPage: View {
             .navigationTitle(Text("待办清单"))
         }
     }
-    
+
     /// 移动
     func moveItem(from source: IndexSet, to destination: Int) {
         listData.move(fromOffsets: source, toOffset: destination)
     }
-    
+
     /// 删除
     func deleteItem(at offsets: IndexSet) {
         listData.remove(atOffsets: offsets)
@@ -218,9 +228,9 @@ struct LearnPage: View {
 
 ![-w1048](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e829891bb9b847c1bdd1f4fc77ab54c5~tplv-k3u1fbpfcp-zoom-1.image)
 
-* 将 listData 添加 @State 装饰，这样数据变化，会驱动视图更新
-* 添加 `.onDelete`，收到已删除项目的索引，从数组中删除相应的元素
-* 添加 `.onMove`，收到移动项目的源和目标索引，相应地重新排序数组
+- 将 listData 添加 @State 装饰，这样数据变化，会驱动视图更新
+- 添加 `.onDelete`，收到已删除项目的索引，从数组中删除相应的元素
+- 添加 `.onMove`，收到移动项目的源和目标索引，相应地重新排序数组
 
 运行代码，我们会发现一个问题，侧滑可以删除，但是项目移动无法触发。那是因为只有当用户进入**编辑模式**时才能移动项目。所以我们需要在导航栏中添加一个 `EditButton`。当用户点击 `Edit` 时，才可以继续移动项目：
 
@@ -250,4 +260,3 @@ var body: some View {
 ```
 
 ![111ee0710](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/42186b81c8354617935ad56d81d9bc8f~tplv-k3u1fbpfcp-zoom-1.image)
-

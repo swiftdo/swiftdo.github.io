@@ -1,3 +1,14 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+  - swiftui
+---
+
 # VStack
 
 > 文档：[https://developer.apple.com/documentation/swiftui/vstack](https://developer.apple.com/documentation/swiftui/vstack)
@@ -16,7 +27,6 @@ VStack (alignment: .center, spacing: 20){
 
 ![](http://blog.loveli.site/mweb/16255374287716.jpg)
 
-
 VStack 的定义：
 
 ```swift
@@ -28,8 +38,8 @@ VStack 的定义：
 
 HStack 构造函数的参数说明：
 
-* `spacing: CGFloat?`，设置子视图之间垂直间距
-* `alignment: HorizontalAlignment`, 子视图对齐方式
+- `spacing: CGFloat?`，设置子视图之间垂直间距
+- `alignment: HorizontalAlignment`, 子视图对齐方式
 
 ## HorizontalAlignment
 
@@ -37,32 +47,32 @@ HStack 构造函数的参数说明：
 
 它是个结构体，有以下几个静态属性：
 
-* leading 
-* center
-* trailing
+- leading
+- center
+- trailing
 
 为了更深刻的理解这几种布局差役，首先创建个通用的 `VStackCaseItem`, 便于代码复用：
 
 ```swift
 struct VStackCaseItem: View {
     let alignment: HorizontalAlignment
-    
+
     var body: some View {
          VStack(alignment: alignment, spacing: 20){
             Text("A\nB")
                 .frame(width: 50)
                 .background(Color.yellow)
-            
+
             Text(alignment.name)
                 .foregroundColor(.white)
                 .frame(width:150)
                 .background(Color.red)
-                
-               
+
+
             Text("OldBirds")
                 .background(Color.green)
                 .foregroundColor(.white)
-            
+
          }.background(Color.gray)
     }
 }
@@ -102,9 +112,9 @@ struct ContentView: View {
 
 通过预览效果，可以比较容易发现 `alignment` 间的差异。
 
-* `.leading`: 子视图局左对齐
-* `.center`: 子视图局中对齐
-* `.trailing`: 子视图局右对齐
+- `.leading`: 子视图局左对齐
+- `.center`: 子视图局中对齐
+- `.trailing`: 子视图局右对齐
 
 ## 使 VStack 填充屏幕的宽度
 
@@ -206,7 +216,7 @@ struct ContentView: View {
                 .lineLimit(nil)
                 .font(.body)
                 .background(Color.blue)
-                
+
                 Spacer()
             }
 
@@ -217,9 +227,3 @@ struct ContentView: View {
 ```
 
 ![](http://blog.loveli.site/mweb/16256266738969.jpg)
-
-
-
-
-
-

@@ -1,3 +1,14 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+  - swiftui
+---
+
 # TextField
 
 > 官方文档: [https://developer.apple.com/documentation/swiftui/textfield](https://developer.apple.com/documentation/swiftui/textfield)
@@ -14,7 +25,7 @@ struct TextFieldPage: View {
     var body: some View {
         VStack {
             Text("你说：\(content)")
-            
+
             TextField("输入",
                       text: $content,
                       onEditingChanged: { isEditing in
@@ -25,7 +36,7 @@ struct TextFieldPage: View {
                       })
                 .textFieldStyle(.roundedBorder)
                 .padding()
-        
+
         }
     }
 }
@@ -39,12 +50,10 @@ struct TextFieldPage_Previews: PreviewProvider {
 
 ![hello-swiftui-textfield2](http://blog.loveli.site/mweb/hello-swiftui-textfield2.gif)
 
+`TextField`的`init`参数说明：
 
- `TextField`的`init`参数说明：
- 
- * **onEditingChanged**：在编辑状态改变时触发，在游标出现在 TextFiled，或游标离开 TextFiled 时，onEditingChanged 将触发执行。
- * **onCommit**：在结束编辑时执行，当我们按下 enter 键收键盘后，onCommit 将触发执行。
-
+- **onEditingChanged**：在编辑状态改变时触发，在游标出现在 TextFiled，或游标离开 TextFiled 时，onEditingChanged 将触发执行。
+- **onCommit**：在结束编辑时执行，当我们按下 enter 键收键盘后，onCommit 将触发执行。
 
 ## 待办清单添加创建功能
 
@@ -57,7 +66,7 @@ HStack {
     Button("添加待办事项") {
         popoverIsShow = true
     }
-    .padding(.leading)    
+    .padding(.leading)
     Spacer()
 }
 .frame(height: 44)
@@ -145,7 +154,7 @@ struct AddPage: View {
 
 ![](http://blog.loveli.site/mweb/16268273594679.jpg)
 
-在 AddPage 中，点击取消，我们修改 `isPresented = false` 即可，需要外部传递。可以在输入按钮中输入待办事项的名字。当待办事项的名字的长度大于0，我们将添加按钮进行高亮，点击高亮关闭页面，且回调 `addItem`，将 task 回传给调用方。
+在 AddPage 中，点击取消，我们修改 `isPresented = false` 即可，需要外部传递。可以在输入按钮中输入待办事项的名字。当待办事项的名字的长度大于 0，我们将添加按钮进行高亮，点击高亮关闭页面，且回调 `addItem`，将 task 回传给调用方。
 
 在 `MainPage` 中，我们修改代码如下：
 
@@ -174,7 +183,7 @@ struct TodoItem: Identifiable {
 struct MainPage: View {
     @State var isEditMode: EditMode = .inactive
     @State private var popoverIsShow: Bool = false
-    
+
     @State var listData: [TodoItem] = [
         TodoItem(task: "写一篇SwiftUI文章", imgName: "pencil.circle"),
         TodoItem(task: "看WWDC视频", imgName: "square.and.pencil"),
@@ -182,7 +191,7 @@ struct MainPage: View {
         TodoItem(task: "关注OldBirds公众号", imgName: "link"),
         TodoItem(task: "6点半跑步2公里", imgName: "moon"),
     ]
-    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -215,7 +224,7 @@ struct MainPage: View {
                 }
                 .environment(\.editMode, $isEditMode)
                 .listStyle(GroupedListStyle())
-                
+
                 HStack {
                     Button("添加待办事项") {
                         popoverIsShow = true
@@ -225,7 +234,7 @@ struct MainPage: View {
                     } content: {
                         AddPage(isPresented: $popoverIsShow, addItem: addItem)
                     }
-                    
+
                     Spacer()
                 }
                 .frame(height: 44)
@@ -234,17 +243,17 @@ struct MainPage: View {
         }
         .navigationViewStyle(.stack)
     }
-    
+
     /// 添加
     func addItem(task: String) {
         listData.append(TodoItem(task: task, imgName: "circle"))
     }
-    
+
     /// 移动
     func moveItem(from source: IndexSet, to destination: Int) {
         listData.move(fromOffsets: source, toOffset: destination)
     }
-    
+
     /// 删除
     func deleteItem(at offsets: IndexSet) {
         listData.remove(atOffsets: offsets)
@@ -272,9 +281,9 @@ struct ContentView_Previews: PreviewProvider {
 import SwiftUI
 
 struct AddPage: View {
-    
+
     @Binding var isPresented: Bool
-    
+
     @State var task: String = ""
 
     var addItem: (String)->Void

@@ -1,3 +1,14 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+  - swiftui
+---
+
 # Image
 
 > 文档：[https://developer.apple.com/documentation/swiftui/image](https://developer.apple.com/documentation/swiftui/image)
@@ -11,8 +22,8 @@ var body: some View {
     }
 } //图像名字为 space11-people
 ```
-![](http://blog.loveli.site/tuc/20210617210720.png ':size=300')
 
+![](http://blog.loveli.site/tuc/20210617210720.png ":size=300")
 
 ## 使用 SF Symbols：
 
@@ -24,8 +35,7 @@ var body: some View {
 }
 ```
 
-![](http://blog.loveli.site/tuc/20210617213409.png ':size=300')
-
+![](http://blog.loveli.site/tuc/20210617213409.png ":size=300")
 
 您可以通过为系统图标添加样式，来匹配您使用的字体：
 
@@ -36,7 +46,7 @@ var body: some View {
             .foregroundColor(.red)
             .font(.title)
             .padding()
-        
+
         Image(systemName: "clock")
             .foregroundColor(.red)
             .font(Font.system(.largeTitle).bold())
@@ -45,8 +55,7 @@ var body: some View {
 }
 ```
 
-![](http://blog.loveli.site/tuc/20210617213703.png ':size=240')
-
+![](http://blog.loveli.site/tuc/20210617213703.png ":size=240")
 
 ## 调整大小
 
@@ -58,10 +67,10 @@ var body: some View {
         Image("space11-people")
             .resizable() // 调整大小，以便填充所有可用空间
     }
-} 
+}
 ```
 
-![](http://blog.loveli.site/tuc/20210617210951.png ':size=300')
+![](http://blog.loveli.site/tuc/20210617210951.png ":size=300")
 
 这也可能导致图像的原始宽高比失真，因为它将在所有尺寸上拉伸所需的任何量以使其填充空间。
 
@@ -78,7 +87,8 @@ var body: some View {
     }
 }
 ```
-![](http://blog.loveli.site/tuc/20210617211431.png ':size=300')
+
+![](http://blog.loveli.site/tuc/20210617211431.png ":size=300")
 
 将图片设置为 `.fill`：
 
@@ -92,7 +102,7 @@ var body: some View {
 }
 ```
 
-![](http://blog.loveli.site/tuc/20210617211719.png ':size=300')
+![](http://blog.loveli.site/tuc/20210617211719.png ":size=300")
 
 如果想自定义 Image 大小，可以添加 `frame`，`clipped()` 相当于 UIKit 里的 `clipsToBounds`，与`aspectRatio(contentMode: .fill)`搭配使用：
 
@@ -108,9 +118,4 @@ var body: some View {
 }
 ```
 
-![](http://blog.loveli.site/tuc/20210617212138.png ':size=300')
-
-
-
-
-
+![](http://blog.loveli.site/tuc/20210617212138.png ":size=300")
