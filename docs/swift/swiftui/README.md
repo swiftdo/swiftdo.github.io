@@ -1,9 +1,5 @@
 ## SwiftUI 指南
 
-## 在线文档阅读
-
-[https://oldbird.run/swiftui/#/](https://oldbird.run/swiftui/#/)
-
 ## 文档进度
 
 - 原理篇
@@ -114,4 +110,3 @@
 官方公众号 **OldBirds**
 
 <img src="http://blog.loveli.site/mweb/wechat-logo.png" width="420" />
-
