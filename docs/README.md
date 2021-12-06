@@ -2,7 +2,7 @@
 home: true
 heroImage: /logo.png
 actionText: 开始阅读 →
-actionLink: /swift/better/
+actionLink: /swift/swiftui/
 footer: MIT Licensed | Copyright © 2020-至今 OldBirds 公众号 | <a href="http://www.beian.miit.gov.cn/" target="_blank"> 备案号：粤ICP备18007810号-1</a>
 features:
   - title: SwiftUI
