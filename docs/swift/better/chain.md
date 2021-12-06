@@ -1,3 +1,13 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+---
+
 # 链式调用与@dynamicMemberLookup
 
 在用 UIKit 的时候，我们会写很多类似的代码：

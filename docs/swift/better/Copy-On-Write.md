@@ -1,3 +1,13 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+---
+
 # COW(Copy-On-Write)
 
 Swift 有值类型和引用类型，而值类型在被赋值或被传递给函数时是会被拷贝的。在写代码时，这些值类型每次赋值传递都是会重新在内存里拷贝一份吗？

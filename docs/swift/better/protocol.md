@@ -1,3 +1,13 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+---
+
 # 关联协议与类型擦除
 
 1. 关联协议：带有关联类型的协议（PATs, Protocols with Associated Types）。

@@ -1,3 +1,13 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+---
+
 # DI(依赖注入)
 
 **依赖注入**是一个很重要的设计模式，它使用得非常广泛。

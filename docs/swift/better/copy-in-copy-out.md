@@ -1,3 +1,13 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+---
+
 # inout(copy-in-copy-out)
 
 在 Swift 中，函数参数默认是常量。试图在函数体中更改参数值将会导致编译错误。这意味着你不能更改参数值。如果想要一个函数可以修改参数的值，并且想要这些修改在函数调用结束后仍然存在，那么把这个参数定义为`inout`即可。

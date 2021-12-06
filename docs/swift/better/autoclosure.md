@@ -1,3 +1,13 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - ios
+---
+
 # @autoclosure
 
 Swift 中有很多有用的属性关键字。`@autoclosure` 是其中之一，是一个非常常用的属性。
