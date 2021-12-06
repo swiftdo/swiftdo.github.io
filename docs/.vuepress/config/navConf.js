@@ -62,7 +62,7 @@ module.exports = [
       },
       {
         text: "设计模式",
-        link: "https://oldbird.run/design-patterns/#/",
+        link: "/basis/design-patterns/",
       },
       {
         text: "CMake",
