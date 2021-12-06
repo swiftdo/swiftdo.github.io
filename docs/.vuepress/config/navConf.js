@@ -4,7 +4,7 @@ module.exports = [
     items: [
       {
         text: "SwiftUI",
-        link: "https://oldbird.run/swiftui/#/",
+        link: "/swift/swiftui/",
       },
       {
         text: "Vapor",

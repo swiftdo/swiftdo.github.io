@@ -180,4 +180,149 @@ module.exports = {
       children: ["", "t1-protocol", "t2-secrect", "t3-miniapps-sec"],
     },
   ],
+  "/swift/swiftui/": [
+    "",
+    {
+      title: "原理篇",
+      collapsable: false,
+      children: [
+        "Principle05",
+        "Principle01",
+        "Principle02",
+        "Principle03",
+        "Principle04",
+        "Principle06",
+      ],
+    },
+    {
+      title: "基础控件",
+      collapsable: false,
+      children: [
+        {
+          title: "文本",
+          collapsable: false,
+          children: ["Text", "TextField", "SecureField"],
+        },
+        {
+          title: "图片",
+          collapsable: false,
+          children: ["Image", "WebImage"],
+        },
+        {
+          title: "按钮",
+          collapsable: false,
+          children: [
+            "Button",
+            "PullDownButton",
+            "ItemBasedPopUpButton",
+            "NavigationButton",
+            "PresentationButton",
+            "EditButton",
+            "PasteButton",
+          ],
+        },
+        {
+          title: "选择器",
+          collapsable: false,
+          children: ["Picker", "DatePicker"],
+        },
+
+        "Toggle",
+        "Slider",
+        "Stepper",
+        "SegmentedControl",
+        "WebView",
+        "UIViewController",
+      ],
+    },
+    {
+      title: "布局",
+      collapsable: false,
+      children: [
+        {
+          title: "Stacks",
+          collapsable: false,
+          children: ["HStack", "VStack", "ZStack"],
+        },
+        {
+          title: "List",
+          collapsable: false,
+          children: ["List", "ScrollView", "ForEach"],
+        },
+        {
+          title: "Container Views",
+          collapsable: false,
+          children: ["Group", "GroupBox", "Section", "Form"],
+        },
+        {
+          title: "Alert",
+          collapsable: false,
+          children: ["Alert", "Modal", "Popover", "Sheet", "ActionSheet"],
+        },
+
+        "NavigationView",
+        "TabView",
+        "HSplitView",
+        "VSplitView",
+      ],
+    },
+    {
+      title: "状态和数据流",
+      collapsable: false,
+      children: [
+        "Bindings",
+
+        {
+          title: "Data-Dependent Views",
+          collapsable: false,
+          children: ["State", "ObjectBinding", "EnvironmentObject"],
+        },
+        {
+          title: "Environment Values",
+          collapsable: false,
+          children: ["Environment", "EnvironmentValues"],
+        },
+
+        "LocalizedStringKey",
+        "Transaction",
+        "DynamicNavigationDestinationLink",
+      ],
+    },
+    {
+      title: "手势",
+      collapsable: false,
+      children: [
+        {
+          title: "基础手势",
+          collapsable: false,
+          children: [
+            "TapGesture",
+            "LongPressGesture",
+            "DragGesture",
+            "MagnificationGesture",
+            "RotationGesture",
+          ],
+        },
+        {
+          title: "组合手势",
+          collapsable: false,
+          children: [
+            "SequenceGesture",
+            "SimultaneousGesture",
+            "ExclusiveGesture",
+          ],
+        },
+        {
+          title: "自定义手势",
+          collapsable: false,
+          children: ["AnyGesture"],
+        },
+      ],
+    },
+    {
+      title: "其他",
+      collapsable: false,
+      children: ["ViewModifier", "GeometryReader", "PreferenceKey"],
+    },
+  ],
 };
