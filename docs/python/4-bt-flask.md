@@ -9,6 +9,8 @@ tags:
   - flask
 ---
 
+在 Ubantu20.04 中，安装宝塔面板，部署 Flask.
+
 ## 环境
 
 > python 3.8.10
@@ -32,7 +34,7 @@ $ deactivate
 
 ## 配置 uwsgi
 
-在应用根目录创建config.ini文件，内容如下
+在应用根目录创建 config.ini 文件，内容如下
 
 ```ini
 [uwsgi]
@@ -43,7 +45,7 @@ chdir = /www/wwwroot/www.itswcg.site
 # python 启动程序文件
 wsgi-file = main.py
 # python 程序内用以启动的 application 变量名
-callable = app 
+callable = app
 # 处理器数
 processes = 4
 # 线程数
@@ -55,7 +57,7 @@ stats = 127.0.0.1:9191
 ## 配置 nginx
 
 在宝塔面板中，管理网站，设置，配置文件修改如下，
-或者在/www/server/panel/vhost/nginx/<name>.conf下修改
+或者在/www/server/panel/vhost/nginx/<name>.conf 下修改
 
 ```nginx
 server {
@@ -71,9 +73,9 @@ server {
 }
 ```
 
-## 配置supervisor
+## 配置 supervisor
 
-supervisor能同时启动多个应用，能自动重启应用，保证可用性。
+supervisor 能同时启动多个应用，能自动重启应用，保证可用性。
 
 安装
 
@@ -81,7 +83,7 @@ supervisor能同时启动多个应用，能自动重启应用，保证可用性�
 sudo apt-get install supervisor
 ```
 
-在 /etc/supervisor/conf.d 下添加<name>.conf文件(resume.conf)，内容如下
+在 /etc/supervisor/conf.d 下添加<name>.conf 文件(resume.conf)，内容如下
 
 ```nginx
 [program:resume] #resume是<name>

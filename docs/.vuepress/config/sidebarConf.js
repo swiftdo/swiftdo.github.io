@@ -1,7 +1,7 @@
 module.exports = {
   "/swift/vapor/": [
     {
-      title: "Vapor",
+      title: "VAPOR",
       collapsable: false,
       children: [
         "",
@@ -31,7 +31,7 @@ module.exports = {
       children: ["", "t1-pod-webp", "t2-youhua"],
     },
   ],
-  "/swift/tips/": [{ title: "Tips", collapsable: false, children: [""] }],
+  "/swift/tips/": [{ title: "TIPS", collapsable: false, children: [""] }],
   "/swift/fp/": [
     {
       title: "FP",
@@ -53,11 +53,11 @@ module.exports = {
       title: "Python",
       collapsable: false,
       children: [
+        "",
         "1-file-map",
         "2-mongo-random",
         "3-page-upload",
         "4-bt-flask",
-        "",
       ],
     },
   ],
@@ -126,13 +126,39 @@ module.exports = {
     },
   ],
   "/basis/os/": [{ title: "OS", collapsable: false, children: [""] }],
-  "/basis/cmake/": [],
+  "/basis/cmake/": [
+    {
+      title: "CMAKE",
+      collapsable: false,
+      children: [""],
+    },
+
+    {
+      title: "BASIC",
+      collapsable: false,
+      children: [
+        "01-basic/",
+        "01-basic/A-hello-cmake",
+        "01-basic/B-hello-headers",
+        "01-basic/C-static-library",
+        "01-basic/D-shared-library",
+        "01-basic/E-installing",
+        "01-basic/F-build-type",
+        "01-basic/G-compile-flags",
+        "01-basic/H-third-party-library",
+        "01-basic/I-compiling-with-clang",
+        "01-basic/J-building-with-ninja",
+        "01-basic/K-imported-targets",
+        "01-basic/L-cpp-standard",
+      ],
+    },
+  ],
   "/tools/vuepress/": [
     { title: "VuePress", collapsable: false, children: ["", "deploy"] },
   ],
   "/tools/git/": [
     {
-      title: "Git",
+      title: "GIT",
       collapsable: false,
       children: ["", "t1-change-history", "t2-git-submodule"],
     },
