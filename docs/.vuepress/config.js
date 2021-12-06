@@ -1,5 +1,6 @@
 const pluginConf = require("./config/pluginConf.js");
 const navConf = require("./config/navConf.js");
+const sidebarConf = require("./config/sidebarConf.js");
 
 module.exports = {
   theme: "reco",
@@ -63,7 +64,9 @@ module.exports = {
     lastUpdated: "上次更新",
     nav: navConf,
     author: "oldbirds",
-    subSidebar: "auto",
+    subSidebar: "auto", // reco
+    sidebar: sidebarConf,
+
     // vssueConfig: {
     //     platform: 'github',
     //     owner: 'swiftdo',

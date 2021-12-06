@@ -64,7 +64,7 @@ module.exports = [
         link: "https://oldbird.run/design-patterns/#/",
       },
       {
-        text: "CMake篇",
+        text: "CMake",
         link: "/basis/cmake/",
       },
     ],

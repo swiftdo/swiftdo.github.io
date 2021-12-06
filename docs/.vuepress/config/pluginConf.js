@@ -13,10 +13,6 @@ module.exports = {
   "@vuepress/google-analytics": {
     ga: "UA-141621537-2",
   },
-  "vuepress-plugin-auto-sidebar": {
-    titleMode: "uppercase",
-    collapse: { open: true },
-  },
   sitemap: {
     hostname: "https://oldbird.run",
   },
