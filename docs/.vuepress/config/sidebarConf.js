@@ -128,7 +128,7 @@ module.exports = {
   "/basis/os/": [{ title: "OS", collapsable: false, children: [""] }],
   "/basis/cmake/": [
     {
-      title: "CMAKE",
+      title: "前言",
       collapsable: false,
       children: [""],
     },
