@@ -2,6 +2,7 @@ module.exports = [
   {
     text: "Swift",
     items: [
+      { text: "写更好的Swift代码系列", link: "/swift/better/" },
       {
         text: "SwiftUI",
         link: "/swift/swiftui/",

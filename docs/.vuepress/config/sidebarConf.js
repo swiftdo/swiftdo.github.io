@@ -31,6 +31,23 @@ module.exports = {
       children: ["", "t1-pod-webp", "t2-youhua"],
     },
   ],
+  "/swift/better/": [
+    {
+      title: "写更好的Swift代码",
+      collapsable: false,
+      children: [
+        "autoclosure",
+        "protocol",
+        "chain",
+        "Copy-On-Write",
+        "copy-in-copy-out",
+        "di",
+        "lazy",
+        "available",
+        "last",
+      ],
+    },
+  ],
   "/swift/tips/": [{ title: "TIPS", collapsable: false, children: [""] }],
   "/swift/fp/": [
     {
