@@ -8,6 +8,8 @@ sitemap:
   changefreq: hourly
 ---
 
+Flutter 是如何渲染的？
+
 ```dart
 Everything’s a widget
 ```
