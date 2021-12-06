@@ -1,3 +1,13 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - 设计模式
+---
+
 # 类间的关系
 
 UML 图中类之间的关系

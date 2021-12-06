@@ -1,3 +1,13 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - 设计模式
+---
+
 # 命令模式
 
 将一个请求封装成一个对象，从而使您可以用不同的请求对客户进行参数化。

@@ -1,3 +1,13 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - 设计模式
+---
+
 # 工厂模式
 
 工厂模式根据抽象程度的不同分为三种：简单工厂模式（也叫静态工厂模式）、工厂方法模式、抽象工厂模式。
@@ -84,7 +94,7 @@ circle?.draw()
 
 ### Reader 样例
 
-例如，有一个Reader类表示图片读取，另有它的三个子类 JPGReader， PNGReader和 GIFReader 分别代表 jpg、png 和 gif 读取。
+例如，有一个 Reader 类表示图片读取，另有它的三个子类 JPGReader， PNGReader 和 GIFReader 分别代表 jpg、png 和 gif 读取。
 
 ```swift
 protocol Reader {
@@ -147,7 +157,7 @@ reader.read() // read jpg
 
 ### Button 样例
 
-例如，有一个Button类表示按钮，另有它的两个子类WinButton和MacButton分别代表Windows和Mac风格的按钮。
+例如，有一个 Button 类表示按钮，另有它的两个子类 WinButton 和 MacButton 分别代表 Windows 和 Mac 风格的按钮。
 
 ```swift
 protocol Button {}
@@ -180,7 +190,6 @@ default:
 fac.createButton()
 ```
 
-
 ## 抽象工厂模式
 
 为创建一组相关或相互依赖的对象提供一个接口，而且无需指定他们的具体类。
@@ -195,7 +204,7 @@ class BenzCar {
     init(name: String) {
         self.name = name
     }
-    
+
     func drive() {}
 }
 
@@ -214,11 +223,11 @@ class BenzBusinessCar : BenzCar {
 
 class BmwCar {
     var name: String
-    
+
     init(name: String) {
         self.name = name
     }
-    
+
     func drive() {}
 }
 
@@ -236,11 +245,11 @@ class BmwBusinessCar : BmwCar {
 
 class AudiCar {
     var name: String
-    
+
     init(name: String) {
         self.name = name
     }
-    
+
     func drive() {}
 }
 
@@ -264,15 +273,15 @@ protocol Driver {
 }
 
 class SupportDriver : Driver {
-    
+
     func createBenzCar(car: String) -> BenzCar {
         BenzSportCar.init(name: car)
     }
-    
+
     func createBmwCar(car: String) -> BmwCar {
         BmwSportCar.init(name: car)
     }
-    
+
     func createAudiCar(car: String) -> AudiCar {
         AudiSportCar.init(name: car)
     }
@@ -283,11 +292,11 @@ class BusinessDriver: Driver {
     func createBenzCar(car: String) -> BenzCar {
         BenzBusinessCar.init(name: car)
     }
-    
+
     func createBmwCar(car: String) -> BmwCar {
         BmwBusinessCar.init(name: car)
     }
-    
+
     func createAudiCar(car: String) -> AudiCar {
         AudiBusinessCar.init(name: car)
     }
@@ -345,9 +354,9 @@ let border: Border = fac.createBorder()
 
 ## 三者对比
 
-|  |简单工厂| 工厂方法| 抽象工厂|
-| -- | --    |   -- |  --|
-|特点|  使用静态方法通过接受参数的不同来返回不同的实例| 针对每一种产品提供一个工厂类 | 针对产品族 | 
-| 扩展方式 | 在不修改代码的前提下无法扩展 | 在同一级别中可以任意扩展 | 应对产品族的概念，可以增加新的产品线，但无法增加新的产品 |
-| 优点 | 在于工厂类中包含了必要的逻辑，更具客户需要的条件动态实例化相关的类，对客户端来说，去掉了与具体产品的依赖 | 创建对象的接口，让子类去决定具体的实例化的对象，把简单的内部逻辑判断移到了客户端代码。工厂方法克服了简单工厂违背开放-封闭原则的缺点，又保持了封装对象创建过程的优点。| 分离了具体的类，抽象工厂模式帮助你控制一个应用创建的对象的类，客户通过他们的抽象接口操纵实例，产品的类名也在具体工厂的实现中被分离，它们不出现在客户代码中。它使得易于交换产品系列。|
-| 缺点 | 工厂类集中了所有实例的创建逻辑，违反了高内聚责任分配原则，当增加新的产品时，会违反开发-封闭原则 | 不易于维护，假如某个具体的产品类需要进行一定的修改，很可能需要修改对应的工厂类。当同时需要修改多个产品类的时候，对工厂类的修改会变得相当麻烦 | 抽象工厂模式在于难于应对“新对象”的需求变动，难以支持新种类产品，难以扩展抽象工厂以生产新种类产品 |
+|          | 简单工厂                                                                                                 | 工厂方法                                                                                                                                                              | 抽象工厂                                                                                                                                                                             |
+| -------- | -------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 特点     | 使用静态方法通过接受参数的不同来返回不同的实例                                                           | 针对每一种产品提供一个工厂类                                                                                                                                          | 针对产品族                                                                                                                                                                           |
+| 扩展方式 | 在不修改代码的前提下无法扩展                                                                             | 在同一级别中可以任意扩展                                                                                                                                              | 应对产品族的概念，可以增加新的产品线，但无法增加新的产品                                                                                                                             |
+| 优点     | 在于工厂类中包含了必要的逻辑，更具客户需要的条件动态实例化相关的类，对客户端来说，去掉了与具体产品的依赖 | 创建对象的接口，让子类去决定具体的实例化的对象，把简单的内部逻辑判断移到了客户端代码。工厂方法克服了简单工厂违背开放-封闭原则的缺点，又保持了封装对象创建过程的优点。 | 分离了具体的类，抽象工厂模式帮助你控制一个应用创建的对象的类，客户通过他们的抽象接口操纵实例，产品的类名也在具体工厂的实现中被分离，它们不出现在客户代码中。它使得易于交换产品系列。 |
+| 缺点     | 工厂类集中了所有实例的创建逻辑，违反了高内聚责任分配原则，当增加新的产品时，会违反开发-封闭原则          | 不易于维护，假如某个具体的产品类需要进行一定的修改，很可能需要修改对应的工厂类。当同时需要修改多个产品类的时候，对工厂类的修改会变得相当麻烦                          | 抽象工厂模式在于难于应对“新对象”的需求变动，难以支持新种类产品，难以扩展抽象工厂以生产新种类产品                                                                                     |

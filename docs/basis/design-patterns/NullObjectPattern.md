@@ -1,3 +1,13 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - 设计模式
+---
+
 # 空对象模式
 
 通过实现一个默认的无意义对象来避免 null 值出现，简单地说，就是为了避免在程序中出现 null 值判断而诞生的一种常用设计方法。

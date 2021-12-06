@@ -1,3 +1,13 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - 设计模式
+---
+
 # 设计原则
 
 我们在设计一些设计模式时，一般遵循如下七项基本原则，它们分别是:

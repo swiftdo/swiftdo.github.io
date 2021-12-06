@@ -1,3 +1,13 @@
+---
+sitemap:
+  exclude: false
+  changefreq: hourly
+date: 2021-12-05
+tags:
+  - swift
+  - 设计模式
+---
+
 # 原型模式
 
 原型模式（Prototype Pattern）是用于创建重复的对象，同时又能保证性能。
