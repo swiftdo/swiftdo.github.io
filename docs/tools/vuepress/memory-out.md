@@ -42,39 +42,13 @@ store build cache
 
 ## 解决方案
 
-在 package.json 添加配置：
+在 package.json 修改配置：
 
 ```json
 // package.json 配置
 "scripts": {
-    "fix-memory-limit": "cross-env LIMIT=2048 increase-memory-limit"
+    "docs:build": "node --max_old_space_size=4096 ./node_modules/vuepress/cli.js build docs",
 },
-"devDependencies": {
-    "increase-memory-limit": "^1.0.3",
-    "cross-env": "^5.0.5"
-}
 ```
 
-然后在 `.travis.yaml` 中添加 `yarn fix-memory-limit`：
-
-```yaml
-language: node_js
-node_js:
-  - lts/*
-install:
-  - yarn install # npm ci
-script:
-  - yarn fix-memory-limit
-  - yarn docs:build # npm run docs:build
-deploy:
-  provider: pages
-  skip_cleanup: true
-  fqdn: oldbird.run
-  local_dir: docs/.vuepress/dist
-  github_token: $GITHUB_TOKEN # 在 GitHub 中生成，用于允许 Travis 向你的仓库推送代码。在 Travis 的项目设置页面进行配置，设置为 secure variable
-  repo: swiftdo/swiftdo.github.io
-  target_branch: master
-  keep_history: true
-  on:
-    branch: master
-```
+修改了 docs:build 的执行语句，指定了内存为 4096。
