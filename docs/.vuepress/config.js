@@ -47,6 +47,10 @@ module.exports = {
     ],
   ],
   markdown: {
+    externalLinks: {
+      target: "_blank",
+      rel: "nofollow noopener noreferrer",
+    },
     plugins: ["task-lists", "markdown-it-plantuml"],
   },
   plugins: pluginConf,
