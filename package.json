@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
-    "docs:nav": "vuepress nav docs",
-    "fix-memory-limit": "cross-env LIMIT=8192 increase-memory-limit"
+    "docs:build": "node --max_old_space_size=4096 ./node_modules/vuepress/cli.js build docs",
+    "docs:nav": "vuepress nav docs"
   },
   "repository": {
     "type": "git",
@@ -36,9 +35,7 @@
     "vuepress-plugin-baidu-autopush": "^1.0.1",
     "vuepress-plugin-image": "^1.0.4",
     "vuepress-plugin-nuggets-style-copy": "^1.0.3",
-    "vuepress-theme-reco": "^1.6.6",
-    "increase-memory-limit": "^1.0.3",
-    "cross-env": "^5.0.5"
+    "vuepress-theme-reco": "^1.6.6"
   },
   "dependencies": {
     "@vuepress-reco/vuepress-plugin-comments": "^1.6.0",
