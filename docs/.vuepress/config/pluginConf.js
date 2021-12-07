@@ -39,26 +39,4 @@ module.exports = {
     },
   },
   "vuepress-plugin-baidu-autopush": {},
-  robots: {
-    /**
-     * @host
-     * Mandatory, You have to provide the host URL
-     */
-    host: "https://oldbird.run",
-    /**
-     * @disallowAll
-     * Optional: if it's true, all others options are ignored and exclude all robots from the entire server
-     */
-    disallowAll: false,
-    /**
-     * @allowAll
-     * Optional: if it's true and @disallowAll is false, all others options are ignored and allow all robots complete access
-     */
-    allowAll: true,
-    /**
-     * @sitemap
-     * Optional, by default: sitemap.xml
-     */
-    sitemap: "/sitemap.xml",
-  },
 };
