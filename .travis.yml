@@ -3,7 +3,6 @@ node_js:
   - lts/*
 install:
   - yarn install # npm ci
-  - yarn fix-memory-limit
 script:
   - yarn docs:build # npm run docs:build
 deploy:
