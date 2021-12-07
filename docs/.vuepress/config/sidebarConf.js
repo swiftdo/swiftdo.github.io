@@ -400,4 +400,11 @@ module.exports = {
       ],
     },
   ],
+  "/c/": [
+    {
+      title: "C/C++笔记",
+      collapsable: false,
+      children: ["", "pointers"],
+    },
+  ],
 };

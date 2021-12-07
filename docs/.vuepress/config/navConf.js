@@ -38,12 +38,8 @@ module.exports = [
     link: "/flutter/",
   },
   {
-    text: "AI",
-    link: "/ai/",
-  },
-  {
-    text: "Figma",
-    link: "/figma/",
+    text: "C/C++",
+    link: "/c/",
   },
   {
     text: "基础",
@@ -93,11 +89,19 @@ module.exports = [
         text: "PlantUML",
         link: "/tools/plantuml/",
       },
+      {
+        text: "书单",
+        link: "https://oldbird.run/books/#/",
+      },
+      {
+        text: "AI",
+        link: "/ai/",
+      },
+      {
+        text: "Figma",
+        link: "/figma/",
+      },
     ],
-  },
-  {
-    text: "书单",
-    link: "https://oldbird.run/books/#/",
   },
   {
     text: "关于",
