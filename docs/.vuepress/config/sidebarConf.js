@@ -83,7 +83,7 @@ module.exports = {
     {
       title: "HASKELL",
       collapsable: false,
-      children: ["1-install", "2-vscode", "3-pktool", "4-digui", ""],
+      children: ["", "1-install", "2-vscode", "3-pktool", "4-digui"],
     },
   ],
   "/flutter/": [
