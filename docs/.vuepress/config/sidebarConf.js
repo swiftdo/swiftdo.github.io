@@ -171,7 +171,11 @@ module.exports = {
     },
   ],
   "/tools/vuepress/": [
-    { title: "VuePress", collapsable: false, children: ["", "deploy"] },
+    {
+      title: "VuePress",
+      collapsable: false,
+      children: ["", "deploy", "memory-out"],
+    },
   ],
   "/tools/git/": [
     {

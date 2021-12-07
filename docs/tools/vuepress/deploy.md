@@ -1,12 +1,12 @@
 ---
-title: '部署'
+title: "部署"
 sitemap:
   exclude: false
   changefreq: hourly
 date: 2020-08-17
 tags:
-- tools
-- vuepress
+  - tools
+  - vuepress
 ---
 
 ## GitHub Pages
@@ -41,9 +41,9 @@ GitHub Pages 第二种用法的部署，VuePress 已详细提供，直接按照 
 ### `.travis.yml`
 
 ```yml
-language: node_js  # 指定运行环境
+language: node_js # 指定运行环境
 node_js:
-  - lts/*  # node环境的版本
+  - lts/* # node环境的版本
 install:
   - yarn install # npm ci
 script:
@@ -60,12 +60,12 @@ deploy:
 
 这是最基本的配置。
 
-* `provider`：解析支持者为 github pages
-* `skip_cleanup`：值必须为 true 不然会把你在构建时生成的文件给删除掉。
-* `on: branch: master`：当 master 分支有变化时，才执行这个部署。更多条件设置请参考[Deployment](https://docs.travis-ci.com/user/deployment/)
-* `GITHUB_TOKEN`：生成请参考 [Creating a personal access token for the command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)。如果你的仓库是公开的，那么在给权限的时候只需要给`public_repo`, 如果你的仓库是私有的那就要给 `repo` 权限，尽量给更少的权限。然后在[Travis CI](https://travis-ci.org/)的控制台设置环境变量 `GITHUB_TOKEN` 值为刚才生成的 token。在添加环境变量的时候有个开关 `Display value in build log` 不要打开，不然别人就可以在 CI 的 log 里面看到你的 token，就可以对你的公开仓库进行任意修改（给少的权限，不公开）。
-* `local_dir`：是将要推送到 GitHub Pages 的目录，默认的值为当前目录。
-* `keep_history`：禁止 travis 对你的 github 项目进行强制推送。
+- `provider`：解析支持者为 github pages
+- `skip_cleanup`：值必须为 true 不然会把你在构建时生成的文件给删除掉。
+- `on: branch: master`：当 master 分支有变化时，才执行这个部署。更多条件设置请参考[Deployment](https://docs.travis-ci.com/user/deployment/)
+- `GITHUB_TOKEN`：生成请参考 [Creating a personal access token for the command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)。如果你的仓库是公开的，那么在给权限的时候只需要给`public_repo`, 如果你的仓库是私有的那就要给 `repo` 权限，尽量给更少的权限。然后在[Travis CI](https://travis-ci.org/)的控制台设置环境变量 `GITHUB_TOKEN` 值为刚才生成的 token。在添加环境变量的时候有个开关 `Display value in build log` 不要打开，不然别人就可以在 CI 的 log 里面看到你的 token，就可以对你的公开仓库进行任意修改（给少的权限，不公开）。
+- `local_dir`：是将要推送到 GitHub Pages 的目录，默认的值为当前目录。
+- `keep_history`：禁止 travis 对你的 github 项目进行强制推送。
 
 对于样例我们要通过 `https://swiftdo.github.io` 打开站点，那么生成的站点必须放到 `swiftdo/swiftdo.github.io` 仓库这里。
 然而我们的文档源码是在 `swiftdo/swiftdo`。
