@@ -109,6 +109,8 @@ target_link_libraries( hello_binary
 
 ## 构建示例
 
+> 源码：[C-static-library](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/C-static-library)
+
 ```shell
 $ mkdir build
 
