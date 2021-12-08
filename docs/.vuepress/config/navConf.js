@@ -48,6 +48,10 @@ module.exports = [
         text: "音频篇",
         link: "/c/audio/",
       },
+      {
+        text: "CMake篇",
+        link: "/c/cmake/",
+      },
     ],
   },
   {
@@ -68,10 +72,6 @@ module.exports = [
       {
         text: "设计模式",
         link: "/basis/design-patterns/",
-      },
-      {
-        text: "CMake",
-        link: "/basis/cmake/",
       },
     ],
   },
