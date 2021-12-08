@@ -386,7 +386,7 @@ module.exports = {
     {
       title: "音频篇",
       collapsable: false,
-      children: ["", "audio-basic"],
+      children: ["", "audio-basic", "endian"],
     },
   ],
   "/c/cmake/": [
