@@ -401,11 +401,18 @@ module.exports = {
       ],
     },
   ],
-  "/c/": [
+  "/c/program/": [
     {
       title: "C/C++笔记",
       collapsable: false,
       children: ["", "pointers"],
+    },
+  ],
+  "/c/audio/": [
+    {
+      title: "音频篇",
+      collapsable: false,
+      children: [""],
     },
   ],
 };

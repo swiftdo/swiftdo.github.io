@@ -39,7 +39,16 @@ module.exports = [
   },
   {
     text: "C/C++",
-    link: "/c/",
+    items: [
+      {
+        text: "语言篇",
+        link: "/c/program/",
+      },
+      {
+        text: "音频篇",
+        link: "/c/audio/",
+      },
+    ],
   },
   {
     text: "基础",
