@@ -412,7 +412,7 @@ module.exports = {
     {
       title: "音频篇",
       collapsable: false,
-      children: [""],
+      children: ["", "audio-basic"],
     },
   ],
 };
