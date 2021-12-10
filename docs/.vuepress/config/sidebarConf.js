@@ -28,7 +28,7 @@ module.exports = {
     {
       title: "iOS",
       collapsable: false,
-      children: ["", "t1-pod-webp", "t2-youhua"],
+      children: ["", "t1-pod-webp", "t2-youhua", "pod-wechat"],
     },
   ],
   "/swift/better/": [
