@@ -38,7 +38,7 @@ module.exports = [
     link: "/flutter/",
   },
   {
-    text: "C/C++",
+    text: "C&C++",
     items: [
       {
         text: "语言篇",
@@ -79,10 +79,6 @@ module.exports = [
     text: "工具",
     items: [
       {
-        text: "VuePress",
-        link: "/tools/vuepress/",
-      },
-      {
         text: "Git",
         link: "/tools/git/",
       },
@@ -109,6 +105,10 @@ module.exports = [
       {
         text: "Figma",
         link: "/figma/",
+      },
+      {
+        text: "VuePress",
+        link: "/tools/vuepress/",
       },
     ],
   },
