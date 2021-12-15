@@ -2,7 +2,6 @@ module.exports = [
   {
     text: "Swift",
     items: [
-      { text: "写更好的Swift代码系列", link: "/swift/better/" },
       {
         text: "SwiftUI",
         link: "/swift/swiftui/",
@@ -23,6 +22,7 @@ module.exports = [
         text: "函数式编程",
         link: "/swift/fp/",
       },
+      { text: "写更好的Swift代码系列", link: "/swift/better/" },
     ],
   },
   {
