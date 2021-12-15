@@ -1,5 +1,5 @@
 ---
-title: "部署"
+title: "通过 Travis 部署"
 sitemap:
   exclude: false
   changefreq: hourly
