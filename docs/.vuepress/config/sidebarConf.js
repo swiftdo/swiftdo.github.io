@@ -156,7 +156,12 @@ module.exports = {
     {
       title: "GIT",
       collapsable: false,
-      children: ["", "t1-change-history", "t2-git-submodule"],
+      children: [
+        "",
+        "t1-change-history",
+        "t2-git-submodule",
+        "git-branch-mapping",
+      ],
     },
   ],
   "/tools/yaml/": [{ title: "YAML", collapsable: false, children: [""] }],
