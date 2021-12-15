@@ -149,7 +149,7 @@ module.exports = {
     {
       title: "VuePress",
       collapsable: false,
-      children: ["", "deploy", "memory-out"],
+      children: ["", "deploy", "deploy-github-action", "memory-out"],
     },
   ],
   "/tools/git/": [
