@@ -4,7 +4,7 @@ name: Deploy GitHub Pages
 on:
   push:
     branches:
-      - master
+      - source
 
 # 任务
 jobs:
@@ -20,12 +20,12 @@ jobs:
 
       # 生成静态文件
       - name: Build
-        run:  yarn install && yarn docs:build
+        run: yarn install && yarn docs:build
 
       # 部署到 GitHub Pages
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
+          BRANCH: master
           FOLDER: docs/.vuepress/dist
