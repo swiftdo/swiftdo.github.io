@@ -26,14 +26,6 @@ module.exports = [
     ],
   },
   {
-    text: "Python",
-    link: "/python/",
-  },
-  {
-    text: "Haskell",
-    link: "/haskell/",
-  },
-  {
     text: "Flutter",
     link: "/flutter/",
   },
@@ -53,6 +45,14 @@ module.exports = [
         link: "/c/cmake/",
       },
     ],
+  },
+  {
+    text: "Python",
+    link: "/python/",
+  },
+  {
+    text: "Haskell",
+    link: "/haskell/",
   },
   {
     text: "基础",
