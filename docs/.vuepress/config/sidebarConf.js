@@ -92,6 +92,7 @@ module.exports = {
       collapsable: false,
       children: [
         "",
+        "point",
         "t1-tips",
         "t2-what",
         "t3-messages",
