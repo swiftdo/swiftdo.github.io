@@ -32,6 +32,15 @@ module.exports = {
       linkTo: "/about/index/",
     },
     closeOnce: true,
+    hideRouteList: [
+      "swift",
+      "flutter",
+      "python",
+      "c",
+      "haskell",
+      "basis",
+      "tools",
+    ],
   },
   "vuepress-plugin-nuggets-style-copy": {
     copyText: "复制代码",
