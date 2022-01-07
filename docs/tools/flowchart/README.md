@@ -58,7 +58,8 @@ c2(no)->op2->e
 
 需要注明下语言 `flow` 即可
 
-```
+<pre>
+```flow
 st=>start: Start|past:>http://www.baidu.com
 e=>end: End:>http://www.baidu.com
 op1=>operation: My Operation|past
@@ -74,6 +75,7 @@ cond(no)->sub1(left)->op1
 c2(yes)->io->e
 c2(no)->op2->e
 ```
+</pre>
 
 效果：
 
