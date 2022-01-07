@@ -51,9 +51,6 @@ module.exports = {
       target: "_blank",
       rel: "nofollow noopener noreferrer",
     },
-    mdEnhance: {
-      flowchart: true,
-    },
     plugins: ["task-lists", "markdown-it-plantuml"],
   },
   plugins: pluginConf,
@@ -73,6 +70,9 @@ module.exports = {
     author: "oldbirds",
     subSidebar: "auto", // reco
     sidebar: sidebarConf,
+    mdEnhance: {
+      flowchart: true,
+    },
 
     // vssueConfig: {
     //     platform: 'github',
