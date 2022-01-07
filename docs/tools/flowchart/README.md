@@ -56,9 +56,9 @@ c2(no)->op2->e
 
 ## 实例
 
-需要注明下语言 `flow` 即可
+mdweb 需要注明下语言 `flow` 即可
 
-<pre>
+````md
 ```flow
 st=>start: Start|past:>http://www.baidu.com
 e=>end: End:>http://www.baidu.com
@@ -75,11 +75,32 @@ cond(no)->sub1(left)->op1
 c2(yes)->io->e
 c2(no)->op2->e
 ```
-</pre>
+````
+
+在 vuepress 中我们需要改成 @flowstart:
+
+```md
+@flowstart
+st=>start: Start|past:>http://www.baidu.com
+e=>end: End:>http://www.baidu.com
+op1=>operation: My Operation|past
+op2=>operation: Stuff|current
+sub1=>subroutine: My Subroutine|invalid
+cond=>condition: Yes or No?|approved:>http://www.baidu.com
+c2=>condition: Good idea|rejected
+io=>inputoutput: catch something...|request
+
+st->op1(right)->cond
+cond(yes, right)->c2
+cond(no)->sub1(left)->op1
+c2(yes)->io->e
+c2(no)->op2->e
+@flowend
+```
 
 效果：
 
-```flow
+@flowstart
 st=>start: Start|past:>http://www.baidu.com
 e=>end: End:>http://www.baidu.com
 op1=>operation: My Operation|past
@@ -94,4 +115,4 @@ cond(yes, right)->c2
 cond(no)->sub1(left)->op1
 c2(yes)->io->e
 c2(no)->op2->e
-```
+@flowend

@@ -1,4 +1,5 @@
 module.exports = {
+  flowchart: true,
   "@vuepress/back-to-top": true,
   "@vuepress/active-header-links": true,
   "@vuepress/nprogress": true,
