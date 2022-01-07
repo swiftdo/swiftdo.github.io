@@ -95,6 +95,10 @@ module.exports = [
         link: "/tools/plantuml/",
       },
       {
+        text: "流程图 Flowchart",
+        link: "/tools/flowchart/",
+      },
+      {
         text: "书单",
         link: "https://oldbird.run/books/#/",
       },

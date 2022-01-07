@@ -51,6 +51,9 @@ module.exports = {
       target: "_blank",
       rel: "nofollow noopener noreferrer",
     },
+    mdEnhance: {
+      flowchart: true,
+    },
     plugins: ["task-lists", "markdown-it-plantuml"],
   },
   plugins: pluginConf,
