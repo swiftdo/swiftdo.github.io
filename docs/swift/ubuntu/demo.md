@@ -2,7 +2,7 @@
 sitemap:
   exclude: false
   changefreq: hourly
-title: "Swift 在 Ubuntu 的开发工作流之完整实战篇"
+title: "完整实战篇"
 date: 2022-01-12
 tags:
   - swift
