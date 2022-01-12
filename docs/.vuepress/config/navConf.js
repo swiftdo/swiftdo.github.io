@@ -7,6 +7,10 @@ module.exports = [
         link: "/swift/swiftui/",
       },
       {
+        text: "Ubuntu中Swift开发",
+        link: "/swift/ubuntu/",
+      },
+      {
         text: "Vapor",
         link: "/swift/vapor/",
       },

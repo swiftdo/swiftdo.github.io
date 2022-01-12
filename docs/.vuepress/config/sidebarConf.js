@@ -24,6 +24,13 @@ module.exports = {
       ],
     },
   ],
+  "/swift/ubuntu/": [
+    {
+      title: "Ubantu Swift开发",
+      collapsable: false,
+      children: ["", "swiftenv", "spm", "vscode"],
+    },
+  ],
   "/swift/ios/": [
     {
       title: "iOS",
