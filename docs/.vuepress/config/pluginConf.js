@@ -17,7 +17,7 @@ module.exports = {
   sitemap: {
     hostname: "https://oldbird.run",
   },
-  image: true,
+  "img-lazy": {},
   "@vuepress-yard/vuepress-plugin-window": {
     title: "OldBirds",
     contentInfo: {
