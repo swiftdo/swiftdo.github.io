@@ -40,6 +40,7 @@ module.exports = {
       "haskell",
       "basis",
       "tools",
+      "read",
     ],
   },
   "vuepress-plugin-nuggets-style-copy": {
