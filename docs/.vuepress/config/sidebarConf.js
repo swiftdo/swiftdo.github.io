@@ -436,4 +436,11 @@ module.exports = {
       ],
     },
   ],
+  "/read/": [
+    {
+      title: "阅读笔记",
+      collapsable: false,
+      children: ["", "head-first-oop"],
+    },
+  ],
 };

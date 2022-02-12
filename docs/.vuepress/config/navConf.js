@@ -121,6 +121,10 @@ module.exports = [
     ],
   },
   {
+    text:"读书笔记",
+    link: "/read/"
+  },
+  {
     text: "关于",
     items: [
       {
