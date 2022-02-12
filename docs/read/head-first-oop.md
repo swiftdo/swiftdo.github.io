@@ -9,9 +9,7 @@ sitemap:
   changefreq: hourly
 ---
 
-《深入浅出面向对象分析与设计》笔记。
-
-
+《深入浅出面向对象分析与设计》：[豆瓣链接](https://book.douban.com/subject/3530721/)。
 
 ## 伟大的软件的意义是什么？
 
