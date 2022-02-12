@@ -1,5 +1,5 @@
 ---
-title: '读书笔记'
+title: '多读书'
 date: 2022-02-12
 tags:
 - read
