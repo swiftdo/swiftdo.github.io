@@ -126,6 +126,7 @@ module.exports = {
         "u15-custom-nabar",
         "u16-shape",
         "y1-statubar",
+        "github-actions-build-flutter-ios"
       ],
     },
   ],
