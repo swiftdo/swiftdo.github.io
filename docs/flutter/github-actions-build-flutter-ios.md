@@ -89,9 +89,12 @@ jobs:
 当您在`master`分支上推送新更改时，将触发此作业(job)。我们要做的第一步(step)是检出我们分支的代码。
 
 ## 安装苹果证书
+
 因为项目是开源的，但是打包又需要证书、密码和描述文件，而这些我们并不想公开出去。那这个时候我们可以借助 GitHub 提供的`secrets`功能，它可以安全的存放私密内容。
 
 因为证书和描述文件都是文件类型，而 secrets 存放的是字符串，所以这个时候我们需要将文件进行`base64`成字符串。具体步骤，可以阅读这篇《How to use environment variables and secrets using GitHub Actions》(https://damienaicheh.github.io/github/actions/2021/04/15/environment-variables-secrets-github-actions-en.html)。
+
+> 例如：`base64 build_certificate.p12 | pbcopy`
 
 我们将定义以下 key：
 
@@ -260,6 +263,7 @@ end
 
 * [How to build and sign your Flutter iOS application using GitHub Actions](https://damienaicheh.github.io/flutter/github/actions/2021/04/22/build-sign-flutter-ios-github-actions-en.html)
 * [How to use environment variables and secrets using GitHub Actions](https://damienaicheh.github.io/github/actions/2021/04/15/environment-variables-secrets-github-actions-en.html)
+* [在用于 Xcode 开发的 macOS 运行器上安装 Apple 证书](https://docs.github.com/cn/actions/deployment/deploying-xcode-applications/installing-an-apple-certificate-on-macos-runners-for-xcode-development)
 
 
 
