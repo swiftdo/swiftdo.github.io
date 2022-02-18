@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Github Actions 免费构建 Flutter Android 包 | OldBirds</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <script data-ad-client="ca-pub-4465026491979447" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta name="description" content="在上文《Github Actions 免费构建 Flutter iOS 包》中，我们完成了 Flutter 基于 Github Actions 实现 iOS 的自动化打包。
+那么本文将继续完成 Android 的自动化打包。">
+    <meta name="image" content="http://blog.loveli.site/mweb/16451653664048.jpg">
+    <meta name="twitter:title" content="Github Actions 免费构建 Flutter Android 包">
+    <meta name="twitter:description" content="在上文《Github Actions 免费构建 Flutter iOS 包》中，我们完成了 Flutter 基于 Github Actions 实现 iOS 的自动化打包。
+那么本文将继续完成 Android 的自动化打包。">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="http://blog.loveli.site/mweb/16451653664048.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Github Actions 免费构建 Flutter Android 包">
+    <meta property="og:description" content="在上文《Github Actions 免费构建 Flutter iOS 包》中，我们完成了 Flutter 基于 Github Actions 实现 iOS 的自动化打包。
+那么本文将继续完成 Android 的自动化打包。">
+    <meta property="og:image" content="http://blog.loveli.site/mweb/16451653664048.jpg">
+    <meta property="article:published_time" content="2022-01-05T00:00:00.000Z">
+    <meta property="article:tag" content="flutter">
+    <meta itemprop="name" content="Github Actions 免费构建 Flutter Android 包">
+    <meta itemprop="description" content="在上文《Github Actions 免费构建 Flutter iOS 包》中，我们完成了 Flutter 基于 Github Actions 实现 iOS 的自动化打包。
+那么本文将继续完成 Android 的自动化打包。">
+    <meta itemprop="image" content="http://blog.loveli.site/mweb/16451653664048.jpg">
+    <meta name="google-site-verification" content="6EogPdlAJYusvUHenXWXCGX-oVrqdeBnY-WsURHuKAA">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="keywords" content="oldbirds,oldbird,公众号,swift,swiftui,flutter,vapor,ios,figma,数据结构,算法,书单,vuepresss,git,yaml,设计模式,编程">
+    
+    <link rel="preload" href="/assets/css/0.styles.69fe0ec4.css" as="style"><link rel="preload" href="/assets/js/app.c67856b2.js" as="script"><link rel="preload" href="/assets/js/4.621c0810.js" as="script"><link rel="preload" href="/assets/js/1.5964dece.js" as="script"><link rel="preload" href="/assets/js/83.b9f67f61.js" as="script"><link rel="preload" href="/assets/js/9.cd02aa0b.js" as="script"><link rel="prefetch" href="/assets/js/10.1c2ef134.js"><link rel="prefetch" href="/assets/js/100.1183dbce.js"><link rel="prefetch" href="/assets/js/101.2f0c65c9.js"><link rel="prefetch" href="/assets/js/102.9c4a8589.js"><link rel="prefetch" href="/assets/js/103.83b55a4f.js"><link rel="prefetch" href="/assets/js/104.27f624b9.js"><link rel="prefetch" href="/assets/js/105.6c0d5460.js"><link rel="prefetch" href="/assets/js/106.cc6d8a32.js"><link rel="prefetch" href="/assets/js/107.715f468c.js"><link rel="prefetch" href="/assets/js/108.b4b11744.js"><link rel="prefetch" href="/assets/js/109.610aacf8.js"><link rel="prefetch" href="/assets/js/11.444f8ca1.js"><link rel="prefetch" href="/assets/js/110.4c445894.js"><link rel="prefetch" href="/assets/js/111.dc4ff01c.js"><link rel="prefetch" href="/assets/js/112.88275faf.js"><link rel="prefetch" href="/assets/js/113.e64b8ab8.js"><link rel="prefetch" href="/assets/js/114.c4bd5e71.js"><link rel="prefetch" href="/assets/js/115.01a3bae8.js"><link rel="prefetch" href="/assets/js/116.6fe46c21.js"><link rel="prefetch" href="/assets/js/117.6744cfa2.js"><link rel="prefetch" href="/assets/js/118.e441f3d4.js"><link rel="prefetch" href="/assets/js/119.4c152767.js"><link rel="prefetch" href="/assets/js/12.450054bb.js"><link rel="prefetch" href="/assets/js/120.eba6f2e5.js"><link rel="prefetch" href="/assets/js/121.9c27f1d4.js"><link rel="prefetch" href="/assets/js/122.9afb63e6.js"><link rel="prefetch" href="/assets/js/123.af8e5476.js"><link rel="prefetch" href="/assets/js/124.35de9d03.js"><link rel="prefetch" href="/assets/js/125.1454dae5.js"><link rel="prefetch" href="/assets/js/126.4deeed55.js"><link rel="prefetch" href="/assets/js/127.046e23b2.js"><link rel="prefetch" href="/assets/js/128.ce1281f4.js"><link rel="prefetch" href="/assets/js/129.ffa2631a.js"><link rel="prefetch" href="/assets/js/13.17ef0e73.js"><link rel="prefetch" href="/assets/js/130.676b684b.js"><link rel="prefetch" href="/assets/js/131.bed55d42.js"><link rel="prefetch" href="/assets/js/132.ca9d5591.js"><link rel="prefetch" href="/assets/js/133.a9ef3565.js"><link rel="prefetch" href="/assets/js/134.8aae0deb.js"><link rel="prefetch" href="/assets/js/135.3e874668.js"><link rel="prefetch" href="/assets/js/136.4d3a2d73.js"><link rel="prefetch" href="/assets/js/137.0a502afb.js"><link rel="prefetch" href="/assets/js/138.e8917770.js"><link rel="prefetch" href="/assets/js/139.1d0bb0b3.js"><link rel="prefetch" href="/assets/js/14.878f25c8.js"><link rel="prefetch" href="/assets/js/140.e9b99c0a.js"><link rel="prefetch" href="/assets/js/141.d9a87d77.js"><link rel="prefetch" href="/assets/js/142.9b38e979.js"><link rel="prefetch" href="/assets/js/143.638f4cf5.js"><link rel="prefetch" href="/assets/js/144.bf458ba2.js"><link rel="prefetch" href="/assets/js/145.4b526748.js"><link rel="prefetch" href="/assets/js/146.bccf8a72.js"><link rel="prefetch" href="/assets/js/147.55be87d8.js"><link rel="prefetch" href="/assets/js/148.4057a44e.js"><link rel="prefetch" href="/assets/js/149.e65762e3.js"><link rel="prefetch" href="/assets/js/15.0e5dc693.js"><link rel="prefetch" href="/assets/js/150.1cc595e2.js"><link rel="prefetch" href="/assets/js/151.d94e97e5.js"><link rel="prefetch" href="/assets/js/152.6d16eb31.js"><link rel="prefetch" href="/assets/js/153.26cc8ede.js"><link rel="prefetch" href="/assets/js/154.ef5bf946.js"><link rel="prefetch" href="/assets/js/155.9caac726.js"><link rel="prefetch" href="/assets/js/156.18b08c69.js"><link rel="prefetch" href="/assets/js/157.edbda614.js"><link rel="prefetch" href="/assets/js/158.439e0fc9.js"><link rel="prefetch" href="/assets/js/159.0e0a70ea.js"><link rel="prefetch" href="/assets/js/16.e4a55c2b.js"><link rel="prefetch" href="/assets/js/160.29f8886e.js"><link rel="prefetch" href="/assets/js/161.e75e4089.js"><link rel="prefetch" href="/assets/js/162.45e0b83a.js"><link rel="prefetch" href="/assets/js/163.001bd797.js"><link rel="prefetch" href="/assets/js/164.d3bf1df5.js"><link rel="prefetch" href="/assets/js/165.126c6586.js"><link rel="prefetch" href="/assets/js/166.4f916dc9.js"><link rel="prefetch" href="/assets/js/167.6cdbfc20.js"><link rel="prefetch" href="/assets/js/168.f7459733.js"><link rel="prefetch" href="/assets/js/169.491580e6.js"><link rel="prefetch" href="/assets/js/17.9d94ba62.js"><link rel="prefetch" href="/assets/js/170.5ec66c88.js"><link rel="prefetch" href="/assets/js/171.aa1ef4e6.js"><link rel="prefetch" href="/assets/js/172.0590d543.js"><link rel="prefetch" href="/assets/js/173.8fb65a00.js"><link rel="prefetch" href="/assets/js/174.49c1496b.js"><link rel="prefetch" href="/assets/js/175.f1641f7f.js"><link rel="prefetch" href="/assets/js/176.7e9006b4.js"><link rel="prefetch" href="/assets/js/177.f765dec7.js"><link rel="prefetch" href="/assets/js/178.7544c804.js"><link rel="prefetch" href="/assets/js/179.ac3df513.js"><link rel="prefetch" href="/assets/js/18.06797c0d.js"><link rel="prefetch" href="/assets/js/180.5538a90e.js"><link rel="prefetch" href="/assets/js/181.c227e566.js"><link rel="prefetch" href="/assets/js/182.8d1edf7e.js"><link rel="prefetch" href="/assets/js/183.65345955.js"><link rel="prefetch" href="/assets/js/184.6d368c08.js"><link rel="prefetch" href="/assets/js/185.edb4b61f.js"><link rel="prefetch" href="/assets/js/186.11c0f3b0.js"><link rel="prefetch" href="/assets/js/187.4eaacc3c.js"><link rel="prefetch" href="/assets/js/188.bbd92dd2.js"><link rel="prefetch" href="/assets/js/189.dbc1206b.js"><link rel="prefetch" href="/assets/js/19.7a13361c.js"><link rel="prefetch" href="/assets/js/190.029f2a2b.js"><link rel="prefetch" href="/assets/js/191.2fdfca88.js"><link rel="prefetch" href="/assets/js/192.b80f7b55.js"><link rel="prefetch" href="/assets/js/193.8f43c00e.js"><link rel="prefetch" href="/assets/js/194.3a615aa7.js"><link rel="prefetch" href="/assets/js/195.fd597028.js"><link rel="prefetch" href="/assets/js/196.c5db1b29.js"><link rel="prefetch" href="/assets/js/197.78b97379.js"><link rel="prefetch" href="/assets/js/198.0e3c4621.js"><link rel="prefetch" href="/assets/js/199.98914e2b.js"><link rel="prefetch" href="/assets/js/20.bc0a0118.js"><link rel="prefetch" href="/assets/js/200.1a29ab19.js"><link rel="prefetch" href="/assets/js/201.fa794d38.js"><link rel="prefetch" href="/assets/js/202.45043d1d.js"><link rel="prefetch" href="/assets/js/203.0f6d91a4.js"><link rel="prefetch" href="/assets/js/204.6b93ffa0.js"><link rel="prefetch" href="/assets/js/205.7d3c3283.js"><link rel="prefetch" href="/assets/js/206.494ba6a6.js"><link rel="prefetch" href="/assets/js/207.ec12c7e1.js"><link rel="prefetch" href="/assets/js/208.80485171.js"><link rel="prefetch" href="/assets/js/209.e6d3d032.js"><link rel="prefetch" href="/assets/js/21.2511433a.js"><link rel="prefetch" href="/assets/js/210.7a483e00.js"><link rel="prefetch" href="/assets/js/211.0feec35e.js"><link rel="prefetch" href="/assets/js/212.76365198.js"><link rel="prefetch" href="/assets/js/213.7142abb6.js"><link rel="prefetch" href="/assets/js/214.81877d2a.js"><link rel="prefetch" href="/assets/js/215.2b6381df.js"><link rel="prefetch" href="/assets/js/216.bf82bc49.js"><link rel="prefetch" href="/assets/js/217.c6ce5d56.js"><link rel="prefetch" href="/assets/js/218.0711bd7b.js"><link rel="prefetch" href="/assets/js/219.ee24c8f7.js"><link rel="prefetch" href="/assets/js/22.1eec3af5.js"><link rel="prefetch" href="/assets/js/220.4683cf09.js"><link rel="prefetch" href="/assets/js/221.880aecf0.js"><link rel="prefetch" href="/assets/js/222.3b8a59ca.js"><link rel="prefetch" href="/assets/js/223.fe413623.js"><link rel="prefetch" href="/assets/js/224.6c26b7db.js"><link rel="prefetch" href="/assets/js/225.5601c2e3.js"><link rel="prefetch" href="/assets/js/226.af9b138e.js"><link rel="prefetch" href="/assets/js/227.c5ece37d.js"><link rel="prefetch" href="/assets/js/228.a9abecbe.js"><link rel="prefetch" href="/assets/js/229.6c74e167.js"><link rel="prefetch" href="/assets/js/23.5ec29240.js"><link rel="prefetch" href="/assets/js/230.07c96c85.js"><link rel="prefetch" href="/assets/js/231.e24a64fd.js"><link rel="prefetch" href="/assets/js/232.a811e1cc.js"><link rel="prefetch" href="/assets/js/233.64be6ca7.js"><link rel="prefetch" href="/assets/js/234.8cc8bbe0.js"><link rel="prefetch" href="/assets/js/235.ba45b3a3.js"><link rel="prefetch" href="/assets/js/236.b586f8d9.js"><link rel="prefetch" href="/assets/js/237.9bc5af87.js"><link rel="prefetch" href="/assets/js/238.926598bf.js"><link rel="prefetch" href="/assets/js/239.9d977ef7.js"><link rel="prefetch" href="/assets/js/24.124148d1.js"><link rel="prefetch" href="/assets/js/240.a1df6733.js"><link rel="prefetch" href="/assets/js/241.c4fe97c4.js"><link rel="prefetch" href="/assets/js/242.1984896d.js"><link rel="prefetch" href="/assets/js/243.b09aba54.js"><link rel="prefetch" href="/assets/js/244.0eaf4724.js"><link rel="prefetch" href="/assets/js/245.7b60b0e4.js"><link rel="prefetch" href="/assets/js/246.4b098eac.js"><link rel="prefetch" href="/assets/js/25.c70c235b.js"><link rel="prefetch" href="/assets/js/26.1b19592f.js"><link rel="prefetch" href="/assets/js/27.3f70a8ea.js"><link rel="prefetch" href="/assets/js/28.1d321b85.js"><link rel="prefetch" href="/assets/js/29.b3a2a4a4.js"><link rel="prefetch" href="/assets/js/30.806f0e31.js"><link rel="prefetch" href="/assets/js/31.4ce2a643.js"><link rel="prefetch" href="/assets/js/32.fa70387b.js"><link rel="prefetch" href="/assets/js/33.f8113b4f.js"><link rel="prefetch" href="/assets/js/34.72be6ef5.js"><link rel="prefetch" href="/assets/js/35.d5081ed3.js"><link rel="prefetch" href="/assets/js/36.fed85ca9.js"><link rel="prefetch" href="/assets/js/37.b86dd58b.js"><link rel="prefetch" href="/assets/js/38.02dda1f2.js"><link rel="prefetch" href="/assets/js/39.9f63f8b8.js"><link rel="prefetch" href="/assets/js/40.dcf15fe8.js"><link rel="prefetch" href="/assets/js/41.cb5700fd.js"><link rel="prefetch" href="/assets/js/42.e78db814.js"><link rel="prefetch" href="/assets/js/43.26c01561.js"><link rel="prefetch" href="/assets/js/44.6b429a17.js"><link rel="prefetch" href="/assets/js/45.d60760ed.js"><link rel="prefetch" href="/assets/js/46.1b49d0cc.js"><link rel="prefetch" href="/assets/js/47.0ac0bfce.js"><link rel="prefetch" href="/assets/js/48.88acaea1.js"><link rel="prefetch" href="/assets/js/49.ebc9b4ac.js"><link rel="prefetch" href="/assets/js/5.8dbb65f7.js"><link rel="prefetch" href="/assets/js/50.ecee4d97.js"><link rel="prefetch" href="/assets/js/51.da8af6b8.js"><link rel="prefetch" href="/assets/js/52.4b3c6f99.js"><link rel="prefetch" href="/assets/js/53.f4ce976d.js"><link rel="prefetch" href="/assets/js/54.027762a2.js"><link rel="prefetch" href="/assets/js/55.d43d6c44.js"><link rel="prefetch" href="/assets/js/56.540e07af.js"><link rel="prefetch" href="/assets/js/57.3de0d49e.js"><link rel="prefetch" href="/assets/js/58.07a61b26.js"><link rel="prefetch" href="/assets/js/59.936f4c2e.js"><link rel="prefetch" href="/assets/js/6.9329e00d.js"><link rel="prefetch" href="/assets/js/60.2f36c42e.js"><link rel="prefetch" href="/assets/js/61.bae0851f.js"><link rel="prefetch" href="/assets/js/62.65001b7c.js"><link rel="prefetch" href="/assets/js/63.364ce22a.js"><link rel="prefetch" href="/assets/js/64.d5d291c7.js"><link rel="prefetch" href="/assets/js/65.14f8de47.js"><link rel="prefetch" href="/assets/js/66.7ac6444f.js"><link rel="prefetch" href="/assets/js/67.064cf1e1.js"><link rel="prefetch" href="/assets/js/68.92904f15.js"><link rel="prefetch" href="/assets/js/69.09c48e83.js"><link rel="prefetch" href="/assets/js/7.3defe02f.js"><link rel="prefetch" href="/assets/js/70.af07dd2f.js"><link rel="prefetch" href="/assets/js/71.49f88104.js"><link rel="prefetch" href="/assets/js/72.b759eef2.js"><link rel="prefetch" href="/assets/js/73.0581cc53.js"><link rel="prefetch" href="/assets/js/74.aff0e133.js"><link rel="prefetch" href="/assets/js/75.c4530927.js"><link rel="prefetch" href="/assets/js/76.866192fc.js"><link rel="prefetch" href="/assets/js/77.795b5b8a.js"><link rel="prefetch" href="/assets/js/78.f0d3acd1.js"><link rel="prefetch" href="/assets/js/79.03d8460b.js"><link rel="prefetch" href="/assets/js/8.321f929e.js"><link rel="prefetch" href="/assets/js/80.e3564d5a.js"><link rel="prefetch" href="/assets/js/81.9fc9a5d5.js"><link rel="prefetch" href="/assets/js/82.e50dc3ba.js"><link rel="prefetch" href="/assets/js/84.b14dfbce.js"><link rel="prefetch" href="/assets/js/85.30f0a5bf.js"><link rel="prefetch" href="/assets/js/86.ef3e5753.js"><link rel="prefetch" href="/assets/js/87.7c42a882.js"><link rel="prefetch" href="/assets/js/88.3b44d59f.js"><link rel="prefetch" href="/assets/js/89.81c97353.js"><link rel="prefetch" href="/assets/js/90.83d03c0f.js"><link rel="prefetch" href="/assets/js/91.ccabe021.js"><link rel="prefetch" href="/assets/js/92.dddcd00c.js"><link rel="prefetch" href="/assets/js/93.4e0b07a7.js"><link rel="prefetch" href="/assets/js/94.161f1c98.js"><link rel="prefetch" href="/assets/js/95.16130c58.js"><link rel="prefetch" href="/assets/js/96.2c7ac364.js"><link rel="prefetch" href="/assets/js/97.c59de351.js"><link rel="prefetch" href="/assets/js/98.b565210b.js"><link rel="prefetch" href="/assets/js/99.c7d2ecbb.js"><link rel="prefetch" href="/assets/js/vendors~flowchart.cd0cfe9a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.69fe0ec4.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-1156296a><div data-v-1156296a><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-1156296a data-v-1156296a><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-4e82dffc data-v-1156296a data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>OldBirds</h3> <p class="description" data-v-4e82dffc data-v-4e82dffc>过来人的笔记，带你最佳实践，@OldBirds公众号</p> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>oldbirds</span>
+            
+          <span data-v-4e82dffc>2020 - </span>
+          2022
+        </a></span></div></div> <div class="hide" data-v-1156296a><header class="navbar" data-v-1156296a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="OldBirds" class="logo"> <span class="site-name">OldBirds</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      Swift
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/swift/swiftui/" class="nav-link"><i class="undefined"></i>
+  SwiftUI
+</a></li><li class="dropdown-item"><!----> <a href="/swift/ubuntu/" class="nav-link"><i class="undefined"></i>
+  Ubuntu中Swift开发
+</a></li><li class="dropdown-item"><!----> <a href="/swift/vapor/" class="nav-link"><i class="undefined"></i>
+  Vapor
+</a></li><li class="dropdown-item"><!----> <a href="/swift/ios/" class="nav-link"><i class="undefined"></i>
+  iOS
+</a></li><li class="dropdown-item"><!----> <a href="/swift/tips/" class="nav-link"><i class="undefined"></i>
+  Tips
+</a></li><li class="dropdown-item"><!----> <a href="/swift/fp/" class="nav-link"><i class="undefined"></i>
+  函数式编程
+</a></li><li class="dropdown-item"><!----> <a href="/swift/better/" class="nav-link"><i class="undefined"></i>
+  写更好的Swift代码系列
+</a></li></ul></div></div><div class="nav-item"><a href="/flutter/" class="nav-link router-link-active"><i class="undefined"></i>
+  Flutter
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      C&amp;C++
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/c/program/" class="nav-link"><i class="undefined"></i>
+  语言篇
+</a></li><li class="dropdown-item"><!----> <a href="/c/audio/" class="nav-link"><i class="undefined"></i>
+  音频篇
+</a></li><li class="dropdown-item"><!----> <a href="/c/cmake/" class="nav-link"><i class="undefined"></i>
+  CMake篇
+</a></li></ul></div></div><div class="nav-item"><a href="/python/" class="nav-link"><i class="undefined"></i>
+  Python
+</a></div><div class="nav-item"><a href="/haskell/" class="nav-link"><i class="undefined"></i>
+  Haskell
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      基础
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/basis/index/" class="nav-link"><i class="undefined"></i>
+  概要
+</a></li><li class="dropdown-item"><!----> <a href="/basis/algorithms/" class="nav-link"><i class="undefined"></i>
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/basis/os/" class="nav-link"><i class="undefined"></i>
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/basis/design-patterns/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      工具
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/git/" class="nav-link"><i class="undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/tools/yaml/" class="nav-link"><i class="undefined"></i>
+  YAML
+</a></li><li class="dropdown-item"><!----> <a href="/tools/html/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/tools/plantuml/" class="nav-link"><i class="undefined"></i>
+  PlantUML
+</a></li><li class="dropdown-item"><!----> <a href="/tools/flowchart/" class="nav-link"><i class="undefined"></i>
+  流程图 Flowchart
+</a></li><li class="dropdown-item"><!----> <a href="https://oldbird.run/books/#/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  书单
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="/ai/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li><li class="dropdown-item"><!----> <a href="/figma/" class="nav-link"><i class="undefined"></i>
+  Figma
+</a></li><li class="dropdown-item"><!----> <a href="/tools/vuepress/" class="nav-link"><i class="undefined"></i>
+  VuePress
+</a></li></ul></div></div><div class="nav-item"><a href="/read/" class="nav-link"><i class="undefined"></i>
+  读书笔记
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      关于
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/about/index/" class="nav-link"><i class="undefined"></i>
+  关于我们
+</a></li><li class="dropdown-item"><!----> <a href="/about/app/" class="nav-link"><i class="undefined"></i>
+  APP
+</a></li></ul></div></div> <a href="https://github.com/swiftdo/swiftdo.github.io" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask" data-v-1156296a></div> <aside class="sidebar" data-v-1156296a><div class="personal-info-wrapper" data-v-828910c6 data-v-1156296a><img src="/logo.png" alt="author-avatar" class="personal-img" data-v-828910c6> <h3 class="name" data-v-828910c6>
+    oldbirds
+  </h3> <div class="num" data-v-828910c6><div data-v-828910c6><h3 data-v-828910c6>224</h3> <h6 data-v-828910c6>Articles</h6></div> <div data-v-828910c6><h3 data-v-828910c6>37</h3> <h6 data-v-828910c6>Tags</h6></div></div> <ul class="social-links" data-v-828910c6></ul> <hr data-v-828910c6></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      Swift
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/swift/swiftui/" class="nav-link"><i class="undefined"></i>
+  SwiftUI
+</a></li><li class="dropdown-item"><!----> <a href="/swift/ubuntu/" class="nav-link"><i class="undefined"></i>
+  Ubuntu中Swift开发
+</a></li><li class="dropdown-item"><!----> <a href="/swift/vapor/" class="nav-link"><i class="undefined"></i>
+  Vapor
+</a></li><li class="dropdown-item"><!----> <a href="/swift/ios/" class="nav-link"><i class="undefined"></i>
+  iOS
+</a></li><li class="dropdown-item"><!----> <a href="/swift/tips/" class="nav-link"><i class="undefined"></i>
+  Tips
+</a></li><li class="dropdown-item"><!----> <a href="/swift/fp/" class="nav-link"><i class="undefined"></i>
+  函数式编程
+</a></li><li class="dropdown-item"><!----> <a href="/swift/better/" class="nav-link"><i class="undefined"></i>
+  写更好的Swift代码系列
+</a></li></ul></div></div><div class="nav-item"><a href="/flutter/" class="nav-link router-link-active"><i class="undefined"></i>
+  Flutter
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      C&amp;C++
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/c/program/" class="nav-link"><i class="undefined"></i>
+  语言篇
+</a></li><li class="dropdown-item"><!----> <a href="/c/audio/" class="nav-link"><i class="undefined"></i>
+  音频篇
+</a></li><li class="dropdown-item"><!----> <a href="/c/cmake/" class="nav-link"><i class="undefined"></i>
+  CMake篇
+</a></li></ul></div></div><div class="nav-item"><a href="/python/" class="nav-link"><i class="undefined"></i>
+  Python
+</a></div><div class="nav-item"><a href="/haskell/" class="nav-link"><i class="undefined"></i>
+  Haskell
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      基础
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/basis/index/" class="nav-link"><i class="undefined"></i>
+  概要
+</a></li><li class="dropdown-item"><!----> <a href="/basis/algorithms/" class="nav-link"><i class="undefined"></i>
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/basis/os/" class="nav-link"><i class="undefined"></i>
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/basis/design-patterns/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      工具
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/git/" class="nav-link"><i class="undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/tools/yaml/" class="nav-link"><i class="undefined"></i>
+  YAML
+</a></li><li class="dropdown-item"><!----> <a href="/tools/html/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/tools/plantuml/" class="nav-link"><i class="undefined"></i>
+  PlantUML
+</a></li><li class="dropdown-item"><!----> <a href="/tools/flowchart/" class="nav-link"><i class="undefined"></i>
+  流程图 Flowchart
+</a></li><li class="dropdown-item"><!----> <a href="https://oldbird.run/books/#/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  书单
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="/ai/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li><li class="dropdown-item"><!----> <a href="/figma/" class="nav-link"><i class="undefined"></i>
+  Figma
+</a></li><li class="dropdown-item"><!----> <a href="/tools/vuepress/" class="nav-link"><i class="undefined"></i>
+  VuePress
+</a></li></ul></div></div><div class="nav-item"><a href="/read/" class="nav-link"><i class="undefined"></i>
+  读书笔记
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      关于
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/about/index/" class="nav-link"><i class="undefined"></i>
+  关于我们
+</a></li><li class="dropdown-item"><!----> <a href="/about/app/" class="nav-link"><i class="undefined"></i>
+  APP
+</a></li></ul></div></div> <a href="https://github.com/swiftdo/swiftdo.github.io" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Flutter</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/flutter/" aria-current="page" class="sidebar-link">flutter</a></li><li><a href="/flutter/point.html" class="sidebar-link">Flutter必备点</a></li><li><a href="/flutter/t1-tips.html" class="sidebar-link">tips</a></li><li><a href="/flutter/t2-what.html" class="sidebar-link">什么是 Widgets、RenderObjects 和 Elements？</a></li><li><a href="/flutter/t3-messages.html" class="sidebar-link">Flutter中的通信传值</a></li><li><a href="/flutter/t3-mixin.html" class="sidebar-link">分离 View 与 Model 方案之 mixin</a></li><li><a href="/flutter/t4-lifecycle.html" class="sidebar-link">生命周期</a></li><li><a href="/flutter/t5-flutter-web-deploy.html" class="sidebar-link">在 Github 上部署一个 Flutter Web 应用</a></li><li><a href="/flutter/t6-docker-web-deploy.html" class="sidebar-link">在 Docker 上部署一个 Flutter Web 应用</a></li><li><a href="/flutter/t7-fvm.html" class="sidebar-link">Flutter之 FVM 版本管理</a></li><li><a href="/flutter/t8-const.html" class="sidebar-link">Flutter 中 const 使用</a></li><li><a href="/flutter/t9-logs.html" class="sidebar-link">Flutter 提交日志搜集</a></li><li><a href="/flutter/u10-fvm-flutter2.html" class="sidebar-link">Flutter 2.0 顺滑撤回，web 初体验</a></li><li><a href="/flutter/u11-flutter-render.html" class="sidebar-link">Flutter 是如何渲染的？</a></li><li><a href="/flutter/u12-flutter-create-w.html" class="sidebar-link">Flutter 自定义 Widget</a></li><li><a href="/flutter/u12-flutter-web-01.html" class="sidebar-link">Flutter for Web，网络篇</a></li><li><a href="/flutter/u12-flutter-web-02.html" class="sidebar-link">Flutter2 for Web，跨域篇</a></li><li><a href="/flutter/u13-sliverappbar.html" class="sidebar-link">SliverAppBar 常用属性</a></li><li><a href="/flutter/u14-navbar-color.html" class="sidebar-link">状态栏颜色设置</a></li><li><a href="/flutter/u15-custom-nabar.html" class="sidebar-link">高度自定义 navbar 联动动效</a></li><li><a href="/flutter/u16-shape.html" class="sidebar-link">自定义 ShapeBorder</a></li><li><a href="/flutter/y1-statubar.html" class="sidebar-link">Flutter隐藏顶部状态栏</a></li><li><a href="/flutter/github-actions-build-flutter-ios.html" class="sidebar-link">Github Actions 免费构建 Flutter iOS 包</a></li><li><a href="/flutter/github-actions-build-flutter-android.html" aria-current="page" class="active sidebar-link">Github Actions 免费构建 Flutter Android 包</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-4e82dffc data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>Github Actions 免费构建 Flutter Android 包</h3> <!----> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>oldbirds</span>
+            
+          <span data-v-4e82dffc>2020 - </span>
+          2022
+        </a></span></div></div> <div data-v-1156296a><main class="page"><section><div class="page-title"><h1 class="title">Github Actions 免费构建 Flutter Android 包</h1> <div data-v-1ff7123e><i class="iconfont reco-account" data-v-1ff7123e><span data-v-1ff7123e>oldbirds</span></i> <i class="iconfont reco-date" data-v-1ff7123e><span data-v-1ff7123e>1/5/2022</span></i> <!----> <i class="tags iconfont reco-tag" data-v-1ff7123e><span class="tag-item" data-v-1ff7123e>flutter</span><span class="tag-item" data-v-1ff7123e>github</span></i></div></div> <div class="theme-reco-content content__default"><p>在上文《<a href="https://oldbird.run/flutter/github-actions-build-flutter-ios.html" target="_blank" rel="nofollow noopener noreferrer">Github Actions 免费构建 Flutter iOS 包<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>》中，我们完成了 Flutter 基于 Github Actions 实现 iOS 的自动化打包。
+那么本文将继续完成 Android 的自动化打包。</p> <p>Android 的打包相对 iOS 来说，容易很多，所以本文不会过多阐述重复步骤。</p> <h2 id="步骤概述"><a href="#步骤概述" class="header-anchor">#</a> 步骤概述</h2> <p>要实现构建出 Flutter Android 包的目标，将执行以下步骤：</p> <ul><li>配置 release 打包环境</li> <li>指定正确的 Flutter 版本</li> <li>拉取 flutter packages</li> <li>构建应用程序为 apk</li> <li>上传到蒲公英</li> <li>分享给你的用户</li></ul> <p>为了完成顺利构建，请先完成 <a href="https://flutterchina.club/android-release/" target="_blank" rel="nofollow noopener noreferrer">发布 Android 版 APP<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 的配置:</p> <ul><li>app 签名</li> <li>在 gradle 中配置签名</li></ul> <p>本文将 <code>key.properties</code> 放在 <code>&lt;app dir&gt;/android/</code> 目录下，将 <code>key.jks</code> 放在 <code>&lt;app dir&gt;/android/app/</code> 目录下。</p> <p><img alt="" data-src="http://blog.loveli.site/mweb/16451653664048.jpg" loading="lazy" class="lazy"></p> <h2 id="配置-secrets"><a href="#配置-secrets" class="header-anchor">#</a> 配置 secrets</h2> <p>我们规划将<code>key.properties</code>的 base64 字符串在 secrets 的 key 为 <code>KEY_PROPERTIES</code>。
+将<code>key.jks</code>的 base64 字符串存的 key 为 <code>KEYSTORE_BASE64</code>。</p> <blockquote><p>快速获取文件的 base64， 例如：<code>base64 key.jks | pbcopy</code>。这时候 key.jks 文件的 base64 字符串已保存在你的剪贴板中，可直接粘贴。</p></blockquote> <h2 id="构建配置"><a href="#构建配置" class="header-anchor">#</a> 构建配置</h2> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">name</span><span class="token punctuation">:</span> Flutter_Android
+
+<span class="token key atrule">on</span><span class="token punctuation">:</span>
+  <span class="token key atrule">push</span><span class="token punctuation">:</span>
+    <span class="token key atrule">branches</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>master<span class="token punctuation">]</span>
+  <span class="token key atrule">pull_request</span><span class="token punctuation">:</span>
+    <span class="token key atrule">branches</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>master<span class="token punctuation">]</span>
+
+<span class="token key atrule">jobs</span><span class="token punctuation">:</span>
+  <span class="token key atrule">build_android</span><span class="token punctuation">:</span>
+    <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span>latest
+
+    <span class="token key atrule">steps</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Checkout the code
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@v2
+
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Setup Java to compile Android project
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/setup<span class="token punctuation">-</span>java@v1
+        <span class="token key atrule">with</span><span class="token punctuation">:</span>
+          <span class="token key atrule">java-version</span><span class="token punctuation">:</span> <span class="token string">&quot;12.x&quot;</span>
+
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Install and set Flutter version
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> subosito/flutter<span class="token punctuation">-</span>action@v2
+        <span class="token key atrule">with</span><span class="token punctuation">:</span>
+          <span class="token key atrule">flutter-version</span><span class="token punctuation">:</span> <span class="token string">&quot;2.10.0&quot;</span>
+
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Create the Keystore
+        <span class="token key atrule">env</span><span class="token punctuation">:</span>
+          <span class="token key atrule">KEYSTORE_BASE64</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.KEYSTORE_BASE64 <span class="token punctuation">}</span><span class="token punctuation">}</span>
+          <span class="token key atrule">KEY_PROPERTIES</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.KEY_PROPERTIES <span class="token punctuation">}</span><span class="token punctuation">}</span>
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+          # import keystore from secrets
+          ls -all
+          echo $KEYSTORE_BASE64 | base64 -di &gt; android/app/key.jks
+          echo $KEY_PROPERTIES | base64 -di &gt; android/key.properties</span>
+
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Restore packages
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> flutter pub get
+
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Build Android App Bundle
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> flutter build apk <span class="token punctuation">-</span><span class="token punctuation">-</span>release
+
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Upload PGYER File
+        <span class="token key atrule">id</span><span class="token punctuation">:</span> pgyer
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> xtayga/upload<span class="token punctuation">-</span>pgyer<span class="token punctuation">-</span>action@master
+        <span class="token key atrule">with</span><span class="token punctuation">:</span>
+          <span class="token key atrule">url</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//www.pgyer.com/apiv2/app/upload
+          <span class="token key atrule">forms</span><span class="token punctuation">:</span> <span class="token string">'{&quot;_api_key&quot;:&quot;${{ secrets.PGY_KEY }}&quot;,&quot;buildName&quot;:&quot;RSSAndroid&quot;}'</span>
+          <span class="token key atrule">fileForms</span><span class="token punctuation">:</span> <span class="token string">'{&quot;file&quot;:&quot;build/app/outputs/apk/release/app-release.apk&quot;}'</span>
+
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Publish Android Artefacts
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/upload<span class="token punctuation">-</span>artifact@v1
+        <span class="token key atrule">with</span><span class="token punctuation">:</span>
+          <span class="token key atrule">name</span><span class="token punctuation">:</span> release<span class="token punctuation">-</span>aab
+          <span class="token key atrule">path</span><span class="token punctuation">:</span> build/app/outputs/apk/release/app<span class="token punctuation">-</span>release.apk
+</code></pre></div><p>整个构建过程相对简单，为了方便下载，做了上传蒲公英的功能。通过使用 <a href="https://github.com/xtayga/upload-pgyer-action" target="_blank" rel="nofollow noopener noreferrer">xtayga/upload-pgyer-action@master<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 这个第三方 Action，我们可以快速完成包的上传。</p> <h2 id="最后"><a href="#最后" class="header-anchor">#</a> 最后</h2> <p>完成的构建配置，您可以在 Github 中找到示例代码：<a href="https://github.com/swiftdo/flutter_best_practice" target="_blank" rel="nofollow noopener noreferrer">flutter_best_practice<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，这是个使用 river_pod 进行状态管理的 RSS 应用。</p> <h2 id="参阅"><a href="#参阅" class="header-anchor">#</a> 参阅</h2> <ul><li><a href="https://flutterchina.club/android-release/" target="_blank" rel="nofollow noopener noreferrer">发布 Android 版 APP<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://github.com/xtayga/upload-pgyer-action" target="_blank" rel="nofollow noopener noreferrer">上传蒲公英 xtayga/upload-pgyer-action<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">2/18/2022, 6:36:09 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/flutter/github-actions-build-flutter-ios.html" class="prev">
+            Github Actions 免费构建 Flutter iOS 包
+          </a></span> <!----></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-70334359><li class="level-2" data-v-70334359><a href="/flutter/github-actions-build-flutter-android.html#步骤概述" class="sidebar-link reco-side-步骤概述" data-v-70334359>步骤概述</a></li><li class="level-2" data-v-70334359><a href="/flutter/github-actions-build-flutter-android.html#配置-secrets" class="sidebar-link reco-side-配置-secrets" data-v-70334359>配置 secrets</a></li><li class="level-2" data-v-70334359><a href="/flutter/github-actions-build-flutter-android.html#构建配置" class="sidebar-link reco-side-构建配置" data-v-70334359>构建配置</a></li><li class="level-2" data-v-70334359><a href="/flutter/github-actions-build-flutter-android.html#最后" class="sidebar-link reco-side-最后" data-v-70334359>最后</a></li><li class="level-2" data-v-70334359><a href="/flutter/github-actions-build-flutter-android.html#参阅" class="sidebar-link reco-side-参阅" data-v-70334359>参阅</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><!----><!----><!----><!----></div></div>
+    <script src="/assets/js/app.c67856b2.js" defer></script><script src="/assets/js/4.621c0810.js" defer></script><script src="/assets/js/1.5964dece.js" defer></script><script src="/assets/js/83.b9f67f61.js" defer></script><script src="/assets/js/9.cd02aa0b.js" defer></script>
+  </body>
+</html>
