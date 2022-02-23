@@ -128,6 +128,7 @@ module.exports = {
         "y1-statubar",
         "github-actions-build-flutter-ios",
         "github-actions-build-flutter-android",
+        "flutter-color",
       ],
     },
   ],
