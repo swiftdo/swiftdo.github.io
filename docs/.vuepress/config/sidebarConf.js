@@ -178,6 +178,7 @@ module.exports = {
         "t1-change-history",
         "t2-git-submodule",
         "git-branch-mapping",
+        "git-reset",
       ],
     },
   ],
