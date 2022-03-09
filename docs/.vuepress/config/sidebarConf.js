@@ -139,7 +139,13 @@ module.exports = {
       children: ["", "t1-gzj"],
     },
   ],
-  "/figma/": [{ title: "FIGMA", collapsable: false, children: [""] }],
+  "/figma/": [
+    {
+      title: "FIGMA",
+      collapsable: false,
+      children: ["", "figma-install-chinese-font"],
+    },
+  ],
   "/basis/index/": [{ title: "BASIS", collapsable: false, children: [""] }],
   "/basis/algorithms/": [
     {
