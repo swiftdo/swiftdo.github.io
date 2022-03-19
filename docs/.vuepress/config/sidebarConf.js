@@ -85,6 +85,7 @@ module.exports = {
       collapsable: false,
       children: [
         "",
+        "python-develop-env",
         "1-file-map",
         "2-mongo-random",
         "3-page-upload",
