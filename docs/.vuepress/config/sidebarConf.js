@@ -87,6 +87,7 @@ module.exports = {
         "",
         "python-develop-env",
         "python-string",
+        "python-file",
         "1-file-map",
         "2-mongo-random",
         "3-page-upload",
