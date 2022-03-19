@@ -86,6 +86,7 @@ module.exports = {
       children: [
         "",
         "python-develop-env",
+        "python-string",
         "1-file-map",
         "2-mongo-random",
         "3-page-upload",
