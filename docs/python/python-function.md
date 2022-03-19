@@ -2,7 +2,7 @@
 sitemap:
   exclude: false
   changefreq: hourly
-title: "Python 函数"
+title: "Python 函数可变参数"
 date: 2022-03-19
 tags:
   - python
@@ -122,7 +122,3 @@ temp(**my_dict)
 #----等同于----#
 temp(name="oldbirds",age=32)
 ```
-
-
-
-
