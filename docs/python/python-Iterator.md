@@ -12,6 +12,8 @@ tags:
 
 迭代是访问集合元素的一种方式。迭代器是一个可以记住遍历的位置的对象。**迭代器对象**从集合的第一个元素开始访问，直到所有的元素被访问完结束。迭代器只能往前不会后退。
 
+**迭代器的作用就是是记录当前数据的位置以便获取下一个位置的值。**
+
 ## 可迭代对象
 
 可以直接作用于 for 循环的对象统称为可迭代对象：`Iterable`。
@@ -54,6 +56,94 @@ isinstance({}, Iterator) # False
 ```py
 isinstance(iter([]), Iterator) # True
 isinstance(iter('abc'), Iterator) # True
+```
+
+## 自定义迭代器对象
+
+在类里面定义__iter__和__next__方法创建的对象就是迭代器对象。
+
+**iter()函数与next()函数**
+
+* iter 函数: 获取可迭代对象的迭代器，会调用可迭代对象身上的`__iter__`方法
+* next 函数: 获取迭代器中下一个值，会调用迭代器对象身上的`__next__`方法。
+
+手写一个迭代器，用于生成奇数序列
+
+```py
+class Odd:
+    def __init__(self, start=1):
+        self.cur = start
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        ret_val = self.cur
+        self.cur += 2
+        return ret_val
+
+odd = Odd()
+next(odd) # 1
+next(odd) # 2
+next(odd) # 3
+```
+
+odd 对象就是一个迭代器了。
+
+我们可以用`for`来遍历它：
+
+```py
+for v in odd:
+    print(v)
+```
+这个其实会无限的打印下去，那怎么解决呢？
+
+迭代器会在没有下一个元素的时候抛出`StopIteration`异常，`for`语句就是根据这个异常来确定是否结束。
+
+修改一下原来的代码，能生成指定范围内的奇数即可。
+
+```py
+class Odd:
+    def __init__(self, start=1, end=10):
+        self.cur = start
+        self.end = end
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.cur > self.end:
+            raise StopIteration
+        ret_val = self.cur
+        self.cur += 2
+        return ret_val
+```
+
+再一次调用：
+
+```py
+odd = Odd(1, 10)
+for v in odd:
+   print(v)
+```
+
+## for 迭代的执行过程
+
+```py
+for v in iterable:
+    print(v)
+```
+
+我们可以用`while`来模拟这个循环：
+
+```py
+iterator = iter(iterable)
+while True:
+    try:
+        v = next(iterator)
+        print(v)
+    except StopIteration:
+        break
 ```
 
 ## 惰性序列
