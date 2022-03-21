@@ -136,13 +136,50 @@ value:5
 ## send
 
 ```py
-def gen():
-  i = 0
-  while i < 5:
-    tmp = yield i 
-    print(tmp)
-    i += 1
+def foo():
+    print("starting...")
+    while True:
+        res = yield 5
+        print("res:", res)
+g = foo()
+print(next(g))
+print("*"*10)
+print(next(g))
 ```
+代码的输出：
+
+```
+starting...
+5
+**********
+res: None
+5
+```
+
+如果我们调用如下：
+
+```py
+g = foo()
+print(next(g))
+print("*"*20)
+print(g.send(7))
+```
+
+输出的结果是：
+
+```py
+starting...
+5
+**********
+res: 7
+5
+```
+
+程序执行`g.send(7)`，程序会从`yield`关键字那一行继续向下运行，send 会把 7 这个值赋值给 res 变量。
+
+由于**send 方法中间接调用了 next() 方法**，所以程序会继续向下运行执行print 方法，然后再次进入 while 循环。
+
+程序执行再次遇到`yield`关键字，`yield` 会返回后面的值后，程序再次暂停，直到再次调用`next`方法或 `send` 方法。
 
 ## 生成器函数与常规函数之间的区别
 
