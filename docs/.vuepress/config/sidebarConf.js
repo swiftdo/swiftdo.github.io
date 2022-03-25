@@ -91,6 +91,7 @@ module.exports = {
         "python-module",
         "python-iterator",
         "python-generator",
+        "python-decorator",
         "1-file-map",
         "2-mongo-random",
         "3-page-upload",
