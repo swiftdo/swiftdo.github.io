@@ -80,7 +80,7 @@ module.exports = {
         repo: 'swiftdo.github.io',
         clientId: 'c91ff3d0b5753a4788de',
         clientSecret: 'ad67e4630d3bf3709badbfcfe6c5dfdc21d4c04a',
-        autoCreateIssue: true
+        // autoCreateIssue: true
     }
   },
 };
