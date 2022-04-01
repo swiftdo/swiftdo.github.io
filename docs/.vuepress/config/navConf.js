@@ -3,6 +3,10 @@ module.exports = [
     text: "Swift",
     items: [
       {
+        text: "Swift Package Manage",
+        link: "/swift/spm"
+      },
+      {
         text: "SwiftUI",
         link: "/swift/swiftui/",
       },

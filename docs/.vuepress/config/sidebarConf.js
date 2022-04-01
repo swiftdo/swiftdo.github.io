@@ -1,4 +1,48 @@
 module.exports = {
+  "/swift/spm/": [
+    {
+      title: "简介",
+      collapsable: false,
+      children: [
+        "",
+      ],
+    },
+    {
+      title: "Package 依赖",
+      collapsable: false,
+      children: [
+        "adding-package-dependencies-to-your-app",
+        "identifying-binary-dependencies",
+        "editing-a-package-dependency-as-a-local-package"
+      ],
+    },
+    {
+      title: "Package 创建",
+      collapsable: false,
+      children: [
+        "creating-a-standalone-swift-package-with-xcode",
+        "bundling-resources-with-a-swift-package",
+        "localizing-package-resources",
+        "distributing-binary-frameworks-as-swift-packages",
+        "developing-a-swift-package-in-tandem-with-an-app",
+        "organizing-your-code-with-local-packages"
+      ],
+    },
+    {
+      title: "Package 发布",
+      collapsable: false,
+      children: [
+        "publishing-a-swift-package-with-xcode",
+      ],
+    },
+    {
+      title: "持续集成",
+      collapsable: false,
+      children: [
+        "building-swift-packages-or-apps-that-use-them-in-continuous-integration-workflows",
+      ],
+    },
+  ],
   "/swift/vapor/": [
     {
       title: "VAPOR",
