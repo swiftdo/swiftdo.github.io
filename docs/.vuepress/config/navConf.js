@@ -4,7 +4,7 @@ module.exports = [
     items: [
       {
         text: "Swift Package Manage",
-        link: "/swift/spm"
+        link: "/swift/spm/"
       },
       {
         text: "SwiftUI",
