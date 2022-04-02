@@ -69,5 +69,64 @@ Package 作者可以将他们的 Swift Package 发布到公共或私人仓库。
 :::
 
 
+## 使用 Swift 包提供的功能和 Assets
+
+要在你的应用程序中使用一个 Swift 包的功能，请将一个包的产品作为一个 Swift 模块导入。下面的代码片段显示了一个 controller，它导入了一个 Swift 包的 MyLibrary 模块并使用了该包的功能：
+
+```swift
+import UIKit
+
+// Import the module that corresponds with the Swift package’s library product MyLibrary.
+import MyLibrary
+
+class ViewController: UIViewController {
+
+    @IBOutlet var aLabel: UILabel!
+    @IBOutlet var aButton: UIButton!
+    @IBOutlet var anImageView: UIImageView!
+    @IBOutlet var aCustomView: CustomView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Use a string that the package exposes as a property in the MyLibrary file.
+        self.aLabel.text = MyLibrary.titleText
+        
+        // Load an image that the MyLibrary package makes available through a class method.
+        if let imagePath = MyClass.exampleImagePath() {
+            self.anImageView.image = UIImage(contentsOfFile: imagePath)
+        }
+
+        // Use the Swift package’s CustomView class.
+        self.aCustomView = CustomView()        
+    }
+
+    // Show an alert by calling the package’s API.
+    @IBAction func showAlert(_ sender: Any) {
+        MyClass.showAlertUsing(viewController: self)
+    }
+}
+```
+
+## 编辑 Package Dependency
+
+你不能直接编辑你的软件包依赖的内容。如果你想对一个包的依赖关系进行修改，你需要把它作为一个本地包添加到你的项目中。请参阅[以本地包的方式编辑包依赖]，了解如何用本地包覆盖软件包依赖关系并进行编辑。
+
+## 协调包版本
+
+当在一个项目上进行协作时，确保每个人都使用相同版本的软件包依赖关系。当您在项目中添加软件包依赖时，Xcode 会创建 Package.resolved 文件。它列出了每个软件包依赖关系所解析的特定 Git 提交以及每个二进制依赖关系的校验和。在 Git 中提交这个文件以确保每个人都在使用相同版本的软件包依赖。
+
+::: tip
+**Tip**
+
+你可以在你的 .xcodeproj 目录中找到 Package.resolved 文件，地址是 [appName].xcodeproj/project.workspace/xcshareddata/swiftpm/Package.resolved。
+:::
+
+## 删除 Package Dependency
+
+如果您需要从您的 Xcode 项目中删除一个包的依赖关系，请在设置中导航到 Swift 包列表，然后从包的列表中选择 Swift 包。点击 "-" 按钮来删除选定的软件包依赖关系。
+
+![](https://docs-assets.developer.apple.com/published/a687950960/a60b2460-f930-4bfe-bf46-4f57bfac42f2.png)
+
 
 
