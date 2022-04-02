@@ -1,5 +1,5 @@
 ---
-title: "给你的应用添加 Swift Package 依赖"
+title: "添加 Swift Package 依赖"
 sitemap:
   exclude: false
   changefreq: hourly
@@ -20,7 +20,7 @@ Xcode 内置了对源控制账户的支持，并能轻松利用可用的 Swift �
 **Note**
 
 Package 作者可以将他们的 Swift Package 发布到公共或私人仓库。Xcode 支持私有和公开的软件包。
-::: tip
+:::
 
 ## 添加 Package 依赖
 
