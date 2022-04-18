@@ -122,6 +122,10 @@ module.exports = [
         text: "VuePress",
         link: "/tools/vuepress/",
       },
+      {
+        text: "Note",
+        link: "/tools/note/",
+      },
     ],
   },
   {

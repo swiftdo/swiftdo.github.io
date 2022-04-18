@@ -248,6 +248,7 @@ module.exports = {
       children: ["", "t1-sequence-diagram", "t2-class-diagram"],
     },
   ],
+  "/tools/note/": [{ title: "Node", collapsable: false, children: ["", "vitualbox-increase-space"] }],
   "/about/index/": [{ title: "INDEX", collapsable: false, children: [""] }],
   "/about/app/": [
     {
