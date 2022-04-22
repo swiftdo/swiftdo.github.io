@@ -180,6 +180,7 @@ module.exports = {
         "github-actions-build-flutter-ios",
         "github-actions-build-flutter-android",
         "flutter-color",
+        "flutter-dialog",
       ],
     },
   ],
