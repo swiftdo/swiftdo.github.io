@@ -274,6 +274,7 @@ module.exports = {
         "Principle03",
         "Principle04",
         "Principle06",
+        "result-builders"
       ],
     },
     {

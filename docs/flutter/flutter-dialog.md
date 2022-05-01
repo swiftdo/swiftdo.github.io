@@ -340,5 +340,27 @@ showCustomDialog<bool>(
 运行后可以发现，遮罩颜色比通过`showDialog`方法打开的对话框更深。另外对话框打开/关闭的动画已变为缩放动画了。
 
 
+## 底部栏弹窗
 
+`showModalBottomSheet`方法可以弹出一个Material风格的底部菜单列表模态对话框：
+
+```dart
+// 弹出底部菜单列表模态对话框
+Future<int?> _showModalBottomSheet() {
+  return showModalBottomSheet<int>(
+    context: context,
+    builder: (BuildContext context) {
+      return ListView.builder(
+        itemCount: 30,
+        itemBuilder: (BuildContext context, int index) {
+          return ListTile(
+            title: Text("$index"),
+            onTap: () => Navigator.of(context).pop(index),
+          );
+        },
+      );
+    },
+  );
+}
+```
 
