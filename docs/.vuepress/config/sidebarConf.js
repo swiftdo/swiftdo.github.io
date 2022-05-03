@@ -103,6 +103,7 @@ module.exports = {
         "lazy",
         "available",
         "last",
+        "value-semantics"
       ],
     },
   ],

@@ -1,5 +1,5 @@
 ---
-title: "Swift 之 Result Builders 实战"
+title: "Result Builders 实战"
 sitemap:
   exclude: false
   changefreq: hourly
