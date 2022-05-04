@@ -9,6 +9,12 @@ tags:
   - ios
 ---
 
+在 Swift 的世界中一个一直被持续不断讨论话题就是什么时候使用结构体什么时候使用类。
+
+答案其实很简单，当你需要值语义的时候使用结构体，当你需要引用语义的时候使用类。
+
+那么深入理解值语义和引用语义就非常必要了。
+
 ## 值语义和引用语义
 
 > Swift 中的值语义官方文档：[Value Semantics in Swift](https://github.com/apple/swift/blob/main/docs/proposals/ValueSemantics.rst)
