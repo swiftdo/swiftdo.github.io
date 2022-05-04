@@ -1,5 +1,5 @@
 ---
-titile: "Swift 值语义(一)"
+title: "Swift 值语义(一)"
 sitemap:
   exclude: false
   changefreq: hourly
@@ -11,11 +11,19 @@ tags:
 
 ## 值语义和引用语义
 
-值语义(Value Semantics)：**所谓值语义是指目标对象由源对象拷贝生成，且生成后与源对象完全无关，彼此独立存在，改变互不影响。就像 Int 类型变量相互拷贝一样。**
+> Swift 中的值语义官方文档：[Value Semantics in Swift](https://github.com/apple/swift/blob/main/docs/proposals/ValueSemantics.rst)
+
+### 什么是值语义
+
+> For a type with value semantics, variable initialization, assignment, and argument-passing (hereafter, "the big three operations") each create an independently modifiable copy of the source value that is interchangeable with the source.
+
+值语义(Value Semantics)：**所谓值语义是指目标对象由源对象拷贝生成，且生成后与源对象完全无关，彼此独立存在，改变互不影响。就像 Int 类型变量相互拷贝一样，拷贝之后就与源对象完全脱离关系。**
+
+### 什么是引用语义
 
 引用语义(Reference Semantics)：**通常是指一个目标对象由源对象拷贝生成，但生成后与源对象之间依然共享底层资源，对任何一个的改变都将随之改变另一个**。
 
-## 有值语义的例子
+## 有`值语义`的例子
 
 一个简单的`struct`, 只有一个存储属性：
 
@@ -35,7 +43,7 @@ a.value = 2
 
 在这种情况下，`b.value`是否也会改变？
 
-> 价值语义：改变其中一个不会影响另一个
+> 值语义：改变其中一个不会影响另一个
 
 因为`Foo`是一个**值类型**，所以改变`a.value`不会改变`b.value`。
 
@@ -65,8 +73,8 @@ a.value = 2
 
 从前面的例子和名称可以推断出，`值语义`与`值类型`密切相关，`引用语义`与`引用类型`密切相关。 但是它们并不是一等同，必须注意不要将它们混淆。
 
-- 值语义≠值类型。
-- 引用语义≠引用类型。
+- 值语义 ≠ 值类型。
+- 引用语义 ≠ 引用类型。
 
 例如，有一些类型**具有** Value Type 但没有 Value Semantics，还有一些类型**具有**Reference Type 但具有 Value Semantics。区分值语义/引用语义和值类型/引用类型很重要。
 
@@ -113,8 +121,7 @@ a.bar.value = 3 // 👈
 - `AVAudioPlayer`。
 - `CMMotionManager`
 
-
-### 一个引用类型但具有值语义的例子
+### 一个引用类型但有值语义的例子
 
 将前面代码中的`Bar`类改为`Immutable Class`。
 
@@ -188,7 +195,7 @@ class Bar {
 }
 ```
 
-然而，用模式来判断是很危险的，比如说"如果你有一个_可变__引用类型_的属性，你就没有_价值语义_"。 例如，标准库 "Array"持有内部的`mutable`引用类型，但使用一种叫做`Copy-on-Write`的机制来实现`Value Semantics`。
+然而，用模式来判断是很危险的，比如说"如果你有一个*可变引用类型*的属性，你就没有*值语义*"。 例如，标准库 "Array"持有内部的`mutable`引用类型，但使用一种叫做`Copy-on-Write`的机制来实现`Value Semantics`。
 
 重要的是，要根据定义而不是模式来决定是否有`值语义`。
 
@@ -196,9 +203,8 @@ class Bar {
 
 在 Swift 中，`Value Semantics`的定义是：当一个类型具有`Value Semantics`时，该类型的值与变化无关。
 
-值类型和值语义、引用类型和引用语义不是一回事，值类型不一定有值语义，而引用类型也可以有值语义。了解类型和语义之间的区别是很重要的。在考虑一个模式是否具有`值语义`时，必须考虑到各种例外情况。根据定义决定是否要有`值语义`。
+值类型和值语义、引用类型和引用语义不是一回事，值类型不一定有值语义，而引用类型也可以有值语义。了解类型和语义之间的区别是很重要的。在考虑一个模式是否具有`值语义`时，必须考虑到各种例外情况。**根据定义决定是否要有`值语义`**。
 
 ## 参考
 
-* [Value Semantics in Swift](https://github.com/apple/swift/blob/main/docs/proposals/ValueSemantics.rst)
-
+- [Value Semantics in Swift](https://github.com/apple/swift/blob/main/docs/proposals/ValueSemantics.rst)
