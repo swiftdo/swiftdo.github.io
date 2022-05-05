@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Swift 值语义(二) | OldBirds</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <script data-ad-client="ca-pub-4465026491979447" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta name="description" content="在上篇的介绍中，我相信你已经知道值语义是什么了，接下来我们来看看为什么拥有值语义会让代码变得美好。">
+    <meta name="image" content="http://blog.oldbird.run/mweb/1_N4CTsUuCT8mu7k2YlADqxQ.gif">
+    <meta name="twitter:title" content="Swift 值语义(二)">
+    <meta name="twitter:description" content="在上篇的介绍中，我相信你已经知道值语义是什么了，接下来我们来看看为什么拥有值语义会让代码变得美好。">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="http://blog.oldbird.run/mweb/1_N4CTsUuCT8mu7k2YlADqxQ.gif">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Swift 值语义(二)">
+    <meta property="og:description" content="在上篇的介绍中，我相信你已经知道值语义是什么了，接下来我们来看看为什么拥有值语义会让代码变得美好。">
+    <meta property="og:image" content="http://blog.oldbird.run/mweb/1_N4CTsUuCT8mu7k2YlADqxQ.gif">
+    <meta property="article:published_time" content="2022-05-05T00:00:00.000Z">
+    <meta property="article:tag" content="swift">
+    <meta itemprop="name" content="Swift 值语义(二)">
+    <meta itemprop="description" content="在上篇的介绍中，我相信你已经知道值语义是什么了，接下来我们来看看为什么拥有值语义会让代码变得美好。">
+    <meta itemprop="image" content="http://blog.oldbird.run/mweb/1_N4CTsUuCT8mu7k2YlADqxQ.gif">
+    <meta name="google-site-verification" content="6EogPdlAJYusvUHenXWXCGX-oVrqdeBnY-WsURHuKAA">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="keywords" content="oldbirds,oldbird,公众号,swift,swiftui,flutter,vapor,ios,figma,数据结构,算法,书单,vuepresss,git,yaml,设计模式,编程">
+    
+    <link rel="preload" href="/assets/css/0.styles.69fe0ec4.css" as="style"><link rel="preload" href="/assets/js/app.653f7fa8.js" as="script"><link rel="preload" href="/assets/js/4.621c0810.js" as="script"><link rel="preload" href="/assets/js/1.5964dece.js" as="script"><link rel="preload" href="/assets/js/139.729b4370.js" as="script"><link rel="preload" href="/assets/js/9.cd02aa0b.js" as="script"><link rel="prefetch" href="/assets/js/10.fd02a121.js"><link rel="prefetch" href="/assets/js/100.e254f05d.js"><link rel="prefetch" href="/assets/js/101.4a82d8ee.js"><link rel="prefetch" href="/assets/js/102.7224ae93.js"><link rel="prefetch" href="/assets/js/103.f5218eb0.js"><link rel="prefetch" href="/assets/js/104.53192936.js"><link rel="prefetch" href="/assets/js/105.6c2e5fa8.js"><link rel="prefetch" href="/assets/js/106.5acbecf7.js"><link rel="prefetch" href="/assets/js/107.4d3e9d9f.js"><link rel="prefetch" href="/assets/js/108.ea085aeb.js"><link rel="prefetch" href="/assets/js/109.2b6f4803.js"><link rel="prefetch" href="/assets/js/11.444f8ca1.js"><link rel="prefetch" href="/assets/js/110.53413a4a.js"><link rel="prefetch" href="/assets/js/111.f574c49c.js"><link rel="prefetch" href="/assets/js/112.0c8df473.js"><link rel="prefetch" href="/assets/js/113.f8a2252c.js"><link rel="prefetch" href="/assets/js/114.4637035b.js"><link rel="prefetch" href="/assets/js/115.2e9ac89d.js"><link rel="prefetch" href="/assets/js/116.90559de7.js"><link rel="prefetch" href="/assets/js/117.96c165ee.js"><link rel="prefetch" href="/assets/js/118.1d557f87.js"><link rel="prefetch" href="/assets/js/119.5fbca813.js"><link rel="prefetch" href="/assets/js/12.18df4f1f.js"><link rel="prefetch" href="/assets/js/120.ec838453.js"><link rel="prefetch" href="/assets/js/121.edfeab37.js"><link rel="prefetch" href="/assets/js/122.f61ca852.js"><link rel="prefetch" href="/assets/js/123.dfad52b1.js"><link rel="prefetch" href="/assets/js/124.09a2510b.js"><link rel="prefetch" href="/assets/js/125.057f81e2.js"><link rel="prefetch" href="/assets/js/126.8ea88f2b.js"><link rel="prefetch" href="/assets/js/127.f28c32a3.js"><link rel="prefetch" href="/assets/js/128.8e1fd120.js"><link rel="prefetch" href="/assets/js/129.466b56b7.js"><link rel="prefetch" href="/assets/js/13.89fd4d29.js"><link rel="prefetch" href="/assets/js/130.7c5f3302.js"><link rel="prefetch" href="/assets/js/131.4264ee73.js"><link rel="prefetch" href="/assets/js/132.4e8a4980.js"><link rel="prefetch" href="/assets/js/133.9127ff4a.js"><link rel="prefetch" href="/assets/js/134.9b235d25.js"><link rel="prefetch" href="/assets/js/135.d205d54d.js"><link rel="prefetch" href="/assets/js/136.f75c8524.js"><link rel="prefetch" href="/assets/js/137.991454c8.js"><link rel="prefetch" href="/assets/js/138.faedd824.js"><link rel="prefetch" href="/assets/js/14.878f25c8.js"><link rel="prefetch" href="/assets/js/140.62adfd40.js"><link rel="prefetch" href="/assets/js/141.4574335e.js"><link rel="prefetch" href="/assets/js/142.9ddde1a4.js"><link rel="prefetch" href="/assets/js/143.d43255a1.js"><link rel="prefetch" href="/assets/js/144.39cd0a08.js"><link rel="prefetch" href="/assets/js/145.48692656.js"><link rel="prefetch" href="/assets/js/146.481357c1.js"><link rel="prefetch" href="/assets/js/147.1aeaf3e3.js"><link rel="prefetch" href="/assets/js/148.eefb27bb.js"><link rel="prefetch" href="/assets/js/149.0a837536.js"><link rel="prefetch" href="/assets/js/15.dd92496d.js"><link rel="prefetch" href="/assets/js/150.1ea953e7.js"><link rel="prefetch" href="/assets/js/151.a32956da.js"><link rel="prefetch" href="/assets/js/152.99878d0b.js"><link rel="prefetch" href="/assets/js/153.efe421c1.js"><link rel="prefetch" href="/assets/js/154.38d1c43b.js"><link rel="prefetch" href="/assets/js/155.189e5bd5.js"><link rel="prefetch" href="/assets/js/156.c77395c0.js"><link rel="prefetch" href="/assets/js/157.0c4fb88f.js"><link rel="prefetch" href="/assets/js/158.cb20ac76.js"><link rel="prefetch" href="/assets/js/159.4c86f82c.js"><link rel="prefetch" href="/assets/js/16.256ffb31.js"><link rel="prefetch" href="/assets/js/160.3444b74b.js"><link rel="prefetch" href="/assets/js/161.139ac97f.js"><link rel="prefetch" href="/assets/js/162.0ac44bc5.js"><link rel="prefetch" href="/assets/js/163.7a8dbb4d.js"><link rel="prefetch" href="/assets/js/164.98e312b5.js"><link rel="prefetch" href="/assets/js/165.1ec0b843.js"><link rel="prefetch" href="/assets/js/166.f94586ab.js"><link rel="prefetch" href="/assets/js/167.0656bc44.js"><link rel="prefetch" href="/assets/js/168.cf8865c5.js"><link rel="prefetch" href="/assets/js/169.6d5e6fcf.js"><link rel="prefetch" href="/assets/js/17.9d94ba62.js"><link rel="prefetch" href="/assets/js/170.4b3a9b35.js"><link rel="prefetch" href="/assets/js/171.ee1fb0f7.js"><link rel="prefetch" href="/assets/js/172.8f0d5150.js"><link rel="prefetch" href="/assets/js/173.a1075b7e.js"><link rel="prefetch" href="/assets/js/174.27f64d4d.js"><link rel="prefetch" href="/assets/js/175.00c0897c.js"><link rel="prefetch" href="/assets/js/176.6c4445e1.js"><link rel="prefetch" href="/assets/js/177.d00a9a7a.js"><link rel="prefetch" href="/assets/js/178.6d7075fc.js"><link rel="prefetch" href="/assets/js/179.2f68b977.js"><link rel="prefetch" href="/assets/js/18.06797c0d.js"><link rel="prefetch" href="/assets/js/180.7a4fe3d1.js"><link rel="prefetch" href="/assets/js/181.894136af.js"><link rel="prefetch" href="/assets/js/182.324f160a.js"><link rel="prefetch" href="/assets/js/183.513b7282.js"><link rel="prefetch" href="/assets/js/184.82eb32a6.js"><link rel="prefetch" href="/assets/js/185.2668d1a6.js"><link rel="prefetch" href="/assets/js/186.229bd93a.js"><link rel="prefetch" href="/assets/js/187.23af9ee3.js"><link rel="prefetch" href="/assets/js/188.0e4281e1.js"><link rel="prefetch" href="/assets/js/189.cd517317.js"><link rel="prefetch" href="/assets/js/19.8d8240c7.js"><link rel="prefetch" href="/assets/js/190.a76c68be.js"><link rel="prefetch" href="/assets/js/191.d392af12.js"><link rel="prefetch" href="/assets/js/192.34e02533.js"><link rel="prefetch" href="/assets/js/193.ede6dddb.js"><link rel="prefetch" href="/assets/js/194.5a0316d3.js"><link rel="prefetch" href="/assets/js/195.2ad5f331.js"><link rel="prefetch" href="/assets/js/196.40decec3.js"><link rel="prefetch" href="/assets/js/197.edc470bc.js"><link rel="prefetch" href="/assets/js/198.3daa7a33.js"><link rel="prefetch" href="/assets/js/199.f66f6359.js"><link rel="prefetch" href="/assets/js/20.00657ad8.js"><link rel="prefetch" href="/assets/js/200.e5456a32.js"><link rel="prefetch" href="/assets/js/201.1a09b23d.js"><link rel="prefetch" href="/assets/js/202.b23433ca.js"><link rel="prefetch" href="/assets/js/203.9b3171db.js"><link rel="prefetch" href="/assets/js/204.dad2dae6.js"><link rel="prefetch" href="/assets/js/205.71bbc21a.js"><link rel="prefetch" href="/assets/js/206.a261e6d6.js"><link rel="prefetch" href="/assets/js/207.381f7e6f.js"><link rel="prefetch" href="/assets/js/208.c543de8a.js"><link rel="prefetch" href="/assets/js/209.51b35515.js"><link rel="prefetch" href="/assets/js/21.27856a10.js"><link rel="prefetch" href="/assets/js/210.88750827.js"><link rel="prefetch" href="/assets/js/211.715f34a2.js"><link rel="prefetch" href="/assets/js/212.f5a1ec67.js"><link rel="prefetch" href="/assets/js/213.c4744871.js"><link rel="prefetch" href="/assets/js/214.25ffd310.js"><link rel="prefetch" href="/assets/js/215.654858fe.js"><link rel="prefetch" href="/assets/js/216.c0d4c37b.js"><link rel="prefetch" href="/assets/js/217.5b62465c.js"><link rel="prefetch" href="/assets/js/218.19be4841.js"><link rel="prefetch" href="/assets/js/219.6e28ad3b.js"><link rel="prefetch" href="/assets/js/22.83e90bfa.js"><link rel="prefetch" href="/assets/js/220.01ccb7c8.js"><link rel="prefetch" href="/assets/js/221.d666e815.js"><link rel="prefetch" href="/assets/js/222.e905fbb8.js"><link rel="prefetch" href="/assets/js/223.05193cc2.js"><link rel="prefetch" href="/assets/js/224.7f2b988b.js"><link rel="prefetch" href="/assets/js/225.146e9412.js"><link rel="prefetch" href="/assets/js/226.5c579d3f.js"><link rel="prefetch" href="/assets/js/227.d8821a2e.js"><link rel="prefetch" href="/assets/js/228.6a6989a7.js"><link rel="prefetch" href="/assets/js/229.f25cd557.js"><link rel="prefetch" href="/assets/js/23.f959a716.js"><link rel="prefetch" href="/assets/js/230.b5d65a69.js"><link rel="prefetch" href="/assets/js/231.11fd0e4e.js"><link rel="prefetch" href="/assets/js/232.d4a48ee4.js"><link rel="prefetch" href="/assets/js/233.225f4bc2.js"><link rel="prefetch" href="/assets/js/234.5d5e911b.js"><link rel="prefetch" href="/assets/js/235.dddffb24.js"><link rel="prefetch" href="/assets/js/236.5cdc1bac.js"><link rel="prefetch" href="/assets/js/237.e9f7a530.js"><link rel="prefetch" href="/assets/js/238.0a37ba65.js"><link rel="prefetch" href="/assets/js/239.d2785a7a.js"><link rel="prefetch" href="/assets/js/24.f87d574b.js"><link rel="prefetch" href="/assets/js/240.c10bfe37.js"><link rel="prefetch" href="/assets/js/241.aff5d15f.js"><link rel="prefetch" href="/assets/js/242.6bdde8f7.js"><link rel="prefetch" href="/assets/js/243.bcce4650.js"><link rel="prefetch" href="/assets/js/244.caab1e7c.js"><link rel="prefetch" href="/assets/js/245.142441c8.js"><link rel="prefetch" href="/assets/js/246.7744dceb.js"><link rel="prefetch" href="/assets/js/247.acc388af.js"><link rel="prefetch" href="/assets/js/248.27518c39.js"><link rel="prefetch" href="/assets/js/249.75e1229c.js"><link rel="prefetch" href="/assets/js/25.902005f8.js"><link rel="prefetch" href="/assets/js/250.54a1a881.js"><link rel="prefetch" href="/assets/js/251.8de5a877.js"><link rel="prefetch" href="/assets/js/252.cfb01cb2.js"><link rel="prefetch" href="/assets/js/253.66d8f82a.js"><link rel="prefetch" href="/assets/js/254.9660e03d.js"><link rel="prefetch" href="/assets/js/255.8c22f428.js"><link rel="prefetch" href="/assets/js/256.7d3ef119.js"><link rel="prefetch" href="/assets/js/257.7f7212cd.js"><link rel="prefetch" href="/assets/js/258.04b7b9e4.js"><link rel="prefetch" href="/assets/js/259.5b570f08.js"><link rel="prefetch" href="/assets/js/26.b21d4b13.js"><link rel="prefetch" href="/assets/js/260.5fe6bf3e.js"><link rel="prefetch" href="/assets/js/261.983673c3.js"><link rel="prefetch" href="/assets/js/262.3b2f47e1.js"><link rel="prefetch" href="/assets/js/263.a5cb8bce.js"><link rel="prefetch" href="/assets/js/264.ec241ff3.js"><link rel="prefetch" href="/assets/js/265.2c03efa8.js"><link rel="prefetch" href="/assets/js/266.746a1eba.js"><link rel="prefetch" href="/assets/js/267.8d0b4f23.js"><link rel="prefetch" href="/assets/js/268.47401d9e.js"><link rel="prefetch" href="/assets/js/269.e598686d.js"><link rel="prefetch" href="/assets/js/27.68da506e.js"><link rel="prefetch" href="/assets/js/270.18db7443.js"><link rel="prefetch" href="/assets/js/271.3bb81787.js"><link rel="prefetch" href="/assets/js/272.7845c3bb.js"><link rel="prefetch" href="/assets/js/273.96b432c2.js"><link rel="prefetch" href="/assets/js/274.eac0f61a.js"><link rel="prefetch" href="/assets/js/275.55b9280e.js"><link rel="prefetch" href="/assets/js/28.e480c418.js"><link rel="prefetch" href="/assets/js/29.3f14bee9.js"><link rel="prefetch" href="/assets/js/30.f64b4acb.js"><link rel="prefetch" href="/assets/js/31.4ce2a643.js"><link rel="prefetch" href="/assets/js/32.fa70387b.js"><link rel="prefetch" href="/assets/js/33.f8113b4f.js"><link rel="prefetch" href="/assets/js/34.d2a3d2ff.js"><link rel="prefetch" href="/assets/js/35.d5081ed3.js"><link rel="prefetch" href="/assets/js/36.d661a1d4.js"><link rel="prefetch" href="/assets/js/37.511e77d4.js"><link rel="prefetch" href="/assets/js/38.e7010906.js"><link rel="prefetch" href="/assets/js/39.9f63f8b8.js"><link rel="prefetch" href="/assets/js/40.e1b36b0b.js"><link rel="prefetch" href="/assets/js/41.cb5700fd.js"><link rel="prefetch" href="/assets/js/42.d6335a0e.js"><link rel="prefetch" href="/assets/js/43.94a96c73.js"><link rel="prefetch" href="/assets/js/44.496df8f6.js"><link rel="prefetch" href="/assets/js/45.f5372cf5.js"><link rel="prefetch" href="/assets/js/46.1b49d0cc.js"><link rel="prefetch" href="/assets/js/47.8808044c.js"><link rel="prefetch" href="/assets/js/48.a2e61fc0.js"><link rel="prefetch" href="/assets/js/49.1a57e550.js"><link rel="prefetch" href="/assets/js/5.8dbb65f7.js"><link rel="prefetch" href="/assets/js/50.806154f6.js"><link rel="prefetch" href="/assets/js/51.17b67b59.js"><link rel="prefetch" href="/assets/js/52.fb1f4527.js"><link rel="prefetch" href="/assets/js/53.f4ce976d.js"><link rel="prefetch" href="/assets/js/54.eb6298eb.js"><link rel="prefetch" href="/assets/js/55.84ff7f52.js"><link rel="prefetch" href="/assets/js/56.1b768cf3.js"><link rel="prefetch" href="/assets/js/57.82e26de0.js"><link rel="prefetch" href="/assets/js/58.07a61b26.js"><link rel="prefetch" href="/assets/js/59.936f4c2e.js"><link rel="prefetch" href="/assets/js/6.9329e00d.js"><link rel="prefetch" href="/assets/js/60.2f36c42e.js"><link rel="prefetch" href="/assets/js/61.bae0851f.js"><link rel="prefetch" href="/assets/js/62.65001b7c.js"><link rel="prefetch" href="/assets/js/63.364ce22a.js"><link rel="prefetch" href="/assets/js/64.92ca7de0.js"><link rel="prefetch" href="/assets/js/65.14f8de47.js"><link rel="prefetch" href="/assets/js/66.7ac6444f.js"><link rel="prefetch" href="/assets/js/67.064cf1e1.js"><link rel="prefetch" href="/assets/js/68.92904f15.js"><link rel="prefetch" href="/assets/js/69.09c48e83.js"><link rel="prefetch" href="/assets/js/7.3defe02f.js"><link rel="prefetch" href="/assets/js/70.af07dd2f.js"><link rel="prefetch" href="/assets/js/71.49f88104.js"><link rel="prefetch" href="/assets/js/72.b759eef2.js"><link rel="prefetch" href="/assets/js/73.0581cc53.js"><link rel="prefetch" href="/assets/js/74.aff0e133.js"><link rel="prefetch" href="/assets/js/75.c4530927.js"><link rel="prefetch" href="/assets/js/76.ca9fc58e.js"><link rel="prefetch" href="/assets/js/77.fbb0d65b.js"><link rel="prefetch" href="/assets/js/78.f0d3acd1.js"><link rel="prefetch" href="/assets/js/79.03d8460b.js"><link rel="prefetch" href="/assets/js/8.321f929e.js"><link rel="prefetch" href="/assets/js/80.e3564d5a.js"><link rel="prefetch" href="/assets/js/81.e0e15f37.js"><link rel="prefetch" href="/assets/js/82.ab24a0e3.js"><link rel="prefetch" href="/assets/js/83.fba68469.js"><link rel="prefetch" href="/assets/js/84.834aab2b.js"><link rel="prefetch" href="/assets/js/85.275ce1ec.js"><link rel="prefetch" href="/assets/js/86.a41f8c65.js"><link rel="prefetch" href="/assets/js/87.1a80099d.js"><link rel="prefetch" href="/assets/js/88.adc30bfb.js"><link rel="prefetch" href="/assets/js/89.10ff9007.js"><link rel="prefetch" href="/assets/js/90.8fe07dac.js"><link rel="prefetch" href="/assets/js/91.810193bc.js"><link rel="prefetch" href="/assets/js/92.b4e5b4c3.js"><link rel="prefetch" href="/assets/js/93.f7472136.js"><link rel="prefetch" href="/assets/js/94.34a863f1.js"><link rel="prefetch" href="/assets/js/95.5e003bbe.js"><link rel="prefetch" href="/assets/js/96.7f2ef601.js"><link rel="prefetch" href="/assets/js/97.84372dfa.js"><link rel="prefetch" href="/assets/js/98.48aa5dff.js"><link rel="prefetch" href="/assets/js/99.dbee4e32.js"><link rel="prefetch" href="/assets/js/vendors~flowchart.cd0cfe9a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.69fe0ec4.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-1156296a><div data-v-1156296a><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-1156296a data-v-1156296a><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-4e82dffc data-v-1156296a data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>OldBirds</h3> <p class="description" data-v-4e82dffc data-v-4e82dffc>过来人的笔记，带你最佳实践，@OldBirds公众号</p> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>oldbirds</span>
+            
+          <span data-v-4e82dffc>2020 - </span>
+          2022
+        </a></span></div></div> <div class="hide" data-v-1156296a><header class="navbar" data-v-1156296a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="OldBirds" class="logo"> <span class="site-name">OldBirds</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      Swift
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/swift/spm/" class="nav-link"><i class="undefined"></i>
+  Swift Package Manage
+</a></li><li class="dropdown-item"><!----> <a href="/swift/swiftui/" class="nav-link"><i class="undefined"></i>
+  SwiftUI
+</a></li><li class="dropdown-item"><!----> <a href="/swift/ubuntu/" class="nav-link"><i class="undefined"></i>
+  Ubuntu中Swift开发
+</a></li><li class="dropdown-item"><!----> <a href="/swift/vapor/" class="nav-link"><i class="undefined"></i>
+  Vapor
+</a></li><li class="dropdown-item"><!----> <a href="/swift/ios/" class="nav-link"><i class="undefined"></i>
+  iOS
+</a></li><li class="dropdown-item"><!----> <a href="/swift/tips/" class="nav-link"><i class="undefined"></i>
+  Tips
+</a></li><li class="dropdown-item"><!----> <a href="/swift/fp/" class="nav-link"><i class="undefined"></i>
+  函数式编程
+</a></li><li class="dropdown-item"><!----> <a href="/swift/better/" class="nav-link router-link-active"><i class="undefined"></i>
+  写更好的Swift代码系列
+</a></li></ul></div></div><div class="nav-item"><a href="/flutter/" class="nav-link"><i class="undefined"></i>
+  Flutter
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      C&amp;C++
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/c/program/" class="nav-link"><i class="undefined"></i>
+  语言篇
+</a></li><li class="dropdown-item"><!----> <a href="/c/audio/" class="nav-link"><i class="undefined"></i>
+  音频篇
+</a></li><li class="dropdown-item"><!----> <a href="/c/cmake/" class="nav-link"><i class="undefined"></i>
+  CMake篇
+</a></li></ul></div></div><div class="nav-item"><a href="/python/" class="nav-link"><i class="undefined"></i>
+  Python
+</a></div><div class="nav-item"><a href="/haskell/" class="nav-link"><i class="undefined"></i>
+  Haskell
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      基础
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/basis/index/" class="nav-link"><i class="undefined"></i>
+  概要
+</a></li><li class="dropdown-item"><!----> <a href="/basis/algorithms/" class="nav-link"><i class="undefined"></i>
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/basis/os/" class="nav-link"><i class="undefined"></i>
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/basis/design-patterns/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      工具
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/git/" class="nav-link"><i class="undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/tools/yaml/" class="nav-link"><i class="undefined"></i>
+  YAML
+</a></li><li class="dropdown-item"><!----> <a href="/tools/html/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/tools/plantuml/" class="nav-link"><i class="undefined"></i>
+  PlantUML
+</a></li><li class="dropdown-item"><!----> <a href="/tools/flowchart/" class="nav-link"><i class="undefined"></i>
+  流程图 Flowchart
+</a></li><li class="dropdown-item"><!----> <a href="https://oldbird.run/books/#/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  书单
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="/ai/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li><li class="dropdown-item"><!----> <a href="/figma/" class="nav-link"><i class="undefined"></i>
+  Figma
+</a></li><li class="dropdown-item"><!----> <a href="/tools/vuepress/" class="nav-link"><i class="undefined"></i>
+  VuePress
+</a></li><li class="dropdown-item"><!----> <a href="/tools/note/" class="nav-link"><i class="undefined"></i>
+  Note
+</a></li></ul></div></div><div class="nav-item"><a href="/read/" class="nav-link"><i class="undefined"></i>
+  读书笔记
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      关于
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/about/index/" class="nav-link"><i class="undefined"></i>
+  关于我们
+</a></li><li class="dropdown-item"><!----> <a href="/about/app/" class="nav-link"><i class="undefined"></i>
+  APP
+</a></li></ul></div></div> <a href="https://github.com/swiftdo/swiftdo.github.io" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask" data-v-1156296a></div> <aside class="sidebar" data-v-1156296a><div class="personal-info-wrapper" data-v-828910c6 data-v-1156296a><img src="/logo.png" alt="author-avatar" class="personal-img" data-v-828910c6> <h3 class="name" data-v-828910c6>
+    oldbirds
+  </h3> <div class="num" data-v-828910c6><div data-v-828910c6><h3 data-v-828910c6>244</h3> <h6 data-v-828910c6>Articles</h6></div> <div data-v-828910c6><h3 data-v-828910c6>39</h3> <h6 data-v-828910c6>Tags</h6></div></div> <ul class="social-links" data-v-828910c6></ul> <hr data-v-828910c6></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      Swift
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/swift/spm/" class="nav-link"><i class="undefined"></i>
+  Swift Package Manage
+</a></li><li class="dropdown-item"><!----> <a href="/swift/swiftui/" class="nav-link"><i class="undefined"></i>
+  SwiftUI
+</a></li><li class="dropdown-item"><!----> <a href="/swift/ubuntu/" class="nav-link"><i class="undefined"></i>
+  Ubuntu中Swift开发
+</a></li><li class="dropdown-item"><!----> <a href="/swift/vapor/" class="nav-link"><i class="undefined"></i>
+  Vapor
+</a></li><li class="dropdown-item"><!----> <a href="/swift/ios/" class="nav-link"><i class="undefined"></i>
+  iOS
+</a></li><li class="dropdown-item"><!----> <a href="/swift/tips/" class="nav-link"><i class="undefined"></i>
+  Tips
+</a></li><li class="dropdown-item"><!----> <a href="/swift/fp/" class="nav-link"><i class="undefined"></i>
+  函数式编程
+</a></li><li class="dropdown-item"><!----> <a href="/swift/better/" class="nav-link router-link-active"><i class="undefined"></i>
+  写更好的Swift代码系列
+</a></li></ul></div></div><div class="nav-item"><a href="/flutter/" class="nav-link"><i class="undefined"></i>
+  Flutter
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      C&amp;C++
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/c/program/" class="nav-link"><i class="undefined"></i>
+  语言篇
+</a></li><li class="dropdown-item"><!----> <a href="/c/audio/" class="nav-link"><i class="undefined"></i>
+  音频篇
+</a></li><li class="dropdown-item"><!----> <a href="/c/cmake/" class="nav-link"><i class="undefined"></i>
+  CMake篇
+</a></li></ul></div></div><div class="nav-item"><a href="/python/" class="nav-link"><i class="undefined"></i>
+  Python
+</a></div><div class="nav-item"><a href="/haskell/" class="nav-link"><i class="undefined"></i>
+  Haskell
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      基础
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/basis/index/" class="nav-link"><i class="undefined"></i>
+  概要
+</a></li><li class="dropdown-item"><!----> <a href="/basis/algorithms/" class="nav-link"><i class="undefined"></i>
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/basis/os/" class="nav-link"><i class="undefined"></i>
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/basis/design-patterns/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      工具
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/tools/git/" class="nav-link"><i class="undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/tools/yaml/" class="nav-link"><i class="undefined"></i>
+  YAML
+</a></li><li class="dropdown-item"><!----> <a href="/tools/html/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/tools/plantuml/" class="nav-link"><i class="undefined"></i>
+  PlantUML
+</a></li><li class="dropdown-item"><!----> <a href="/tools/flowchart/" class="nav-link"><i class="undefined"></i>
+  流程图 Flowchart
+</a></li><li class="dropdown-item"><!----> <a href="https://oldbird.run/books/#/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  书单
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="/ai/" class="nav-link"><i class="undefined"></i>
+  AI
+</a></li><li class="dropdown-item"><!----> <a href="/figma/" class="nav-link"><i class="undefined"></i>
+  Figma
+</a></li><li class="dropdown-item"><!----> <a href="/tools/vuepress/" class="nav-link"><i class="undefined"></i>
+  VuePress
+</a></li><li class="dropdown-item"><!----> <a href="/tools/note/" class="nav-link"><i class="undefined"></i>
+  Note
+</a></li></ul></div></div><div class="nav-item"><a href="/read/" class="nav-link"><i class="undefined"></i>
+  读书笔记
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      关于
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/about/index/" class="nav-link"><i class="undefined"></i>
+  关于我们
+</a></li><li class="dropdown-item"><!----> <a href="/about/app/" class="nav-link"><i class="undefined"></i>
+  APP
+</a></li></ul></div></div> <a href="https://github.com/swiftdo/swiftdo.github.io" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>写更好的Swift代码</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/swift/better/" aria-current="page" class="sidebar-link">写更好的 Swift 的代码</a></li><li><a href="/swift/better/autoclosure.html" class="sidebar-link">@autoclosure</a></li><li><a href="/swift/better/protocol.html" class="sidebar-link">关联协议与类型擦除</a></li><li><a href="/swift/better/chain.html" class="sidebar-link">链式调用与@dynamicMemberLookup</a></li><li><a href="/swift/better/Copy-On-Write.html" class="sidebar-link">COW(Copy-On-Write)</a></li><li><a href="/swift/better/copy-in-copy-out.html" class="sidebar-link">inout(copy-in-copy-out)</a></li><li><a href="/swift/better/di.html" class="sidebar-link">DI(依赖注入)</a></li><li><a href="/swift/better/lazy.html" class="sidebar-link">性能优化利器 Lazy</a></li><li><a href="/swift/better/available.html" class="sidebar-link">@available 与调用方进行沟通</a></li><li><a href="/swift/better/last.html" class="sidebar-link">技巧拾遗</a></li><li><a href="/swift/better/value-semantics.html" class="sidebar-link">Swift 值语义(一)</a></li><li><a href="/swift/better/value-semantics-2.html" aria-current="page" class="active sidebar-link">Swift 值语义(二)</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-4e82dffc data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>Swift 值语义(二)</h3> <!----> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>oldbirds</span>
+            
+          <span data-v-4e82dffc>2020 - </span>
+          2022
+        </a></span></div></div> <div data-v-1156296a><main class="page"><section><div class="page-title"><h1 class="title">Swift 值语义(二)</h1> <div data-v-1ff7123e><i class="iconfont reco-account" data-v-1ff7123e><span data-v-1ff7123e>oldbirds</span></i> <i class="iconfont reco-date" data-v-1ff7123e><span data-v-1ff7123e>5/5/2022</span></i> <!----> <i class="tags iconfont reco-tag" data-v-1ff7123e><span class="tag-item" data-v-1ff7123e>swift</span><span class="tag-item" data-v-1ff7123e>ios</span></i></div></div> <div class="theme-reco-content content__default"><p>在上篇的介绍中，我相信你已经知道值语义是什么了，接下来我们来看看为什么拥有值语义会让代码变得美好。</p> <p><img alt="1_N4CTsUuCT8mu7k2YlADqxQ" data-src="http://blog.oldbird.run/mweb/1_N4CTsUuCT8mu7k2YlADqxQ.gif" loading="lazy" class="lazy"></p> <h2 id="没有值语义的问题"><a href="#没有值语义的问题" class="header-anchor">#</a> 没有值语义的问题</h2> <p>要了解值语义的好处，让我们看看没有值语义的类型会导致什么问题。</p> <p>首先我们聊聊嵌套类型，当嵌套值类型和引用类型的时候会有四种不同的组合。</p> <ul><li><p><strong>一个引用类型嵌套了另外一个引用类型</strong>，没有特别之处，任何一个内部或者外部值的引用都能操纵他指向的对象，只要其中一个引用操纵值使其改变，其他引用指向的值也随着变化。</p> <div class="language-swift extra-class"><pre class="language-swift"><code><span class="token keyword">class</span> <span class="token class-name">Inner</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> value <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Outer</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> value <span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token keyword">var</span> inner <span class="token operator">=</span> <span class="token class-name">Inner</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> outer1 <span class="token operator">=</span> <span class="token class-name">Outer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">var</span> outer2 <span class="token operator">=</span> outer1
+outer1<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token number">2</span>
+outer2<span class="token punctuation">.</span>inner<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token number">3</span>
+
+outer2<span class="token punctuation">.</span>value <span class="token comment">// 2</span>
+outer1<span class="token punctuation">.</span>inner<span class="token punctuation">.</span>value <span class="token comment">// 3</span>
+</code></pre></div></li> <li><p><strong>一个值类型嵌套了另外一个值类型</strong>，会使值所占的内存区域变大。内部值是外部值的一部分。如果你把外部值放到一块新的存储空间里，所有的值包括内部值都会被拷贝。如果你把内部值放进一块新的存储空间中，只有内部值会被拷贝。</p> <div class="language-swift extra-class"><pre class="language-swift"><code><span class="token keyword">struct</span> <span class="token class-name">Inner</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> value <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">struct</span> <span class="token class-name">Outer</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> value <span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token keyword">var</span> inner <span class="token operator">=</span> <span class="token class-name">Inner</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> outer1 <span class="token operator">=</span> <span class="token class-name">Outer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">var</span> outer2 <span class="token operator">=</span> outer1
+outer1<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token number">2</span>
+outer1<span class="token punctuation">.</span>inner<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token number">3</span>
+
+outer2<span class="token punctuation">.</span>value <span class="token comment">// 1</span>
+outer2<span class="token punctuation">.</span>inner<span class="token punctuation">.</span>value <span class="token comment">// 1</span>
+</code></pre></div></li> <li><p><strong>一个引用类型嵌套了一个值类型</strong>，会扩大这个引用类型所占内存。任何外部值的引用都可以操纵一切，包括嵌套的内部值。内部值的任何改变对于引用外部值的指针来说都是可见的。如果你把内部值放进一块新的存储区，就会在那块存储区拷贝一份新的值。</p></li> <li><p><strong>一个值类型嵌套了一个引用类型</strong>，这个就非常有趣了。可以打破值语义而不被察觉。当你把一个引用类型嵌套进一个值类型中，外部值被放进一块新的内存区域时就会被拷贝，但是拷贝的对象仍然指向原始的那个嵌套对象。</p></li></ul> <h2 id="不错的理解"><a href="#不错的理解" class="header-anchor">#</a> 不错的理解</h2> <p>就语言的语义来说，只有在数据被改变的时候他们的差异会有影响。但是如果你的数据是不可变的，那么值类型和引用类型的差别就不存在了，至少问题就转向<strong>性能而不是语法</strong>了</p> <h2 id="参考"><a href="#参考" class="header-anchor">#</a> 参考</h2> <ul><li><a href="https://medium.com/good-morning-swift/difference-between-value-type-and-reference-type-in-swift-1f2bd9dd32a7" target="_blank" rel="nofollow noopener noreferrer">Difference Between Value Type and Reference Type in Swift<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://www.mikeash.com/pyblog/friday-qa-2015-07-17-when-to-use-swift-structs-and-classes.html" target="_blank" rel="nofollow noopener noreferrer">When to Use Swift Structs and Classes<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://www.programminghunter.com/article/8083309595/" target="_blank" rel="nofollow noopener noreferrer">Swift 值类型和引用类型的内存管理<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">5/5/2022, 3:23:52 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/swift/better/value-semantics.html" class="prev">
+            Swift 值语义(一)
+          </a></span> <!----></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-70334359><li class="level-2" data-v-70334359><a href="/swift/better/value-semantics-2.html#没有值语义的问题" class="sidebar-link reco-side-没有值语义的问题" data-v-70334359>没有值语义的问题</a></li><li class="level-2" data-v-70334359><a href="/swift/better/value-semantics-2.html#不错的理解" class="sidebar-link reco-side-不错的理解" data-v-70334359>不错的理解</a></li><li class="level-2" data-v-70334359><a href="/swift/better/value-semantics-2.html#参考" class="sidebar-link reco-side-参考" data-v-70334359>参考</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><!----><!----><!----><!----></div></div>
+    <script src="/assets/js/app.653f7fa8.js" defer></script><script src="/assets/js/4.621c0810.js" defer></script><script src="/assets/js/1.5964dece.js" defer></script><script src="/assets/js/139.729b4370.js" defer></script><script src="/assets/js/9.cd02aa0b.js" defer></script>
+  </body>
+</html>
