@@ -26,11 +26,11 @@ Package 作者可以将他们的 Swift Package 发布到公共或私人仓库。
 
 要在你的 Xcode 项目中添加一个 Package，选择`File> Add Packages`，并输入其存储库的 URL。你也可以导航到你的目标的常规窗格，在 "Frameworks, Libraries, and Embedded Content"部分，点击 + 按钮，选择`Add Other`，并选择`Add Package Dependency`。
 
-![](http://blog.loveli.site/mweb/16489060301766.jpg)
+![](http://blog.oldbird.run/mweb/16489060301766.jpg)
 
 你可以在 GitHub 或 GitHub Enterprise 上搜索一个软件包，而不是添加一个仓库的 URL。在 Xcode 的 preferences 添加你的 GitHub 或 GitHub Enterprise 账户，当你输入时，就会出现一个软件包库的列表。下面的截图显示了一个用户在 Xcode 的 preferences 中添加了他们的 Git 提供者的搜索词 ExamplePackage 的存储库列表。
 
-![](http://blog.loveli.site/mweb/16489061783290.jpg)
+![](http://blog.oldbird.run/mweb/16489061783290.jpg)
 
 如果你在 Xcode 的 preferences 中添加了一个源控制帐户，并且你还没有输入一个搜索词，该列表中的内容来自的：
 
@@ -44,19 +44,19 @@ Package 作者可以将他们的 Swift Package 发布到公共或私人仓库。
 
 当您输入软件包依赖的 URL 或从软件包列表中挑选一个 Swift 软件包时，请从下面三个 requirements 中选择一个。 Package requirements 决定了你的项目中允许的包依赖的版本，Xcode 会根据你选择的 requirement 更新你的包依赖。
 
-* Version
-  
-    决定你的项目是否接受软件包依赖关系的更新，直到下一个主要版本或下一个次要版本。为了更严格，可以选择一个特定的版本范围或确切的版本。主要版本往往比次要版本有更大的变化，当它们更新时可能需要你修改你的代码。版本规则要求 Swift 包符合语义版本划分。要了解更多关于语义版本控制标准的信息，请访问[semver.org](https://semver.org/)。
+- Version
 
-    选择版本要求是添加软件包依赖关系的推荐方式。它允许你在限制变化和获得改进和功能之间建立一个平衡。
+  决定你的项目是否接受软件包依赖关系的更新，直到下一个主要版本或下一个次要版本。为了更严格，可以选择一个特定的版本范围或确切的版本。主要版本往往比次要版本有更大的变化，当它们更新时可能需要你修改你的代码。版本规则要求 Swift 包符合语义版本划分。要了解更多关于语义版本控制标准的信息，请访问[semver.org](https://semver.org/)。
 
-* Branch
+  选择版本要求是添加软件包依赖关系的推荐方式。它允许你在限制变化和获得改进和功能之间建立一个平衡。
 
-    选择你的软件包依赖的分支名称，以便跟随。当你串联开发多个软件包，并且不想发布软件包依赖的版本时，可以使用基于分支的依赖关系。
+- Branch
 
-* Commit
+  选择你的软件包依赖的分支名称，以便跟随。当你串联开发多个软件包，并且不想发布软件包依赖的版本时，可以使用基于分支的依赖关系。
 
-    选择你的软件包依赖的提交哈希值来遵循。不建议选择这个选项，你应该只在特殊情况下使用这个选项。虽然把你的软件包依赖关系钉在一个特定的提交上可以确保软件包依赖关系不发生变化，让你的代码保持稳定，但你不会收到任何更新。如果你担心远程软件包的稳定性，可以考虑基于版本的需求中的一个更有限制性的选项。
+- Commit
+
+  选择你的软件包依赖的提交哈希值来遵循。不建议选择这个选项，你应该只在特殊情况下使用这个选项。虽然把你的软件包依赖关系钉在一个特定的提交上可以确保软件包依赖关系不发生变化，让你的代码保持稳定，但你不会收到任何更新。如果你担心远程软件包的稳定性，可以考虑基于版本的需求中的一个更有限制性的选项。
 
 在你选择了一个包的需求后，Xcode 会解析并获取包的依赖性。选择你需要的包的产品，并将它们添加到你的项目中的目标。
 
@@ -65,9 +65,8 @@ Package 作者可以将他们的 Swift Package 发布到公共或私人仓库。
 ::: tip
 **Tip**
 
-虽然Xcode会自动更新你的包的依赖关系和解决包的版本，但你可以从`File> Swift Packages`菜单中触发这两个动作。
+虽然 Xcode 会自动更新你的包的依赖关系和解决包的版本，但你可以从`File> Swift Packages`菜单中触发这两个动作。
 :::
-
 
 ## 使用 Swift 包提供的功能和 Assets
 
@@ -85,20 +84,20 @@ class ViewController: UIViewController {
     @IBOutlet var aButton: UIButton!
     @IBOutlet var anImageView: UIImageView!
     @IBOutlet var aCustomView: CustomView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Use a string that the package exposes as a property in the MyLibrary file.
         self.aLabel.text = MyLibrary.titleText
-        
+
         // Load an image that the MyLibrary package makes available through a class method.
         if let imagePath = MyClass.exampleImagePath() {
             self.anImageView.image = UIImage(contentsOfFile: imagePath)
         }
 
         // Use the Swift package’s CustomView class.
-        self.aCustomView = CustomView()        
+        self.aCustomView = CustomView()
     }
 
     // Show an alert by calling the package’s API.
@@ -127,6 +126,3 @@ class ViewController: UIViewController {
 如果您需要从您的 Xcode 项目中删除一个包的依赖关系，请在设置中导航到 Swift 包列表，然后从包的列表中选择 Swift 包。点击 "-" 按钮来删除选定的软件包依赖关系。
 
 ![](https://docs-assets.developer.apple.com/published/a687950960/a60b2460-f930-4bfe-bf46-4f57bfac42f2.png)
-
-
-

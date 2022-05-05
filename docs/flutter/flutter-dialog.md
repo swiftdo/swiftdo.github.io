@@ -76,7 +76,7 @@ showDialog(
 
 效果如下：
 
-![](http://blog.loveli.site/mweb/16505854425991.jpg)
+![](http://blog.oldbird.run/mweb/16505854425991.jpg)
 
 点击 `确定` 按钮后，调用 `Navigator.pop()` 来关闭这个 Dialog。
 
@@ -101,7 +101,7 @@ return Navigator.of(context, rootNavigator: useRootNavigator).push<T>(DialogRout
 
 ### AlertDialog
 
-![](http://blog.loveli.site/mweb/16505861509394.jpg)
+![](http://blog.oldbird.run/mweb/16505861509394.jpg)
 
 ```dart
 showDialog(
@@ -121,7 +121,7 @@ showDialog(
 
 ### AlertDialog 自定义样式
 
-![](http://blog.loveli.site/mweb/16505865312773.jpg)
+![](http://blog.oldbird.run/mweb/16505865312773.jpg)
 
 ```dart
 showDialog(
@@ -157,9 +157,9 @@ showDialog(
 );
 ```
 
-### CupertinoAlertDialog IOS风格
+### CupertinoAlertDialog IOS 风格
 
-![](http://blog.loveli.site/mweb/16505865740868.jpg)
+![](http://blog.oldbird.run/mweb/16505865740868.jpg)
 
 ```dart
 showCupertinoDialog(
@@ -189,8 +189,7 @@ showCupertinoDialog(
 
 ### SimpleDialog
 
-![](http://blog.loveli.site/mweb/16505866058310.jpg)
-
+![](http://blog.oldbird.run/mweb/16505866058310.jpg)
 
 ```dart
 showDialog(
@@ -224,7 +223,7 @@ showDialog(
 
 ## 自定义 Dialog
 
-![](http://blog.loveli.site/mweb/16505866401719.jpg)
+![](http://blog.oldbird.run/mweb/16505866401719.jpg)
 
 ```dart
 showDialog(
@@ -247,7 +246,7 @@ showDialog(
 
 我们可以把对话框分为内部样式和外部样式两部分。内部样式指对话框中显示的具体内容；外部样式包含对话框遮罩样式、打开动画等。
 
-`showDialog`方法，它是 Material 组件库中提供的一个打开 Material 风格对话框的方法。那如何打开一个普通风格的对话框呢（非Material风格）？ Flutter 提供了一个`showGeneralDialog`方法：
+`showDialog`方法，它是 Material 组件库中提供的一个打开 Material 风格对话框的方法。那如何打开一个普通风格的对话框呢（非 Material 风格）？ Flutter 提供了一个`showGeneralDialog`方法：
 
 ```dart
 Future<T?> showGeneralDialog<T>({
@@ -262,7 +261,7 @@ Future<T?> showGeneralDialog<T>({
 })
 ```
 
-实际上，`showDialog`方法正是`showGeneralDialog`的一个封装，定制了Material 风格对话框的遮罩颜色和动画。Material 风格对话框打开/关闭动画是一个 Fade（渐隐渐显）动画，如果我们想使用一个缩放动画就可以通过`transitionBuilder` 来自定义。下面我们自己封装一个`showCustomDialog`方法，它定制的对话框动画为缩放动画，并同时制定遮罩颜色为`Colors.black87`：
+实际上，`showDialog`方法正是`showGeneralDialog`的一个封装，定制了 Material 风格对话框的遮罩颜色和动画。Material 风格对话框打开/关闭动画是一个 Fade（渐隐渐显）动画，如果我们想使用一个缩放动画就可以通过`transitionBuilder` 来自定义。下面我们自己封装一个`showCustomDialog`方法，它定制的对话框动画为缩放动画，并同时制定遮罩颜色为`Colors.black87`：
 
 ```dart
 Future<T?> showCustomDialog<T>({
@@ -339,10 +338,9 @@ showCustomDialog<bool>(
 
 运行后可以发现，遮罩颜色比通过`showDialog`方法打开的对话框更深。另外对话框打开/关闭的动画已变为缩放动画了。
 
-
 ## 底部栏弹窗
 
-`showModalBottomSheet`方法可以弹出一个Material风格的底部菜单列表模态对话框：
+`showModalBottomSheet`方法可以弹出一个 Material 风格的底部菜单列表模态对话框：
 
 ```dart
 // 弹出底部菜单列表模态对话框
@@ -363,4 +361,3 @@ Future<int?> _showModalBottomSheet() {
   );
 }
 ```
-

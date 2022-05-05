@@ -91,7 +91,7 @@ var body: some View {
 }
 ```
 
-![](http://blog.loveli.site/mweb/16259265826634.jpg)
+![](http://blog.oldbird.run/mweb/16259265826634.jpg)
 
 ## 获取当前的 EditMode
 
@@ -128,11 +128,11 @@ var body: some View {
 }
 ```
 
-![](http://blog.loveli.site/mweb/16259287112522.jpg)
+![](http://blog.oldbird.run/mweb/16259287112522.jpg)
 
 运行效果如下：
 
-![111ee0711](http://blog.loveli.site/mweb/111ee0711.gif)
+![111ee0711](http://blog.oldbird.run/mweb/111ee0711.gif)
 
 `EditMode` 是一个枚举，指示用户是否可以编辑其内容：
 
@@ -185,11 +185,11 @@ var body: some View {
 }
 ```
 
-![](http://blog.loveli.site/mweb/16260053476955.jpg)
+![](http://blog.oldbird.run/mweb/16260053476955.jpg)
 
 运行后的效果：
 
-![111ee0715](http://blog.loveli.site/mweb/111ee0715.gif)
+![111ee0715](http://blog.oldbird.run/mweb/111ee0715.gif)
 
 从上图可知用`Button`替换`EditButton`是可行的。也实现了`Edit/Done`非中文问题。
 

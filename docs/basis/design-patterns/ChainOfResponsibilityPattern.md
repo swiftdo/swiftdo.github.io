@@ -16,7 +16,7 @@ tags:
 
 ## 样例
 
-![](http://blog.loveli.site/mweb/16169408042714.jpg)
+![](http://blog.oldbird.run/mweb/16169408042714.jpg)
 
 ```swift
 

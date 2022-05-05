@@ -25,7 +25,7 @@ if let cmd = cmd {
 
 ## 样例
 
-![](http://blog.loveli.site/mweb/16172006654866.jpg)
+![](http://blog.oldbird.run/mweb/16172006654866.jpg)
 
 ```swift
 protocol ICustomer {

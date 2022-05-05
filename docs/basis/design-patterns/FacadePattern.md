@@ -16,7 +16,7 @@ tags:
 
 假设我们有一个压缩与解压缩系统专门处理文件的压缩和解压缩，这个系统有三个模块：ZIPModel、RARModel、ZModel，分别处理 ZIP、RAR、7Z 三种文件格式的压缩与解压缩。现在这一系统要提供给上层应用程序使用。
 
-![](http://blog.loveli.site/mweb/16169034808432.jpg)
+![](http://blog.oldbird.run/mweb/16169034808432.jpg)
 
 ```swift
 import Foundation

@@ -26,7 +26,7 @@ Text("Tap me !")
 
 效果：
 
-![效果](http://blog.loveli.site/tuc/20210616195437.png ":size=240")
+![效果](http://blog.oldbird.run/tuc/20210616195437.png ":size=240")
 
 ## 用法：
 
@@ -94,7 +94,7 @@ Text("Hello, World!")
     .shadow(color: .black, radius: 2, x: 0, y: 15)
 ```
 
-![](http://blog.loveli.site/tuc/20210616203147.png ":size=240")
+![](http://blog.oldbird.run/tuc/20210616203147.png ":size=240")
 
 ### 设置文本对齐方式
 
@@ -121,7 +121,7 @@ Text("Hello, World! welcome to OldBirds ,nice to miss you! see you again ~~ ")
     .lineLimit(3)
 ```
 
-![](http://blog.loveli.site/tuc/20210616204427.png ":size=240")
+![](http://blog.oldbird.run/tuc/20210616204427.png ":size=240")
 
 ### 设置行间距
 
@@ -135,7 +135,7 @@ Text("Hello, World! welcome to OldBirds ,nice to miss you! see you again ~~ ")
     .lineSpacing(20)
 ```
 
-![](http://blog.loveli.site/tuc/20210616204807.png ":size=240")
+![](http://blog.oldbird.run/tuc/20210616204807.png ":size=240")
 
 ### 旋转文字
 
@@ -148,7 +148,7 @@ Text("Hello, World! welcome to OldBirds ,nice to miss you! see you again ~~ ")
       .rotationEffect(.degrees(20), anchor: UnitPoint(x: 0, y: 0))
   ```
 
-  ![](http://blog.loveli.site/tuc/Screen%20Shot%202021-06-16%20at%209.05.02%20PM.png ":size=240")
+  ![](http://blog.oldbird.run/tuc/Screen%20Shot%202021-06-16%20at%209.05.02%20PM.png ":size=240")
 
 - 3D 旋转
 
@@ -159,4 +159,4 @@ Text("Hello, World! welcome to OldBirds ,nice to miss you! see you again ~~ ")
       .rotation3DEffect(.degrees(60), axis: (x: 1, y: 0, z: 0))
   ```
 
-  ![](http://blog.loveli.site/tuc/20210616210549.png ":size=240")
+  ![](http://blog.oldbird.run/tuc/20210616210549.png ":size=240")

@@ -25,7 +25,7 @@ VStack (alignment: .center, spacing: 20){
 }
 ```
 
-![](http://blog.loveli.site/mweb/16255374287716.jpg)
+![](http://blog.oldbird.run/mweb/16255374287716.jpg)
 
 VStack 的定义：
 
@@ -140,7 +140,7 @@ struct ContentView: View {
 
 显示效果：
 
-![](http://blog.loveli.site/mweb/16256254805070.jpg)
+![](http://blog.oldbird.run/mweb/16256254805070.jpg)
 
 标签/文本组件不需要全宽，如何让 VStack 填充屏幕的宽度？
 
@@ -169,7 +169,7 @@ struct ContentView: View {
 }
 ```
 
-![](http://blog.loveli.site/mweb/16256261587910.jpg)
+![](http://blog.oldbird.run/mweb/16256261587910.jpg)
 
 除了通过设置尺寸为 `.infinity`, 还可以通过 `GeometryReader` 设置尺寸：
 
@@ -198,7 +198,7 @@ struct ContentView: View {
 }
 ```
 
-![](http://blog.loveli.site/mweb/16256264169659.jpg)
+![](http://blog.oldbird.run/mweb/16256264169659.jpg)
 
 ### 方案二：结合 HStack 和 Spacer
 
@@ -226,4 +226,4 @@ struct ContentView: View {
 }
 ```
 
-![](http://blog.loveli.site/mweb/16256266738969.jpg)
+![](http://blog.oldbird.run/mweb/16256266738969.jpg)

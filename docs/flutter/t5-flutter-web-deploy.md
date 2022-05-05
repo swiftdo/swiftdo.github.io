@@ -1,8 +1,8 @@
 ---
-title: '在 Github 上部署一个 Flutter Web 应用'
+title: "在 Github 上部署一个 Flutter Web 应用"
 date: 2020-09-22
 tags:
-- flutter
+  - flutter
 sitemap:
   exclude: false
   changefreq: hourly
@@ -30,16 +30,15 @@ $ cd flutter_web
 $ flutter run -d chrome
 ```
 
-![-w759](http://blog.loveli.site/2019-12-23-15770764808850.png)
+![-w759](http://blog.oldbird.run/2019-12-23-15770764808850.png)
 
 项目这边完工，那么如何用 github page 托管呢？
-
 
 ## Github
 
 ### 创建一个 repository
 
-![-w162](http://blog.loveli.site/2019-12-23-15770767088539.png)
+![-w162](http://blog.oldbird.run/2019-12-23-15770767088539.png)
 
 创建好后，将本地项目提交上去。
 
@@ -55,7 +54,7 @@ $ git push -u origin master
 
 如何启用 Gh-Pages ？
 
-我们需要将编译好的文件放到 `origin/gh-pages` 这个分支，然后 Github 会将这些文件作为一个站点， 
+我们需要将编译好的文件放到 `origin/gh-pages` 这个分支，然后 Github 会将这些文件作为一个站点，
 
 ```
 username.github.io/repository_name
@@ -67,27 +66,23 @@ username.github.io/repository_name
 
 我们将创建一个 Action 来构建和发布 Flutter Web 项目，但是我们需要一个 access token，这样运行 Action 的那台机器可以进行提交。
 
-![](http://blog.loveli.site/2019-12-23-13_08_13__12_23_2019.jpg)
+![](http://blog.oldbird.run/2019-12-23-13_08_13__12_23_2019.jpg)
 
 拷贝这个生成的 token。你切换到其他页面就看不到了
-
 
 **Secrets**
 
 然后需要在项目的设置里设置好 Secrets
 
-![-w864](http://blog.loveli.site/2019-12-23-15770780677496.png)
+![-w864](http://blog.oldbird.run/2019-12-23-15770780677496.png)
 
 添加一个 name 为 `commit_secret`, value 是刚才我们创建的 token。
 
-
-![Screen Shot 2019-12-23 at 1.17.32 P](http://blog.loveli.site/2019-12-23-Screen%20Shot%202019-12-23%20at%201.17.32%20PM.png)
-
+![Screen Shot 2019-12-23 at 1.17.32 P](http://blog.oldbird.run/2019-12-23-Screen%20Shot%202019-12-23%20at%201.17.32%20PM.png)
 
 **flutter_build_publish_web.yml**
 
-![Screen Shot 2019-12-23 at 1.22.05 P](http://blog.loveli.site/2019-12-23-Screen%20Shot%202019-12-23%20at%201.22.05%20PM.png)
-
+![Screen Shot 2019-12-23 at 1.22.05 P](http://blog.oldbird.run/2019-12-23-Screen%20Shot%202019-12-23%20at%201.22.05%20PM.png)
 
 ```yml
 name: Flutter Web
@@ -105,7 +100,7 @@ jobs:
       - uses: actions/checkout@v1
       - uses: subosito/flutter-action@v1
         with:
-          channel: 'dev'
+          channel: "dev"
       - run: flutter config --enable-web
       - run: flutter pub get
       - run: flutter build web --release
@@ -139,13 +134,12 @@ git remote add origin https://${{secrets.commit_secret}}@github.com/oheroj/flutt
 
 完成这些更改后，我们就可以开始了！点击提交到到主分支上即可。这会自动触发这个 Action。
 
-![Screen Shot 2019-12-23 at 1.36.25 P](http://blog.loveli.site/2019-12-23-Screen%20Shot%202019-12-23%20at%201.36.25%20PM.png)
+![Screen Shot 2019-12-23 at 1.36.25 P](http://blog.oldbird.run/2019-12-23-Screen%20Shot%202019-12-23%20at%201.36.25%20PM.png)
 
 构建完成后，我们看看效果，直接在浏览器输入 'https://oheroj.github.io/flutter_web'
 
-![Screen Shot 2019-12-23 at 1.40.03 P](http://blog.loveli.site/2019-12-23-Screen%20Shot%202019-12-23%20at%201.40.03%20PM.png)
+![Screen Shot 2019-12-23 at 1.40.03 P](http://blog.oldbird.run/2019-12-23-Screen%20Shot%202019-12-23%20at%201.40.03%20PM.png)
 
 > 为什么会是 liveli.site， 因为我做了 cname。
 
 那本文到此结束。你 get 到新技能了么？
-

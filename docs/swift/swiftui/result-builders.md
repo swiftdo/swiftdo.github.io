@@ -18,8 +18,7 @@ tags:
 
 本文将制作一个 Result Builder，用声明式的方式定义 AttributeString 使得代码更加干净、易读。
 
-
-## 常规定义 greet 
+## 常规定义 greet
 
 我们来定义个 `greet` 函数，来实现一个简单的字符串拼接功能：
 
@@ -30,7 +29,7 @@ func greet(name: String, title: String) -> NSMutableAttributedString {
       NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20),
       NSAttributedString.Key.foregroundColor : UIColor.blue
     ]
-    
+
     let message = NSMutableAttributedString()
     message.append(NSAttributedString(string: "Hello "))
     message.append(NSAttributedString(string: name, attributes: attributes))
@@ -44,7 +43,7 @@ greet(name: "读者们", title: "欢迎👏🏻")
 
 运行的结果：
 
-![](http://blog.loveli.site/mweb/16513897424154.jpg)
+![](http://blog.oldbird.run/mweb/16513897424154.jpg)
 
 那么如何通过 `Result builders` 将代码改造成类似下面：
 
@@ -63,8 +62,8 @@ func greet(name: String, title: String) -> NSAttributedString {
 
 一个`result builder`类型必须满足两个基本要求：
 
-* 它必须通过`@resultBuilder`进行标注，这表明它打算作为一个结果构建器类型使用，并允许它作为一个自定义属性使用。
-* 它必须至少实现一个名为`buildBlock`的类型方法。
+- 它必须通过`@resultBuilder`进行标注，这表明它打算作为一个结果构建器类型使用，并允许它作为一个自定义属性使用。
+- 它必须至少实现一个名为`buildBlock`的类型方法。
 
 那么：
 
@@ -108,7 +107,7 @@ extension NSMutableAttributedString {
         self.addAttribute(.foregroundColor, value: color, range: .init(location: 0, length: self.length))
         return self
     }
-    
+
     public func font(_ font: UIFont) -> NSMutableAttributedString {
         self.addAttribute(.font, value: font, range: .init(location: 0, length: self.length))
         return self
@@ -148,7 +147,7 @@ extension Text {
         self.addAttribute(.foregroundColor, value: color, range: .init(location: 0, length: self.length))
         return self
     }
-    
+
     public func font(_ font: UIFont) -> Text {
         self.addAttribute(.font, value: font, range: .init(location: 0, length: self.length))
         return self
@@ -202,7 +201,7 @@ if !title.isEmpty {
 }
 ```
 
-![](http://blog.loveli.site/mweb/16513921938024.jpg)
+![](http://blog.oldbird.run/mweb/16513921938024.jpg)
 
 为了让 Result builder 支持条件逻辑，我们需要在`AttributedStringBuilder`添加新的方法。
 
@@ -212,7 +211,7 @@ static func buildOptional(_ component: Text?) -> Text {
 }
 ```
 
-`buildOptional` 用于处理在特定执行中可能或不可能出现的部分结果。当一个结果构建器提供了 buildOptional(_:) 时，转译后的函数可以使用没有 else 的 if 语句，同时也提供了对 if let 的支持。
+`buildOptional` 用于处理在特定执行中可能或不可能出现的部分结果。当一个结果构建器提供了 buildOptional(\_:) 时，转译后的函数可以使用没有 else 的 if 语句，同时也提供了对 if let 的支持。
 
 ## 更复杂的条件逻辑
 
@@ -226,9 +225,9 @@ if !title.isEmpty {
 }
 ```
 
-![](http://blog.loveli.site/mweb/16513928302062.jpg)
+![](http://blog.oldbird.run/mweb/16513928302062.jpg)
 
-buildOptional 只适用于if且没有else语句的情况。通过报错提示可知，`AttributedStringBuilder`需要实现 `buildEither(first:)` 和 `buildEither(second:)` 方法。
+buildOptional 只适用于 if 且没有 else 语句的情况。通过报错提示可知，`AttributedStringBuilder`需要实现 `buildEither(first:)` 和 `buildEither(second:)` 方法。
 
 ```swift
 static func buildEither(first component: Text) -> Text {
@@ -268,7 +267,7 @@ func greetBuilder(names: [String], title: String) -> Text {
 greetBuilder(names: ["小华", "小明", "张三", "李四"], title: "欢迎来访👏🏻")
 ```
 
-![](http://blog.loveli.site/mweb/16513940187917.jpg)
+![](http://blog.oldbird.run/mweb/16513940187917.jpg)
 
 同理，根据报错提示，如果要实现循环，那么`AttributedStringBuilder`需要实现`buildArr(_:)`方法。
 
@@ -284,7 +283,7 @@ static func buildArray(_ components: [Text]) -> Text {
 
 这块代码跟 `buildBlock` 的实现相似。添加后，报错消失，可以看到如下结果：
 
-![](http://blog.loveli.site/mweb/16513945140098.jpg)
+![](http://blog.oldbird.run/mweb/16513945140098.jpg)
 
 ## 支持多种类型
 
@@ -323,8 +322,7 @@ func greetBuilder(names: [String], title: String) -> Text {
 greetBuilder(names: ["小华", "小明", "张三", "李四"], title: "欢迎来访👏🏻")
 ```
 
-![](http://blog.loveli.site/mweb/16513966586251.jpg)
-
+![](http://blog.oldbird.run/mweb/16513966586251.jpg)
 
 为了支持自定义类型，我们需要实现 `buildExpression(_:)`:
 
@@ -347,7 +345,6 @@ static func buildExpression(_ expression: Text) -> Text {
 
 `buildExpression(_ expression: Expression) -> Component`它允许结果构建器区分表达式类型和组件类型，为语句表达式提供上下文类型信息。构建器会将 SpecialCharacters 首先转换成 Text，然后再将其传入到 buildBlock 中。
 
-
 ## 样例完整代码
 
 ```swift
@@ -359,7 +356,7 @@ extension Text {
         self.addAttribute(.foregroundColor, value: color, range: .init(location: 0, length: self.length))
         return self
     }
-    
+
     public func font(_ font: UIFont) -> Text {
         self.addAttribute(.font, value: font, range: .init(location: 0, length: self.length))
         return self
@@ -368,7 +365,7 @@ extension Text {
 
 @resultBuilder
 enum AttributedStringBuilder {
-   
+
     static func buildBlock(_ components: Text...) -> Text {
         let attributedString = Text()
         for component in components {
@@ -376,11 +373,11 @@ enum AttributedStringBuilder {
         }
         return attributedString
     }
-    
+
     static func buildOptional(_ component: Text?) -> Text {
       component ?? Text(string: "")
     }
-    
+
     static func buildEither(first component: Text) -> Text {
       component
     }
@@ -388,7 +385,7 @@ enum AttributedStringBuilder {
     static func buildEither(second component: Text) -> Text {
       component
     }
-    
+
     static func buildArray(_ components: [Text]) -> Text {
         let attr = Text()
         for com in components {
@@ -396,7 +393,7 @@ enum AttributedStringBuilder {
         }
         return attr
     }
-    
+
     static func buildExpression(_ expression: SpecialCharacters) -> Text {
         switch expression {
         case .comma:
@@ -441,41 +438,29 @@ greetBuilder(names: ["小华", "小明", "张三", "李四"], title: "欢迎来�
 
 ## 要点
 
-* `buildBlock(_ components: Component...) -> Component`
-用来构建语句块的组合结果。每个结果构建器至少要提供一个它的具体实现。
+- `buildBlock(_ components: Component...) -> Component`
+  用来构建语句块的组合结果。每个结果构建器至少要提供一个它的具体实现。
 
-* `buildOptional(_ component: Component?) -> Component`
-用于处理在特定执行中可能或不可能出现的部分结果。当一个结果构建器提供了 buildOptional(_:) 时，转译后的函数可以使用没有 else 的 if 语句，同时也提供了对 if let 的支持。
+- `buildOptional(_ component: Component?) -> Component`
+  用于处理在特定执行中可能或不可能出现的部分结果。当一个结果构建器提供了 buildOptional(\_:) 时，转译后的函数可以使用没有 else 的 if 语句，同时也提供了对 if let 的支持。
 
-* `buildEither(first: Component) -> Component和buildEither(second: Component) -> Component`
-用于在选择语句的不同路径下建立部分结果。当一个结果构建器提供这两个方法的实现时，转译后的函数可以使用带有else 的 if语句以及 switch 语句。
+- `buildEither(first: Component) -> Component和buildEither(second: Component) -> Component`
+  用于在选择语句的不同路径下建立部分结果。当一个结果构建器提供这两个方法的实现时，转译后的函数可以使用带有 else 的 if 语句以及 switch 语句。
 
-* `buildArray(_ components: [Component]) -> Component`
-用来从一个循环的所有迭代中收集的部分结果。在一个结果构建器提供了 buildArray(_:) 的实现后，转译后的函数可以使用 for...in 语句。
+- `buildArray(_ components: [Component]) -> Component`
+  用来从一个循环的所有迭代中收集的部分结果。在一个结果构建器提供了 buildArray(\_:) 的实现后，转译后的函数可以使用 for...in 语句。
 
-* `buildExpression(_ expression: Expression) -> Component`
-它允许结果构建器区分表达式类型和组件类型，为语句表达式提供上下文类型信息。
+- `buildExpression(_ expression: Expression) -> Component`
+  它允许结果构建器区分表达式类型和组件类型，为语句表达式提供上下文类型信息。
 
-* `buildFinalResult(_ component: Component) -> FinalResult`
-用于对最外层的 buildBlock 结果的再包装。例如，让结果构建器隐藏一些它并不想对外的类型（转换成可对外的类型）。
+- `buildFinalResult(_ component: Component) -> FinalResult`
+  用于对最外层的 buildBlock 结果的再包装。例如，让结果构建器隐藏一些它并不想对外的类型（转换成可对外的类型）。
 
-* `buildLimitedAvailability(_ component: Component) -> Component`
-用于将 buildBlock 在受限环境下（例如if #available）产生的部分结果转化为可适合任何环境的结果，以提高 API 的兼容性。
-
+- `buildLimitedAvailability(_ component: Component) -> Component`
+  用于将 buildBlock 在受限环境下（例如 if #available）产生的部分结果转化为可适合任何环境的结果，以提高 API 的兼容性。
 
 ## 参考
 
-* [ViewBuilder 研究（上）—— 掌握 Result builders](https://www.fatbobman.com/posts/viewBuilder1/)
-* [Write a DSL in Swift using result builders](https://developer.apple.com/videos/play/wwdc2021/10253/)
-* [Result builders](https://github.com/apple/swift-evolution/blob/main/proposals/0289-result-builders.md)
-
-
-
-
-
-
-
-
-
-
-
+- [ViewBuilder 研究（上）—— 掌握 Result builders](https://www.fatbobman.com/posts/viewBuilder1/)
+- [Write a DSL in Swift using result builders](https://developer.apple.com/videos/play/wwdc2021/10253/)
+- [Result builders](https://github.com/apple/swift-evolution/blob/main/proposals/0289-result-builders.md)

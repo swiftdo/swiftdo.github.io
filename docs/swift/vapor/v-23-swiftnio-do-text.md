@@ -2,18 +2,17 @@
 sitemap:
   exclude: false
   changefreq: hourly
-title: 'SwiftNIO 实战之文本修改服务器'
+title: "SwiftNIO 实战之文本修改服务器"
 date: 2020-11-22
 tags:
-- swift
-- vapor
-- swiftnio
+  - swift
+  - vapor
+  - swiftnio
 ---
-
 
 为什么 `SwiftNIO` 能够实现高性能、高并发的需求?
 
-> Netty是一个高性能、异步事件驱动的 NIO 框架，它提供了对TCP、UDP和文件传输的支持，作为一个异步 NIO 框架，Netty 的所有 IO 操作都是异步非阻塞的，通过 Future-Listener 机制，用户可以方便的主动获取或者通过通知机制获得 IO 操作结果。
+> Netty 是一个高性能、异步事件驱动的 NIO 框架，它提供了对 TCP、UDP 和文件传输的支持，作为一个异步 NIO 框架，Netty 的所有 IO 操作都是异步非阻塞的，通过 Future-Listener 机制，用户可以方便的主动获取或者通过通知机制获得 IO 操作结果。
 
 SwiftNIO 是 Netty 的 Swift 版本实现。
 
@@ -29,9 +28,9 @@ SwiftNIO 是 Netty 的 Swift 版本实现。
 
 服务器通过以下方式修改文本：
 
-* 将文本更改为大写
-* 用信号替换所有语言
-* 使用转义序列将返回的文本的颜色更改为绿色
+- 将文本更改为大写
+- 用信号替换所有语言
+- 使用转义序列将返回的文本的颜色更改为绿色
 
 ### 创建服务器的入口点
 
@@ -66,7 +65,7 @@ let package = Package(
 
 然后将 `niots` 拖入到 XCode 中
 
-![-w268](http://blog.loveli.site/2020-11-29-16065769435401.png)
+![-w268](http://blog.oldbird.run/2020-11-29-16065769435401.png)
 
 打开 `Sources/niots/main.swift`，开始工程的初始设置，大体有如下流程：
 
@@ -125,13 +124,14 @@ let bootstrap = ServerBootstrap(group: group)
 ④ 我们定义 childChannelOptions
 
 > **Bootstrap**
-> 
+>
 > 虽然可以直接用 EventLoop 配置和注册 Channel, 但为了简化创建工作，SwiftNIO 提供了许多 `Bootstrap` 对象：
-> * ServerBootstrap：用于引导监听信道
-> * ClientBootstrap：用于引导客户端 TCP 信道
-> * DatagramBootstrap：用于引导 UDP 信道
+>
+> - ServerBootstrap：用于引导监听信道
+> - ClientBootstrap：用于引导客户端 TCP 信道
+> - DatagramBootstrap：用于引导 UDP 信道
 
-建通道并将其绑定到 `::1` 端口上的本地主机（在IPv6中）`8888`：
+建通道并将其绑定到 `::1` 端口上的本地主机（在 IPv6 中）`8888`：
 
 ```swift
 let defaultHost = "::1"
@@ -141,7 +141,7 @@ let channel = try bootstrap.bind(host: defaultHost, port: defaultPort).wait()
 print("Server started and listening on \(channel.localAddress!)")
 
 try channel.closeFuture.wait()
-print("Server closed") 
+print("Server closed")
 ```
 
 以下是完整的 `main.swift`文件:
@@ -176,19 +176,19 @@ try channel.closeFuture.wait()
 print("Server closed")
 ```
 
-## 创建通道处理程序 
+## 创建通道处理程序
 
 每个处理程序在我们的通道的管道中都处于特定位置，如果要将数据从一个处理程序传递到下一个处理程序，则需要确保一个处理程序的输出类型与以下一个处理程序的输入类型匹配。有两种处理程序类型：
 
-* ChannelOutboundHandler
-* ChannelInboundHandler
+- ChannelOutboundHandler
+- ChannelInboundHandler
 
 区别在于事件的发源地。
 
 选择实现哪种类型的处理程序时，请记住以下几点：
 
-* 如果事件来自源，请使用 `ChannelInboundHandler`
-* 如果要将事件传递给源，请使用 `ChannelOutboundHandler`
+- 如果事件来自源，请使用 `ChannelInboundHandler`
+- 如果要将事件传递给源，请使用 `ChannelOutboundHandler`
 
 在本例中，由于事件来自源，即客户端连接到我们的服务器，因此我们将使用 `ChannelInboutHandler`
 
@@ -230,8 +230,8 @@ final class UpcaseHandler: ChannelInboundHandler {
 
 `UpcaseHandler` 要实现 `ChannelInboundHandler` 这个协议。我们需要定义下面的属性：
 
-* `InboundIn` - 将传递给处理程序的入站数据的类型
-* `InboundOut` - 将传递给下一个处理程序的出站数据的类型
+- `InboundIn` - 将传递给处理程序的入站数据的类型
+- `InboundOut` - 将传递给下一个处理程序的出站数据的类型
 
 因此，在本例中，我们将接收一个 `ByteBuffer` 并传递一个`[CChar]`。
 
@@ -249,7 +249,7 @@ public func channelRead(context: ChannelHandlerContext, data: NIOAny) {
 
     let result = str?.uppercased() ?? ""
 
-    let cresult = result.cString(using: .utf8) ?? [] 
+    let cresult = result.cString(using: .utf8) ?? []
     context.fireChannelRead(self.wrapInboundOut(cresult))
 }
 ```
@@ -332,11 +332,11 @@ Server started and listening on [IPv6]::1/::1:8888
 
 `nc` 是什么？
 
-`nc/ncat﻿` 是 `netcat` 的缩写，它可以读写 TCP 与 UDP 端口——或许你看不懂这句话，这没有关系。简单地说，它可以在字符界面下，让你和服务器沟通交流。
+`nc/ncat ` 是 `netcat` 的缩写，它可以读写 TCP 与 UDP 端口——或许你看不懂这句话，这没有关系。简单地说，它可以在字符界面下，让你和服务器沟通交流。
 
 `nc` 命令在 macOS 中是自带的，在 Linux 中一般自带，或是可以使用相应的软件包管理器安装（如在 Debian/Ubuntu 中这个包名叫 `netcat`）
 
-打开一个新的shell进行连接
+打开一个新的 shell 进行连接
 
 ```sh
 $ nc ::1 8888
@@ -344,7 +344,7 @@ $ nc ::1 8888
 
 输入消息，然后按 Enter。您应该看到回显后的文本已修改。
 
-![-w367](http://blog.loveli.site/2020-11-29-16066221925549.png)
+![-w367](http://blog.oldbird.run/2020-11-29-16066221925549.png)
 
 ## 源码
 

@@ -16,7 +16,7 @@ tags:
 
 **支持线上浏览**：[https://oldbird.run/design-patterns](https://oldbird.run/design-patterns/#/)
 
-![](http://blog.loveli.site/mweb/16169324651038.jpg)
+![](http://blog.oldbird.run/mweb/16169324651038.jpg)
 
 ## 基础
 

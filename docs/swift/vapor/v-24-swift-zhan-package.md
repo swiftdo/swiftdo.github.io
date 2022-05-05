@@ -2,16 +2,15 @@
 sitemap:
   exclude: false
   changefreq: hourly
-title: 'SwiftNIO 实战之TCP粘包/拆包问题'
+title: "SwiftNIO 实战之TCP粘包/拆包问题"
 date: 2020-11-22
 tags:
-- swift
-- vapor
-- swiftnio
+  - swift
+  - vapor
+  - swiftnio
 ---
 
 在 TCP 编程中，无论是服务器还是客户端，当我们读取或者发送消息的时候，都需要考虑 TCP 底层的粘包/拆包机制。本文先简单介绍 TCP 粘包/拆包的基础知识，然后模拟一个没有考虑 TCP 粘包/拆包导致功能异常的案例，最后探讨 SwiftNIO 是如何解决这个问题的。
-
 
 ## TCP 粘包/拆包
 
@@ -19,14 +18,14 @@ tags:
 
 ### 一些基本概念
 
-* **MTU**（Maximum Transmission Unit）：泛指通讯协议中的最大传输单元。一般用来说明TCP/IP四层协议中数据链路层的最大传输单元，不同类型的网络MTU也会不同，我们普遍使用的以太网的MTU是1500，即最大只能传输 1500 字节的数据帧。
-* **MSS**（Maximum Segment Size）：指 TCP 建立连接后双方约定的可传输的最大 TCP 报文长度，是 TCP 用来限制应用层可发送的最大字节数。如果底层的 MTU 是 1500 byte，则 MSS = 1500 - 20(IP Header) - 20 (TCP Header) = 1460 byte。
+- **MTU**（Maximum Transmission Unit）：泛指通讯协议中的最大传输单元。一般用来说明 TCP/IP 四层协议中数据链路层的最大传输单元，不同类型的网络 MTU 也会不同，我们普遍使用的以太网的 MTU 是 1500，即最大只能传输 1500 字节的数据帧。
+- **MSS**（Maximum Segment Size）：指 TCP 建立连接后双方约定的可传输的最大 TCP 报文长度，是 TCP 用来限制应用层可发送的最大字节数。如果底层的 MTU 是 1500 byte，则 MSS = 1500 - 20(IP Header) - 20 (TCP Header) = 1460 byte。
 
-    > 字 word、字节 byte、位 bit
-    
+  > 字 word、字节 byte、位 bit
+
 ### 示意图
 
-![](http://blog.loveli.site/2020-12-06-16066537712606.jpg)
+![](http://blog.oldbird.run/2020-12-06-16066537712606.jpg)
 
 假设客户端分别发送了两个数据包 D1 和 D2 给服务器，由于服务器一次读取的字节数是不确定的，故可能存在以下 4 中情况：
 
@@ -34,7 +33,7 @@ tags:
 
 （2）服务端一次接收到了两个数据包，D1 和 D2 粘合在一起，被称为 **TCP 粘包**；
 
-（3）服务端分两次读取到了两个数据包，第一次读取到了完整的 D1 包和 D2 包的部分内容，第二次读取到了D2 包的剩余内容，这被称为 **TCP 拆包**；
+（3）服务端分两次读取到了两个数据包，第一次读取到了完整的 D1 包和 D2 包的部分内容，第二次读取到了 D2 包的剩余内容，这被称为 **TCP 拆包**；
 
 （4）服务端分两次读取到了两个数据包，第一次读取到了 D1 包的部分内容 D1_1，第二次读取到了 D1 包的剩余内容 D1_2 和 D2 包的整包。
 
@@ -48,11 +47,11 @@ tags:
 （2）进行 MSS 大小的 TCP 分段；
 （3）以太网帧的 payload 大于 MTU 进行 IP 分片。
 
-![](http://blog.loveli.site/2020-12-06-16066541018747.jpg)
+![](http://blog.oldbird.run/2020-12-06-16066541018747.jpg)
 
 ### 粘包问题的解决策略
 
-由于底层的TCP无法理解上层的业务数据，所以在底层是无法保证数据包不被拆分和重组的，这个问题只能通过上层的应用协议栈设计来解决，根据业界的主流协议的解决方案，可以归纳如下：
+由于底层的 TCP 无法理解上层的业务数据，所以在底层是无法保证数据包不被拆分和重组的，这个问题只能通过上层的应用协议栈设计来解决，根据业界的主流协议的解决方案，可以归纳如下：
 
 （1）消息定长，例如每个报文的大小为固定长度 200 字节，如果不够，空位补空格；
 
@@ -285,9 +284,9 @@ final class EchoClient {
 
 可能你会提出新的疑问：如果发送的消息不是以换行符结束怎么办？或者没有回车换行符，靠消息头中的长度字段来分包怎么办？是不是需要自己写半解码器？答案是否定的，swift-nio-extras 提供了多种解码器，用来满足不同的诉求：
 
-* `FixedLengthFrameDecoder`， 按固定的字节数分割传入的 `ByteBuffer`
-* `LengthFieldBasedFrameDecoder`，将传入的 ByteBuffer 按报头中指定的长度进行分割
-* ...
+- `FixedLengthFrameDecoder`， 按固定的字节数分割传入的 `ByteBuffer`
+- `LengthFieldBasedFrameDecoder`，将传入的 ByteBuffer 按报头中指定的长度进行分割
+- ...
 
 ## 总结
 

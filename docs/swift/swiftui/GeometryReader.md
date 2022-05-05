@@ -33,7 +33,7 @@ struct MyRectangle: View {
 }
 ```
 
-![](http://blog.loveli.site/mweb/16032475574382.jpg)
+![](http://blog.oldbird.run/mweb/16032475574382.jpg)
 
 正如你所看到的，`MyRectangle()`，不用去设置 size，它只有一个任务，就是画矩形。让 SwiftUI 自己去管理好父级期望的子视图的大小和位置。 这个例子里 Vstack 就是父级视图。
 
@@ -48,7 +48,7 @@ struct MyRectangle: View {
 
 `GeometryReader`让你定义了它的`content`。 但是与其他`View`不同。你可以拿到一些你在其他`View`中拿不到的信息。
 
-![](http://blog.loveli.site/mweb/16032478700155.jpg)
+![](http://blog.oldbird.run/mweb/16032478700155.jpg)
 
 ```swift
 struct ContentView : View {
@@ -108,11 +108,11 @@ public subscript<T>(anchor: Anchor<T>) -> T where T : Equatable { get }
   - `global`的意思是获取基于整块屏幕的坐标位置
   - `local`指的是容器视图，也就是`GeometryReader`的内部的相对位置。对于 `local` 怎么使用，这里有一张图，它比较清楚地解释了`local`中的位置参数。
 
-    ![](http://blog.loveli.site/mweb/16033300134485.jpg)
+    ![](http://blog.oldbird.run/mweb/16033300134485.jpg)
 
   - `.name(AnyHashable)` 是获取相对坐标，比方下面的例子相对于蓝色 stack view 的坐标。
 
-    ![](http://blog.loveli.site/mweb/16033307451728.jpg)
+    ![](http://blog.oldbird.run/mweb/16033307451728.jpg)
 
     ```swift
     struct ContentView: View {
@@ -158,7 +158,7 @@ Text("hello").background(Color.red)
 
 我们可以给任意一个`view`使用`.overlay()`方法还有`.background()`方法。下面我们将结合`GeometryReader`，画一个每个角指定不同的半径的矩形的例子来演示如何利用它们
 
-![](http://blog.loveli.site/mweb/16032495562741.jpg)
+![](http://blog.oldbird.run/mweb/16032495562741.jpg)
 
 ```swift
 struct ContentView : View {

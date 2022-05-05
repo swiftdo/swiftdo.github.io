@@ -2,47 +2,48 @@
 sitemap:
   exclude: false
   changefreq: hourly
-title: 'SwiftNIO 实战之序列化'
+title: "SwiftNIO 实战之序列化"
 date: 2020-12-09
 tags:
-- swift
-- vapor
-- swiftnio
+  - swift
+  - vapor
+  - swiftnio
 ---
 
 序列化一般有两个主要目的：
 
-* 网络传输
-* 对象持久化
+- 网络传输
+- 对象持久化
 
 一般评判一个编解码框架的优劣时，会考虑如下几个因素：
 
-* 是否支持跨语言；
-* 编码后的码流大小；
-* 编解码性能；
-* 类库是否小巧，API 使用是否方便；
-* 使用者需要手工开发的工作量和难度；
-* 类库的开源性以及社区活跃度；
+- 是否支持跨语言；
+- 编码后的码流大小；
+- 编解码性能；
+- 类库是否小巧，API 使用是否方便；
+- 使用者需要手工开发的工作量和难度；
+- 类库的开源性以及社区活跃度；
 
 在同等环境下，编码后的字节数越大，存储的时候就越占空间，存储的硬件成本就越高，并且在网络传输时更占带宽，导致系统的吞吐量降低。
 
 ## 主流编解码框架
 
-### Google 的 Protobuf 
+### Google 的 Protobuf
 
 Protobuf（Google Protocol Buffers），由谷歌开源。它将数据结构以 .proto 文件进行描述，通过代码生成工具可以生成对应数据结构的 POJO 对象和 Protobuf 相关的方法和属性。
 
 它的特点：
-* 结构化数据存储格式
-* 高效的编解码性能
-* 语言无关、平台无关、扩展性好
-* 支持的语言比较丰富
+
+- 结构化数据存储格式
+- 高效的编解码性能
+- 语言无关、平台无关、扩展性好
+- 支持的语言比较丰富
 
 对比 XML, 尽管 XML 的可读性和可扩展性非常好，也非常适合描述数据结构，但是 XML 解析的时间开销和 XML 为了可读性而牺牲的空间开销都非常大，因此不适合做高性能的通信协议。Protobuf 使用二进制编码，在空间和性能上具有更大优势。
 
 ### Facebook 的 Thrift
 
-Thrift 是 Facebook 于2007年开发的跨语言的 rpc 服框架，提供多语言的编译功能，并提供多种服务器工作模式；用户通过 Thrift 的 IDL（接口定义语言）来描述接口函数及数据类型，然后通过 Thrift 的编译环境生成各种语言类型的接口文件，用户可以根据自己的需要采用不同的语言开发客户端代码和服务器端代码。
+Thrift 是 Facebook 于 2007 年开发的跨语言的 rpc 服框架，提供多语言的编译功能，并提供多种服务器工作模式；用户通过 Thrift 的 IDL（接口定义语言）来描述接口函数及数据类型，然后通过 Thrift 的编译环境生成各种语言类型的接口文件，用户可以根据自己的需要采用不同的语言开发客户端代码和服务器端代码。
 
 ## 实战 Protobuf
 
@@ -131,11 +132,11 @@ MovieClient 和 MovieServer 将生成的 `movies.pb.swift` 分别引入各自项
 
 MoviewClient 的工程目录：
 
-![-w269](http://blog.loveli.site/2020-12-10-16075304217750.png)
+![-w269](http://blog.oldbird.run/2020-12-10-16075304217750.png)
 
 MovieServer 的工程目录：
 
-![-w269](http://blog.loveli.site/2020-12-10-Screen%20Shot%202020-12-10%20at%2012.13.27%20AM.png)
+![-w269](http://blog.oldbird.run/2020-12-10-Screen%20Shot%202020-12-10%20at%2012.13.27%20AM.png)
 
 两端代码的 Handler 是各自业务的核心。其它代码是 SwiftNIO 使用比较常见的使用方式。
 
@@ -398,7 +399,7 @@ year: 2011
 2. 在客户端中创建 Movie 对象，然后序列化成 Data，通过 SwiftNIO 发送给服务器端；
 3. 服务器端接收到客户端的数据，从 ByteBuffer 中读取到数据，然后将其转化为 Data，在通过方法将 Data 反序列化成 Movie 对象，完成解码。
 
-proto文件生成目标代码，简单易用；
+proto 文件生成目标代码，简单易用；
 序列化反序列化直接对应程序中的数据类，不需要解析后在进行映射；
 二进制消息，性能好/效率高；
 
@@ -406,5 +407,5 @@ proto文件生成目标代码，简单易用；
 
 ## 参阅
 
-* [序列化和反序列化](https://tech.meituan.com/2015/02/26/serialization-vs-deserialization.html)
-* [Protocol Buffers with SwiftNIO](https://fattywaffles.medium.com/protocol-buffers-with-swiftnio-69a2804b5ba9)
+- [序列化和反序列化](https://tech.meituan.com/2015/02/26/serialization-vs-deserialization.html)
+- [Protocol Buffers with SwiftNIO](https://fattywaffles.medium.com/protocol-buffers-with-swiftnio-69a2804b5ba9)
