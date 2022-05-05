@@ -33,7 +33,7 @@ SwiftUI 有一个让我们去给`View`添加很多属性的机制。这些属性
 
 为了更好的了解今天的话题，我们先用一个没有使用偏好的例子开始。在例子中，先创建一个显示月份名的`View`。当月份标签被点击的时候，会在月份标签上面慢慢的显示一个边框(从之前选中的月份标签移除)。
 
-![ezgif.com-gif-make](http://blog.loveli.site/mweb/ezgif.com-gif-maker.gif)
+![ezgif.com-gif-make](http://blog.oldbird.run/mweb/ezgif.com-gif-maker.gif)
 
 代码:
 
@@ -105,7 +105,7 @@ struct MonthBorder: View {
 
 下面难度再升级一些，我们想让边框从一个月份移动到另外一个。
 
-![ezgif.com-gif-maker-2](http://blog.loveli.site/mweb/ezgif.com-gif-maker-2.gif)
+![ezgif.com-gif-maker-2](http://blog.oldbird.run/mweb/ezgif.com-gif-maker-2.gif)
 
 边框并不是月份的一部分，你需要创建一个单独的边框 View，并相应的改变位置和大小，这意味着必须有一种方式去跟踪每个月份的大小和位置。
 

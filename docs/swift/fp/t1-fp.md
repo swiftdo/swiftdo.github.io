@@ -2,11 +2,11 @@
 sitemap:
   exclude: false
   changefreq: hourly
-title: 'Swift 函数式'
+title: "Swift 函数式"
 date: 2021-3-31
 tags:
-- swift
-- 函数式编程
+  - swift
+  - 函数式编程
 ---
 
 ## 类型构造体
@@ -24,7 +24,7 @@ enum Result<T> {
 
 函子能够将普通函数应用到一个包装类型。
 
-![](http://blog.loveli.site/mweb/16171714130943.jpg)
+![](http://blog.oldbird.run/mweb/16171714130943.jpg)
 
 打开封装的数据类型，取出值，用值函数处理以后，再封装回数据类型。
 
@@ -54,7 +54,7 @@ func <^><T, U>(f: (T) -> U, a: Optional<T>) -> Optional<U> {
 
 适用函子能够将包装函数应用到一个包装类型。
 
-![](http://blog.loveli.site/mweb/16171714224888.jpg)
+![](http://blog.oldbird.run/mweb/16171714224888.jpg)
 
 两个数据类型进行运算。首先，取出它们各自的值，一个是函数，一个是数值；然后，使用函数处理数值；最后，将函数的返回结果再封装进数据类型。
 
@@ -98,13 +98,5 @@ Monad 就是一种设计模式，表示将一个运算过程，通过函数拆�
 
 ## 参阅
 
-* [图解 Monad](http://www.ruanyifeng.com/blog/2015/07/monad.html)
-* [Functors, Applicatives, And Monads In Pictures](https://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html)
-
-
-
-
-
-
-
-
+- [图解 Monad](http://www.ruanyifeng.com/blog/2015/07/monad.html)
+- [Functors, Applicatives, And Monads In Pictures](https://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html)

@@ -82,7 +82,7 @@ struct CasePage: View {
 }
 ```
 
-![](http://blog.loveli.site/tuc/111ee.gif ":size=300")
+![](http://blog.oldbird.run/tuc/111ee.gif ":size=300")
 
 ## 如何自定义按钮的背景、填充和字体？
 
@@ -100,7 +100,7 @@ Button(action: {
 }).padding()
 ```
 
-![](http://blog.loveli.site/tuc/111ee002.gif ":size=300")
+![](http://blog.oldbird.run/tuc/111ee002.gif ":size=300")
 
 特别强调：modifier 的顺序非常重要，假设我们把 `padding` 移动，不在 `background` 的前面，效果是不一样的。
 
@@ -117,7 +117,7 @@ Button(action: {
 }).padding()
 ```
 
-![](http://blog.loveli.site/tuc/111ee003.gif ":size=300")
+![](http://blog.oldbird.run/tuc/111ee003.gif ":size=300")
 
 ## 如何给按钮添加边框？
 
@@ -134,7 +134,7 @@ Button(action: {
 })
 ```
 
-![](http://blog.loveli.site/tuc/111ee004.gif ":size=300")
+![](http://blog.oldbird.run/tuc/111ee004.gif ":size=300")
 
 ## 如何创建同时包含图像和文本的按钮？
 
@@ -155,7 +155,7 @@ Button(action: {
 })
 ```
 
-![](http://blog.loveli.site/tuc/111ee005.gif ":size=300")
+![](http://blog.oldbird.run/tuc/111ee005.gif ":size=300")
 
 ## 如何创建具有渐变背景和阴影的按钮？
 
@@ -176,7 +176,7 @@ Button(action: {
 })
 ```
 
-![](http://blog.loveli.site/tuc/111ee006.gif ":size=300")
+![](http://blog.oldbird.run/tuc/111ee006.gif ":size=300")
 
 ## 如何创建圆角按钮且添加外圆角边框？
 
@@ -200,7 +200,7 @@ Button(action: {
 })
 ```
 
-![](http://blog.loveli.site/tuc/111ee007.gif ":size=300")
+![](http://blog.oldbird.run/tuc/111ee007.gif ":size=300")
 
 ## 推荐阅读
 

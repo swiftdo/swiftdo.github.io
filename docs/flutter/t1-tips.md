@@ -1,8 +1,8 @@
 ---
-title: 'tips'
+title: "tips"
 date: 2020-08-17
 tags:
-- flutter
+  - flutter
 sitemap:
   exclude: false
   changefreq: hourly
@@ -12,23 +12,23 @@ sitemap:
 
 我们可以键入 `stless` 和 `stful`，会出现代码补全提示。
 
-![01stlesstfu](http://blog.loveli.site/2020-06-19-01stlesstful.gif)
+![01stlesstfu](http://blog.oldbird.run/2020-06-19-01stlesstful.gif)
 
 ## Tip2 `If Null` 运算符(`??`)
 
 dart 有两个运算符，可让您简明地评估可能需要 `if-else` 语句的表达式:
 
-* 如果条件为真，返回 expr1，否则返回 expr2。
+- 如果条件为真，返回 expr1，否则返回 expr2。
 
-    ```dart
-    condition ? expr1 : expr2
-    ```
+  ```dart
+  condition ? expr1 : expr2
+  ```
 
-* 如果 expr1 为非空，则返回其值；否则，计算并返回 expr2 的值。
+- 如果 expr1 为非空，则返回其值；否则，计算并返回 expr2 的值。
 
-    ```dart
-    expr1 ?? expr2
-    ```
+  ```dart
+  expr1 ?? expr2
+  ```
 
 当你需要根据布尔表达式赋值时，考虑使用 `?:`
 
@@ -52,16 +52,16 @@ b ??= value;
 ## Tip3 级联调用 (`..`)
 
 使用级联调用，可以简化在一个对象上执行的多个操作。
- 
+
 除了方法调用之外，你还可以获取同一个对象上的成员变量。这样做通常省去了创建临时变量的步骤，同时允许你写出更流畅的代码。
 
 我们定义一个 Student 对象，然后创建一个 Student 对象，通过级联表达式依次调用它的各个方法和 setter 属性。
 
 ```dart
 class Student {
-  
+
   String string;
-  
+
   void testMethod() {
     print("This is a  test method");
   }
@@ -86,7 +86,6 @@ main() {
 ```
 
 ## Tip4 Spacer Widget
-
 
 ```dart
 class Spacer extends StatelessWidget {
@@ -129,13 +128,13 @@ Row(
 
 效果如下：
 
-![](http://blog.loveli.site/2020-06-19-15925765686019.jpg)
+![](http://blog.oldbird.run/2020-06-19-15925765686019.jpg)
 
 **总结：**
 
-* Spacer是通过 Expanded 来实现的，Expanded 继承自 Flexible。
-* 填满剩余空间直接使用 Expanded 更方便。
-* Spacer用于撑开Row、Column、Flex的子控件的空隙。
+- Spacer 是通过 Expanded 来实现的，Expanded 继承自 Flexible。
+- 填满剩余空间直接使用 Expanded 更方便。
+- Spacer 用于撑开 Row、Column、Flex 的子控件的空隙。
 
 ## Tip5 点击区域变大
 
@@ -157,17 +156,17 @@ GestureDetector(
 
 `HitTestBehavior` 用于控制事件的传递方式：
 
-* **HitTestBehavior.deferToChild**
+- **HitTestBehavior.deferToChild**
 
-    只有有子 Widget 通过了 `Hit-Test`，才接收一系列的事件，接收区域也会被限制在该子 Widget 区域中。
+  只有有子 Widget 通过了 `Hit-Test`，才接收一系列的事件，接收区域也会被限制在该子 Widget 区域中。
 
-* **HitTestBehavior.opaque**
+- **HitTestBehavior.opaque**
 
-    Widget  能够通过 `Hit-Test`，接收事件，且能阻止在它之前的 Widget（直观来看就是被它挡住的 Widget）接收事件。简单来说就是事件 `不能透传`。
+  Widget 能够通过 `Hit-Test`，接收事件，且能阻止在它之前的 Widget（直观来看就是被它挡住的 Widget）接收事件。简单来说就是事件 `不能透传`。
 
-* **HitTestBehavior.translucent**
+- **HitTestBehavior.translucent**
 
-    Widget 能够通过 `Hit-Test`，接收事件，且不会阻止它之前的 Widget（直观来看就是被它挡住的 Widget）接收事件。简单来说就是事件 能透传
+  Widget 能够通过 `Hit-Test`，接收事件，且不会阻止它之前的 Widget（直观来看就是被它挡住的 Widget）接收事件。简单来说就是事件 能透传
 
 ## Tip6 Ink 解决“水波纹” 超出的圆角边框
 
@@ -187,7 +186,7 @@ InkWell(
 )
 ```
 
-![InkWell](http://blog.loveli.site/2020-06-30-20200225174825258.gif)
+![InkWell](http://blog.oldbird.run/2020-06-30-20200225174825258.gif)
 
 `Ink`隆重登场。让控件区域背景变成圆角矩形。`Ink`控件用于在`Material`控件上绘制图像或者其他装饰，以便`InkWell`、`InkResponse`控件的 “水波纹” 效果在其上面显示。
 
@@ -213,7 +212,7 @@ Ink(
 )
 ```
 
-![Ink&InkWell](http://blog.loveli.site/2020-06-30-202002251758102.gif)
+![Ink&InkWell](http://blog.oldbird.run/2020-06-30-202002251758102.gif)
 
 ## Tip7 assert 条件为返回 false，中断程序执行且抛出错误信息
 
@@ -237,7 +236,7 @@ String oldWay(String value, int times) {
     for(int i = 0; i < times; i++) {output += value;}
     return output;
 }
-  
+
 // ✅ 使用字符串乘法
 String newWay(String value, int times) => value * times;
 ```
@@ -248,7 +247,7 @@ String newWay(String value, int times) => value * times;
 enum Month { jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec }
 ```
 
-如果我们需要获取 Month 元素对应的字符串。那么以前我们会这么写 
+如果我们需要获取 Month 元素对应的字符串。那么以前我们会这么写
 
 ```dart
 print(Month.jan.toString().split('.').last) // jan
@@ -259,7 +258,7 @@ print(Month.jan.toString().split('.').last) // jan
 ```dart
 extension MonthExtension on Object {
   String get enumValue => this.toString().split('.').last;
-  
+
   int get value => this.index + 1;
   String get cn =>
   [
@@ -418,6 +417,4 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-![emojis](http://blog.loveli.site/2020-06-30-15935295814964.jpg)
-
-
+![emojis](http://blog.oldbird.run/2020-06-30-15935295814964.jpg)

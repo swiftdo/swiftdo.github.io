@@ -16,7 +16,7 @@ tags:
 
 ## 样例
 
-![](http://blog.loveli.site/mweb/16171987137559.jpg)
+![](http://blog.oldbird.run/mweb/16171987137559.jpg)
 
 ```swift
 protocol Strategy {

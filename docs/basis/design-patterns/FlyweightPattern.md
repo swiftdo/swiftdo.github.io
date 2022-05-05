@@ -14,7 +14,7 @@ tags:
 
 ## 样例
 
-![](http://blog.loveli.site/mweb/16169265040529.jpg)
+![](http://blog.oldbird.run/mweb/16169265040529.jpg)
 
 ```swift
 import Foundation

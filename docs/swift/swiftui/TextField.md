@@ -48,7 +48,7 @@ struct TextFieldPage_Previews: PreviewProvider {
 }
 ```
 
-![hello-swiftui-textfield2](http://blog.loveli.site/mweb/hello-swiftui-textfield2.gif)
+![hello-swiftui-textfield2](http://blog.oldbird.run/mweb/hello-swiftui-textfield2.gif)
 
 `TextField`的`init`参数说明：
 
@@ -72,7 +72,7 @@ HStack {
 .frame(height: 44)
 ```
 
-![](http://blog.loveli.site/mweb/16267701052795.jpg)
+![](http://blog.oldbird.run/mweb/16267701052795.jpg)
 
 然后我们创建个 `AddPage` 页面：
 
@@ -94,11 +94,11 @@ struct AddPage_Previews: PreviewProvider {
 
 我们给`添加待办事项`按钮添加点击事件，点击的时候弹出`AddPage`：
 
-![](http://blog.loveli.site/mweb/16268265284520.jpg)
+![](http://blog.oldbird.run/mweb/16268265284520.jpg)
 
 通过 `popoverIsShow` 控制页面的弹出与否，我们一起看下跳转效果：
 
-![hello-swiftui-pop-view](http://blog.loveli.site/mweb/hello-swiftui-pop-view.gif)
+![hello-swiftui-pop-view](http://blog.oldbird.run/mweb/hello-swiftui-pop-view.gif)
 
 实现跳转后，我们需要完善 `AddPage` 页面，这里将简单的实现一个输入框用来输入 task。
 
@@ -152,19 +152,19 @@ struct AddPage: View {
 }
 ```
 
-![](http://blog.loveli.site/mweb/16268273594679.jpg)
+![](http://blog.oldbird.run/mweb/16268273594679.jpg)
 
 在 AddPage 中，点击取消，我们修改 `isPresented = false` 即可，需要外部传递。可以在输入按钮中输入待办事项的名字。当待办事项的名字的长度大于 0，我们将添加按钮进行高亮，点击高亮关闭页面，且回调 `addItem`，将 task 回传给调用方。
 
 在 `MainPage` 中，我们修改代码如下：
 
-![](http://blog.loveli.site/mweb/16268276601714.jpg)
+![](http://blog.oldbird.run/mweb/16268276601714.jpg)
 
 将 addItem 中我们创建了一个新的 `TodoItem`，然后追加到 listData 中。
 
 我们一起来看下最终的运行效果。
 
-![hello-swiftui-add2-view](http://blog.loveli.site/mweb/hello-swiftui-add2-view.gif)
+![hello-swiftui-add2-view](http://blog.oldbird.run/mweb/hello-swiftui-add2-view.gif)
 
 ## 最终的代码如下
 

@@ -34,7 +34,7 @@ struct CasePage: View {
 }
 ```
 
-![](http://blog.loveli.site/tuc/a.gif ":size=300")
+![](http://blog.oldbird.run/tuc/a.gif ":size=300")
 
 `@State`只能用于当前视图，通过执行上面代码，我们可以发现：
 
@@ -129,7 +129,7 @@ struct CasePage: View {
 
 替换后，出现报错：
 
-![](http://blog.loveli.site/tuc/20210621210741.png ":size=300")
+![](http://blog.oldbird.run/tuc/20210621210741.png ":size=300")
 
 使用结构体，我们可以声明`mutating`的方法，但不能声明`mutating`的计算属性(如 body)，也不能在计算属性中调用`mutating`的方法。
 
@@ -155,7 +155,7 @@ struct OBState<Val> {
 
 很不幸，产生错误提示：
 
-![](http://blog.loveli.site/tuc/20210621211631.png ":size=300")
+![](http://blog.oldbird.run/tuc/20210621211631.png ":size=300")
 
 `'self' is immutable` 从 name 转移到`OBState`的`wrappedValue`的`setter`方法中了。
 
@@ -184,7 +184,7 @@ struct OBState<Val> {
 
 完成上述修改后，我们消灭了报错。
 
-![](http://blog.loveli.site/tuc/bb.gif ":size=300")
+![](http://blog.oldbird.run/tuc/bb.gif ":size=300")
 
 点击按钮，但没有看到任何变化。我们更新数据，但 SwiftUI 并不知道它应该监听这些变化，随意没有重新绘制 body。
 
@@ -227,7 +227,7 @@ struct OBState<Val> {
 
 再次运行：
 
-![](http://blog.loveli.site/tuc/cc.gif ":size=300")
+![](http://blog.oldbird.run/tuc/cc.gif ":size=300")
 
 当我们的值发生变化时，新的发布者确实会发送事件。但这一变化 SwiftUI 并未接收到。
 
@@ -244,7 +244,7 @@ struct OBState<V>: DynamicProperty {
 
 最后运行效果：
 
-![](http://blog.loveli.site/tuc/1ee.gif ":size=300")
+![](http://blog.oldbird.run/tuc/1ee.gif ":size=300")
 
 终于可以了！尽管最后成功实现点击效果。但这仅仅是个探究，具体实现肯定不会如此粗糙。但是经过这样去剖解分析，也对一些知识有更深刻的理解。
 

@@ -14,7 +14,7 @@ tags:
 
 ## 案例
 
-![](http://blog.loveli.site/mweb/16169310879998.jpg)
+![](http://blog.oldbird.run/mweb/16169310879998.jpg)
 
 ```swift
 /// 租房接口

@@ -302,33 +302,33 @@ RenderObjectWidget 有三个比较重要的子类：
 
 ### 基本继承关系图：
 
-![](http://blog.loveli.site/mweb/16155563318031.jpg)
+![](http://blog.oldbird.run/mweb/16155563318031.jpg)
 
 ### LeafRenderObjectWidget 继承关系图：
 
-![](http://blog.loveli.site/mweb/16155563445065.jpg)
+![](http://blog.oldbird.run/mweb/16155563445065.jpg)
 
 ### SingleChildRenderObjectWidget 继承关系图
 
-![](http://blog.loveli.site/mweb/16155563900589.jpg)
+![](http://blog.oldbird.run/mweb/16155563900589.jpg)
 
 ### MutilChildRenderObjectWidget 继承关系图
 
-![](http://blog.loveli.site/mweb/16155564431428.jpg)
+![](http://blog.oldbird.run/mweb/16155564431428.jpg)
 
 ### ProxyWidget 继承关系图
 
-![](http://blog.loveli.site/mweb/16155564169235.jpg)
+![](http://blog.oldbird.run/mweb/16155564169235.jpg)
 
 ProxyWidget 作为一个抽象的代理 Widget，并没有实质性的作用。只是在父类和子类需要传递信息时使用；主要有 InheritedWidget 和 ParentDataWidget 两类；InheritedWidget 和 ParentDataWidget 涉及内容较多，后续文章我们再深入研究；
 
 ### StatelessWidget 继承关系图
 
-![](http://blog.loveli.site/mweb/16155564637494.jpg)
+![](http://blog.oldbird.run/mweb/16155564637494.jpg)
 
 ### StatefulWidget 继承关系图
 
-![](http://blog.loveli.site/mweb/16155564723993.jpg)
+![](http://blog.oldbird.run/mweb/16155564723993.jpg)
 
 ## Opacity 只看到 Widget 和 RenderObject，Element 呢？
 
@@ -348,7 +348,7 @@ abstract class SingleChildRenderObjectWidget extends RenderObjectWidget {
 
 ### Widget 树 、RenderObject 树、Element 树的关系
 
-![](http://blog.loveli.site/mweb/16155578964069.jpg)
+![](http://blog.oldbird.run/mweb/16155578964069.jpg)
 
 从上图可以看出，widget 树和 Element 树节点是一一对应关系，每一个 Widget 都会有其对应的 Element，**但是 RenderObject 树则不然，只有需要渲染的 Widget 才会有对应的节点**。Element 树相当于一个中间层，大管家，它对 Widget 和 RenderObject 都有引用。当 Widget 不断变化的时候，将新 Widget 拿到 Element 来进行对比，看一下和之前保留的 Widget 类型和 Key 是否相同，如果都一样，那完全没有必要重新创建 Element 和 RenderObject，只需要更新里面的一些属性即可，这样可以以最小的开销更新 RenderObject，引擎在解析 RenderObject 的时候，发现只有属性修改了，那么也可以以最小的开销来做渲染。
 
@@ -387,7 +387,7 @@ RenderObject 类本身实现了一套基础的布局和绘制协议，但是并�
 
 完成一个 Widget，是一个圆，圆中心直接显示 OldBirds 文本，且这个圆有个外边框。
 
-![效果-w495](http://blog.loveli.site/mweb/Screen%20Shot%202021-03-13%20at%2010.11.33%20PM.png)
+![效果-w495](http://blog.oldbird.run/mweb/Screen%20Shot%202021-03-13%20at%2010.11.33%20PM.png)
 
 撸起袖子开干！
 

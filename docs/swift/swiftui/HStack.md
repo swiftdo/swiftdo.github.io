@@ -39,7 +39,7 @@ struct HStackPage: View {
 }
 ```
 
-![](http://blog.loveli.site/tuc/20210630212004.png)
+![](http://blog.oldbird.run/tuc/20210630212004.png)
 
 HStack 的定义：
 
@@ -136,7 +136,7 @@ struct CasePage: View {
 }
 ```
 
-![](http://blog.loveli.site/tuc/20210630220746.png)
+![](http://blog.oldbird.run/tuc/20210630220746.png)
 
 通过预览效果，可以比较容易发现 `alignment` 间的差异。
 
@@ -167,4 +167,4 @@ struct CircleRow:View {
 
 ```
 
-![](http://blog.loveli.site/tuc/20210630222516.png)
+![](http://blog.oldbird.run/tuc/20210630222516.png)

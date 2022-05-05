@@ -2,22 +2,23 @@
 sitemap:
   exclude: false
   changefreq: hourly
-title: '实战：say-oldbirds'
+title: "实战：say-oldbirds"
 date: 2020-09-07
 tags:
-- swift
-- vapor
+  - swift
+  - vapor
 ---
 
 ## 概述
 
 say-oldbirds 是一个类似于留言板的程序，用来让用户发表问候。say-oldbirds 的使用流程非常简单，用户输入问候信息和姓名，按下提交按钮，就可以将问候加入到页面的消息队列中。
 
-![say-oldbirds](http://blog.loveli.site/2020-08-26-landscape22.png)
+![say-oldbirds](http://blog.oldbird.run/2020-08-26-landscape22.png)
 
 在线体验：
-* leaf 版: [https://say-oldbirds.herokuapp.com/](https://say-oldbirds.herokuapp.com/)
-* flutter 版：[https://swiftdo.github.io/say-oldbirds-flutter](https://swiftdo.github.io/say-oldbirds-flutter)
+
+- leaf 版: [https://say-oldbirds.herokuapp.com/](https://say-oldbirds.herokuapp.com/)
+- flutter 版：[https://swiftdo.github.io/say-oldbirds-flutter](https://swiftdo.github.io/say-oldbirds-flutter)
 
 vapor 的基本操作本文不做过多阐述，可参考 [安装](t1-install.md)
 
@@ -220,7 +221,7 @@ $ vapor run migrate
 
 执行后，刷新 say-oldbirds 数据库, 可以发现 messages 表创建成功了。
 
-## Leaf模板引擎
+## Leaf 模板引擎
 
 现在 `routes.swift` 仅仅只有一个 get 路由，且返回 `It works!`：
 
@@ -286,7 +287,7 @@ public func configure(_ app: Application) throws {
 }
 ```
 
-configure 方法的第一行启用了一个中间件，用途是从 `Public` 目录中提供文件服务(图片，css，js等等)。
+configure 方法的第一行启用了一个中间件，用途是从 `Public` 目录中提供文件服务(图片，css，js 等等)。
 默认情况下，`Leaf`模板文件应放置在 `Resources/Views` 目录下。可以通过在配置属性`app.leaf.configuration.rootDirectory` 上设置新的根目录来更改此设置。
 
 在 `Resources/Views` 下添加 `base.leaf` 作为父模板:
@@ -294,32 +295,27 @@ configure 方法的第一行启用了一个中间件，用途是从 `Public` 目
 ```html
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/frontend.css" />
+    <title>say-oldbirds</title>
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/css/frontend.css">
-  <title>say-oldbirds</title>
-</head>
-
-<body>
-  <div class="so-nav">
-    <div class='so-title-big'>Say OldBirds</div>
-    <div class='so-title-small'>to the world</div>
-  </div>
-  <div class="so-content">
-    #import("body")
-  </div>
-  
-</body>
-
+  <body>
+    <div class="so-nav">
+      <div class="so-title-big">Say OldBirds</div>
+      <div class="so-title-small">to the world</div>
+    </div>
+    <div class="so-content">#import("body")</div>
+  </body>
 </html>
 ```
 
 在 `base.leaf` 中，采用了 css 样式
 
 ```html
-<link rel="stylesheet" href="/css/frontend.css">
+<link rel="stylesheet" href="/css/frontend.css" />
 ```
 
 所以可以在 Public 目录下新建 `css` 文件夹，且在 `css` 文件夹下创建 `frontend.css`，内容如下：
@@ -328,234 +324,230 @@ configure 方法的第一行启用了一个中间件，用途是从 `Public` 目
 /*frontend.css*/
 
 * {
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 body {
-    font-family: Menlo, Roboto;
-    font-size: 16px;
-    line-height: 1.5em;
-    background: #F2F2F2;
-    width: 100%;
+  font-family: Menlo, Roboto;
+  font-size: 16px;
+  line-height: 1.5em;
+  background: #f2f2f2;
+  width: 100%;
 }
 
 hr {
-    margin: 15px 0px;
-    border: none;
-    border-width: 0.5px;
-    border-style: solid;
+  margin: 15px 0px;
+  border: none;
+  border-width: 0.5px;
+  border-style: solid;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 img {
-    width: 100%;
+  width: 100%;
 }
 
 h1 {
-    font-size: 28px;
+  font-size: 28px;
 }
 
 h2 {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 h3 {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .so-nav {
-    display: flex;
-    margin: 40px 80px;
-    justify-content: center;
-    align-items: baseline;
+  display: flex;
+  margin: 40px 80px;
+  justify-content: center;
+  align-items: baseline;
 }
 
 .so-title-big {
-    font-size: 50px;
-    color: #EB5757;
-    font-family: Menlo;
+  font-size: 50px;
+  color: #eb5757;
+  font-family: Menlo;
 }
 
 .so-title-small {
-    margin-left: 20px;
-    font-size: 20px;
-    color: #828282;
-    font-family: PingFang SC;
+  margin-left: 20px;
+  font-size: 20px;
+  color: #828282;
+  font-family: PingFang SC;
 }
 
 .so-content {
-    margin: 50px 20% 20px 20%;
-    display: flex;
-    flex-direction: column;
-    align-content: flex-start;
-    justify-items: flex-start;
+  margin: 50px 20% 20px 20%;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  justify-items: flex-start;
 }
 
 .so-form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .so-name {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .so-form-title {
-    font-size: 22px;
-    margin-bottom: 10px;
-    color: #4F4F4F;
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #4f4f4f;
 }
 
 .so-input {
-    outline-style: none;
-    border: none;
-    font-size: 20px;
-    padding: 10px 10px;
-    border-radius: 5px;
+  outline-style: none;
+  border: none;
+  font-size: 20px;
+  padding: 10px 10px;
+  border-radius: 5px;
 }
 
 .so-message {
-    display: flex;
-    flex-direction: column;
-    margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
 }
 
 .so-textarea {
-    outline-style: none;
-    border: none;
-    font-size: 20px;
-    padding: 10px 10px;
-    border-radius: 5px;
+  outline-style: none;
+  border: none;
+  font-size: 20px;
+  padding: 10px 10px;
+  border-radius: 5px;
 }
 
 .so-submit {
-    margin-top: 30px;
+  margin-top: 30px;
 
-    width: 150px;
-    height: 44px;
-    outline-style: none;
-    border: none;
-    border-radius: 10px;
-    background: #EB5757;
-    font-size: 18px;
-    color: white;
+  width: 150px;
+  height: 44px;
+  outline-style: none;
+  border: none;
+  border-radius: 10px;
+  background: #eb5757;
+  font-size: 18px;
+  color: white;
 }
 
 .so-list {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 .so-list-title {
-    font-size: 28px;
-    margin-bottom: 20px;
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
 .so-list-body {
-    border-radius: 10px;
-    background: white;
+  border-radius: 10px;
+  background: white;
 }
 
 .so-list-cell {
-    padding: 20px;
-    border-bottom: #eee solid 1px;
+  padding: 20px;
+  border-bottom: #eee solid 1px;
 }
 
 .so-cell-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .so-cell-name {
-    font-size: 20px;
-    color: #EB5757;
-    font-family: PingFang SC;
+  font-size: 20px;
+  color: #eb5757;
+  font-family: PingFang SC;
 }
 
 .so-cell-time {
-    font-size: 14px;
-    color: #BDBDBD;
+  font-size: 14px;
+  color: #bdbdbd;
 }
 
 .so-cell-message {
-    font-size: 16px;
-    margin-top: 10px;
-    color: #333;
-    font-family: Menlo;
+  font-size: 16px;
+  margin-top: 10px;
+  color: #333;
+  font-family: Menlo;
 }
 
 .so-id {
-    color: #BDBDBD;
-    font-size: 12px;
-    margin-left: 5px;
+  color: #bdbdbd;
+  font-size: 12px;
+  margin-left: 5px;
 }
 
 .so-footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 30px auto;
-    color: #4F4F4F;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 30px auto;
+  color: #4f4f4f;
 }
 
 .so-footer a {
-    margin: 0px 5px;
+  margin: 0px 5px;
 }
 ```
 
 在 `Resources/Views` 创建 `index.leaf`：
 
 ```html
-#extend("base"):
-  #export("body"):
-    <form class="so-form" method="post" action="/create" >
-      <div class="so-name">
-        <div class="so-form-title">name</div>
-        <input class='so-input' type="text" name="name" />
-      </div>
-      <div class="so-message">
-        <div class="so-form-title">message</div>
-        <textarea class="so-textarea" rows="3" name="body"></textarea>
-      </div>
-      <input class="so-submit" type="submit" value="Submit" />
-    </form>
+#extend("base"): #export("body"):
+<form class="so-form" method="post" action="/create">
+  <div class="so-name">
+    <div class="so-form-title">name</div>
+    <input class="so-input" type="text" name="name" />
+  </div>
+  <div class="so-message">
+    <div class="so-form-title">message</div>
+    <textarea class="so-textarea" rows="3" name="body"></textarea>
+  </div>
+  <input class="so-submit" type="submit" value="Submit" />
+</form>
 
-    <div class="so-list">
-      <div class="so-list-title">Messges(#(count))</div>
-      <div class="so-list-body">
-          #if(messages != nil):
-            #for(data in messages):
-              <div class="so-list-cell">
-                <div class="so-cell-header">
-                  <div class="so-cell-name">
-                    #(data.name)<span class="so-id">##(data.id)</span>
-                  </div>
-                  <div class="so-cell-time">#(data.time)</div>
-                </div>
-                <div class="so-cell-message">
-                  #(data.message)
-                </div>
-              </div>
-            #endfor
-        #else:
-            <div>no messages</div>
-        #endif
-
+<div class="so-list">
+  <div class="so-list-title">Messges(#(count))</div>
+  <div class="so-list-body">
+    #if(messages != nil): #for(data in messages):
+    <div class="so-list-cell">
+      <div class="so-cell-header">
+        <div class="so-cell-name">
+          #(data.name)<span class="so-id">##(data.id)</span>
+        </div>
+        <div class="so-cell-time">#(data.time)</div>
       </div>
+      <div class="so-cell-message">#(data.message)</div>
     </div>
-    <div class="so-footer">©2020<a href="http://oldbird.run">OldBirds</a> | <a href="https://github.com/swiftdo/say-oldbirds">swiftdo/say-oldbirds</a></div>
-  #endexport
-#endextend
+    #endfor #else:
+    <div>no messages</div>
+    #endif
+  </div>
+</div>
+<div class="so-footer">
+  ©2020<a href="http://oldbird.run">OldBirds</a> |
+  <a href="https://github.com/swiftdo/say-oldbirds">swiftdo/say-oldbirds</a>
+</div>
+#endexport #endextend
 ```
 
 > 在 xcode 中选择 `Editor ▸ Syntax Coloring ▸ HTML`，让其语法高亮。
 
-模板文件经过处理后，将呈现为HTML字符串。首先，我们需要响应一些 HTTP 请求，然后告诉模板引擎呈现模板文件，然后将其作为 HTML 响应自动发送。
+模板文件经过处理后，将呈现为 HTML 字符串。首先，我们需要响应一些 HTTP 请求，然后告诉模板引擎呈现模板文件，然后将其作为 HTML 响应自动发送。
 
 ```swift
 /// routes.swift
@@ -627,23 +619,24 @@ $ swift run
 
 ### 注册 Heroku 账户
 
-您将需要一个heroku帐户，如果您没有，请在此处注册：[https://signup.heroku.com/](https://signup.heroku.com/)
+您将需要一个 heroku 帐户，如果您没有，请在此处注册：[https://signup.heroku.com/](https://signup.heroku.com/)
 
 ### 安装 CLI
 
 确保已安装 heroku cli 工具。
 
-* HomeBrew
+- HomeBrew
 
-    ```sh
-    brew install heroku/brew/heroku
-    ```
+  ```sh
+  brew install heroku/brew/heroku
+  ```
 
-* 其他安装选项
+- 其他安装选项
   在此处查看替代安装选项：[https://devcenter.heroku.com/articles/heroku-cli#download-and-install](https://devcenter.heroku.com/articles/heroku-cli#download-and-install).
 
 ### 登录
-安装cli后，请输入以下内容：
+
+安装 cli 后，请输入以下内容：
 
 ```sh
 $ heroku login
@@ -658,7 +651,6 @@ $ heroku auth:whoami
 ### 创建一个应用程序
 
 访问 `[dashboard.heroku.com](https://dashboard.heroku.com)`，登录您的帐户，并从右上角的下拉列表中创建一个新应用程序。按照 Heroku 提供的提示进行操作即可。
-
 
 ### Git
 
@@ -781,11 +773,11 @@ heroku ps:scale web=1
 
 #### 持续部署
 
-每当您想更新时，只需将最新的更改放入master并推送到heroku，它将重新部署。
+每当您想更新时，只需将最新的更改放入 master 并推送到 heroku，它将重新部署。
 
 #### Postgres
 
-##### 添加PostgreSQL数据库
+##### 添加 PostgreSQL 数据库
 
 在 [dashboard.heroku.com](https://dashboard.heroku.com) 访问您的应用程序，然后转到 `Add-ons` 部分。
 
@@ -860,4 +852,3 @@ $ heroku run Run -- migrate --env production
 ### flutter for web
 
 ### github-pages
-

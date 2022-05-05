@@ -16,16 +16,14 @@ tags:
 
 ## 概述
 
-![](http://blog.loveli.site/mweb/16489043357040.jpg)
+![](http://blog.oldbird.run/mweb/16489043357040.jpg)
 
 Swift packages 是开发人员可以在其项目中使用的 Swift、Objective-C、Objective-C++、C 或 C++ 代码的可重用组件。它们将源文件、二进制文件和资源捆绑在一起，便于在你的应用程序的项目中使用。
 
 Xcode 支持创建和发布 Swift 包，以及添加、删除和管理包的依赖性。而这些的支持都是在依赖于 Swift Package Manager 项目。
 
-
 ::: tip
 **Tip**
 
-要了解有关 Swift Package Manager 的更多信息，请访问[Swift.org](https://swift.org/package-manager/)和GitHub上的[Swift Package Manager](https://github.com/apple/swift-package-manager)仓库。
+要了解有关 Swift Package Manager 的更多信息，请访问[Swift.org](https://swift.org/package-manager/)和 GitHub 上的[Swift Package Manager](https://github.com/apple/swift-package-manager)仓库。
 :::
-

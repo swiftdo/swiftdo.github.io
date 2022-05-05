@@ -16,7 +16,7 @@ tags:
 
 ## 样例
 
-![](http://blog.loveli.site/mweb/16176017312597.jpg)
+![](http://blog.oldbird.run/mweb/16176017312597.jpg)
 
 为啥要有访问者模式呢？我们从一个很简单的表达式求值的例子说起：
 

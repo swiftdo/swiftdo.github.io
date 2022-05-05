@@ -18,16 +18,16 @@ Mac 电脑如何安装新字体？看到喜欢的字体但是又不知道该如�
 
 第一步：打开 Launchpad(启动台)，再点击其他，进入后点击字体册（F 标志的就是）
 
-![-w669](http://blog.loveli.site/mweb/16467904042638.png)
+![-w669](http://blog.oldbird.run/mweb/16467904042638.png)
 
 第二步：打开字体册。
 
 第三步：增加字体有两个方式，一是点击屏幕顶部菜单文件-添加字体选项，亦可在字体库对话框中点击里面的+按钮。
 
-![-w688](http://blog.loveli.site/mweb/16467904449001.png)
+![-w688](http://blog.oldbird.run/mweb/16467904449001.png)
 
 第四步：选择自己下载的字体（otf 格式、ttf 格式等）。
 
 第五步：选择字体，点击打开，就可以完成安装，简单快捷。
 
-![-w679](http://blog.loveli.site/mweb/16467904730004.png)
+![-w679](http://blog.oldbird.run/mweb/16467904730004.png)

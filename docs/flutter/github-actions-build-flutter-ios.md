@@ -15,30 +15,29 @@ sitemap:
 
 要实现构建出 Flutter iOS 包的目标，必须执行以下步骤：
 
-* 安装 Apple 证书和配置文件
-* 指定正确的 Flutter 版本
-* 拉取 flutter packages
-* 构建应用程序
-* 使用正确的 Apple 证书对其进行签名
-* 生成`.xarchive`
-* 从`.xarchive`中生成`.ipa` 
-* 分享给你的用户
+- 安装 Apple 证书和配置文件
+- 指定正确的 Flutter 版本
+- 拉取 flutter packages
+- 构建应用程序
+- 使用正确的 Apple 证书对其进行签名
+- 生成`.xarchive`
+- 从`.xarchive`中生成`.ipa`
+- 分享给你的用户
 
 为了完成顺利构建，我们必须提供：
 
-* 可以苹果打包**证书**（`.p12`），以及导出证书的密码
-* 证书对应的**描述文件**（`.mobileprovision`）
+- 可以苹果打包**证书**（`.p12`），以及导出证书的密码
+- 证书对应的**描述文件**（`.mobileprovision`）
 
-![](http://blog.loveli.site/mweb/16446564927836.jpg)
-
+![](http://blog.oldbird.run/mweb/16446564927836.jpg)
 
 > 如果您不知道如何获取证书和描述文件，可以参考这篇文章：[《iOS 打包证书制作》](https://oldbird.run/swift/ios/ios-build-cers.html)
 
 准备就绪，那我们开始吧！
 
-##  GitHub Actions 是什么
+## GitHub Actions 是什么
 
-[GitHub Actions](https://github.com/features/actions) 是 GitHub 的[持续集成服务](https://www.ruanyifeng.com/blog/2015/09/continuous-integration.html)，于2018年10月推出。
+[GitHub Actions](https://github.com/features/actions) 是 GitHub 的[持续集成服务](https://www.ruanyifeng.com/blog/2015/09/continuous-integration.html)，于 2018 年 10 月推出。
 
 大家知道，持续集成由很多操作组成，比如抓取代码、运行测试、登录远程服务器，发布到第三方服务等等。GitHub 把这些操作就称为 actions。
 
@@ -62,11 +61,9 @@ sitemap:
 
 ## 配置 GitHub Actions
 
-让我们创建我们的第一个**工作流程（workflow）**！在您的项目中，您需要在`.github` 文件夹中创建一个`workflows`文件夹，然后创建一个名为：`
-ios-release.yml`的新文件。
+让我们创建我们的第一个**工作流程（workflow）**！在您的项目中，您需要在`.github` 文件夹中创建一个`workflows`文件夹，然后创建一个名为：` ios-release.yml`的新文件。
 
-![](http://blog.loveli.site/mweb/16446533386555.jpg)
-
+![](http://blog.oldbird.run/mweb/16446533386555.jpg)
 
 `ios-release.yml`文件将包含我们的第一个作业(job)`build_ios`：
 
@@ -82,8 +79,8 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - name: Checkout the code
-      uses: actions/checkout@v2
+      - name: Checkout the code
+        uses: actions/checkout@v2
 ```
 
 当您在`master`分支上推送新更改时，将触发此作业(job)。我们要做的第一步(step)是检出我们分支的代码。
@@ -98,9 +95,9 @@ jobs:
 
 我们将定义以下 key：
 
-* `.p12`证书的 key 为`P12_BASE64`
-* 关联密码的 key 为`P12_PASSWORD`
-* 描述文件的 key 为`PROVISIONING_PROFILE_BASE64`
+- `.p12`证书的 key 为`P12_BASE64`
+- 关联密码的 key 为`P12_PASSWORD`
+- 描述文件的 key 为`PROVISIONING_PROFILE_BASE64`
 
 下一步是安装您的`Apple`证书，为此我们将使用来自社区的名为`apple-actions/import-codesign-certs@v1`的操作并使用我们之前定义的`secrets`
 
@@ -129,9 +126,9 @@ jobs:
 
 正如你在上面看到的，这个脚本有 3 个操作：
 
-* 创建`secrets`变量 
-* 从`secrets`导入描述文件 
-* 配置描述文件
+- 创建`secrets`变量
+- 从`secrets`导入描述文件
+- 配置描述文件
 
 ## 构建 Flutter 代码
 
@@ -141,10 +138,10 @@ jobs:
 - name: Install and set Flutter version
   uses: subosito/flutter-action@v1.4.0
   with:
-    flutter-version: '2.10.0'
+    flutter-version: "2.10.0"
 ```
 
-我们需要添加这个action并指定我们要使用的 Flutter 版本。建议指定确切的flutter版本，而不是使用`stable`作为值，以避免在发布新的`stable`版本时发生潜在的重大更改。
+我们需要添加这个 action 并指定我们要使用的 Flutter 版本。建议指定确切的 flutter 版本，而不是使用`stable`作为值，以避免在发布新的`stable`版本时发生潜在的重大更改。
 
 现在我们可以为我们的应用程序拉取 packages：
 
@@ -166,7 +163,7 @@ jobs:
 
 首先，使用 XCode 打开您的 iOS 项目并选择目标，并在`Signing & Capabilities` 中确保未选中`Automatically manage signing`，这样我们就可以使用所需的证书对其进行签名，而无需编辑 XCode 项目。
 
-![](http://blog.loveli.site/mweb/16446565628123.jpg)
+![](http://blog.oldbird.run/mweb/16446565628123.jpg)
 
 接下来，当您签署 iOS 应用程序时，您不会签署与其关联的 pod，因此您需要在 `Podfile`中指定它，如下所示：
 
@@ -191,9 +188,9 @@ end
 
 现在要创建一个`xarchive`，您需要找到一些可以在您的描述文件或 Apple 证书中找到的信息：
 
-* 开发团队标识符
-* UUID，它是您的 Provisioning Profile 的标识符 
-* 代码签名标识
+- 开发团队标识符
+- UUID，它是您的 Provisioning Profile 的标识符
+- 代码签名标识
 
 完成所有这些后，我们可以这样使用：
 
@@ -202,7 +199,6 @@ end
    run: |
      xcodebuild -workspace ios/Runner.xcworkspace -scheme Runner -configuration Release DEVELOPMENT_TEAM=YOUR_TEAM_ID -sdk 'iphoneos' -destination 'generic/platform=iOS' -archivePath build-output/app.xcarchive PROVISIONING_PROFILE=YOUR_UUID clean archive CODE_SIGN_IDENTITY="Apple Distribution: Damien Aicheh"
 ```
-
 
 ## 生成 ipa
 
@@ -251,7 +247,7 @@ end
 
 这将发布包含我们 ipa 的 ios 文件夹。然后，您可以将其安装在您的设备上。
 
-![](http://blog.loveli.site/mweb/16447391441739.jpg)
+![](http://blog.oldbird.run/mweb/16447391441739.jpg)
 
 ## 最后
 
@@ -259,6 +255,6 @@ end
 
 ## 参阅
 
-* [How to build and sign your Flutter iOS application using GitHub Actions](https://damienaicheh.github.io/flutter/github/actions/2021/04/22/build-sign-flutter-ios-github-actions-en.html)
-* [How to use environment variables and secrets using GitHub Actions](https://damienaicheh.github.io/github/actions/2021/04/15/environment-variables-secrets-github-actions-en.html)
-* [在用于 Xcode 开发的 macOS 运行器上安装 Apple 证书](https://docs.github.com/cn/actions/deployment/deploying-xcode-applications/installing-an-apple-certificate-on-macos-runners-for-xcode-development)
+- [How to build and sign your Flutter iOS application using GitHub Actions](https://damienaicheh.github.io/flutter/github/actions/2021/04/22/build-sign-flutter-ios-github-actions-en.html)
+- [How to use environment variables and secrets using GitHub Actions](https://damienaicheh.github.io/github/actions/2021/04/15/environment-variables-secrets-github-actions-en.html)
+- [在用于 Xcode 开发的 macOS 运行器上安装 Apple 证书](https://docs.github.com/cn/actions/deployment/deploying-xcode-applications/installing-an-apple-certificate-on-macos-runners-for-xcode-development)

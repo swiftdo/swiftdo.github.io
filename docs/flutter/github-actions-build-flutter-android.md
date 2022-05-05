@@ -32,7 +32,7 @@ Android 的打包相对 iOS 来说，容易很多，所以本文不会过多阐�
 
 本文将 `key.properties` 放在 `<app dir>/android/` 目录下，将 `key.jks` 放在 `<app dir>/android/app/` 目录下。
 
-![](http://blog.loveli.site/mweb/16451653664048.jpg)
+![](http://blog.oldbird.run/mweb/16451653664048.jpg)
 
 ## 配置 secrets
 

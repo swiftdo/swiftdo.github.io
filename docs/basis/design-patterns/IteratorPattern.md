@@ -16,7 +16,7 @@ tags:
 
 ## 样例
 
-![](http://blog.loveli.site/mweb/16171939142879.jpg)
+![](http://blog.oldbird.run/mweb/16171939142879.jpg)
 
 ```swift
 struct Book {

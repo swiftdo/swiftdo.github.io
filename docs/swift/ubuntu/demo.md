@@ -121,4 +121,4 @@ let package = Package(
 
 然后点击运行：
 
-![](http://blog.loveli.site/mweb/16419589840566.jpg)
+![](http://blog.oldbird.run/mweb/16419589840566.jpg)

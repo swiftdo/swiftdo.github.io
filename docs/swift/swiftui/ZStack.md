@@ -30,7 +30,7 @@ ZStack {
 }
 ```
 
-![](http://blog.loveli.site/mweb/Screen%20Shot%202021-07-08%20at%207.40.59%20PM.png)
+![](http://blog.oldbird.run/mweb/Screen%20Shot%202021-07-08%20at%207.40.59%20PM.png)
 
 ZStack 的定义：
 
@@ -160,11 +160,11 @@ struct LearnPage: View {
 
 显示效果：
 
-![-w1082](http://blog.loveli.site/mweb/16257464746254.jpg)
+![-w1082](http://blog.oldbird.run/mweb/16257464746254.jpg)
 
 ## 将图像与 ZStack 顶部对齐
 
-![Screen Shot 2021-07-08 at 8.30.30 P](http://blog.loveli.site/mweb/Screen%20Shot%202021-07-08%20at%208.30.30%20PM.png)
+![Screen Shot 2021-07-08 at 8.30.30 P](http://blog.oldbird.run/mweb/Screen%20Shot%202021-07-08%20at%208.30.30%20PM.png)
 
 那么该如何移动到右上角呢？
 
@@ -181,17 +181,17 @@ struct LearnPage: View {
 }
 ```
 
-![-w1037](http://blog.loveli.site/mweb/16257481482530.jpg)
+![-w1037](http://blog.oldbird.run/mweb/16257481482530.jpg)
 
 只需要添加一个子视图`Color.clear` 即可。那么为什么这样就可以实现？
 我们可以将 `Color.clear` 替换为 `Color.blue`：
 
-![-w1084](http://blog.loveli.site/mweb/16257482568846.jpg)
+![-w1084](http://blog.oldbird.run/mweb/16257482568846.jpg)
 
 说明 `Color.clear` 是填充了整个 ZStack 的。这样子视图会其左上角为参考进行对齐。
 
 如果我们指定 `Color.blue` 的 frame，那么效果会是怎么样的呢？
 
-![-w1079](http://blog.loveli.site/mweb/16257486292457.jpg)
+![-w1079](http://blog.oldbird.run/mweb/16257486292457.jpg)
 
 那么这就容易理解了，为什么添加`Color.clear`就能实现顶部左对齐的效果了，因为它填充所有可用空间。

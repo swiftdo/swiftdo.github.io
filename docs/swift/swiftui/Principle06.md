@@ -315,7 +315,7 @@ type:Observed id:103 deinit
 
 ## 对比
 
-![-w975](http://blog.loveli.site/mweb/16028977358443.png)
+![-w975](http://blog.oldbird.run/mweb/16028977358443.png)
 
 ### @State vs @ObservedObject
 
@@ -329,4 +329,4 @@ type:Observed id:103 deinit
 
 ## 总结：
 
-![-w716](http://blog.loveli.site/mweb/16029023986453.png)
+![-w716](http://blog.oldbird.run/mweb/16029023986453.png)

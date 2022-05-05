@@ -14,7 +14,7 @@ tags:
 
 ## 样例
 
-![](http://blog.loveli.site/mweb/16176017312597.jpg)
+![](http://blog.oldbird.run/mweb/16176017312597.jpg)
 
 ```swift
 class Subject {

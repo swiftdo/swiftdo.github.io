@@ -99,7 +99,7 @@ struct ContentView: View {
 }
 ```
 
-![-w1200](http://blog.loveli.site/mweb/16262493140464.jpg)
+![-w1200](http://blog.oldbird.run/mweb/16262493140464.jpg)
 
 但是请注意，此视图仅呈现一次。因此，如果`data.count`更改，视图将不会更新。例如，单击以下代码中的`添加待办事项`会返回错误：
 
@@ -131,7 +131,7 @@ struct ContentView: View {
 }
 ```
 
-![-w1283](http://blog.loveli.site/mweb/16262505795215.jpg)
+![-w1283](http://blog.oldbird.run/mweb/16262505795215.jpg)
 
 点击按钮，列表没有反应。我们然后将代码运行到模拟器，点击按钮，在控制台输出如下错误：
 
@@ -145,21 +145,21 @@ ForEach<Range<Int>, Int, Text> count (6) != its initial count (5). `ForEach(_:co
 
 在待办清单案例中，我们直接传递数组 listData 就可以了
 
-![](http://blog.loveli.site/mweb/16262510185884.jpg)
+![](http://blog.oldbird.run/mweb/16262510185884.jpg)
 
 如果我们将`TodoItem`不实现`Identifiable`，看看会发生什么？
 
-![-w1208](http://blog.loveli.site/mweb/16262511281419.jpg)
+![-w1208](http://blog.oldbird.run/mweb/16262511281419.jpg)
 
 从报错信息可知，我们必须要将数组的元素实现`Identifiable`协议。
 
 数组的元素如果是普通类型，比如`String`也会报错：
 
-![-w628](http://blog.loveli.site/mweb/16262515237081.jpg)
+![-w628](http://blog.oldbird.run/mweb/16262515237081.jpg)
 
 需要通过指定`id: \.self`即可，因为它们本身可以作为可识别的对象。
 
-![](http://blog.loveli.site/mweb/16262527504186.jpg)
+![](http://blog.oldbird.run/mweb/16262527504186.jpg)
 
 下面我们详细说下`id`。
 
@@ -175,7 +175,7 @@ id 要求我们传入的是一个 `KeyPath`，且`ID`必须实现`Hashable`。�
 
 如果`TodoItem`没有实现`Identifiable`，我们也可以这样做：
 
-![](http://blog.loveli.site/mweb/16262535194278.jpg)
+![](http://blog.oldbird.run/mweb/16262535194278.jpg)
 
 但是我们得确保 task 的唯一性，为什么呢？
 
@@ -222,11 +222,11 @@ struct ContentView: View {
 }
 ```
 
-![-w1365](http://blog.loveli.site/mweb/16262557143716.jpg)
+![-w1365](http://blog.oldbird.run/mweb/16262557143716.jpg)
 
 我们让`TodoItem`不实现`Identifiable`, 用`\.task`传递给 id。我们希望点击添加按钮的时候，列表会同步刷新，且新增的图标是个`月亮`。但是事情并没有顺从你的心意：
 
-![hello-swiftui](http://blog.loveli.site/mweb/hello-swiftui.gif)
+![hello-swiftui](http://blog.oldbird.run/mweb/hello-swiftui.gif)
 
 你应该也发现了，新增的视图的 icon 并不是月亮。而是用了第一个`TodoItem(task: "写一篇SwiftUI文章", imgName: "pencil.circle")`的 `pencil.circle`，其实不仅仅是图标，整个显示都跟第一个视图一样的。因为无法区分这两个 TodoItem，所以就以最开始出现的视图重复，发生了错乱。
 
