@@ -38,10 +38,17 @@ module.exports = [
     text: "Flutter",
     link: "/flutter/",
   },
-  
   {
     text: "Python",
     link: "/python/",
+  },
+  {
+    text: "设计模式",
+    link: "https://oldbird.run/design-patterns/",
+  },
+  {
+    text: "书单",
+    link: "https://oldbird.run/books/#/",
   },
   {
     text:"其他",
@@ -130,14 +137,6 @@ module.exports = [
         ],
       },
     ]
-  },
-  {
-    text: "设计模式",
-    link: "https://oldbird.run/design-patterns/",
-  },
-  {
-    text: "书单",
-    link: "https://oldbird.run/books/#/",
   },
   {
     text: "关于",
