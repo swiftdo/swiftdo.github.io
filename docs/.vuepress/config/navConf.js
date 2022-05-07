@@ -132,7 +132,7 @@ module.exports = [
   },
   {
     text: "设计模式",
-    link: "/basis/design-patterns/",
+    link: "https://oldbird.run/design-patterns/",
   },
   {
     text: "书单",
