@@ -2,10 +2,7 @@ module.exports = [
   {
     text: "Swift",
     items: [
-      {
-        text: "Swift Package Manage",
-        link: "/swift/spm/"
-      },
+      
       {
         text: "SwiftUI",
         link: "/swift/swiftui/",
@@ -31,6 +28,10 @@ module.exports = [
         link: "/swift/fp/",
       },
       { text: "写更好的Swift代码系列", link: "/swift/better/" },
+      {
+        text: "Swift Package Manage",
+        link: "/swift/spm/"
+      },
     ],
   },
   {
