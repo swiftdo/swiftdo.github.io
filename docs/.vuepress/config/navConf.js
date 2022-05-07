@@ -47,6 +47,10 @@ module.exports = [
     link: "https://oldbird.run/design-patterns/",
   },
   {
+    text: "数据结构与算法",
+    link: "https://oldbird.run/algorithms",
+  },
+  {
     text: "书单",
     link: "https://oldbird.run/books/#/",
   },
@@ -59,10 +63,6 @@ module.exports = [
           {
             text: "概要",
             link: "/basis/index/",
-          },
-          {
-            text: "数据结构与算法",
-            link: "/basis/algorithms/",
           },
           {
             text: "操作系统",
