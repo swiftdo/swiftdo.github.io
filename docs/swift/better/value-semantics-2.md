@@ -108,9 +108,152 @@ tags:
   outer2.inner.value // 3，跟outer1共享
   ```
 
-  通常这里很容易引发问题，如果我们不去看`Outer`的代码声明，就会误以为 outer2 是 outer1 的完全拷贝(深拷贝)，理所当然的觉得修改`outer.inner.value`值对`outer2`没有影响。这个时候 bug 就非常容易发生了。这种拷贝现象我们叫做**浅拷贝**。
+  通常这里很容易引发问题，如果我们不去看`Outer`的代码声明，就会误以为 outer2 是 outer1 的完全拷贝(深拷贝)，理所当然的觉得修改`outer.inner.value`值对`outer2`没有影响，进而写出不安全的代码。这通常应该避免，因为在值类型上使用引用类型属性会引入堆分配，引用计数和隐式数据共享，影响值类型的性能和其他优点。
 
-## 不错的理解
+## 值类型嵌引用类型
+
+正如上文所述，当类型内部含有一个或多个可变引用，如果没有好的代码约束，很容易写出不安全的代码。通常，我们对值类型的拷贝都希望是深拷贝。而直接通过赋值且不做任何处理的话，这样是无法实现的。那么我们该怎么办？
+
+### 自定义 clone 方法
+
+我们自定义一个`Clonable`的协议。需要拷贝的类型都进行实现这个协议。
+
+```swift
+protocol Clonable {
+    func clone() -> Self
+}
+
+final class Inner: Clonable {
+    var value: Int
+    
+    init(value: Int = 1) {
+        self.value = value
+    }
+
+    func clone() -> Inner {
+        return Inner(value: value)
+    }
+}
+
+struct Outer: Clonable {
+    var value = 1
+    var inner = Inner()
+    
+    func clone() -> Outer {
+        return Outer(value: value, inner: inner.clone())
+    }
+}
+
+var outer1 = Outer()
+var outer2 = outer1.clone()
+outer1.value = 2
+outer2.inner.value = 3
+
+outer1.value // 2
+outer1.inner.value // 1
+outer2.value  // 1
+outer2.inner.value // 3
+```
+
+我们显示调用`clone()`来实现对`Outer`的深拷贝。
+这么做还不如直接将`Outer`定义为一个类，语义反而变得清晰。当然抛开这些观点，Swift 对于这个问题有没有更好的解决方案？
+
+### 写时复制
+
+在混合类型中保留价值语义的诀窍是定义该类型，使其调用方无法看到修改对所含引用类型属性的影响。怎么理解？
+
+这个例子使可变参考类型成为私有，并提供了一个控制读写的接口。
+
+```swift
+
+class Inner{
+    var value: Int
+    
+    init(value: Int = 1) {
+        self.value = value
+    }
+}
+
+struct Outer {
+    var value = 1
+    private var inner = Inner() // 声明为私有
+    
+    var innerValue: Int {
+        get {
+            inner.value
+        }
+        set {
+           inner = Inner(value: newValue)
+        }
+    }
+}
+
+var outer1 = Outer()
+var outer2 = outer1
+outer1.value = 2
+//outer2.inner.value = 3
+outer2.innerValue = 3
+
+outer1.value // 2
+outer1.innerValue // 1
+outer2.value  // 1
+outer2.innerValue // 3
+```
+
+对于可以访问私有成员的代码来说，这个结构包含可变的引用型属性`inner`，破坏了值语义。但是对于具有内部访问权限的客户来说，该类型的行为就像一个具有值语义的结构，有两个属性，即`value`和`innerValue`。
+
+每当用户修改`innerValue`时，就会创建一个新的`Inner`实例，而这恰巧就保持`Outer`值的独立性。
+
+如果`Inner`是一个巨类，每当从`Outer`实例读取`inner`的时候，都是读取共享那个inner实例。那么对于多个`Outer`实例来说，将节省大量的inner内存占用，同时也节省了复制存储的计算成本。
+
+一旦你使用一个变量来对`innerValue`赋值，就会创建新的`Inner`实例。这种方法将创建推迟到需要的时候，最大限度地减少了即时的存储和计算成本。
+
+但每次对`innerValue`进行赋值，都会创建新的`Inner`实例，特别是如果只有一个实例，多次调用`innerValue`，那么性能是非常低下的。Swift 提供了`写时复制`机制，如果没有在其他地方共享，就地进行修改。这个优化比创建一个新的实例和丢弃旧的实例更高效。
+
+为了使其发挥作用，需要一种方法来告诉它是否唯一地引用了一个给定的实例。标准库函数`isKnownUniquelyReferenced`就提供了这样的功能：
+
+```swift
+class Inner{
+    var value: Int
+    
+    init(value: Int = 1) {
+        self.value = value
+    }
+}
+
+struct Outer {
+    var value = 1
+    private var inner = Inner() // 声明为私有
+    
+    var innerValue: Int {
+        get {
+            inner.value
+        }
+        set {
+            if isKnownUniquelyReferenced(&inner) {
+                print("just change \(newValue)")
+                inner.value = newValue
+            } else {
+                print("create change \(newValue)")
+                inner = Inner(value: newValue)
+            }
+        }
+    }
+}
+
+var outer1 = Outer()
+var outer2 = outer1
+outer1.value = 2
+outer2.innerValue = 3
+outer2.innerValue = 4
+
+outer1.value // 2
+outer1.innerValue // 1
+outer2.value  // 1
+outer2.innerValue // 4
+```
+
+## 理解
 
 就语言的语义来说，只有在数据被改变的时候他们的差异会有影响。但是如果你的数据是不可变的，那么值类型和引用类型的差别就不存在了，至少问题就转向**性能而不是语法**了。
 
