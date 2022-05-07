@@ -94,6 +94,10 @@ module.exports = [
             link: "/figma/",
           },
           {
+            text: "docsify",
+            link: "/tools/docsify"
+          },
+          {
             text: "VuePress",
             link: "/tools/vuepress/",
           },
@@ -107,7 +111,6 @@ module.exports = [
         text: "Haskell",
         link: "/haskell/",
       },
-
       {
         text: "C&C++",
         items: [
@@ -127,8 +130,6 @@ module.exports = [
       },
     ]
   },
-  
-  
   {
     text: "设计模式",
     link: "/basis/design-patterns/",
