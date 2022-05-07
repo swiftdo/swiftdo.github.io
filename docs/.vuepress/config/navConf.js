@@ -37,31 +37,12 @@ module.exports = [
     text: "Flutter",
     link: "/flutter/",
   },
-  {
-    text: "C&C++",
-    items: [
-      {
-        text: "语言篇",
-        link: "/c/program/",
-      },
-      {
-        text: "音频篇",
-        link: "/c/audio/",
-      },
-      {
-        text: "CMake篇",
-        link: "/c/cmake/",
-      },
-    ],
-  },
+  
   {
     text: "Python",
     link: "/python/",
   },
-  {
-    text: "Haskell",
-    link: "/haskell/",
-  },
+  
   {
     text: "基础",
     items: [
@@ -121,6 +102,27 @@ module.exports = [
       {
         text: "Note",
         link: "/tools/note/",
+      },
+      {
+        text: "Haskell",
+        link: "/haskell/",
+      },
+      {
+        text: "C&C++",
+        items: [
+          {
+            text: "语言篇",
+            link: "/c/program/",
+          },
+          {
+            text: "音频篇",
+            link: "/c/audio/",
+          },
+          {
+            text: "CMake篇",
+            link: "/c/cmake/",
+          },
+        ],
       },
     ],
   },
