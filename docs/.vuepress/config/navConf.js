@@ -107,10 +107,6 @@ module.exports = [
         link: "/tools/flowchart/",
       },
       {
-        text: "书单",
-        link: "https://oldbird.run/books/#/",
-      },
-      {
         text: "AI",
         link: "/ai/",
       },
@@ -129,8 +125,8 @@ module.exports = [
     ],
   },
   {
-    text:"读书笔记",
-    link: "/read/"
+    text: "书单",
+    link: "https://oldbird.run/books/#/",
   },
   {
     text: "关于",
