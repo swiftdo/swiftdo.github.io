@@ -10,6 +10,8 @@ tags:
   - spm
 ---
 
+> 原文：[https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app)
+
 通过集成 package 依赖，实现项目之间共享代码，或利用其他开发者的代码。
 
 ## 概述

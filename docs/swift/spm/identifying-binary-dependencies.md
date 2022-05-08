@@ -10,6 +10,8 @@ tags:
   - spm
 ---
 
+> 原文：[https://developer.apple.com/documentation/swift_packages/identifying_binary_dependencies](https://developer.apple.com/documentation/swift_packages/identifying_binary_dependencies)
+
 找出包依赖项是否引用了二进制文件并验证二进制文件的真实性。
 
 ## 概述
