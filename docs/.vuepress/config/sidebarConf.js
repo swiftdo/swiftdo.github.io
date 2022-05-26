@@ -143,6 +143,7 @@ module.exports = {
         "2-mongo-random",
         "3-page-upload",
         "4-bt-flask",
+        "python-ase"
       ],
     },
   ],
