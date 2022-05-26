@@ -85,6 +85,7 @@ module.exports = {
         "t2-youhua",
         "pod-wechat",
         "ios-build-cers",
+        "XCFramework"
       ],
     },
   ],

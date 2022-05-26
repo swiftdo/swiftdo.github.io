@@ -51,4 +51,5 @@ module.exports = {
   },
   "vuepress-plugin-baidu-autopush": {},
   autometa: {},
+  "social-share": {}
 };
