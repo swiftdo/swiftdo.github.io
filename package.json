@@ -35,6 +35,7 @@
     "vuepress-plugin-autometa": "^0.1.13",
     "vuepress-plugin-baidu-autopush": "^1.0.1",
     "vuepress-plugin-nuggets-style-copy": "^1.0.3",
+    "vuepress-plugin-social-share": "^2.0.0-beta.4",
     "vuepress-theme-reco": "^1.6.6"
   },
   "dependencies": {
