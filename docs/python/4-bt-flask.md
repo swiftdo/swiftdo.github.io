@@ -168,19 +168,6 @@ server
         allow all;
     }
 
-    location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$
-    {
-        expires      30d;
-        error_log /dev/null;
-        access_log /dev/null;
-    }
-
-    location ~ .*\.(js|css)?$
-    {
-        expires      12h;
-        error_log /dev/null;
-        access_log /dev/null;
-    }
     access_log  /www/wwwlogs/test.oldbird.run.log;
     error_log  /www/wwwlogs/test.oldbird.run.error.log;
 }
@@ -192,4 +179,11 @@ server
     #SSL-START SSL相关配置，请勿删除或修改下一行带注释的404规则
     #error_page 404/404.html;
     #SSL-END
+
+    ...
+
+    #一键申请SSL证书验证目录相关设置
+    location ~ \.well-known{
+        allow all;
+    }
 ```
