@@ -3,9 +3,7 @@ module.exports = {
     {
       title: "简介",
       collapsable: false,
-      children: [
-        "",
-      ],
+      children: [""],
     },
     {
       title: "Package 依赖",
@@ -13,7 +11,7 @@ module.exports = {
       children: [
         "adding-package-dependencies-to-your-app",
         "identifying-binary-dependencies",
-        "editing-a-package-dependency-as-a-local-package"
+        "editing-a-package-dependency-as-a-local-package",
       ],
     },
     {
@@ -25,15 +23,13 @@ module.exports = {
         "localizing-package-resources",
         "distributing-binary-frameworks-as-swift-packages",
         "developing-a-swift-package-in-tandem-with-an-app",
-        "organizing-your-code-with-local-packages"
+        "organizing-your-code-with-local-packages",
       ],
     },
     {
       title: "Package 发布",
       collapsable: false,
-      children: [
-        "publishing-a-swift-package-with-xcode",
-      ],
+      children: ["publishing-a-swift-package-with-xcode"],
     },
     {
       title: "持续集成",
@@ -85,7 +81,7 @@ module.exports = {
         "t2-youhua",
         "pod-wechat",
         "ios-build-cers",
-        "XCFramework"
+        "XCFramework",
       ],
     },
   ],
@@ -105,7 +101,7 @@ module.exports = {
         "available",
         "last",
         "value-semantics",
-        "value-semantics-2"
+        "value-semantics-2",
       ],
     },
   ],
@@ -143,7 +139,7 @@ module.exports = {
         "2-mongo-random",
         "3-page-upload",
         "4-bt-flask",
-        "python-ase"
+        "python-ase",
       ],
     },
   ],
@@ -185,6 +181,7 @@ module.exports = {
         "github-actions-build-flutter-android",
         "flutter-color",
         "flutter-dialog",
+        "flutter-deps",
       ],
     },
   ],
@@ -253,7 +250,13 @@ module.exports = {
       children: ["", "t1-sequence-diagram", "t2-class-diagram"],
     },
   ],
-  "/tools/note/": [{ title: "Node", collapsable: false, children: ["", "vitualbox-increase-space"] }],
+  "/tools/note/": [
+    {
+      title: "Node",
+      collapsable: false,
+      children: ["", "vitualbox-increase-space"],
+    },
+  ],
   "/about/index/": [{ title: "INDEX", collapsable: false, children: [""] }],
   "/about/app/": [
     {
@@ -278,7 +281,7 @@ module.exports = {
         "Principle03",
         "Principle04",
         "Principle06",
-        "result-builders"
+        "result-builders",
       ],
     },
     {
