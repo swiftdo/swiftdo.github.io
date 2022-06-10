@@ -54,7 +54,7 @@ Future<ByteData?> _roundImage({
 - 然后将我们生成图片绘制到画布中；
 - 结束绘制，通过`toImage`转化为图片，返回图片二进制
 
-然后我们只需要在 `_capturePngToByteData` 那里调用即可：
+然后我们只需要在 `_capturePngToByteData` 调用即可：
 
 ```dart
 Future<Uint8List?> _capturePngToByteData() async {
@@ -67,8 +67,9 @@ Future<Uint8List?> _capturePngToByteData() async {
       // 获取当前设备的像素比
       double dpr = ui.window.devicePixelRatio;
       ui.Image image = await boundary.toImage(pixelRatio: dpr);
-      final res = await _roundImage(image: image, radius: dpr * 20);
-      return res?.buffer.asUint8List();
+      // final sourceBytes = await image.toByteData(format: ImageByteFormat.png);
+      final sourceBytes = await _roundImage(image: image, radius: dpr * 20);
+      return sourceBytes?.buffer.asUint8List();
     } catch (e) {
       return null;
     }
