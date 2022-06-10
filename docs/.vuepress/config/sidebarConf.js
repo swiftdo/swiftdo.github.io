@@ -184,6 +184,7 @@ module.exports = {
         "flutter-deps",
         "flutter-screenshoot1",
         "flutter-screenshoot2",
+        "flutter-screenshoot3"
       ],
     },
   ],
