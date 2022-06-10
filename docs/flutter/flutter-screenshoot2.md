@@ -75,3 +75,7 @@ Future<Uint8List?> _capturePngToByteData() async {
     }
 }
 ```
+
+图片效果如下：
+
+![](http://blog.oldbird.run/mweb/16548333391805.jpg)
