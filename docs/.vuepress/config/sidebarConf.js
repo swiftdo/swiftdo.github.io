@@ -186,6 +186,7 @@ module.exports = {
         "flutter-screenshoot2",
         "flutter-screenshoot3",
         "flutter-repaintBoundary",
+        "flutter-isolate",
       ],
     },
   ],
