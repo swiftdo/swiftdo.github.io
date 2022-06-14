@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[274],{952:function(t,s,e){"use strict";e.r(s);var n=e(8),l=Object(n.a)({},(function(){var t=this.$createElement,s=this._self._c||t;return s("ContentSlotsDistributor",{attrs:{"slot-key":this.$parent.slotKey}},[s("p",[this._v("同步 OldBirds 公众号的一些文章。")])])}),[],!1,null,null,null);s.default=l.exports}}]);
