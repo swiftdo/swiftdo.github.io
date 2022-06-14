@@ -187,6 +187,7 @@ module.exports = {
         "flutter-screenshoot3",
         "flutter-repaintBoundary",
         "flutter-isolate",
+        "flutter-vscode-config",
       ],
     },
   ],
