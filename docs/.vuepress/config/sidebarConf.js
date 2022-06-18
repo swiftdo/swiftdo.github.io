@@ -188,6 +188,7 @@ module.exports = {
         "flutter-repaintBoundary",
         "flutter-isolate",
         "flutter-vscode-config",
+        "flutter-web-launch-page"
       ],
     },
   ],
