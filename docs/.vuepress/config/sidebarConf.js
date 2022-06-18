@@ -185,7 +185,9 @@ module.exports = {
         "flutter-screenshoot1",
         "flutter-screenshoot2",
         "flutter-screenshoot3",
-        "flutter-web-launch-page"
+        "flutter-repaintBoundary",
+        "flutter-isolate",
+        "flutter-vscode-config",
       ],
     },
   ],
