@@ -316,6 +316,8 @@ WKProcessPool 是用于配置进程池的，它与网页视图的资源共享有
 
 每一个 webView 都会有自己的一个 web 内容进程，这些进程会被放进 config 配置的 processPool 中，处于同一个 processPool 中的 web 内容进程之间会共享。但是 processPool 中的进程会有限制，一旦达到该限制，processPool 中的 web 内容进程之间将会停止共享。
 
+WKWebView WKProcessPool 实例在 app 杀进程重启后会被重置，导致 WKProcessPool 中的 Cookie、session Cookie 数据丢失，目前也无法实现 WKProcessPool 实例本地化保存。
+
 
 ## WKNavagationDelegate 中方法解析
 
@@ -538,6 +540,78 @@ for (NSHTTPCookie * cookie in tmpCookies) {
 ```
 
 Cookie都保存在NSHTTPCookieStorage中后，原生请求自动共享Cookie，webview注入方式即与前面说的WKWebview一样的，就不用赘述了，但是唯一要注意的地方就是 NSHTTPCookieStorage 保存有一个耗时时间，大概零点几秒，不能在保存后立刻去同步到WKWebview中去，否则容易取不到 Cookie。
+
+
+### App进程的Cookie和WebProcess进程的Cookie如何同步？
+
+因为在iOS 11之后，WKWebView统一使用WKHTTPCookieStore来管理Cookie, 而WKHTTPCookieStore 提供了 WKHTTPCookieStoreObserver 来监听Cookie的变化。
+
+这样的话，我们就可以在监听到 WKWebViewCookie 发生变化的时候，将Cookie同步到App进程。
+
+这样的话，我们就可以在监听到WKWebViewCookie发生变化的时候，将Cookie同步到App进程。
+
+```swift
+func setupWebView() {
+    ...
+    webView.configuration.websiteDataStore.httpCookieStore.add(self)
+}
+
+// WKHTTPCookieStoreObserver协议的方法
+func cookiesDidChange(in cookieStore: WKHTTPCookieStore) {
+    cookieStore.getAllCookies { array in
+        array.forEach {
+            HTTPCookieStorage.shared.setCookie($0)
+        }
+    }
+}
+```
+
+值得注意的是，这样的话，两种不同进程的Cookie都会持久化到本地。所以如果要HTTPCookieStorage的Cookie不持久化到本地的话，可以添加“discard”字段在HTTPCookie中，这也就是相当于设置“sessionOnly”属性了。
+
+### App进程的Cookie如何同步到WebProcess呢？
+
+这个时候假设一个场景：App客户端请求了一个URL，服务器收到之后使用了Set-Cookies，当App客户端收到服务器的Response之后，需要把Cookies同步到WKWebView，那么如何实现呢？
+
+可以采用淘宝技术分享中提到的解决方案：
+我们可以通过 HOOK NSHTTPCookieStorage 中读写 Cookie 的接口，并且监听网络请求中 "Set-Cookie" 关键字，在 App 进程 Cookie 发生变化时同步到 WKWebView。
+
+### NSHTTPCookieStorage与WKHTTPCookieStore的同步问题
+
+首先明确一点，系统确实做了NSHTTPCookieStorage与WKHTTPCookieStore的同步，但是由于WKHTTPCookieStore的cookie操作都是在异步线程，所以从NSHTTPCookieStoreage同步到WKHTTPCookieStore时，会遇到两个问题：
+
+1. 同步时机不确定 
+2. 同步任务在异步线程
+
+举个简单的列子：NSHTTPCookieStoreage对URL1新增/修改cookie1后，立刻使webView打开URL1，那么webView的请求时无法获取到新增/修改后的cookie1的。
+
+* 从WKHTTPCookieStore同步到NSHTTPCookieStorage的cookie操作，都是安全的，及时的，因为NSHTTPCookieStorage的cookie操作在主线程操作
+
+* 从NSHTTPCookieStorage同步到WKHTTPCookieStore的cookie操作，是不安全的，不及时的，因为WKHTTPCookieStore的cookie操作都为异步线程且时机也是无法控制的
+
+### Cookie同步方案
+
+iOS 11系统官方提供了同步 Cookie 的API，故 iOS 11 系统前后区分处理。
+
+
+iOS 11 及之后的系统可通过 WKHTTPCookieStore 来管理 HTTP Cookie 信息，WKHTTPCookieStore 存储在 WKWebsiteDataStore 中，关系如下：
+
+```
+WKWebViewConfiguration -> WKWebsiteDataStore -> WKHTTPCookieStore
+```
+
+综上我们有两个时机去设置 Cookie，一个是初始化 WKWebview 时，一个是发起请求时。注意 WKHTTPCookieStore 设置 Cookie 是一个异步的操作，所以在页面初始化时设置 Cookie 会存在发起请求时，Cookie 没有全部设置完毕的情况。
+
+较好的方案为在 loadRequest 时，先设置 Cookie ，在设置成功的回调中再发起网络请求。
+
+![iOS 防 DNS 污染方案调研（四）--- Cookie 业务场景](https://github.com/ChenYilong/iOSBlog/issues/14)
+
+
+
+
+
+
+
+
 
 
 
