@@ -603,7 +603,8 @@ WKWebViewConfiguration -> WKWebsiteDataStore -> WKHTTPCookieStore
 
 较好的方案为在 loadRequest 时，先设置 Cookie ，在设置成功的回调中再发起网络请求。
 
-![iOS 防 DNS 污染方案调研（四）--- Cookie 业务场景](https://github.com/ChenYilong/iOSBlog/issues/14)
+* [iOS 防 DNS 污染方案调研（四）--- Cookie 业务场景](https://github.com/ChenYilong/iOSBlog/issues/14)
+* [干货：探秘WKWebView](https://zhuanlan.zhihu.com/p/428118929)
 
 
 
