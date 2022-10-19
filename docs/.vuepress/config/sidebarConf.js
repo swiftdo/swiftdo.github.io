@@ -82,6 +82,7 @@ module.exports = {
         "pod-wechat",
         "ios-build-cers",
         "XCFramework",
+        "ios-webkit"
       ],
     },
   ],
