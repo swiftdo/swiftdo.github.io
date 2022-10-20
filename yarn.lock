@@ -9377,7 +9377,7 @@ vuepress-plugin-social-share@^2.0.0-beta.4:
     deepmerge "^4.2.2"
     qrcode "^1.5.0"
 
-vuepress-theme-reco@^1.6.6:
+vuepress-theme-reco@^1.6.16:
   version "1.6.16"
   resolved "https://registry.npmmirror.com/vuepress-theme-reco/-/vuepress-theme-reco-1.6.16.tgz#b9e9e6c326761b955e016732fe87407a80dffd6f"
   integrity sha512-jWxNLrSLZ1QKqhf0zcrlxrg04Hshg4PJZd9Q0IOQFDkE7mGyOTWKg90TCkxPL8VDmJ8ns8j3FUZzr4oqAd2+iQ==
@@ -9393,7 +9393,7 @@ vuepress-theme-reco@^1.6.6:
     vue-click-outside "1.1.0"
     vuepress-plugin-smooth-scroll "^0.0.9"
 
-vuepress@^1.8.2:
+vuepress@^1.9.2:
   version "1.9.7"
   resolved "https://registry.npmmirror.com/vuepress/-/vuepress-1.9.7.tgz#2cd6709a2228f5cef588115aaeabf820ab9ed7cc"
   integrity sha512-aSXpoJBGhgjaWUsT1Zs/ZO8JdDWWsxZRlVme/E7QYpn+ZB9iunSgPMozJQNFaHzcRq4kPx5A4k9UhzLRcvtdMg==

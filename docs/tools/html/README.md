@@ -105,7 +105,7 @@ html,body{
 - wrap：换行，且第一行在上方
 - wrap-reverse：换行，第一行在下面
 
-```csss
+```css
 .flex-box{
   display: flex;
   color: #fff;
