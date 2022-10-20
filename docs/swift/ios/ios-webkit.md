@@ -33,7 +33,7 @@ WebKit 框架中最核心的类应该属于 WKWebView了，这个类专门用来
 
 使用下面的代码可以创建一个 WKWebView 视图，创建 WebView 视图时，需要使用WKWebViewConfiguration 来进行配置：
 
-```oc
+```objc
 WKWebView * WK;
 WKWebViewConfiguration * config = [[WKWebViewConfiguration alloc]init];
 WK = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-40) configuration:config];
@@ -42,7 +42,7 @@ WK = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width
 
 **设置进程池**
 
-```oc
+```objc
 //设置进程池
 WKProcessPool * pool = [[WKProcessPool alloc]init];
 config.processPool = pool;
@@ -52,7 +52,7 @@ WKProcessPool 类中没有暴露任何属性和方法，配置为同一个进程
 
 **进行偏好设置**
 
-```oc
+```objc
 //进行偏好设置
 WKPreferences * preference = [[WKPreferences alloc]init];
 //最小字体大小 当将javaScriptEnabled属性设置为NO时，可以看到明显的效果
@@ -69,7 +69,7 @@ WKPerference实例为WebView提供一个偏好设置。
 
 **管理native与JavaScript的交互行为**
 
-```oc
+```objc
 //设置内容交互控制器 用于处理JavaScript与native交互
 WKUserContentController *userController = [[WKUserContentController alloc]init];
 //设置处理代理并且注册要被js调用的方法名称
@@ -84,7 +84,7 @@ config.userContentController = userController;
 
 WKUserContentController 专门用来管理 native 与 JavaScript 的交互行为，`addScriptMessageHandler:name:`方法来注册要被 js 调用的方法名称，之后再 JavaScript 中使用`window.webkit.messageHandlers.name.postMessage()`方法来像 native 发送消息，支持 OC 中字典，数组，NSNumber 等原生数据类型，JavaScript 代码中的 name 要和上面注册的相同。在 native 代理的回调方法中，会获取到 JavaScript 传递进来的消息，如下：
 
-```oc
+```objc
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message{
     //这里可以获取到JavaScript传递进来的消息
 }
@@ -92,7 +92,7 @@ WKUserContentController 专门用来管理 native 与 JavaScript 的交互行为
 
 `WKScriptMessage`类是 JavaScript 传递的对象实例，其中属性如下：
 
-```oc
+```objc
 //传递的消息主体
 @property (nonatomic, readonly, copy) id body;
 //传递消息的WebView
@@ -107,14 +107,14 @@ WKUserContentController 实例的`addUserScript:`用于注入JavaScript代码。
 
 **缓存框架**
 
-```oc
+```objc
 // 设置数据存储store
 config.websiteDataStore = [WKWebsiteDataStore defaultDataStore];
 ```
 
 WebKit 框架采用其本身的缓存框架，WKWebsiteDataStore 类用来处理数据的存储，其中属性和方法如下：
 
-```oc
+```objc
 @interface WKWebsiteDataStore : NSObject
 // 获取默认的存储器 此存储器为持久性的会被写入磁盘
 + (WKWebsiteDataStore *)defaultDataStore;
@@ -129,7 +129,7 @@ WebKit 框架采用其本身的缓存框架，WKWebsiteDataStore 类用来处理
 
 **其他属性**
 
-```oc
+```objc
 // 设置是否将网页内容全部加载到内存后再渲染
 config.suppressesIncrementalRendering = NO;
 // 设置 HTML5 视频是否允许网页播放，设置为NO则会使用本地播放器
@@ -159,7 +159,7 @@ config.applicationNameForUserAgent = @"HS";
 
 下面列举了WKWebView中常用的属性和方法。
 
-```oc
+```objc
 //设置导航代理
 @property (nullable, nonatomic, weak) id <WKNavigationDelegate> navigationDelegate;
 //设置UI代理
@@ -213,7 +213,7 @@ config.applicationNameForUserAgent = @"HS";
 
 WKBackForwardList 类为导航管理的网页列表类
 
-```oc
+```objc
 @interface WKBackForwardList : NSObject
 //当前所在的网页节点
 @property (nullable, nonatomic, readonly, strong) WKBackForwardListItem *currentItem;
@@ -232,7 +232,7 @@ WKBackForwardList 类为导航管理的网页列表类
 
 在 WebKit 中，网页节点被抽象成为了 WKBackForwardListItem 类，这个类中封装的属性如下：
 
-```oc
+```objc
 @interface WKBackForwardListItem : NSObject
 //当前节点的URL
 @property (readonly, copy) NSURL *URL;
@@ -258,7 +258,7 @@ WebKit中的 Native 与 JavaScript 的交互主要有4类。
 
 这种方式可以在网页中注入一些自定义的 JavaScript 代码，也可以注入自定义的方法，再使用`evaluteJavaScript:completionHandler:`来调用方法。JavaScript 代码的注入也是通过 WKUserContentController 来完成的，使用 addUserScript: 方法来注入 JavaScript，其中需要通过WKUserScript 类来生成要注入的对象，这个类使用如下方法来进行实例化：
 
-```oc
+```objc
 /*
 source为要注入的js代码
 WKUserScriptInjectionTime 设置注入的时机
@@ -280,7 +280,7 @@ typedef NS_ENUM(NSInteger, WKUserScriptInjectionTime) {
 
 ## WKUIDelegate 协议中方法解析
 
-```oc
+```objc
 //创建新的webView时调用的方法
 -(WKWebView *)webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures{
     return webView;
@@ -323,7 +323,7 @@ WKWebView WKProcessPool 实例在 app 杀进程重启后会被重置，导致 WK
 
 WKNavagationDelegate 协议重要有两个作用，监听页面渲染流程与控制页面跳转，其中方法如下：
 
-```oc
+```objc
 /*
 决定是否响应网页的某个动作，例如加载，回退，前进，刷新等，在这个方法中，必须执行decisionHandler()代码块，并将是否允许这个活动执行在block中进行传入
 */
@@ -401,7 +401,7 @@ typedef NS_ENUM(NSInteger, WKNavigationResponsePolicy) {
 
 首先，在注册要被 JavaScript 调用的方法时需要设置代理，在不需要时需要将代理移除，WKUserContentController中也提供了移除这个代理的方法，如果不移除，将会造成 WebView 不能释放。
 
-```oc
+```objc
 //注册一个监听方法
 - (void)addScriptMessageHandler:(id <WKScriptMessageHandler>)scriptMessageHandler name:(NSString *)name;
 //移除一个方法的监听
@@ -410,7 +410,7 @@ typedef NS_ENUM(NSInteger, WKNavigationResponsePolicy) {
 
 同样与注入 JavaScript 对应，也可以将注入的代码移除，方法如下：
 
-```oc
+```objc
 //注入一个JavaScript抽象对象
 - (void)addUserScript:(WKUserScript *)userScript;
 //移除所有注入
@@ -419,7 +419,7 @@ typedef NS_ENUM(NSInteger, WKNavigationResponsePolicy) {
 
 在上面，经常会见到 WKNavagationAction 这个类，这个类中封装的是一些页面活动信息，如下：
 
-```oc
+```objc
 @interface WKNavigationAction : NSObject
 //原页面
 @property (nonatomic, readonly, copy) WKFrameInfo *sourceFrame;
@@ -471,7 +471,7 @@ NSHTTPCookieStorage 是一个单例，用来管理整个项目的 Cookie，包�
     
 使用NSHTTPCookieStorage对象去手动存取Cookie信息并注入到WKWebview中。先来说怎么取：
 
-```oc
+```objc
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler{
     if (@available(iOS 12.0, *)) {
         WKHTTPCookieStore *cookieStore = webView.configuration.websiteDataStore.httpCookieStore;
@@ -511,7 +511,7 @@ NSHTTPCookieStorage 是一个单例，用来管理整个项目的 Cookie，包�
 
 **第二种**方法是在构造NSURLRequest的时候去修改请求头，也直接上代码了：
 
-```oc
+```objc
 NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
 NSMutableString *cookiesString = [NSMutableString string];
 NSArray *tmpCookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
@@ -528,7 +528,7 @@ for (NSHTTPCookie * cookie in tmpCookies) {
 
 获取和保存Cookie的方式与上面类似，再处理网络请求response的地方调用如下类似代码：
 
-```oc
+```objc
 - (void)syncSwordCookies:(NSURLResponse *)response forURL:(NSURL *)url {
     NSDictionary *respHeader = [(NSHTTPURLResponse *)response allHeaderFields];
     NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:respHeader forURL:url];
