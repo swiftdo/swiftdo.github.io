@@ -280,6 +280,8 @@ typedef NS_ENUM(NSInteger, WKUserScriptInjectionTime) {
 
 ## WKUIDelegate 协议中方法解析
 
+WebKit考虑web页面的各种弹出框样式，如alert弹出框、Confirm选择框和TextInput输入框。WebKit为了让我们开发人员可以根据自己APP的风格设计各种不同的样式。对这些弹出框进行了封装。
+
 ```objc
 //创建新的webView时调用的方法
 -(WKWebView *)webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures{
@@ -607,7 +609,86 @@ WKWebViewConfiguration -> WKWebsiteDataStore -> WKHTTPCookieStore
 * [干货：探秘WKWebView](https://zhuanlan.zhihu.com/p/428118929)
 
 
+## WKWebView 拦截请求技术调研
 
+业内已有的 WKWebView 请求拦截方案，主要分为如下两种
+
+* NSURLProtocol
+* WKURLSchemeHandler
+
+### NSURLProtocol
+
+NSURLProtocol 默认会拦截所有经过 URL Loading System 的请求，因此只要 WKWebView 发出的请求经过 URL Loading System 就可以被拦截。经过我们的尝试，发现 WKWebView 独立于应用进程运行，发出去的请求默认是不会经过 URL Loading System，需要我们额外进行 hook 才能支持，具体实时可参考：[NSURLProtocol对WKWebView的处理](https://www.jianshu.com/p/8f5e1082f5e0)
+
+虽然NSURLProtocol可以拦截监听每一个URL Loading System中发出request请求，记住是 URL Loading System 中那些类发出的请求，也支持AFNetwoking，UIWebView发出的 request，NSURLProtocol 都可以拦截和监听。
+
+因为 WKWebView 在独立进程里执行网络请求。一旦注册 http(s) scheme 后，网络请求将从 Network Process 发送到 App Process，这样 NSURLProtocol 才能拦截网络请求。
+
+但是在 WebKit2 的设计里使用 MessageQueue 进行进程之间的通信，Network Process 会将请求 encode 成一个 Message，然后通过 IPC（进程间通信） 发送给 App Process。出于性能的原因，encode 的时候 **将HTTPBody 和 HTTPBodyStream 这两个字段丢弃掉**(坑)
+
+因此，如果通过`registerSchemeForCustomProtocol`注册了 http(s) scheme, 那么由 WKWebView 发起的所有 http(s)请求都会通过 IPC 传给主进程 NSURLProtocol 处理，导致 post 请求 body 被清空。
+
+```objc
+//苹果开源的 WebKit2 源码暴露了私有API：
++ [WKBrowsingContextController registerSchemeForCustomProtocol:]
+
+//通过注册 http(s) scheme 后 WKWebView 将可以使用 NSURLProtocol 拦截 http(s) 请求：
+Class cls = NSClassFromString(@"WKBrowsingContextController”);
+ SEL sel = NSSelectorFromString(@"registerSchemeForCustomProtocol:"); 
+if ([(id)cls respondsToSelector:sel]) { 
+        // 注册http(s) scheme, 把 http和https请求交给 NSURLProtocol处理 
+        [(id)cls performSelector:sel withObject:@"http"]; 
+        [(id)cls performSelector:sel withObject:@"https"]; 
+}
+```
+
+说明1：名目张胆使用私有API，是过不了AppStore审核的，具体使用什么办法，想来你也懂(hun xiao)。
+
+说明2：一旦打开ATS开关：Allow Arbitrary Loads 选项设置为NO，通过 registerSchemeForCustomProtocol 注册了 http(s) scheme，WKWebView 发起的所有 http(s) 网络请求将被阻塞（即便将Allow Arbitrary Loads in Web Content 选项设置为YES）；
+
+说明3：iOS11之后可以通过WKURLSchemeHandler去完成对WKWebView的请求拦截,不需要再调用私有API解决上述问题了。
+
+### WKURLSchemeHandler
+
+WKURLSchemeHandler是iOS11就推出的，用于处理自定义请求的方案，不过并不能处理Http、Https等常规scheme。
+
+WKURLSchemeHandler 负责自定义请求的数据管理，如果需要支持 scheme 为 http 或 https请求的数据管理则需要 hook WKWebView 的 handlesURLScheme: 方法，然后返回 NO 即可：
+
+```objc
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        Method originalMethod1 = class_getClassMethod(self, @selector(handlesURLScheme:));
+        Method swizzledMethod1 = class_getClassMethod(self, @selector(yyhandlesURLScheme:));
+        method_exchangeImplementations(originalMethod1, swizzledMethod1);
+    });
+}
+
++ (BOOL)yyhandlesURLScheme:(NSString *)urlScheme {
+    if ([urlScheme isEqualToString:@"http"] || [urlScheme isEqualToString:@"https"] || [urlScheme isEqualToString:@"file"]) {
+        return NO;  //这里让返回NO,应该是默认不走系统断言或者其他判断啥的
+    } else {
+        return [self handlesURLScheme:urlScheme];
+    }
+}
+```
+
+* 隔离性：NSURLProtocol 一经注册就是全局开启。一般来讲我们只会拦截自己的业务页面，但使用了 NSURLProtocol 的方式后会导致应用内合作的三方页面也会被拦截从而被污染。WKURLSchemeHandler 则可以以页面为维度进行隔离，因为是跟随着 WKWebViewConfiguration 进行配置。
+* 稳定性：NSURLProtocol 拦截过程中会丢失 Body，WKURLSchemeHandler 在 iOS 11.3 之前 (不包含) 也会丢失 Body，在 iOS 11.3 以后 WebKit 做了优化只会丢失 Blob 类型数据。
+* 一致性：WKWebView 发出的请求被 NSURLProtocol 拦截后行为可能发生改变，比如想取消 video 标签的视频加载一般都是将资源地址 (src) 设置为空，但此时 stopLoading 方法却不会调用，相比而言 WKURLSchemeHandler 表现正常。
+
+WKURLSchemeHandler 在隔离性、稳定性、一致性上表现优于 NSURLProtocol，但是想在生产环境投入使用必须要解决 Body 丢失的问题。
+
+
+**WKWebView自定义资源 scheme**
+
+* 向WKWebView 注册 customScheme, 比如 dynamic://, 而不是https或http，避免对https或http请求的影响。
+
+* 保证使用离线包功能的请求，没有post方式，遇到customScheme请求，比如dynamic://www.dynamicalbumlocalimage.com/，通过 NSURLProtocol 拦截这个请求并加载离线数据。
+
+* iOS 11上, WebKit 提供的WKURLSchemeHandler可实现拦截，需要注意的只允许开发者拦截自定义 Scheme 的请求，不允许拦截 “http”、“https”、“ftp”、“file” 等的请求，否则会crash。
+
+* 重定向问题，WKURLSchemeHandler 在获取数据时**并不支持重定向**
 
 
 
