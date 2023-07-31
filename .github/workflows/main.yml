@@ -18,9 +18,14 @@ jobs:
         with:
           persist-credentials: false
 
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          check-latest: true
+    
       # 生成静态文件
       - name: Build
-        run: set NODE_OPTIONS=--openssl-legacy-provider && yarn install && yarn docs:build
+        run: yarn install && yarn docs:build
 
       # 部署到 GitHub Pages
       - name: Deploy
