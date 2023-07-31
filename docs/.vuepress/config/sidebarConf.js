@@ -8,11 +8,7 @@ module.exports = {
         {
             title: "Package 依赖",
             collapsable: false,
-            children: [
-                "adding-package-dependencies-to-your-app",
-                "identifying-binary-dependencies",
-                "editing-a-package-dependency-as-a-local-package",
-            ],
+            children: ["adding-package-dependencies-to-your-app", "identifying-binary-dependencies", "editing-a-package-dependency-as-a-local-package"],
         },
         {
             title: "Package 创建",
@@ -34,9 +30,7 @@ module.exports = {
         {
             title: "持续集成",
             collapsable: false,
-            children: [
-                "building-swift-packages-or-apps-that-use-them-in-continuous-integration-workflows",
-            ],
+            children: ["building-swift-packages-or-apps-that-use-them-in-continuous-integration-workflows"],
         },
     ],
     "/swift/vapor/": [
@@ -75,51 +69,24 @@ module.exports = {
         {
             title: "iOS",
             collapsable: false,
-            children: [
-                "",
-                "t1-pod-webp",
-                "t2-youhua",
-                "pod-wechat",
-                "ios-build-cers",
-                "XCFramework",
-                "ios-webkit",
-            ],
+            children: ["", "t1-pod-webp", "t2-youhua", "pod-wechat", "ios-build-cers", "XCFramework", "ios-webkit"],
         },
     ],
     "/swift/better/": [
         {
             title: "写更好的Swift代码",
             collapsable: false,
-            children: [
-                "",
-                "autoclosure",
-                "protocol",
-                "chain",
-                "Copy-On-Write",
-                "copy-in-copy-out",
-                "di",
-                "lazy",
-                "available",
-                "last",
-                "value-semantics",
-                "value-semantics-2",
-            ],
+            children: ["", "autoclosure", "protocol", "chain", "Copy-On-Write", "copy-in-copy-out", "di", "lazy", "available", "last", "value-semantics", "value-semantics-2"],
         },
     ],
-    "/swift/tips/": [{ title: "TIPS", collapsable: false, children: [""] }],
+    "/swift/tips/": [
+        { title: "TIPS", collapsable: false, children: ["", "structured-concurrency"] },
+    ],
     "/swift/fp/": [
         {
             title: "FP",
             collapsable: false,
-            children: [
-                "",
-                "t1-fp",
-                "t2-lens",
-                "t3-json1",
-                "t3-json2",
-                "t3-json3",
-                "t4-length",
-            ],
+            children: ["", "t1-fp", "t2-lens", "t3-json1", "t3-json2", "t3-json3", "t4-length"],
         },
     ],
 
@@ -240,13 +207,7 @@ module.exports = {
         {
             title: "GIT",
             collapsable: false,
-            children: [
-                "",
-                "t1-change-history",
-                "t2-git-submodule",
-                "git-branch-mapping",
-                "git-reset",
-            ],
+            children: ["", "t1-change-history", "t2-git-submodule", "git-branch-mapping", "git-reset"],
         },
     ],
     "/tools/yaml/": [{ title: "YAML", collapsable: false, children: [""] }],
@@ -282,15 +243,7 @@ module.exports = {
         {
             title: "原理篇",
             collapsable: false,
-            children: [
-                "Principle05",
-                "Principle01",
-                "Principle02",
-                "Principle03",
-                "Principle04",
-                "Principle06",
-                "result-builders",
-            ],
+            children: ["Principle05", "Principle01", "Principle02", "Principle03", "Principle04", "Principle06", "result-builders"],
         },
         {
             title: "基础控件",
@@ -309,15 +262,7 @@ module.exports = {
                 {
                     title: "按钮",
                     collapsable: false,
-                    children: [
-                        "Button",
-                        "PullDownButton",
-                        "ItemBasedPopUpButton",
-                        "NavigationButton",
-                        "PresentationButton",
-                        "EditButton",
-                        "PasteButton",
-                    ],
+                    children: ["Button", "PullDownButton", "ItemBasedPopUpButton", "NavigationButton", "PresentationButton", "EditButton", "PasteButton"],
                 },
                 {
                     title: "选择器",
@@ -355,13 +300,7 @@ module.exports = {
                 {
                     title: "Alert",
                     collapsable: false,
-                    children: [
-                        "Alert",
-                        "Modal",
-                        "Popover",
-                        "Sheet",
-                        "ActionSheet",
-                    ],
+                    children: ["Alert", "Modal", "Popover", "Sheet", "ActionSheet"],
                 },
 
                 "NavigationView",
@@ -399,22 +338,12 @@ module.exports = {
                 {
                     title: "基础手势",
                     collapsable: false,
-                    children: [
-                        "TapGesture",
-                        "LongPressGesture",
-                        "DragGesture",
-                        "MagnificationGesture",
-                        "RotationGesture",
-                    ],
+                    children: ["TapGesture", "LongPressGesture", "DragGesture", "MagnificationGesture", "RotationGesture"],
                 },
                 {
                     title: "组合手势",
                     collapsable: false,
-                    children: [
-                        "SequenceGesture",
-                        "SimultaneousGesture",
-                        "ExclusiveGesture",
-                    ],
+                    children: ["SequenceGesture", "SimultaneousGesture", "ExclusiveGesture"],
                 },
                 {
                     title: "自定义手势",
@@ -439,26 +368,12 @@ module.exports = {
         {
             title: "创建型",
             collapsable: false,
-            children: [
-                "FactoryPattern",
-                "BuilderPattern",
-                "PrototypePattern",
-                "SingletonPattern",
-            ],
+            children: ["FactoryPattern", "BuilderPattern", "PrototypePattern", "SingletonPattern"],
         },
         {
             title: "结构型",
             collapsable: false,
-            children: [
-                "AdapterPattern",
-                "BridgePattern",
-                "FilterCriteriaPattern",
-                "CompositePattern",
-                "DecoratorPattern",
-                "FacadePattern",
-                "FlyweightPattern",
-                "ProxyPattern",
-            ],
+            children: ["AdapterPattern", "BridgePattern", "FilterCriteriaPattern", "CompositePattern", "DecoratorPattern", "FacadePattern", "FlyweightPattern", "ProxyPattern"],
         },
         {
             title: "行为型",
