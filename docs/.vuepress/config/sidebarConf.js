@@ -80,7 +80,7 @@ module.exports = {
         },
     ],
     "/swift/tips/": [
-        { title: "TIPS", collapsable: false, children: ["", "structured-concurrency"] },
+        { title: "TIPS", collapsable: false, children: ["", "structured-concurrency", "property-wrpappers"] },
     ],
     "/swift/fp/": [
         {
