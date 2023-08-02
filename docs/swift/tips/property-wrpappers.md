@@ -98,7 +98,7 @@ struct SmallNumber {
 struct ZeroRectangle {
     // 等价于 @SmallNumber() var height
     @SmallNumber var height: Int
-    // @SmallNumber() var width
+    // 等价于 @SmallNumber() var width
     @SmallNumber var width: Int
 }
 
@@ -140,10 +140,14 @@ print(narrowRectangle.height, narrowRectangle.width)
 // 打印 "5 4"
 ```
 
-调用`SmallNumber(wrappedValue: 2, maximum: 5)`来创建包装 height 的 SmallNumber 的一个实例。调用 `SmallNumber(wrappedValue: 3, maximum: 4)`来创建包装 width 的 SmallNumber 的一个实例。
+调用`SmallNumber(wrappedValue: 2, maximum: 5)`来创建包装 height 的 SmallNumber 的一个实例。
+
+调用 `SmallNumber(wrappedValue: 3, maximum: 4)`来创建包装 width 的 SmallNumber 的一个实例。
 
 
-当包含属性包装器实参时，你也可以使用赋值来指定初始值。Swift 将赋值视为 wrappedValue 参数，且使用接受被包含的实参的构造器。举个例子：
+当包含属性包装器实参时，你也可以使用赋值来指定初始值。Swift 将赋值视为 wrappedValue 参数，且使用接受被包含的实参的构造器。
+
+举个例子：
 
 ```swift
 struct MixedRectangle {
@@ -162,7 +166,9 @@ print(mixedRectangle.height)
 // 打印 "12"
 ```
 
-调用`SmallNumber(wrappedValue: 1)`来创建包装 height 的 SmallNumber 的一个实例，这个实例使用默认最大值 12。调用`SmallNumber(wrappedValue: 2, maximum: 9)`来创建包装 width 的 SmallNumber 的一个实例。
+调用`SmallNumber(wrappedValue: 1)`来创建包装 height 的 SmallNumber 的一个实例，这个实例使用默认最大值 12。
+
+调用`SmallNumber(wrappedValue: 2, maximum: 9)`来创建包装 width 的 SmallNumber 的一个实例。
 
 ## 从属性包装器中呈现一个值
 
@@ -180,7 +186,7 @@ struct Wrapper<Value>{
 }
 ```
 
-如何才能去调用 log?
+**如何才能去调用 log?**
 
 ```swift
 @propertyWrapper
@@ -203,6 +209,7 @@ struct Text {
         print($x) // projectedValue
     }
   
+    // 理解包装器本质，大脑里详细下展开后的代码
     func myLog() {
       // 私有的处理
       _x.log()
@@ -217,10 +224,20 @@ t.$x.log() // 2
 t.myLog() // 2
 ```
 
+## 使用约束
+
+* `@propertyWrapper`：在类、结构体或者枚举的声明时使用该特性，可以让其成为一个属性包装器。
+* 全局变量不能使用属性包装器。
+* [支持用作函数中的局部变量](https://www.hackingwithswift.com/swift/5.4/local-property-wrappers)(playgroud跑不起来)]。
+* 包装器必须定义一个 wrappedValue 实例属性。
+* 可应用于函数参数。
+
 ## 总结
 
-以上是属性包装器的精髓所在，需要细细体会和感悟。
-属性包装器的写法跟普通的结构体、类等并无区别，需要清晰的理解 `wrpppedValue` 和 `projectedValue` 的作用。以及尝试学会如何对属性包装器进行展开。
+本文是属性包装器的精髓所在，需要细细体会和感悟。
+
+属性包装器的写法跟普通的结构体、类等并无区别。
+需要清晰的理解 `wrpppedValue` 和 `projectedValue` 的作用，以及学会对属性包装器进行展开。
 
 
 
