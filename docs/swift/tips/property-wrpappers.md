@@ -9,9 +9,9 @@ tags:
 - tips
 ---
 
-属性包装器在管理属性如何存储和定义属性的代码之间添加了一个分隔层。
+属性包装器在管理属性如何存储和定义属性的代码之间添加了一个分隔层，便于代码的复用。
 
-`TwelveOrLess`结构体确保它包装的值始终是小于等于 12 的数字。
+举例：`TwelveOrLess`结构体确保它包装的值始终是小于等于 12 的数字。
 
 ```swift
 @propertyWrapper
@@ -24,13 +24,14 @@ struct TwelveOrLess {
 }
 ```
 
-这个 setter 确保新值小于或等于 12，而且返回被存储的值.
+这个`setter`确保新值小于或等于 12，而且返回被存储的值.
 
 ```swift
 struct SmallRectangle {
     @TwelveOrLess var height: Int
     @TwelveOrLess var width: Int
 }
+
 var rectangle = SmallRectangle()
 print(rectangle.height)
 // 打印 "0"
@@ -44,7 +45,7 @@ print(rectangle.height)
 // 打印 "12"
 ```
 
-等价于：
+`SmallRectangle`等价于：
 
 ```swift
 struct SmallRectangle {
@@ -61,9 +62,9 @@ struct SmallRectangle {
 }
 ```
 
-## 设置被包装属性的初始值
+## 包装属性的初始化
 
-为了支持设定一个初始值或者其他自定义操作，属性包装器需要添加一个构造器。这是 TwelveOrLess 的扩展版本，称为 SmallNumber.
+为了支持设定一个初始值或者其他自定义操作，属性包装器需要添加一个构造器。
 
 ```swift
 @propertyWrapper
@@ -91,11 +92,13 @@ struct SmallNumber {
 }
 ```
 
-SmallNumber 的定义包括三个构造器——init()、init(wrappedValue:) 和 init(wrappedValue:maximum:)——下面的示例使用这三个构造器来设置被包装值和最大值.
+`SmallNumber`的定义包括三个构造器——`init()`、`init(wrappedValue:)`和`init(wrappedValue:maximum:)`——下面的示例使用这三个构造器来设置被包装值和最大值.
 
 ```swift
 struct ZeroRectangle {
+    // 等价于 @SmallNumber() var height
     @SmallNumber var height: Int
+    // @SmallNumber() var width
     @SmallNumber var width: Int
 }
 
@@ -107,7 +110,9 @@ print(zeroRectangle.height, zeroRectangle.width)
 
 ```swift
 struct UnitRectangle {
+    // 等价于 @SmallNumber(wrappedValue: 1) var height
     @SmallNumber var height: Int = 1
+    // 等价于 @SmallNumber(wrappedValue: 1) var width
     @SmallNumber var width: Int = 1
 }
 
@@ -115,11 +120,13 @@ var unitRectangle = UnitRectangle()
 print(unitRectangle.height, unitRectangle.width)
 // 打印 "1 1"
 ```
-当你对一个被包装的属性写下 = 1 时，这被转换为调用 init(wrappedValue:) 构造器。调用 SmallNumber(wrappedValue: 1)来创建包装 height 和 width 的 SmallNumber 的实例。
+当你对一个被包装的属性写下`= 1`时，这被转换为调用`init(wrappedValue:)`构造器。调用`SmallNumber(wrappedValue: 1)`来创建包装 height 和 width 的 SmallNumber 的实例。
 
 ```swift
 struct NarrowRectangle {
+    // 等价于  @SmallNumber(maximum: 5) var height: Int = 5
     @SmallNumber(wrappedValue: 2, maximum: 5) var height: Int
+    // 等价于  @SmallNumber(maximum: 5) var width: Int = 3
     @SmallNumber(wrappedValue: 3, maximum: 4) var width: Int
 }
 
@@ -133,14 +140,16 @@ print(narrowRectangle.height, narrowRectangle.width)
 // 打印 "5 4"
 ```
 
-调用 SmallNumber(wrappedValue: 2, maximum: 5) 来创建包装 height 的 SmallNumber 的一个实例。调用 SmallNumber(wrappedValue: 3, maximum: 4) 来创建包装 width 的 SmallNumber 的一个实例。
+调用`SmallNumber(wrappedValue: 2, maximum: 5)`来创建包装 height 的 SmallNumber 的一个实例。调用 `SmallNumber(wrappedValue: 3, maximum: 4)`来创建包装 width 的 SmallNumber 的一个实例。
 
 
 当包含属性包装器实参时，你也可以使用赋值来指定初始值。Swift 将赋值视为 wrappedValue 参数，且使用接受被包含的实参的构造器。举个例子：
 
 ```swift
 struct MixedRectangle {
+    // 等价于 @SmallNumber(wrappedValue: 1) var height: Int
     @SmallNumber var height: Int = 1
+    // 等价于 @SmallNumber(wrappedValue: 2， maximum: 9) var height: Int
     @SmallNumber(maximum: 9) var width: Int = 2
 }
 
@@ -153,7 +162,7 @@ print(mixedRectangle.height)
 // 打印 "12"
 ```
 
-调用 SmallNumber(wrappedValue: 1) 来创建包装 height 的 SmallNumber 的一个实例，这个实例使用默认最大值 12。调用 SmallNumber(wrappedValue: 2, maximum: 9) 来创建包装 width 的 SmallNumber 的一个实例。
+调用`SmallNumber(wrappedValue: 1)`来创建包装 height 的 SmallNumber 的一个实例，这个实例使用默认最大值 12。调用`SmallNumber(wrappedValue: 2, maximum: 9)`来创建包装 width 的 SmallNumber 的一个实例。
 
 ## 从属性包装器中呈现一个值
 
@@ -208,7 +217,10 @@ t.$x.log() // 2
 t.myLog() // 2
 ```
 
-以上是属性包装器的精髓所在，需要细细体会和感悟。毕竟SwiftUI有太多使用此特性的地方了。
+## 总结
+
+以上是属性包装器的精髓所在，需要细细体会和感悟。
+属性包装器的写法跟普通的结构体、类等并无区别，需要清晰的理解 `wrpppedValue` 和 `projectedValue` 的作用。以及尝试学会如何对属性包装器进行展开。
 
 
 
