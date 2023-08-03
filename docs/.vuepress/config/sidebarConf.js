@@ -79,9 +79,7 @@ module.exports = {
             children: ["", "autoclosure", "protocol", "chain", "Copy-On-Write", "copy-in-copy-out", "di", "lazy", "available", "last", "value-semantics", "value-semantics-2"],
         },
     ],
-    "/swift/tips/": [
-        { title: "TIPS", collapsable: false, children: ["", "structured-concurrency", "property-wrpappers"] },
-    ],
+    "/swift/tips/": [{ title: "TIPS", collapsable: false, children: ["", "structured-concurrency", "property-wrpappers"] }],
     "/swift/fp/": [
         {
             title: "FP",
