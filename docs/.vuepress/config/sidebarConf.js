@@ -211,7 +211,7 @@ module.exports = {
         },
     ],
     "/tools/yaml/": [{ title: "YAML", collapsable: false, children: [""] }],
-    "/tools/html/": [{ title: "HTML", collapsable: false, children: [""] }],
+    "/tools/html/": [{ title: "HTML", collapsable: false, children: ["", "css-equal-distribution-layout"] }],
     "/tools/plantuml/": [
         {
             title: "Plushum",
