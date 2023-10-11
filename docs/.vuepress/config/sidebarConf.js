@@ -209,7 +209,7 @@ module.exports = {
         },
     ],
     "/tools/yaml/": [{ title: "YAML", collapsable: false, children: [""] }],
-    "/tools/html/": [{ title: "HTML", collapsable: false, children: ["", "css-equal-distribution-layout"] }],
+    "/tools/html/": [{ title: "HTML", collapsable: false, children: ["", "css-equal-distribution-layout", "js-vant-vue-callable"] }],
     "/tools/plantuml/": [
         {
             title: "Plushum",
