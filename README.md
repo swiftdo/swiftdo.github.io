@@ -5,6 +5,7 @@
 带你最佳实践！
 
 ```sh
+export NODE_OPTIONS=--openssl-legacy-provider
 yarn docs:dev
 ```
 
