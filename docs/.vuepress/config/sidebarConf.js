@@ -96,6 +96,7 @@ module.exports = {
                 "",
                 "python-develop-env",
                 "pyenv",
+                "poetry",
                 "python-string",
                 "python-file",
                 "python-module",
