@@ -95,6 +95,7 @@ module.exports = {
             children: [
                 "",
                 "python-develop-env",
+                "pyenv",
                 "python-string",
                 "python-file",
                 "python-module",
