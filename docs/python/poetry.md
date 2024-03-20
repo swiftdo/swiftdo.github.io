@@ -108,12 +108,12 @@ pip 是 python 内置的依赖管理工具，而它最大的不足在于 第三�
 
 **Poetry**:
 
-1， 独立工具: Poetry 是一个独立的工具，它旨在提供更全面的 Python 项目管理解决方案。
+1. 独立工具: Poetry 是一个独立的工具，它旨在提供更全面的 Python 项目管理解决方案。
 2. pyproject.toml: Poetry 使用 pyproject.toml 文件作为项目的配置文件，这是 PEP 517 和 PEP 518 的一部分，旨在提供一种现代和标准化的项目配置方式。
-3。 依赖管理和打包: Poetry 不仅仅用于管理项目的依赖关系，还可以用于构建和发布项目，使得整个项目的生命周期更加完整。
+3. 依赖管理和打包: Poetry 不仅仅用于管理项目的依赖关系，还可以用于构建和发布项目，使得整个项目的生命周期更加完整。
 4. 内置的打包和发布功能: Poetry 提供了一种简单的方式来打包和发布项目，用户可以使用 Poetry 命令构建和发布项目到 PyPI 或其他包管理器。
 
-本文结论就是「不要用 Pipenv」
+本文结论就是**「不要用 Pipenv」**
 
 ## poetry 安装
 
@@ -195,7 +195,7 @@ Using virtualenv: /Users/oheroj/Library/Caches/pypoetry/virtualenvs/poetry-demo-
 
 ## 在当前项目下创建虚拟环境
 
-可以使用 poetry config --list 指令来查看 poetry 的几个主要设定
+可以使用`poetry config --list`指令来查看 poetry 的几个主要设定
 
 ```sh
 cache-dir = "/Users/oheroj/Library/Caches/pypoetry"
@@ -217,10 +217,10 @@ virtualenvs.prefer-active-python = false
 virtualenvs.prompt = "{project_name}-py{python_version}"
 warnings.export = true
 ```
-其中 virtualenvs.create = true 若改为 false，则可以停止 poetry 在检查不到虚拟环境是自动创建的行为模式，但是建议不要改动。
+其中`virtualenvs.create = true`若改为 false，则可以停止 poetry 在检查不到虚拟环境是自动创建的行为模式，但是建议不要改动。
 
 
-而 virtualenvs.in-project = false 就是我们要修改的目标，使用指令:
+而`virtualenvs.in-project = false`就是我们要修改的目标，使用指令:
 
 ```sh
 poetry config virtualenvs.in-project true
@@ -244,7 +244,7 @@ Using virtualenv: /Users/oheroj/Desktop/Dev/python/djangos/poetry-demo/.venv
 可以看出：
 
 * 虚拟环境的路径改为项目的根目录下了
-* 名称固定位 .venv
+* 名称固定位`.venv`
 
 个人觉得这样的设定更加简洁。
 
@@ -258,9 +258,9 @@ $ poetry shell
 Spawning shell within /Users/oheroj/Desktop/Dev/python/djangos/poetry-demo/.venv
 ```
 
-poetry shell 指令会检查当前目录或上层目录是否存在 pyproject.toml 来确定需要启动的虚拟环境，所以如果不移动到项目的目录下，则会出现错误。
+`poetry shell`指令会检查当前目录或上层目录是否存在`pyproject.toml`来确定需要启动的虚拟环境，所以如果不移动到项目的目录下，则会出现错误。
 
-退出虚拟环境就更简单了，只要输入 exit 就可以了。
+退出虚拟环境就更简单了，只要输入`exit`就可以了。
 
 ```
 $ exit
