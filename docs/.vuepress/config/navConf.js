@@ -43,6 +43,10 @@ module.exports = [
     link: "/python/",
   },
   {
+    text: "Vue",
+    link: "/vue/",
+  },
+  {
     text: "设计模式",
     link: "https://oldbird.run/design-patterns/",
   },

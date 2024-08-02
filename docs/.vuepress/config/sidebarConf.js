@@ -118,6 +118,13 @@ module.exports = {
             children: ["", "1-install", "2-vscode", "3-pktool", "4-digui"],
         },
     ],
+    "/vue/": [
+        {
+            title: "VUE",
+            collapsable: false,
+            children: ["", "vue-component"],
+        },
+    ],
     "/flutter/": [
         {
             title: "Flutter",
