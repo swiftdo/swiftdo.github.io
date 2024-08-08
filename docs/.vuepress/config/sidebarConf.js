@@ -122,6 +122,13 @@ module.exports = {
         {
             title: "VUE",
             collapsable: false,
+            children: ["", "java-@FunctionalInterface-Lambda", "String[]-List<String>"],
+        },
+    ],
+    "/java/": [
+        {
+            title: "JAVA",
+            collapsable: false,
             children: ["", "vue-component"],
         },
     ],

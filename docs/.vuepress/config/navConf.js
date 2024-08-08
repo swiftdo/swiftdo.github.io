@@ -47,6 +47,10 @@ module.exports = [
     link: "/vue/",
   },
   {
+    text: "Java",
+    link: "/java/",
+  },
+  {
     text: "设计模式",
     link: "https://oldbird.run/design-patterns/",
   },
