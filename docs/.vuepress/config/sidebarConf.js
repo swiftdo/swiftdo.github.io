@@ -122,14 +122,14 @@ module.exports = {
         {
             title: "VUE",
             collapsable: false,
-            children: ["", "java-@FunctionalInterface-Lambda", "String[]-List<String>"],
+            children: ["", "vue-component"],
         },
     ],
     "/java/": [
         {
             title: "JAVA",
             collapsable: false,
-            children: ["", "vue-component"],
+            children: ["", "java-@FunctionalInterface-Lambda","String[]-List<String>"],
         },
     ],
     "/flutter/": [

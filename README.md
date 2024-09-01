@@ -7,6 +7,8 @@
 ```sh
 export NODE_OPTIONS=--openssl-legacy-provider
 yarn docs:dev
+
+# yarn docs:build
 ```
 
 加油 2021！
