@@ -189,7 +189,7 @@ module.exports = {
         },
     ],
     "/basis/index/": [{ title: "BASIS", collapsable: false, children: [""] }],
-    "/basis/algorithms/": [
+    "/algorithms/": [
         {
             title: "算法",
             collapsable: false,

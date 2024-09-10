@@ -56,7 +56,7 @@ module.exports = [
   },
   {
     text: "数据结构与算法",
-    link: "https://oldbird.run/algorithms",
+    link: "/algorithms/",
   },
   {
     text: "书单",
