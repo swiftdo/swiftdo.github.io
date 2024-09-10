@@ -6,12 +6,12 @@
 
 **支持线上浏览**：[https://oldbird.run/design-patterns](https://oldbird.run/design-patterns/#/)
 
-![](http://blog.oldbird.run/mweb/16169324651038.jpg)
+![](/imgs/16169324651038.jpg)
 
 
 关注官方公众号 **OldBirds**
 
-<img src="http://blog.oldbird.run/mweb/wechat-logo.png" width="420" />
+<img src="http://oldbird.run/wechat.png" width="420" />
 
 ## 基础
 

@@ -31,4 +31,4 @@ tags:
   - [x] [计数排序](/basis/algorithms/t9-count-sort)
   - [x] [桶排序](/basis/algorithms/u1-bucket-sort)
 
-  ![排序](imgs/15541716797540.jpg)
+  ![排序](/imgs/15541716797540.jpg)

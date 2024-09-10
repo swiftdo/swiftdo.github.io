@@ -6,7 +6,7 @@
 
 ## 样例
 
-![](http://blog.oldbird.run/mweb/16169408042714.jpg)
+![](/imgs/16169408042714.jpg)
 
 ```swift
 
