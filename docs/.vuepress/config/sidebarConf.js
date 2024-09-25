@@ -46,6 +46,8 @@ module.exports = {
                 "t5-deploy",
                 "t6-say-oldbirds",
                 "t9-docker",
+                "t10-docker-k8s-1",
+                "t10-docker-k8s-2",
                 "u-11-auth",
                 "u-12-permission",
                 "v-20-read-code",
