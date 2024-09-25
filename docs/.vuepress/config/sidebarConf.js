@@ -191,7 +191,7 @@ module.exports = {
         },
     ],
     "/basis/index/": [{ title: "BASIS", collapsable: false, children: [""] }],
-    "/basis/algorithms/": [
+    "/algorithms/": [
         {
             title: "算法",
             collapsable: false,
@@ -458,4 +458,67 @@ module.exports = {
             children: ["", "head-first-oop"],
         },
     ],
+    "/design-patterns/": [
+        {
+            title: "前言",
+            collapsable: false,
+            children: ["", "ClassReleation", "DesignPrinciples"],
+        },
+        {
+            title: "基础",
+            collapsable: false,
+            children: [
+                "principle/OCP",
+                "principle/SRP",
+                "principle/LSP",
+                "principle/DIP",
+                "principle/ISP",
+                "principle/CARP",
+                "principle/LOD"
+            ]
+        },
+        {
+            title: "创建型",
+            collapsable: false,
+            children: [
+                "FactoryPattern",
+                "BuilderPattern",
+                "PrototypePattern",
+                "SingletonPattern" 
+            ]
+        },
+        {
+            title: "结构型",
+            collapsable: false,
+            children: [
+                "AdapterPattern",
+                "BridgePattern",
+                "FilterCriteriaPattern",
+                "CompositePattern",
+                "DecoratorPattern",
+                "FacadePattern",
+                "FlyweightPattern",
+                "ProxyPattern"
+            ]
+        },
+        {
+            title: "行为型",
+            collapsable: false,
+            children: [
+                "ChainOfResponsibilityPattern",
+                "CommandPattern",
+                "InterpreterPattern",
+                "IteratorPattern",
+                "MediatorPattern",
+                "MementoPattern",
+                "ObserverPattern",
+                "StatePattern",
+                "NullObjectPattern",
+                "StrategyPattern",
+                "TemplatePattern",
+                "VisitorPattern",
+            ]
+        }
+
+    ]
 };

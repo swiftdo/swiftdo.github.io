@@ -52,11 +52,11 @@ module.exports = [
   },
   {
     text: "设计模式",
-    link: "https://oldbird.run/design-patterns/",
+    link: "/design-patterns/",
   },
   {
     text: "数据结构与算法",
-    link: "https://oldbird.run/algorithms",
+    link: "/algorithms/",
   },
   {
     text: "书单",
