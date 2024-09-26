@@ -48,6 +48,7 @@ module.exports = {
                 "t9-docker",
                 "t10-docker-k8s-1",
                 "t10-docker-k8s-2",
+                "t10-docker-k8s-3",
                 "u-11-auth",
                 "u-12-permission",
                 "v-20-read-code",
