@@ -75,7 +75,7 @@ module.exports = {
         {
             title: "iOS",
             collapsable: false,
-            children: ["", "t1-pod-webp", "t2-youhua", "pod-wechat", "ios-build-cers", "XCFramework", "ios-webkit"],
+            children: ["", "t1-pod-webp", "t2-youhua", "pod-wechat", "ios-build-cers", "XCFramework", "ios-webkit", "widgetkit-1"],
         },
     ],
     "/swift/better/": [
