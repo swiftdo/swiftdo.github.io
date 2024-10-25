@@ -61,6 +61,7 @@ module.exports = {
                 "v-24-swift-zhan-package",
                 "v-25-swiftnio-do-serisize",
                 "v-26-swfitnio-grpc-1",
+                "xcode-env-setup",
             ],
         },
     ],
