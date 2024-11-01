@@ -79,3 +79,15 @@ data的格式如下：
     ]},
 ]
 ```
+
+更新值：
+
+```js
+selectEmployeeXmSelect.setValue(['1', '2']);
+```
+
+更新值且禁止修改：
+
+```js
+selectEmployeeXmSelect.update({initValue: ["1", "2"], disabled: false});
+```
