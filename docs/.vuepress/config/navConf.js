@@ -39,6 +39,10 @@ module.exports = [
     link: "/flutter/",
   },
   {
+    text: "Flutter 面试题",
+    link: "https://flutter.oldbird.run",
+  },
+  {
     text: "Python",
     link: "/python/",
   },
