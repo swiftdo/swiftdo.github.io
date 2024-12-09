@@ -70,19 +70,6 @@ module.exports = [
     text:"其他",
     items: [
       {
-        text: "基础",
-        items: [
-          {
-            text: "概要",
-            link: "/basis/index/",
-          },
-          {
-            text: "操作系统",
-            link: "/basis/os/",
-          },
-        ],
-      },
-      {
         text: "工具",
         items: [
           {
@@ -132,22 +119,9 @@ module.exports = [
         link: "/haskell/",
       },
       {
-        text: "C&C++",
-        items: [
-          {
-            text: "语言篇",
-            link: "/c/program/",
-          },
-          {
-            text: "音频篇",
-            link: "/c/audio/",
-          },
-          {
-            text: "CMake篇",
-            link: "/c/cmake/",
-          },
-        ],
-      },
+        text: "运维",
+        link: "/ops/",
+      }
     ]
   },
   {

@@ -216,7 +216,7 @@ module.exports = {
             ],
         },
     ],
-    "/basis/os/": [{ title: "OS", collapsable: false, children: [""] }],
+    "/ops/": [{ title: "运维", collapsable: false, children: ["iptables-firewall", "allow-white"] }],
 
     "/tools/vuepress/": [
         {
@@ -417,47 +417,6 @@ module.exports = {
                 "StrategyPattern",
                 "TemplatePattern",
                 "VisitorPattern",
-            ],
-        },
-    ],
-    "/c/program/": [
-        {
-            title: "C/C++笔记",
-            collapsable: false,
-            children: ["", "pointers"],
-        },
-    ],
-    "/c/audio/": [
-        {
-            title: "音频篇",
-            collapsable: false,
-            children: ["", "audio-basic", "endian"],
-        },
-    ],
-    "/c/cmake/": [
-        {
-            title: "前言",
-            collapsable: false,
-            children: [""],
-        },
-
-        {
-            title: "BASIC",
-            collapsable: false,
-            children: [
-                "01-basic/",
-                "01-basic/A-hello-cmake",
-                "01-basic/B-hello-headers",
-                "01-basic/C-static-library",
-                "01-basic/D-shared-library",
-                "01-basic/E-installing",
-                "01-basic/F-build-type",
-                "01-basic/G-compile-flags",
-                "01-basic/H-third-party-library",
-                "01-basic/I-compiling-with-clang",
-                "01-basic/J-building-with-ninja",
-                "01-basic/K-imported-targets",
-                "01-basic/L-cpp-standard",
             ],
         },
     ],
