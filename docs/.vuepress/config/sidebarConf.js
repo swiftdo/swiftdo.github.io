@@ -216,7 +216,7 @@ module.exports = {
             ],
         },
     ],
-    "/ops/": [{ title: "运维", collapsable: false, children: ["iptables-firewall", "allow-white"] }],
+    "/ops/": [{ title: "运维", collapsable: false, children: ["", "iptables-firewall", "allow-white"] }],
 
     "/tools/vuepress/": [
         {
