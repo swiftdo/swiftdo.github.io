@@ -101,6 +101,10 @@ module.exports = [
             link: "/figma/",
           },
           {
+            text: "Code Review",
+            link: "/tools/code-review"
+          },
+          {
             text: "docsify",
             link: "/tools/docsify"
           },
