@@ -119,6 +119,13 @@ module.exports = {
             ],
         },
     ],
+    "/deepseek/": [
+        {
+            title: "DeepSeek",
+            collapsable: false,
+            children: ["", "deepseek-intro", "deepseek-1", "deepseek-2","deepseek-3" ],
+        },
+    ],
     "/haskell/": [
         {
             title: "HASKELL",

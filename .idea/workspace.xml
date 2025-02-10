@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7203ffef-b438-4349-97cc-9ba89ddc9969" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/docs/ops/sonarqube-plugin.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ops/sonarqube-plugin.md" afterDir="false" />
-    </list>
+    <list default="true" id="7203ffef-b438-4349-97cc-9ba89ddc9969" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,9 +13,12 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2qSizBQOTUaVMbRe9Otilp2Fjkp" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -32,6 +33,7 @@
     "cidr.known.project.marker": "true",
     "com.codeium.enabled": "true",
     "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "source",
     "kotlin-language-version-configured": "true",
     "settings.editor.selected.configurable": "com.google.gct.login2.settings.GoogleLoginApplicationSettingsConfigurableProvider"
   }

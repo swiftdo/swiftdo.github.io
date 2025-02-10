@@ -47,6 +47,10 @@ module.exports = [
     link: "/python/",
   },
   {
+    text: 'DeepSeek',
+    link: '/deepseek/',
+  },
+  {
     text: "Vue",
     link: "/vue/",
   },
