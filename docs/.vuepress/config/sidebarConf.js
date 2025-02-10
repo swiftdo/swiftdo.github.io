@@ -123,7 +123,7 @@ module.exports = {
         {
             title: "DeepSeek",
             collapsable: false,
-            children: ["", "deepseek-intro", "deepseek-1", "deepseek-2","deepseek-3" ],
+            children: ["", "deepseek-intro", "deepseek-1", "deepseek-2","deepseek-3", "deepseek-4" ],
         },
     ],
     "/haskell/": [
