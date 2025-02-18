@@ -119,11 +119,33 @@ module.exports = {
             ],
         },
     ],
+
     "/deepseek/": [
         {
             title: "DeepSeek",
             collapsable: false,
             children: ["", "deepseek-intro", "deepseek-1", "deepseek-2","deepseek-3", "deepseek-4" ],
+        },
+    ],
+    "/ai/ml/": [
+        {
+            title: "机器学习",
+            collapsable: false,
+            children: [""],
+        },
+    ],
+    "/ai/dl/": [
+        {
+            title: "深度学习",
+            collapsable: false,
+            children: ["", "t1-gzj"],
+        },
+    ],
+    "/ai/nlp/": [
+        {
+            title: "自然语言处理",
+            collapsable: false,
+            children: [""],
         },
     ],
     "/haskell/": [
@@ -187,13 +209,6 @@ module.exports = {
                 "flutter-vscode-config",
                 "flutter-web-launch-page",
             ],
-        },
-    ],
-    "/ai/": [
-        {
-            title: "AI",
-            collapsable: false,
-            children: ["", "t1-gzj"],
         },
     ],
     "/figma/": [

@@ -47,8 +47,25 @@ module.exports = [
     link: "/python/",
   },
   {
-    text: 'DeepSeek',
-    link: '/deepseek/',
+    text: '人工智能',
+    items: [
+      {
+        text: "机器学习",
+        link: "/ai/ml/",
+      },
+      {
+        text: "深度学习",
+        link: "/ai/dl/",
+      },
+      {
+        text: "NLP",
+        link: "/ai/nlp/",
+      },
+      {
+        text:  "Deepseek",
+        link: "/deepseek/",
+      }
+    ]
   },
   {
     text: "Vue",
