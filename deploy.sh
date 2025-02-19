@@ -33,3 +33,7 @@ if [ $? -eq 0 ]; then
 else
     echo "项目打包失败"
 fi
+
+
+git add .
+git commit -m "update"
