@@ -134,7 +134,8 @@ module.exports = {
             children: [
                 "", 
                 "supervised-vs-unsupervised-learning-concepts-and-differences",
-                "classification-and-regression-in-ml", // 新增文章文件名
+                "classification-and-regression-in-ml",
+                "dataset-and-feature" // 新增文章文件名
             ],
         },
     ],
