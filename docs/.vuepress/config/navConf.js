@@ -1,53 +1,154 @@
 module.exports = [
   {
-    text: "Swift",
+    text: "技术层面",
     items: [
-      
       {
-        text: "SwiftUI",
-        link: "/swift/swiftui/",
+        text: "Swift",
+        items: [
+          {
+            text: "函数式编程",
+            link: "/swift/fp/",
+          },
+          {
+            text: "写更好的Swift代码系列",
+            link: "/swift/better/",
+          },
+          {
+            text: "Swift Package Manage",
+            link: "/swift/spm/",
+          },
+          {
+            text: "SwiftUI",
+            link: "/swift/swiftui/",
+          },
+          {
+            text: "Ubuntu中Swift开发",
+            link: "/swift/ubuntu/",
+          },
+          {
+            text: "Vapor",
+            link: "/swift/vapor/",
+          },
+          {
+            text: "iOS",
+            link: "/swift/ios/",
+          },
+          {
+            text: "Tips",
+            link: "/swift/tips/",
+          },
+        ],
       },
       {
-        text: "Ubuntu中Swift开发",
-        link: "/swift/ubuntu/",
+        text: "Flutter",
+        items: [
+          {
+            text: "Flutter 开发",
+            link: "/flutter/",
+          },
+          {
+            text: "Flutter 面试题",
+            link: "https://flutter.oldbird.run",
+          },
+        ],
       },
       {
-        text: "Vapor",
-        link: "/swift/vapor/",
+        text: "Python",
+        link: "/python/",
       },
       {
-        text: "iOS",
-        link: "/swift/ios/",
+        text: "前端技术",
+        items: [
+          {
+            text: "Vue",
+            link: "/vue/",
+          },
+          {
+            text: "HTML",
+            link: "/tools/html/",
+          },
+        ],
       },
       {
-        text: "Tips",
-        link: "/swift/tips/",
+        text: "后端技术",
+        items: [
+          {
+            text: "Java",
+            link: "/java/",
+          },
+        ],
       },
       {
-        text: "函数式编程",
-        link: "/swift/fp/",
+        text: "技术理论",
+        items: [
+          {
+            text: "设计模式",
+            link: "/design-patterns/",
+          },
+          {
+            text: "数据结构与算法",
+            link: "/algorithms/",
+          },
+        ],
       },
-      { text: "写更好的Swift代码系列", link: "/swift/better/" },
       {
-        text: "Swift Package Manage",
-        link: "/swift/spm/"
+        text: "其他",
+        items: [
+          {
+            text: "Haskell",
+            link: "/haskell/",
+          },
+          {
+            text: "运维",
+            link: "/ops/",
+          },
+        ],
+      },
+      {
+        text: "工具",
+        items: [
+          {
+            text: "Git",
+            link: "/tools/git/",
+          },
+          {
+            text: "YAML",
+            link: "/tools/yaml/",
+          },
+          {
+            text: "PlantUML",
+            link: "/tools/plantuml/",
+          },
+          {
+            text: "流程图 Flowchart",
+            link: "/tools/flowchart/",
+          },
+          {
+            text: "Figma",
+            link: "/figma/",
+          },
+          {
+            text: "Code Review",
+            link: "/tools/code-review",
+          },
+          {
+            text: "docsify",
+            link: "/tools/docsify",
+          },
+          {
+            text: "VuePress",
+            link: "/tools/vuepress/",
+          },
+          {
+            text: "Note",
+            link: "/tools/note/",
+          },
+        ],
       },
     ],
   },
   {
-    text: "Flutter",
-    link: "/flutter/",
-  },
-  {
-    text: "Flutter 面试题",
-    link: "https://flutter.oldbird.run",
-  },
-  {
-    text: "Python",
-    link: "/python/",
-  },
-  {
-    text: '人工智能',
+    text: "AI",
     items: [
       {
         text: "机器学习",
@@ -62,95 +163,17 @@ module.exports = [
         link: "/ai/nlp/",
       },
       {
-        text:  "Deepseek",
+        text: "Deepseek",
         link: "/deepseek/",
-      }
-    ]
-  },
-  {
-    text: "Vue",
-    link: "/vue/",
-  },
-  {
-    text: "Java",
-    link: "/java/",
-  },
-  {
-    text: "设计模式",
-    link: "/design-patterns/",
-  },
-  {
-    text: "数据结构与算法",
-    link: "/algorithms/",
+      },
+    ],
   },
   {
     text: "书单",
-    link: "https://oldbird.run/books/#/",
+    link: "/books/", // 修改为本地文件路径
   },
   {
-    text:"其他",
-    items: [
-      {
-        text: "工具",
-        items: [
-          {
-            text: "Git",
-            link: "/tools/git/",
-          },
-          {
-            text: "YAML",
-            link: "/tools/yaml/",
-          },
-          {
-            text: "HTML",
-            link: "/tools/html/",
-          },
-          {
-            text: "PlantUML",
-            link: "/tools/plantuml/",
-          },
-          {
-            text: "流程图 Flowchart",
-            link: "/tools/flowchart/",
-          },
-          {
-            text: "AI",
-            link: "/ai/",
-          },
-          {
-            text: "Figma",
-            link: "/figma/",
-          },
-          {
-            text: "Code Review",
-            link: "/tools/code-review"
-          },
-          {
-            text: "docsify",
-            link: "/tools/docsify"
-          },
-          {
-            text: "VuePress",
-            link: "/tools/vuepress/",
-          },
-          {
-            text: "Note",
-            link: "/tools/note/",
-          },
-        ],
-      },
-      {
-        text: "Haskell",
-        link: "/haskell/",
-      },
-      {
-        text: "运维",
-        link: "/ops/",
-      }
-    ]
-  },
-  {
-    text: "关于",
+    text: "关于我",
     items: [
       {
         text: "关于我们",

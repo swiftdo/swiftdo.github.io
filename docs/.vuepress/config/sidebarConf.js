@@ -131,7 +131,11 @@ module.exports = {
         {
             title: "机器学习",
             collapsable: false,
-            children: [""],
+            children: [
+                "", 
+                "supervised-vs-unsupervised-learning-concepts-and-differences",
+                "classification-and-regression-in-ml", // 新增文章文件名
+            ],
         },
     ],
     "/ai/dl/": [
@@ -447,6 +451,13 @@ module.exports = {
             title: "阅读笔记",
             collapsable: false,
             children: ["", "head-first-oop"],
+        },
+    ],
+    "/books/": [
+        {
+            title: "书籍",
+            collapsable: false,
+            children: ["books"],
         },
     ],
     "/design-patterns/": [
