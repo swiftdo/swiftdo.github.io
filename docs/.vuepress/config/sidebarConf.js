@@ -137,7 +137,8 @@ module.exports = {
                 "classification-and-regression-in-ml",
                 "dataset-and-feature",
                 "feature-engineering",
-                "overfitting_underfitting" // 新增文章文件名
+                "overfitting_underfitting", 
+                "anaconda_installation_and_usage" // 新增文章文件名
             ],
         },
     ],
