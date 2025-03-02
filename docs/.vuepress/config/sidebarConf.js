@@ -129,7 +129,7 @@ module.exports = {
         {
             title: "基础公式：小白秒变高手的核心框架",
             collapsable: false,
-            children: ["four-step-questioning"],
+            children: ["four-step-questioning","background-needs-method"],
         },
     ],
     "/ai/ml/": [
