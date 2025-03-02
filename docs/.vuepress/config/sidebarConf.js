@@ -139,7 +139,8 @@ module.exports = {
                 "feature-engineering",
                 "overfitting_underfitting", 
                 "anaconda_installation_and_usage",
-                "jupyter_notebook_usage" // 新增文章文件名
+                "jupyter_notebook_usage",
+                "mastering_pandas_and_visualization_tools" // 新增文章文件名
             ],
         },
     ],
