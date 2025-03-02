@@ -127,7 +127,7 @@ module.exports = {
             children: ["", "deepseek-intro", "deepseek-1", "deepseek-2","deepseek-3", "deepseek-4"],
         },
         {
-            title: "提问法",
+            title: "基础公式：小白秒变高手的核心框架",
             collapsable: false,
             children: ["four-step-questioning"],
         },
