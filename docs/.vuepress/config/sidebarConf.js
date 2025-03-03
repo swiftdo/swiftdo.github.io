@@ -135,6 +135,11 @@ module.exports = {
             title: "进阶公式：精准榨取深度答案",
             collapsable: false,
             children: ["role-playing-method", "reverse-prompting-technique", "step-by-step-ai-prompting"],
+        },
+        {
+            title: "爆款创作专用公式",
+            collapsable: false,
+            children: ["title-generation-formula", "grass-planting-post-template", "trend-jacking-method"]
         }
     ],
     "/ai/ml/": [
