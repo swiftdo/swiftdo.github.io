@@ -140,6 +140,11 @@ module.exports = {
             title: "爆款创作专用公式",
             collapsable: false,
             children: ["title-generation-formula", "grass-planting-post-template", "trend-jacking-method"]
+        },
+        {
+            title: "学术与职场高阶技巧",
+            collapsable: false,
+            children: ["thesis-strategy-formula", "data-analysis-instructions"]
         }
     ],
     "/ai/ml/": [
