@@ -124,7 +124,11 @@ module.exports = {
         {
             title: "DeepSeek",
             collapsable: false,
-            children: ["", "deepseek-intro", "deepseek-1", "deepseek-2","deepseek-3", "deepseek-4"],
+            children: ["", "deepseek-intro", 
+                "deepseek-1", "deepseek-2",
+                "deepseek-3", "deepseek-4", 
+                "deepseek-5", "deepseek-6"
+            ],
         },
         {
             title: "基础公式：小白秒变高手的核心框架",
