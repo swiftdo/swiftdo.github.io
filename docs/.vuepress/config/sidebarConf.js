@@ -131,6 +131,11 @@ module.exports = {
             collapsable: false,
             children: ["four-step-questioning","background-needs-method"],
         },
+        {
+            title: "进阶公式：精准榨取深度答案",
+            collapsable: false,
+            children: ["role-playing-method"],
+        }
     ],
     "/ai/ml/": [
         {
