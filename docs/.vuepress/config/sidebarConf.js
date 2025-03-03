@@ -134,7 +134,7 @@ module.exports = {
         {
             title: "进阶公式：精准榨取深度答案",
             collapsable: false,
-            children: ["role-playing-method", "reverse-prompting-technique"],
+            children: ["role-playing-method", "reverse-prompting-technique", "step-by-step-ai-prompting"],
         }
     ],
     "/ai/ml/": [
