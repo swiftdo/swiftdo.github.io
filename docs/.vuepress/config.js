@@ -42,7 +42,7 @@ module.exports = {
       {
         name: "keywords",
         content:
-          "oldbirds,oldbird,公众号,swift,swift学习,swiftui,flutter,vapor,ios,figma,数据结构,算法,书单,vuepresss,git,yaml,设计模式,编程",
+          "oldbirds,oldbird,公众号,swift,deepseek,chatgpt,ai,ml,dl,nlp,人工智能,swift学习,swiftui,flutter,vapor,ios,figma,数据结构,算法,书单,vuepresss,git,yaml,设计模式,编程",
       },
     ],
   ],
