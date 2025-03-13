@@ -76,7 +76,7 @@ module.exports = {
         {
             title: "iOS",
             collapsable: false,
-            children: ["", "t1-pod-webp", "t2-youhua", "pod-wechat", "ios-build-cers", "XCFramework", 
+            children: ["", "t1-pod-webp", "t2-youhua", "pod-wechat", "ios-build-cers", "XCFramework",
                 "ios-webkit", "widgetkit-1", "widgetkit-2"],
         },
     ],
@@ -124,20 +124,20 @@ module.exports = {
         {
             title: "DeepSeek",
             collapsable: false,
-            children: ["", 
-                "deepseek-intro", 
-                "deepseek-1", 
+            children: ["",
+                "deepseek-intro",
+                "deepseek-1",
                 "deepseek-2",
-                "deepseek-3", 
-                "deepseek-4", 
-                "deepseek-5", 
+                "deepseek-3",
+                "deepseek-4",
+                "deepseek-5",
                 "deepseek-6"
             ],
         },
         {
             title: "基础公式：小白秒变高手的核心框架",
             collapsable: false,
-            children: ["four-step-questioning","background-needs-method"],
+            children: ["four-step-questioning", "background-needs-method"],
         },
         {
             title: "进阶公式：精准榨取深度答案",
@@ -160,12 +160,12 @@ module.exports = {
             title: "机器学习",
             collapsable: false,
             children: [
-                "", 
+                "",
                 "supervised-vs-unsupervised-learning-concepts-and-differences",
                 "classification-and-regression-in-ml",
                 "dataset-and-feature",
                 "feature-engineering",
-                "overfitting_underfitting", 
+                "overfitting_underfitting",
                 "anaconda_installation_and_usage",
                 "jupyter_notebook_usage",
                 "mastering_pandas_and_visualization_tools",
@@ -205,7 +205,7 @@ module.exports = {
         {
             title: "JAVA",
             collapsable: false,
-            children: ["", "java-@FunctionalInterface-Lambda","String[]-List<String>"],
+            children: ["", "java-@FunctionalInterface-Lambda", "String[]-List<String>"],
         },
     ],
     "/flutter/": [
@@ -294,11 +294,14 @@ module.exports = {
         },
     ],
     "/tools/yaml/": [{ title: "YAML", collapsable: false, children: [""] }],
-    "/tools/html/": [{ title: "HTML", collapsable: false, children: ["", 
-        "css-equal-distribution-layout", 
-        "js-vant-vue-callable", 
-        "xm-select-use",
-    ] }],
+    "/tools/html/": [{
+        title: "HTML", collapsable: false, children: ["",
+            "css-equal-distribution-layout",
+            "js-vant-vue-callable",
+            "xm-select-use",
+            "video-faster-play",
+        ]
+    }],
     "/tools/plantuml/": [
         {
             title: "Plushum",
@@ -521,7 +524,7 @@ module.exports = {
                 "FactoryPattern",
                 "BuilderPattern",
                 "PrototypePattern",
-                "SingletonPattern" 
+                "SingletonPattern"
             ]
         },
         {
