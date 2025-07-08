@@ -137,7 +137,7 @@ module.exports = [
           },
           {
             text: "gemini-cli",
-            link: "/tools/gemini-cli",
+            link: "/tools/gemini-cli/",
           },
           {
             text: "VuePress",
