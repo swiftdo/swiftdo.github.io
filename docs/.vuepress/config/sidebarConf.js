@@ -313,7 +313,14 @@ module.exports = {
         {
             title: "Node",
             collapsable: false,
-            children: ["", "vitualbox-increase-space", "gemini-cli"],
+            children: ["", "vitualbox-increase-space", ],
+        },
+    ],
+    "/tools/gemini-cli/": [
+        {
+            title: "Gemini-cli",
+            collapsable: false,
+            children: ["gemini-cli"],
         },
     ],
     "/about/index/": [{ title: "INDEX", collapsable: false, children: [""] }],

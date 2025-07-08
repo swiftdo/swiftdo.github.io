@@ -136,6 +136,10 @@ module.exports = [
             link: "/tools/docsify",
           },
           {
+            text: "gemini-cli",
+            link: "/tools/gemini-cli",
+          },
+          {
             text: "VuePress",
             link: "/tools/vuepress/",
           },
