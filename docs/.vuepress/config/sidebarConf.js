@@ -313,7 +313,7 @@ module.exports = {
         {
             title: "Node",
             collapsable: false,
-            children: ["", "vitualbox-increase-space"],
+            children: ["", "vitualbox-increase-space", "gemini-cli"],
         },
     ],
     "/about/index/": [{ title: "INDEX", collapsable: false, children: [""] }],
