@@ -56,12 +56,12 @@ $ exit  # 退出Shell模式，返回Gemini CLI
 
 Gemini CLI提供了一系列以斜杠开头的内置命令：
 
-- /help - 显示所有可用命令
-- /tools - 列出所有可用工具
-- /chat save <标签> - 保存当前会话
-- /chat resume <标签> - 恢复之前保存的会话
-- /clear - 清除终端显示
-- /quit 或 /exit - 退出Gemini CLI
+- `/help` - 显示所有可用命令
+- `/tools` - 列出所有可用工具
+- `/chat save <标签>` - 保存当前会话
+- `/chat resume <标签>` - 恢复之前保存的会话
+- `/clear` - 清除终端显示
+- `/quit` 或 `/exit` - 退出Gemini CLI
 
 
 
