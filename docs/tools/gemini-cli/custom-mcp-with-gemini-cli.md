@@ -1,5 +1,5 @@
 ---
-title: '自定义MCP服务器'
+title: '自定义 MCP 服务器'
 sitemap:
   exclude: false
   changefreq: hourly

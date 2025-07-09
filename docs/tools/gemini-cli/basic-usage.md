@@ -1,5 +1,5 @@
 ---
-title: 'Gemini CLI基础使用'
+title: 'Gemini CLI 基础使用'
 sitemap:
   exclude: false
   changefreq: hourly
