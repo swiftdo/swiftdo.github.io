@@ -1,5 +1,7 @@
 #!/bin/bash
 
+nvm use v18.20.8 --default
+
 # 使用 pwd 命令获取当前脚本所在目录作为项目根目录
 PROJECT_DIR=$(pwd)
 # 定义打包后文件存放的目录
