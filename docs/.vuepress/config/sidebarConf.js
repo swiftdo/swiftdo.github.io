@@ -320,7 +320,7 @@ module.exports = {
         {
             title: "Gemini-cli",
             collapsable: false,
-            children: ["", "basic-usage", "mcp-with-gemini-cli", "custom-mcp-with-gemini-cli", "project",],
+            children: ["", "basic-usage", "mcp-with-gemini-cli", "custom-mcp-with-gemini-cli", "pro",],
         },
     ],
     "/about/index/": [{ title: "INDEX", collapsable: false, children: [""] }],
