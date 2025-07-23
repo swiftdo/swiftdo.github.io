@@ -192,6 +192,7 @@ module.exports = {
             title: "AI工具",
             collapsable: false,
             children: [
+                "",
                 "qwen-code",
             ]
         }
