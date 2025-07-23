@@ -170,6 +170,10 @@ module.exports = [
         text: "Deepseek",
         link: "/deepseek/",
       },
+      {
+        text: "工具",
+        link: "/ai/tools/",
+      }
     ],
   },
   {

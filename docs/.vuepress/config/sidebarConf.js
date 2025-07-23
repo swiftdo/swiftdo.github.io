@@ -187,6 +187,15 @@ module.exports = {
             children: [""],
         },
     ],
+    "/ai/tools/": [
+        {
+            title: "AI工具",
+            collapsable: false,
+            children: [
+                "qwen-code",
+            ]
+        }
+    ],
     "/haskell/": [
         {
             title: "HASKELL",
