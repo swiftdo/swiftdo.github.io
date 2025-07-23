@@ -40,9 +40,9 @@ qwen --version
 `Qwen Code` 支持 `OpenAI SDK` 调用 `LLM`，你可以导出以下环境变量，或者简单地将其放在 `.envfile` 中。
 
 ```sh
-export OPENAI_API_KEY="your_api_key_here"
-export OPENAI_BASE_URL="your_api_base_url_here"
-export OPENAI_MODEL="your_api_model_here"
+export OPENAI_API_KEY="your_api_key_here"
+export OPENAI_BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1"
+export OPENAI_MODEL="qwen3-coder-plus"
 ```
 
 除了 Qwen Code 之外，现在还可以将 Qwen3‑Coder 与 Claude Code 搭配使用。只需在阿里云百炼平台申请 API  Key，并安装 Claude Code，即可开始畅享编码体验.
