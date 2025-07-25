@@ -13,12 +13,18 @@ config:
       actions:
         -
           theme: brand
-          text: 博客
+          text: 查看博客→
           link: /blog/
         -
+          theme: sponsor
+          text: 🎨 作品集
+          link: /result/ 
+        
+        -
           theme: alt
-          text: Github →
+          text: Github 
           link: https://github.com/swiftdo/swiftdo.github.io
+        
 
   -
       type: features

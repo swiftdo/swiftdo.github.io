@@ -52,6 +52,7 @@ export default defineThemeConfig({
         </div> 
       </div>
     `,
+
     copyright: 'Copyright © 2025 OldBird',
   },
 
@@ -62,7 +63,7 @@ export default defineThemeConfig({
     avatar: '/logo.png',
     name: 'OldBird',
     description: '个人学习网站，iOS、SwiftUI、Flutter、Python等技术',
-    // circle: true,
+    circle: true,
     // location: '',
     // organization: '',
   },
