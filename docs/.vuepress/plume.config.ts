@@ -59,7 +59,7 @@ export default defineThemeConfig({
    * @see https://theme-plume.vuejs.press/config/basic/#profile
    */
   profile: {
-    avatar: 'https://theme-plume.vuejs.press/plume.png',
+    avatar: '/logo.png',
     name: 'OldBird',
     description: '个人学习网站，iOS、SwiftUI、Flutter、Python等技术',
     // circle: true,

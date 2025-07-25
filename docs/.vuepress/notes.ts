@@ -21,16 +21,88 @@
  */
 import { defineNoteConfig, defineNotesConfig } from 'vuepress-theme-plume'
 
-const demoNote = defineNoteConfig({
-  dir: 'demo',
+const vueNote = defineNoteConfig({
+  dir: 'vue',
   // `dir` 所指向的目录中的所有 markdown 文件，其 permalink 需要以 `link` 配置作为前缀
   // 如果 前缀不一致，则无法生成侧边栏。
   // 所以请确保  markdown 文件的 permalink 都以 `link` 开头
-  link: '/demo',
+  link: '/vue',
   // 手动配置侧边栏结构
-  sidebar: ['', 'foo', 'bar'],
+  // sidebar: [''],
   // 根据文件结构自动生成侧边栏
-  // sidebar: 'auto',
+  sidebar: 'auto',
+})
+
+const swiftNote = defineNoteConfig({
+  dir: 'swift',
+  // `dir` 所指向的目录中的所有 markdown 文件，其 permalink 需要以 `link` 配置作为前缀
+  // 如果 前缀不一致，则无法生成侧边栏。
+  // 所以请确保  markdown 文件的 permalink 都以 `link` 开头
+  link: '/swift',
+  // 手动配置侧边栏结构
+  // sidebar: [''],
+  // 根据文件结构自动生成侧边栏
+  sidebar: 'auto',
+})
+
+const aiNote = defineNoteConfig({
+  dir: 'ai',
+  // `dir` 所指向的目录中的所有 markdown 文件，其 permalink 需要以 `link` 配置作为前缀
+  // 如果 前缀不一致，则无法生成侧边栏。
+  // 所以请确保  markdown 文件的 permalink 都以 `link` 开头
+  link: '/ai',
+  // 手动配置侧边栏结构
+  // sidebar: [''],
+  // 根据文件结构自动生成侧边栏
+  sidebar: 'auto',
+})
+
+const flutterNote = defineNoteConfig({
+  dir: 'flutter',
+  // `dir` 所指向的目录中的所有 markdown 文件，其 permalink 需要以 `link` 配置作为前缀
+  // 如果 前缀不一致，则无法生成侧边栏。
+  // 所以请确保  markdown 文件的 permalink 都以 `link` 开头
+  link: '/flutter',
+  // 手动配置侧边栏结构
+  // sidebar: [''],
+  // 根据文件结构自动生成侧边栏
+  sidebar: 'auto',
+})
+
+const pyNote = defineNoteConfig({
+  dir: 'python',
+  // `dir` 所指向的目录中的所有 markdown 文件，其 permalink 需要以 `link` 配置作为前缀
+  // 如果 前缀不一致，则无法生成侧边栏。
+  // 所以请确保  markdown 文件的 permalink 都以 `link` 开头
+  link: '/python',
+  // 手动配置侧边栏结构
+  // sidebar: [''],
+  // 根据文件结构自动生成侧边栏
+  sidebar: 'auto',
+})
+
+const algorithmsNote = defineNoteConfig({
+  dir: 'algorithms',
+  // `dir` 所指向的目录中的所有 markdown 文件，其 permalink 需要以 `link` 配置作为前缀
+  // 如果 前缀不一致，则无法生成侧边栏。
+  // 所以请确保  markdown 文件的 permalink 都以 `link` 开头
+  link: '/algorithms',
+  // 手动配置侧边栏结构
+  // sidebar: [''],
+  // 根据文件结构自动生成侧边栏
+  sidebar: 'auto',
+})
+
+const desiginPattensNote = defineNoteConfig({
+  dir: 'design-patterns',
+  // `dir` 所指向的目录中的所有 markdown 文件，其 permalink 需要以 `link` 配置作为前缀
+  // 如果 前缀不一致，则无法生成侧边栏。
+  // 所以请确保  markdown 文件的 permalink 都以 `link` 开头
+  link: '/design-patterns',
+  // 手动配置侧边栏结构
+  // sidebar: [''],
+  // 根据文件结构自动生成侧边栏
+  sidebar: 'auto',
 })
 
 /**
@@ -41,5 +113,5 @@ const demoNote = defineNoteConfig({
 export default defineNotesConfig({
   dir: 'notes',
   link: '/',
-  notes: [demoNote],
+  notes: [flutterNote, swiftNote, pyNote, aiNote, vueNote, desiginPattensNote, algorithmsNote],
 })

@@ -13,6 +13,16 @@ export default defineNavbarConfig([
   { text: '归档', link: '/blog/archives/' },
   {
     text: '笔记',
-    items: [{ text: '示例', link: '/notes/demo/README.md' }]
+    items: [
+      { text: 'Swift', link: '/notes/swift/README.md' },
+      { text: 'Flutter', link: '/notes/flutter/README.md' },
+      { text: 'Python', link: '/notes/python/README.md' },
+      { text: 'Vue', link: '/notes/vue/README.md' },
+      { text: 'AI', link: '/notes/ai/README.md' },
+      { text: '算法', link: '/notes/algorithms/README.md' },
+      { text: '设计模式', link: '/notes/design-patterns/README.md' },
+    ]
   },
+  
+
 ])
