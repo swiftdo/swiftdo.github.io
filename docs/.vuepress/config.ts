@@ -13,6 +13,7 @@ import { viteBundler } from '@vuepress/bundler-vite'
 import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
 import { googleAnalyticsPlugin } from '@vuepress/plugin-google-analytics'
+import { copyCodePlugin } from '@vuepress/plugin-copy-code'
 
 export default defineUserConfig({
   base: '/',
@@ -27,6 +28,9 @@ export default defineUserConfig({
   plugins: [
      googleAnalyticsPlugin({
       id: 'G-Y1G8WYFPCJ', // 替换为你的 Google Analytics ID
+    }),
+    copyCodePlugin({
+      // options
     }),
   ],
 
