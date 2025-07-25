@@ -64,9 +64,41 @@ const flutterNote = defineNoteConfig({
   // 所以请确保  markdown 文件的 permalink 都以 `link` 开头
   link: '/flutter',
   // 手动配置侧边栏结构
-  // sidebar: [''],
-  // 根据文件结构自动生成侧边栏
-  sidebar: 'auto',
+  sidebar: ["",
+    "point",
+    "t1-tips",
+    "t2-what",
+    "t3-messages",
+    "t3-mixin",
+    "t4-lifecycle",
+    "t5-flutter-web-deploy",
+    "t6-docker-web-deploy",
+    "t7-fvm",
+    "t8-const",
+    "t9-logs",
+    "u10-fvm-flutter2",
+    "u11-flutter-render",
+    "u12-flutter-create-w",
+    "u12-flutter-web-01",
+    "u12-flutter-web-02",
+    "u13-sliverappbar",
+    "u14-navbar-color",
+    "u15-custom-nabar",
+    "u16-shape",
+    "y1-statubar",
+    "github-actions-build-flutter-ios",
+    "github-actions-build-flutter-android",
+    "flutter-color",
+    "flutter-dialog",
+    "flutter-deps",
+    "flutter-screenshoot1",
+    "flutter-screenshoot2",
+    "flutter-screenshoot3",
+    "flutter-repaintBoundary",
+    "flutter-isolate",
+    "flutter-vscode-config",
+    "flutter-web-launch-page",
+  ],
 })
 
 const pyNote = defineNoteConfig({
@@ -88,9 +120,21 @@ const algorithmsNote = defineNoteConfig({
   // 所以请确保  markdown 文件的 permalink 都以 `link` 开头
   link: '/algorithms',
   // 手动配置侧边栏结构
-  // sidebar: [''],
+  sidebar: [
+    "",
+    "t1-buble-sort",
+    "t2-selection-sort",
+    "t3-insertion-sort",
+    "t4-shell-sort",
+    "t5-quick-sort",
+    "t6-heap-sort",
+    "t7-merge-sort",
+    "t8-radix-sort",
+    "t9-count-sort",
+    "u1-bucket-sort",
+  ],
   // 根据文件结构自动生成侧边栏
-  sidebar: 'auto',
+  // sidebar: 'auto',
 })
 
 const desiginPattensNote = defineNoteConfig({
