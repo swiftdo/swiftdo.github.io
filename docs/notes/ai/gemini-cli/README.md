@@ -1,12 +1,14 @@
 ---
-title: '如何在 Mac 上安装 Gemini CLI'
+title: 如何在 Mac 上安装 Gemini CLI
 sitemap:
   exclude: false
   changefreq: hourly
-date: 2025-07-08
+date: 2025-07-08T00:00:00.000Z
 tags:
-- tools
-- gemini
+  - tools
+  - gemini
+createTime: 2025/07/25 14:19:45
+permalink: /ai/f3ff8kym/
 ---
 
 本指南将指导您在 macOS 上安装和配置 Google 的 Gemini CLI.

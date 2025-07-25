@@ -8,7 +8,7 @@ tags:
   - tools
   - gemini
 createTime: 2025/07/09 21:38:44
-permalink: /article/5xkqazp1/
+permalink: /ai/5xkqazp1/
 ---
 
 要充分发挥Gemini CLI和MCP的潜力，这里有一些高级技巧和优化建议：

@@ -8,7 +8,7 @@ tags:
   - tools
   - gemini
 createTime: 2025/07/09 21:11:20
-permalink: /article/l0t2gou1/
+permalink: /ai/l0t2gou1/
 ---
 
 完成安装和授权后，你就可以开始使用Gemini CLI了。以下是一些基础功能和常用命令：

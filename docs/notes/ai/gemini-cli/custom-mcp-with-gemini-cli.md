@@ -8,7 +8,7 @@ tags:
   - tools
   - gemini
 createTime: 2025/07/09 21:33:09
-permalink: /article/yk7b9wsr/
+permalink: /ai/yk7b9wsr/
 ---
 
 
