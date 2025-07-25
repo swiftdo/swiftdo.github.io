@@ -8,7 +8,7 @@ tags:
   - tools
   - git
 createTime: 2024/08/02 09:19:27
-permalink: /article/tw9blaa0/
+permalink: /article/git-branch-mapping/
 ---
 
 本文中 git 操作的目标为建立本地分支与远程分支的映射关系（或者为跟踪关系 track）。

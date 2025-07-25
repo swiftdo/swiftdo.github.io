@@ -8,7 +8,7 @@ tags:
   - tools
   - git
 createTime: 2024/08/02 09:19:27
-permalink: /article/s0lf3a7s/
+permalink: /article/git-reset/
 ---
 
 在使用 Git 的过程中，有时会不小心丢失 commit 信息。

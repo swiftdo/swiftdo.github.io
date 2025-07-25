@@ -8,7 +8,7 @@ tags:
   - tools
   - git
 createTime: 2024/08/02 09:19:27
-permalink: /article/peddw2oe/
+permalink: /article/git-submodule/
 ---
 
 ```sh
