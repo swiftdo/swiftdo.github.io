@@ -1779,6 +1779,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vuepress/plugin-google-analytics@npm:^2.0.0-rc.112":
+  version: 2.0.0-rc.112
+  resolution: "@vuepress/plugin-google-analytics@npm:2.0.0-rc.112"
+  peerDependencies:
+    vuepress: 2.0.0-rc.24
+  checksum: 10c0/1cb1db2391dd82105970318cd73ddb5de98bf43003efba6f3eb028f0b547129d48e67984a1ed77fcb26968c4a366a308f42227217341cbbef88ea88f01d31957
+  languageName: node
+  linkType: hard
+
 "@vuepress/plugin-markdown-chart@npm:2.0.0-rc.112":
   version: 2.0.0-rc.112
   resolution: "@vuepress/plugin-markdown-chart@npm:2.0.0-rc.112"
@@ -4143,6 +4152,7 @@ __metadata:
   resolution: "old-bird@workspace:."
   dependencies:
     "@vuepress/bundler-vite": "npm:2.0.0-rc.24"
+    "@vuepress/plugin-google-analytics": "npm:^2.0.0-rc.112"
     http-server: "npm:^14.1.1"
     typescript: "npm:^5.8.3"
     vue: "npm:^3.5.17"

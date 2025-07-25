@@ -12,6 +12,7 @@
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
+import { googleAnalyticsPlugin } from '@vuepress/plugin-google-analytics'
 
 export default defineUserConfig({
   base: '/',
@@ -22,6 +23,11 @@ export default defineUserConfig({
   head: [
     // 配置站点图标
     ['link', { rel: 'icon', type: 'image/png', href: '/favicon.ico' }],
+  ],
+  plugins: [
+     googleAnalyticsPlugin({
+      id: 'G-Y1G8WYFPCJ', // 替换为你的 Google Analytics ID
+    }),
   ],
 
   bundler: viteBundler(),

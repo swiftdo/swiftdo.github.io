@@ -1,19 +1,15 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: 宝塔面板 + flask + nginx + uwsgi + supervisord
-date: 2021-12-04T00:00:00.000Z
-tags:
-  - python
-  - flask
 createTime: 2024/08/02 09:19:27
 permalink: /python/k5o30cqs/
 ---
 
-在 Ubantu20.04 中，安装宝塔面板，部署 Flask.
+
+
 
 ## 环境
+
+在 Ubantu20.04 中，安装宝塔面板，部署 Flask.
 
 > python 3.8.10
 > ubuntu 20.04
@@ -38,7 +34,7 @@ $ deactivate
 
 在应用根目录创建 config.ini 文件，内容如下
 
-```ini
+```sh
 [uwsgi]
 # uwsgi 启动时所使用的地址与端口
 socket = 127.0.0.1:8386
@@ -59,7 +55,7 @@ stats = 127.0.0.1:9191
 ## 配置 nginx
 
 在宝塔面板中，管理网站，设置，配置文件修改如下，
-或者在/www/server/panel/vhost/nginx/<name>.conf 下修改
+或者在`/www/server/panel/vhost/nginx/<name>.conf`下修改
 
 ```nginx
 server {
@@ -85,7 +81,7 @@ supervisor 能同时启动多个应用，能自动重启应用，保证可用性
 sudo apt-get install supervisor
 ```
 
-在 /etc/supervisor/conf.d 下添加<name>.conf 文件(resume.conf)，内容如下
+在 `/etc/supervisor/conf.d 下添加<name>.conf` 文件(resume.conf)，内容如下
 
 ```nginx
 [program:resume] #resume是<name>
