@@ -37,4 +37,4 @@ echo "提交代码到仓库"
 
 git add .
 git commit -m "update"
-# git push
+git push
