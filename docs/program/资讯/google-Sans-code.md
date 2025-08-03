@@ -8,7 +8,7 @@ permalink: /article/google-sans-code/
 
 谷歌于 2025 年 8 月 1 日发布了一款面向程序员的开源字体：**Google Sans Code**。这款字体旨在为代码带来清晰度、可读性以及一丝谷歌独特的品牌特色。
 
-![](imgs/google-sans-code-sample.png)
+![](/imgs/google-sans-code-sample.png)
 
 ### 主要特性
 
