@@ -53,7 +53,7 @@ export default defineThemeConfig({
       </div>
     `,
 
-    copyright: 'Copyright © 2025 OldBird',
+    copyright: `Copyright © 2025 OldBird`,
   },
 
   /**
