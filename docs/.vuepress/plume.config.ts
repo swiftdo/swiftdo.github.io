@@ -43,9 +43,13 @@ export default defineThemeConfig({
   /* 站点页脚 */
   footer: {
     message: `
-    <a style="text-decoration:none;" target="_blank" href="https://beian.miit.gov.cn/">赣ICP备2021010021号-1</a>
+    <a style="text-decoration:none; display: inline-block;" target="_blank" href="https://beian.miit.gov.cn/">赣ICP备2021010021号-1</a>
+    <a style="text-decoration:none; display: inline-block;" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=36011102000528">
+      <img style="width:12px; height:12px; margin-left:8px; margin-right:2px; display: inline-block;" src="https://img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" width="16" height="16" />
+      赣公网安备 36011102000528号
+    </a>
     `,
-    copyright: `Copyright © 2025 OldBird All`,
+    copyright: `Copyright © 2025 OldBird`,
   },
 
   /**
