@@ -12,7 +12,7 @@ export default defineNavbarConfig([
   { text: '标签', link: '/blog/tags/' },
   { text: '归档', link: '/blog/archives/' },
   { text: '书单', link: '/book/' },
-  { text: '周易', link: '/notes/yijing/' },
+  { text: '易经', link: '/notes/yijing/' },
   {
     text: '笔记',
     items: [

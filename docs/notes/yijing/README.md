@@ -1,5 +1,5 @@
 ---
-title: '周易'
+title: '易经'
 createTime: 2025/10/12 17:55:27
 permalink: /yijing/
 ---
