@@ -2,6 +2,10 @@
 title: clawdbot
 createTime: 2026/01/28 09:50:45
 permalink: /ai/clawdbot/
+tags:
+    - clawdbot
+    - ollama
+    - moltbot
 ---
 
 `Clawdbot` 是一款**开源、自托管的个人 AI 助手**，可以运行在你自己的电脑（例如 Mac mini）上，并连接到你常用的聊天平台如 `WhatsApp`、`Telegram`、`Discord` 等。它不仅能对话，还能执行任务、主动提醒、管理文件和自动化工作流程——可以理解为“你自己的私人 AI 员工”。
@@ -85,8 +89,58 @@ clawdbot gateway
 http://127.0.0.1:18789
 ```
 
+如果暂时不接渠道，可以直接用终端对话：
+
+```sh
+clawdbot tui
+```
 
 
+启动和关闭服务：
 
+```sh
+clawdbot gateway start
+clawdbot gateway stop
+```
+
+## ollama
+
+ollama v0.15.2 版本，支持对 clawbot 的集成。
+
+```sh
+ollama launch clawdbot
+```
+
+可直接通过 ollama 模型启动 clawdbot。
+
+
+## 接入telegram
+
+- 打开 Telegram，搜索 @BotFather
+- 发送 /newbot，按提示起名（用户名必须以 bot 结尾）
+- 复制生成的 token（类似 123456789:ABCdef…)
+
+
+把 token 告诉 AI，它会自动写入配置：
+
+```json
+{
+    "channels": {
+      "telegram": {
+        "enabled": true,
+        "botToken": "你的token",
+        "dmPolicy": "pairing"
+      }
+    }
+}
+```
+
+然后在 Telegram 里获取配对码，发给 AI：
+
+```sh
+clawdbot pairing approve telegram <配对码>
+```
+
+完成！现在可以在 Telegram 里正常聊天了.
 
 
