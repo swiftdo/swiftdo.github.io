@@ -65,4 +65,20 @@ Agent Skills 就是给 AI 智能体（Agent）做的 “专属能力包 / 插件
 
 > Agent Skills 就是：把这些“人类做事能力”教给 AI
 
+## 使用 openskills 命令安装
 
+```sh
+# 直接将openskills安装在全局，然后通过openskills来安装
+npm i openskills -g
+
+# 安装 Anthropic 官方提供的 Skills
+openskills install anthropics/skills
+
+
+# 同步远程仓库的最新更新
+openskills sync
+
+# 查看已安装的 Skills
+openskills list
+
+```
