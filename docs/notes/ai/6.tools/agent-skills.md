@@ -72,7 +72,9 @@ Agent Skills 就是给 AI 智能体（Agent）做的 “专属能力包 / 插件
 npm i openskills -g
 
 # 安装 Anthropic 官方提供的 Skills
-openskills install anthropics/skills
+openskills install anthropics/skills -g
+
+
 
 
 # 同步远程仓库的最新更新
@@ -82,3 +84,41 @@ openskills sync
 openskills list
 
 ```
+
+## 创建 AGENTS.md 文件并写入 Skills
+
+
+前面只是将 Skills 安装到本地，如果想要让 Cursor、Trae 这些 Coding Agent都能发现和使用这些 Skills，那就必须运行第三步，否则前面都是在做无用功。
+
+
+先在项目根目录创建一个 AGENTS.md 文件，然后运行
+
+```sh
+openskills sync
+```
+
+再次选择你要将哪些 `Skills` 写进这个 `AGENTS.md` 文档中。
+
+
+你选择的 `Skills` 就会写进之前空白的 `AGENTS.md` 文档中。它将作为 Cursor、Trae 等 Coding Agent 接下来使用 Skills 的指导文件。
+
+
+## 在 Cursor、Trae 中调用 Skills 项目
+
+Skills 是可以被自动调用的，如果你想手动调用，可以直接在提示词中指定要调用的具体 Skills，比如：
+
+```sh
+调用 frontend-design skills，用HTML开发一个视频剪辑软件的SaaS介绍页
+```
+
+又如：
+
+```sh
+调用 fronten-design skills 用HTML创建一个现代化的个人博客网站原型，包含首页、文章详情页、关于页面的完整博客
+```
+
+## 自定义  Skills
+
+- AI 编程工具迅速知道怎么创建一个规范的 skill，最便捷的方法就是把官方 skills 仓库克隆到本地，然后让它先阅读。这样无论它最开始懂不懂创建，都会通过官方仓库的 skill-creator 这个 Skill 快速学会；
+- 创建 Skills 的原因一定是你想要将某个工作流给标准化，那么你需要提前将这个工作流给梳理出来，这个只有你自己最清楚，所以没法偷懒。但你可以借助 AI 来拓展自己思路或提前规避一些问题；
+- 对于稍微复杂点的 Skills，即使我们梳理到位，但试图用官方的 Skill-creator 一次性生成的方法可能会出现一些问题；更稳妥的方法，就是每个步骤都可以单独拆开出来
