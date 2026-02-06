@@ -163,3 +163,163 @@ Agent（选模型、组提示词、调工具）
 ```
 关键点：不管你用什么聊天工具发消息，经过Channel Adapter统一格式后，AI看到的都是标准输入。所以OpenClaw能轻松接各种平台，不用每个平台写一套逻辑。
 
+## 常用命令大全
+
+```sh
+1）基础命令
+# 查看版本
+openclaw --version
+
+# 查看帮助
+openclaw --help
+
+# 查看状态概览
+openclaw status
+
+# 完整诊断
+openclaw status --all
+
+# 健康检查
+openclaw health
+openclaw status --deep  # 深度健康检查
+2）Gateway 管理
+# 启动 Gateway
+openclaw gateway start
+
+# 停止 Gateway
+openclaw gateway stop
+
+# 重启 Gateway
+openclaw gateway restart
+
+# 查看状态
+openclaw gateway status
+
+# 手动前台运行（调试）
+openclaw gateway --port 18789 --verbose
+
+# 绑定模式
+openclaw gateway --bind loopback    # 本地回环（默认）
+openclaw gateway --bind lan         # 局域网
+openclaw gateway --bind tailnet     # Tailscale 网络
+3）配置管理
+# 交互式配置
+openclaw configure
+
+# 查看完整配置
+openclaw config get
+
+# 查看特定配置
+openclaw config get agents.defaults
+openclaw config get models
+openclaw config get channels.telegram
+
+# 设置单个值
+openclaw config set gateway.port 18789
+openclaw config set agents.defaults.workspace ~/.openclaw/workspace
+
+# 删除配置项
+openclaw config unset gateway.port
+
+# 配置文件位置
+# ~/.openclaw/openclaw.json
+4）模型管理
+# 查看可用模型
+openclaw models list
+
+# 查看模型状态
+openclaw models status
+
+# 设置默认模型
+openclaw models set anthropic/claude-sonnet-4-0
+
+# 测试模型连接
+openclaw models probe <model-name>
+5）频道管理
+# 添加频道
+openclaw channels add
+
+# 查看频道状态
+openclaw channels status
+6）配对管理
+# 查看待处理配对
+openclaw pairing list whatsapp
+openclaw pairing list telegram
+
+# 批准配对
+openclaw pairing approve whatsapp <CODE>
+
+# 拒绝配对
+openclaw pairing deny whatsapp <CODE>
+7）消息发送
+# 发送文本消息
+openclaw message send --target +15555550123 --message "Hello from OpenClaw"
+
+# 发送文件
+openclaw message send --target +15555550123 --file /path/to/file.txt
+8）代理 (Agents)
+# 查看代理列表
+openclaw agents list
+
+# 添加新代理
+openclaw agents add work --workspace ~/.openclaw/work
+9）会话管理
+# 查看活跃会话
+openclaw sessions list
+
+# 查看会话历史
+openclaw sessions history <session-key>
+
+# 重置会话
+openclaw sessions reset <session-key>
+10）技能管理
+# 列出已安装技能
+openclaw skills list
+
+# 安装技能
+openclaw skills install skill-name
+
+# 查看技能配置
+openclaw skills config skill-name
+
+# 更新技能
+openclaw skills update skill-name
+11）日志和诊断
+# 实时查看日志
+openclaw logs --follow
+
+# 查看最近 N 行
+openclaw logs --limit 100
+
+# 健康检查
+openclaw health
+
+# 诊断和修复
+openclaw doctor
+openclaw doctor --fix  # 自动修复
+12）目录和工作区
+# 查看工作区目录
+openclaw directory
+
+# 查看文件
+ls -la ~/.openclaw/workspace/
+13）更新和升级
+# 检查更新
+openclaw --version
+
+# 更新 CLI（安装脚本）
+curl -fsSL https://openclaw.ai/install.sh | bash
+
+# 从源码更新
+git pull origin main
+pnpm install
+pnpm build
+openclaw doctor
+openclaw gateway restart
+14）安全相关
+# 安全审计
+openclaw security audit
+
+# 深度审计
+openclaw security audit --deep
+```
