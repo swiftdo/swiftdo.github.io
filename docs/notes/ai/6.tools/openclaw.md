@@ -1,18 +1,19 @@
 ---
-title: clawdbot
+title: openclaw
 createTime: 2026/01/28 09:50:45
-permalink: /ai/clawdbot/
+permalink: /ai/openclaw/
 tags:
-    - clawdbot
+    - openclaw
     - ollama
     - moltbot
+    - clawdbot
 ---
 
-`Clawdbot` 是一款**开源、自托管的个人 AI 助手**，可以运行在你自己的电脑（例如 Mac mini）上，并连接到你常用的聊天平台如 `WhatsApp`、`Telegram`、`Discord` 等。它不仅能对话，还能执行任务、主动提醒、管理文件和自动化工作流程——可以理解为“你自己的私人 AI 员工”。
+`openclaw` 是一款**开源、自托管的个人 AI 助手**，可以运行在你自己的电脑（例如 Mac mini）上，并连接到你常用的聊天平台如 `WhatsApp`、`Telegram`、`Discord` 等。它不仅能对话，还能执行任务、主动提醒、管理文件和自动化工作流程——可以理解为“你自己的私人 AI 员工”。
 
-## Clawdbot 是什么？理解核心
+## openclaw 是什么？理解核心
 
-Clawdbot 是：
+openclaw 是：
 
 - 🛠️ 自托管的 AI 助手：运行在自己的机器上，不依赖云端服务。
 
@@ -22,7 +23,7 @@ Clawdbot 是：
 
 - 🧠 保持上下文记忆：可持续记住对话和用户偏好，从而更加智能。
 
-所以，Clawdbot 不只是聊天机器人，它是新一代的“个人 AI 助手/智能体”。 
+openclaw 不只是聊天机器人，它是新一代的“个人 AI 助手/智能体”。 
 
 ## 准备你的 Mac mini
 
@@ -31,7 +32,7 @@ Clawdbot 是：
 
 - ✔ macOS 系统（最新版更稳定）
 
-- ✔ 已安装 Node.js（>=22） 和 pnpm 或 npm（Clawdbot 依赖）
+- ✔ 已安装 Node.js（>=22） 和 pnpm 或 npm（openclaw 依赖）
 
 也可以使用 Homebrew 安装：
 
@@ -41,7 +42,7 @@ brew install pnpm
 ```
 
 
-## 在 Mac mini 上安装 Clawdbot
+## 在 Mac mini 上安装 openclaw
 
 
 ###  1) 快速安装
@@ -49,23 +50,23 @@ brew install pnpm
 在终端执行：
 
 ```sh
-curl -fsSL https://clawd.bot/install.sh | bash
+curl -fsSL https://openclaw.ai/install.sh | bash
 ```
-这个脚本会安装 Clawdbot 所需的依赖并设置环境。
+这个脚本会安装 openclaw 所需的依赖并设置环境。
 
 
-### 2) 启动 Clawdbot
+### 2) 启动 openclaw
 
-安装完成后，你可以运行 Clawdbot 的命令行界面：
+安装完成后，你可以运行 openclaw 的命令行界面：
 
 ```
-clawdbot
+openclaw
 ```
 
 建议首先运行**引导式设置**
 
 ```sh
-clawdbot onboard
+openclaw onboard --install-daemon
 ```
 
 这个引导会帮你自动配置：
@@ -79,11 +80,11 @@ clawdbot onboard
 如果你不想使用 CLI 引导，可以手动运行：
 
 ```sh
-clawdbot setup
-clawdbot gateway
+openclaw setup
+openclaw gateway
 ```
 
-启动本地 `Gateway` 后，`Clawdbot` 的本地控制面板通常会在浏览器打开：
+启动本地 `Gateway` 后，`openclaw` 的本地控制面板通常会在浏览器打开：
 
 ```sh
 http://127.0.0.1:18789
@@ -92,26 +93,26 @@ http://127.0.0.1:18789
 如果暂时不接渠道，可以直接用终端对话：
 
 ```sh
-clawdbot tui
+openclaw tui
 ```
 
 
 启动和关闭服务：
 
 ```sh
-clawdbot gateway start
-clawdbot gateway stop
+openclaw gateway start
+openclaw gateway stop
 ```
 
 ## ollama
 
-ollama v0.15.2 版本，支持对 clawbot 的集成。
+ollama v0.15.2 版本，支持对 openclaw 的集成。
 
 ```sh
-ollama launch clawdbot
+ollama launch openclaw
 ```
 
-可直接通过 ollama 模型启动 clawdbot。
+可直接通过 ollama 模型启动 openclaw
 
 
 ## 接入telegram
@@ -138,9 +139,10 @@ ollama launch clawdbot
 然后在 Telegram 里获取配对码，发给 AI：
 
 ```sh
-clawdbot pairing approve telegram <配对码>
+openclaw pairing approve telegram <配对码>
 ```
 
 完成！现在可以在 Telegram 里正常聊天了.
+
 
 
