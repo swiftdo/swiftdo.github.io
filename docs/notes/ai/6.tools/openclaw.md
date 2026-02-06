@@ -146,3 +146,20 @@ openclaw pairing approve telegram <配对码>
 
 
 
+## 整体架构
+
+OpenClaw本质是跑在你电脑上的后台程序。工作流程大概这样：
+
+```sh
+用户消息（飞书/微信/Telegram）
+    ↓
+Channel Adapter（统一不同平台的消息格式）
+    ↓
+Gateway（核心调度，路由到正确的会话）
+    ↓
+Agent（选模型、组提示词、调工具）
+    ↓
+结果返回
+```
+关键点：不管你用什么聊天工具发消息，经过Channel Adapter统一格式后，AI看到的都是标准输入。所以OpenClaw能轻松接各种平台，不用每个平台写一套逻辑。
+
