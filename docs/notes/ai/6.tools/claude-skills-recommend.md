@@ -8,7 +8,7 @@ permalink: /ai/claude-skills-recommend/
 
 > **Skills = AI 的"超能力"插件**
 
-Skills 是指令、脚本和资源的文件夹集合，Claude 会动态加载这些技能来增强在特定任务上的表现。
+Skills 是指令、脚本和资源的文件夹集合，Claude 会动态加载这些技能来增强在特定任务上的表现。 
 
 **核心价值：**
 - ✅ **标准化** - 将工作方法论打包成可复用的模块
