@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(/Users/laijihua/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.7/skills/brainstorming/scripts/start-server.sh:*)",
+      "Bash(mkdir -p /Users/laijihua/Desktop/Code/blog/swiftdo.github.io/docs/.vuepress/public/images)",
+      "Bash(cp \"/Users/laijihua/Downloads/gh_37c204328e4e_258 \\(2\\).jpg\" /Users/laijihua/Desktop/Code/blog/swiftdo.github.io/docs/.vuepress/public/images/wechat-qrcode.jpg)",
+      "WebFetch(domain:apps.apple.com)",
+      "WebFetch(domain:play.google.com)",
+      "Bash(curl -s \"https://itunes.apple.com/lookup?id=6761115348&country=us\")",
+      "Bash(curl:*)",
+      "Bash(yarn docs:dev:*)",
+      "Bash(python3:*)",
+      "Bash(ls -la /Users/laijihua/Desktop/Code/blog/swiftdo.github.io/docs/.vuepress/public/images/yiqigua-screenshot*.webp)",
+      "Bash(cp \"/Users/laijihua/Desktop/微信图片_20260409235057_349_84.jpg\" \"/Users/laijihua/Desktop/Code/blog/swiftdo.github.io/docs/.vuepress/public/images/yiqigua-screenshot-1.jpg\")",
+      "Bash(cp \"/Users/laijihua/Desktop/微信图片_20260409235058_350_84.jpg\" \"/Users/laijihua/Desktop/Code/blog/swiftdo.github.io/docs/.vuepress/public/images/yiqigua-screenshot-2.jpg\")",
+      "Bash(rm -f /Users/laijihua/Desktop/Code/blog/swiftdo.github.io/docs/.vuepress/public/images/yiqigua-screenshot-*.webp)",
+      "Bash(ls -la /Users/laijihua/Desktop/Code/blog/swiftdo.github.io/docs/.vuepress/public/images/yiqigua-screenshot*.jpg)",
+      "Bash(ls -la /Users/laijihua/Desktop/Code/blog/swiftdo.github.io/docs/.vuepress/public/images/yiqigua-screenshot*)",
+      "Bash(sips -g all \"/Users/laijihua/Desktop/Code/blog/swiftdo.github.io/docs/.vuepress/public/images/yiqigua-screenshot-1.jpg\")"
+    ]
+  }
+}

@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>易起卦 - 易经学习与起卦占卜</title>
+  <meta name="description" content="易起卦 - 易经学习与起卦占卜应用。千年智慧，触手可及。学习易经六十四卦，掌握起卦占卜之道。">
+  <link rel="icon" href="/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #0a0a0a;
+      --color-surface: rgba(255,255,255,0.04);
+      --color-surface-hover: rgba(255,255,255,0.08);
+      --color-border: rgba(255,255,255,0.1);
+      --color-border-hover: rgba(255,255,255,0.15);
+      --color-text: #ffffff;
+      --color-text-muted: rgba(255,255,255,0.65);
+      --color-text-subtle: rgba(255,255,255,0.45);
+      --color-accent: #c9a961;
+      --color-accent-light: #e5d4a1;
+      --color-accent-dark: #9a7b3a;
+      --color-glow: rgba(201,169,97,0.2);
+      --spacing-xs: 8px;
+      --spacing-sm: 16px;
+      --spacing-md: 24px;
+      --spacing-lg: 48px;
+      --spacing-xl: 72px;
+      --radius-sm: 12px;
+      --radius-md: 16px;
+      --radius-lg: 28px;
+      --radius-xl: 40px;
+      --transition-fast: 150ms ease;
+      --transition-normal: 280ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 450ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* Atmospheric background */
+    .bg-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201,169,97,0.08) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 100% 100%, rgba(201,169,97,0.05) 0%, transparent 40%),
+        radial-gradient(ellipse 50% 30% at 0% 50%, rgba(255,255,255,0.02) 0%, transparent 30%);
+    }
+
+    .bg-layer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.03;
+    }
+
+    /* Floating Bagua */
+    .floating-bagua {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .bagua-symbol {
+      position: absolute;
+      opacity: 0.03;
+      animation: drift 30s ease-in-out infinite;
+    }
+
+    .bagua-symbol:nth-child(1) { top: 8%; left: 12%; animation-delay: 0s; }
+    .bagua-symbol:nth-child(2) { top: 20%; right: 8%; animation-delay: -8s; }
+    .bagua-symbol:nth-child(3) { bottom: 25%; left: 6%; animation-delay: -16s; }
+    .bagua-symbol:nth-child(4) { bottom: 12%; right: 18%; animation-delay: -24s; }
+
+    @keyframes drift {
+      0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.03; }
+      50% { transform: translateY(-50px) rotate(20deg); opacity: 0.05; }
+    }
+
+    /* Main content */
+    .content {
+      position: relative;
+      z-index: 10;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: var(--spacing-lg) var(--spacing-sm);
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: var(--spacing-xl) var(--spacing-sm) var(--spacing-lg);
+      animation: reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-icon-wrap {
+      position: relative;
+      display: inline-block;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .hero-icon {
+      width: 140px;
+      height: 140px;
+      border-radius: var(--radius-xl);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.1),
+        0 20px 50px -10px rgba(0,0,0,0.5),
+        0 40px 80px -20px rgba(201,169,97,0.15);
+      transition: transform var(--transition-slow), box-shadow var(--transition-normal);
+    }
+
+    .hero-icon:hover {
+      transform: scale(1.05) translateY(-5px);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.15),
+        0 30px 70px -15px rgba(0,0,0,0.6),
+        0 60px 100px -30px rgba(201,169,97,0.2);
+    }
+
+    .hero-glow {
+      position: absolute;
+      inset: -40px;
+      background: radial-gradient(circle, var(--color-glow) 0%, transparent 60%);
+      border-radius: 50%;
+      z-index: -1;
+      animation: breathe 4s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% { opacity: 0.3; transform: scale(0.95); }
+      50% { opacity: 0.6; transform: scale(1.08); }
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 52px;
+      font-weight: 700;
+      letter-spacing: 18px;
+      margin-bottom: var(--spacing-sm);
+      color: var(--color-text);
+    }
+
+    .hero-subtitle {
+      color: var(--color-text-muted);
+      font-size: 17px;
+      line-height: 1.9;
+      letter-spacing: 3px;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .hero-tagline {
+      color: var(--color-accent);
+      font-size: 13px;
+      letter-spacing: 4px;
+      opacity: 0.9;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    /* Download buttons */
+    .download-btns {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-sm);
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 28px;
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all var(--transition-normal);
+      cursor: pointer;
+      backdrop-filter: blur(12px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+      border: 1px solid transparent;
+      color: #000;
+      box-shadow: 0 8px 30px -8px rgba(201,169,97,0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px -8px rgba(201,169,97,0.5);
+      background: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-accent) 100%);
+    }
+
+    .btn-secondary {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-surface-hover);
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px -12px rgba(0,0,0,0.4);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 3px;
+    }
+
+    .btn svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    /* Section spacing */
+    section {
+      padding: var(--spacing-xl) var(--spacing-sm);
+    }
+
+    .section-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 26px;
+      font-weight: 600;
+      text-align: center;
+      letter-spacing: 6px;
+      margin-bottom: var(--spacing-lg);
+      color: var(--color-text);
+    }
+
+    /* WeChat glass card */
+    .wechat-card {
+      max-width: 400px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+      text-align: center;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 60px -20px rgba(0,0,0,0.4);
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    }
+
+    .wechat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 80px -30px rgba(0,0,0,0.5);
+    }
+
+    .wechat-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(201,169,97,0.15);
+      color: var(--color-accent);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .wechat-badge svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .wechat-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      margin-bottom: 6px;
+    }
+
+    .wechat-desc {
+      color: var(--color-text-subtle);
+      font-size: 13px;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .qr-frame {
+      display: inline-block;
+      padding: 16px;
+      background: #fff;
+      border-radius: var(--radius-md);
+      box-shadow: 0 8px 30px -8px rgba(0,0,0,0.3);
+      transition: transform var(--transition-normal);
+    }
+
+    .qr-frame:hover {
+      transform: scale(1.05);
+    }
+
+    .qr-frame img {
+      width: 150px;
+      height: 150px;
+      display: block;
+      border-radius: var(--radius-sm);
+    }
+
+    /* Features */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-md);
+    }
+
+    .feature-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-md);
+      text-align: center;
+      transition: all var(--transition-normal);
+      backdrop-filter: blur(12px);
+    }
+
+    .feature-card:hover {
+      background: var(--color-surface-hover);
+      border-color: var(--color-border-hover);
+      transform: translateY(-6px);
+      box-shadow: 0 25px 50px -20px rgba(0,0,0,0.35);
+    }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      margin-bottom: var(--spacing-sm);
+      color: var(--color-accent);
+    }
+
+    .feature-title {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .feature-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* Phone mockup screenshots */
+    .screenshots-wrap {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-lg);
+      flex-wrap: wrap;
+      perspective: 1000px;
+    }
+
+    .phone-mockup {
+      position: relative;
+      width: 280px;
+      background: linear-gradient(145deg, #1a1a1a 0%, #0d0d0d 100%);
+      border-radius: 36px;
+      padding: 12px;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.08),
+        0 30px 80px -20px rgba(0,0,0,0.6),
+        inset 0 1px 0 rgba(255,255,255,0.1);
+      transition: transform var(--transition-normal);
+      transform-style: preserve-3d;
+    }
+
+    .phone-mockup:hover {
+      transform: translateY(-10px) rotateX(5deg);
+    }
+
+    .phone-mockup::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 24px;
+      background: #0a0a0a;
+      border-radius: 12px;
+      z-index: 2;
+    }
+
+    .phone-screen {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1200 / 2608;
+      background: #000;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    .phone-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .phone-notch {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30%;
+      height: 28px;
+      background: #0a0a0a;
+      border-radius: 0 0 16px 16px;
+      z-index: 1;
+    }
+
+    /* Footer */
+    .footer {
+      padding: var(--spacing-lg) var(--spacing-sm);
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-link {
+      color: var(--color-text-subtle);
+      font-size: 13px;
+      text-decoration: none;
+      letter-spacing: 2px;
+      transition: color var(--transition-fast);
+    }
+
+    .footer-link:hover {
+      color: var(--color-accent);
+    }
+
+    .footer-link:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 4px;
+    }
+
+    .footer-copy {
+      color: var(--color-text-subtle);
+      font-size: 11px;
+      margin-top: var(--spacing-xs);
+      letter-spacing: 3px;
+      opacity: 0.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      :root {
+        --spacing-xl: 56px;
+        --spacing-lg: 40px;
+      }
+
+      .hero-title {
+        font-size: 38px;
+        letter-spacing: 12px;
+      }
+
+      .hero-icon {
+        width: 110px;
+        height: 110px;
+        border-radius: 28px;
+      }
+
+      .hero-glow {
+        inset: -30px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+      }
+
+      .phone-mockup {
+        width: 240px;
+        padding: 10px;
+        border-radius: 30px;
+      }
+
+      .phone-mockup::before {
+        width: 60px;
+        height: 20px;
+        top: 10px;
+      }
+
+      .phone-screen {
+        border-radius: 20px;
+      }
+
+      .screenshots-wrap {
+        gap: var(--spacing-md);
+      }
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --spacing-xl: 44px;
+        --spacing-lg: 32px;
+        --spacing-md: 20px;
+      }
+
+      .content {
+        padding: var(--spacing-md) var(--spacing-xs);
+      }
+
+      .hero-title {
+        font-size: 30px;
+        letter-spacing: 8px;
+      }
+
+      .hero-subtitle {
+        font-size: 14px;
+        letter-spacing: 2px;
+      }
+
+      .hero-tagline {
+        font-size: 11px;
+      }
+
+      .download-btns {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 260px;
+        padding: 13px 24px;
+      }
+
+      .wechat-card {
+        padding: var(--spacing-md);
+      }
+
+      .qr-frame img {
+        width: 130px;
+        height: 130px;
+      }
+
+      .phone-mockup {
+        width: 200px;
+        padding: 8px;
+        border-radius: 26px;
+      }
+
+      .phone-mockup::before {
+        width: 50px;
+        height: 16px;
+        top: 8px;
+      }
+
+      .phone-screen {
+        border-radius: 18px;
+      }
+
+      .phone-notch {
+        height: 22px;
+      }
+
+      .section-title {
+        font-size: 22px;
+        letter-spacing: 4px;
+      }
+
+      .feature-card {
+        padding: var(--spacing-sm);
+      }
+
+      .feature-title {
+        font-size: 15px;
+      }
+
+      .bagua-symbol {
+        opacity: 0.02;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background layers -->
+  <div class="bg-layer"></div>
+
+  <!-- Floating Bagua symbols -->
+  <div class="floating-bagua">
+    <svg class="bagua-symbol" width="100" height="60" viewBox="0 0 100 60" fill="currentColor">
+      <rect x="10" y="8" width="80" height="10" rx="3"/>
+      <rect x="10" y="26" width="80" height="10" rx="3"/>
+      <rect x="10" y="44" width="80" height="10" rx="3"/>
+    </svg>
+    <svg class="bagua-symbol" width="100" height="60" viewBox="0 0 100 60" fill="currentColor">
+      <rect x="10" y="8" width="35" height="10" rx="3"/>
+      <rect x="55" y="8" width="35" height="10" rx="3"/>
+      <rect x="10" y="26" width="35" height="10" rx="3"/>
+      <rect x="55" y="26" width="35" height="10" rx="3"/>
+      <rect x="10" y="44" width="35" height="10" rx="3"/>
+      <rect x="55" y="44" width="35" height="10" rx="3"/>
+    </svg>
+    <svg class="bagua-symbol" width="100" height="60" viewBox="0 0 100 60" fill="currentColor">
+      <rect x="10" y="8" width="35" height="10" rx="3"/>
+      <rect x="55" y="8" width="35" height="10" rx="3"/>
+      <rect x="10" y="26" width="80" height="10" rx="3"/>
+      <rect x="10" y="44" width="35" height="10" rx="3"/>
+      <rect x="55" y="44" width="35" height="10" rx="3"/>
+    </svg>
+    <svg class="bagua-symbol" width="100" height="60" viewBox="0 0 100 60" fill="currentColor">
+      <rect x="10" y="8" width="80" height="10" rx="3"/>
+      <rect x="10" y="26" width="35" height="10" rx="3"/>
+      <rect x="55" y="26" width="35" height="10" rx="3"/>
+      <rect x="10" y="44" width="80" height="10" rx="3"/>
+    </svg>
+  </div>
+
+  <main class="content">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-icon-wrap">
+        <div class="hero-glow"></div>
+        <img src="/images/yiqigua-icon.png" alt="易起卦 App 图标" class="hero-icon">
+      </div>
+      <h1 class="hero-title">易起卦</h1>
+      <p class="hero-subtitle">易经学习 · 起卦占卜<br>千年智慧，触手可及</p>
+      <p class="hero-tagline">探索六十四卦的奥秘</p>
+
+      <div class="download-btns">
+        <a href="https://apps.apple.com/us/app/易学通-公益学习/id6761115348" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="在 App Store 下载易起卦 iOS 版">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.87-3.21 1.88-2.56 5.94.47 7.85-.58 1.24-1.23 2.45-2.32 3.83zM12.75 3.5c.73-1.01 1.9-1.47 2.84-1.47.12 1.17-.34 2.34-1.05 3.17-.72.83-1.85 1.41-2.97 1.33-.15-1.15.41-2.35 1.18-3.03z"/>
+          </svg>
+          <span>iOS 下载</span>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=run.oldbird.yijing_divination_app" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="在 Google Play 下载易起卦 Android 版">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M3.609 1.814L13.792 12 3.61 22.186a1.25 1.25 0 0 1-.449-.912V2.726c0-.4.167-.728.448-.912zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1.25 1.25 0 0 1 0 2.165l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.714L16.8 9.046l-2.302 2.302-8.634-8.634z"/>
+          </svg>
+          <span>Android 下载</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- WeChat Mini Program -->
+    <section>
+      <div class="wechat-card">
+        <div class="wechat-badge">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8.5 11a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-7.5 5a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm5 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+          </svg>
+          <span>小程序</span>
+        </div>
+        <h2 class="wechat-title">微信扫码体验</h2>
+        <p class="wechat-desc">无需下载，即刻使用</p>
+        <div class="qr-frame">
+          <img src="/images/wechat-qrcode.jpg" alt="易起卦微信小程序二维码" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section>
+      <h2 class="section-title">核心功能</h2>
+      <div class="features-grid">
+        <article class="feature-card">
+          <svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <rect x="8" y="8" width="32" height="32" rx="4"/>
+            <line x1="8" y2="20" x2="40"/>
+            <line x1="20" y2="8" x2="20"/>
+            <circle cx="14" cy="14" r="2" fill="currentColor"/>
+            <circle cx="34" cy="34" r="2" fill="currentColor"/>
+          </svg>
+          <h3 class="feature-title">六十四卦详解</h3>
+          <p class="feature-desc">完整收录易经六十四卦，图文并茂，深入解读每一卦的含义与应用</p>
+        </article>
+        <article class="feature-card">
+          <svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="24" cy="24" r="18"/>
+            <polyline points="24,6 24,24 36,36"/>
+            <circle cx="24" cy="24" r="3" fill="currentColor"/>
+          </svg>
+          <h3 class="feature-title">智能起卦</h3>
+          <p class="feature-desc">多种起卦方式，数字、时间、手动输入，便捷准确，随时获取卦象指引</p>
+        </article>
+        <article class="feature-card">
+          <svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M8 12h32v28a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4V12z"/>
+            <line x1="4" y2="12" x2="44"/>
+            <line x1="16" y2="20" x2="16" y4="36"/>
+            <line x1="24" y2="20" x2="24" y4="36"/>
+            <line x1="32" y2="20" x2="32" y4="36"/>
+            <rect x="14" y="4" width="8" height="8" rx="1" fill="currentColor" stroke="none"/>
+            <rect x="26" y="4" width="8" height="8" rx="1" fill="currentColor" stroke="none"/>
+          </svg>
+          <h3 class="feature-title">学习记录</h3>
+          <p class="feature-desc">保存起卦记录与学习笔记，回顾历史卦象，积累智慧经验</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Screenshots with phone mockup -->
+    <section>
+      <h2 class="section-title">应用预览</h2>
+      <div class="screenshots-wrap">
+        <div class="phone-mockup">
+          <div class="phone-screen">
+            <div class="phone-notch"></div>
+            <img src="/images/yiqigua-screenshot-1.jpg" alt="易起卦主界面" loading="lazy">
+          </div>
+        </div>
+        <div class="phone-mockup">
+          <div class="phone-screen">
+            <div class="phone-notch"></div>
+            <img src="/images/yiqigua-screenshot-2.jpg" alt="易起卦功能界面" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <a href="https://oldbird.run" class="footer-link" target="_blank" rel="noopener noreferrer">oldbird.run</a>
+      <p class="footer-copy">传承经典 · 启迪智慧</p>
+    </footer>
+  </main>
+</body>
+</html>
