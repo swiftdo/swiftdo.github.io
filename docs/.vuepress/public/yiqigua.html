@@ -745,8 +745,8 @@
     /* Tablet */
     @media (max-width: 860px) {
       .download-panel {
-        max-width: 400px;
-        padding: 20px 16px 16px;
+        max-width: 420px;
+        padding: 22px 18px 16px;
       }
 
       .download-btns {
@@ -791,7 +791,7 @@
 
       .feature {
         display: grid;
-        grid-template-columns: 34px 1fr;
+        grid-template-columns: 40px 1fr;
         grid-template-rows: auto auto;
         column-gap: 12px;
         align-items: start;
@@ -801,10 +801,14 @@
 
       .feature-icon {
         grid-row: 1 / span 2;
-        width: 32px;
-        height: 32px;
+        width: 40px;
+        height: 40px;
         margin-bottom: 0;
+        padding: 8px;
+        border-radius: 12px;
+        background: rgba(212, 181, 106, 0.1);
         align-self: center;
+        box-sizing: border-box;
       }
 
       .feature-title {
@@ -829,25 +833,79 @@
 
     /* Mobile */
     @media (max-width: 560px) {
-      .hex-float svg {
-        opacity: 0.03;
+      .page {
+        padding-left: max(16px, env(safe-area-inset-left));
+        padding-right: max(16px, env(safe-area-inset-right));
+        padding-bottom: max(40px, env(safe-area-inset-bottom));
       }
 
-      .features {
-        grid-template-columns: 1fr;
+      .hex-float svg {
+        opacity: 0.025;
+        animation: none;
+      }
+
+      .hero {
+        padding: 28px 0 24px;
+      }
+
+      .hero-icon-wrap {
+        margin-bottom: 22px;
+      }
+
+      .hero-icon {
+        width: 96px;
+        height: 96px;
+        border-radius: 26%;
+      }
+
+      .hero-glow {
+        inset: -36px;
+      }
+
+      .hero-title {
+        font-size: 36px;
+        letter-spacing: 0.2em;
+        padding-left: 0.2em;
+        margin-bottom: 10px;
+      }
+
+      .hero-subtitle {
+        font-size: 14px;
+        letter-spacing: 0.12em;
+        line-height: 1.75;
+        margin-bottom: 12px;
+      }
+
+      .hero-tagline {
+        gap: 8px;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        margin-bottom: 22px;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 100%;
+        line-height: 1.6;
+      }
+
+      .hero-tagline::before,
+      .hero-tagline::after {
+        width: 14px;
       }
 
       .download-panel {
         max-width: none;
-        margin-left: 0;
-        margin-right: 0;
-        padding: 18px 12px 12px;
-        border-radius: 18px;
+        margin: 0;
+        padding: 16px 12px 12px;
+        border-radius: 20px;
+        box-shadow:
+          0 0 0 1px rgba(212, 181, 106, 0.08),
+          0 20px 48px -24px rgba(0, 0, 0, 0.65);
       }
 
       .download-label {
         margin-bottom: 12px;
-        letter-spacing: 0.18em;
+        letter-spacing: 0.16em;
+        font-size: 11px;
       }
 
       .download-btns {
@@ -855,52 +913,167 @@
       }
 
       .btn {
-        min-height: 64px;
+        min-height: 62px;
         padding: 12px 14px;
-        gap: 14px;
+        gap: 12px;
+        border-radius: 16px;
         box-shadow: none;
       }
 
       .btn-primary {
-        box-shadow: 0 8px 22px -12px rgba(212, 181, 106, 0.7);
+        box-shadow:
+          0 10px 28px -12px rgba(212, 181, 106, 0.75),
+          inset 0 1px 0 rgba(255, 255, 255, 0.22);
+      }
+
+      .btn-accent,
+      .btn-ghost {
+        background: rgba(255, 248, 230, 0.035);
       }
 
       .btn-icon {
         width: 42px;
         height: 42px;
+        border-radius: 12px;
+      }
+
+      .btn-meta strong {
+        font-size: 15px;
+      }
+
+      .btn-meta small {
+        font-size: 11px;
+        letter-spacing: 0.02em;
+        opacity: 0.78;
+      }
+
+      .section {
+        padding: 36px 0;
+      }
+
+      .section-head {
+        margin-bottom: 22px;
+      }
+
+      .section-kicker {
+        letter-spacing: 0.22em;
+        margin-bottom: 8px;
+      }
+
+      .section-title {
+        font-size: 22px;
+        letter-spacing: 0.18em;
+        padding-left: 0.18em;
+      }
+
+      .section-ornament {
+        margin-top: 12px;
+      }
+
+      .section-ornament span {
+        width: 36px;
       }
 
       .wechat {
         grid-template-columns: 1fr;
         text-align: center;
         justify-items: center;
-        gap: 18px;
-        padding: 22px 18px;
+        gap: 20px;
+        padding: 24px 18px 22px;
+        border-radius: 20px;
       }
 
       .wechat-copy {
         text-align: center;
       }
 
-      .hero-tagline::before,
-      .hero-tagline::after {
-        width: 18px;
+      .wechat-badge {
+        margin-bottom: 10px;
+      }
+
+      .wechat-title {
+        letter-spacing: 0.12em;
+        margin-bottom: 6px;
+      }
+
+      .wechat-desc {
+        font-size: 12.5px;
+        max-width: 16em;
+        margin: 0 auto;
+      }
+
+      .qr-frame {
+        padding: 12px;
+        border-radius: 18px;
+      }
+
+      .qr-frame img {
+        width: 148px;
+        height: 148px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .feature {
+        grid-template-columns: 44px 1fr;
+        column-gap: 14px;
+        padding: 14px 14px;
+        border-radius: 16px;
+        background:
+          linear-gradient(135deg, rgba(255, 248, 230, 0.05), rgba(255, 248, 230, 0.015)),
+          rgba(8, 7, 6, 0.25);
+      }
+
+      .feature-icon {
+        width: 44px;
+        height: 44px;
+        padding: 10px;
+        border-radius: 13px;
+        background: rgba(212, 181, 106, 0.12);
+      }
+
+      .feature-title {
+        font-size: 15px;
+        letter-spacing: 0.04em;
+        margin-bottom: 4px;
+      }
+
+      .feature-desc {
+        font-size: 12.5px;
+        line-height: 1.55;
+        color: var(--text-muted);
+      }
+
+      .screens {
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 14px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 16px;
+        margin-inline: -16px;
+        padding: 6px 16px 20px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 16px), transparent);
+      }
+
+      .screens::-webkit-scrollbar {
+        display: none;
       }
 
       .phone {
-        width: min(148px, 44vw);
-        padding: 7px;
-        border-radius: 22px;
-      }
-
-      .phone-screen {
-        border-radius: 16px;
-      }
-
-      .phone-screen::before {
-        top: 6px;
-        height: 14px;
-        width: 34%;
+        flex: 0 0 auto;
+        width: min(220px, 64vw);
+        padding: 9px;
+        border-radius: 26px;
+        scroll-snap-align: center;
+        box-shadow:
+          0 0 0 1px rgba(212, 181, 106, 0.2),
+          0 24px 48px -20px rgba(0, 0, 0, 0.7);
       }
 
       .phone:nth-child(1),
@@ -908,29 +1081,83 @@
         transform: none;
       }
 
-      .screens {
-        gap: 12px;
+      .phone-screen {
+        border-radius: 18px;
+      }
+
+      .phone-screen::before {
+        top: 7px;
+        height: 15px;
+        width: 34%;
       }
 
       .contact-grid {
         grid-template-columns: 1fr;
-        max-width: 360px;
+        max-width: none;
+        gap: 10px;
+      }
+
+      .contact-card {
+        padding: 22px 18px;
+        border-radius: 20px;
+        gap: 12px;
+      }
+
+      .contact-card-title {
+        font-size: 17px;
+        letter-spacing: 0.12em;
+      }
+
+      .contact-qr img {
+        width: 140px;
+        height: 140px;
+      }
+
+      .contact-email {
+        width: 100%;
+        justify-content: center;
+        min-height: 48px;
+        border-radius: 14px;
+        font-size: 13.5px;
+      }
+
+      .footer {
+        margin-top: 12px;
+        padding: 24px 0 4px;
       }
     }
 
     @media (max-width: 360px) {
       .page {
-        padding-left: 14px;
-        padding-right: 14px;
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .hero-title {
+        font-size: 32px;
+        letter-spacing: 0.16em;
+      }
+
+      .hero-tagline {
+        letter-spacing: 0.1em;
       }
 
       .phone {
-        width: min(132px, 43vw);
+        width: min(200px, 70vw);
       }
 
       .btn {
-        font-size: 13px;
-        min-height: 50px;
+        min-height: 58px;
+      }
+
+      .btn-meta small {
+        font-size: 10.5px;
+      }
+
+      .screens {
+        margin-inline: -12px;
+        padding-inline: 12px;
+        scroll-padding-inline: 12px;
       }
     }
   </style>
@@ -958,19 +1185,7 @@
       <div class="download-panel">
         <p class="download-label">选择下载方式</p>
         <div class="download-btns">
-          <a href="https://apps.apple.com/us/app/易学通-公益学习/id6761115348" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="在 App Store 下载易学通 iOS 版">
-            <span class="btn-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.87-3.21 1.88-2.56 5.94.47 7.85-.58 1.24-1.23 2.45-2.32 3.83zM12.75 3.5c.73-1.01 1.9-1.47 2.84-1.47.12 1.17-.34 2.34-1.05 3.17-.72.83-1.85 1.41-2.97 1.33-.15-1.15.41-2.35 1.18-3.03z"/>
-              </svg>
-            </span>
-            <span class="btn-meta">
-              <strong>App Store</strong>
-              <small>iOS · 易学通</small>
-            </span>
-            <span class="btn-chevron" aria-hidden="true">→</span>
-          </a>
-          <a href="https://appwrite.oldbird.run/xwmy56" class="btn btn-accent" target="_blank" rel="noopener noreferrer" aria-label="Android 国内直链下载">
+          <a href="https://appwrite.oldbird.run/xwmy56" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="Android 国内直链下载">
             <span class="btn-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path d="M17.523 15.341a1.09 1.09 0 0 1-1.09-1.09V9.75a1.09 1.09 0 1 1 2.18 0v4.5a1.09 1.09 0 0 1-1.09 1.091zm-11.046 0a1.09 1.09 0 0 1-1.09-1.09V9.75a1.09 1.09 0 1 1 2.18 0v4.5a1.09 1.09 0 0 1-1.09 1.091zM6.14 7.2l1.2-2.08a.36.36 0 0 1 .49-.13.36.36 0 0 1 .13.49L6.8 7.48a7.3 7.3 0 0 1 2.48-.43h5.44a7.3 7.3 0 0 1 2.48.43l-1.16-2c-.1-.18-.04-.4.13-.49a.36.36 0 0 1 .49.13l1.2 2.08A6.55 6.55 0 0 1 20.5 12.8v4.55a2.18 2.18 0 0 1-2.18 2.18H5.68a2.18 2.18 0 0 1-2.18-2.18V12.8A6.55 6.55 0 0 1 6.14 7.2z"/>
@@ -982,7 +1197,19 @@
             </span>
             <span class="btn-chevron" aria-hidden="true">→</span>
           </a>
-          <a href="https://play.google.com/store/apps/details?id=run.oldbird.yijing_divination_app" class="btn btn-ghost" target="_blank" rel="noopener noreferrer" aria-label="前往 Google Play 安装 Android 版">
+          <a href="https://apps.apple.com/us/app/易学通-公益学习/id6761115348" class="btn btn-accent" target="_blank" rel="noopener noreferrer" aria-label="在 App Store 下载易学通 iOS 版">
+            <span class="btn-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.87-3.21 1.88-2.56 5.94.47 7.85-.58 1.24-1.23 2.45-2.32 3.83zM12.75 3.5c.73-1.01 1.9-1.47 2.84-1.47.12 1.17-.34 2.34-1.05 3.17-.72.83-1.85 1.41-2.97 1.33-.15-1.15.41-2.35 1.18-3.03z"/>
+              </svg>
+            </span>
+            <span class="btn-meta">
+              <strong>App Store</strong>
+              <small>iOS · 易学通</small>
+            </span>
+            <span class="btn-chevron" aria-hidden="true">→</span>
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=run.oldbird.yijing_divination_app" class="btn btn-ghost" target="_blank" rel="noopener noreferrer" aria-label="前往 Google Play 安装 Android 国际版">
             <span class="btn-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path d="M3.609 1.814L13.792 12 3.61 22.186a1.25 1.25 0 0 1-.449-.912V2.726c0-.4.167-.728.448-.912zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1.25 1.25 0 0 1 0 2.165l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.714L16.8 9.046l-2.302 2.302-8.634-8.634z"/>
@@ -990,7 +1217,7 @@
             </span>
             <span class="btn-meta">
               <strong>Google Play</strong>
-              <small>国际版应用商店</small>
+              <small>Android - 国际版应用商店</small>
             </span>
             <span class="btn-chevron" aria-hidden="true">→</span>
           </a>
