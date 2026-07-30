@@ -10,6 +10,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      var ua = navigator.userAgent || '';
+      var isIOS = /iPhone|iPad|iPod/i.test(ua)
+        || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      var isAndroid = /Android/i.test(ua);
+      if (isIOS) document.documentElement.classList.add('platform-ios');
+      else if (isAndroid) document.documentElement.classList.add('platform-android');
+    })();
+  </script>
   <style>
     :root {
       --ink: #080706;
@@ -266,11 +276,11 @@
       display: inline-flex;
       align-items: center;
       justify-content: flex-start;
-      gap: 12px;
-      min-height: 56px;
-      padding: 12px 14px;
-      border-radius: var(--radius-md);
-      font-size: 14px;
+      gap: 14px;
+      min-height: 68px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      font-size: 16px;
       font-weight: 500;
       letter-spacing: 0.04em;
       text-decoration: none;
@@ -283,22 +293,22 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
       flex-shrink: 0;
       background: rgba(8, 7, 6, 0.2);
     }
 
     .btn svg {
-      width: 18px;
-      height: 18px;
+      width: 22px;
+      height: 22px;
       flex-shrink: 0;
     }
 
     .btn-chevron {
       margin-left: auto;
-      font-size: 16px;
+      font-size: 20px;
       opacity: 0.45;
       transition: transform 0.25s var(--ease), opacity 0.25s var(--ease);
     }
@@ -359,23 +369,40 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 3px;
+      gap: 5px;
       min-width: 0;
       text-align: left;
       line-height: 1.2;
     }
 
     .btn-meta strong {
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 600;
       letter-spacing: 0.04em;
     }
 
     .btn-meta small {
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 400;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
       opacity: 0.72;
+    }
+
+    /* Phone: show store buttons for current OS only */
+    html.platform-ios .download-btns [data-store="android"],
+    html.platform-android .download-btns [data-store="ios"] {
+      display: none;
+    }
+
+    html.platform-ios .download-btns [data-store="ios"] {
+      background: linear-gradient(145deg, var(--gold-light) 0%, var(--gold) 45%, var(--gold-dark) 100%);
+      color: #1a1408;
+      border: 1px solid transparent;
+      box-shadow: 0 10px 28px -10px rgba(212, 181, 106, 0.55);
+    }
+
+    html.platform-ios .download-btns [data-store="ios"] .btn-icon {
+      background: rgba(26, 20, 8, 0.12);
     }
 
     /* Sections */
@@ -751,33 +778,38 @@
 
       .download-btns {
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: 12px;
       }
 
       .btn {
         width: 100%;
-        min-height: 60px;
-        padding: 14px 16px;
-        border-radius: 14px;
+        min-height: 76px;
+        padding: 18px 18px;
+        border-radius: 18px;
+        gap: 16px;
       }
 
       .btn-icon {
-        width: 40px;
-        height: 40px;
-        border-radius: 12px;
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
       }
 
       .btn svg {
-        width: 20px;
-        height: 20px;
+        width: 24px;
+        height: 24px;
       }
 
       .btn-meta strong {
-        font-size: 15px;
+        font-size: 17px;
       }
 
       .btn-meta small {
-        font-size: 12px;
+        font-size: 13px;
+      }
+
+      .btn-chevron {
+        font-size: 22px;
       }
 
       .btn-chevron {
@@ -895,8 +927,8 @@
       .download-panel {
         max-width: none;
         margin: 0;
-        padding: 16px 12px 12px;
-        border-radius: 20px;
+        padding: 18px 14px 14px;
+        border-radius: 22px;
         box-shadow:
           0 0 0 1px rgba(212, 181, 106, 0.08),
           0 20px 48px -24px rgba(0, 0, 0, 0.65);
@@ -909,20 +941,20 @@
       }
 
       .download-btns {
-        gap: 8px;
+        gap: 12px;
       }
 
       .btn {
-        min-height: 62px;
-        padding: 12px 14px;
-        gap: 12px;
-        border-radius: 16px;
+        min-height: 80px;
+        padding: 18px 18px;
+        gap: 16px;
+        border-radius: 18px;
         box-shadow: none;
       }
 
       .btn-primary {
         box-shadow:
-          0 10px 28px -12px rgba(212, 181, 106, 0.75),
+          0 12px 32px -12px rgba(212, 181, 106, 0.8),
           inset 0 1px 0 rgba(255, 255, 255, 0.22);
       }
 
@@ -932,19 +964,28 @@
       }
 
       .btn-icon {
-        width: 42px;
-        height: 42px;
-        border-radius: 12px;
+        width: 52px;
+        height: 52px;
+        border-radius: 15px;
+      }
+
+      .btn svg {
+        width: 26px;
+        height: 26px;
       }
 
       .btn-meta strong {
-        font-size: 15px;
+        font-size: 18px;
       }
 
       .btn-meta small {
-        font-size: 11px;
+        font-size: 13px;
         letter-spacing: 0.02em;
-        opacity: 0.78;
+        opacity: 0.8;
+      }
+
+      .btn-chevron {
+        font-size: 24px;
       }
 
       .section {
@@ -1147,11 +1188,21 @@
       }
 
       .btn {
-        min-height: 58px;
+        min-height: 76px;
+        padding: 16px;
+      }
+
+      .btn-icon {
+        width: 48px;
+        height: 48px;
+      }
+
+      .btn-meta strong {
+        font-size: 17px;
       }
 
       .btn-meta small {
-        font-size: 10.5px;
+        font-size: 12px;
       }
 
       .screens {
@@ -1185,7 +1236,7 @@
       <div class="download-panel">
         <p class="download-label">选择下载方式</p>
         <div class="download-btns">
-          <a href="https://appwrite.oldbird.run/xwmy56" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="Android 国内直链下载">
+          <a href="https://appwrite.oldbird.run/xwmy56" class="btn btn-primary" data-store="android" target="_blank" rel="noopener noreferrer" aria-label="Android 国内直链下载">
             <span class="btn-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path d="M17.523 15.341a1.09 1.09 0 0 1-1.09-1.09V9.75a1.09 1.09 0 1 1 2.18 0v4.5a1.09 1.09 0 0 1-1.09 1.091zm-11.046 0a1.09 1.09 0 0 1-1.09-1.09V9.75a1.09 1.09 0 1 1 2.18 0v4.5a1.09 1.09 0 0 1-1.09 1.091zM6.14 7.2l1.2-2.08a.36.36 0 0 1 .49-.13.36.36 0 0 1 .13.49L6.8 7.48a7.3 7.3 0 0 1 2.48-.43h5.44a7.3 7.3 0 0 1 2.48.43l-1.16-2c-.1-.18-.04-.4.13-.49a.36.36 0 0 1 .49.13l1.2 2.08A6.55 6.55 0 0 1 20.5 12.8v4.55a2.18 2.18 0 0 1-2.18 2.18H5.68a2.18 2.18 0 0 1-2.18-2.18V12.8A6.55 6.55 0 0 1 6.14 7.2z"/>
@@ -1197,7 +1248,7 @@
             </span>
             <span class="btn-chevron" aria-hidden="true">→</span>
           </a>
-          <a href="https://apps.apple.com/us/app/易学通-公益学习/id6761115348" class="btn btn-accent" target="_blank" rel="noopener noreferrer" aria-label="在 App Store 下载易学通 iOS 版">
+          <a href="https://apps.apple.com/us/app/易学通-公益学习/id6761115348" class="btn btn-accent" data-store="ios" target="_blank" rel="noopener noreferrer" aria-label="在 App Store 下载易学通 iOS 版">
             <span class="btn-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.87-3.21 1.88-2.56 5.94.47 7.85-.58 1.24-1.23 2.45-2.32 3.83zM12.75 3.5c.73-1.01 1.9-1.47 2.84-1.47.12 1.17-.34 2.34-1.05 3.17-.72.83-1.85 1.41-2.97 1.33-.15-1.15.41-2.35 1.18-3.03z"/>
@@ -1209,7 +1260,7 @@
             </span>
             <span class="btn-chevron" aria-hidden="true">→</span>
           </a>
-          <a href="https://play.google.com/store/apps/details?id=run.oldbird.yijing_divination_app" class="btn btn-ghost" target="_blank" rel="noopener noreferrer" aria-label="前往 Google Play 安装 Android 国际版">
+          <a href="https://play.google.com/store/apps/details?id=run.oldbird.yijing_divination_app" class="btn btn-ghost" data-store="android" target="_blank" rel="noopener noreferrer" aria-label="前往 Google Play 安装 Android 国际版">
             <span class="btn-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path d="M3.609 1.814L13.792 12 3.61 22.186a1.25 1.25 0 0 1-.449-.912V2.726c0-.4.167-.728.448-.912zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1.25 1.25 0 0 1 0 2.165l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.714L16.8 9.046l-2.302 2.302-8.634-8.634z"/>
@@ -1404,5 +1455,16 @@
       <p class="footer-copy">传承经典 · 启迪智慧</p>
     </footer>
   </main>
+  <script>
+    (function () {
+      var label = document.querySelector('.download-label');
+      if (!label) return;
+      if (document.documentElement.classList.contains('platform-ios')) {
+        label.textContent = 'App Store 下载';
+      } else if (document.documentElement.classList.contains('platform-android')) {
+        label.textContent = '选择 Android 下载方式';
+      }
+    })();
+  </script>
 </body>
 </html>
