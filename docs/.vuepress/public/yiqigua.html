@@ -13,9 +13,11 @@
   <script>
     (function () {
       var ua = navigator.userAgent || '';
+      var isWeChat = /MicroMessenger/i.test(ua);
       var isIOS = /iPhone|iPad|iPod/i.test(ua)
         || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
       var isAndroid = /Android/i.test(ua);
+      if (isWeChat) document.documentElement.classList.add('platform-wechat');
       if (isIOS) document.documentElement.classList.add('platform-ios');
       else if (isAndroid) document.documentElement.classList.add('platform-android');
     })();
@@ -403,6 +405,161 @@
 
     html.platform-ios .download-btns [data-store="ios"] .btn-icon {
       background: rgba(26, 20, 8, 0.12);
+    }
+
+    .wx-banner {
+      display: none;
+      align-items: flex-start;
+      gap: 12px;
+      max-width: 640px;
+      margin: 0 auto 14px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(212, 181, 106, 0.45);
+      background:
+        linear-gradient(145deg, rgba(212, 181, 106, 0.18), rgba(212, 181, 106, 0.06)),
+        rgba(8, 7, 6, 0.55);
+      text-align: left;
+      box-shadow: 0 12px 32px -18px rgba(0, 0, 0, 0.55);
+    }
+
+    html.platform-wechat .wx-banner {
+      display: flex;
+    }
+
+    .wx-banner__icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(212, 181, 106, 0.18);
+      color: var(--gold-light);
+    }
+
+    .wx-banner__icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .wx-banner__copy {
+      min-width: 0;
+    }
+
+    .wx-banner__title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--gold-light);
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+
+    .wx-banner__desc {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-muted);
+    }
+
+    .wx-guide {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.78);
+      color: #fff;
+      padding:
+        max(12px, env(safe-area-inset-top))
+        max(16px, env(safe-area-inset-right))
+        max(24px, env(safe-area-inset-bottom))
+        max(16px, env(safe-area-inset-left));
+    }
+
+    .wx-guide.is-open {
+      display: block;
+    }
+
+    .wx-guide__arrow {
+      position: absolute;
+      top: max(8px, env(safe-area-inset-top));
+      right: max(18px, env(safe-area-inset-right));
+      width: 72px;
+      height: 72px;
+      color: var(--gold-light);
+      animation: wx-point 1.4s var(--ease) infinite;
+    }
+
+    @keyframes wx-point {
+      0%, 100% { transform: translate(0, 0); opacity: 0.85; }
+      50% { transform: translate(6px, -8px); opacity: 1; }
+    }
+
+    .wx-guide__card {
+      margin-top: 96px;
+      max-width: 340px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 22px 20px;
+      border-radius: 18px;
+      border: 1px solid var(--line-strong);
+      background:
+        linear-gradient(160deg, rgba(255, 248, 230, 0.1), rgba(255, 248, 230, 0.03)),
+        rgba(18, 16, 14, 0.96);
+      text-align: center;
+    }
+
+    .wx-guide__title {
+      font-family: "Noto Serif SC", serif;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+    }
+
+    .wx-guide__steps {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.75;
+      margin-bottom: 18px;
+    }
+
+    .wx-guide__steps strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .wx-guide__close {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 28px;
+      border: 1px solid var(--line-strong);
+      border-radius: 14px;
+      background: rgba(212, 181, 106, 0.12);
+      color: var(--gold-light);
+      font-size: 15px;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .wx-guide__close:active {
+      transform: scale(0.98);
+    }
+
+    @media (max-width: 560px) {
+      .wx-banner {
+        margin-bottom: 12px;
+        padding: 14px;
+        border-radius: 14px;
+      }
+
+      .wx-banner__title {
+        font-size: 15px;
+      }
     }
 
     /* Sections */
@@ -1233,6 +1390,19 @@
       <p class="hero-subtitle">六爻起卦 · 排盘学习<br>千年智慧，触手可及</p>
       <p class="hero-tagline">起卦排盘 · AI 提问模板 · 本地记录</p>
 
+      <div class="wx-banner" role="status">
+        <span class="wx-banner__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 8v5M12 16h.01"/>
+          </svg>
+        </span>
+        <div class="wx-banner__copy">
+          <p class="wx-banner__title">当前在微信中打开</p>
+          <p class="wx-banner__desc">请点击右上角 ···，选择「在浏览器中打开」后再下载安装。</p>
+        </div>
+      </div>
+
       <div class="download-panel">
         <p class="download-label">选择下载方式</p>
         <div class="download-btns">
@@ -1455,15 +1625,65 @@
       <p class="footer-copy">传承经典 · 启迪智慧</p>
     </footer>
   </main>
+
+  <div class="wx-guide" id="wx-guide" hidden aria-hidden="true">
+    <svg class="wx-guide__arrow" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+      <path d="M48 10c8 2 14 8 16 16" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <path d="M54 8l10 2-2 10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M36 56c0-18 8-30 26-38" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <div class="wx-guide__card" role="dialog" aria-modal="true" aria-labelledby="wx-guide-title">
+      <h2 class="wx-guide__title" id="wx-guide-title">请用浏览器打开</h2>
+      <p class="wx-guide__steps">
+        1. 点击右上角 <strong>···</strong><br>
+        2. 选择 <strong>在浏览器中打开</strong><br>
+        3. 再回来下载安装 App
+      </p>
+      <button type="button" class="wx-guide__close" id="wx-guide-close">我知道了</button>
+    </div>
+  </div>
+
   <script>
     (function () {
+      var root = document.documentElement;
       var label = document.querySelector('.download-label');
-      if (!label) return;
-      if (document.documentElement.classList.contains('platform-ios')) {
-        label.textContent = 'App Store 下载';
-      } else if (document.documentElement.classList.contains('platform-android')) {
-        label.textContent = '选择 Android 下载方式';
+      if (label) {
+        if (root.classList.contains('platform-ios')) {
+          label.textContent = 'App Store 下载';
+        } else if (root.classList.contains('platform-android')) {
+          label.textContent = '选择 Android 下载方式';
+        }
       }
+
+      if (!root.classList.contains('platform-wechat')) return;
+
+      var guide = document.getElementById('wx-guide');
+      var closeBtn = document.getElementById('wx-guide-close');
+      if (!guide || !closeBtn) return;
+
+      function openGuide() {
+        guide.hidden = false;
+        guide.setAttribute('aria-hidden', 'false');
+        guide.classList.add('is-open');
+      }
+
+      function closeGuide() {
+        guide.classList.remove('is-open');
+        guide.hidden = true;
+        guide.setAttribute('aria-hidden', 'true');
+      }
+
+      closeBtn.addEventListener('click', closeGuide);
+      guide.addEventListener('click', function (e) {
+        if (e.target === guide) closeGuide();
+      });
+
+      document.querySelectorAll('.download-btns a[data-store]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          openGuide();
+        });
+      });
     })();
   </script>
 </body>
