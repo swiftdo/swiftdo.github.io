@@ -16,7 +16,7 @@ const developerUrl = 'https://play.google.com/store/apps/developer?id=oldbirds'
 const apps: Project[] = [
   {
     title: '易起卦',
-    desc: '六爻排盘、一键起卦、卦象解读、卦签诗与卦例、学习记录；支持赛锦囊，数据本地存储。',
+    desc: '六爻排盘与一键起卦；App 不解卦，提供 AI 提示词模板方便提问；支持赛锦囊、卦例与本地记录。',
     href: '/yiqigua.html',
     image: '/app-yiqigua.webp',
     tag: '六爻 · 排盘',
