@@ -1,9 +1,13 @@
 import { defineClientConfig } from 'vuepress/client'
+import { h } from 'vue'
 import Portfolio from './components/Portfolio.vue'
+import YiqiguaDocAddon from './components/YiqiguaDocAddon.vue'
+import YiqiguaPromo from './components/YiqiguaPromo.vue'
 
 export default defineClientConfig({
   enhance({ app }) {
     app.component('Portfolio', Portfolio)
+    app.component('YiqiguaPromo', YiqiguaPromo)
 
     // 防止重复加载
     if (typeof window === 'undefined' || (window as any).__adsense_injected) return
@@ -14,4 +18,6 @@ export default defineClientConfig({
     s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4465026491979447'
     document.head.appendChild(s)
   },
+
+  rootComponents: [() => h(YiqiguaDocAddon)],
 })

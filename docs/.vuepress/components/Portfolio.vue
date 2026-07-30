@@ -6,32 +6,86 @@ type Project = {
   image: string
   tag: string
   cta?: string
+  /** phone = 竖图截图；cover = 横图封面 */
+  media?: 'phone' | 'cover'
+  external?: boolean
 }
+
+const developerUrl = 'https://play.google.com/store/apps/developer?id=oldbirds'
 
 const apps: Project[] = [
   {
     title: '易起卦',
-    desc: '融合易经文化与现代交互的六爻占卜应用。生成卦象、解读推演，并支持历史记录回顾。',
-    href: 'https://play.google.com/store/apps/details?id=run.oldbird.yijing_divination_app',
+    desc: '六爻占卜与易经学习：生成卦象、解读推演，支持历史记录。',
+    href: '/yiqigua.html',
     image: '/app-yiqigua.webp',
-    tag: 'Android · 易经',
+    tag: '易经 · 占卜',
+    cta: '查看产品页',
+    media: 'phone',
+    external: false,
+  },
+  {
+    title: '梅花易数',
+    desc: '以邵雍古法为根基，支持时间、数字、汉字等多种起卦，生成体用生克与应期分析。',
+    href: 'https://play.google.com/store/apps/details?id=run.oldbird.plum_blossom_yishu',
+    image: 'https://play-lh.googleusercontent.com/CY5294qnxCoEQg3T_RjZ9OyLaxQRShycdVl5b4SqnRanHYMY59wbTpuzb9xJqOQ0LZmhJgkUCe551QARMEuR=w640-h360',
+    tag: '易经 · 占卜',
     cta: 'Google Play',
+    media: 'cover',
+  },
+  {
+    title: '金刚功',
+    desc: '八部金刚功跟练工具：全套/单式模式、进度记录与功法研习，离线可用。',
+    href: 'https://play.google.com/store/apps/details?id=run.oldbird.jingang',
+    image: 'https://play-lh.googleusercontent.com/QIpIxPrFR2tnpHkKcmQupGJM_Bb4vKSMMOd-z7LgmBS3FTkT3RtOP0DQpMtAmoEuMuUrndXqRTXl-yRGne20Og=w640-h360',
+    tag: '健康 · 功法',
+    cta: 'Google Play',
+    media: 'cover',
   },
   {
     title: 'iDiary',
-    desc: '极简笔记应用，以 Git 作为存储后端，适合想把日记纳入版本管理的人。',
-    href: 'https://play.google.com/store/apps/details?id=run.oldbird.idiary&pli=1',
+    desc: '极简卡片笔记，基于 Git 存储，适合把日记纳入版本管理。',
+    href: 'https://play.google.com/store/apps/details?id=run.oldbird.idiary',
     image: '/app-idiary.webp',
-    tag: 'Android · 笔记',
+    tag: '效率 · 笔记',
     cta: 'Google Play',
+    media: 'phone',
+  },
+  {
+    title: 'RSS 阅读',
+    desc: '简洁 RSS 阅读器：订阅管理、聚合阅读、收藏与本地历史记录。',
+    href: 'https://play.google.com/store/apps/details?id=run.oldbird.rss',
+    image: 'https://play-lh.googleusercontent.com/cqEpu_IQEdKNoyrkMLdYnBRKvq7j4LuaQrE-Gzpw55oojRqp5rxJIWE8uuXUqy9FnHItzF3NRYQOBMteQTP1GFQ=w640-h360',
+    tag: '效率 · 资讯',
+    cta: 'Google Play',
+    media: 'cover',
   },
   {
     title: 'Panda',
-    desc: '基于 TinyPNG 的图片压缩客户端，帮你快速减小体积、保持观感。',
+    desc: '基于 TinyPNG 的图片压缩客户端，快速减小体积、保持观感。',
     href: 'https://play.google.com/store/apps/details?id=run.oldbird.panda',
     image: '/app-panda.webp',
-    tag: 'Android · 工具',
+    tag: '工具 · 图片',
     cta: 'Google Play',
+    media: 'phone',
+  },
+  {
+    title: '极简菜谱',
+    desc: '解决「今天吃什么」：智能推荐、趣味转盘、收藏夹与心愿单。',
+    href: 'https://play.google.com/store/apps/details?id=run.oldbird.dishes',
+    image: 'https://play-lh.googleusercontent.com/lvlPXZHKK72smp5L6NC_obAyFCCBvGu9hCPzQtLth7Q92-ZLB1fp7xolCC7_oiaPFgCwuT32zTE141f76xwV=w640-h360',
+    tag: '生活 · 美食',
+    cta: 'Google Play',
+    media: 'cover',
+  },
+  {
+    title: '有趣拼图',
+    desc: '沉浸式拼图：精选图库、本地上传成关卡，难度可调、进度可记。',
+    href: 'https://play.google.com/store/apps/details?id=run.oldbird.puzzle',
+    image: 'https://play-lh.googleusercontent.com/cnujtjUkZ2NHMLy2kA5el6fgNOQ1eQP6S0y0R3CDLFUthB2hcSxUzqtbs-fTChO5l8b90neGRhnDce9Zbi9YYXI=w640-h360',
+    tag: '游戏 · 休闲',
+    cta: 'Google Play',
+    media: 'cover',
   },
 ]
 
@@ -43,6 +97,7 @@ const sites: Project[] = [
     image: '/site.png',
     tag: 'Website',
     cta: '访问站点',
+    media: 'cover',
   },
   {
     title: '拼图游戏',
@@ -51,8 +106,13 @@ const sites: Project[] = [
     image: '/puzzle.png',
     tag: 'Website · Game',
     cta: '开始游戏',
+    media: 'cover',
   },
 ]
+
+function isExternal(item: Project) {
+  return item.external !== false && /^https?:\/\//.test(item.href)
+}
 </script>
 
 <template>
@@ -68,7 +128,10 @@ const sites: Project[] = [
     <section class="portfolio__section" aria-labelledby="apps-heading">
       <div class="portfolio__section-head">
         <h2 id="apps-heading">App</h2>
-        <p>上架 Google Play 的实用与兴趣应用</p>
+        <p>
+          上架 Google Play 的实用与兴趣应用 ·
+          <a :href="developerUrl" target="_blank" rel="noopener noreferrer">查看全部</a>
+        </p>
       </div>
       <div class="portfolio__grid portfolio__grid--apps">
         <a
@@ -76,11 +139,14 @@ const sites: Project[] = [
           :key="item.title"
           class="project"
           :href="item.href"
-          target="_blank"
-          rel="noopener noreferrer"
+          :target="isExternal(item) ? '_blank' : undefined"
+          :rel="isExternal(item) ? 'noopener noreferrer' : undefined"
         >
-          <div class="project__media project__media--app">
-            <img :src="item.image" :alt="item.title" loading="lazy" />
+          <div
+            class="project__media"
+            :class="item.media === 'cover' ? 'project__media--cover' : 'project__media--phone'"
+          >
+            <img :src="item.image" :alt="item.title" loading="lazy" referrerpolicy="no-referrer" />
           </div>
           <div class="project__body">
             <span class="project__tag">{{ item.tag }}</span>
@@ -90,6 +156,11 @@ const sites: Project[] = [
           </div>
         </a>
       </div>
+      <p class="portfolio__more">
+        <a :href="developerUrl" target="_blank" rel="noopener noreferrer">
+          在 Google Play 查看 oldbirds 全部应用 →
+        </a>
+      </p>
     </section>
 
     <section class="portfolio__section" aria-labelledby="sites-heading">
@@ -106,7 +177,7 @@ const sites: Project[] = [
           target="_blank"
           rel="noopener noreferrer"
         >
-          <div class="project__media project__media--site">
+          <div class="project__media project__media--cover">
             <img :src="item.image" :alt="item.title" loading="lazy" />
           </div>
           <div class="project__body">
@@ -205,26 +276,55 @@ const sites: Project[] = [
   color: var(--vp-c-text-3);
 }
 
+.portfolio__section-head a {
+  color: var(--pf-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.portfolio__section-head a:hover {
+  text-decoration: underline;
+}
+
+.portfolio__more {
+  margin: 1.25rem 0 0;
+  text-align: center;
+  font-size: 0.92rem;
+}
+
+.portfolio__more a {
+  color: var(--pf-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.portfolio__more a:hover {
+  text-decoration: underline;
+}
+
 .portfolio__grid {
   display: grid;
   gap: 1rem;
 }
 
-.portfolio__grid--apps {
-  grid-template-columns: 1fr;
-}
-
+.portfolio__grid--apps,
 .portfolio__grid--sites {
   grid-template-columns: 1fr;
 }
 
-@media (min-width: 720px) {
+@media (min-width: 640px) {
   .portfolio__grid--apps {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .portfolio__grid--sites {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .portfolio__grid--apps {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -263,31 +363,31 @@ const sites: Project[] = [
     var(--pf-soft);
 }
 
-.project__media--app {
-  min-height: 220px;
-  padding: 1.25rem 1rem 0.5rem;
+.project__media--phone {
+  min-height: 200px;
+  padding: 1.1rem 1rem 0.5rem;
 }
 
-.project__media--app img {
+.project__media--phone img {
   width: auto;
   max-width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: contain;
   filter: drop-shadow(0 12px 20px color-mix(in srgb, var(--vp-c-text-1) 16%, transparent));
   transition: transform 0.28s ease;
 }
 
-.project:hover .project__media--app img {
+.project:hover .project__media--phone img {
   transform: translateY(-4px) scale(1.02);
 }
 
-.project__media--site {
+.project__media--cover {
   aspect-ratio: 16 / 10;
   padding: 0;
   overflow: hidden;
 }
 
-.project__media--site img {
+.project__media--cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -295,7 +395,7 @@ const sites: Project[] = [
   transition: transform 0.35s ease;
 }
 
-.project:hover .project__media--site img {
+.project:hover .project__media--cover img {
   transform: scale(1.03);
 }
 
@@ -356,9 +456,11 @@ const sites: Project[] = [
 }
 
 .media__qr {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
+  width: 148px;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
   border-radius: 10px;
   background: var(--vp-c-bg);
   border: 1px solid var(--pf-border);
@@ -387,8 +489,8 @@ const sites: Project[] = [
 
 @media (prefers-reduced-motion: reduce) {
   .project,
-  .project__media--app img,
-  .project__media--site img {
+  .project__media--phone img,
+  .project__media--cover img {
     transition: none;
   }
 
