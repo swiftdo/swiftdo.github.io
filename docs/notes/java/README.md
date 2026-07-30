@@ -1,13 +1,16 @@
 ---
+title: Java
+createTime: 2020/04/01 00:00:00
+permalink: /java/
+tags:
+  - java
 sitemap:
   exclude: false
   changefreq: hourly
-title: '开始'
-date: 2020-4-1
-tags:
-- java
 ---
 
-Java 学习笔记。
+Java 学习笔记，记录 Lambda、函数式接口等语言特性。
 
-开始
+## 目录
+
+- [Lambda 与函数式接口](/java/lambada/)

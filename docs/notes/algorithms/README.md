@@ -14,15 +14,15 @@ permalink: /algorithms/
 
 - [ ] 十大经典排序算法
 
-  - [x] [冒泡排序](/basis/algorithms/t1-buble-sort)
-  - [x] [选择排序](/basis/algorithms/t2-selection-sort)
-  - [x] [插入排序](/basis/algorithms/t3-insertion-sort)
-  - [x] [希尔排序](/basis/algorithms/t4-shell-sort)
-  - [x] [快速排序](/basis/algorithms/t5-quick-sort)
-  - [x] [堆排序](/basis/algorithms/t6-heap-sort)
-  - [x] [归并排序](/basis/algorithms/t7-merge-sort)
-  - [x] [基数排序](/basis/algorithms/t8-radix-sort)
-  - [x] [计数排序](/basis/algorithms/t9-count-sort)
-  - [x] [桶排序](/basis/algorithms/u1-bucket-sort)
+  - [x] [冒泡排序](/algorithms/t1-buble-sort/)
+  - [x] [选择排序](/algorithms/t2-selection-sort/)
+  - [x] [插入排序](/algorithms/t3-insertion-sort/)
+  - [x] [希尔排序](/algorithms/t4-shell-sort/)
+  - [x] [快速排序](/algorithms/t5-quick-sort/)
+  - [x] [堆排序](/algorithms/t6-heap-sort/)
+  - [x] [归并排序](/algorithms/t7-merge-sort/)
+  - [x] [基数排序](/algorithms/t8-radix-sort/)
+  - [x] [计数排序](/algorithms/t9-count-sort/)
+  - [x] [桶排序](/algorithms/u1-bucket-sort/)
 
   ![排序](/imgs/15541716797540.jpg)

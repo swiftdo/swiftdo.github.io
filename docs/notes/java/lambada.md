@@ -7,7 +7,7 @@ date: 2024-8-8
 tags:
   - java
 createTime: 2024/08/08 09:07:20
-permalink: /article/h8wxex98/
+permalink: /java/lambada/
 ---
 
 Java语言从JDK1.8开始引入了函数式编程。

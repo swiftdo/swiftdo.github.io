@@ -8,7 +8,7 @@ tags:
   - tools
   - plantuml
 createTime: 2024/08/02 09:19:27
-permalink: /article/tveoiqgo/
+permalink: /tools/plantuml/t1-sequence-diagram/
 ---
 
 ## 时序图

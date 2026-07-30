@@ -4,7 +4,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /article/86vxq6bd/
+permalink: /tools/figma/figma-install-chinese-font/
 ---
 
 Figma 的字体是自动识别电脑系统里已安装的字体，所以下载字体包后复制到对应的系统字体库里即可，然后客户端可以自动识别。

@@ -8,7 +8,7 @@ tags:
   - haskell
   - vscode
 createTime: 2024/08/02 09:19:27
-permalink: /article/gzjmrg2m/
+permalink: /haskell/3-pktool/
 ---
 
 Haskell 项目中，经常用到包管理工具：

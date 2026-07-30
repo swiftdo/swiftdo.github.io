@@ -1,12 +1,14 @@
 ---
-title: 'Git'
+title: Git
 sitemap:
   exclude: false
   changefreq: hourly
-date: 2020-08-17
+date: 2020-08-17T00:00:00.000Z
 tags:
-- tools
-- git
+  - tools
+  - git
+permalink: /tools/git/
+createTime: 2025/07/25 14:19:45
 ---
 
 ## 提交规范

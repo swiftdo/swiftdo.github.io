@@ -8,7 +8,7 @@ tags:
   - tools
   - vuepress
 createTime: 2024/08/02 09:19:27
-permalink: /article/6w2fsts9/
+permalink: /tools/vuepress/deploy-github-action/
 ---
 
 ## 步骤

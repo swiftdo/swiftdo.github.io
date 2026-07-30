@@ -1,12 +1,14 @@
 ---
-title: 'plantuml 安装'
+title: plantuml 安装
 sitemap:
   exclude: false
   changefreq: hourly
-date: 2020-10-25
+date: 2020-10-25T00:00:00.000Z
 tags:
-- tools
-- plantuml
+  - tools
+  - plantuml
+permalink: /tools/plantuml/
+createTime: 2025/07/25 14:19:45
 ---
 
 PlantUML 是一个开源项目，支持快速绘制:

@@ -1,12 +1,14 @@
 ---
-title: "流程图(flowchart)"
+title: 流程图(flowchart)
 sitemap:
   exclude: false
   changefreq: hourly
-date: 2022-01-07
+date: 2022-01-07T00:00:00.000Z
 tags:
   - tools
   - flowchart
+permalink: /tools/flowchart/
+createTime: 2025/07/25 14:19:45
 ---
 
 我们常常需要在文档中引用一些流程图，以便更清晰地说明运行流程。以前没有系统地学习过 Flowchart 流程图，所以想到什么就画什么，结果画出来的图形状千奇百怪，没有形成一致的规范。

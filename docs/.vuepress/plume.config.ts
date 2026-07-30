@@ -10,10 +10,10 @@
  * 特别的，请不要在两个配置文件中重复配置相同的项，当前文件的配置项会覆盖 `.vuepress/config.ts` 文件中的配置
  */
 
-import { defineThemeConfig } from 'vuepress-theme-plume'
-import navbar from './navbar'
-import notes from './notes'
 import path from 'node:path'
+import { defineThemeConfig } from 'vuepress-theme-plume'
+import collections from './collections'
+import navbar from './navbar'
 
 /**
  * @see https://theme-plume.vuejs.press/config/basic/
@@ -49,7 +49,7 @@ export default defineThemeConfig({
       赣公网安备 36011102000528号
     </a>
     `,
-    copyright: `Copyright © 2025 OldBird`,
+    copyright: `Copyright © 2020-2026 OldBird`,
   },
 
   /**
@@ -58,14 +58,14 @@ export default defineThemeConfig({
   profile: {
     avatar: '/logo.png',
     name: 'OldBird',
-    description: '个人学习网站，iOS、SwiftUI、Flutter、Python、AI 等技术',
+    description: 'Swift、Flutter、AI、Python、易经学习笔记与作品分享',
     circle: true,
     // location: '',
     // organization: '',
   },
 
   navbar,
-  notes,
+  collections,
 
   /**
    * 公告板

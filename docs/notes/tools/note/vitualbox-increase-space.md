@@ -8,7 +8,7 @@ tags:
   - tools
   - VituralBox
 createTime: 2024/08/02 09:19:27
-permalink: /article/ofxw1b7j/
+permalink: /tools/note/vitualbox-increase-space/
 ---
 
 用 `gitlab` 对内部代码进行私有管理，由于 gitlab 在 MacOS 上的部署太过复杂，所以采用 Ubuntu 虚拟机进行部署。随着项目的不断增多，以及代码的不断迭代，早期给虚拟机规划的 30G 磁盘空间现不够用了，今天出现超容卡死现象。本文就将此扩容过程做下笔记分享给大家，可收藏此文，以便不时之需。

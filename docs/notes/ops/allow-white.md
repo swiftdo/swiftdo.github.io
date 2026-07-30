@@ -7,7 +7,7 @@ date: 2024-12-8
 tags:
   - centos
 createTime: 2024/12/09 10:56:14
-permalink: /article/q4tftyiy/
+permalink: /ops/allow-white/
 ---
 
 

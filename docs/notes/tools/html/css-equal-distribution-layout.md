@@ -8,7 +8,7 @@ tags:
   - tools
   - html
 createTime: 2024/08/02 09:19:27
-permalink: /article/pljjhia7/
+permalink: /tools/html/css-equal-distribution-layout/
 ---
 
 在我们写界面的时候，会经常碰到此等分布局。

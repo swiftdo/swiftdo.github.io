@@ -8,7 +8,7 @@ tags:
   - tools
   - html
 createTime: 2025/03/13 09:03:47
-permalink: /article/jci8lytv/
+permalink: /tools/html/video-faster-play/
 ---
 
 ## 背景

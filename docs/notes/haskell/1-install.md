@@ -7,7 +7,7 @@ date: 2020-4-1
 tags:
   - haskell
 createTime: 2024/08/02 09:19:27
-permalink: /article/nhzwsg0r/
+permalink: /haskell/1-install/
 ---
 
 通过 brew 进行安装：

@@ -1,8 +1,10 @@
 ---
-title: 'Figma'
+title: Figma
 sitemap:
   exclude: false
   changefreq: hourly
+permalink: /tools/figma/
+createTime: 2024/08/02 09:19:27
 ---
 
 # 介绍

@@ -8,7 +8,7 @@ tags:
   - tools
   - vuepress
 createTime: 2024/08/02 09:19:27
-permalink: /article/phc1w8at/
+permalink: /tools/vuepress/memory-out/
 ---
 
 ## 背景

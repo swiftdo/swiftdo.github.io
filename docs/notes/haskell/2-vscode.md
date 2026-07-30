@@ -8,7 +8,7 @@ tags:
   - haskell
   - vscode
 createTime: 2024/08/02 09:19:27
-permalink: /article/hekl4grx/
+permalink: /haskell/2-vscode/
 ---
 
 当我们安装好了 stack 后，我们还需要配置 vscode。

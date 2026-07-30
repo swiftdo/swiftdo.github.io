@@ -10,3 +10,4 @@ docs/.vuepress/dist
 node_modules
 .temp
 .cache
+.codegraph/

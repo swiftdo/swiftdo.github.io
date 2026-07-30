@@ -8,7 +8,7 @@ tags:
   - tools
   - html
 createTime: 2024/08/02 09:19:27
-permalink: /article/72f1j8lq/
+permalink: /tools/html/js-vant-vue-callable/
 ---
 
 最近遇到个场景：列表页面(h5)，点击添加按钮，进入发布页面，在发布页面(h5)提交成功的时候返回到列表页面，需要主动刷新列表页面。而这个场景是在**h5与原生的混合**环境中。

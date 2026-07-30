@@ -8,7 +8,7 @@ tags:
   - haskell
   - vscode
 createTime: 2024/08/02 09:19:27
-permalink: /article/7pp9bqfg/
+permalink: /haskell/4-digui/
 ---
 
 递归类型：**即它用自己来定义自己**。

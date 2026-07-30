@@ -1,12 +1,14 @@
 ---
-title: 'Yaml'
+title: Yaml
 sitemap:
   exclude: false
   changefreq: hourly
-date: 2020-08-16
+date: 2020-08-16T00:00:00.000Z
 tags:
-- tools
-- yaml
+  - tools
+  - yaml
+permalink: /tools/yaml/
+createTime: 2025/07/25 14:19:45
 ---
 
 ## 介绍

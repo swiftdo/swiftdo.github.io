@@ -8,7 +8,7 @@ tags:
   - tools
   - yaml
 createTime: 2024/08/02 09:19:27
-permalink: /article/nn0pg7l9/
+permalink: /tools/docsify/
 ---
 
 前段日子，对设计模式进行了一个梳理，把梳理的文档整理到了仓库：[https://github.com/swiftdo/design-patterns](https://github.com/swiftdo/design-patterns)。

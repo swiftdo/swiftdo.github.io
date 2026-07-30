@@ -126,6 +126,7 @@ permalink: /yijing/
 
 ## 推荐书籍
 
+- [入门书籍推荐](/yijing/intro-books/)
 - 《增删卜易》
 - 《卜筮正宗》
 

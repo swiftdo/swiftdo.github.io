@@ -10,7 +10,7 @@ tags:
   - xm-select
   - layui
 createTime: 2024/10/31 15:40:24
-permalink: /article/jwtccomr/
+permalink: /tools/html/xm-select-use/
 ---
 
 xm-select 使用指南

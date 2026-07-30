@@ -33,10 +33,12 @@ swiftdo.github.io/
 │   │   ├── config.ts       # Main VuePress config
 │   │   ├── plume.config.ts # Theme config (hot-reload)
 │   │   ├── navbar.ts       # Navigation config
-│   │   └── notes.ts        # Sidebar/note collections
-│   ├── notes/              # Technical notes (Swift, Flutter, AI, etc.)
-│   ├── article/            # Blog articles
-│   └── book/               # Book recommendations
+│   │   ├── collections.ts  # Blog (post) + note (doc) collections
+│   │   └── redirects.json  # Old /article/ → new note URL map
+│   ├── notes/              # Note series (Swift, Flutter, AI, tools, etc.)
+│   ├── blog/               # Blog posts / 资讯随笔
+│   ├── book/               # Book recommendations
+│   └── result/             # Portfolio
 ├── package.json
 └── deploy.sh               # Deployment script
 ```
@@ -64,11 +66,13 @@ swiftdo.github.io/
 
 ### Configuration Pattern
 ```typescript
-import { defineNoteConfig } from 'vuepress-theme-plume'
+import { defineCollection } from 'vuepress-theme-plume'
 
-const swiftNote = defineNoteConfig({
-  dir: 'swift',
-  link: '/swift',
+const swift = defineCollection({
+  type: 'doc',
+  dir: 'notes/swift',
+  title: 'Swift',
+  linkPrefix: '/swift/',
   sidebar: 'auto',
 })
 ```
@@ -84,14 +88,16 @@ permalink: /article/xxx/
 ---
 ```
 
-## Notes Configuration
+## Collections Configuration
 
-Notes are configured in `docs/.vuepress/notes.ts`:
-- `dir`: Directory name under `docs/notes/`
-- `link`: URL prefix for generated pages
+Collections are configured in `docs/.vuepress/collections.ts`:
+- `type: 'post'` — blog posts (`docs/blog/`), list/tags/archives
+- `type: 'doc'` — note series under `docs/notes/*`, with sidebar
+- `dir`: Directory relative to `docs/`
+- `linkPrefix`: URL prefix for pages / sidebar matching
 - `sidebar`: `'auto'` for file-structure-based, or array for manual order
 
-**Critical**: Markdown file permalinks must start with the note's `link` prefix for sidebar to appear.
+**Critical**: Markdown file permalinks must start with the doc collection's `linkPrefix` for sidebar to appear.
 
 ## Error Handling
 

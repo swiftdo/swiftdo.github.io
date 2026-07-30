@@ -2064,6 +2064,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vuepress/plugin-redirect@npm:2.0.0-rc.131":
+  version: 2.0.0-rc.131
+  resolution: "@vuepress/plugin-redirect@npm:2.0.0-rc.131"
+  dependencies:
+    "@vuepress/helper": "npm:2.0.0-rc.131"
+    "@vueuse/core": "npm:^14.3.0"
+    commander: "npm:^15.0.0"
+    vue: "npm:^3.5.39"
+  peerDependencies:
+    vuepress: 2.0.0-rc.30
+  bin:
+    vp-redirect: dist/cli/index.js
+  checksum: 10c0/738207c0a2afd18a62c1e57ef32e55b9afd9345f386505ccca13170b639144f2152e9fc1551e28af6470739cecba0ca5350d1ca7be02c6ddb66f3d7a692f05de
+  languageName: node
+  linkType: hard
+
 "@vuepress/plugin-replace-assets@npm:2.0.0-rc.131":
   version: 2.0.0-rc.131
   resolution: "@vuepress/plugin-replace-assets@npm:2.0.0-rc.131"
@@ -2681,6 +2697,13 @@ __metadata:
   version: 2.0.3
   resolution: "comma-separated-tokens@npm:2.0.3"
   checksum: 10c0/91f90f1aae320f1755d6957ef0b864fe4f54737f3313bd95e0802686ee2ca38bff1dd381964d00ae5db42912dd1f4ae5c2709644e82706ffc6f6842a813cdd67
+  languageName: node
+  linkType: hard
+
+"commander@npm:^15.0.0":
+  version: 15.0.0
+  resolution: "commander@npm:15.0.0"
+  checksum: 10c0/539229c171914ea1ccd45ee5f10d924289a12a684ea3a7a44147abe54003c35ed6de9ae4ad198d88c29fdf403dca0428451a388234e6dc01b6faa978fb207206
   languageName: node
   linkType: hard
 
@@ -4710,6 +4733,7 @@ __metadata:
     "@vuepress/bundler-vite": "npm:2.0.0-rc.30"
     "@vuepress/plugin-copy-code": "npm:2.0.0-rc.131"
     "@vuepress/plugin-google-analytics": "npm:2.0.0-rc.130"
+    "@vuepress/plugin-redirect": "npm:2.0.0-rc.131"
     http-server: "npm:^14.1.1"
     typescript: "npm:^5.9.3"
     vue: "npm:^3.5.40"

@@ -8,7 +8,7 @@ tags:
   - code
   - review
 createTime: 2024/12/20 10:45:25
-permalink: /article/bmfix7p2/
+permalink: /tools/code-review/
 ---
 
 代码走查（Code Review）是软件开发中的一种重要实践，它旨在通过团队成员间的相互检查，提高代码质量、可维护性和一致性。代码走查的主要目标是发现和解决潜在问题、提升代码质量，确保代码符合项目要求和开发标准。以下是代码走查的主要任务和如何进行：

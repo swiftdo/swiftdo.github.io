@@ -8,7 +8,7 @@ tags:
   - tools
   - vuepress
 createTime: 2024/08/02 09:19:27
-permalink: /article/mcxm96cz/
+permalink: /tools/vuepress/deploy/
 ---
 
 ## GitHub Pages

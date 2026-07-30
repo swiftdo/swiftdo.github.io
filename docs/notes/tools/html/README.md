@@ -1,12 +1,14 @@
 ---
-title: "Flex 布局"
+title: Flex 布局
 sitemap:
   exclude: false
   changefreq: hourly
-date: 2020-08-17
+date: 2020-08-17T00:00:00.000Z
 tags:
   - tools
   - html
+permalink: /tools/html/
+createTime: 2025/07/25 14:19:45
 ---
 
 ## 概览

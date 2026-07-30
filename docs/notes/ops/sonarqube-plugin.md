@@ -7,7 +7,7 @@ date: 2024-12-10T00:00:00.000Z
 tags:
   - centos
 createTime: 2024/12/10 09:27:38
-permalink: /article/cxmrc043/
+permalink: /ops/sonarqube-plugin/
 ---
 
 

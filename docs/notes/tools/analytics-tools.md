@@ -1,7 +1,7 @@
 ---
 title: 网站流量分析工具
 createTime: 2025/07/25 22:07:59
-permalink: /article/analytics-tools/
+permalink: /tools/analytics-tools/
 ---
 
 

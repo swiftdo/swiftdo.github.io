@@ -8,7 +8,7 @@ tags:
   - tools
   - plantuml
 createTime: 2024/08/02 09:19:27
-permalink: /article/6wb9pulp/
+permalink: /tools/plantuml/t2-class-diagram/
 ---
 
 待更新。。

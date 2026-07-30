@@ -8,7 +8,7 @@ tags:
   - tools
   - git
 createTime: 2024/08/02 09:19:27
-permalink: /article/change-history/
+permalink: /tools/git/t1-change-history/
 ---
 
 可能你有过以下的经历：

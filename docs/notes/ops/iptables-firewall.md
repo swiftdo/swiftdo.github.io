@@ -7,7 +7,7 @@ date: 2024-12-8
 tags:
   - centos
 createTime: 2024/12/09 10:55:53
-permalink: /article/g7m1edr3/
+permalink: /ops/iptables-firewall/
 ---
 
 `iptables` 和 `firewalld` 都是 Linux 系统中常见的防火墙工具，但它们在设计和使用上有一些不同之处：

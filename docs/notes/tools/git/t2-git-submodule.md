@@ -8,7 +8,7 @@ tags:
   - tools
   - git
 createTime: 2024/08/02 09:19:27
-permalink: /article/git-submodule/
+permalink: /tools/git/t2-git-submodule/
 ---
 
 ```sh
