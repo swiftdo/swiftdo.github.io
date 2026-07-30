@@ -8,27 +8,39 @@ import { defineNavbarConfig } from 'vuepress-theme-plume'
 
 export default defineNavbarConfig([
   { text: '首页', link: '/' },
-  { text: '博客', link: '/blog/' },
-  { text: '标签', link: '/blog/tags/' },
-  { text: '归档', link: '/blog/archives/' },
-  { text: '作品', link: '/result/' },
-  { text: '书单', link: '/book/' },
-  { text: '易经', link: '/yijing/' },
   {
     text: '笔记',
     items: [
-      { text: 'Swift', link: '/swift/' },
-      { text: 'Flutter', link: '/flutter/' },
-      { text: 'AI', link: '/ai/' },
-      { text: 'Python', link: '/python/' },
-      { text: '工具', link: '/tools/' },
-      { text: '算法', link: '/algorithms/' },
-      { text: '设计模式', link: '/design-patterns/' },
-      { text: 'Haskell', link: '/haskell/' },
-      { text: '鸿蒙', link: '/harmony/' },
-      { text: '运维', link: '/ops/' },
-      { text: 'Java', link: '/java/' },
-      { text: 'Vue', link: '/vue/' },
+      {
+        text: '主线',
+        items: [
+          { text: 'Swift', link: '/swift/' },
+          { text: 'Flutter', link: '/flutter/' },
+          { text: 'AI', link: '/ai/' },
+        ],
+      },
+      {
+        text: '基础',
+        items: [
+          { text: '算法', link: '/algorithms/' },
+          { text: '设计模式', link: '/design-patterns/' },
+          { text: 'Python', link: '/python/' },
+        ],
+      },
+      {
+        text: '更多',
+        items: [
+          { text: '工具', link: '/tools/' },
+          { text: '鸿蒙', link: '/harmony/' },
+          { text: '运维', link: '/ops/' },
+          { text: 'Haskell', link: '/haskell/' },
+          { text: 'Java', link: '/java/' },
+          { text: 'Vue', link: '/vue/' },
+        ],
+      },
     ],
   },
+  { text: '博客', link: '/blog/' },
+  { text: '作品', link: '/result/' },
+  { text: '易经', link: '/yijing/' },
 ])
