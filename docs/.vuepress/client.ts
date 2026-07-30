@@ -1,11 +1,14 @@
 import { defineClientConfig } from 'vuepress/client'
 import { h } from 'vue'
+import HomeShowcase from './components/HomeShowcase.vue'
 import Portfolio from './components/Portfolio.vue'
 import YiqiguaDocAddon from './components/YiqiguaDocAddon.vue'
 import YiqiguaPromo from './components/YiqiguaPromo.vue'
+import './theme/styles/custom.css'
 
 export default defineClientConfig({
   enhance({ app }) {
+    app.component('HomeShowcase', HomeShowcase)
     app.component('Portfolio', Portfolio)
     app.component('YiqiguaPromo', YiqiguaPromo)
 
