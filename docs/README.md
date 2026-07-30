@@ -53,7 +53,7 @@ config:
         linkText: 进入 AI
       - title: 易经
         icon: mdi:yin-yang
-        details: 周易、六爻与梅花易数；配套易起卦 App 练习。
+        details: 周易、六爻与梅花易数；配套易起卦（六爻排盘）App 练习。
         link: /yijing/
         linkText: 进入易经
 

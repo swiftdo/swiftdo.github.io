@@ -22,7 +22,7 @@ const productUrl = '/yiqigua.html'
       <p class="yg-promo__eyebrow">产品推荐</p>
       <h3 class="yg-promo__title">易起卦</h3>
       <p class="yg-promo__desc">
-        易经学习与起卦占卜 App：六十四卦详解、智能起卦、卦象解读。学完笔记，打开 App 马上练。
+        六爻起卦 App：排盘、一键起卦、卦象解读、卦签诗与卦例、学习记录；数据本地保存。学完笔记，打开 App 马上练。
       </p>
       <div class="yg-promo__actions">
         <a class="yg-promo__btn yg-promo__btn--primary" :href="productUrl">

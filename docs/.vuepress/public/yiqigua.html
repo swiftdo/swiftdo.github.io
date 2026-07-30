@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>易起卦 - 易经学习与起卦占卜</title>
-  <meta name="description" content="易起卦 - 易经学习与起卦占卜应用。千年智慧，触手可及。学习易经六十四卦，掌握起卦占卜之道。">
+  <title>易起卦 - 六爻起卦与排盘学习</title>
+  <meta name="description" content="易起卦 - 六爻起卦与排盘应用。支持六爻排盘、一键起卦、卦象解读与学习记录，数据本地存储，注重隐私。">
   <meta name="theme-color" content="#080706">
   <link rel="icon" href="/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -225,13 +225,34 @@
     .download-panel {
       max-width: 640px;
       margin: 0 auto;
+      padding: 18px 16px 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(160deg, rgba(255, 248, 230, 0.06), rgba(255, 248, 230, 0.015)),
+        rgba(8, 7, 6, 0.35);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 18px 48px -28px rgba(0, 0, 0, 0.55);
     }
 
     .download-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       font-size: 12px;
       letter-spacing: 0.22em;
       color: var(--text-subtle);
       margin-bottom: 14px;
+    }
+
+    .download-label::before,
+    .download-label::after {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0.55;
     }
 
     .download-btns {
@@ -241,12 +262,13 @@
     }
 
     .btn {
+      position: relative;
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 52px;
-      padding: 12px 16px;
+      justify-content: flex-start;
+      gap: 12px;
+      min-height: 56px;
+      padding: 12px 14px;
       border-radius: var(--radius-md);
       font-size: 14px;
       font-weight: 500;
@@ -257,10 +279,28 @@
       touch-action: manipulation;
     }
 
+    .btn-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      background: rgba(8, 7, 6, 0.2);
+    }
+
     .btn svg {
       width: 18px;
       height: 18px;
       flex-shrink: 0;
+    }
+
+    .btn-chevron {
+      margin-left: auto;
+      font-size: 16px;
+      opacity: 0.45;
+      transition: transform 0.25s var(--ease), opacity 0.25s var(--ease);
     }
 
     .btn-primary {
@@ -268,6 +308,10 @@
       color: #1a1408;
       border: 1px solid transparent;
       box-shadow: 0 10px 28px -10px rgba(212, 181, 106, 0.55);
+    }
+
+    .btn-primary .btn-icon {
+      background: rgba(26, 20, 8, 0.12);
     }
 
     .btn-accent {
@@ -295,6 +339,11 @@
         color: var(--gold-light);
         background: rgba(212, 181, 106, 0.14);
       }
+
+      .btn:hover .btn-chevron {
+        opacity: 0.9;
+        transform: translateX(2px);
+      }
     }
 
     .btn:active {
@@ -310,16 +359,23 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 2px;
+      gap: 3px;
+      min-width: 0;
       text-align: left;
       line-height: 1.2;
     }
 
+    .btn-meta strong {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
     .btn-meta small {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 400;
-      letter-spacing: 0.08em;
-      opacity: 0.7;
+      letter-spacing: 0.06em;
+      opacity: 0.72;
     }
 
     /* Sections */
@@ -444,11 +500,13 @@
     .features {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+      gap: 12px;
+      max-width: 920px;
+      margin: 0 auto;
     }
 
     .feature {
-      padding: clamp(18px, 3vw, 26px);
+      padding: clamp(16px, 2.8vw, 22px);
       border: 1px solid var(--line);
       border-radius: var(--radius-md);
       background: var(--surface);
@@ -464,23 +522,23 @@
     }
 
     .feature-icon {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 14px;
+      width: 36px;
+      height: 36px;
+      margin-bottom: 12px;
       color: var(--gold);
     }
 
     .feature-title {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
-      letter-spacing: 0.08em;
-      margin-bottom: 8px;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
     }
 
     .feature-desc {
-      font-size: 13px;
+      font-size: 12.5px;
       color: var(--text-muted);
-      line-height: 1.7;
+      line-height: 1.65;
     }
 
     /* Screenshots */
@@ -686,36 +744,86 @@
 
     /* Tablet */
     @media (max-width: 860px) {
+      .download-panel {
+        max-width: 400px;
+        padding: 20px 16px 16px;
+      }
+
       .download-btns {
         grid-template-columns: 1fr;
-        max-width: 360px;
-        margin: 0 auto;
+        gap: 10px;
       }
 
       .btn {
         width: 100%;
-        justify-content: flex-start;
-        padding-left: 22px;
+        min-height: 60px;
+        padding: 14px 16px;
+        border-radius: 14px;
+      }
+
+      .btn-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+      }
+
+      .btn svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .btn-meta strong {
+        font-size: 15px;
+      }
+
+      .btn-meta small {
+        font-size: 12px;
+      }
+
+      .btn-chevron {
+        display: inline-block;
       }
 
       .features {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
         gap: 10px;
       }
 
       .feature {
         display: grid;
-        grid-template-columns: 40px 1fr;
+        grid-template-columns: 34px 1fr;
         grid-template-rows: auto auto;
-        column-gap: 14px;
+        column-gap: 12px;
         align-items: start;
         text-align: left;
+        padding: 14px;
       }
 
       .feature-icon {
         grid-row: 1 / span 2;
+        width: 32px;
+        height: 32px;
         margin-bottom: 0;
         align-self: center;
+      }
+
+      .feature-title {
+        font-size: 14px;
+      }
+
+      .feature-desc {
+        font-size: 12px;
+      }
+    }
+
+    /* Desktop: hide chevron in 3-col to keep compact */
+    @media (min-width: 861px) {
+      .btn {
+        justify-content: center;
+      }
+
+      .btn-chevron {
+        display: none;
       }
     }
 
@@ -723,6 +831,43 @@
     @media (max-width: 560px) {
       .hex-float svg {
         opacity: 0.03;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .download-panel {
+        max-width: none;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 18px 12px 12px;
+        border-radius: 18px;
+      }
+
+      .download-label {
+        margin-bottom: 12px;
+        letter-spacing: 0.18em;
+      }
+
+      .download-btns {
+        gap: 8px;
+      }
+
+      .btn {
+        min-height: 64px;
+        padding: 12px 14px;
+        gap: 14px;
+        box-shadow: none;
+      }
+
+      .btn-primary {
+        box-shadow: 0 8px 22px -12px rgba(212, 181, 106, 0.7);
+      }
+
+      .btn-icon {
+        width: 42px;
+        height: 42px;
       }
 
       .wechat {
@@ -767,10 +912,6 @@
         gap: 12px;
       }
 
-      .btn-meta small {
-        font-size: 11px;
-      }
-
       .contact-grid {
         grid-template-columns: 1fr;
         max-width: 360px;
@@ -811,38 +952,47 @@
         <img src="/images/yiqigua-icon.png" alt="易起卦 App 图标" class="hero-icon" width="136" height="136">
       </div>
       <h1 class="hero-title">易起卦</h1>
-      <p class="hero-subtitle">易经学习 · 起卦占卜<br>千年智慧，触手可及</p>
-      <p class="hero-tagline">探索六十四卦的奥秘</p>
+      <p class="hero-subtitle">六爻起卦 · 排盘学习<br>千年智慧，触手可及</p>
+      <p class="hero-tagline">一键起卦，本地排盘，专注六爻</p>
 
       <div class="download-panel">
         <p class="download-label">选择下载方式</p>
         <div class="download-btns">
           <a href="https://apps.apple.com/us/app/易学通-公益学习/id6761115348" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="在 App Store 下载易学通 iOS 版">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.87-3.21 1.88-2.56 5.94.47 7.85-.58 1.24-1.23 2.45-2.32 3.83zM12.75 3.5c.73-1.01 1.9-1.47 2.84-1.47.12 1.17-.34 2.34-1.05 3.17-.72.83-1.85 1.41-2.97 1.33-.15-1.15.41-2.35 1.18-3.03z"/>
-            </svg>
-            <span class="btn-meta">
-              <strong>iOS</strong>
-              <small>App Store 易学通</small>
+            <span class="btn-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.87-3.21 1.88-2.56 5.94.47 7.85-.58 1.24-1.23 2.45-2.32 3.83zM12.75 3.5c.73-1.01 1.9-1.47 2.84-1.47.12 1.17-.34 2.34-1.05 3.17-.72.83-1.85 1.41-2.97 1.33-.15-1.15.41-2.35 1.18-3.03z"/>
+              </svg>
             </span>
+            <span class="btn-meta">
+              <strong>App Store</strong>
+              <small>iOS · 易学通</small>
+            </span>
+            <span class="btn-chevron" aria-hidden="true">→</span>
           </a>
-          <a href="https://appwrite.oldbird.run/xwmy56" class="btn btn-accent" target="_blank" rel="noopener noreferrer" aria-label="Android 下载，适用于国内">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M17.523 15.341a1.09 1.09 0 0 1-1.09-1.09V9.75a1.09 1.09 0 1 1 2.18 0v4.5a1.09 1.09 0 0 1-1.09 1.091zm-11.046 0a1.09 1.09 0 0 1-1.09-1.09V9.75a1.09 1.09 0 1 1 2.18 0v4.5a1.09 1.09 0 0 1-1.09 1.091zM6.14 7.2l1.2-2.08a.36.36 0 0 1 .49-.13.36.36 0 0 1 .13.49L6.8 7.48a7.3 7.3 0 0 1 2.48-.43h5.44a7.3 7.3 0 0 1 2.48.43l-1.16-2c-.1-.18-.04-.4.13-.49a.36.36 0 0 1 .49.13l1.2 2.08A6.55 6.55 0 0 1 20.5 12.8v4.55a2.18 2.18 0 0 1-2.18 2.18H5.68a2.18 2.18 0 0 1-2.18-2.18V12.8A6.55 6.55 0 0 1 6.14 7.2z"/>
-            </svg>
-            <span class="btn-meta">
-              <strong>Android 下载</strong>
-              <small>适用于国内</small>
+          <a href="https://appwrite.oldbird.run/xwmy56" class="btn btn-accent" target="_blank" rel="noopener noreferrer" aria-label="Android 国内直链下载">
+            <span class="btn-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.523 15.341a1.09 1.09 0 0 1-1.09-1.09V9.75a1.09 1.09 0 1 1 2.18 0v4.5a1.09 1.09 0 0 1-1.09 1.091zm-11.046 0a1.09 1.09 0 0 1-1.09-1.09V9.75a1.09 1.09 0 1 1 2.18 0v4.5a1.09 1.09 0 0 1-1.09 1.091zM6.14 7.2l1.2-2.08a.36.36 0 0 1 .49-.13.36.36 0 0 1 .13.49L6.8 7.48a7.3 7.3 0 0 1 2.48-.43h5.44a7.3 7.3 0 0 1 2.48.43l-1.16-2c-.1-.18-.04-.4.13-.49a.36.36 0 0 1 .49.13l1.2 2.08A6.55 6.55 0 0 1 20.5 12.8v4.55a2.18 2.18 0 0 1-2.18 2.18H5.68a2.18 2.18 0 0 1-2.18-2.18V12.8A6.55 6.55 0 0 1 6.14 7.2z"/>
+              </svg>
             </span>
+            <span class="btn-meta">
+              <strong>国内 Android</strong>
+              <small>直链安装包 · 推荐</small>
+            </span>
+            <span class="btn-chevron" aria-hidden="true">→</span>
           </a>
-          <a href="https://play.google.com/store/apps/details?id=run.oldbird.yijing_divination_app" class="btn btn-ghost" target="_blank" rel="noopener noreferrer" aria-label="Android 下载，前往 Google Play 安装">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M3.609 1.814L13.792 12 3.61 22.186a1.25 1.25 0 0 1-.449-.912V2.726c0-.4.167-.728.448-.912zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1.25 1.25 0 0 1 0 2.165l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.714L16.8 9.046l-2.302 2.302-8.634-8.634z"/>
-            </svg>
-            <span class="btn-meta">
-              <strong>Android 下载</strong>
-              <small>前往 Google Play 安装</small>
+          <a href="https://play.google.com/store/apps/details?id=run.oldbird.yijing_divination_app" class="btn btn-ghost" target="_blank" rel="noopener noreferrer" aria-label="前往 Google Play 安装 Android 版">
+            <span class="btn-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3.609 1.814L13.792 12 3.61 22.186a1.25 1.25 0 0 1-.449-.912V2.726c0-.4.167-.728.448-.912zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1.25 1.25 0 0 1 0 2.165l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.714L16.8 9.046l-2.302 2.302-8.634-8.634z"/>
+              </svg>
             </span>
+            <span class="btn-meta">
+              <strong>Google Play</strong>
+              <small>国际版应用商店</small>
+            </span>
+            <span class="btn-chevron" aria-hidden="true">→</span>
           </a>
         </div>
       </div>
@@ -882,33 +1032,74 @@
             <rect x="8" y="8" width="32" height="32" rx="4"/>
             <line x1="8" y1="20" x2="40" y2="20"/>
             <line x1="20" y1="8" x2="20" y2="40"/>
-            <circle cx="14" cy="14" r="2" fill="currentColor"/>
-            <circle cx="34" cy="34" r="2" fill="currentColor"/>
           </svg>
-          <h3 class="feature-title">六十四卦详解</h3>
-          <p class="feature-desc">完整收录易经六十四卦，图文并茂，深入解读每一卦的含义与应用</p>
+          <h3 class="feature-title">六爻排盘</h3>
+          <p class="feature-desc">完整六爻排盘，自动生成卦象结构，装卦信息一目了然</p>
         </article>
         <article class="feature">
           <svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
             <circle cx="24" cy="24" r="18"/>
             <polyline points="24,6 24,24 36,36"/>
-            <circle cx="24" cy="24" r="3" fill="currentColor"/>
           </svg>
-          <h3 class="feature-title">智能起卦</h3>
-          <p class="feature-desc">多种起卦方式，数字、时间、手动输入，便捷准确，随时获取卦象指引</p>
+          <h3 class="feature-title">一键起卦</h3>
+          <p class="feature-desc">快速起卦生成结果，也支持赛锦囊等方式，随用随起</p>
         </article>
         <article class="feature">
           <svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <path d="M8 12h32v28a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4V12z"/>
-            <line x1="4" y1="12" x2="44" y2="12"/>
-            <line x1="16" y1="20" x2="16" y2="36"/>
-            <line x1="24" y1="20" x2="24" y2="36"/>
-            <line x1="32" y1="20" x2="32" y2="36"/>
-            <rect x="14" y="4" width="8" height="8" rx="1" fill="currentColor" stroke="none"/>
-            <rect x="26" y="4" width="8" height="8" rx="1" fill="currentColor" stroke="none"/>
+            <path d="M10 14h28v24a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4V14z"/>
+            <line x1="16" y1="22" x2="32" y2="22"/>
+            <line x1="16" y1="28" x2="28" y2="28"/>
           </svg>
-          <h3 class="feature-title">学习记录</h3>
-          <p class="feature-desc">保存起卦记录与学习笔记，回顾历史卦象，积累智慧经验</p>
+          <h3 class="feature-title">卦象解读</h3>
+          <p class="feature-desc">卦象详细解读与分析，帮助理清动爻、用神与吉凶趋向</p>
+        </article>
+        <article class="feature">
+          <svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M14 10h20a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/>
+            <path d="M18 18h12M18 24h12M18 30h8"/>
+          </svg>
+          <h3 class="feature-title">卦签诗与卦例</h3>
+          <p class="feature-desc">支持卦签诗展示，收录经典卦例，对照学习更直观</p>
+        </article>
+        <article class="feature">
+          <svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M24 8l4 8 9 1-7 6 2 9-8-4-8 4 2-9-7-6 9-1z"/>
+          </svg>
+          <h3 class="feature-title">六爻学习</h3>
+          <p class="feature-desc">六爻学习内容与传统文化科普，边用边学，巩固基础</p>
+        </article>
+        <article class="feature">
+          <svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="24" cy="24" r="16"/>
+            <path d="M24 16v8l5 3"/>
+          </svg>
+          <h3 class="feature-title">历史记录</h3>
+          <p class="feature-desc">管理起卦与解卦记录，便于回顾复盘、积累经验</p>
+        </article>
+        <article class="feature">
+          <svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <rect x="12" y="10" width="24" height="28" rx="3"/>
+            <circle cx="24" cy="30" r="2"/>
+            <path d="M18 16h12"/>
+          </svg>
+          <h3 class="feature-title">本地隐私</h3>
+          <p class="feature-desc">关键数据完全本地存储，不上传服务器，更安心</p>
+        </article>
+        <article class="feature">
+          <svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="24" cy="24" r="10"/>
+            <path d="M24 8v4M24 36v4M8 24h4M36 24h4"/>
+          </svg>
+          <h3 class="feature-title">深色与简繁</h3>
+          <p class="feature-desc">支持深色 / 浅色模式，以及简体与繁体切换</p>
+        </article>
+        <article class="feature">
+          <svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M12 34V14h10a6 6 0 0 1 0 12H12"/>
+            <path d="M28 34l8-20 8 20M31 28h10"/>
+          </svg>
+          <h3 class="feature-title">解卦笔记</h3>
+          <p class="feature-desc">记录并分析自己的解卦数据，形成可复用的判断习惯</p>
         </article>
       </div>
     </section>

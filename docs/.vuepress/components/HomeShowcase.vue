@@ -79,7 +79,7 @@ const shortcuts = [
           <p class="product__eyebrow">Product</p>
           <h3 class="product__title">易起卦</h3>
           <p class="product__desc">
-            易经学习与起卦占卜 App。读完笔记，打开 App 立刻练习六十四卦与智能起卦。
+            六爻起卦 App：排盘、一键起卦、卦象解读、卦签诗与卦例、历史记录。读完笔记，打开 App 立刻练习六爻。
           </p>
           <div class="product__actions">
             <a class="product__btn product__btn--primary" href="/yiqigua.html">查看产品页</a>

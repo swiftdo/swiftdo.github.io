@@ -16,10 +16,10 @@ const developerUrl = 'https://play.google.com/store/apps/developer?id=oldbirds'
 const apps: Project[] = [
   {
     title: '易起卦',
-    desc: '六爻占卜与易经学习：生成卦象、解读推演，支持历史记录。',
+    desc: '六爻排盘、一键起卦、卦象解读、卦签诗与卦例、学习记录；支持赛锦囊，数据本地存储。',
     href: '/yiqigua.html',
     image: '/app-yiqigua.webp',
-    tag: '易经 · 占卜',
+    tag: '六爻 · 排盘',
     cta: '查看产品页',
     media: 'phone',
     external: false,
@@ -29,7 +29,7 @@ const apps: Project[] = [
     desc: '以邵雍古法为根基，支持时间、数字、汉字等多种起卦，生成体用生克与应期分析。',
     href: 'https://play.google.com/store/apps/details?id=run.oldbird.plum_blossom_yishu',
     image: 'https://play-lh.googleusercontent.com/CY5294qnxCoEQg3T_RjZ9OyLaxQRShycdVl5b4SqnRanHYMY59wbTpuzb9xJqOQ0LZmhJgkUCe551QARMEuR=w640-h360',
-    tag: '易经 · 占卜',
+    tag: '易经 · 起卦',
     cta: 'Google Play',
     media: 'cover',
   },

@@ -30,7 +30,7 @@ function dismiss() {
       <img class="yg-bar__icon" src="/images/yiqigua-icon.png" alt="" width="40" height="40" />
       <div class="yg-bar__copy">
         <strong>易起卦</strong>
-        <span>学完笔记，用 App 起卦练习</span>
+        <span>排盘 · 起卦 · 解读 · 卦例 · 本地记录</span>
       </div>
       <a class="yg-bar__btn" href="/yiqigua.html">了解产品</a>
       <button class="yg-bar__close" type="button" aria-label="关闭推荐" @click="dismiss">×</button>
