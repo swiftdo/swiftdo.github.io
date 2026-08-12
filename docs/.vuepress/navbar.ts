@@ -43,4 +43,5 @@ export default defineNavbarConfig([
   { text: '博客', link: '/blog/' },
   { text: '作品', link: '/result/' },
   { text: '易经', link: '/yijing/' },
+  { text: '针灸', link: '/acupuncture/' },
 ])

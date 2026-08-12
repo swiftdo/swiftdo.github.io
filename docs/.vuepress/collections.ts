@@ -120,6 +120,14 @@ const yijing = defineCollection({
   sidebar: 'auto',
 })
 
+const acupuncture = defineCollection({
+  type: 'doc',
+  dir: 'notes/acupuncture',
+  title: '针灸',
+  linkPrefix: '/acupuncture/',
+  sidebar: 'auto',
+})
+
 export default defineCollections([
   blog,
   swift,
@@ -135,4 +143,5 @@ export default defineCollections([
   java,
   vue,
   yijing,
+  acupuncture,
 ])
