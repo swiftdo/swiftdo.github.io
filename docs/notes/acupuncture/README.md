@@ -12,3 +12,5 @@ permalink: /acupuncture/
 - [阴经和阳经的区别](/acupuncture/yinyang/)
 - [十二经纳天干地支](/acupuncture/tiangandizhi/)
 - [十二正经井荥原输经合](/acupuncture/wushuxue/)
+- [十四经穴中的特定穴](/acupuncture/tedingxue/)
+- [任脉](/acupuncture/renmai/)
