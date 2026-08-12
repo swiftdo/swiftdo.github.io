@@ -10,3 +10,5 @@ permalink: /acupuncture/
 
 - [十二经脉的名称由来](/acupuncture/shiermai/)
 - [阴经和阳经的区别](/acupuncture/yinyang/)
+- [十二经纳天干地支](/acupuncture/tiangandizhi/)
+- [十二正经井荥原输经合](/acupuncture/wushuxue/)
