@@ -9,3 +9,4 @@ permalink: /acupuncture/
 ## 目录
 
 - [十二经脉的名称由来](/acupuncture/shiermai/)
+- [阴经和阳经的区别](/acupuncture/yinyang/)
