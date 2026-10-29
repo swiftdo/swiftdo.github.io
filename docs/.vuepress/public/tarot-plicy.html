@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-page-node-id="t8KfRMpny7vBnKxD7qgnLy">
+<head data-page-node-id="uMIMuXDT52CCP6UmxONyiY">
+<meta charset="utf-8" data-page-node-id="hBNlqoHan856XSctjvTCAc">
+<meta name="viewport" content="width=device-width, initial-scale=1" data-page-node-id="UypLpzgXq1EEiQDmpx8GnQ">
+<title>隐私政策 · 塔罗 / Privacy Policy · Tarot</title>
+<!--
+  「塔罗」Android 应用的隐私政策页，供 Google Play 商店列表与 Play Console
+  「应用内容 → 隐私权政策」引用。要求：公开可访问的 HTTPS 地址。
+
+  开发者署名与联系邮箱在正文三语各出现一处（简体 / 繁体 / English），
+  改动时三处要一起改，保持一致：
+    开发者 Oldbird · 邮箱 oheroj@gmail.com
+  自查：grep -c "oldbird\|Oldbird" legal/privacy/index.html 应 ≥ 4；
+        grep -o "oheroj@gmail.com" legal/privacy/index.html | wc -l 应 = 3
+
+  页面无任何外部依赖（无 CDN、无字体、无脚本库），单文件可直接托管。
+-->
+<style>
+  :root {
+    --paper: #faf8f4;
+    --ink: #1c1a17;
+    --muted: #5f5a52;
+    --rule: #e2dcd2;
+    --gold: #9a7a2e;
+    --card: #f2ede4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #12100e;
+      --ink: #ebe6dc;
+      --muted: #a49d90;
+      --rule: #2e2a24;
+      --gold: #c8a24a;
+      --card: #1b1815;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 16px/1.75 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+          "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 22px 96px; }
+  header { border-bottom: 1px solid var(--rule); padding-bottom: 20px; margin-bottom: 30px; }
+  .kicker {
+    font-size: 12px; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--gold); margin: 0 0 10px;
+  }
+  h1 { font-size: 28px; line-height: 1.3; margin: 0 0 10px; font-weight: 650; letter-spacing: -.01em; }
+  .meta { color: var(--muted); font-size: 13.5px; margin: 0; }
+  .lang { display: flex; gap: 6px; margin-top: 18px; flex-wrap: wrap; }
+  .lang button {
+    font: inherit; font-size: 13px; padding: 5px 12px; cursor: pointer;
+    border: 1px solid var(--rule); border-radius: 999px;
+    background: transparent; color: var(--muted);
+  }
+  .lang button[aria-pressed="true"] {
+    border-color: var(--gold); color: var(--gold); font-weight: 600;
+  }
+  .summary {
+    background: var(--card); border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0; padding: 16px 18px; margin: 0 0 34px;
+  }
+  .summary p { margin: 0; }
+  .summary strong { color: var(--gold); }
+  section { margin: 0 0 30px; }
+  h2 {
+    font-size: 17px; margin: 0 0 12px; font-weight: 650; letter-spacing: -.005em;
+    display: flex; gap: 10px; align-items: baseline;
+  }
+  h2 .num {
+    color: var(--gold); font-size: 12px; font-variant-numeric: tabular-nums;
+    min-width: 1.6em; font-weight: 700; letter-spacing: .04em;
+  }
+  p { margin: 0 0 12px; }
+  ul { margin: 0 0 12px; padding-left: 22px; }
+  li { margin: 0 0 6px; }
+  li::marker { color: var(--gold); }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: .9em; background: var(--card); padding: 1px 5px; border-radius: 4px;
+  }
+  .note {
+    font-size: 14px; color: var(--muted); border-top: 1px solid var(--rule);
+    padding-top: 18px; margin-top: 40px;
+  }
+  a { color: var(--gold); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  [hidden] { display: none !important; }
+  @media (max-width: 480px) {
+    .wrap { padding: 24px 18px 72px; }
+    h1 { font-size: 24px; }
+  }
+</style>
+</head>
+<body data-page-node-id="HbbIyrdd1cSOFpGLFBfX6y">
+<div class="wrap" data-page-node-id="I2V1YKFfUn0nZncFHmG7Vw">
+
+  <header data-page-node-id="ML0ddRu2G4slkCsfWeUK5s">
+    <p class="kicker" data-page-node-id="jyMsESoBgaiZjxhhiQOMvA">塔罗 · Tarot</p>
+    <h1 id="page-title" data-page-node-id="SDYQoFlZ451sDDLE2HSfi5">隐私政策</h1>
+    <p class="meta" id="page-meta" data-page-node-id="8i9Zg1OnTRmpQDFqmRmiqe">生效日期 2026 年 10 月 29 日 · 适用版本 1.0.0 起</p>
+    <div class="lang" role="group" aria-label="Language" data-page-node-id="Xg9LqObKMm4lam8LyzH1j5">
+      <button type="button" data-lang="zh-Hans" aria-pressed="true" data-page-node-id="S8JZ3NfxauBKMOAKXt2J5p">简体中文</button>
+      <button type="button" data-lang="zh-Hant" aria-pressed="false" data-page-node-id="zagHsrVVkUOtO4Bsh6NHi5">繁體中文</button>
+      <button type="button" data-lang="en" aria-pressed="false" data-page-node-id="iTecU28ojWJc7vYzHWEo9r">English</button>
+    </div>
+  </header>
+
+  <!-- ================= 简体中文 ================= -->
+  <main data-doc="zh-Hans" data-page-node-id="jVleMrNnhWiudobZSgYYpW">
+    <div class="summary" data-page-node-id="BT34H8gOFsJQUdcG5wJsbc">
+      <p data-page-node-id="KNuB8vEnBp3tCza5lbml1C"><strong data-page-node-id="YIKjQVbBqzmW2q8kErq9T3">一句话：</strong>塔罗不收集、不上传、不共享你的任何个人信息。你抽了什么牌、写了什么问题，只留在这台设备上，我们看不到。</p>
+    </div>
+
+    <section data-page-node-id="1FnNMISj4FIx0z9XVabhSh">
+      <h2 data-page-node-id="PH1l6lzeHDnMijOOhTWe1B"><span class="num" data-page-node-id="z1lNN0jS2GzCGvWmFnDUoD">01</span>适用范围</h2>
+      <p data-page-node-id="89aXiYwTH0xwiJIibaqL2z">本政策适用于「塔罗」（Tarot）Android 应用，包名 <code data-page-node-id="Tth2nGEvS1jvBPbf0iCoKI">run.oldbird.tarot</code>，由 Oldbird 提供。</p>
+      <p data-page-node-id="vLXo4xpEMhkTQ6dHPfjDQ8">应用无需注册、无需登录，也没有账号体系。我们没有保存你数据的服务器，因此不存在「我们这边的数据库」这一说。</p>
+    </section>
+
+    <section data-page-node-id="qCWbk8XcakJPHBNvWtLica">
+      <h2 data-page-node-id="5CxBaFoJjf2mnDM7ttxsbv"><span class="num" data-page-node-id="S1827sLPMFvnsnfOZW5FJ7">02</span>应用在本机保存什么</h2>
+      <p data-page-node-id="E95IRkBm0nqmh3Ow7tSVlj">以下内容保存在应用的私有目录（Hive 数据库），只有本应用能读取，其他应用和我们都无法访问：</p>
+      <ul data-page-node-id="2KFbHbTLQZhxMX4DvnhBEE">
+        <li data-page-node-id="TnQL1cfCImNMzSNXbIJIL9"><strong data-page-node-id="toHZuAWYLCKXA5zyQHJNZG">牌记</strong>：抽牌时间、牌阵类型、抽到的牌与正逆位、心境牌</li>
+        <li data-page-node-id="jjlOFW16kCxj5PiViko6GN"><strong data-page-node-id="ZtiinnZkxMFpfufnoxKqqO">你输入的问句</strong>：如果在抽牌前写了问题，它会与这条牌记一起保存在本机</li>
+        <li data-page-node-id="EVXNtfeNmoi4vn3qjyySf5"><strong data-page-node-id="DtvqLh8jXIlYlxNEeJHoCP">偏好设置</strong>：外观（深色 / 浅色）、语言、牌面风格、抽牌方式</li>
+        <li data-page-node-id="WNB9w2bK1NN0tqSa0HJJho"><strong data-page-node-id="evsOo1sLg74FkgkwY0yMfs">评价提示节奏</strong>：启动次数、上次提示的时间</li>
+      </ul>
+      <p data-page-node-id="Xp0laTIGQTnhNIPAZD2psg">这些数据不会离开设备。我们不读取、不备份、不上传，也没有任何渠道可以读取它们。</p>
+    </section>
+
+    <section data-page-node-id="Y6L3N1DvBVtr8vdUumnwHj">
+      <h2 data-page-node-id="ESnDQkyoGlgs8CxjtFNJGN"><span class="num" data-page-node-id="vQYF6JHIKEXR9qhOHLuF25">03</span>我们不收集什么</h2>
+      <p data-page-node-id="RsGQ9CO8NUJvcK39joSB5a">不收集姓名、邮箱、手机号、通讯录；不收集精确或粗略位置；不访问相册、麦克风、摄像头；不读取设备标识符（IMEI、Android ID、广告 ID）；不收集应用使用统计与崩溃日志。</p>
+      <p data-page-node-id="Y14Kwb3qK6G85eWOhiGl0Q">应用内没有广告 SDK、没有统计分析 SDK、没有崩溃上报 SDK。牌面图像与解读文案随安装包一起分发，不从网络加载。</p>
+    </section>
+
+    <section data-page-node-id="19qQQVNDbTC10O11FHx1H0">
+      <h2 data-page-node-id="lFqeU53zqC0w1G79970ChQ"><span class="num" data-page-node-id="o3MLtdEUlAAoYvOCpokd1s">04</span>申请的权限</h2>
+      <p data-page-node-id="nSCCKPOAfUg5jEPNMNmDPC">应用只申请一项权限：<code data-page-node-id="KrvHRB6GoDCX9hYDcMZtP5">INTERNET</code>（网络访问）。用途见下一节。应用不申请位置、相机、麦克风、通讯录、存储等任何权限。</p>
+    </section>
+
+    <section data-page-node-id="I0bEjE1s8GxqipdOnBGN9o">
+      <h2 data-page-node-id="hvjYMlvfdBRchdmRBdiKP2"><span class="num" data-page-node-id="d8xJ5matwgCaCEnHENb03q">05</span>网络访问用在哪</h2>
+      <p data-page-node-id="g2VJCdiTdMqIq16ePPIHxZ">只有一处：<strong data-page-node-id="YWyyPf8BQOsDWEQOR9Tbni">设置 → 检查更新</strong>。点击后，应用会向 <code data-page-node-id="unhKruxZsWRtu8guMyOMnl">play.google.com</code> 查询本应用在商店中的最新版本号，用来告诉你是否有更新。</p>
+      <ul data-page-node-id="f5U68tCixKFlQJmp6XFCEv">
+        <li data-page-node-id="28gjeT9Lm6kNsYK6TOONKc">请求只包含应用包名，不包含任何与你有关的信息。</li>
+        <li data-page-node-id="KYFpSAEegyphuu9W0DUcCS">与任何网络请求一样，Google 的服务器会看到你的 IP 地址；该请求由 Google 按其自身隐私政策处理，我们既不读取也无法获取。</li>
+        <li data-page-node-id="skk9uib0cKTZFDOL0UCLNv">如果你不点「检查更新」，应用不会主动发起任何网络请求。</li>
+      </ul>
+    </section>
+
+    <section data-page-node-id="YprVpicOeyHJBq0T5EexYr">
+      <h2 data-page-node-id="wnUc42dqnUg41FpvMa3bFc"><span class="num" data-page-node-id="kft6muoGhlZgXUHoW5jVLY">06</span>第三方组件</h2>
+      <ul data-page-node-id="wAr7EPTgXYQC9wS9PrYxUU">
+        <li data-page-node-id="jS9eSeoMI7T5uLFqnoBRVr"><strong data-page-node-id="y8OmRAw9zNHeYdyhNmzXSn">Google Play 应用内评价</strong>：由系统弹窗完成，评分与评论直接提交给 Google Play，不经过我们。</li>
+        <li data-page-node-id="VS86Fx95gZCzBsPLFH8dkc"><strong data-page-node-id="LQ8Lo6kCpXiTAfiOW3HdJ0">打开商店页面</strong>：通过系统浏览器或 Play 商店打开，其行为受对应应用自身的隐私政策约束。</li>
+      </ul>
+      <p data-page-node-id="xooFVGsmDvVabXlDGWn5HS">除以上两项由系统提供的交互外，应用不与其他第三方共享任何信息。</p>
+    </section>
+
+    <section data-page-node-id="jbkP3gQfY8acmxdLrfAMtN">
+      <h2 data-page-node-id="sz7Y6WqvC79TWssRbCcAVk"><span class="num" data-page-node-id="fAUwRW88OHCA6fQrNefGCq">07</span>儿童隐私</h2>
+      <p data-page-node-id="PxgP50Iszcg5uRRrngDyI3">应用不面向 13 岁以下儿童，也不会有意收集儿童的个人信息。由于应用本身不收集任何个人信息，这一承诺在技术上也同样成立。</p>
+    </section>
+
+    <section data-page-node-id="2EVSJWANEoHpFZCcaXkEH3">
+      <h2 data-page-node-id="IqrLeChJ618RZiUhcC6ppq"><span class="num" data-page-node-id="Rca70km1qd0EsRY5Wk5tDF">08</span>你的控制权</h2>
+      <ul data-page-node-id="MDkDO0WnZ95fNrSG0j9g37">
+        <li data-page-node-id="uDnw9PbwVNWba3pAlrY4Yf"><strong data-page-node-id="vmUE5vI0H5OuULJANpwkaY">删除单条牌记</strong>：在牌记页左滑删除。</li>
+        <li data-page-node-id="wNn82YIj7OZQHkH63lREEk"><strong data-page-node-id="8z3sqllRBj19i0PU4u1tvl">删除全部数据</strong>：卸载应用即清空全部本机数据。我们这边没有副本可删。</li>
+        <li data-page-node-id="BnnT99SucNGUM7HJIS5whi">因为我们从未持有你的数据，所以无法导出或代你删除；这既是限制，也是隐私上的保证。</li>
+      </ul>
+    </section>
+
+    <section data-page-node-id="kCz2CBFTUBJo8cJ4GmbGFC">
+      <h2 data-page-node-id="Ql3iUQTNWMIBGYRtHMGcgh"><span class="num" data-page-node-id="0qwIaHEC6AtjeaZ7BdcmHa">09</span>政策变更</h2>
+      <p data-page-node-id="dYTbxgWoR1FL1Qlh4r4C9p">如果未来版本引入需要联网或收集数据的功能（例如云同步、统计分析），本政策会在该版本发布前更新，并在应用内或商店页面提示。生效日期会同步修改。</p>
+    </section>
+
+    <section data-page-node-id="vSWEnrTV2JhKexTbvx15iF">
+      <h2 data-page-node-id="Z3MHX2iK8u9BfnRjB1rUPY"><span class="num" data-page-node-id="YMcAKirTGsk3dGuZiuu8lB">10</span>联系我们</h2>
+      <p data-page-node-id="6HIB8oXNEAfSFjMneJpD87">对本政策有疑问，或想确认某个数据处理细节，可以发邮件到 <a href="mailto:oheroj@gmail.com" data-page-node-id="GmQwrwEBrCrgGGHnlDmPvh">oheroj@gmail.com</a>。</p>
+    </section>
+
+    <p class="note" data-page-node-id="CdD7FRaqjE8yw7yNPBpZKF">娱乐声明：塔罗解读仅供娱乐与自我反思，不构成医疗、法律、财务或任何其他专业建议。应用不含真实货币赌博，也不含赌博模拟。</p>
+  </main>
+
+  <!-- ================= 繁體中文 ================= -->
+  <main data-doc="zh-Hant" hidden data-page-node-id="RGox4msoyQwrntkT64iund">
+    <div class="summary" data-page-node-id="Il0A6Trz3g659QG9jrv76U">
+      <p data-page-node-id="fFeWppAE5mq1VceCu57o4b"><strong data-page-node-id="ogvrOQZAV7y0j8mF6FuZ4f">一句話：</strong>塔羅不收集、不上傳、不分享你的任何個人資訊。你抽了什麼牌、寫了什麼問題，只留在這台裝置上，我們看不到。</p>
+    </div>
+
+    <section data-page-node-id="tBP2wYNAH4b9o32QGaLXWP">
+      <h2 data-page-node-id="2ZjZIjrJu8RcZoMdP3X5aK"><span class="num" data-page-node-id="OM9eEwkldzKGAu5WoVaL1k">01</span>適用範圍</h2>
+      <p data-page-node-id="c5NivrbeLbsP6UybCRM1AG">本政策適用於「塔羅」（Tarot）Android 應用程式，套件名稱 <code data-page-node-id="OXaj4CZtNZXHsUfduTQ7A7">run.oldbird.tarot</code>，由 Oldbird 提供。</p>
+      <p data-page-node-id="AEMPeVOFTwud757CYjOEdJ">應用程式無需註冊、無需登入，也沒有帳號系統。我們沒有保存你資料的伺服器，因此不存在「我們這邊的資料庫」這回事。</p>
+    </section>
+
+    <section data-page-node-id="lhBPluCSxsnzuFAFoEDqXI">
+      <h2 data-page-node-id="i5POlEepYnDpOivtuEXrA1"><span class="num" data-page-node-id="qHZs0X8wqezaj7ZXsrLuuW">02</span>應用程式在本機保存什麼</h2>
+      <p data-page-node-id="ud817WTttwSDHWLAEGPLHm">以下內容保存在應用程式的私有目錄（Hive 資料庫），只有本應用程式能讀取，其他應用程式和我們都無法存取：</p>
+      <ul data-page-node-id="SJUK4OPBRSB4tXHYlXKJT1">
+        <li data-page-node-id="QlZQghjFWt9Zzmc3V9seNr"><strong data-page-node-id="RCRDbZCKrh5FdXKSwEo7rq">牌記</strong>：抽牌時間、牌陣類型、抽到的牌與正逆位、心境牌</li>
+        <li data-page-node-id="KOSwxnwTtGmgcrLQqOPqKI"><strong data-page-node-id="HonJIZzdsRxzwrl8PfEnWG">你輸入的問句</strong>：若在抽牌前寫了問題，它會與這筆牌記一起保存在本機</li>
+        <li data-page-node-id="ZfGn83WAhbRr5XZBunjm5Z"><strong data-page-node-id="FEzPWJjMZ2NQk0KPovFnmX">偏好設定</strong>：外觀（深色 / 淺色）、語言、牌面風格、抽牌方式</li>
+        <li data-page-node-id="DLfq0WAn2VFwm958kHvo89"><strong data-page-node-id="7tk3Dadquor1AwtL46jv96">評價提示節奏</strong>：啟動次數、上次提示的時間</li>
+      </ul>
+      <p data-page-node-id="MIv1tWxmjecOn4w1pPkd5A">這些資料不會離開裝置。我們不讀取、不備份、不上傳，也沒有任何管道可以讀取它們。</p>
+    </section>
+
+    <section data-page-node-id="TeY88fTk8NI0ggkIKhwY1L">
+      <h2 data-page-node-id="Vjm7bJKFQDAxFqwzUKlgqB"><span class="num" data-page-node-id="7BFNfOupgPMzHITL8r4Crb">03</span>我們不收集什麼</h2>
+      <p data-page-node-id="ojwsFqGzNwMKG4oQRntbaR">不收集姓名、電子郵件、手機號碼、通訊錄；不收集精確或概略位置；不存取相簿、麥克風、相機；不讀取裝置識別碼（IMEI、Android ID、廣告 ID）；不收集應用程式使用統計與當機記錄。</p>
+      <p data-page-node-id="CRfLkAuwqdVmZoMfBxNFU9">應用程式內沒有廣告 SDK、沒有分析統計 SDK、沒有當機回報 SDK。牌面圖像與解讀文案隨安裝檔一併發佈，不從網路載入。</p>
+    </section>
+
+    <section data-page-node-id="KZmPBTGHg8QNXxygHoOxrJ">
+      <h2 data-page-node-id="A8RWvC7mHIwpjzcQLz4kV2"><span class="num" data-page-node-id="5rYvQHVjvC5mNM29N2ENRN">04</span>申請的權限</h2>
+      <p data-page-node-id="GAojSJwpH65EWAv0CqkRjU">應用程式只申請一項權限：<code data-page-node-id="szloQehHZF6OXyLP0kGbSk">INTERNET</code>（網路存取）。用途見下一節。應用程式不申請位置、相機、麥克風、通訊錄、儲存空間等任何權限。</p>
+    </section>
+
+    <section data-page-node-id="BacKsLcrFLOnOJ9uuAIrpu">
+      <h2 data-page-node-id="pj7Wkys4ObUfyrE7c1YZod"><span class="num" data-page-node-id="jp4XSIziKirTDvV9tvvRR5">05</span>網路存取用在哪</h2>
+      <p data-page-node-id="iIW3aYVSUmNvLeEpvjGbQw">只有一處：<strong data-page-node-id="mQTEPY6uq3MCR47E9k3KIH">設定 → 檢查更新</strong>。點擊後，應用程式會向 <code data-page-node-id="jIfDFlwh2e3NiVes6OOItT">play.google.com</code> 查詢本應用程式在商店中的最新版本號，用來告訴你是否有更新。</p>
+      <ul data-page-node-id="a1JjB3gS8L75bEqMH0jGJF">
+        <li data-page-node-id="QciX8XjMPlhZRge2kKwOGB">請求只包含應用程式套件名稱，不包含任何與你有關的資訊。</li>
+        <li data-page-node-id="HL1S0gUnWLH8rkCRjyJ5Qs">與任何網路請求一樣，Google 的伺服器會看到你的 IP 位址；該請求由 Google 依其自身隱私權政策處理，我們既不讀取也無法取得。</li>
+        <li data-page-node-id="cutFslduIg4lPck2DZDmoz">如果你不點「檢查更新」，應用程式不會主動發起任何網路請求。</li>
+      </ul>
+    </section>
+
+    <section data-page-node-id="4fUb62VU9VZCYdPRejRdq0">
+      <h2 data-page-node-id="adcEtRJKPVFiRbzgTO5Isn"><span class="num" data-page-node-id="k1mJYFp622hFh12L80Dvzo">06</span>第三方元件</h2>
+      <ul data-page-node-id="ZL7bFDmTiGGAuCdn84Cgh2">
+        <li data-page-node-id="wjFOys6YOLoCM4ENkqWWAW"><strong data-page-node-id="iF3tyTDTXKV04QkmQHtirK">Google Play 應用程式內評價</strong>：由系統彈出視窗完成，評分與評論直接提交給 Google Play，不經過我們。</li>
+        <li data-page-node-id="Au3P0NSCV2mkYLTN6MDX7S"><strong data-page-node-id="B7FYAot2g4LZll0pPEMmAJ">開啟商店頁面</strong>：透過系統瀏覽器或 Play 商店開啟，其行為受對應應用程式自身的隱私權政策約束。</li>
+      </ul>
+      <p data-page-node-id="yJBi2CsHtX9GmFeCCADn0N">除以上兩項由系統提供的互動外，應用程式不與其他第三方分享任何資訊。</p>
+    </section>
+
+    <section data-page-node-id="rt2RCL8TrOOQNwtpATtS7R">
+      <h2 data-page-node-id="rM53Z3PJqO0uKBqNUnkEP0"><span class="num" data-page-node-id="6FW8B9toSa93vc7GgoDnOW">07</span>兒童隱私</h2>
+      <p data-page-node-id="u6DxFpH2AJGuOwfja7CH25">應用程式不面向 13 歲以下兒童，也不會有意收集兒童的個人資訊。由於應用程式本身不收集任何個人資訊，這項承諾在技術上也同樣成立。</p>
+    </section>
+
+    <section data-page-node-id="vcLOYoAZw1EaswgMLMMNl5">
+      <h2 data-page-node-id="1cNLmSlrUAIngOsBomSFBr"><span class="num" data-page-node-id="MMryvGpuT5f9YoDRGEHAsc">08</span>你的控制權</h2>
+      <ul data-page-node-id="2koUVroM3DQSCBWGtLy3Ld">
+        <li data-page-node-id="pvenyoUbrsFO27ZoBpk4o4"><strong data-page-node-id="1gxjP7CrxXBYR7L8D5roRI">刪除單筆牌記</strong>：在牌記頁向左滑動刪除。</li>
+        <li data-page-node-id="uwk8EErf7cJX3CH8KErrvr"><strong data-page-node-id="LC4KSzuQBZYGAaSL7sIEHT">刪除全部資料</strong>：解除安裝應用程式即清空全部本機資料。我們這邊沒有副本可刪。</li>
+        <li data-page-node-id="pAFXVqEl75JWz5CG78DNAZ">因為我們從未持有你的資料，所以無法匯出或代你刪除；這既是限制，也是隱私上的保證。</li>
+      </ul>
+    </section>
+
+    <section data-page-node-id="27yTfQJh3eY5T8cETwkdrh">
+      <h2 data-page-node-id="kaYBVemcikFo6szlGDP8wp"><span class="num" data-page-node-id="MIAgzp0Ifm8wRix8RcwMbo">09</span>政策變更</h2>
+      <p data-page-node-id="07V4cYJBc2AN9h3UYL32jn">如果未來版本引入需要連網或收集資料的功能（例如雲端同步、分析統計），本政策會在該版本發佈前更新，並在應用程式內或商店頁面提示。生效日期會同步修改。</p>
+    </section>
+
+    <section data-page-node-id="2bAV4ONwltFTBCoRQzAQlr">
+      <h2 data-page-node-id="SU2lMuo7pmtMgnY3YEoGdf"><span class="num" data-page-node-id="0cPQNOUqqMnLByvBWC5QOn">10</span>聯絡我們</h2>
+      <p data-page-node-id="78qVGaCz7I3bSwUzmfXmDJ">對本政策有疑問，或想確認某個資料處理細節，可以寄信到 <a href="mailto:oheroj@gmail.com" data-page-node-id="DQbHlZsH7dEulkpLRYXouG">oheroj@gmail.com</a>。</p>
+    </section>
+
+    <p class="note" data-page-node-id="f1OAO3XtwS5Ld7xAs3gVla">娛樂聲明：塔羅解讀僅供娛樂與自我反思，不構成醫療、法律、財務或任何其他專業建議。應用程式不含真實貨幣賭博，也不含賭博模擬。</p>
+  </main>
+
+  <!-- ================= English ================= -->
+  <main data-doc="en" hidden data-page-node-id="A17HABQhhml4Nh5N7LNSc2">
+    <div class="summary" data-page-node-id="Vl7WwONDbnGFtVWFFTYgUu">
+      <p data-page-node-id="PHnzfaayng2SgVFJJAFgyM"><strong data-page-node-id="AN5nPG9n6OBL2Ts1wjhD3N">In one sentence:</strong> Tarot collects nothing, uploads nothing, and shares nothing. Which cards you drew and what you asked stay on your device — we cannot see them.</p>
+    </div>
+
+    <section data-page-node-id="kI45BU6qgBij2SZ4SvAGi2">
+      <h2 data-page-node-id="hEucqAj6FB7im1at4nlFeN"><span class="num" data-page-node-id="ypRu04RlVfQbrUbnnUPD2K">01</span>Scope</h2>
+      <p data-page-node-id="iI0V4VY2UOrLYEjoIPtiRy">This policy covers the Tarot Android app, package name <code data-page-node-id="oesXHeruGxAAKSQz122Ldg">run.oldbird.tarot</code>, provided by Oldbird.</p>
+      <p data-page-node-id="1lg7tiZT99NfkjKerj4Hck">The app has no sign-up, no login, and no account system. We run no server that stores your data, so there is no database on our side to speak of.</p>
+    </section>
+
+    <section data-page-node-id="YjDUK8pXIH8NPa1Rq28h2X">
+      <h2 data-page-node-id="vMcjE99yTHbc3LCUGGEYy4"><span class="num" data-page-node-id="9yiQ0ImsqOdWDcToWFt3iu">02</span>What the app stores on your device</h2>
+      <p data-page-node-id="lQCBp1vZZPldqELz6JNwHU">The following is kept in the app's private storage (a Hive database), readable only by this app:</p>
+      <ul data-page-node-id="Hy6CqJFrT8WNmtwWRTHHi9">
+        <li data-page-node-id="J2S41b8I6ALzRJOLILZgP0"><strong data-page-node-id="zyAcKuSkonymb1w6eiMhnU">Reading history</strong>: when you drew, which spread, which cards and whether reversed, the mood card</li>
+        <li data-page-node-id="FFbyZGExJqAvKeaWjLSRNF"><strong data-page-node-id="Arrt0zWU8PiaWI1IQQFJhZ">Questions you type</strong>: if you wrote a question before drawing, it is saved locally alongside that reading</li>
+        <li data-page-node-id="4xnWyfHZYa3mwMniY4UWBX"><strong data-page-node-id="DtxEEYufNxmwjSCM7cnYpJ">Preferences</strong>: appearance (dark / light), language, card art style, draw method</li>
+        <li data-page-node-id="bpEg16seJUpV94JdYe2yC3"><strong data-page-node-id="dHWw31XtXsMqeMDEFBloN9">Review prompt pacing</strong>: launch count and the time of the last prompt</li>
+      </ul>
+      <p data-page-node-id="BLpDrDqsx5hA2EGEFRl21w">None of this leaves your device. We do not read it, back it up, or upload it, and we have no channel through which to access it.</p>
+    </section>
+
+    <section data-page-node-id="atEu5qWDdq3KbB99Zi9QSq">
+      <h2 data-page-node-id="Pi7IHSDvx1EVRA0RqTT73Q"><span class="num" data-page-node-id="qI3SZ7QBo3uCT9f0a8XsZR">03</span>What we do not collect</h2>
+      <p data-page-node-id="RRkYPPpCo0V0TMaG0jEXBB">We do not collect your name, email, phone number, or contacts; not your precise or approximate location; we do not access your photos, microphone, or camera; we do not read device identifiers (IMEI, Android ID, advertising ID); we do not collect usage analytics or crash logs.</p>
+      <p data-page-node-id="CsQ0FHrnTtaY20vBhHF37b">The app contains no advertising SDK, no analytics SDK, and no crash-reporting SDK. Card artwork and interpretation text ship inside the app package and are never fetched from a network.</p>
+    </section>
+
+    <section data-page-node-id="EqjDOgvXTZ2BFcMctFlliq">
+      <h2 data-page-node-id="fU7JV13EaLHlVDpkp537au"><span class="num" data-page-node-id="rCvzxBXVWgIdazLTWD3PUb">04</span>Permissions</h2>
+      <p data-page-node-id="lMyx5CaK5VzgElXicjnSNn">The app requests a single permission: <code data-page-node-id="Y0vslvlJrZw0aM9zAKsfe1">INTERNET</code>. Its only use is described below. The app does not request location, camera, microphone, contacts, or storage access.</p>
+    </section>
+
+    <section data-page-node-id="f4WNyw7fR9lSXH2HpvChPE">
+      <h2 data-page-node-id="Hp0HBE4QGjRuuMEwbyXOT6"><span class="num" data-page-node-id="xLYWNU0Dqhl6YFfVCtNHru">05</span>The one place the network is used</h2>
+      <p data-page-node-id="i9LCruFR0Ut68C3QDgrDKU">Only in <strong data-page-node-id="gTVJ6uVIdzFmbY2xsFucn7">Settings → Check for updates</strong>. When you tap it, the app queries <code data-page-node-id="9c5LL1zHVl0c74B9uoZywA">play.google.com</code> for the latest version number of this app on the store, so it can tell you whether an update exists.</p>
+      <ul data-page-node-id="3A7Wp36Es5zwAwiBvk48CW">
+        <li data-page-node-id="TUaC2sLWfC8oC7mwiGGQZu">The request carries the package name only — nothing about you.</li>
+        <li data-page-node-id="ImeYD3FpkAsZ6t1XqJBRbH">As with any network request, Google's servers see your IP address. That request is handled under Google's own privacy policy; we neither read it nor have access to it.</li>
+        <li data-page-node-id="X6FeGjVFw34SLsLwnxq4gv">If you never tap "Check for updates", the app makes no network requests at all.</li>
+      </ul>
+    </section>
+
+    <section data-page-node-id="5xWe4iPGJw9FoUiOU8OiH7">
+      <h2 data-page-node-id="tmYG9dxLW1j09YtkqhAnYC"><span class="num" data-page-node-id="wBS8hXfvDeMmLNaHBbEVHx">06</span>Third-party components</h2>
+      <ul data-page-node-id="ovFBRuBaZnguEi5FUmA71X">
+        <li data-page-node-id="ESbTZSmGSoR39Yvhsk4but"><strong data-page-node-id="ELuQAg0BZdaBkdLusEOmqa">Google Play In-App Review</strong>: handled by a system dialog; your rating and review go straight to Google Play, never through us.</li>
+        <li data-page-node-id="o4JwwojPo7E9ZvHvzBqeHI"><strong data-page-node-id="ITm34dX7Ym5pEIjcMJT4TF">Opening the store page</strong>: handled by your browser or the Play Store app, and subject to that app's own privacy policy.</li>
+      </ul>
+      <p data-page-node-id="4nrAXDlMClEJ0t4O8E2mzB">Apart from these two system-provided interactions, the app shares nothing with any third party.</p>
+    </section>
+
+    <section data-page-node-id="WZ17C3HYTHG3dWh65uqLSm">
+      <h2 data-page-node-id="JI12QjwApdsgG6UN09QpZz"><span class="num" data-page-node-id="c0Wr4g9eWj6VwghUseHyAX">07</span>Children's privacy</h2>
+      <p data-page-node-id="oqWkPhoRfBcRHvCo9BID6Z">The app is not directed to children under 13 and does not knowingly collect personal information from children. Because the app collects no personal information at all, this holds by construction.</p>
+    </section>
+
+    <section data-page-node-id="jS3RDY7ANAEnH0zNjaiKJS">
+      <h2 data-page-node-id="Q4q7esTcO3pRp5zLiFQ8hs"><span class="num" data-page-node-id="Pz7Eyde1eBIrPnJ8zASelk">08</span>Your control</h2>
+      <ul data-page-node-id="pKaF8iH0PefTC5fAGBdROP">
+        <li data-page-node-id="kptq40pXgDCWSjZ0d8XiWy"><strong data-page-node-id="FVZEeS2iwWHy8MV02RoZaD">Delete a single reading</strong>: swipe left on it in the history screen.</li>
+        <li data-page-node-id="Sig9ip32PtSJJat6JLL30F"><strong data-page-node-id="q1OgQboTUXBDuPglyeBuXC">Delete everything</strong>: uninstalling the app wipes all local data. We hold no copy to delete.</li>
+        <li data-page-node-id="A9blnLqKMWWdFfQkbEW8EV">Because we never held your data, we cannot export it or delete it on your behalf — a limitation, and also the point.</li>
+      </ul>
+    </section>
+
+    <section data-page-node-id="gfMKeHANRWS1AIDVreO9S6">
+      <h2 data-page-node-id="VeLIAUB3HOq3eovHg9DOal"><span class="num" data-page-node-id="zXjUeq6LGdjjtPRqznjWKn">09</span>Changes to this policy</h2>
+      <p data-page-node-id="6r07bNVKCTxnGHV7GpKSqf">If a future version adds features that require the network or collect data (cloud sync, analytics), this policy will be updated before that version ships, with a notice in the app or on the store listing. The effective date will change accordingly.</p>
+    </section>
+
+    <section data-page-node-id="XpN2OP246GM9cijfz5LZkE">
+      <h2 data-page-node-id="95Wd1lt8RIoGsF6pwwwAnq"><span class="num" data-page-node-id="dC3OfCTTHyacHtRC5RxqYr">10</span>Contact</h2>
+      <p data-page-node-id="jjR1OxhJ3vw7gPByUET4OE">Questions about this policy, or about how a specific piece of data is handled: <a href="mailto:oheroj@gmail.com" data-page-node-id="vdFON1BAjaFCquUQcMoSQB">oheroj@gmail.com</a>.</p>
+    </section>
+
+    <p class="note" data-page-node-id="H9UXupuwCP0UD8eBY6TgVK">Entertainment notice: tarot readings are for entertainment and self-reflection only. They are not medical, legal, financial, or any other kind of professional advice. The app contains no real-money gambling and no gambling simulation.</p>
+  </main>
+
+</div>
+
+<script>
+  (function () {
+    var META = {
+      'zh-Hans': ['隐私政策', '生效日期 2026 年 10 月 29 日 · 适用版本 1.0.0 起'],
+      'zh-Hant': ['隱私權政策', '生效日期 2026 年 10 月 29 日 · 適用版本 1.0.0 起'],
+      'en': ['Privacy Policy', 'Effective 29 October 2026 · Applies to version 1.0.0 and later']
+    };
+    var titles = { 'zh-Hans': '隐私政策 · 塔罗', 'zh-Hant': '隱私權政策 · 塔羅', 'en': 'Privacy Policy · Tarot' };
+    var buttons = document.querySelectorAll('.lang button');
+    var docs = document.querySelectorAll('main[data-doc]');
+
+    function apply(lang) {
+      if (!META[lang]) lang = 'zh-Hans';
+      docs.forEach(function (d) { d.hidden = d.dataset.doc !== lang; });
+      buttons.forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
+      });
+      document.documentElement.lang = lang;
+      document.title = titles[lang];
+      document.getElementById('page-title').textContent = META[lang][0];
+      document.getElementById('page-meta').textContent = META[lang][1];
+      try { localStorage.setItem('privacy-lang', lang); } catch (e) {}
+    }
+
+    buttons.forEach(function (b) {
+      b.addEventListener('click', function () { apply(b.dataset.lang); });
+    });
+
+    var saved = null;
+    try { saved = localStorage.getItem('privacy-lang'); } catch (e) {}
+    if (!saved) {
+      var nav = (navigator.language || 'zh-Hans');
+      saved = /^zh-(TW|HK|MO|Hant)/i.test(nav) ? 'zh-Hant' : (/^zh/i.test(nav) ? 'zh-Hans' : 'en');
+    }
+    apply(saved);
+  })();
+</script>
+</body>
+</html>
