@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { readFrontmatter } from './frontmatter'
 
 export interface SidebarItem {
   text: string
@@ -32,12 +33,11 @@ interface Meta {
 }
 
 function readMeta(file: string): Meta {
-  const raw = fs.readFileSync(file, 'utf8')
-  const title
-    = raw.match(/^title:\s*["']?(.*?)["']?\s*$/m)?.[1]
-      ?? path.basename(file, '.md')
-  const permalink = raw.match(/^permalink:\s*["']?(.*?)["']?\s*$/m)?.[1] ?? ''
-  return { title, permalink }
+  const { title, permalink } = readFrontmatter(file)
+  return {
+    title: title ?? path.basename(file, '.md'),
+    permalink: permalink ?? '',
+  }
 }
 
 /** 自然排序：t2 排在 t10 前面 */
