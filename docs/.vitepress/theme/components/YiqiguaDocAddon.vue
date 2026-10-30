@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
-import { useRoute } from 'vuepress/client'
+import { useRoute } from 'vitepress'
 
 const route = useRoute()
 const dismissed = ref(false)

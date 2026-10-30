@@ -1,8 +1,8 @@
 **/node_modules
 
-docs/.vuepress/.cache
-docs/.vuepress/.temp
-docs/.vuepress/dist
+docs/.vitepress/dist
+docs/.vitepress/cache
+docs/.vitepress/config.mts.timestamp-*.mjs
 
 .DS_Store
 *.log

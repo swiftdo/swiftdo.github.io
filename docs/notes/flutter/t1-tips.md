@@ -253,7 +253,7 @@ enum Month { jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec }
 print(Month.jan.toString().split('.').last) // jan
 ```
 
-但当有了 [Extension](https//dart.dev/guides/language/extension-methods) 后，我们可以更加简便可读的方式去获取。
+但当有了 [Extension](https://dart.dev/guides/language/extension-methods) 后，我们可以更加简便可读的方式去获取。
 
 ```dart
 extension MonthExtension on Object {

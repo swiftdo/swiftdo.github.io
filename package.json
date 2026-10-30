@@ -10,20 +10,16 @@
     "node": "^20.6.0 || >=22.0.0"
   },
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:dev-clean": "vuepress dev docs --clean-cache --clean-temp",
-    "docs:build": "vuepress build docs --clean-cache --clean-temp",
-    "docs:preview": "http-server docs/.vuepress/dist",
-    "vp-update": "yarn dlx vp-update"
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
-    "@vuepress/bundler-vite": "2.0.0-rc.31",
-    "@vuepress/plugin-google-analytics": "2.0.0-rc.135",
-    "@vuepress/plugin-redirect": "2.0.0-rc.137",
     "http-server": "^14.1.1",
     "typescript": "^5.9.3",
-    "vue": "^3.5.44",
-    "vuepress": "2.0.0-rc.31",
-    "vuepress-theme-plume": "1.0.0-rc.214"
+    "vitepress": "1.6.4",
+    "vue": "^3.5.44"
   }
 }

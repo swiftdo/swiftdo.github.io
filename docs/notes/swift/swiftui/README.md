@@ -10,105 +10,105 @@ permalink: /swift/swiftui/
 
 - 原理篇
 
-  - [x] [单表达式隐式返回值](Principle01.md)
-  - [x] [关于 propertyWarpper](Principle02.md)
-  - [x] [关于 some View](Principle03.md)
-  - [x] [关于 functionBuilder](Principle05.md)
-  - [x] [关于 ViewBuilder](Principle04.md)
-  - [x] [@ 属性概要](Principle06.md)
+  - [x] [单表达式隐式返回值](/swift/swiftui/principle01/)
+  - [x] [关于 propertyWarpper](/swift/swiftui/principle02/)
+  - [x] [关于 some View](/swift/swiftui/principle03/)
+  - [x] [关于 functionBuilder](/swift/swiftui/principle05/)
+  - [x] [关于 ViewBuilder](/swift/swiftui/principle04/)
+  - [x] [@ 属性概要](/swift/swiftui/principle06/)
 
 - 基础控件
 
   - 文本
-    - [x] [Text](Text.md)
-    - [x] [TextField](TextField.md)
-    - [ ] [SecureField](SecureField.md)
+    - [x] [Text](/swift/swiftui/text/)
+    - [x] [TextField](/swift/swiftui/text-field/)
+    - [ ] [SecureField](/swift/swiftui/secure-field/)
   - 图片
-    - [x] [Image](Image.md)
-    - [ ] [WebImage](WebImage.md)
+    - [x] [Image](/swift/swiftui/image/)
+    - [ ] [WebImage](/swift/swiftui/web-image/)
   - 按钮
-    - [x] [Button](Button.md)
-    - [ ] [PullDownButton](PullDownButton.md)
-    - [ ] [ItemBasedPopUpButton](ItemBasedPopUpButton.md)
-    - [ ] [NavigationButton](NavigationButton.md)
-    - [ ] [PresentationButton](PresentationButton.md)
-    - [x] [EditButton](EditButton.md)
-    - [ ] [PasteButton](PasteButton.md)
+    - [x] [Button](/swift/swiftui/button/)
+    - [ ] [PullDownButton](/swift/swiftui/pull-down-button/)
+    - [ ] [ItemBasedPopUpButton](/swift/swiftui/item-based-pop-up-button/)
+    - [ ] [NavigationButton](/swift/swiftui/navigation-button/)
+    - [ ] [PresentationButton](/swift/swiftui/presentation-button/)
+    - [x] [EditButton](/swift/swiftui/edit-button/)
+    - [ ] [PasteButton](/swift/swiftui/paste-button/)
   - 选择器
-    - [ ] [Picker](Picker.md)
-    - [ ] [DatePicker](DatePicker.md)
-  - [ ] [Toggle](Toggle.md)
-  - [ ] [Slider](Slider.md)
-  - [ ] [Stepper](Stepper.md)
-  - [ ] [SegmentedControl](SegmentedControl.md)
-  - [ ] [WebView](WebView.md)
-  - [ ] [UIViewController](UIViewController.md)
+    - [ ] [Picker](/swift/swiftui/picker/)
+    - [ ] [DatePicker](/swift/swiftui/date-picker/)
+  - [ ] [Toggle](/swift/swiftui/toggle/)
+  - [ ] [Slider](/swift/swiftui/slider/)
+  - [ ] [Stepper](/swift/swiftui/stepper/)
+  - [ ] [SegmentedControl](/swift/swiftui/segmented-control/)
+  - [ ] [WebView](/swift/swiftui/web-view/)
+  - [ ] [UIViewController](/swift/swiftui/ui-view-controller/)
 
 - 布局
 
   - Stacks
 
-    - [x] [HStack](HStack.md)
-    - [x] [VStack](VStack.md)
-    - [x] [ZStack](ZStack.md)
+    - [x] [HStack](/swift/swiftui/h-stack/)
+    - [x] [VStack](/swift/swiftui/v-stack/)
+    - [x] [ZStack](/swift/swiftui/z-stack/)
 
   - List
 
-    - [x] [List](List.md)
-    - [ ] [ScrollView](ScrollView.md)
-    - [x] [ForEach](ForEach.md)
+    - [x] [List](/swift/swiftui/list/)
+    - [ ] [ScrollView](/swift/swiftui/scroll-view/)
+    - [x] [ForEach](/swift/swiftui/for-each/)
 
   - Container Views
-    - [ ] [Group](Group.md)
-    - [ ] [GroupBox](GroupBox.md)
-    - [ ] [Section](Section.md)
-    - [ ] [Form](Form.md)
+    - [ ] [Group](/swift/swiftui/group/)
+    - [ ] [GroupBox](/swift/swiftui/group-box/)
+    - [ ] [Section](/swift/swiftui/section/)
+    - [ ] [Form](/swift/swiftui/form/)
   - Alert
 
-    - [ ] [Alert](Alert.md)
-    - [ ] [Modal](Modal.md)
-    - [ ] [Popover](Popover.md)
-    - [ ] [Sheet](Sheet.md)
-    - [ ] [ActionSheet](ActionSheet.md)
+    - [ ] [Alert](/swift/swiftui/alert/)
+    - [ ] [Modal](/swift/swiftui/modal/)
+    - [ ] [Popover](/swift/swiftui/popover/)
+    - [ ] [Sheet](/swift/swiftui/sheet/)
+    - [ ] [ActionSheet](/swift/swiftui/action-sheet/)
 
-  - [ ] [NavigationView](NavigationView.md)
-  - [ ] [TabView](TabView.md)
-  - [ ] [HSplitView](HSplitView.md)
-  - [ ] [VSplitView](VSplitView.md)
+  - [ ] [NavigationView](/swift/swiftui/navigation-view/)
+  - [ ] [TabView](/swift/swiftui/tab-view/)
+  - [ ] [HSplitView](/swift/swiftui/h-split-view/)
+  - [ ] [VSplitView](/swift/swiftui/v-split-view/)
 
 - 状态和数据流
 
-  - [ ] [Bindings](Bindings.md)
+  - [ ] [Bindings](/swift/swiftui/bindings/)
   - Data-Dependent Views
-    - [x] [State](State.md)
-    - [ ] [ObjectBinding](ObjectBinding.md)
-    - [ ] [EnvironmentObject](EnvironmentObject.md)
+    - [x] [State](/swift/swiftui/state/)
+    - [ ] [ObjectBinding](/swift/swiftui/object-binding/)
+    - [ ] [EnvironmentObject](/swift/swiftui/environment-object/)
   - Environment Values
 
-    - [ ] [Environment](Environment.md)
-    - [ ] [EnvironmentValues](EnvironmentValues.md)
+    - [ ] [Environment](/swift/swiftui/environment/)
+    - [ ] [EnvironmentValues](/swift/swiftui/environment-values/)
 
-  - [ ] [LocalizedStringKey](LocalizedStringKey.md)
-  - [ ] [Transaction](Transaction.md)
-  - [ ] [DynamicNavigationDestinationLink](DynamicNavigationDestinationLink.md)
+  - [ ] [LocalizedStringKey](/swift/swiftui/localized-string-key/)
+  - [ ] [Transaction](/swift/swiftui/transaction/)
+  - [ ] [DynamicNavigationDestinationLink](/swift/swiftui/dynamic-navigation-destination-link/)
 
 - 手势
   - 基础手势
-    - [ ] [TapGesture](TapGesture.md)
-    - [ ] [LongPressGesture](LongPressGesture.md)
-    - [ ] [DragGesture](DragGesture.md)
-    - [ ] [MagnificationGesture](MagnificationGesture.md)
-    - [ ] [RotationGesture](RotationGesture.md)
+    - [ ] [TapGesture](/swift/swiftui/tap-gesture/)
+    - [ ] [LongPressGesture](/swift/swiftui/long-press-gesture/)
+    - [ ] [DragGesture](/swift/swiftui/drag-gesture/)
+    - [ ] [MagnificationGesture](/swift/swiftui/magnification-gesture/)
+    - [ ] [RotationGesture](/swift/swiftui/rotation-gesture/)
   - 组合手势
-    - [ ] [SequenceGesture](SequenceGesture.md)
-    - [ ] [SimultaneousGesture](SimultaneousGesture.md)
-    - [ ] [ExclusiveGesture](ExclusiveGesture.md)
+    - [ ] [SequenceGesture](/swift/swiftui/sequence-gesture/)
+    - [ ] [SimultaneousGesture](/swift/swiftui/simultaneous-gesture/)
+    - [ ] [ExclusiveGesture](/swift/swiftui/exclusive-gesture/)
   - 自定义手势
-    - [ ] [AnyGesture](AnyGesture.md)
+    - [ ] [AnyGesture](/swift/swiftui/any-gesture/)
 - 其他
-  - [x] [谈谈 ViewModifier](ViewModifier.md)
-  - [x] [谈谈 GeometryReader](GeometryReader.md)
-  - [x] [谈谈 PreferenceKey](PreferenceKey.md)
+  - [x] [谈谈 ViewModifier](/swift/swiftui/view-modifier/)
+  - [x] [谈谈 GeometryReader](/swift/swiftui/geometry-reader/)
+  - [x] [谈谈 PreferenceKey](/swift/swiftui/preference-key/)
 - Combine
 
 ## 关于

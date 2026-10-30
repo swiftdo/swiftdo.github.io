@@ -20,7 +20,7 @@ say-oldbirds 是一个类似于留言板的程序，用来让用户发表问候�
 - leaf 版: [https://say-oldbirds.herokuapp.com/](https://say-oldbirds.herokuapp.com/)
 - flutter 版：[https://swiftdo.github.io/say-oldbirds-flutter](https://swiftdo.github.io/say-oldbirds-flutter)
 
-vapor 的基本操作本文不做过多阐述，可参考 [安装](t1-install.md)
+vapor 的基本操作本文不做过多阐述，可参考 [安装](/swift/vapor/t1-install/)
 
 ### 主页
 

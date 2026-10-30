@@ -170,7 +170,7 @@ CMD ["serve", "--env", "production", "--hostname", "0.0.0.0", "--port", "8080"]
 
 Compose 是用于定义和运行多容器 Docker 应用程序的工具。通过 Compose，您可以使用 YML 文件来配置应用程序需要的所有服务。然后，使用一个命令，就可以从 YML 文件配置中创建并启动所有服务。
 
-如果你还不了解 YML 文件配置，可以先阅读 [YAML 入门教程](../../tools/yaml/)。
+如果你还不了解 YML 文件配置，可以先阅读 [YAML 入门教程](/tools/yaml/)。
 
 Compose 使用的三个步骤：
 

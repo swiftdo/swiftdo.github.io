@@ -81,7 +81,7 @@ public protocol DynamicProperty {
 }
 ```
 
-- `@propertyWrapper`,意味着他是一个[属性包装器](Principle02.md)
+- `@propertyWrapper`,意味着他是一个[属性包装器](/swift/swiftui/principle02/)
 - 它的`projectedValue`（投射值）为`Binding`类型。`Binding`是数据的一级引用，在 SwiftUI 中作为数据（状态）双向绑定的桥梁，允许在不拥有数据的情况下对数据进行读写操作。
 - 遵循`DynamicProperty`协议，该协议完成了创建数据（状态）和视图的依赖操作所需接口。现在只暴露了很少的接口，我们暂时无法完全使用它。
 

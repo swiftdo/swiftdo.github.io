@@ -24,7 +24,7 @@ set -uo pipefail
 SECONDS=0
 
 PROJECT_DIR=$(cd "$(dirname "$0")" && pwd)
-BUILD_DIR="$PROJECT_DIR/docs/.vuepress/dist"
+BUILD_DIR="$PROJECT_DIR/docs/.vitepress/dist"
 BUILD_LOG="$PROJECT_DIR/.deploy-build.log"
 
 DEPLOY_DIR="${DEPLOY_DIR:-/www/wwwroot/oldbird.run}"
@@ -77,7 +77,7 @@ trap cleanup EXIT
 # ---------- 1. 构建 ----------
 if [ "$DO_BUILD" = 1 ]; then
   step "构建站点"
-  if ! yarn docs:build 2>&1 | tee "$BUILD_LOG"; then
+  if ! yarn build 2>&1 | tee "$BUILD_LOG"; then
     die "构建失败，已中止（未提交、未上传）。日志：$BUILD_LOG"
   fi
   ok "构建完成"

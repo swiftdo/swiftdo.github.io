@@ -14,9 +14,9 @@ permalink: /swift/swiftui/edit-button/
 
 > 文档：[https://developer.apple.com/documentation/swiftui/editbutton](https://developer.apple.com/documentation/swiftui/editbutton)
 
-负责控制打开和关闭编辑模式。这个编辑模式需要和[NavigationView](NavigationView.md)相结合。
+负责控制打开和关闭编辑模式。这个编辑模式需要和[NavigationView](/swift/swiftui/navigation-view/)相结合。
 
-在 [List](List.md) 的文章中，我们有写一个待完成清单的案例，本文将继续沿用。
+在 [List](/swift/swiftui/list/) 的文章中，我们有写一个待完成清单的案例，本文将继续沿用。
 
 ```swift
 var body: some View {
