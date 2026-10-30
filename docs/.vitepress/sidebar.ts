@@ -5,94 +5,116 @@ import { readFrontmatter } from './frontmatter'
 export interface SidebarItem {
   text: string
   link?: string
-  collapsed?: boolean
   items?: SidebarItem[]
 }
 
-/** 笔记集合：目录名即 URL 前缀，与旧站 permalink 保持一致 */
-export const COLLECTIONS: Array<{ dir: string; label: string }> = [
-  { dir: 'swift', label: 'Swift' },
-  { dir: 'flutter', label: 'Flutter' },
-  { dir: 'ai', label: 'AI' },
-  { dir: 'python', label: 'Python' },
-  { dir: 'tools', label: '工具' },
-  { dir: 'algorithms', label: '算法' },
-  { dir: 'design-patterns', label: '设计模式' },
-  { dir: 'haskell', label: 'Haskell' },
-  { dir: 'harmony', label: '鸿蒙' },
-  { dir: 'ops', label: '运维' },
-  { dir: 'java', label: 'Java' },
-  { dir: 'vue', label: 'Vue' },
-  { dir: 'yijing', label: '易经' },
-  { dir: 'acupuncture', label: '针灸' },
+/**
+ * 笔记集合：目录名即 URL 前缀。
+ *
+ * 迁移后 URL 由文件路径决定（`swift/swiftui/alert/index.md` -> `/swift/swiftui/alert/`），
+ * 所以这里只做一件事：把目录树翻译成侧边栏，不再读 permalink。
+ */
+export const COLLECTIONS = [
+  'swift',
+  'flutter',
+  'ai',
+  'python',
+  'tools',
+  'algorithms',
+  'design-patterns',
+  'haskell',
+  'harmony',
+  'ops',
+  'java',
+  'vue',
+  'yijing',
+  'acupuncture',
 ]
 
-interface Meta {
-  title: string
-  permalink: string
-}
+/**
+ * 纯分组目录（没有 index.md，只是把几篇笔记收在一起）的显示名与顺序。
+ *
+ * 旧站靠目录名的数字前缀（`2.基础`）排序，迁移后目录名即 URL 段，前缀必须去掉，
+ * 于是顺序信息也一起没了。这里显式声明，避免变成拼音序或字母序。
+ */
+const GROUPS: Array<{ dir: string, label: string }> = [
+  { dir: 'design-patterns/principles', label: '设计原则' },
+  { dir: 'design-patterns/basics', label: '基础' },
+  { dir: 'design-patterns/creational', label: '创建型' },
+  { dir: 'design-patterns/structural', label: '结构型' },
+  { dir: 'design-patterns/behavioral', label: '行为型' },
+  { dir: 'ai/gemini-cli', label: 'Gemini CLI' },
+]
 
-function readMeta(file: string): Meta {
-  const { title, permalink } = readFrontmatter(file)
-  return {
-    title: title ?? path.basename(file, '.md'),
-    permalink: permalink ?? '',
-  }
-}
+const GROUP_LABEL = new Map(GROUPS.map(g => [g.dir, g.label]))
+const GROUP_ORDER = new Map(GROUPS.map((g, i) => [g.dir, i]))
 
-/** 自然排序：t2 排在 t10 前面 */
+/** 自然排序：2 排在 10 前面 */
 const naturalCompare = (a: string, b: string) =>
   a.localeCompare(b, 'zh-CN', { numeric: true, sensitivity: 'base' })
 
-function buildItems(dir: string): SidebarItem[] {
-  const entries = fs.readdirSync(dir, { withFileTypes: true })
-  const dirs: SidebarItem[] = []
-  const files: SidebarItem[] = []
+function readTitle(indexFile: string): string {
+  return readFrontmatter(indexFile).title ?? path.basename(path.dirname(indexFile))
+}
 
-  for (const entry of entries) {
-    if (entry.name.startsWith('.'))
+function buildItems(dir: string, urlPath: string, relDir: string): SidebarItem[] {
+  const pages: SidebarItem[] = []
+  const groups: Array<{ rel: string, item: SidebarItem }> = []
+
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (!entry.isDirectory() || entry.name.startsWith('.'))
       continue
-    const full = path.join(dir, entry.name)
 
-    if (entry.isDirectory()) {
-      const children = buildItems(full)
-      if (!children.length)
-        continue
-      // 该目录若有 README，用它作为分组标题，并从子项中移除
-      const readme = path.join(full, 'README.md')
-      const hasReadme = fs.existsSync(readme)
-      const label = hasReadme ? readMeta(readme).title : entry.name
-      const link = hasReadme && readMeta(readme).permalink
-        ? readMeta(readme).permalink
-        : undefined
-      dirs.push({ text: label, link, collapsed: false, items: children })
+    const full = path.join(dir, entry.name)
+    const childUrl = `${urlPath}${entry.name}/`
+    const childRel = relDir ? `${relDir}/${entry.name}` : entry.name
+    const indexFile = path.join(full, 'index.md')
+    const hasIndex = fs.existsSync(indexFile)
+    const children = buildItems(full, childUrl, childRel)
+
+    if (!hasIndex && !children.length)
+      continue
+
+    if (hasIndex) {
+      pages.push({
+        text: readTitle(indexFile),
+        link: childUrl,
+        ...(children.length ? { items: children } : {}),
+      })
       continue
     }
 
-    if (!entry.name.endsWith('.md'))
-      continue
-    // 集合首页（README）由导航栏指向，不重复出现在侧边栏
-    if (entry.name === 'README.md')
-      continue
-
-    const meta = readMeta(full)
-    files.push({ text: meta.title, link: meta.permalink })
+    groups.push({
+      rel: childRel,
+      item: { text: GROUP_LABEL.get(childRel) ?? entry.name, items: children },
+    })
   }
 
-  dirs.sort((a, b) => naturalCompare(a.text, b.text))
-  files.sort((a, b) => naturalCompare(a.text, b.text))
-  return [...files, ...dirs]
+  pages.sort((a, b) => naturalCompare(a.text, b.text))
+  groups.sort((a, b) => {
+    const ai = GROUP_ORDER.get(a.rel)
+    const bi = GROUP_ORDER.get(b.rel)
+    if (ai !== undefined && bi !== undefined)
+      return ai - bi
+    if (ai !== undefined)
+      return -1
+    if (bi !== undefined)
+      return 1
+    return naturalCompare(a.item.text, b.item.text)
+  })
+
+  return [...pages, ...groups.map(g => g.item)]
 }
 
 /** 生成以 URL 前缀为键的侧边栏配置 */
 export function buildSidebar(docsDir: string): Record<string, SidebarItem[]> {
   const sidebar: Record<string, SidebarItem[]> = {}
 
-  for (const { dir } of COLLECTIONS) {
-    const full = path.join(docsDir, 'notes', dir)
+  for (const name of COLLECTIONS) {
+    const full = path.join(docsDir, name)
     if (!fs.existsSync(full))
       continue
-    sidebar[`/${dir}/`] = buildItems(full)
+    sidebar[`/${name}/`] = buildItems(full, `/${name}/`, name)
   }
 
   return sidebar

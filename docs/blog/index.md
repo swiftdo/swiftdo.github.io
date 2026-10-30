@@ -1,7 +1,6 @@
 ---
 title: 博客
 description: 技术观察与工具速递
-permalink: /blog/
 ---
 
 <script setup>

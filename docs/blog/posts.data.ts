@@ -10,14 +10,16 @@ export interface Post {
 declare const data: Post[]
 export { data }
 
-export default createContentLoader('blog/*.md', {
+/**
+ * 博客文章都在 article/<slug>/index.md，URL 就是 `/article/<slug>/`。
+ * 目录层级本身就是 URL，所以直接用 loader 给出的 url，不再读 permalink。
+ */
+export default createContentLoader('article/*/index.md', {
   transform(raw): Post[] {
     return raw
-      .filter(({ url }) => !url.endsWith('/blog/'))
-      .map(({ frontmatter }) => ({
+      .map(({ url, frontmatter }) => ({
         title: frontmatter.title ?? '未命名',
-        // 博客文章的实际 URL 由 frontmatter.permalink 决定（/article/xxx/）
-        url: frontmatter.permalink ?? '/blog/',
+        url,
         description: frontmatter.description ?? '',
         date: String(frontmatter.date ?? frontmatter.createTime ?? ''),
       }))

@@ -23,41 +23,43 @@ yarn preview        # 预览构建产物
 swiftdo.github.io/
 ├── docs/
 │   ├── .vitepress/
-│   │   ├── config.mts        # 站点主配置（导航、搜索、sitemap、rewrites、重定向）
-│   │   ├── sidebar.ts        # 侧边栏生成器（扫描 notes/ 目录树）
-│   │   ├── redirects.json    # 旧 URL → 新 URL 映射（614 条）
+│   │   ├── config.mts        # 站点主配置（导航、搜索、sitemap、重定向）
+│   │   ├── sidebar.ts        # 侧边栏生成器（扫描目录树）
+│   │   ├── frontmatter.ts    # frontmatter 解析（只读开头 --- 块）
+│   │   ├── redirects.json    # 旧 URL → 现 URL 映射（614 条）
 │   │   └── theme/
 │   │       ├── index.ts      # 主题入口：注册组件、挂载 AdSense
 │   │       ├── custom.css    # 样式覆盖
 │   │       └── components/   # HomeShowcase、Portfolio、YiqiguaDocAddon、YiqiguaPromo
+│   ├── .env                  # VITE_EXTRA_EXTENSIONS：让 .html 直链不被 SPA 路由拦截
 │   ├── public/               # 静态资源，原样复制到站点根（图片、推广页、ads.txt）
-│   ├── README.md             # 首页（layout: home）
-│   ├── notes/                # 笔记专题，14 个集合
-│   ├── blog/                 # 博客文章 + index.md 列表页 + posts.data.ts
-│   ├── book/                 # 书单
-│   └── result/               # 作品展示
+│   ├── index.md              # 首页（layout: home）
+│   ├── article/              # 博客文章，一篇一个目录
+│   ├── blog/                 # 博客列表页 + posts.data.ts
+│   ├── book/  result/        # 书单、作品集
+│   └── {swift,flutter,ai,...}/   # 14 个笔记集合
 ├── deploy.sh
 └── package.json
 ```
 
 ## URL 机制（最关键，改动前必读）
 
-站点有 392 个被搜索引擎收录的**带尾斜杠 URL**（如 `/swift/swiftui/action-sheet/`）。
-VitePress 的 URL 由输出文件路径决定：`foo.md` → `/foo.html`，`foo/index.md` → `/foo/`。
-为了不移动任何源文件，`config.mts` 的 `buildRewrites()` 在构建时扫描每个 md 的
-`frontmatter.permalink`，生成 `源文件路径 → <permalink>/index.md` 的 rewrites 映射。
+**URL 就是文件路径，没有中间层。** VitePress 的规则：
 
 ```
-docs/notes/swift/swiftui/ActionSheet.md  (permalink: /swift/swiftui/action-sheet/)
-        ↓ rewrites
-/swift/swiftui/action-sheet/index.html  →  URL /swift/swiftui/action-sheet/
+docs/index.md                -> /
+docs/swift/index.md          -> /swift/
+docs/swift/swiftui/alert/index.md -> /swift/swiftui/alert/
+docs/swift/swiftui/alert.md  -> /swift/swiftui/alert.html   ← 别这么放
 ```
 
-因此：
+所以站内 392 个带尾斜杠的 URL（`/swift/swiftui/action-sheet/`）由**目录结构本身**保证，
+不再有 `permalink` frontmatter、也没有 rewrites。改 URL 的唯一方式就是移动/重命名目录。
 
-- **`permalink` 是 URL 的唯一来源**，改了它就等于换了 URL。改完必须在 `redirects.json` 补旧链接。
-- 新增文章**必须手写 `permalink`**（迁移后不再有 autoFrontmatter 自动生成）：以 `/` 开头、以 `/` 结尾、全小写、kebab-case。
-- 不要改成 `cleanUrls: true`，那会丢掉尾斜杠，等于让 392 个已收录 URL 全部失效。
+- **新增页面**：建目录 + `index.md`，目录名就是 URL 段。目录名全小写 kebab-case。
+- **不要**把页面写成 `foo.md`，那会得到 `/foo.html`，与全站 URL 风格不一致。
+- 不要开 `cleanUrls: true`，那会丢掉尾斜杠，等于让 392 个已收录 URL 全部失效。
+- 移动已有页面记得在 `redirects.json` 补旧链接。
 
 ## Frontmatter 规范
 
@@ -65,7 +67,6 @@ docs/notes/swift/swiftui/ActionSheet.md  (permalink: /swift/swiftui/action-sheet
 ---
 title: 页面标题
 description: 一句话摘要（≤120 字，用于 meta description 与搜索结果）
-permalink: /swift/swiftui/action-sheet/   # 必须以 / 开头和结尾
 createTime: 2025/08/13 09:21:29           # 仅展示用，可省略
 date: 2025-08-13                          # 博客文章用
 tags:                                     # 仅博客文章用
@@ -74,34 +75,45 @@ sitemap: false                            # 正文为空的占位页用，从 si
 ---
 ```
 
+- **没有 `permalink` 字段**，URL 由路径决定；写了也不会生效。
 - `createTime` / `date` / `tags` 不是 VitePress 内置字段，仅用于展示或数据加载，不会报错。
 - `sitemap: false` 由 `config.mts` 的 `collectSitemapExcluded()` 识别，从 sitemap.xml 中剔除（现有 46 篇占位页在用）。
-- 正文里**不要用相对链接**（`./xxx.md`）。rewrites 改变了 URL 空间，相对链接会解析成不存在的路径并导致构建失败。站内链接一律写绝对路径 `/swift/swiftui/action-sheet/`。
+- 正文里**不要用相对链接**（`./xxx.md`）。站内链接一律写绝对路径 `/swift/swiftui/alert/`。
 - 构建有死链检查，站内链接写错会直接 fail；`http://localhost:*` 已加入白名单。
 
 ## 文件组织
 
-- 同主题内容放子目录（如 `notes/swift/ios/`、`notes/ai/2.ml/`）。
-- 每个专题目录以 `README.md` 作为落地页，`permalink` 就是该目录（不带 `readme` 段）。
-- 有序内容用 `t1-`、`t2-` 前缀；补充内容用 `u1-`、`y1-` 前缀。文件名里的 `数字.` 前缀不影响 URL（URL 由 permalink 决定）。
-- 文件名 kebab-case。
-- `design-patterns` 的五个中文目录在 URL 中映射为英文：`1.设计原则→principles`、`2.基础→basics`、`3.创建型→creational`、`4.结构型→structural`、`5.行为型→behavioral`。目录名保留中文，用于侧边栏分组显示。
+- 一个页面一个目录：`docs/<段>/<段>/index.md`。同主题内容天然形成层级，层级即侧边栏分组。
+- 分组目录可以没有 `index.md`（只用来收拢几篇笔记）；这类目录的显示名和顺序在 `sidebar.ts` 的 `GROUPS` 里声明。
+- 文件名固定为 `index.md`，不再有用文件名排序的余地——**侧边栏顺序按 `title` 的自然排序**，需要强顺序就调整 `GROUPS` 或标题。
+- 目录名 kebab-case，全小写。旧的 `t1-`、`2.基础` 这类前缀已随迁移去掉。
 
 ## 侧边栏与导航
 
-**侧边栏是自动生成的，不要手写。** `sidebar.ts` 的 `buildSidebar()` 扫描 `docs/notes/<集合>/`，
-按目录树生成分组：目录 → 可折叠分组（标题取该目录 README 的 title），md 文件 → 链接（标题取 frontmatter.title）。
-排序用 `localeCompare(..., { numeric: true })`，所以 `t2` 会正确排在 `t10` 前面。
+**侧边栏是自动生成的，不要手写。** `sidebar.ts` 的 `buildSidebar()` 扫描 `docs/<集合>/`：
 
-- 新增笔记集合：在 `sidebar.ts` 的 `COLLECTIONS` 数组加一项 → `config.mts` 的 `nav` 加入口。两步缺一不可。
+- 含 `index.md` 的目录 → 可点击的分组（文字取该页 `title`，链接为该目录 URL），其子目录继续递归。
+- 不含 `index.md` 的目录 → 纯分组，文字取 `GROUPS` 里的声明，未声明则用目录名。
+- 同级内页码按 `title` 自然排序（`localeCompare(..., { numeric: true })`）；纯分组按 `GROUPS` 数组顺序。
+
+- 新增笔记集合：`sidebar.ts` 的 `COLLECTIONS` 加一项 → `config.mts` 的 `nav` 加入口。两步缺一不可。
 - 顶部导航在 `config.mts` 的 `themeConfig.nav`，VitePress 只支持二级菜单（原三级菜单已扁平化）。
 - 搜索用 VitePress 内置的 local provider，无需额外配置。
 
 ## 博客列表
 
-`docs/blog/index.md` 通过 `posts.data.ts`（`createContentLoader`）在构建时读取所有博客 frontmatter，
-自动渲染列表并按 `date` 倒序。新增博客文章只要放进 `docs/blog/` 并写好 frontmatter，列表会自动出现。
-URL 取的是 `frontmatter.permalink`（`/article/xxx/`），不是文件路径。
+`docs/article/<slug>/index.md` 是文章本体；`docs/blog/index.md` 通过 `posts.data.ts`
+（`createContentLoader('article/*/index.md')`）在构建时收集全部文章，按 `date` 倒序渲染。
+URL 直接用 loader 给出的 `url`，不需要额外字段。
+
+## public 静态资源
+
+`docs/public/` 下的文件构建时原样复制到站点根，`https://oldbird.run/xxx` 直接可访问
+（`ads.txt`、`logo.png`、`yiqigua.html`、`imgs/` 等），与旧站行为一致。
+
+`docs/.env` 里的 `VITE_EXTRA_EXTENSIONS=html,htm,apk` 是必需的：客户端路由默认只把
+「已知静态资源扩展名」当文件，其余一律当站内页面去加载 md 模块，于是点 `/yiqigua.html`
+会回退到 404 组件。声明后这些链接不再被拦截，交给浏览器整页加载。
 
 ## 自定义组件与主题
 
@@ -109,6 +121,8 @@ URL 取的是 `frontmatter.permalink`（`/article/xxx/`），不是文件路径�
 - `YiqiguaDocAddon` 是全局挂载（通过 `Layout` 的 `layout-bottom` 插槽），不是普通组件。
 - 样式覆盖走 `theme/custom.css`（CSS 变量，含深浅色两套）。组件里的 `--vp-c-*` 变量与 VitePress 同名，可直接复用。
 - `theme/index.ts` 还负责注入 AdSense 脚本（有防重复加载守卫），改动时别破坏这个逻辑。
+- 需要整页加宽的页面用 frontmatter `pageClass`，再在 `custom.css` 里按该类覆盖
+  `.content-container` 的 `max-width`（默认 688px）。用 `:has()` 不可靠，见作品集页。
 
 ## 重定向
 
@@ -152,10 +166,12 @@ RSYNC_DELETE=0 ./deploy.sh # 保留服务端多余文件
 
 | 症状 | 处理 |
 |---|---|
-| 构建报 dead link | 站内链接必须写绝对路径且带尾斜杠，相对链接在 rewrites 下必然失效 |
-| 页面 404 | 检查 `frontmatter.permalink` 是否以 `/` 结尾；构建后看是否生成 `<permalink>/index.html` |
-| 页面没有侧边栏 | 该目录是否在 `sidebar.ts` 的 `COLLECTIONS` 里 |
+| 页面 404 | 检查是不是写成了 `foo.md`（得到 `/foo.html`）；要 `/foo/` 就得是 `foo/index.md` |
+| 构建报 dead link | 站内链接必须写绝对路径且带尾斜杠，不要用相对链接 |
+| 页面没有侧边栏 | 该顶层目录是否在 `sidebar.ts` 的 `COLLECTIONS` 里 |
+| 侧边栏分组名变成英文 slug | 该目录没有 `index.md`，需要在 `sidebar.ts` 的 `GROUPS` 补显示名 |
+| 侧边栏顺序不对 | 排序看 `title`，纯分组看 `GROUPS` 数组顺序 |
 | 旧文章链接 404 | 在 `redirects.json` 补映射（带/不带尾斜杠两条） |
+| 点 `public/` 里的 `.html` 显示"页面不存在" | `docs/.env` 的 `VITE_EXTRA_EXTENSIONS` 是否还在、是否包含 `html` |
 | 代码块高亮报错 | Shiki 不认识该语言，改成 `text` 或确认是内置语言 |
 | 缓存导致内容不更新 | 删 `docs/.vitepress/cache` 后重新构建 |
-| 点击 `public/` 里的静态页（如 `/yiqigua.html`）显示"页面不存在" | 客户端路由把 `.html` 当本站页面去加载 md 模块，找不到就回退 404。`config.mts` 的 `collectStaticHtmlPages()` 扫出清单写进 `themeConfig.staticHtmlPages`，`theme/index.ts` 用 `router.onBeforeRouteChange` 改成整页跳转；新增 `public/*.html` 无需改代码 |
