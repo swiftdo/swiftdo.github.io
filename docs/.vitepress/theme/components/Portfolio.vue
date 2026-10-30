@@ -11,7 +11,6 @@ type AppItem = {
   cta: string
   /** 主推应用，媒体区右上角显示角标 */
   featured?: boolean
-  external?: boolean
 }
 
 type SiteItem = {
@@ -35,7 +34,6 @@ const apps: AppItem[] = [
     tag: '六爻 · 排盘',
     cta: '查看产品页',
     featured: true,
-    external: false,
   },
   {
     title: '梅花易数',
@@ -44,6 +42,24 @@ const apps: AppItem[] = [
     icon: '/appicons/meihua.webp',
     accent: '#cf5f4a',
     tag: '易经 · 起卦',
+    cta: 'Google Play',
+  },
+  {
+    title: '玄枢紫微',
+    desc: '紫微斗数排盘与命盘研习：真太阳时校准、十二宫十四主星，本命与大限流年叠看，案例库与盘面导出。',
+    href: 'https://play.google.com/store/apps/details?id=run.oldbird.ziweidoushu',
+    icon: '/appicons/ziwei.webp',
+    accent: '#9e3a2f',
+    tag: '命理 · 排盘',
+    cta: 'Google Play',
+  },
+  {
+    title: '塔罗',
+    desc: '78 张牌、六种牌阵、四套牌面；先看整体再逐张解读，全程离线，问句只留本机。',
+    href: 'https://play.google.com/store/apps/details?id=run.oldbird.tarot',
+    icon: '/appicons/tarot.webp',
+    accent: '#a5813a',
+    tag: '占卜 · 牌阵',
     cta: 'Google Play',
   },
   {
@@ -120,10 +136,6 @@ const sites: SiteItem[] = [
     cta: '开始游戏',
   },
 ]
-
-function isExternal(item: AppItem) {
-  return item.external !== false && /^https?:\/\//.test(item.href)
-}
 </script>
 
 <template>
@@ -161,14 +173,15 @@ function isExternal(item: AppItem) {
       </div>
 
       <div class="pf-grid">
+        <!-- 所有 App 卡片一律新标签页打开：作品集是索引页，不该被产品页/商店挤掉 -->
         <a
           v-for="item in apps"
           :key="item.title"
           class="pf-card"
           :class="{ 'is-featured': item.featured }"
           :href="item.href"
-          :target="isExternal(item) ? '_blank' : undefined"
-          :rel="isExternal(item) ? 'noopener noreferrer' : undefined"
+          target="_blank"
+          rel="noopener noreferrer"
           :style="{ '--accent': item.accent }"
         >
           <div class="pf-card__media">
