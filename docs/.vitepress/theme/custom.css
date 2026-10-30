@@ -1,13 +1,52 @@
-/* 首页微调：让 custom / features / posts 区块更紧凑统一 */
-.vp-home .vp-home-custom {
-  padding-top: 0.5rem;
-  padding-bottom: 0.25rem;
+/**
+ * 首页 features 图标配色。
+ *
+ * icon 是内联 SVG（见 docs/README.md 的 frontmatter），fill 为 currentColor，
+ * 所以只要在 .icon 容器上设 color，图标和底衬（color-mix 混入 currentColor）会一起跟着变，
+ * 深浅色模式无需两套资源。
+ */
+.VPFeatures .VPFeature .icon {
+  border-radius: 12px;
+  background-color: color-mix(in srgb, currentColor 12%, var(--vp-c-bg-soft));
 }
 
-.vp-home .vp-home-features .title {
-  letter-spacing: -0.02em;
+.dark .VPFeatures .VPFeature .icon {
+  background-color: color-mix(in srgb, currentColor 18%, var(--vp-c-bg-soft));
 }
 
-.vp-home .vp-home-features .description {
-  opacity: 0.85;
+.VPFeatures .VPFeature.link:hover .icon {
+  background-color: color-mix(in srgb, currentColor 19%, var(--vp-c-bg-soft));
+}
+
+.VPFeature:has([data-icon='swift']) .icon {
+  color: #f05138;
+}
+
+.VPFeature:has([data-icon='flutter']) .icon {
+  color: #0288d1;
+}
+
+.VPFeature:has([data-icon='ai']) .icon {
+  color: #7c5cd6;
+}
+
+.VPFeature:has([data-icon='yijing']) .icon {
+  color: #b8954a;
+}
+
+/* 深色背景上提亮，保持对比度 */
+.dark .VPFeature:has([data-icon='swift']) .icon {
+  color: #ff7a5c;
+}
+
+.dark .VPFeature:has([data-icon='flutter']) .icon {
+  color: #4fc3f7;
+}
+
+.dark .VPFeature:has([data-icon='ai']) .icon {
+  color: #a78bfa;
+}
+
+.dark .VPFeature:has([data-icon='yijing']) .icon {
+  color: #d4b06a;
 }
