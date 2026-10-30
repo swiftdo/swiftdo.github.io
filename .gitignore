@@ -11,3 +11,6 @@ node_modules
 .temp
 .cache
 .codegraph/
+
+# Yarn 安装状态文件，随环境变化，不应入库
+.yarn/install-state.gz

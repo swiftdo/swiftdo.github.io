@@ -10,7 +10,6 @@
  */
 
 import { viteBundler } from '@vuepress/bundler-vite'
-import { copyCodePlugin } from '@vuepress/plugin-copy-code'
 import { googleAnalyticsPlugin } from '@vuepress/plugin-google-analytics'
 import { redirectPlugin } from '@vuepress/plugin-redirect'
 import { defineUserConfig } from 'vuepress'
@@ -31,7 +30,7 @@ export default defineUserConfig({
     googleAnalyticsPlugin({
       id: 'G-Y1G8WYFPCJ',
     }),
-    copyCodePlugin({}),
+    // 代码块复制按钮由主题内置注册（copyCode 默认开启），无需在此重复添加
     redirectPlugin({
       config: redirects,
     }),
@@ -64,6 +63,18 @@ export default defineUserConfig({
       permalink: 'filepath',
       createTime: true,
       title: true,
+      /**
+       * 主题会把所有 README.md 误判为站点根页并强制写入 pageLayout: home
+       * （判断条件 filepath.endsWith(path.join(locale, 'README.md')) 在单语言站点下恒为真），
+       * 导致 /book/、/result/ 这类独立页面被改成首页布局。这里按路径还原。
+       */
+      transform: (data, { relativePath }) => {
+        if (relativePath === 'book/README.md')
+          delete data.pageLayout
+        else if (relativePath === 'result/README.md')
+          data.pageLayout = 'page'
+        return data
+      },
     },
 
     /* 本地搜索, 默认启用 */

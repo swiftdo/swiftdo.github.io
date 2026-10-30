@@ -29,9 +29,7 @@ config:
         - theme: alt
           text: 易起卦
           link: /yiqigua.html
-
   - type: custom
-
   - type: features
     title: 学习主线
     description: 按主题深入，侧边栏可连续阅读
@@ -56,15 +54,14 @@ config:
         details: 周易、六爻与梅花易数；配套易起卦（排盘 + AI 提问模板）练习。
         link: /yijing/
         linkText: 进入易经
-
   - type: posts
     collection: blog
-
   - type: profile
     name: OldBird
     description: 用笔记记录技术，用作品验证想法。
     avatar: /logo.png
     circle: true
+title: Home
 ---
 
 <HomeShowcase />
