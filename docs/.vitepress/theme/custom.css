@@ -1,3 +1,11 @@
+/* 作品集页需要更宽的画布，默认 688px 排不下 4 列卡片。
+   class 由 docs/result/README.md 的 pageClass 提供。
+   VitePress 自身的 `.VPDoc.has-aside .content-container[data-v-x]` 权重与
+   纯类选择器相同，只靠提高特异性赢不了，故用 !important。 */
+.page-portfolio .content-container {
+  max-width: 1080px !important;
+}
+
 /**
  * 首页 features 图标配色。
  *
