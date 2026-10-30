@@ -23,7 +23,9 @@ function collectSitemapExcluded(): Set<string> {
   return excluded
 }
 
-/** 生成一个最小化的跳转页：noindex 防止与目标页重复收录 */
+/**
+ * 生成一个最小化的跳转页：noindex 防止与目标页重复收录
+ */
 function redirectPage(target: string): string {
   return `<!DOCTYPE html>
 <html lang="zh-CN">
@@ -66,28 +68,28 @@ export default defineConfig({
     }),
   },
 
-  /**
-   * 旧站 614 条 URL 重定向：构建后为每个来源路径生成一个静态跳转页。
-   * VitePress 没有内置 redirect 插件，用 meta refresh + noindex 实现，
-   * noindex 可避免跳转页与目标页产生重复收录。
-   */
-  buildEnd(siteConfig) {
-    const redirectsFile = path.join(DOCS_DIR, '.vitepress/redirects.json')
-    if (!fs.existsSync(redirectsFile))
-      return
-    const redirects: Record<string, string> = JSON.parse(fs.readFileSync(redirectsFile, 'utf8'))
-    let written = 0
-    for (const [from, to] of Object.entries(redirects)) {
-      const clean = from.replace(/^\/+|\/+$/g, '')
-      if (!clean)
-        continue
-      const dir = path.join(siteConfig.outDir, clean)
-      fs.mkdirSync(dir, { recursive: true })
-      fs.writeFileSync(path.join(dir, 'index.html'), redirectPage(to), 'utf8')
-      written++
-    }
-    console.log(`[redirect] 生成 ${written} 个跳转页`)
-  },
+/**
+ * 旧站 614 条 URL 重定向：构建后为每个来源路径生成一个静态跳转页。
+ * VitePress 没有内置 redirect 插件，用 meta refresh + noindex 实现，
+ * noindex 可避免跳转页与目标页产生重复收录。
+ */
+buildEnd(siteConfig) {
+  const redirectsFile = path.join(DOCS_DIR, '.vitepress/redirects.json')
+  if (!fs.existsSync(redirectsFile))
+    return
+  const redirects: Record<string, string> = JSON.parse(fs.readFileSync(redirectsFile, 'utf8'))
+  let written = 0
+  for (const [from, to] of Object.entries(redirects)) {
+    const clean = from.replace(/^\/+|\/+$/g, '')
+    if (!clean)
+      continue
+    const dir = path.join(siteConfig.outDir, clean)
+    fs.mkdirSync(dir, { recursive: true })
+    fs.writeFileSync(path.join(dir, 'index.html'), redirectPage(to), 'utf8')
+    written++
+  }
+  console.log(`[redirect] 生成 ${written} 个跳转页`)
+},
   themeConfig: {
     logo: '/logo.png',
     siteTitle: 'OldBird',
