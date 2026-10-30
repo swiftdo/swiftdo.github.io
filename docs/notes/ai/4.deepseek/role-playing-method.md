@@ -1,5 +1,6 @@
 ---
 title: 角色代入法
+description: "在与 AI 交互时，如何让其提供更专业、更具洞察力的回答？角色代入法是一种有效的方法，能够帮助 AI 更准确地理解问题，并从专业角度进行分析。"
 sitemap:
   exclude: false
   changefreq: hourly
@@ -7,7 +8,7 @@ date: 2025-03-03T00:00:00.000Z
 tags:
   - deepseek
 createTime: 2025/03/03 19:22:16
-permalink: /ai/sq1becm0/
+permalink: /ai/deepseek/role-playing-method/
 ---
 
 在与 AI 交互时，如何让其提供更专业、更具洞察力的回答？**角色代入法**是一种有效的方法，能够帮助 AI 更准确地理解问题，并从专业角度进行分析。  

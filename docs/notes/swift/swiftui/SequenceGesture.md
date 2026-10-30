@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: SequenceGesture
+description: "SequenceGesture —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/pgcdm92p/
+permalink: /swift/swiftui/sequence-gesture/
 ---
 
 # SequenceGesture

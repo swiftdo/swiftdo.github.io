@@ -1,5 +1,6 @@
 ---
 title: Yaml
+description: "YAML 是专门用来写配置文件的语言，非常简洁和强大，远比 JSON 格式方便。它实质上是一种通用的数据串行化格式。"
 sitemap:
   exclude: false
   changefreq: hourly

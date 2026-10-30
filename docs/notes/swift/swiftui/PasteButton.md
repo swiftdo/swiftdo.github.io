@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: PasteButton
+description: "PasteButton —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/p3u86wfu/
+permalink: /swift/swiftui/paste-button/
 ---
 
 # PasteButton

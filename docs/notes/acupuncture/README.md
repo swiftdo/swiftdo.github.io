@@ -1,5 +1,6 @@
 ---
 title: 针灸
+description: "针灸学习笔记，涵盖经络腧穴、十二经脉、刺法灸法等中医针灸基础内容。"
 createTime: 2025/07/25 14:40:18
 permalink: /acupuncture/
 ---

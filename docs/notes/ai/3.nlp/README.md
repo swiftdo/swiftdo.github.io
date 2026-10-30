@@ -1,5 +1,6 @@
 ---
 title: 自然语言处理
+description: "自然语言处理（Natural Language Processing，NLP） 是人工智能（AI）领域的一个分支，致力于让计算机能够理解、分析、生成和处理人类语言。"
 date: 2025-02-03T00:00:00.000Z
 tags:
   - ai
@@ -9,7 +10,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2025/02/18 10:08:15
-permalink: /ai/axdlrw9e/
+permalink: /ai/nlp/
 ---
 
 **自然语言处理（Natural Language Processing，NLP）** 是人工智能（AI）领域的一个分支，致力于让计算机能够理解、分析、生成和处理人类语言。NLP的目标是使计算机能够像人类一样“理解”语言的含义，并进行合理的响应或处理。

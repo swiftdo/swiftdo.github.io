@@ -3,6 +3,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: swiftenv篇
+description: "swiftenv 是 Swift 的版本管理器，可以对特定项目指定特定的 Swift 的版本，或者全局切换 Swift 的版本。"
 date: 2022-01-12T00:00:00.000Z
 tags:
   - swift
@@ -10,7 +11,7 @@ tags:
   - vapor
   - swiftenv
 createTime: 2024/08/02 09:19:27
-permalink: /swift/og5q7eo0/
+permalink: /swift/ubuntu/swiftenv/
 ---
 
 `swiftenv` 是 Swift 的版本管理器，可以对特定项目指定特定的 Swift 的版本，或者全局切换 Swift 的版本。

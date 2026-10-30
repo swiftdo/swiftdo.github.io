@@ -1,5 +1,6 @@
 ---
 title: 状态栏颜色设置
+description: "If a particular style is not supported on the platform, selecting it will have no effect. 非全平台支持，有些平台设置了没有效果。"
 date: 2021-06-07T00:00:00.000Z
 tags:
   - flutter
@@ -7,7 +8,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/lyyeykf4/
+permalink: /flutter/u14-navbar-color/
 ---
 
 ## 1. 使用 AppBar

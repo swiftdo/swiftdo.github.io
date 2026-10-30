@@ -3,11 +3,12 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: Python 函数可变参数
+description: "学习比较特殊的点。"
 date: 2022-03-19T00:00:00.000Z
 tags:
   - python
 createTime: 2024/08/02 09:19:27
-permalink: /python/83h638tl/
+permalink: /python/python-function/
 ---
 
 学习比较特殊的点。

@@ -1,5 +1,6 @@
 ---
 title: openclaw
+description: "openclaw 是一款开源、自托管的个人 AI 助手，可以运行在你自己的电脑（例如 Mac mini）上，并连接到你常用的聊天平台如 WhatsApp、Telegram、Discord 等。"
 createTime: 2026/01/28 09:50:45
 permalink: /ai/openclaw/
 tags:

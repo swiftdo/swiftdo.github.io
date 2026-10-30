@@ -1,5 +1,6 @@
 ---
 title: 网站流量分析工具
+description: "本文汇总了 10 款开源 网站与网络流量分析工具，全部可 自托管，并标注了许可证、开发语言、官网及核心特点，方便快速选型。"
 createTime: 2025/07/25 22:07:59
 permalink: /tools/analytics-tools/
 ---

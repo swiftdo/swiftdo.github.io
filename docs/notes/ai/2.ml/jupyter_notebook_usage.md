@@ -1,5 +1,6 @@
 ---
 title: Jupyter Notebook 的使用
+description: "安装完成后，同样可以使用以下命令启动 Jupyter Notebook"
 date: 2025-02-19T00:00:00.000Z
 tags:
   - ai
@@ -9,7 +10,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2025/02/19 13:14:40
-permalink: /ai/gq4qokk4/
+permalink: /ai/ml/jupyter-notebook-usage/
 ---
 
 # Jupyter Notebook 的使用

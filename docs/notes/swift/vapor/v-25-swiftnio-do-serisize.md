@@ -3,13 +3,14 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: SwiftNIO 实战之序列化
+description: "序列化一般有两个主要目的"
 date: 2020-12-09T00:00:00.000Z
 tags:
   - swift
   - vapor
   - swiftnio
 createTime: 2024/08/02 09:19:27
-permalink: /swift/uac12wqd/
+permalink: /swift/vapor/v-25-swiftnio-do-serisize/
 ---
 
 序列化一般有两个主要目的：

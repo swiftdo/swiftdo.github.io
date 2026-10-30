@@ -1,5 +1,6 @@
 ---
 title: 标题生成公式
+description: "在内容创作中，一个吸引人的标题是提高点击率和用户互动的关键。无论是小红书、抖音还是公众号，带有数字、情绪词、悬念的标题更容易抓住用户眼球。但如何让 AI 快速生成这样的高质量标题呢？答案就是——标题生成公式。"
 sitemap:
   exclude: false
   changefreq: hourly
@@ -7,7 +8,7 @@ date: 2025-03-03T00:00:00.000Z
 tags:
   - deepseek
 createTime: 2025/03/03 20:00:26
-permalink: /ai/iof05zzu/
+permalink: /ai/deepseek/title-generation-formula/
 ---
 
 

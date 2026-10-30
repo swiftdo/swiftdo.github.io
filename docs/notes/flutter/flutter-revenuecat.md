@@ -1,5 +1,6 @@
 ---
 title: flutter-revenuecat
+description: "按文档配置，可很好的完成配置。"
 createTime: 2025/12/30 14:25:00
 permalink: /flutter/flutter-revenuecat/
 ---

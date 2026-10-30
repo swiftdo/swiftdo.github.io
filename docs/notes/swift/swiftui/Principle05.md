@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: Principle05
+description: "这个语法特性叫 Function Builders，还没有正式添加到 Swift 语言中，只有草案。苹果直接修改了 Swift 编译器，SwiftUI 已经在用这个语法特性了。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/6sysv7jm/
+permalink: /swift/swiftui/principle05/
 ---
 
 # 开始

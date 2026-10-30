@@ -3,13 +3,14 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: SwiftNIO 实战之基于Protobuf 的 RPC 框架（1）
+description: "上文《SwiftNIO实战之序列化》中，我们将 protobuf 作为 C/S 之间的数据传输的序列化工具，在其他方面了解较少。本文我们通过写一个简单的 RPC 框架，看看 protobuf 的高阶应用。"
 date: 2020-12-20T00:00:00.000Z
 tags:
   - swift
   - vapor
   - swiftnio
 createTime: 2024/08/02 09:19:27
-permalink: /swift/g15d55gg/
+permalink: /swift/vapor/v-26-swfitnio-grpc-1/
 ---
 
 上文[《SwiftNIO实战之序列化》](https://oldbird.run/swift/vapor/v-25-swiftnio-do-serisize.html)中，我们将 protobuf 作为 C/S 之间的数据传输的序列化工具，在其他方面了解较少。本文我们通过写一个简单的 RPC 框架，看看 protobuf 的高阶应用。当然本人对 RPC 也是知之皮毛，如存在理解错误之处，欢迎指正。

@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: Stacks
+description: "Stacks —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/2ohjy7se/
+permalink: /swift/swiftui/stacks/
 ---
 
 # Stacks

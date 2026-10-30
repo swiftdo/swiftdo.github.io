@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: Modal
+description: "模态视图的存储类型。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/rmfs1qd3/
+permalink: /swift/swiftui/modal/
 ---
 
 # Modal

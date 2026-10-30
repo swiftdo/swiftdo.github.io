@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: DatePicker
+description: "选择日期的控件。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/imyqo2kx/
+permalink: /swift/swiftui/date-picker/
 ---
 
 # DatePicker

@@ -1,5 +1,6 @@
 ---
 title: Qwen Code安装
+description: "Qwen Code 基于 Gemini Code 进行二次开发，但阿里进行了 prompt 和工具调用协议适配，使得 Qwen Code 可以最大程度激发 Qwen3-Coder 在 Agentic Coding 任务上的表现。"
 date: 2025-07-23T00:00:00.000Z
 tags:
   - qwen
@@ -8,7 +9,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2025/07/23 12:33:14
-permalink: /ai/7nnilg8x/
+permalink: /ai/tools/qwen-code/
 ---
 
 `Qwen Code` 基于 `Gemini Code` 进行二次开发，但阿里进行了 `prompt` 和工具调用协议适配，使得 `Qwen Code` 可以最大程度激发 `Qwen3-Coder` 在 `Agentic Coding` 任务上的表现。

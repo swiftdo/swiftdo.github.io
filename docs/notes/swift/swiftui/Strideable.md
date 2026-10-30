@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: Strideable
+description: "Strideable —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /article/44uvdac7/
+permalink: /swift/swiftui/strideable/
 ---
 
 # Strideable

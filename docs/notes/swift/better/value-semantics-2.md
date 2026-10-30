@@ -1,5 +1,6 @@
 ---
 title: Swift 值语义(二)
+description: "在上篇的介绍中，我相信你已经知道值语义是什么了，接下来我们来看看值语义被破坏的案例，以及相应的解决方案。"
 sitemap:
   exclude: false
   changefreq: hourly
@@ -8,7 +9,7 @@ tags:
   - swift
   - ios
 createTime: 2024/08/02 09:19:27
-permalink: /swift/7y2yjilf/
+permalink: /swift/better/value-semantics-2/
 ---
 
 在上篇的介绍中，我相信你已经知道值语义是什么了，接下来我们来看看值语义被破坏的案例，以及相应的解决方案。

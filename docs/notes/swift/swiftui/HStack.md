@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: HStack
+description: "水平排列子元素的视图。"
 createTime: 2024/08/02 09:19:27
-permalink: /article/5m2ds7f3/
+permalink: /swift/swiftui/h-stack/
 ---
 
 # HStack

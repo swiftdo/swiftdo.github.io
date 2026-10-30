@@ -3,6 +3,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: 安装
+description: "通过 brew 进行安装"
 date: 2020-4-1
 tags:
   - haskell

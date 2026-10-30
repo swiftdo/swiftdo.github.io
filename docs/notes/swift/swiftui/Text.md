@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: Text
+description: "通过 foregroundColor 设置文本颜色"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/kusv4iw9/
+permalink: /swift/swiftui/text/
 ---
 
 # Text

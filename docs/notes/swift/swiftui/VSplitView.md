@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: VSplitView
+description: "VSplitView —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/fm8stmx7/
+permalink: /swift/swiftui/v-split-view/
 ---
 
 # VSplitView

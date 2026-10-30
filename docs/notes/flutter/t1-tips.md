@@ -1,5 +1,6 @@
 ---
 title: tips
+description: "我们可以键入 stless 和 stful，会出现代码补全提示。"
 date: 2020-08-17T00:00:00.000Z
 tags:
   - flutter
@@ -7,7 +8,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/wyimh45q/
+permalink: /flutter/t1-tips/
 ---
 
 ## Tip1 `stless` & `stful`

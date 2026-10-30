@@ -3,12 +3,13 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: iOS 优化角度
+description: "本地图片尽可能改为从网络下载。"
 date: 2020-11-04T00:00:00.000Z
 tags:
   - swift
   - ios
 createTime: 2024/08/02 09:19:27
-permalink: /swift/elbhlu76/
+permalink: /swift/ios/t2-youhua/
 ---
 
 ## 包体积优化

@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: ObjectBinding
+description: "ObjectBinding —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/qmu8twtx/
+permalink: /swift/swiftui/object-binding/
 ---
 
 # ObjectBinding

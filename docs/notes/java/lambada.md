@@ -3,6 +3,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: '@FunctionalInterface、Lambda表达式'
+description: "Java语言从JDK1.8开始引入了函数式编程。"
 date: 2024-8-8
 tags:
   - java

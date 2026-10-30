@@ -1,5 +1,6 @@
 ---
 title: 通过 Github Action 部署 VuePress
+description: "如果本地已经执行 yarn docs:build, 那么请不要将 docs/.vuepress/dist 文件提交到远端，不然会发现有些文件没有更新的问题。"
 sitemap:
   exclude: false
   changefreq: hourly

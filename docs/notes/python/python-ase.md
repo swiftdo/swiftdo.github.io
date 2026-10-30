@@ -3,13 +3,14 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: Python ASE 加解密
+description: "基于 Python3，通过 ase 加解密。"
 date: 2022-05-26T00:00:00.000Z
 tags:
   - python
   - flask
   - 加密/解密
 createTime: 2024/08/02 09:19:27
-permalink: /python/kspvd7v8/
+permalink: /python/python-ase/
 ---
 
 基于 Python3，通过 ase 加解密，需要安装依赖：

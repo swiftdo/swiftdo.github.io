@@ -3,12 +3,13 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: Swift 函数式
+description: "以泛型作为参数来构建具体类型的类型"
 date: 2021-3-31
 tags:
   - swift
   - 函数式编程
 createTime: 2024/08/02 09:19:27
-permalink: /swift/o8ai00vw/
+permalink: /swift/fp/t1-fp/
 ---
 
 ## 类型构造体

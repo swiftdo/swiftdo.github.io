@@ -1,5 +1,6 @@
 ---
 title: Python
+description: "Python 学习笔记，记录语法基础、常用库、Poetry 环境管理与脚本实践。"
 createTime: 2025/07/25 15:06:25
 permalink: /python/
 ---

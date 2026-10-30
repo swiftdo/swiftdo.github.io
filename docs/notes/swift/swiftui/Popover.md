@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: Popover
+description: "Popover —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/ktmpmasz/
+permalink: /swift/swiftui/popover/
 ---
 
 # Popover

@@ -72,6 +72,7 @@ const swift = defineCollection({
 ```yaml
 ---
 title: 页面标题
+description: 一句话摘要（≤120 字，用于 meta description 与搜索结果）
 createTime: 2025/08/13 09:21:29
 permalink: /article/xxx/     # 必须以所属集合的 linkPrefix 开头
 tags:                        # 仅博客文章需要
@@ -80,6 +81,8 @@ tags:                        # 仅博客文章需要
 ```
 
 - `autoFrontmatter` 开启：新建 md 会自动按文件路径生成 permalink 和 createTime，**移动/重命名文件 = 更换 URL**，旧链接需在 `redirects.json` 补映射（每条正反两个 key、带尾斜杠，参照现有格式）。
+- **permalink 已全站统一为可读路径**（2026-10 完成迁移）：历史遗留的 8 位随机串已全部换成 `linkPrefix + 相对路径`，`redirects.json` 里有对应的 500+ 条旧链接映射，**不要删除**。新增文章让 `autoFrontmatter` 自动生成即可。
+- `description` 由正文首段自动抽取（去 markdown、以冒号结尾时回退到上一个分句、上限 120 字），现有文章均有值；新写文章建议手写一句，比自动抽取更贴切。
 - 构建会**回写源文件**（补 title/permalink、规范化 YAML 缩进与空行），属预期行为，不要当成脏改动回滚。
 - 主题有个判定缺陷：单语言站点下 `filepath.endsWith('/README.md')` 恒为真，非集合目录的 README 会被强行写成 `pageLayout: home`。`config.ts` 的 `autoFrontmatter.transform` 已针对 `book/`、`result/` 做还原，**新增独立页面时如果用了 README.md，记得在同处补一条**。
 - **关键**：doc 集合内的 permalink 不以 `linkPrefix` 开头，侧边栏不会显示。
@@ -87,9 +90,10 @@ tags:                        # 仅博客文章需要
 ### 文件组织
 
 - 同主题内容放子目录（如 `notes/swift/ios/`、`notes/ai/ml/`）。
-- 每个专题目录以 `README.md` 作为落地页。
-- 有序内容用 `t1-`、`t2-` 前缀；补充内容用 `u1-`、`y1-` 前缀。
+- 每个专题目录以 `README.md` 作为落地页，其 permalink 就是该目录（不带 `readme` 段）。
+- 有序内容用 `t1-`、`t2-` 前缀；补充内容用 `u1-`、`y1-` 前缀。文件名里的 `数字.` 前缀在生成 URL 时会被去掉。
 - 文件名 kebab-case。
+- `design-patterns` 的五个中文目录在 URL 中映射为英文：`1.设计原则→principles`、`2.基础→basics`、`3.创建型→creational`、`4.结构型→structural`、`5.行为型→behavioral`（目录名保留中文，用于侧边栏分组显示）。新增同级目录时按同样方式处理，避免 URL 出现中文。
 
 ## 自定义组件与主题
 

@@ -1,5 +1,6 @@
 ---
 title: '易经'
+description: "《周易》是中国哲学的源头，被称为“群经之首，大道之源”。"
 createTime: 2025/10/12 17:55:27
 permalink: /yijing/
 ---

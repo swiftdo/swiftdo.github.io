@@ -1,5 +1,6 @@
 ---
 title: Flutter 提交日志搜集
+description: "公司要求每周都要写周报，周报的大体内容就是你本周做的事情，暂时不需要所思所想所感(质量要求不高)。通常都是自己从 gitlab 的操作面板筛选出自己本周提交的日志，然后每个提交 title 复制一份。"
 date: 2021-01-20T00:00:00.000Z
 tags:
   - flutter
@@ -7,7 +8,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/r54ywmxo/
+permalink: /flutter/t9-logs/
 ---
 
 公司要求每周都要写周报，周报的大体内容就是你本周做的事情，暂时不需要所思所想所感(质量要求不高)。通常都是自己从 gitlab 的操作面板筛选出自己本周提交的日志，然后每个提交 title 复制一份。然后我傻傻的把这件事干了 2 年多了，虽然觉得应该有更便捷的方式，但是还是屈服自己懒惰。直到有那么一天，上头要求 ci 打出的包，要附带发版日志😱。

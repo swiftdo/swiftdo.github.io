@@ -7,8 +7,9 @@ tags:
   - swift
   - ios
 title: Copy-On-Write
+description: "Swift 有值类型和引用类型，而值类型在被赋值或被传递给函数时是会被拷贝的。在写代码时，这些值类型每次赋值传递都是会重新在内存里拷贝一份吗？"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/jx9yr6fj/
+permalink: /swift/better/copy-on-write/
 ---
 
 # COW(Copy-On-Write)

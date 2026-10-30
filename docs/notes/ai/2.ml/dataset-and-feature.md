@@ -1,5 +1,6 @@
 ---
 title: 数据集与特征：机器学习的基础要素
+description: "数据集与特征：机器学习的基础要素 —— OldBird AI 笔记"
 date: 2025-02-19T00:00:00.000Z
 tags:
   - ai
@@ -11,7 +12,7 @@ sitemap:
   exclude: false
   changefreq: monthly
 createTime: 2025/02/19 10:18:34
-permalink: /ai/0uk6zlon/
+permalink: /ai/ml/dataset-and-feature/
 ---
 
 ## 1. 数据集概述

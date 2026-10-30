@@ -1,5 +1,6 @@
 ---
 title: Hermes Agent 入门指南：打造你的专属 AI 助手
+description: "一篇面向初学者的完整指南，带你了解如何使用 Hermes Agent 构建智能工作流。"
 createTime: 2026/04/11 08:45:42
 permalink: /ai/hermes/
 ---

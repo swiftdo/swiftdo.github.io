@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: ItemBasedPopUpButton
+description: "ItemBasedPopUpButton —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/x67ngi1b/
+permalink: /swift/swiftui/item-based-pop-up-button/
 ---
 
 # ItemBasePopUpButton

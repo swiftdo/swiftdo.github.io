@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: LongPressGesture
+description: "LongPressGesture —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/ckvvgpjv/
+permalink: /swift/swiftui/long-press-gesture/
 ---
 
 # LongPressGesture

@@ -1,7 +1,8 @@
 ---
 title: 解释器模式
+description: "定义一个语言的文法，并且建立一个解释器来解释该语言中的句子，这里的“语言”是指使用规定格式和语法的代码。"
 createTime: 2024/09/25 17:05:01
-permalink: /design-patterns/d0hk5fyw/
+permalink: /design-patterns/behavioral/interpreter-pattern/
 ---
 # 解释器模式
 

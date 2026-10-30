@@ -1,5 +1,6 @@
 ---
 title: docsify
+description: "前段日子，对设计模式进行了一个梳理，把梳理的文档整理到了仓库"
 sitemap:
   exclude: false
   changefreq: hourly

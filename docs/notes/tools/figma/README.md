@@ -1,5 +1,6 @@
 ---
 title: Figma
+description: "Figma 是一个 基于浏览器 的协作式 UI 设计工具。"
 sitemap:
   exclude: false
   changefreq: hourly

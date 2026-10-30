@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: Principle01
+description: "Principle01 —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/q4aykeb0/
+permalink: /swift/swiftui/principle01/
 ---
 
 # 单表达式隐式返回值

@@ -7,8 +7,9 @@ tags:
   - swift
   - ios
 title: chain
+description: "在用 UIKit 的时候，我们会写很多类似的代码"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/rr66kmxv/
+permalink: /swift/better/chain/
 ---
 
 # 链式调用与@dynamicMemberLookup

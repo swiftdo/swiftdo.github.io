@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: AnyGesture
+description: "AnyGesture —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/cc90uswg/
+permalink: /swift/swiftui/any-gesture/
 ---
 
 # AnyGesture

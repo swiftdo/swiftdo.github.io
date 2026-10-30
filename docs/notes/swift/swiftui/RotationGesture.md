@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: RotationGesture
+description: "RotationGesture —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/sjr8f8a0/
+permalink: /swift/swiftui/rotation-gesture/
 ---
 
 # RotationGesture

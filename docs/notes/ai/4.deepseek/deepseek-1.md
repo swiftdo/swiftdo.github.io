@@ -1,5 +1,6 @@
 ---
 title: 第二章：开启提问前的关键准备 —— 需求洞察三步法
+description: "在生活、学习、工作等形形色色的场景之中，我们首先需要做的便是静下心来自问：“我真正渴望达成的目标究竟是什么”。就拿旅行来说，是期望通过旅行达到休闲放松身心的目的，还是热衷于深入探索各地的文化奥秘，亦或是追求刺激冒险的挑战体验；"
 sitemap:
   exclude: false
   changefreq: hourly
@@ -7,7 +8,7 @@ date: 2025-02-10T00:00:00.000Z
 tags:
   - deepseek
 createTime: 2025/02/10 23:41:13
-permalink: /ai/8h57p2td/
+permalink: /ai/deepseek/deepseek-1/
 ---
 
 ## 第一步：明确核心诉求

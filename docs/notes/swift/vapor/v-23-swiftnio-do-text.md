@@ -3,13 +3,14 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: SwiftNIO 实战之文本修改服务器
+description: "为什么 SwiftNIO 能够实现高性能、高并发的需求?"
 date: 2020-11-22T00:00:00.000Z
 tags:
   - swift
   - vapor
   - swiftnio
 createTime: 2024/08/02 09:19:27
-permalink: /swift/jzwwubht/
+permalink: /swift/vapor/v-23-swiftnio-do-text/
 ---
 
 为什么 `SwiftNIO` 能够实现高性能、高并发的需求?

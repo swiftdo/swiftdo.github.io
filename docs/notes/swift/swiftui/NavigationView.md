@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: NavigationView
+description: "用于渲染视图堆栈的视图，这些视图会展示导航层次结构中的可见路径。"
 createTime: 2024/08/02 09:19:27
-permalink: /article/w96vztpi/
+permalink: /swift/swiftui/navigation-view/
 ---
 
 # NavigationView

@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: DynamicNavigationDestinationLink
+description: "DynamicNavigationDestinationLink —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/21q7xfui/
+permalink: /swift/swiftui/dynamic-navigation-destination-link/
 ---
 
 # DynamicNavigationDestinationLink

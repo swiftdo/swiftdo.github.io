@@ -3,12 +3,13 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: 伪异步改进同步阻塞I/O模型
+description: "BIO 的服务端通信模型： 采用 BIO 通信模型的服务端，通常由一个独立的线程负责监听客户端的链接，它接收到客户端的链接之后为每个客户端创建一个新的线程进行链路处理，处理完成后，通过输出流返回应答给客户端，线程销毁。"
 date: 2020-11-22T00:00:00.000Z
 tags:
   - swift
   - vapor
 createTime: 2024/08/02 09:19:27
-permalink: /swift/a8z0p9d0/
+permalink: /swift/vapor/v-22-bio2/
 ---
 
 ## 一连接一线程的弊端

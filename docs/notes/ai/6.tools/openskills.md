@@ -1,7 +1,8 @@
 ---
 title: OpenSkills 使用指南
+description: "OpenSkills 是一个通用的 AI 编程助手技能加载器，它将 Anthropic 的技能系统带到了所有 AI 编程助手，包括 Claude Code、Cursor、Windsurf、Aider、Codex 等。"
 createTime: 2026/02/26 10:00:00
-permalink: /ai/6-tools/openskills/
+permalink: /ai/openskills/
 ---
 
 # OpenSkills 使用指南

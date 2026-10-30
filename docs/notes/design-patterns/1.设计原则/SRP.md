@@ -1,7 +1,8 @@
 ---
 title: 单一职责原则
+description: "单一职责原则（Single Responsibility Principle, SRP）的定义是：指一个类或者模块应该有且只有一个改变的原因。如果一个类承担的职责过多，就等于把这些职责耦合在一起了。"
 createTime: 2024/09/25 17:05:01
-permalink: /design-patterns/z022h8ja/
+permalink: /design-patterns/principles/srp/
 ---
 # 单一职责原则
 

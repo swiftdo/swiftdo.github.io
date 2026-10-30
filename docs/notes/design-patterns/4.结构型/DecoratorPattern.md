@@ -1,7 +1,8 @@
 ---
 title: 装饰模式
+description: "动态地给一个对象增加一些额外的职责，就拓展对象功能来说，装饰模式比生成子类的方式更为灵活。"
 createTime: 2024/09/25 17:05:01
-permalink: /design-patterns/5vkdugwb/
+permalink: /design-patterns/structural/decorator-pattern/
 ---
 # 装饰模式
 

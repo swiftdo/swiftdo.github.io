@@ -1,5 +1,6 @@
 ---
 title: 删除历史文件
+description: "可能你有过以下的经历"
 sitemap:
   exclude: false
   changefreq: hourly

@@ -1,5 +1,6 @@
 ---
 title: Flutter中的通信传值
+description: "除了常规的通过方法参数，以及事件回调进行组件间传值外，Flutter 提供了一些更为强大的传值方式。"
 date: 2020-08-17T00:00:00.000Z
 tags:
   - flutter
@@ -7,7 +8,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/s3yrxipa/
+permalink: /flutter/t3-messages/
 ---
 
 除了常规的通过方法参数，以及事件回调进行组件间传值外，Flutter 提供了一些更为强大的传值方式。

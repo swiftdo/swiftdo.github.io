@@ -1,5 +1,6 @@
 ---
 title: Github Actions 免费构建 Flutter Android 包
+description: "在上文《Github Actions 免费构建 Flutter iOS 包》中，我们完成了 Flutter 基于 Github Actions 实现 iOS 的自动化打包。 那么本文将继续完成 Android 的自动化打包。"
 date: 2022-01-05T00:00:00.000Z
 tags:
   - flutter
@@ -8,7 +9,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/c8vtk671/
+permalink: /flutter/github-actions-build-flutter-android/
 ---
 
 在上文《[Github Actions 免费构建 Flutter iOS 包](https://oldbird.run/flutter/github-actions-build-flutter-ios.html)》中，我们完成了 Flutter 基于 Github Actions 实现 iOS 的自动化打包。

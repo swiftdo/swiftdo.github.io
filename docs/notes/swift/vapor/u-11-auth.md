@@ -3,12 +3,13 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: Vapor 之 auth 概念
+description: "在我们写接口的时候，有个很普通的需求就是"
 date: 2020-11-12T00:00:00.000Z
 tags:
   - swift
   - vapor
 createTime: 2024/08/02 09:19:27
-permalink: /swift/9m21pze6/
+permalink: /swift/vapor/u-11-auth/
 ---
 
 在我们写接口的时候，有个很普通的需求就是

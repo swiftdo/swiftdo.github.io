@@ -1,7 +1,8 @@
 ---
 title: 过滤器模式
+description: "使用不同的标准来过滤一组对象，通过逻辑运算以解耦的方式把它们连接起来。当我们想要选择满足一个或多个条件的对象子集时，此设计模式非常有用。"
 createTime: 2024/09/25 17:05:01
-permalink: /design-patterns/q5qb424k/
+permalink: /design-patterns/structural/filter-criteria-pattern/
 ---
 # 过滤器模式
 

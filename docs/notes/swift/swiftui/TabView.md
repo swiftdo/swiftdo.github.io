@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: TabView
+description: "使用交互式用户界面元素在多个子视图之间切换的视图。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/stbctnbf/
+permalink: /swift/swiftui/tab-view/
 ---
 
 # TabView

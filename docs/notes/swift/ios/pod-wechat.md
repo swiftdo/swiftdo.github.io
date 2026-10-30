@@ -3,13 +3,14 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: 5分钟创建 WechatOpenSDK 1.9.2 版本的pod库
+description: "shell git clone"
 date: 2020-10-10T00:00:00.000Z
 tags:
   - swift
   - ios
   - pod
 createTime: 2024/08/02 09:19:27
-permalink: /swift/bt62cl7c/
+permalink: /swift/ios/pod-wechat/
 ---
 
 - 在 github 中**新建一个仓库**，git clone 将代码拉下来。比如：

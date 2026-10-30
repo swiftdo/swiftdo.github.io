@@ -3,6 +3,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: Haskell 包管理工具 stack 介绍
+description: "Haskell 项目中，经常用到包管理工具"
 date: 2020-4-1
 tags:
   - haskell

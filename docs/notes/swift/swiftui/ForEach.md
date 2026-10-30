@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: ForEach
+description: "在待办清单案例中，我们有用到ForEach这个视图。ForEach 将集合的东西生成一个个 View，然后再组合成一个 View。大大简化了相似代码，同时也解决了ViewBuilder参数个数限制问题。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/9y2v7h1v/
+permalink: /swift/swiftui/for-each/
 ---
 
 # ForEach

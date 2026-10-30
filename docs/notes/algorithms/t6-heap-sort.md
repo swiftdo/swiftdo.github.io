@@ -1,5 +1,6 @@
 ---
 title: 堆排序
+description: "堆排序是利用堆这种数据结构而设计的一种排序算法，堆排序是一种选择排序，它的最坏，最好，平均时间复杂度均为 O(nlogn)，它也是不稳定排序。"
 sitemap:
   exclude: false
   changefreq: hourly

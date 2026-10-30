@@ -1,5 +1,6 @@
 ---
 title: Flutter VSCode 设置启动参数
+description: "有些时候我们需要运行 flutter 的时候指定参数，比如。"
 date: 2022-06-10T00:00:00.000Z
 tags:
   - flutter
@@ -7,7 +8,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/5wfygxhf/
+permalink: /flutter/flutter-vscode-config/
 ---
 
 有些时候我们需要运行 flutter 的时候指定参数，比如，我想在 flutter for web 的项目中运行的时候指定项目：

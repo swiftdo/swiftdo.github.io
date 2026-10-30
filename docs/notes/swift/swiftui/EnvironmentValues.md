@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: EnvironmentValues
+description: "EnvironmentValues —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/c621omi7/
+permalink: /swift/swiftui/environment-values/
 ---
 
 # EnvironmentValues

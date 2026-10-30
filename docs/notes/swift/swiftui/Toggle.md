@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: Toggle
+description: "在开/关状态之间切换的控件。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/s16yhoid/
+permalink: /swift/swiftui/toggle/
 ---
 
 # Toggle

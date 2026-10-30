@@ -1,5 +1,6 @@
 ---
 title: 掌握 Pandas 与可视化工具
+description: "发现有部分成绩列存在缺失值，我们决定用该科目的均值来填充。"
 date: 2025-02-19T00:00:00.000Z
 tags:
   - ai
@@ -9,7 +10,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2025/03/02 16:27:34
-permalink: /ai/krw2xpkg/
+permalink: /ai/ml/mastering-pandas-and-visualization-tools/
 ---
 
 ## 一、准备工作

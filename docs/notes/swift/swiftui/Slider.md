@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: Slider
+description: "从有界的线性范围中选择一个值的控件。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/afcy15ko/
+permalink: /swift/swiftui/slider/
 ---
 
 # Slider

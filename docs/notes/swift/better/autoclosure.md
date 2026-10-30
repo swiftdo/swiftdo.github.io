@@ -7,8 +7,9 @@ tags:
   - swift
   - ios
 title: autoclosure
+description: "Swift 中有很多有用的属性关键字。@autoclosure 是其中之一，是一个非常常用的属性。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/2hwjpd6p/
+permalink: /swift/better/autoclosure/
 ---
 
 # @autoclosure

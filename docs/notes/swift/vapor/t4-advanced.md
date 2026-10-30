@@ -3,12 +3,13 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: 进阶
+description: "进阶 —— OldBird Swift 笔记"
 date: 2020-08-17T00:00:00.000Z
 tags:
   - swift
   - vapor
 createTime: 2024/08/02 09:19:27
-permalink: /swift/2lmy8ruo/
+permalink: /swift/vapor/t4-advanced/
 ---
 
 ## 认证

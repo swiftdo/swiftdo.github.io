@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: ZStack
+description: "子元素会在z 轴方向上叠加，同时在垂直/水平轴上对齐的视图。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/ofj85bz5/
+permalink: /swift/swiftui/z-stack/
 ---
 
 # ZStack

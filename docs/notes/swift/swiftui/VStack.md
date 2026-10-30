@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: VStack
+description: "垂直排列子元素的视图。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/nc18x749/
+permalink: /swift/swiftui/v-stack/
 ---
 
 # VStack

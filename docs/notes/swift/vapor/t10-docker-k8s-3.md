@@ -3,6 +3,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: K8s 简单的水平扩展
+description: "前文我们已经实现将应用部署到Kubernetes，并通过服务暴露访问。使用 Kubernets 的一个主要好处是可以简单的扩展部署。"
 date: 2024-09-25T00:00:00.000Z
 tags:
   - swift
@@ -10,7 +11,7 @@ tags:
   - docker
   - k8s
 createTime: 2024/09/26 14:30:39
-permalink: /swift/i2lr121o/
+permalink: /swift/vapor/t10-docker-k8s-3/
 ---
 
 前文我们已经实现将应用部署到Kubernetes，并通过服务暴露访问。使用 Kubernets 的一个主要好处是可以简单的扩展部署。

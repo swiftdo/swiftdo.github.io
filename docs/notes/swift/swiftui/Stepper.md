@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: Stepper
+description: "用于执行语义上递增和递减动作的控件。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/qx39qnjk/
+permalink: /swift/swiftui/stepper/
 ---
 
 # Stepper

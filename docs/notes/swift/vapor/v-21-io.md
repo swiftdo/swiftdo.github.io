@@ -3,12 +3,13 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: swift-nio原理之I/O模型篇
+description: "传统的 HTTP 服务器的原理"
 date: 2020-11-22T00:00:00.000Z
 tags:
   - swift
   - vapor
 createTime: 2024/08/02 09:19:27
-permalink: /swift/9ui3kn4t/
+permalink: /swift/vapor/v-21-io/
 ---
 
 ## 从 HTTP 说起

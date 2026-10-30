@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: ViewModifier
+description: "A modifier that you apply to a view or another view modifier, producing a different version of the original value."
 createTime: 2024/08/02 09:19:27
-permalink: /swift/1soctasy/
+permalink: /swift/swiftui/view-modifier/
 ---
 
 # 介绍

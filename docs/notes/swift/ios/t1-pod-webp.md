@@ -3,12 +3,13 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: Pod libwebp 安装失败
+description: "pod SDWebImage/WebP 遇到下面的问题"
 date: 2020-10-10T00:00:00.000Z
 tags:
   - swift
   - ios
 createTime: 2024/08/02 09:19:27
-permalink: /swift/ovnoc22p/
+permalink: /swift/ios/t1-pod-webp/
 ---
 
 `pod SDWebImage/WebP` 遇到下面的问题:

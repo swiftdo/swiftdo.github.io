@@ -1,5 +1,6 @@
 ---
 title: Flutter Widget 截图(二)
+description: "在上篇文章中，我们已经实现了 Widget 的截图功能。但是有一个问题，我将图片放到 Figma 中。"
 date: 2022-06-10T00:00:00.000Z
 tags:
   - flutter
@@ -7,7 +8,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/k02c3uj4/
+permalink: /flutter/flutter-screenshoot2/
 ---
 
 在上篇文章中，我们已经实现了 Widget 的截图功能。但是有一个问题，我将图片放到 `Figma` 中，会发现如下：

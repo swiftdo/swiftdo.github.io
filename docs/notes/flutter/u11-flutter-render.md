@@ -1,5 +1,6 @@
 ---
 title: Flutter 是如何渲染的？
+description: "Flutter 是如何渲染的？"
 date: 2021-01-11T00:00:00.000Z
 tags:
   - flutter
@@ -7,7 +8,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/tg3tiep4/
+permalink: /flutter/u11-flutter-render/
 ---
 
 Flutter 是如何渲染的？

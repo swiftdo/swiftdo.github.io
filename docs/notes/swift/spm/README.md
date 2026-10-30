@@ -1,5 +1,6 @@
 ---
 title: Swift Packages
+description: "创建可重用的代码，以轻量级的方式组织它，并在 Xcode 项目和其他开发人员之间共享。"
 sitemap:
   exclude: false
   changefreq: hourly
@@ -9,7 +10,7 @@ tags:
   - ios
   - spm
 createTime: 2024/08/02 09:19:27
-permalink: /swift/qk68u16w/
+permalink: /swift/spm/
 ---
 
 # Swift Packages

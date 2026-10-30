@@ -1,5 +1,6 @@
 ---
 title: VuePress build 内存泄露
+description: "随着文档数量的增加，Vuepress 在 ci 构建的可能就会出现 node 内存泄露。"
 sitemap:
   exclude: false
   changefreq: hourly

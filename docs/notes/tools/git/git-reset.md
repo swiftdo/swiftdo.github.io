@@ -1,5 +1,6 @@
 ---
 title: Git 恢复丢失的文件
+description: "在使用 Git 的过程中，有时会不小心丢失 commit 信息。"
 sitemap:
   exclude: false
   changefreq: hourly

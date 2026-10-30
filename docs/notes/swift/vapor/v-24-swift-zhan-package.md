@@ -3,13 +3,14 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: SwiftNIO 实战之TCP粘包/拆包问题
+description: "在 TCP 编程中，无论是服务器还是客户端，当我们读取或者发送消息的时候，都需要考虑 TCP 底层的粘包/拆包机制。"
 date: 2020-11-22T00:00:00.000Z
 tags:
   - swift
   - vapor
   - swiftnio
 createTime: 2024/08/02 09:19:27
-permalink: /swift/baejst7o/
+permalink: /swift/vapor/v-24-swift-zhan-package/
 ---
 
 在 TCP 编程中，无论是服务器还是客户端，当我们读取或者发送消息的时候，都需要考虑 TCP 底层的粘包/拆包机制。本文先简单介绍 TCP 粘包/拆包的基础知识，然后模拟一个没有考虑 TCP 粘包/拆包导致功能异常的案例，最后探讨 SwiftNIO 是如何解决这个问题的。

@@ -3,6 +3,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: spm篇
+description: "Xcode 直接打开这个 Package 的根目录，就会根据 Package.swift 自动生成 Target。"
 date: 2022-01-12T00:00:00.000Z
 tags:
   - swift
@@ -11,7 +12,7 @@ tags:
   - swiftenv
   - spm
 createTime: 2024/08/02 09:19:27
-permalink: /swift/cxq2u8my/
+permalink: /swift/ubuntu/spm/
 ---
 
 ## 快速创建一个 Swift Package

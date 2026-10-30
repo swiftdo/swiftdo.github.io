@@ -1,5 +1,6 @@
 ---
 title: 运维
+description: "Linux 运维笔记，记录防火墙、访问控制、SonarQube 等服务部署与排错经验。"
 createTime: 2024/12/09 00:00:00
 permalink: /ops/
 tags:

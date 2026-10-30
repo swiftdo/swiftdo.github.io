@@ -1,7 +1,8 @@
 ---
 title: 接口隔离原则
+description: "接口隔离原则（Interface Segregation Principle，ISP）的定义是客户端不应该依赖它不需要的接口，类间的依赖关系应该建立在最小的接口上。简单来说就是建立单一的接口，不要建立臃肿庞大的接口。"
 createTime: 2024/09/25 17:05:01
-permalink: /design-patterns/gym48ks1/
+permalink: /design-patterns/principles/isp/
 ---
 # 接口隔离原则
 

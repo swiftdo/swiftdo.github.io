@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: PresentationButton
+description: "PresentationButton —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/idgnmd6u/
+permalink: /swift/swiftui/presentation-button/
 ---
 
 # PresentationButton

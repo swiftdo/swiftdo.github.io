@@ -1,5 +1,6 @@
 ---
 title: 第六章：想要获得好的回答，你一定要有前提
+description: "在这个人工智能飞速发展的时代，AI 已经成为我们生活和工作中的得力助手。但很多人在处在使用 AI 时，常常苦恼于得不到自己想要的答案。其实，这往往是因为提问的方式不够恰当。"
 sitemap:
   exclude: false
   changefreq: hourly
@@ -7,7 +8,7 @@ date: 2025-02-10T00:00:00.000Z
 tags:
   - deepseek
 createTime: 2025/03/03 20:26:19
-permalink: /ai/3uxidnmy/
+permalink: /ai/deepseek/deepseek-5/
 ---
 
 

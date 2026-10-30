@@ -3,12 +3,13 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: Tips
+description: "Tips —— OldBird Swift 笔记"
 date: 2020-08-17T00:00:00.000Z
 tags:
   - swift
   - tips
 createTime: 2024/08/02 09:19:27
-permalink: /swift/jtav42dt/
+permalink: /swift/tips/
 ---
 
 ## 支持值的类型可能为 String 和 Int 的 Codale 解析

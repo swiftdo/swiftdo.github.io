@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: LocalizedStringKey
+description: "LocalizedStringKey —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/jh1z6w4h/
+permalink: /swift/swiftui/localized-string-key/
 ---
 
 # LocalizedStringKey

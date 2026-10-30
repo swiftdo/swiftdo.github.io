@@ -3,6 +3,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: K8s 使用标签组织pod
+description: "通过标签来组织pod和所有其他Kubernetes对象。通过给这些pod添加标签，可以得到一个更组织化的系统。"
 date: 2024-09-29T00:00:00.000Z
 tags:
   - swift
@@ -10,7 +11,7 @@ tags:
   - docker
   - k8s
 createTime: 2024/09/29 14:30:50
-permalink: /swift/1iu1je5z/
+permalink: /swift/vapor/t10-docker-k8s-6/
 ---
 
 通过标签来组织pod和所有其他Kubernetes对象。通过给这些pod添加标签，可以得到一个更组织化的系统。

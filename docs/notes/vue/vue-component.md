@@ -3,11 +3,12 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: 自定义组件
+description: "学习如何自定义一个组件"
 date: 2024-08-02T00:00:00.000Z
 tags:
   - vue
 createTime: 2024/08/02 09:41:07
-permalink: /vue/lpj9r3z1/
+permalink: /vue/vue-component/
 ---
 
 学习如何自定义一个组件

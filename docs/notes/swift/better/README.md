@@ -7,8 +7,9 @@ tags:
   - swift
   - ios
 title: README
+description: "写更好的 Swift 的代码 —— OldBird 技术笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/7jitkke3/
+permalink: /swift/better/
 ---
 
 # 写更好的 Swift 的代码

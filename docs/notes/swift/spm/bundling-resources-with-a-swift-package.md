@@ -1,5 +1,6 @@
 ---
 title: 使用 Swift 包捆绑资源
+description: "将资源文件添加到您的 Swift 包并在您的代码中访问它们。"
 sitemap:
   exclude: false
   changefreq: hourly
@@ -9,7 +10,7 @@ tags:
   - ios
   - spm
 createTime: 2024/08/02 09:19:27
-permalink: /swift/e2mvtbp4/
+permalink: /swift/spm/bundling-resources-with-a-swift-package/
 ---
 
 > 原文：[https://developer.apple.com/documentation/swift_packages/bundling_resources_with_a_swift_package](https://developer.apple.com/documentation/swift_packages/bundling_resources_with_a_swift_package)

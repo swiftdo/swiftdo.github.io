@@ -1,7 +1,8 @@
 ---
 title: 代理模式
+description: "为其他对象提供一种代理以控制对这个对象的访问。"
 createTime: 2024/09/25 17:05:01
-permalink: /design-patterns/4l7pn672/
+permalink: /design-patterns/structural/proxy-pattern/
 ---
 # 代理模式
 

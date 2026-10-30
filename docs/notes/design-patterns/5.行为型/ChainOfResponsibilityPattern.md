@@ -1,7 +1,8 @@
 ---
 title: 责任链模式
+description: "避免请求发送者与接收者耦合在一起，让多个对象都有可能接收请求，将这些对象连接成一条链，并且沿着这条链传递请求，直到有对象处理它为止。"
 createTime: 2024/09/25 17:05:01
-permalink: /design-patterns/hks8gdo5/
+permalink: /design-patterns/behavioral/chain-of-responsibility-pattern/
 ---
 # 责任链模式
 

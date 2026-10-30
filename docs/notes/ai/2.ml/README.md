@@ -1,5 +1,6 @@
 ---
 title: 机器学习
+description: "机器学习（Machine Learning，简称ML）是人工智能（AI）领域的一个重要分支，旨在通过数据和经验使计算机系统具备自我学习的能力，而无需明确编程指令。"
 date: 2025-02-03T00:00:00.000Z
 tags:
   - ai
@@ -9,7 +10,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2025/02/18 10:04:35
-permalink: /ai/dnib2xlf/
+permalink: /ai/ml/
 ---
 
 机器学习（Machine Learning，简称ML）是人工智能（AI）领域的一个重要分支，旨在通过数据和经验使计算机系统具备自我学习的能力，而无需明确编程指令。简单来说，机器学习是让计算机能够从大量数据中“学习”并“改进”其决策过程，最终实现更好的预测、分类或识别。

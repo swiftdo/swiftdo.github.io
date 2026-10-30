@@ -1,5 +1,6 @@
 ---
 title: 将包的依赖关系作为本地包进行编辑
+description: "要编辑一个包，需要将其作为本地包，覆盖依赖关系。"
 sitemap:
   exclude: false
   changefreq: hourly
@@ -9,7 +10,7 @@ tags:
   - ios
   - spm
 createTime: 2024/08/02 09:19:27
-permalink: /swift/h0573fu1/
+permalink: /swift/spm/editing-a-package-dependency-as-a-local-package/
 ---
 
 > 原文：[https://developer.apple.com/documentation/swift_packages/editing_a_package_dependency_as_a_local_package](https://developer.apple.com/documentation/swift_packages/editing_a_package_dependency_as_a_local_package)

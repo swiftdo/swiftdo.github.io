@@ -1,5 +1,6 @@
 ---
 title: Skills
+description: "最近 AI 界又有一个概念火出圈了，它就是——Skills（技能）。"
 createTime: 2026/01/30 09:46:47
 permalink: /ai/agent-skills/
 ---

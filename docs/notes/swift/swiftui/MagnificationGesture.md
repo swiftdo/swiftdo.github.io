@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: MagnificationGesture
+description: "MagnificationGesture —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/dc085hf7/
+permalink: /swift/swiftui/magnification-gesture/
 ---
 
 # MagnificationGesture

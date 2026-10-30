@@ -1,7 +1,8 @@
 ---
 title: 组合/聚合复用原则
+description: "合成/聚合复用原则（Composite/Aggregate Reuse Principle，CARP）一般也叫合成复用原则(Composite Reuse Principle, CRP)，定义是：尽量使用合成/聚合，而不是通过继承达到复用的…"
 createTime: 2024/09/25 17:05:01
-permalink: /design-patterns/cvejy5sn/
+permalink: /design-patterns/principles/carp/
 ---
 # 组合/聚合复用原则
 

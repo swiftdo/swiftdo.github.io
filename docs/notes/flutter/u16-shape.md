@@ -1,5 +1,6 @@
 ---
 title: 自定义 ShapeBorder
+description: "需要继承自 ShapeBorder"
 date: 2021-06-09T00:00:00.000Z
 tags:
   - flutter
@@ -7,7 +8,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/7qdr31de/
+permalink: /flutter/u16-shape/
 ---
 
 需要继承自 `ShapeBorder`

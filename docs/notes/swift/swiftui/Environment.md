@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: Environment
+description: "Environment —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/fr4x0ih0/
+permalink: /swift/swiftui/environment/
 ---
 
 # Environment

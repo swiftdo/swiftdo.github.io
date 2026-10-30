@@ -1,5 +1,6 @@
 ---
 title: Result Builders 实战
+description: "Result Builders允许某些函数通过一系列组件中隐式构建结果值，按照开发者设定的构建规则对组件进行排列。通过对函数语句应用构建器进行转译，Result Builders提供了在 Swift 中创建新的领域特定语言（DSL）的能力。"
 sitemap:
   exclude: false
   changefreq: hourly
@@ -9,7 +10,7 @@ tags:
   - ios
   - swiftui
 createTime: 2024/08/02 09:19:27
-permalink: /swift/4p43f5b1/
+permalink: /swift/swiftui/result-builders/
 ---
 
 `Result Builders`允许某些函数通过一系列组件中隐式构建结果值，按照开发者设定的构建规则对组件进行排列。通过对函数语句应用构建器进行转译，`Result Builders`提供了在 Swift 中创建新的领域特定语言（DSL）的能力。

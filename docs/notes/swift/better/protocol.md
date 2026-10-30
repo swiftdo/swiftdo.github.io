@@ -7,8 +7,9 @@ tags:
   - swift
   - ios
 title: protocol
+description: "上方抛出了 2 个概念，对于关联协议还是比较容易理解的。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/t2ma4oru/
+permalink: /swift/better/protocol/
 ---
 
 # 关联协议与类型擦除

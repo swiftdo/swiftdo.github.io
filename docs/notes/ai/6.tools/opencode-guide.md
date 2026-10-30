@@ -1,5 +1,6 @@
 ---
 title: Opencode 使用指南
+description: "Opencode 是一款基于 AI 的命令行编程助手，能够理解自然语言指令并执行代码任务。"
 date: 2026-02-26T00:00:00.000Z
 tags:
   - opencode

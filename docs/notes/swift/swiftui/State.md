@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: State
+description: "The views are a function of state, not a sequence of events 视图是状态的函数，而不是事件的序列"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/hhnl1sff/
+permalink: /swift/swiftui/state/
 ---
 
 # @State

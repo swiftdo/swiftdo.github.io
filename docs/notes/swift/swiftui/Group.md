@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: Group
+description: "Group —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/wca2rw8g/
+permalink: /swift/swiftui/group/
 ---
 
 # Group

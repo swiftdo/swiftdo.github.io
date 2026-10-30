@@ -3,6 +3,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: Docker k8s篇
+description: "busybox是一个单一可执行文件，包含多种标准UNIX命令行工具，如：echo、ls、gzip 等。除了包含 echo 命令的 busybox 命令，也可以使用如Fedora、Ubuntu等功能完备的镜像。"
 date: 2024-09-25T00:00:00.000Z
 tags:
   - swift
@@ -10,7 +11,7 @@ tags:
   - docker
   - k8s
 createTime: 2024/09/25 15:24:22
-permalink: /swift/rkccbvtf/
+permalink: /swift/vapor/t10-docker-k8s-1/
 ---
 
 ## 使用Docker运行一个Hello world容器

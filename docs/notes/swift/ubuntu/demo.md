@@ -3,6 +3,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: 完整实战篇
+description: "下面将创建个 demo 工程，将上面的工具整合在一起，形成一个完整的项目开发流"
 date: 2022-01-12T00:00:00.000Z
 tags:
   - swift
@@ -10,7 +11,7 @@ tags:
   - vapor
   - swiftenv
 createTime: 2024/08/02 09:19:27
-permalink: /swift/td9aokjq/
+permalink: /swift/ubuntu/demo/
 ---
 
 下面将创建个 demo 工程，将上面的工具整合在一起，形成一个完整的项目开发流

@@ -1,7 +1,8 @@
 ---
 title: 访问者模式
+description: "将算法与其所作用的对象隔离开来。"
 createTime: 2024/09/25 17:05:01
-permalink: /design-patterns/wy8hdiyb/
+permalink: /design-patterns/behavioral/visitor-pattern/
 ---
 # 访问者模式
 

@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: Form
+description: "对数据输入的控件进行分组的容器，例如在设置或检查器中。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/rhzzheom/
+permalink: /swift/swiftui/form/
 ---
 
 # Form

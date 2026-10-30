@@ -1,5 +1,6 @@
 ---
 title: GitHub CEO 托马斯·多姆克（Thomas Dohmke）宣布离任
+description: "2025 年 8 月 11 日，GitHub 首席执行官 Thomas Dohmke（托马斯·多姆克） 宣布将于今年底离任，回归创业。"
 createTime: 2025/08/12 15:28:44
 permalink: /article/github-ceo-thomas-dohmke/
 ---

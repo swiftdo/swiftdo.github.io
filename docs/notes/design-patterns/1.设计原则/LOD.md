@@ -1,7 +1,8 @@
 ---
 title: 迪米特法则
+description: "迪米特法则（Law of Demeter，LOD），有时候也叫做最少知识原则（Least Knowledge Principle，LKP），它的定义是：一个软件实体应当尽可能少地与其他实体发生相互作用。"
 createTime: 2024/09/25 17:05:01
-permalink: /design-patterns/c40785ug/
+permalink: /design-patterns/principles/lod/
 ---
 # 迪米特法则
 

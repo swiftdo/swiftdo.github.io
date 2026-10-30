@@ -1,5 +1,6 @@
 ---
 title: Figma 安装中文字体
+description: "Figma 的字体是自动识别电脑系统里已安装的字体，所以下载字体包后复制到对应的系统字体库里即可，然后客户端可以自动识别。"
 sitemap:
   exclude: false
   changefreq: hourly

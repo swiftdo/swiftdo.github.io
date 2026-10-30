@@ -1,7 +1,8 @@
 ---
 title: 命令模式
+description: "将一个请求封装成一个对象，从而使您可以用不同的请求对客户进行参数化。"
 createTime: 2024/09/25 17:05:01
-permalink: /design-patterns/fetwewuc/
+permalink: /design-patterns/structural/command-pattern/
 ---
 # 命令模式
 

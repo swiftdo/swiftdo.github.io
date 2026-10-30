@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: DragGesture
+description: "DragGesture —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/poxexntg/
+permalink: /swift/swiftui/drag-gesture/
 ---
 
 # DragGesture

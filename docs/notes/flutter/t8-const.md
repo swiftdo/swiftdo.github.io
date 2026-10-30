@@ -1,5 +1,6 @@
 ---
 title: Flutter 中 const 使用
+description: "在查看 Flutter Widget 的源码的时候，常常会遇到 const 这个关键字。"
 date: 2021-01-20T00:00:00.000Z
 tags:
   - flutter
@@ -7,7 +8,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/8oly7wjl/
+permalink: /flutter/t8-const/
 ---
 
 在查看 Flutter Widget 的源码的时候，常常会遇到 const 这个关键字。

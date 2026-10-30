@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: Transaction
+description: "Transaction —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/ohrd57kx/
+permalink: /swift/swiftui/transaction/
 ---
 
 # Transaction

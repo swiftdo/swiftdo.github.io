@@ -1,5 +1,6 @@
 ---
 title: Flutter for Web 自定义启动加载页面
+description: "打开站点，首先会出现空白页面，且顶部进度条不断再走。"
 date: 2022-06-18T00:00:00.000Z
 tags:
   - flutter
@@ -7,7 +8,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/nynv3374/
+permalink: /flutter/flutter-web-launch-page/
 ---
 
 打开站点，首先会出现空白页面，且顶部进度条不断再走。

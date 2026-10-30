@@ -3,13 +3,14 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: iOS 小组件开发之Include Configuration App Intent
+description: "在 iOS 17 及其后的版本中，Apple 引入了 Include Configuration App Intent 选项，用于支持可配置的小组件 (Widget Configuration)，使用户在添加小组件时可以选择不同的配置，例如…"
 date: 2024-10-22T00:00:00.000Z
 tags:
   - swift
   - ios
   - widgetkit
 createTime: 2024/10/22 09:14:02
-permalink: /swift/2106uzkn/
+permalink: /swift/ios/widgetkit-1/
 ---
 
 在 iOS 17 及其后的版本中，Apple 引入了 **`Include Configuration App Intent`** 选项，用于支持**可配置的小组件 (Widget Configuration)**，使用户在添加小组件时可以选择不同的配置，例如特定的类别、内容过滤或其他自定义选项。它通过 **App Intents** 框架实现。

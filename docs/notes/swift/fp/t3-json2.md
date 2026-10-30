@@ -3,13 +3,14 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: Swift 码了个 JSON 解析器(二)
+description: "我们将开发一个小而完整的 Swift 库，这个库用于处理和序列化 JSON 数据。"
 date: 2021-4-11
 tags:
   - swift
   - 函数式编程
   - json
 createTime: 2024/08/02 09:19:27
-permalink: /swift/13n4t491/
+permalink: /swift/fp/t3-json2/
 ---
 
 我们将开发一个小而完整的 Swift 库，这个库用于处理和序列化 JSON 数据。

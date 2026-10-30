@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: WebView
+description: "WebView —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/mzgd5h6u/
+permalink: /swift/swiftui/web-view/
 ---
 
 # WebView

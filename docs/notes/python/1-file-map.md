@@ -3,11 +3,12 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: Python 遍历指定目录下所有文件名
+description: "遍历一个目录，上传该目录下的所有图片"
 date: 2021-8-30
 tags:
   - python
 createTime: 2024/08/02 09:19:27
-permalink: /python/qa9pcfuq/
+permalink: /python/1-file-map/
 ---
 
 遍历一个目录，上传该目录下的所有图片：

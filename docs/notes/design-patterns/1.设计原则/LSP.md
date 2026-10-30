@@ -1,7 +1,8 @@
 ---
 title: 里氏代换原则
+description: "里氏代换原则（Liskov Substitution Principle，LSP）的定义是：所有引用基类的地方必须能透明地使用其子类的对象，也可以简单理解为任何基类可以出现的地方，子类一定可以出现。"
 createTime: 2024/09/25 17:05:01
-permalink: /design-patterns/1m2djuhs/
+permalink: /design-patterns/principles/lsp/
 ---
 # 里氏代换原则
 

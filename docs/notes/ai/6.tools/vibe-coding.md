@@ -1,5 +1,6 @@
 ---
 title: 2025 Vibe Coding 终极横评
+description: "Lovable vs v0 vs Bolt vs Replit：免费额度、价格、场景一次看懂"
 createTime: 2025/07/28 21:35:47
 permalink: /ai/vibe-coding/
 ---

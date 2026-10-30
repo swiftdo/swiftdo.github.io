@@ -3,11 +3,12 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: Python 文件操作
+description: "读写文件是最常见的 IO 操作。Python 内置了读写文件的函数，用法和 C 是兼容的。"
 date: 2022-03-19T00:00:00.000Z
 tags:
   - python
 createTime: 2024/08/02 09:19:27
-permalink: /python/d8y7aqc5/
+permalink: /python/python-file/
 ---
 
 读写文件是最常见的 IO 操作。Python 内置了读写文件的函数，用法和 C 是兼容的。

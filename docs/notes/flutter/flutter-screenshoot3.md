@@ -1,5 +1,6 @@
 ---
 title: Flutter Widget 截图(三)
+description: "Flutter 屏幕截图，超出屏幕截图。"
 date: 2022-06-10T00:00:00.000Z
 tags:
   - flutter
@@ -7,7 +8,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/3asekfx9/
+permalink: /flutter/flutter-screenshoot3/
 ---
 
 Flutter 屏幕截图，超出屏幕截图。

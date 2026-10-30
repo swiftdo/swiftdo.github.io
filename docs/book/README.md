@@ -1,5 +1,6 @@
 ---
 title: '书单'
+description: "书单 —— OldBird 技术笔记"
 sitemap:
   exclude: false
   changefreq: hourly

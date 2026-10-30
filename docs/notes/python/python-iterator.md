@@ -3,11 +3,12 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: Python 迭代器
+description: "列表（list）、元组（tuple）、字典（dict）、集合（set）这些序列式容器有一个共同的特性，它们都支持使用for循环遍历存储的元素，都是可迭代的，因此它们又有一个别称，即迭代器"
 date: 2022-03-20T00:00:00.000Z
 tags:
   - python
 createTime: 2024/08/02 09:19:27
-permalink: /python/8hacczf1/
+permalink: /python/python-iterator/
 ---
 
 列表（list）、元组（tuple）、字典（dict）、集合（set）这些序列式容器有一个共同的特性，它们都支持使用`for`循环遍历存储的元素，都是可迭代的，因此它们又有一个别称，即**迭代器**

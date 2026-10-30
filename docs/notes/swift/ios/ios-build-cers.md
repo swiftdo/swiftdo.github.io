@@ -3,6 +3,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: iOS 打包证书制作
+description: "iOS 有两种证书和描述文件"
 date: 2020-10-10T00:00:00.000Z
 tags:
   - swift
@@ -10,7 +11,7 @@ tags:
   - pod
   - 打包
 createTime: 2024/08/02 09:19:27
-permalink: /swift/5hojoq8w/
+permalink: /swift/ios/ios-build-cers/
 ---
 
 iOS 有两种证书和描述文件：

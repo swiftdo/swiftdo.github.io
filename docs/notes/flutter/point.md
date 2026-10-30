@@ -1,5 +1,6 @@
 ---
 title: Flutter必备点
+description: "Flutter必备点 —— OldBird 技术笔记"
 date: 2022-01-05T00:00:00.000Z
 tags:
   - flutter
@@ -7,7 +8,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/3sq67kmt/
+permalink: /flutter/point/
 ---
 
 ## 必备要点

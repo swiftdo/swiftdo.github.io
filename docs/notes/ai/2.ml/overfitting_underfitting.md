@@ -1,5 +1,6 @@
 ---
 title: 过拟合与欠拟合
+description: "在机器学习领域，过拟合（Overfitting）和欠拟合（Underfitting）是两个常见且重要的概念，它们直接影响着模型的性能和泛化能力。理解这两个概念，对于构建高效、准确的机器学习模型至关重要。"
 date: 2025-02-19T00:00:00.000Z
 tags:
   - ai
@@ -9,7 +10,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2025/02/19 12:48:12
-permalink: /ai/ngjjqrgt/
+permalink: /ai/ml/overfitting-underfitting/
 ---
 
 # 过拟合与欠拟合

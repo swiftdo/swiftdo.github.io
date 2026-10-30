@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: ExclusiveGesture
+description: "ExclusiveGesture —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/hi67kg3m/
+permalink: /swift/swiftui/exclusive-gesture/
 ---
 
 # ExclusiveGesture

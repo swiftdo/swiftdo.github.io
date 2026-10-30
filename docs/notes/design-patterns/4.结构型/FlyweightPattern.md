@@ -1,7 +1,8 @@
 ---
 title: 享元模式
+description: "运用共享技术有效地支持大量细粒度对象的复用。"
 createTime: 2024/09/25 17:05:01
-permalink: /design-patterns/89hmop8w/
+permalink: /design-patterns/structural/flyweight-pattern/
 ---
 # 享元模式
 

@@ -1,5 +1,6 @@
 ---
 title: 第四章：分场景的提问策略锦囊 —— 实战深度应用
+description: "当我们处于基础较为薄弱的阶段，面对高等数学微积分这一难关时，向 DeepSeek 提问需有的放矢。"
 sitemap:
   exclude: false
   changefreq: hourly
@@ -7,7 +8,7 @@ date: 2025-02-10T00:00:00.000Z
 tags:
   - deepseek
 createTime: 2025/02/11 00:25:02
-permalink: /ai/xkhahv6b/
+permalink: /ai/deepseek/deepseek-3/
 ---
 
 ## 学术求知

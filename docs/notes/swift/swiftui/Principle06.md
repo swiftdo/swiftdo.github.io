@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: Principle06
+description: "通过使用 @State 修饰器我们可以关联出 View 的状态. SwiftUI 将会把使用过 @State 修饰器的属性存储到一个特殊的内存区域，并且这个区域和 View struct 是隔离的."
 createTime: 2024/08/02 09:19:27
-permalink: /swift/h7e9kpko/
+permalink: /swift/swiftui/principle06/
 ---
 
 ## @State

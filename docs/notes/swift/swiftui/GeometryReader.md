@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: GeometryReader
+description: "原文：GeometryReader to the Rescue"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/4kk4gfe0/
+permalink: /swift/swiftui/geometry-reader/
 ---
 
 # GeometryReader

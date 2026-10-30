@@ -1,5 +1,6 @@
 ---
 title: Flutter2 for Web，跨域篇
+description: "上篇 Flutter2 for Web，写了个博客站点，已上线，我们简单的封装了下网络请求。我们很愉快的将项目运行到 Chrome 上，但是迟迟未见数据，通过开发者工具。"
 date: 2021-03-21T00:00:00.000Z
 tags:
   - flutter
@@ -7,7 +8,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/bs1xuhez/
+permalink: /flutter/u12-flutter-web-02/
 ---
 
 上篇 [Flutter2 for Web，写了个博客站点，已上线](https://juejin.cn/post/6940962419355156494)，我们简单的封装了下网络请求。我们很愉快的将项目运行到 Chrome 上，但是迟迟未见数据，通过开发者工具，报如下错误：

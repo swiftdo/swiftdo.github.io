@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: SegmentedControl
+description: "SegmentedControl —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/qgx9jl2r/
+permalink: /swift/swiftui/segmented-control/
 ---
 
 # SegmentedControl

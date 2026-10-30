@@ -1,5 +1,6 @@
 ---
 title: ai 原型设计
+description: "在Claude Code和GLM-4.5的加持下，你几乎可以2分钟就生成一套原型。 我经常遇到观众问，想用AI Coding工具开发app，但是不会做设计，直接让Cursor等AI工具写的app很丑怎么办？"
 createTime: 2026/02/09 09:04:44
 permalink: /ai/ai-proto/
 ---

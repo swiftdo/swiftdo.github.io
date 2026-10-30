@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: Principle02
+description: "每次属性更改时，将其新值打印到 Xcode 控制台"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/49kzggui/
+permalink: /swift/swiftui/principle02/
 ---
 
 # 关于 propertyWarpper

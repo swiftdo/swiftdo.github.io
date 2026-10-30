@@ -1,5 +1,6 @@
 ---
 title: Flutter
+description: "Flutter 是 Google 开源的跨平台 UI 框架，使用 Dart 语言，可构建 Android、iOS、Web、桌面等应用。本专题记录 Flutter 开发、部署、渲染与工程化实践。"
 date: 2020-08-17T00:00:00.000Z
 tags:
   - flutter

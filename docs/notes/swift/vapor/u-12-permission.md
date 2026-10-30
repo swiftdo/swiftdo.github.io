@@ -3,12 +3,13 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: Vapor 之用户角色的权限系统
+description: "在简单的程序中，通常只有两种角色，比如个人博客只有博客作者和匿名的访客。这时我们并不需要在区分角色和管理权限上花太多功夫，可以简单的通过 token 就可以判断角色。登录(有 session 代表是登录用户)的是管理员，未登录的就是访客。"
 date: 2020-11-12T00:00:00.000Z
 tags:
   - swift
   - vapor
 createTime: 2024/08/02 09:19:27
-permalink: /swift/5mm5dne0/
+permalink: /swift/vapor/u-12-permission/
 ---
 
 

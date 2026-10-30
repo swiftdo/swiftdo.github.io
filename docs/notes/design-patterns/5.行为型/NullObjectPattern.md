@@ -1,7 +1,8 @@
 ---
 title: 空对象模式
+description: "通过实现一个默认的无意义对象来避免 null 值出现，简单地说，就是为了避免在程序中出现 null 值判断而诞生的一种常用设计方法。"
 createTime: 2024/09/25 17:05:01
-permalink: /design-patterns/ngv0doj0/
+permalink: /design-patterns/behavioral/null-object-pattern/
 ---
 # 空对象模式
 

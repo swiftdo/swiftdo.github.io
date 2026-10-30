@@ -1,5 +1,6 @@
 ---
 title: 掌握 scikit-learn 的基本操作
+description: "在当今数字化浪潮中，机器学习正以前所未有的速度改变着各行各业，而 scikit-learn 作为 Python 生态系统中最受欢迎的机器学习库之一，为我们提供了便捷且强大的工具，助力大家轻松涉足这一前沿领域。"
 date: 2025-03-03T00:00:00.000Z
 tags:
   - ai
@@ -9,7 +10,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2025/03/02 16:35:07
-permalink: /ai/clq9rdp0/
+permalink: /ai/ml/mastering-scikit-learn-basics/
 ---
 
 # 掌握 scikit-learn 的基本操作：开启机器学习之旅

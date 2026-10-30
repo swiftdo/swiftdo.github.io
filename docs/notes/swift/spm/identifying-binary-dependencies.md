@@ -1,5 +1,6 @@
 ---
 title: 识别二进制依赖
+description: "找出包依赖项是否引用了二进制文件并验证二进制文件的真实性。"
 sitemap:
   exclude: false
   changefreq: hourly
@@ -9,7 +10,7 @@ tags:
   - ios
   - spm
 createTime: 2024/08/02 09:19:27
-permalink: /swift/80tqrd9z/
+permalink: /swift/spm/identifying-binary-dependencies/
 ---
 
 > 原文：[https://developer.apple.com/documentation/swift_packages/identifying_binary_dependencies](https://developer.apple.com/documentation/swift_packages/identifying_binary_dependencies)

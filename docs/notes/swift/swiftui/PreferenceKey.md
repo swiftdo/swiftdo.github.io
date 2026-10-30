@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: PreferenceKey
+description: "Inspecting the View Tree – Part 1: PreferenceKey"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/z6zyl65n/
+permalink: /swift/swiftui/preference-key/
 ---
 
 # PreferenceKey

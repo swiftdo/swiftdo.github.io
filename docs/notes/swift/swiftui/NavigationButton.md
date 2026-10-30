@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: NavigationButton
+description: "NavigationButton —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/q3sckb4j/
+permalink: /swift/swiftui/navigation-button/
 ---
 
 # NavigationButton

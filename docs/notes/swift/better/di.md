@@ -7,8 +7,9 @@ tags:
   - swift
   - ios
 title: di
+description: "依赖注入是一个很重要的设计模式，它使用得非常广泛。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/r2u621o3/
+permalink: /swift/better/di/
 ---
 
 # DI(依赖注入)

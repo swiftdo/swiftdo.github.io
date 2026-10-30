@@ -7,8 +7,9 @@ tags:
   - swift
   - ios
 title: lazy
+description: "在用OC开发iOS的时代，相信你会看到很多懒加载的代码"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/xxi4q9al/
+permalink: /swift/better/lazy/
 ---
 
 # 性能优化利器 Lazy

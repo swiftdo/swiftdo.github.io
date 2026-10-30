@@ -1,5 +1,6 @@
 ---
 title: 添加 Swift Package 依赖
+description: "通过集成 package 依赖，实现项目之间共享代码，或利用其他开发者的代码。"
 sitemap:
   exclude: false
   changefreq: hourly
@@ -9,7 +10,7 @@ tags:
   - ios
   - spm
 createTime: 2024/08/02 09:19:27
-permalink: /swift/gdat6tst/
+permalink: /swift/spm/adding-package-dependencies-to-your-app/
 ---
 
 > 原文：[https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app)

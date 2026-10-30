@@ -1,7 +1,8 @@
 ---
 title: 开闭原则
+description: "开闭原则（Open Closed Principle，OCP）的定义是：一个软件实体如类、模块和函数应该对扩展开放，对修改关闭。模块应尽量在不修改原（是\"原\"，指原来的代码）代码的情况下进行扩展。"
 createTime: 2024/09/25 17:05:01
-permalink: /design-patterns/rqobjpjn/
+permalink: /design-patterns/principles/ocp/
 ---
 # 开闭原则
 

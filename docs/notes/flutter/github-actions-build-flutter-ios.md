@@ -1,5 +1,6 @@
 ---
 title: Github Actions 免费构建 Flutter iOS 包
+description: "在之前的文章中，有写过一篇《在 Github 上部署一个 Flutter Web 应用》，每次提交代码，就会触发 Github Actions 的构建流程，完成 Flutter Web 的编译部署，省心省力，一劳永逸。"
 date: 2022-01-05T00:00:00.000Z
 tags:
   - flutter
@@ -8,7 +9,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/fvzl9yhn/
+permalink: /flutter/github-actions-build-flutter-ios/
 ---
 
 在之前的文章中，有写过一篇[《在 Github 上部署一个 Flutter Web 应用》](https://oldbird.run/flutter/t5-flutter-web-deploy.html#flutter-web)，每次提交代码，就会触发 Github Actions 的构建流程，完成 Flutter Web 的编译部署，省心省力，一劳永逸。那么是否也能自动够构建出 iOS 包？答案是肯定的，本文将阐述其构建步骤。

@@ -3,11 +3,12 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: Python 工程化环境配置
+description: "为了更加快速的专业化创建一个 Python 工程。"
 date: 2022-03-19T00:00:00.000Z
 tags:
   - python
 createTime: 2024/08/02 09:19:27
-permalink: /python/cy858ljm/
+permalink: /python/python-develop-env/
 ---
 
 为了更加快速的专业化创建一个 Python 工程，简要记录下操作过程：

@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: ActionSheet
+description: "操作表视图的存储类型。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/8ohvaltg/
+permalink: /swift/swiftui/action-sheet/
 ---
 
 # ActionSheet

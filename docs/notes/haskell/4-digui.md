@@ -3,6 +3,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: 递归类型
+description: "递归类型：即它用自己来定义自己。"
 date: 2020-4-06
 tags:
   - haskell

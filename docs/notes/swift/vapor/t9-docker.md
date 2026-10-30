@@ -3,12 +3,13 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: Docker篇
+description: "容器运行可以有很多参数，比如指定映射宿主主机的端口、环境变量等等，包在一个 docker run 命令后就太麻烦了，所以通常用 docker-compose 来组织运行，它可以运行多个容器，并且可以指定依赖关系，以 YAML 格式存储可读性…"
 date: 2020-08-17T00:00:00.000Z
 tags:
   - swift
   - vapor
 createTime: 2024/08/02 09:19:27
-permalink: /swift/m24jbzvj/
+permalink: /swift/vapor/t9-docker/
 ---
 
 ## docker & vapor

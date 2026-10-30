@@ -7,8 +7,9 @@ tags:
   - swift
   - ios
 title: available
+description: "保持代码不变很难，因为需求不断在变化，系统、框架不断在更新。那么项目实践中，往往会废弃掉一些类或方法。如果是自己独立维护代码，且不需要将代码给他人使用，废弃 API 对你来说是非常简单的，直接改动源码即可。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/kim918en/
+permalink: /swift/better/available/
 ---
 
 # @available 与调用方进行沟通

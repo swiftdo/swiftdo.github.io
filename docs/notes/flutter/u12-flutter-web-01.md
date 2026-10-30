@@ -1,5 +1,6 @@
 ---
 title: Flutter for Web，网络篇
+description: "Flutter 迎来了它的的第二个大版本 Flutter2，其中最大变更之一就是对 Web 的生产质量有了新的支持，已经从 Beta 测试顺利转正。"
 date: 2021-03-18T00:00:00.000Z
 tags:
   - flutter
@@ -7,7 +8,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/rxcs0mtn/
+permalink: /flutter/u12-flutter-web-01/
 ---
 
 Flutter 迎来了它的的第二个大版本 `Flutter2`，其中最大变更之一就是对 Web 的生产质量有了新的支持，已经从 Beta 测试顺利转正。

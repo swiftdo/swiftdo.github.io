@@ -1,5 +1,6 @@
 ---
 title: 用Xcode创建一个独立的Swift包
+description: "将可执行或可共享的代码捆绑成一个独立的 Swift 包。"
 sitemap:
   exclude: false
   changefreq: hourly
@@ -9,7 +10,7 @@ tags:
   - ios
   - spm
 createTime: 2024/08/02 09:19:27
-permalink: /swift/tnhqp5ho/
+permalink: /swift/spm/creating-a-standalone-swift-package-with-xcode/
 ---
 
 > 原文：[https://developer.apple.com/documentation/xcode/creating-a-standalone-swift-package-with-xcode](https://developer.apple.com/documentation/xcode/creating-a-standalone-swift-package-with-xcode)

@@ -1,5 +1,6 @@
 ---
 title: GPT-5 提示词指南
+description: "GPT-5 是我们最新的旗舰模型，在代理任务执行、编码能力、原始智能以及可操控性方面实现了重大进步。"
 createTime: 2025/08/13 09:21:29
 permalink: /article/gpt-5-prompting-guide/
 tags:

@@ -1,5 +1,6 @@
 ---
 title: 提升访问域：外部js调用Vue的methods中的方法
+description: "最近遇到个场景：列表页面(h5)，点击添加按钮，进入发布页面，在发布页面(h5)提交成功的时候返回到列表页面，需要主动刷新列表页面。而这个场景是在h5与原生的混合环境中。"
 sitemap:
   exclude: false
   changefreq: hourly

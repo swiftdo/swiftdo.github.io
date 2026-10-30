@@ -1,5 +1,6 @@
 ---
 title: Flutter RepaintBoundary
+description: "Flutter Inspector 中点击 “Repaint Rainbow” 图标，它会为所有 RenderBox 绘制一层外框，并在它们重绘时会改变颜色。可以帮我们找到 App 中频繁重绘导致性能消耗过大的部分。"
 date: 2022-06-10T00:00:00.000Z
 tags:
   - flutter
@@ -7,7 +8,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/rzw3stf3/
+permalink: /flutter/flutter-repaint-boundary/
 ---
 
 Flutter Inspector 中点击 “Repaint Rainbow” 图标，它会为所有 RenderBox 绘制一层外框，并在它们重绘时会改变颜色。可以帮我们找到 App 中频繁重绘导致性能消耗过大的部分。

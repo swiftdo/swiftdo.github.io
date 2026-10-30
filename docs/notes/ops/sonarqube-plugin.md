@@ -3,6 +3,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: Sonarqube 安装插件报错 An error has occurred. Please contact your administrator
+description: "Sonarqube安装插件时提示：An error has occurred. Please contact your administrator"
 date: 2024-12-10T00:00:00.000Z
 tags:
   - centos

@@ -1,5 +1,6 @@
 ---
 title: Flutter之 FVM 版本管理
+description: "使用 Flutter 构建应用程序，我们一般会选用 stable 版本的 flutter，因为它是个稳定版本。如果你要用 Flutter 尝试写个 web 应用，就必须得使用 beta 版本，因为现在只有 beta 版本支持 web 开发。"
 date: 2021-01-19T00:00:00.000Z
 tags:
   - flutter
@@ -7,7 +8,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/qwfv7qbl/
+permalink: /flutter/t7-fvm/
 ---
 
 使用 Flutter 构建应用程序，我们一般会选用 stable 版本的 flutter，因为它是个稳定版本。如果你要用 Flutter 尝试写个 web 应用，就必须得使用 beta 版本，因为现在只有 beta 版本支持 web 开发。

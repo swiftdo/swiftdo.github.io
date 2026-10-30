@@ -3,12 +3,13 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: 安装
+description: "在使用 Vapor 的时候，需要先安装好 Swift，然后安装 Toolbox(非必须)。"
 date: 2020-08-17T00:00:00.000Z
 tags:
   - swift
   - vapor
 createTime: 2024/08/02 09:19:27
-permalink: /swift/4lvp4m2y/
+permalink: /swift/vapor/t1-install/
 ---
 
 在使用 Vapor 的时候，需要先安装好 Swift，然后安装 `Toolbox`(非必须)。

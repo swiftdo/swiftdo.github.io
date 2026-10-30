@@ -1,5 +1,6 @@
 ---
 title: 分步骤拆解法
+description: "在向 AI 提问时，一次性抛出复杂问题，往往会导致信息过载、回答模糊，甚至忽略关键细节。为了获得更精准、渐进式的深度答案，我们可以使用分步骤拆解法。"
 sitemap:
   exclude: false
   changefreq: hourly
@@ -7,7 +8,7 @@ date: 2025-03-03T00:00:00.000Z
 tags:
   - deepseek
 createTime: 2025/03/03 19:50:22
-permalink: /ai/qcor9ukw/
+permalink: /ai/deepseek/step-by-step-ai-prompting/
 ---
 
 

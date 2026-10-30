@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: GroupBox
+description: "GroupBox —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/xi4zw5i2/
+permalink: /swift/swiftui/group-box/
 ---
 
 # GroupBox

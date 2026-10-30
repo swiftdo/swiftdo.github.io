@@ -1,5 +1,6 @@
 ---
 title: Flutter 关于颜色的几个补充，非常实用
+description: "dart Text( '颜色', style: TextStyle(color: HexColor(\"#f2f2f2\")), )"
 date: 2022-02-23T00:00:00.000Z
 tags:
   - flutter
@@ -8,7 +9,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/276uhar6/
+permalink: /flutter/flutter-color/
 ---
 
 ## hexcolor

@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: HSplitView
+description: "HSplitView —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/zpvwj2y4/
+permalink: /swift/swiftui/h-split-view/
 ---
 
 # HSplitView

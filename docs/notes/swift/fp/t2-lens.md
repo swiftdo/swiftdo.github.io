@@ -3,12 +3,13 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: Swift Lens
+description: "Lens理解为不可变数据结构的 Getter 跟 Setter."
 date: 2021-3-31
 tags:
   - swift
   - 函数式编程
 createTime: 2024/08/02 09:19:27
-permalink: /swift/pm2utcgb/
+permalink: /swift/fp/t2-lens/
 ---
 
 Lens理解为不可变数据结构的 Getter 跟 Setter.

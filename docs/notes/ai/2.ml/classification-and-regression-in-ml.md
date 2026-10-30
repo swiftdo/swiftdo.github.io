@@ -1,5 +1,6 @@
 ---
 title: 分类与回归
+description: "分类与回归 —— OldBird AI 笔记"
 date: 2025-02-19T00:00:00.000Z
 tags:
   - ai
@@ -11,7 +12,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2025/02/19 09:10:14
-permalink: /ai/22ua3s2d/
+permalink: /ai/ml/classification-and-regression-in-ml/
 ---
 
 ## 1. 分类（Classification）

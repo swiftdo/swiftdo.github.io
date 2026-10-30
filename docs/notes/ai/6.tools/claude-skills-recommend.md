@@ -1,5 +1,6 @@
 ---
 title: 2025 热门 Claude Skills 推荐
+description: "Skills = AI 的\"超能力\"插件"
 createTime: 2026/02/26 15:30:00
 permalink: /ai/claude-skills-recommend/
 ---

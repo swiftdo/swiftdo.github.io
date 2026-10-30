@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: Alert
+description: "一个展示警告信息的容器。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/3unni9yz/
+permalink: /swift/swiftui/alert/
 ---
 
 # Alert

@@ -1,7 +1,8 @@
 ---
 title: README
+description: "官方公众号 OldBirds"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/xbcqa1uj/
+permalink: /swift/swiftui/
 ---
 ## SwiftUI 指南
 

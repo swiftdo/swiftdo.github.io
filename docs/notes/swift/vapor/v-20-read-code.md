@@ -3,12 +3,13 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: Vapor 源码阅读方法
+description: "Vapor 源码阅读有方法：抓主干，补血肉"
 date: 2020-11-2
 tags:
   - swift
   - vapor
 createTime: 2024/08/02 09:19:27
-permalink: /swift/85oenqul/
+permalink: /swift/vapor/v-20-read-code/
 ---
 
 Vapor 源码阅读有方法：**抓主干，补血肉**

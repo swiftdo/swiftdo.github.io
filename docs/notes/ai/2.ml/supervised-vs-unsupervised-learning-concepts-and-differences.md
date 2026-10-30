@@ -1,5 +1,6 @@
 ---
 title: 监督学习和无监督学习
+description: "举个例子，假如你有很多猫和狗的照片，并且每张照片都标注了它是猫还是狗。监督学习的目标就是让模型学会识别猫和狗的不同特征，以便在给它一张新图片时，它能判断是猫还是狗。"
 date: 2025-02-03T00:00:00.000Z
 tags:
   - ai
@@ -9,7 +10,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2025/02/18 10:33:38
-permalink: /ai/y4kcsxe5/
+permalink: /ai/ml/supervised-vs-unsupervised-learning-concepts-and-differences/
 ---
 
 

@@ -1,5 +1,6 @@
 ---
 title: macos 上如何关闭 ollama 开机自启问题
+description: "如果你已经在 系统设置 → 登录项 中关闭了 Ollama，但它仍然在 Mac 重启后自动启动，那么可以通过 修改 Ollama 内置的 LaunchAgent 配置，从系统层面阻止它开机自启。"
 createTime: 2026/02/03 09:16:03
 permalink: /ai/ollama-close-auto-launch/
 ---

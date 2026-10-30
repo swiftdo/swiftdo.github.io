@@ -3,13 +3,14 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: iOS WebKit
+description: "WebKit框架中涉及的类很多，框架的设计十分面向对象和模块化。"
 date: 2022-10-19T00:00:00.000Z
 tags:
   - swift
   - ios
   - webkit
 createTime: 2024/08/02 09:19:27
-permalink: /swift/8s06eh7w/
+permalink: /swift/ios/ios-webkit/
 ---
 
 WebKit框架中涉及的类很多，框架的设计十分面向对象和模块化。

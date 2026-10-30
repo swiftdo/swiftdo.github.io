@@ -1,7 +1,8 @@
 ---
 title: 桥接模式
+description: "将抽象部分与它的实现部分分离，使它们都可以独立地变化。通过提供抽象化和实现化之间的桥接结构，来实现二者的解耦。"
 createTime: 2024/09/25 17:05:01
-permalink: /design-patterns/ysciikh5/
+permalink: /design-patterns/structural/bridge-pattern/
 ---
 # 桥接模式
 

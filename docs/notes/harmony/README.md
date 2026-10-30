@@ -1,5 +1,6 @@
 ---
 title: 鸿蒙 / OpenHarmony
+description: "鸿蒙（OpenHarmony）相关学习笔记，记录环境安装、Flutter 鸿蒙运行、打包与常见问题。"
 createTime: 2025/08/11 16:00:00
 permalink: /harmony/
 tags:

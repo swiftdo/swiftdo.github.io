@@ -7,8 +7,9 @@ tags:
   - swift
   - ios
 title: last
+description: "为了避免命名冲突，在 OC 时代，我们的做法是在方法前面添加 snp/sd 类似前缀。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/1ds0ssp1/
+permalink: /swift/better/last/
 ---
 
 # 技巧拾遗

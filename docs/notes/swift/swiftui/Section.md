@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: Section
+description: "Section —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/dvasxr0r/
+permalink: /swift/swiftui/section/
 ---
 
 # Section

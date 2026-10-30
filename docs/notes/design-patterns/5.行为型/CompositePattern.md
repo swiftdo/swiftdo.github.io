@@ -1,7 +1,8 @@
 ---
 title: 组合模式
+description: "组合模式是一种具有层次关系的树形结构，不能再分的叶子节点是具体的组件，也就是最小的逻辑单元；具有子节点（由多个子组件组成）的组件称为复合组件，也就是组合对象。"
 createTime: 2024/09/25 17:05:01
-permalink: /design-patterns/tagg569n/
+permalink: /design-patterns/behavioral/composite-pattern/
 ---
 # 组合模式
 

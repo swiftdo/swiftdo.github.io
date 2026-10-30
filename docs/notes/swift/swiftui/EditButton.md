@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: EditButton
+description: "负责控制打开和关闭编辑模式。这个编辑模式需要和NavigationView相结合。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/4po3cagr/
+permalink: /swift/swiftui/edit-button/
 ---
 
 # EditButton

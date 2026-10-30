@@ -1,5 +1,6 @@
 ---
 title: 介绍
+description: "详情请看官网 VuePress"
 sitemap:
   exclude: false
   changefreq: hourly

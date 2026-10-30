@@ -1,7 +1,8 @@
 ---
 title: 适配器模式
+description: "把一个类的接口变换成客户端所期待的另一种接口，从而使原本接口不匹配而无法一起工作的两个类能够在一起工作。"
 createTime: 2024/09/25 17:05:01
-permalink: /design-patterns/g19so2mc/
+permalink: /design-patterns/structural/adapter-pattern/
 ---
 
 # 适配器模式

@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: SecureField
+description: "用户安全地输入私人文本的控件。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/vxdt5e9s/
+permalink: /swift/swiftui/secure-field/
 ---
 
 # SecureField

@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: Picker
+description: "从一组互斥值中进行选择的控件。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/wx8onehe/
+permalink: /swift/swiftui/picker/
 ---
 
 # Picker

@@ -1,5 +1,6 @@
 ---
 title: Flutter隐藏顶部状态栏
+description: "在最上层的 Widget 的 build 方法开头增加如下代码."
 date: 2021-12-05T00:00:00.000Z
 tags:
   - flutter
@@ -7,7 +8,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/fp8b1v2c/
+permalink: /flutter/y1-statubar/
 ---
 
 隐藏顶部状态栏

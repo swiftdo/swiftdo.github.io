@@ -3,12 +3,13 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: 属性包装器
+description: "属性包装器在管理属性如何存储和定义属性的代码之间添加了一个分隔层，便于代码的复用。"
 date: 2023-08-01T00:00:00.000Z
 tags:
   - swift
   - tips
 createTime: 2024/08/02 09:19:27
-permalink: /swift/jtpdspfh/
+permalink: /swift/tips/property-wrpappers/
 ---
 
 属性包装器在管理属性如何存储和定义属性的代码之间添加了一个分隔层，便于代码的复用。

@@ -1,5 +1,6 @@
 ---
 title: 掌握 Anaconda 的安装与使用
+description: "在人工智能和机器学习领域，环境管理和包管理是非常重要的工作。Anaconda 是一个强大的开源发行版，它集成了 Python、R 等多种编程语言，并且提供了便捷的环境管理和包管理工具。"
 date: 2025-02-19T00:00:00.000Z
 tags:
   - ai
@@ -9,7 +10,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2025/02/19 12:59:15
-permalink: /ai/907r63tc/
+permalink: /ai/ml/anaconda-installation-and-usage/
 ---
 
 ## 引言

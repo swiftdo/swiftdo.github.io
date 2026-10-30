@@ -1,5 +1,6 @@
 ---
 title: xm-select 使用指南
+description: "xm-select 使用指南"
 sitemap:
   exclude: false
   changefreq: hourly

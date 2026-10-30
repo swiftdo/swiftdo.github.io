@@ -1,7 +1,8 @@
 ---
 title: 宝塔面板 + flask + nginx + uwsgi + supervisord
+description: "在 Ubantu20.04 中，安装宝塔面板，部署 Flask."
 createTime: 2024/08/02 09:19:27
-permalink: /python/k5o30cqs/
+permalink: /python/4-bt-flask/
 ---
 
 

@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: SimultaneousGesture
+description: "SimultaneousGesture —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/24ya9nll/
+permalink: /swift/swiftui/simultaneous-gesture/
 ---
 
 # SimultaneousGesture

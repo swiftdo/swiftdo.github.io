@@ -1,5 +1,6 @@
 ---
 title: 马斯克旗下 xAI 公司宣布 Grok 4 免费开放
+description: "马斯克宣布 Grok 4 现在对所有用户免费开放。免费用户每天可完成少量查询，超过限制则需要订阅。"
 createTime: 2025/08/11 21:59:24
 permalink: /article/grok4-free/
 ---

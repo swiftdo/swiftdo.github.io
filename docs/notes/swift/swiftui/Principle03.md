@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: Principle03
+description: "Swift 协议的一个强大之处"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/eqmcbu2t/
+permalink: /swift/swiftui/principle03/
 ---
 
 # 关于 some View

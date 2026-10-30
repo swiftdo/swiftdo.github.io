@@ -3,11 +3,12 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: Python 之 mongodb 分页上传数据
+description: "将本地全部数据，分页上传到服务中"
 date: 2021-8-30
 tags:
   - python
 createTime: 2024/08/02 09:19:27
-permalink: /python/jdx1mqpq/
+permalink: /python/3-page-upload/
 ---
 
 将本地全部数据，分页上传到服务中

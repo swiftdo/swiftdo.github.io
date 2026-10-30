@@ -1,7 +1,8 @@
 ---
 title: 中介者模式
+description: "用来降低多个对象和类之间的通信复杂性。这种模式提供了一个中介类，该类通常处理不同类之间的通信，并支持松耦合，使代码易于维护。"
 createTime: 2024/09/25 17:05:01
-permalink: /design-patterns/3xwx857e/
+permalink: /design-patterns/behavioral/mediator-pattern/
 ---
 # 中介者模式
 

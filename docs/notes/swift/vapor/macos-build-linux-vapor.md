@@ -3,6 +3,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: MacOS 编译 Vapor 的 linux 包
+description: "Swiftly 是 Swift 官方推出的多版本 Swift 工具链管理工具，支持在 macOS 上独立安装、切换、更新多个 Swift 版本，无需依赖 Xcode，可实现多版本共存，是 Swift 开发者首选的环境管理方案。"
 tags:
   - swift
   - vapor

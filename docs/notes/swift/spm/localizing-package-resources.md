@@ -1,5 +1,6 @@
 ---
 title: 包资源本地化
+description: "确保您的 Swift 包为许多语言环境提供本地化资源。"
 sitemap:
   exclude: false
   changefreq: hourly
@@ -9,7 +10,7 @@ tags:
   - ios
   - spm
 createTime: 2024/08/02 09:19:27
-permalink: /swift/e0rubu7x/
+permalink: /swift/spm/localizing-package-resources/
 ---
 
 > 原文：[https://developer.apple.com/documentation/swift_packages/localizing_package_resources](https://developer.apple.com/documentation/swift_packages/localizing_package_resources)

@@ -1,5 +1,6 @@
 ---
 title: Flutter 查看库的依赖关系
+description: "在 flutter 升级的时候，我们需要更新一些依赖库，但是往往会遇到一些第三方库不兼容问题，但报错信息只显示哪些库会冲突，你不知道这个库是在哪个库中所依赖的。"
 date: 2022-06-06T00:00:00.000Z
 tags:
   - flutter
@@ -7,7 +8,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/9nzdipsy/
+permalink: /flutter/flutter-deps/
 ---
 
 在 flutter 升级的时候，我们需要更新一些依赖库，但是往往会遇到一些第三方库不兼容问题，但报错信息只显示哪些库会冲突，你不知道这个库是在哪个库中所依赖的。

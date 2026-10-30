@@ -1,7 +1,8 @@
 ---
 title: 策略模式
+description: "定义一系列的算法,把它们一个个封装起来, 并且使它们可相互替换。"
 createTime: 2024/09/25 17:05:01
-permalink: /design-patterns/j4eq8iga/
+permalink: /design-patterns/behavioral/strategy-pattern/
 ---
 # 策略模式
 

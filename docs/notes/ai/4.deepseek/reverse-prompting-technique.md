@@ -1,5 +1,6 @@
 ---
 title: 反向提问法
+description: "在使用 AI 进行问题分析和方案设计时，如何确保 AI 的回答不仅贴合需求，还能提前规避风险？反向提问法是一种有效的方法，它可以帮助我们从问题和挑战入手，确保方案的可行性和完善性。"
 sitemap:
   exclude: false
   changefreq: hourly
@@ -7,7 +8,7 @@ date: 2025-03-03T00:00:00.000Z
 tags:
   - deepseek
 createTime: 2025/03/03 19:47:09
-permalink: /ai/0tlrj927/
+permalink: /ai/deepseek/reverse-prompting-technique/
 ---
 
 

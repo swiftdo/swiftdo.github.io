@@ -1,5 +1,6 @@
 ---
 title: 在 Docker 上部署一个 Flutter Web 应用
+description: "之前整理过一篇 在 Github 上部署一个 Flutter Web 应用 的文章，可以很好的以 Github Pages 的方式进行部署。"
 date: 2020-09-26T00:00:00.000Z
 tags:
   - flutter
@@ -7,7 +8,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/l6qar4oz/
+permalink: /flutter/t6-docker-web-deploy/
 ---
 
 之前整理过一篇 [在 Github 上部署一个 Flutter Web 应用](https://mp.weixin.qq.com/s/i864_-vEpD9vLHUrvLPz2w) 的文章，可以很好的以 Github Pages 的方式进行部署。

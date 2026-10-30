@@ -1,5 +1,6 @@
 ---
 title: 桶排序
+description: "桶排序同样是一种线性时间的排序算法。类似于计数排序所创建的统计数组，桶排序需要创建若干个桶来协助排序。"
 sitemap:
   exclude: false
   changefreq: hourly

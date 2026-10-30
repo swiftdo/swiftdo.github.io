@@ -1,5 +1,6 @@
 ---
 title: 分离 View 与 Model 方案之 mixin
+description: "先来看一下官方的那个原始的 Counter 例子"
 date: 2020-09-03T00:00:00.000Z
 tags:
   - flutter
@@ -7,7 +8,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/jkj9xciu/
+permalink: /flutter/t3-mixin/
 ---
 先来看一下官方的那个原始的 Counter 例子:
 

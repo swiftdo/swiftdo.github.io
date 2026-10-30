@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: EnvironmentObject
+description: "EnvironmentObject —— OldBird Swift 笔记"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/qmcrntaf/
+permalink: /swift/swiftui/environment-object/
 ---
 
 # EnvironmentObject

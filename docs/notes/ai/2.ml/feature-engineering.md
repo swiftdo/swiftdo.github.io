@@ -11,7 +11,7 @@ sitemap:
   exclude: false
   changefreq: monthly
 createTime: 2025/02/19 12:36:10
-permalink: /ai/px90ktud/
+permalink: /ai/ml/feature-engineering/
 ---
 
 # 特征工程：机器学习的核心力量

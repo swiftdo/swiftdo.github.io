@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: TextField
+description: "TextField类似于UIKit中的UITextField，用于实现用户的文字内容的输入。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/gwxuo7q8/
+permalink: /swift/swiftui/text-field/
 ---
 
 # TextField

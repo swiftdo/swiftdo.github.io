@@ -1,5 +1,6 @@
 ---
 title: 开发工具
+description: "开发与效率工具笔记，涵盖 Git、VuePress、PlantUML、Figma、HTML/CSS 等日常会用到的工具与踩坑记录。"
 createTime: 2024/08/02 09:19:27
 permalink: /tools/
 tags:

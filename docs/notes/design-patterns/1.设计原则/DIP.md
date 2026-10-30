@@ -1,7 +1,8 @@
 ---
 title: 依赖倒转原则
+description: "依赖倒转原则（Dependency Inversion Principle，DIP）的定义：程序要依赖于抽象接口，不要依赖于具体实现。简单的说就是要求对抽象进行编程，不要对实现进行编程，这样就降低了客户与实现模块间的耦合。"
 createTime: 2024/09/25 17:05:01
-permalink: /design-patterns/3v4iwa34/
+permalink: /design-patterns/principles/dip/
 ---
 # 依赖倒转原则
 

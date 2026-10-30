@@ -1,5 +1,6 @@
 ---
 title: Flutter Dialog 的使用
+description: "Dialog 在是很常用的一种 UI。那么在 Flutter 中如何构建一个 Dialog UI？"
 date: 2022-04-22T00:00:00.000Z
 tags:
   - flutter
@@ -7,7 +8,7 @@ sitemap:
   exclude: false
   changefreq: hourly
 createTime: 2024/08/02 09:19:27
-permalink: /flutter/ggsowtug/
+permalink: /flutter/flutter-dialog/
 ---
 
 Dialog 在是很常用的一种 UI。那么在 Flutter 中如何构建一个 Dialog UI？

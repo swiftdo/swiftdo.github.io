@@ -1,7 +1,8 @@
 ---
 title: 迭代器模式
+description: "提供一种方法顺序访问一个聚合对象中各个元素, 而又无须暴露该对象的内部表示。"
 createTime: 2024/09/25 17:05:01
-permalink: /design-patterns/i4s4fkt1/
+permalink: /design-patterns/behavioral/iterator-pattern/
 ---
 # 迭代器模式
 

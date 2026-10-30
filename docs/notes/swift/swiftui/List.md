@@ -8,8 +8,9 @@ tags:
   - ios
   - swiftui
 title: List
+description: "用于显示排列一系列数据行的容器。"
 createTime: 2024/08/02 09:19:27
-permalink: /swift/fh3k8asv/
+permalink: /swift/swiftui/list/
 ---
 
 # List

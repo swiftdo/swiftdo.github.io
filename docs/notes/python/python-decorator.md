@@ -3,11 +3,12 @@ sitemap:
   exclude: false
   changefreq: hourly
 title: Python 装饰器
+description: "装饰器（Decorator）是 Python 非常重要的组成部分，它可以修改或扩展其他函数的功能，并让代码保持简短。它经常用于有切面需求的场景，比如：插入日志、性能测试、事务处理、缓存、权限校验等场景。"
 date: 2022-03-21T00:00:00.000Z
 tags:
   - python
 createTime: 2024/08/02 09:19:27
-permalink: /python/i6y8mood/
+permalink: /python/python-decorator/
 ---
 
 装饰器（Decorator）是 Python 非常重要的组成部分，它可以修改或扩展其他函数的功能，并让代码保持简短。它经常用于有切面需求的场景，比如：插入日志、性能测试、事务处理、缓存、权限校验等场景。装饰器是解决这类问题的绝佳设计，有了装饰器，我们就可以抽离出大量与函数功能本身无关的雷同代码并继续重用。
