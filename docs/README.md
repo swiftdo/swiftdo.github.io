@@ -60,7 +60,7 @@ config:
     description: 用笔记记录技术，用作品验证想法。
     avatar: /logo.png
     circle: true
-title: Home
+title: 技术笔记
 ---
 
 <HomeShowcase />

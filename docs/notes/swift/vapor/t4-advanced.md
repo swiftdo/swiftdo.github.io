@@ -1,7 +1,5 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
+sitemap: false
 title: 进阶
 description: "进阶 —— OldBird Swift 笔记"
 date: 2020-08-17T00:00:00.000Z
