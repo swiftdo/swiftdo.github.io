@@ -156,7 +156,8 @@ RSYNC_DELETE=0 ./deploy.sh # 保留服务端多余文件
 ```
 
 - 产物目录是 `docs/.vitepress/dist`（迁移前是 `docs/.vuepress/dist`）。
-- **产物校验**：dist 缺 `index.html` 或文件数 < 200 直接中止。空产物 + `--delete-after` 会清空线上目录，这道闸不能去。
+- **产物校验**：dist 缺 `index.html`、文件数 < 200、或 `sitemap.xml` 缺失 / URL 少于 100 条，都会直接中止。空产物 + `--delete-after` 会清空线上目录，这道闸不能去。
+- `sitemap.xml` 每次构建都会重新生成（VitePress 用流式写入，进程退出才落盘，所以 `buildEnd` 里读不到它）。
 - `.user.ini`、`.well-known/***`、`.htaccess`、`*.log` 在排除列表里，**不会被删除**，可安全放置面板或证书验证文件。
 - 服务器地址、端口、目标目录可用 `DEPLOY_SERVER` / `DEPLOY_PORT` / `DEPLOY_DIR` 覆盖；`VERIFY_URL` 设空字符串可跳过探活。
 - 探活非 200 只告警不中断（可能是 CDN 缓存或地址写错），以 rsync 结果为准。

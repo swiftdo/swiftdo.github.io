@@ -95,6 +95,16 @@ if [ "$FILE_COUNT" -lt 200 ]; then
 fi
 ok "$FILE_COUNT 个文件"
 
+# sitemap.xml 由 VitePress 在每次构建时重新生成（流式写入，进程退出才落盘）。
+# 这里卡一道，避免把缺失或残缺的 sitemap 推上线。
+SITEMAP="$BUILD_DIR/sitemap.xml"
+[ -f "$SITEMAP" ] || die "产物缺少 sitemap.xml：$SITEMAP"
+SITEMAP_URLS=$(grep -o '<loc>' "$SITEMAP" | wc -l | tr -d ' ')
+if [ "$SITEMAP_URLS" -lt 100 ]; then
+  die "sitemap.xml 只有 $SITEMAP_URLS 条 URL，疑似生成不完整，已中止"
+fi
+ok "sitemap.xml $SITEMAP_URLS 条 URL"
+
 # ---------- 3. 提交并推送（先于上传，保证线上产物有对应提交） ----------
 if [ "$DO_GIT" = 1 ] && [ "$DRY_RUN" = 0 ]; then
   step "提交并推送源码"
