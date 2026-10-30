@@ -65,9 +65,10 @@ for cmd in yarn git rsync ssh; do
   command -v "$cmd" >/dev/null 2>&1 || die "缺少必需命令：$cmd"
 done
 
-# 复用一条 SSH 连接，避免预检和上传各认证一次
-CTL_DIR="${TMPDIR:-/tmp}"; CTL_DIR="${CTL_DIR%/}"
-SSH_CTL="$CTL_DIR/deploy-ssh-%C"
+# 复用一条 SSH 连接，避免预检和上传各认证一次。
+# 路径必须短：%C 展开是 40 位哈希，而 macOS 的 TMPDIR 很长，拼起来会超过
+# Unix domain socket 的 104 字节上限，故固定用 /tmp。
+SSH_CTL="/tmp/deploy-ssh-%C"
 SSH_OPTS=(-p "$SSH_PORT" -o ConnectTimeout=10 -o ControlMaster=auto
           -o "ControlPath=$SSH_CTL" -o ControlPersist=60)
 cleanup() { ssh -O exit -o ConnectTimeout=2 -o "ControlPath=$SSH_CTL" "$SERVER" >/dev/null 2>&1 || true; }
