@@ -7,6 +7,26 @@ import { listMarkdownFiles, readFrontmatter } from './frontmatter'
 
 const DOCS_DIR = fileURLToPath(new URL('..', import.meta.url))
 
+/**
+ * public/ 下的静态 .html 必须靠 docs/.env 的 VITE_EXTRA_EXTENSIONS 声明成「静态资源扩展名」，
+ * 否则客户端路由会把 /yiqigua.html 当站内页面去加载 md 模块，点一次 404 一次。
+ * 这个失效是静默的（构建照常成功、线上才发现），所以在构建入口直接拦下。
+ */
+function assertStaticHtmlNotRouted(): void {
+  const envFile = path.join(DOCS_DIR, '.env')
+  const text = fs.existsSync(envFile) ? fs.readFileSync(envFile, 'utf8') : ''
+  const fromFile = /^VITE_EXTRA_EXTENSIONS=(.*)$/m.exec(text)?.[1] ?? ''
+  const value = (process.env.VITE_EXTRA_EXTENSIONS || fromFile).replace(/['"]/g, '')
+  const exts = value.split(',').map(ext => ext.trim()).filter(Boolean)
+  if (!exts.includes('html')) {
+    throw new Error(
+      `缺少 VITE_EXTRA_EXTENSIONS=html：public/ 下的静态 .html（如 yiqigua.html）会被客户端路由拦成 404。\n请检查 ${envFile}`,
+    )
+  }
+}
+
+assertStaticHtmlNotRouted()
+
 /** 文件路径 -> 页面 URL：`swift/swiftui/alert/index.md` -> `/swift/swiftui/alert/` */
 function pageUrl(full: string): string {
   const rel = path.relative(DOCS_DIR, full).split(path.sep).join('/')

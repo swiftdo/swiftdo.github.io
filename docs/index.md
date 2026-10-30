@@ -12,9 +12,13 @@ hero:
     - theme: alt
       text: 作品集
       link: /result/
+    # target: _self 不是多余的：链接指向 public/ 里的静态页，带上 target 后
+    # VitePress 前端路由会跳过它，直接整页跳转；否则一旦 .env 的
+    # VITE_EXTRA_EXTENSIONS 失效，点下去就是 404（详见 docs/.env 注释）。
     - theme: alt
       text: 易起卦
       link: /yiqigua.html
+      target: _self
 # icon 为内联 SVG：VPFeature 对字符串走 v-html，因此可继承 .icon 的 currentColor，
 # 深浅色模式自动适配。配色在 theme/custom.css 里按 data-icon 指定。
 features:

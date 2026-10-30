@@ -25,7 +25,8 @@ const productUrl = '/yiqigua.html'
         六爻起卦与排盘 App：App 不解卦，提供 AI 提示词模板方便提问；另含一键起卦、卦签诗与卦例、学习记录，数据本地保存。
       </p>
       <div class="yg-promo__actions">
-        <a class="yg-promo__btn yg-promo__btn--primary" :href="productUrl">
+        <!-- target="_self"：静态页在 public/ 里，跳过前端路由走整页跳转（见 docs/.env 注释） -->
+        <a class="yg-promo__btn yg-promo__btn--primary" :href="productUrl" target="_self">
           查看产品页
         </a>
         <a
