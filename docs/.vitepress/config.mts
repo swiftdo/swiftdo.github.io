@@ -3,6 +3,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vitepress'
 import { buildSidebar } from './sidebar'
+import { listMarkdownFiles, readFrontmatter } from './frontmatter'
 
 const DOCS_DIR = fileURLToPath(new URL('..', import.meta.url))
 
@@ -15,67 +16,109 @@ const DOCS_DIR = fileURLToPath(new URL('..', import.meta.url))
  * 站点已有 391 个带尾斜杠的 URL 被搜索引擎收录，因此把每个源文件
  * 重写到 `<permalink>/index.md`，即可在不移动任何源文件的前提下
  * 让 VitePress 产出与旧站完全一致的 URL。
+ *
+ * 这里补了三道构建期校验，因为 VitePress 自身不会检查：
+ *   1. permalink 必须存在——漏写会静默回退成 /notes/xxx/ 这类意外 URL；
+ *   2. permalink 必须是首尾带斜杠的合法路径；
+ *   3. 两个源文件不能指向同一个输出路径——重写冲突时 VitePress 直接覆盖
+ *      后者（rewriteToPage[dest] = page），不报错、不告警。
  */
 function buildRewrites(): Record<string, string> {
   const rewrites: Record<string, string> = {}
+  const owner = new Map<string, string>()
+  const problems: string[] = []
 
-  const walk = (dir: string) => {
-    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-      if (entry.name.startsWith('.') || entry.name === 'node_modules')
-        continue
-      const full = path.join(dir, entry.name)
-      if (entry.isDirectory()) {
-        walk(full)
-        continue
-      }
-      if (!entry.name.endsWith('.md'))
-        continue
-
-      const rel = path.relative(DOCS_DIR, full).split(path.sep).join('/')
-      // 站点首页：README.md 重写为 index.md，VitePress 才会输出 dist/index.html
-      if (rel === 'README.md') {
-        rewrites[rel] = 'index.md'
-        continue
-      }
-
-      const raw = fs.readFileSync(full, 'utf8')
-      const matched = raw.match(/^permalink:\s*["']?([^"'\n]+?)["']?\s*$/m)
-      const slug = matched
-        ? matched[1].replace(/^\/+|\/+$/g, '')
-        : rel.replace(/\.md$/, '')
-
-      rewrites[rel] = `${slug}/index.md`
+  for (const full of listMarkdownFiles(DOCS_DIR)) {
+    const rel = path.relative(DOCS_DIR, full).split(path.sep).join('/')
+    // 站点首页：README.md 重写为 index.md，VitePress 才会输出 dist/index.html
+    if (rel === 'README.md') {
+      rewrites[rel] = 'index.md'
+      continue
     }
+
+    const { permalink } = readFrontmatter(full)
+    if (!permalink) {
+      problems.push(`${rel} 缺少 frontmatter 里的 permalink`)
+      continue
+    }
+    if (!permalink.startsWith('/') || !permalink.endsWith('/') || permalink.length < 2) {
+      problems.push(`${rel} 的 permalink「${permalink}」必须以 / 开头并以 / 结尾`)
+      continue
+    }
+    if (/[A-Z\s]/.test(permalink) || /[^\x00-\x7F]/.test(permalink)) {
+      problems.push(`${rel} 的 permalink「${permalink}」含大写字母、空格或非 ASCII 字符`)
+      continue
+    }
+
+    const dest = `${permalink.replace(/^\/+|\/+$/g, '')}/index.md`
+    const prev = owner.get(dest)
+    if (prev) {
+      problems.push(`permalink 冲突：${prev} 与 ${rel} 都指向 ${dest}`)
+      continue
+    }
+    owner.set(dest, rel)
+    rewrites[rel] = dest
   }
 
-  walk(DOCS_DIR)
+  if (problems.length) {
+    throw new Error(`[rewrites] 构建中止，共 ${problems.length} 处问题：\n  - ${problems.join('\n  - ')}`)
+  }
+
   return rewrites
 }
 
 /** 收集标注了 sitemap: false 的页面路径，用于从站点地图中排除 */
 function collectSitemapExcluded(): Set<string> {
   const excluded = new Set<string>()
-  const walk = (dir: string) => {
+  for (const full of listMarkdownFiles(DOCS_DIR)) {
+    const { permalink, sitemap } = readFrontmatter(full)
+    if (sitemap !== 'false' || !permalink)
+      continue
+    excluded.add(permalink.replace(/\/+$/, '') + '/')
+  }
+  return excluded
+}
+
+/**
+ * VitePress 客户端路由（client/shared.ts 的 treatAsHtml）会把「扩展名不在静态
+ * 资源白名单里」的站内链接一律当成本站页面，去加载同名 md 模块；找不到就回退到
+ * 404 组件。白名单收录了 png/jpg/svg/webp/css/js/json/pdf/txt/mp4/zip 等一百多个
+ * 常见扩展名，但不含 html、apk、ipa、docx、md 等。
+ */
+const STATIC_ASSET_EXTENSIONS = new Set(
+  ('3g2,3gp,aac,ai,apng,au,avif,bin,bmp,cer,class,conf,crl,css,csv,dll,'
+    + 'doc,eps,epub,exe,gif,gz,ics,ief,jar,jpe,jpeg,jpg,js,json,jsonld,m4a,'
+    + 'man,mid,midi,mjs,mov,mp2,mp3,mp4,mpe,mpeg,mpg,mpp,oga,ogg,ogv,ogx,'
+    + 'opus,otf,p10,p7c,p7m,p7s,pdf,png,ps,qt,roff,rtf,rtx,ser,svg,t,tif,'
+    + 'tiff,tr,ts,tsv,ttf,txt,vtt,wav,weba,webm,webp,woff,woff2,xhtml,xml,'
+    + 'yaml,yml,zip').split(','),
+)
+
+/**
+ * 收集 public/ 下会被客户端路由误判成"站内页面"的文件（推广页、隐私政策页、
+ * 应用安装包直链等）。这些文件由 Vite 原样复制到站点根，不参与 markdown 编译，
+ * 没有对应的 md 模块。清单交给客户端后，这些路径改走整页跳转，由浏览器直接加载。
+ */
+function collectStaticPages(): string[] {
+  const pages: string[] = []
+  const walk = (dir: string, prefix: string) => {
+    if (!fs.existsSync(dir))
+      return
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-      if (entry.name.startsWith('.') || entry.name === 'node_modules')
+      if (entry.name.startsWith('.'))
         continue
-      const full = path.join(dir, entry.name)
+      const rel = `${prefix}/${entry.name}`
       if (entry.isDirectory()) {
-        walk(full)
+        walk(path.join(dir, entry.name), rel)
         continue
       }
-      if (!entry.name.endsWith('.md'))
-        continue
-      const raw = fs.readFileSync(full, 'utf8')
-      if (!/^sitemap:\s*false\s*$/m.test(raw))
-        continue
-      const matched = raw.match(/^permalink:\s*["']?([^"'\n]+?)["']?\s*$/m)
-      if (matched)
-        excluded.add(matched[1].replace(/\/+$/, '') + '/')
+      const ext = entry.name.split('.').pop()!.toLowerCase()
+      if (!STATIC_ASSET_EXTENSIONS.has(ext))
+        pages.push(rel)
     }
   }
-  walk(DOCS_DIR)
-  return excluded
+  walk(path.join(DOCS_DIR, 'public'), '')
+  return pages.sort()
 }
 
 /** 生成一个最小化的跳转页：noindex 防止与目标页重复收录 */
@@ -153,6 +196,8 @@ export default defineConfig({
   themeConfig: {
     logo: '/logo.png',
     siteTitle: 'OldBird',
+    // 静态文件清单：客户端路由据此把这些路径改走整页跳转
+    staticPages: collectStaticPages(),
     nav: [
       { text: '首页', link: '/' },
       {

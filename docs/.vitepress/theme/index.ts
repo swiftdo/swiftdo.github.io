@@ -23,10 +23,27 @@ export default {
     })
   },
 
-  enhanceApp({ app }) {
+  enhanceApp({ app, router, siteData }) {
     app.component('HomeShowcase', HomeShowcase)
     app.component('Portfolio', Portfolio)
     app.component('YiqiguaPromo', YiqiguaPromo)
+
+    /**
+     * public/ 下的推广页、隐私政策页、安装包直链是原样复制的静态文件，不是
+     * VitePress 页面。VitePress 的客户端路由会把站内所有这类链接都当成本站页面，
+     * 去加载对应的 md 模块；找不到就回退到 404 组件（"页面不存在"）。命中这份
+     * 清单的路径改走整页跳转，交给浏览器直接加载静态文件。
+     */
+    const staticPages = new Set<string>(siteData.value.themeConfig.staticPages ?? [])
+    router.onBeforeRouteChange = (href) => {
+      if (typeof window === 'undefined')
+        return
+      const { pathname } = new URL(href, window.location.origin)
+      if (!staticPages.has(pathname))
+        return
+      window.location.href = href
+      return false
+    }
 
     if (typeof window === 'undefined' || window.__adsense_injected)
       return

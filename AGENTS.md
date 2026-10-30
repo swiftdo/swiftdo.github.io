@@ -158,3 +158,4 @@ RSYNC_DELETE=0 ./deploy.sh # 保留服务端多余文件
 | 旧文章链接 404 | 在 `redirects.json` 补映射（带/不带尾斜杠两条） |
 | 代码块高亮报错 | Shiki 不认识该语言，改成 `text` 或确认是内置语言 |
 | 缓存导致内容不更新 | 删 `docs/.vitepress/cache` 后重新构建 |
+| 点击 `public/` 里的静态页（如 `/yiqigua.html`）显示"页面不存在" | 客户端路由把 `.html` 当本站页面去加载 md 模块，找不到就回退 404。`config.mts` 的 `collectStaticHtmlPages()` 扫出清单写进 `themeConfig.staticHtmlPages`，`theme/index.ts` 用 `router.onBeforeRouteChange` 改成整页跳转；新增 `public/*.html` 无需改代码 |
