@@ -15,7 +15,7 @@ yarn docs:dev         # 本地开发
 yarn docs:dev-clean   # 清缓存后开发（行为异常时用）
 yarn docs:build       # 生产构建
 yarn docs:preview     # 预览构建产物
-./deploy.sh           # 构建 → rsync 到服务器 → git push
+./deploy.sh           # 构建 → 校验 → 推源码 → rsync → 探活
 ```
 
 ## 配置分工
@@ -37,8 +37,10 @@ yarn docs:preview     # 预览构建产物
 
 ## 部署
 
-`./deploy.sh`：`yarn docs:build` → `rsync --delete-after` 到自建服务器 `root@106.52.236.186:2002:/www/wwwroot/oldbird.run` → `git add -A && git commit -m "update" && git push`。
-服务器地址/端口/目录可用 `DEPLOY_SERVER` / `DEPLOY_PORT` / `DEPLOY_DIR` 覆盖；`RSYNC_DELETE=0` 可关闭服务端删除。
+`./deploy.sh`：`yarn docs:build` → 产物校验 → `git add -A && git commit && git push` → `rsync --delete-after` 到自建服务器 `root@106.52.236.186:2002:/www/wwwroot/oldbird.run` → 线上探活。
+先推源码再上传，任一步失败即中止，避免「站点已更新、代码未推送」。产物缺失或文件数 < 200 时直接中止（防空产物清空线上目录）。
+`.user.ini` / `.well-known/***` / `.htaccess` 在 rsync 排除列表内，不会被删除。
+服务器地址/端口/目录可用 `DEPLOY_SERVER` / `DEPLOY_PORT` / `DEPLOY_DIR` 覆盖；`RSYNC_DELETE=0` 关闭服务端删除；`--dry-run` 只预览。
 **不是 GitHub Pages**，`swiftdo.github.io` 只是仓库名。
 
 ## 已知提示

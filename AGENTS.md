@@ -13,7 +13,7 @@ yarn docs:dev-clean     # 清缓存/临时文件后启动（行为异常时优�
 yarn docs:build         # 生产构建（自带 --clean-cache --clean-temp）
 yarn docs:preview       # 本地预览构建产物（http-server dist）
 yarn vp-update          # 升级 VuePress 与主题
-./deploy.sh             # 部署：构建 → rsync 到服务器 → git push
+./deploy.sh             # 部署：构建 → 校验 → 推源码 → rsync → 探活
 ```
 
 ## 项目结构
@@ -109,12 +109,27 @@ tags:                        # 仅博客文章需要
 
 ## 部署
 
-`./deploy.sh` 一条龙：构建 → rsync 到自建服务器（**不是 GitHub Pages**）→ `git add -A && git commit && git push`。
+`./deploy.sh` 一条龙：构建 → 产物校验 → 提交并推送源码 → rsync 到自建服务器（**不是 GitHub Pages**）→ 线上探活。
 
-- 构建或上传失败会中止并退出，不会带着半成品上线。
-- 默认 `--delete-after`：服务器上 dist 中已不存在的文件会被删除，用于下线改名/删除的页面；如需保留服务端多余文件，用 `RSYNC_DELETE=0 ./deploy.sh`。
-- 服务器地址、端口、目标目录可用 `DEPLOY_SERVER` / `DEPLOY_PORT` / `DEPLOY_DIR` 覆盖。
+先推源码再上传，是为了保证线上产物一定对应某个已推送的提交；任一步失败都会中止，不会留下「站点已更新、代码没推」的状态。
+
+常用参数与环境变量：
+
+```bash
+./deploy.sh --dry-run      # 构建 + 预览 rsync 会做什么（不上传、不提交）
+./deploy.sh --no-git       # 只部署
+./deploy.sh --skip-build   # 复用已有 dist
+./deploy.sh -m "说明"      # 自定义提交信息（默认 update）
+RSYNC_DELETE=0 ./deploy.sh # 保留服务端多余文件
+```
+
+- **产物校验**：dist 缺 `index.html` 或文件数 < 200 直接中止。空产物 + `--delete-after` 会清空线上目录，这道闸不能去。
+- 默认 `--delete-after`：服务器上 dist 里已不存在的文件会被删除，用于下线改名/删除的页面。
+- `.user.ini`、`.well-known/***`、`.htaccess`、`.DS_Store`、`*.log` 在排除列表里，**不会被删除**，可安全放置面板或证书验证文件。
+- 服务器地址、端口、目标目录可用 `DEPLOY_SERVER` / `DEPLOY_PORT` / `DEPLOY_DIR` 覆盖；`VERIFY_URL` 设空字符串可跳过探活。
+- 探活非 200 只告警不中断（可能是 CDN 缓存或地址写错），以 rsync 结果为准。
 - 历史提交信息惯例是 `update`；改动较大时可写描述性信息。无变更时脚本会跳过提交，不会产生空提交。
+- 构建日志落在 `.deploy-build.log`（已 gitignore），失败时直接看这个文件。
 
 ## 排错速查
 
