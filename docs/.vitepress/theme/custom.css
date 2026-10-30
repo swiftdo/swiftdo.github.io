@@ -1,60 +1,398 @@
-/* 作品集页需要更宽的画布，默认 688px 排不下 4 列卡片。
-   class 由 docs/result/README.md 的 pageClass 提供。
-   VitePress 自身的 `.VPDoc.has-aside .content-container[data-v-x]` 权重与
-   纯类选择器相同，只靠提高特异性赢不了，故用 !important。 */
-.page-portfolio .content-container {
-  max-width: 1080px !important;
+/* 作品集页需要更宽的画布。
+   注意：宽度限制在 `.VPDoc .content`（未配侧边栏时 752/784px）而不是
+   `.content-container`，只改后者不会生效——旧规则就是踩了这个坑。
+   `.content` 有 32px 内边距，1216 - 64 = 1152，与首页内容区同宽。
+   VitePress 的 `.VPDoc:not(.has-sidebar) .content[data-v-x]` 权重更高，故用 !important。 */
+.page-portfolio .VPDoc .content,
+.page-portfolio .VPDoc .container {
+  max-width: 1216px !important;
 }
 
 /**
- * 首页 features 图标配色。
+ * ─────────────────────────────────────────────────────────────
+ * 首页（layout: home）视觉主题
+ * ─────────────────────────────────────────────────────────────
  *
- * icon 是内联 SVG（见 docs/README.md 的 frontmatter），fill 为 currentColor，
- * 所以只要在 .icon 容器上设 color，图标和底衬（color-mix 混入 currentColor）会一起跟着变，
- * 深浅色模式无需两套资源。
+ * 首页由三段构成：VPHero（frontmatter hero）→ VPFeatures（frontmatter
+ * features）→ VPHomeContent 里的 <HomeShowcase />。
+ *
+ * 三段默认宽度不一致（hero/features 容器 1152，HomeShowcase 自带 1080），
+ * 左右边缘对不齐是旧版最明显的观感问题。这里统一到 1152：
+ * 父级 `.vp-doc.container` 的 max-width 1280 减去 64 内边距正好是 1152，
+ * 所以无需改动布局代码即可对齐。
+ *
+ * 所有规则都限定在 .VPHome 下，不影响笔记正文页。
+ * 组件内使用 scoped 样式，VitePress 自带的 scoped 规则带 [data-v-*]，
+ * 因此这里统一用 `body .VPHome .xxx` 提升一档权重来稳定覆盖。
  */
-.VPFeatures .VPFeature .icon {
+
+.VPHome {
+  --home-max: 1152px;
+  --home-hairline: color-mix(in srgb, var(--vp-c-divider) 85%, transparent);
+  --home-gold: #b8954a;
+
+  /* 站点名称用渐变文字：VitePress 的 .clip 会读取这两个变量 */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(
+    118deg,
+    var(--vp-c-brand-1) 6%,
+    color-mix(in srgb, var(--vp-c-brand-1) 42%, var(--vp-c-important-1)) 94%
+  );
+}
+
+.dark .VPHome {
+  --home-gold: #d4b06a;
+}
+
+/* ── Hero ───────────────────────────────────────────────────── */
+
+/* 顶部一层极淡的品牌色光晕，让首屏有焦点而不抢字 */
+body .VPHome .VPHero {
+  position: relative;
+}
+
+body .VPHome .VPHero::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: var(--vp-nav-height);
+  left: 50%;
+  /* 宽度不能超过 100%，否则窄屏会被这层光晕撑出横向滚动条 */
+  width: min(880px, 100%);
+  height: 460px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    50% 52% at 50% 26%,
+    color-mix(in srgb, var(--vp-c-brand-1) 18%, transparent),
+    transparent 70%
+  );
+  /* 上下边缘用遮罩淡出，否则光晕会在元素边界切出一条硬边 */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 24%,
+    #000 68%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 24%,
+    #000 68%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.dark .VPHome .VPHero::before {
+  background: radial-gradient(
+    50% 52% at 50% 26%,
+    color-mix(in srgb, var(--vp-c-brand-1) 15%, transparent),
+    transparent 70%
+  );
+}
+
+/* 无配图时 hero 默认是「左侧 2/3 宽 + 右侧留白」，改为整幅居中 */
+body .VPHome .VPHero .container {
+  display: block;
+  max-width: var(--home-max);
+  text-align: center;
+}
+
+body .VPHome .VPHero .main {
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* VPHero 默认把 name / text 作为 span 放在同一行，这里保持纵向堆叠并居中 */
+body .VPHome .VPHero .heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body .VPHome .VPHero .name,
+body .VPHome .VPHero .text {
+  width: auto;
+  max-width: none;
+  margin: 0 auto;
+}
+
+body .VPHome .VPHero .name {
+  font-size: clamp(2.6rem, 6.6vw, 4.4rem);
+  line-height: 1.04;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+
+body .VPHome .VPHero .text {
+  margin-top: 12px;
+  font-size: clamp(1rem, 2.1vw, 1.32rem);
+  line-height: 1.5;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  /* 字间距会在末字后留一格，补一个缩进让整行在视觉上真正居中 */
+  text-indent: 0.16em;
+  color: var(--vp-c-text-2);
+}
+
+body .VPHome .VPHero .tagline {
+  margin: 20px auto 0;
+  max-width: 620px;
+  padding-top: 0;
+  font-size: clamp(0.94rem, 1.5vw, 1.04rem);
+  line-height: 1.8;
+  font-weight: 400;
+  white-space: normal;
+  color: var(--vp-c-text-2);
+}
+
+body .VPHome .VPHero .actions {
+  justify-content: center;
+  gap: 10px;
+  margin: 0;
+  padding-top: 34px;
+}
+
+body .VPHome .VPHero .action {
+  padding: 0;
+}
+
+body .VPHome .VPHero .VPButton.medium {
   border-radius: 12px;
-  background-color: color-mix(in srgb, currentColor 12%, var(--vp-c-bg-soft));
+  padding: 0 22px;
+  line-height: 44px;
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.dark .VPFeatures .VPFeature .icon {
-  background-color: color-mix(in srgb, currentColor 18%, var(--vp-c-bg-soft));
+body .VPHome .VPHero .VPButton.brand {
+  box-shadow:
+    0 12px 24px -14px color-mix(in srgb, var(--vp-c-brand-1) 85%, transparent),
+    inset 0 1px 0 rgb(255 255 255 / 18%);
 }
 
-.VPFeatures .VPFeature.link:hover .icon {
-  background-color: color-mix(in srgb, currentColor 19%, var(--vp-c-bg-soft));
+body .VPHome .VPHero .VPButton.brand:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 16px 28px -14px color-mix(in srgb, var(--vp-c-brand-1) 90%, transparent),
+    inset 0 1px 0 rgb(255 255 255 / 22%);
 }
 
-.VPFeature:has([data-icon='swift']) .icon {
-  color: #f05138;
+body .VPHome .VPHero .VPButton.alt {
+  color: var(--vp-c-text-1);
+  border-color: var(--home-hairline);
+  background-color: transparent;
 }
 
-.VPFeature:has([data-icon='flutter']) .icon {
-  color: #0288d1;
+body .VPHome .VPHero .VPButton.alt:hover {
+  color: var(--vp-c-brand-1);
+  border-color: color-mix(in srgb, var(--vp-c-brand-1) 45%, var(--home-hairline));
+  background-color: color-mix(in srgb, var(--vp-c-brand-1) 7%, transparent);
 }
 
-.VPFeature:has([data-icon='ai']) .icon {
-  color: #7c5cd6;
+/* ── Features 卡片 ───────────────────────────────────────────── */
+
+body .VPHome .VPFeature {
+  position: relative;
+  border: 1px solid var(--home-hairline);
+  border-radius: 16px;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--vp-c-bg-soft) 85%, var(--vp-c-bg)) 0%,
+      var(--vp-c-bg) 100%
+    );
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 4%);
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-.VPFeature:has([data-icon='yijing']) .icon {
-  color: #b8954a;
+body .VPHome .VPFeature.link:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--topic, var(--vp-c-brand-1)) 45%, var(--home-hairline));
+  box-shadow:
+    0 18px 32px -26px color-mix(in srgb, var(--vp-c-text-1) 60%, transparent),
+    0 2px 6px -4px color-mix(in srgb, var(--vp-c-text-1) 18%, transparent);
 }
 
-/* 深色背景上提亮，保持对比度 */
-.dark .VPFeature:has([data-icon='swift']) .icon {
-  color: #ff7a5c;
+/* 悬停时顶部浮现一道专题色细线，与图标同色，作为系列的视觉锚点 */
+body .VPHome .VPFeature::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--topic, var(--vp-c-brand-1)),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
 }
 
-.dark .VPFeature:has([data-icon='flutter']) .icon {
-  color: #4fc3f7;
+body .VPHome .VPFeature:hover::after {
+  opacity: 0.85;
 }
 
-.dark .VPFeature:has([data-icon='ai']) .icon {
-  color: #a78bfa;
+body .VPHome .VPFeature .box {
+  padding: 22px 20px 20px;
 }
 
-.dark .VPFeature:has([data-icon='yijing']) .icon {
-  color: #d4b06a;
+/* 图标：统一 46px 圆角方块 + 专题色淡底 + 内侧描边 */
+body .VPHome .VPFeatures .VPFeature .icon {
+  width: 46px;
+  height: 46px;
+  margin-bottom: 18px;
+  border-radius: 13px;
+  color: var(--topic, var(--vp-c-brand-1));
+  background-color: color-mix(
+    in srgb,
+    var(--topic, var(--vp-c-brand-1)) 12%,
+    var(--vp-c-bg-soft)
+  );
+  box-shadow: inset 0 0 0 1px
+    color-mix(in srgb, var(--topic, var(--vp-c-brand-1)) 20%, transparent);
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+body .VPHome .VPFeatures .VPFeature.link:hover .icon {
+  background-color: color-mix(
+    in srgb,
+    var(--topic, var(--vp-c-brand-1)) 18%,
+    var(--vp-c-bg-soft)
+  );
+  box-shadow: inset 0 0 0 1px
+    color-mix(in srgb, var(--topic, var(--vp-c-brand-1)) 32%, transparent);
+}
+
+body .VPHome .VPFeatures .VPFeature .icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+body .VPHome .VPFeature .title {
+  font-size: 16px;
+  line-height: 1.45;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  color: var(--vp-c-text-1);
+}
+
+body .VPHome .VPFeature .details {
+  padding-top: 7px;
+  font-size: 13.5px;
+  line-height: 1.65;
+  font-weight: 400;
+  color: var(--vp-c-text-2);
+}
+
+body .VPHome .VPFeature .link-text {
+  padding-top: 14px;
+}
+
+body .VPHome .VPFeature .link-text-value {
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+}
+
+body .VPHome .VPFeature .link-text-icon {
+  margin-left: 0;
+  transition: transform 0.22s ease;
+}
+
+body .VPHome .VPFeature:hover .link-text-icon {
+  transform: translateX(3px);
+}
+
+/**
+ * 每个专题一个 --topic 变量，图标、悬停描边、顶部细线共用同一个色值，
+ * 不再分散地在多处写死。fill 为 currentColor，深浅色自动继承。
+ */
+.VPFeature:has([data-icon='swift']) {
+  --topic: #f05138;
+}
+
+.VPFeature:has([data-icon='flutter']) {
+  --topic: #0288d1;
+}
+
+.VPFeature:has([data-icon='ai']) {
+  --topic: #7c5cd6;
+}
+
+.VPFeature:has([data-icon='yijing']) {
+  --topic: #b8954a;
+}
+
+.dark .VPFeature:has([data-icon='swift']) {
+  --topic: #ff7a5c;
+}
+
+.dark .VPFeature:has([data-icon='flutter']) {
+  --topic: #4fc3f7;
+}
+
+.dark .VPFeature:has([data-icon='ai']) {
+  --topic: #a78bfa;
+}
+
+.dark .VPFeature:has([data-icon='yijing']) {
+  --topic: #d4b06a;
+}
+
+/* 窄屏三个按钮挤在一行会参差不齐：主按钮独占一行，次要按钮两分 */
+@media (max-width: 480px) {
+  body .VPHome .VPHero .actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  body .VPHome .VPHero .action {
+    display: flex;
+  }
+
+  body .VPHome .VPHero .action:first-child {
+    grid-column: 1 / -1;
+  }
+
+  body .VPHome .VPHero .VPButton.medium {
+    width: 100%;
+    padding: 0 12px;
+  }
+}
+
+/* 移动端：卡片内边距收紧一点，保证首屏信息密度 */
+@media (max-width: 639px) {
+  body .VPHome .VPFeature .box {
+    padding: 20px 18px 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body .VPHome .VPFeature,
+  body .VPHome .VPFeature.link:hover,
+  body .VPHome .VPFeature .link-text-icon,
+  body .VPHome .VPHero .VPButton.brand:hover {
+    transform: none;
+    transition: none;
+  }
 }

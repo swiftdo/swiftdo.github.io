@@ -129,11 +129,13 @@ function isExternal(item: AppItem) {
 <template>
   <div class="portfolio">
     <header class="pf-hero">
-      <p class="pf-hero__eyebrow">Portfolio</p>
-      <h1 class="pf-hero__title">作品集</h1>
-      <p class="pf-hero__lead">
-        App、网站与自媒体——把学习与兴趣做成能用的东西。
-      </p>
+      <div class="pf-hero__main">
+        <p class="pf-hero__eyebrow">Portfolio</p>
+        <h1 class="pf-hero__title">作品集</h1>
+        <p class="pf-hero__lead">
+          App、网站与自媒体——把学习与兴趣做成能用的东西。
+        </p>
+      </div>
       <ul class="pf-hero__stats">
         <li><strong>{{ apps.length }}</strong><span>App</span></li>
         <li><strong>{{ sites.length }}</strong><span>站点</span></li>
@@ -143,8 +145,16 @@ function isExternal(item: AppItem) {
 
     <section class="pf-section" aria-labelledby="pf-apps">
       <div class="pf-section__head">
-        <h2 id="pf-apps">App</h2>
-        <a :href="developerUrl" target="_blank" rel="noopener noreferrer">
+        <div class="pf-section__label">
+          <span class="pf-section__index">01</span>
+          <h2 id="pf-apps">App</h2>
+        </div>
+        <a
+          class="pf-section__action"
+          :href="developerUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Google Play 全部应用
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
         </a>
@@ -155,11 +165,13 @@ function isExternal(item: AppItem) {
           v-for="item in apps"
           :key="item.title"
           class="pf-card"
+          :class="{ 'is-featured': item.featured }"
           :href="item.href"
           :target="isExternal(item) ? '_blank' : undefined"
           :rel="isExternal(item) ? 'noopener noreferrer' : undefined"
+          :style="{ '--accent': item.accent }"
         >
-          <div class="pf-card__media" :style="{ '--accent': item.accent }">
+          <div class="pf-card__media">
             <span class="pf-card__glow" aria-hidden="true" />
             <img class="pf-card__icon" :src="item.icon" :alt="`${item.title} 图标`" loading="lazy" />
             <span v-if="item.featured" class="pf-card__badge">主推</span>
@@ -179,8 +191,11 @@ function isExternal(item: AppItem) {
 
     <section class="pf-section" aria-labelledby="pf-sites">
       <div class="pf-section__head">
-        <h2 id="pf-sites">网站</h2>
-        <p>在线作品与实验项目</p>
+        <div class="pf-section__label">
+          <span class="pf-section__index">02</span>
+          <h2 id="pf-sites">网站</h2>
+        </div>
+        <p class="pf-section__note">在线作品与实验项目</p>
       </div>
 
       <div class="pf-sites">
@@ -210,8 +225,11 @@ function isExternal(item: AppItem) {
 
     <section class="pf-section" aria-labelledby="pf-media">
       <div class="pf-section__head">
-        <h2 id="pf-media">自媒体</h2>
-        <p>获取更新与长文</p>
+        <div class="pf-section__label">
+          <span class="pf-section__index">03</span>
+          <h2 id="pf-media">自媒体</h2>
+        </div>
+        <p class="pf-section__note">获取更新与长文</p>
       </div>
 
       <div class="pf-media">
@@ -226,21 +244,38 @@ function isExternal(item: AppItem) {
 </template>
 
 <style scoped>
+/**
+ * 宽度由 theme/custom.css 的 .page-portfolio 规则撑到 1152（与首页一致），
+ * 组件自身不再限制宽度。
+ */
 .portfolio {
-  --pf-border: color-mix(in srgb, var(--vp-c-divider) 90%, transparent);
+  --pf-border: color-mix(in srgb, var(--vp-c-divider) 85%, transparent);
+  --pf-surface: color-mix(in srgb, var(--vp-c-bg-soft) 55%, var(--vp-c-bg));
   --pf-radius: 16px;
   --pf-accent: var(--vp-c-brand-1);
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 /* ---------- Hero ---------- */
+
 .pf-hero {
-  padding: 0.25rem 0 2.75rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 26px;
+  padding: 0.25rem 0 0;
+}
+
+@media (min-width: 900px) {
+  .pf-hero {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 24px 56px;
+  }
 }
 
 .pf-hero__eyebrow {
-  margin: 0 0 0.55rem;
-  font-size: 0.72rem;
+  margin: 0 0 0.5rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -248,28 +283,27 @@ function isExternal(item: AppItem) {
 }
 
 .pf-hero__title {
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.75rem;
   padding: 0;
   border: none;
-  font-size: clamp(2rem, 4.5vw, 2.85rem);
+  font-size: clamp(2.2rem, 5vw, 3.1rem);
   font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1.08;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
   color: var(--vp-c-text-1);
 }
 
 .pf-hero__lead {
-  margin: 0 0 1.6rem;
-  max-width: 38rem;
-  font-size: 1.05rem;
-  line-height: 1.7;
+  margin: 0;
+  max-width: 34rem;
+  font-size: 1.02rem;
+  line-height: 1.75;
   color: var(--vp-c-text-2);
 }
 
+/* 统计：竖线分隔的三段，像一份规格表 */
 .pf-hero__stats {
   display: flex;
-  flex-wrap: wrap;
-  gap: 2.25rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -277,42 +311,73 @@ function isExternal(item: AppItem) {
 
 .pf-hero__stats li {
   display: flex;
-  align-items: baseline;
-  gap: 0.4rem;
+  flex-direction: column;
+  gap: 1px;
+  padding: 0 20px;
+  border-left: 1px solid var(--pf-border);
+}
+
+.pf-hero__stats li:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+.pf-hero__stats li:last-child {
+  padding-right: 0;
 }
 
 .pf-hero__stats strong {
-  font-size: 1.55rem;
+  font-size: 1.65rem;
   font-weight: 800;
   letter-spacing: -0.03em;
+  line-height: 1.1;
   font-variant-numeric: tabular-nums;
   color: var(--vp-c-text-1);
 }
 
 .pf-hero__stats span {
-  font-size: 0.88rem;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
   color: var(--vp-c-text-3);
 }
 
 /* ---------- Section ---------- */
+
 .pf-section {
-  margin-bottom: 3rem;
+  margin-top: 52px;
+  padding-top: 24px;
+  border-top: 1px solid var(--pf-border);
 }
 
 .pf-section__head {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  gap: 0.5rem 1rem;
-  margin-bottom: 1.15rem;
+  gap: 0.6rem 1rem;
+  margin-bottom: 20px;
+}
+
+.pf-section__label {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.pf-section__index {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-variant-numeric: tabular-nums;
+  color: var(--pf-accent);
 }
 
 .pf-section__head h2 {
   margin: 0;
   padding: 0;
   border: none;
-  font-size: 1.3rem;
+  font-size: 1.32rem;
   font-weight: 750;
   letter-spacing: -0.02em;
   color: var(--vp-c-text-1);
@@ -322,25 +387,39 @@ function isExternal(item: AppItem) {
   display: none;
 }
 
-.pf-section__head p {
+.pf-section__note {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--vp-c-text-3);
 }
 
-.pf-section__head a {
+/* 区块动作做成胶囊，与首页快捷入口同一套语言 */
+.pf-section__action {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  font-size: 0.88rem;
-  font-weight: 650;
-  color: var(--pf-accent);
-  text-decoration: none;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid var(--pf-border);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--vp-c-text-2);
+  text-decoration: none !important;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
 }
 
-.pf-section__head a svg {
-  width: 14px;
-  height: 14px;
+.pf-section__action:hover {
+  color: var(--pf-accent);
+  border-color: color-mix(in srgb, var(--pf-accent) 40%, var(--pf-border));
+  background-color: color-mix(in srgb, var(--pf-accent) 7%, transparent);
+}
+
+.pf-section__action svg {
+  width: 13px;
+  height: 13px;
   fill: none;
   stroke: currentColor;
   stroke-width: 2.2;
@@ -349,24 +428,44 @@ function isExternal(item: AppItem) {
   transition: transform 0.22s ease;
 }
 
-.pf-section__head a:hover svg {
+.pf-section__action:hover svg {
   transform: translateX(3px);
 }
 
 /* ---------- App 网格 ---------- */
+
 .pf-grid {
   display: grid;
-  gap: 1.1rem;
-  grid-template-columns: repeat(auto-fill, minmax(228px, 1fr));
+  gap: 18px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px) {
+  .pf-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .pf-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1180px) {
+  .pf-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 .pf-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--pf-border);
   border-radius: var(--pf-radius);
-  background: var(--vp-c-bg);
+  background: linear-gradient(180deg, var(--pf-surface) 0%, var(--vp-c-bg) 62%);
   text-decoration: none !important;
   color: inherit;
   transition:
@@ -376,14 +475,39 @@ function isExternal(item: AppItem) {
 }
 
 .pf-card:hover {
-  transform: translateY(-4px);
-  border-color: color-mix(in srgb, var(--pf-accent) 42%, var(--pf-border));
-  box-shadow: 0 14px 32px color-mix(in srgb, var(--vp-c-text-1) 10%, transparent);
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--pf-border));
+  box-shadow:
+    0 20px 34px -26px color-mix(in srgb, var(--vp-c-text-1) 65%, transparent),
+    0 3px 8px -5px color-mix(in srgb, var(--vp-c-text-1) 20%, transparent);
 }
 
-.pf-card:focus-visible {
+/* 主推的那一个常驻一道品牌色描边，不用悬停也能看出来 */
+.pf-card.is-featured {
+  border-color: color-mix(in srgb, var(--accent) 34%, var(--pf-border));
+}
+
+.pf-card:focus-visible,
+.pf-site:focus-visible,
+.pf-section__action:focus-visible {
   outline: 2px solid var(--pf-accent);
   outline-offset: 3px;
+}
+
+/* 悬停时顶部浮现一道品牌色细线，与首页专题卡呼应 */
+.pf-card::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 3;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.pf-card:hover::after {
+  opacity: 0.85;
 }
 
 /* 媒体区：光晕由 accent 生成，黑白图标也能有明确的品牌氛围 */
@@ -393,6 +517,7 @@ function isExternal(item: AppItem) {
   place-items: center;
   aspect-ratio: 5 / 3;
   overflow: hidden;
+  border-bottom: 1px solid var(--pf-border);
   background: var(--vp-c-bg-soft);
 }
 
@@ -400,8 +525,8 @@ function isExternal(item: AppItem) {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(118% 96% at 50% -12%, color-mix(in srgb, var(--accent) 34%, transparent), transparent 72%),
-    radial-gradient(96% 88% at 50% 118%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 66%);
+    radial-gradient(120% 100% at 50% -10%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 72%),
+    radial-gradient(92% 82% at 50% 112%, color-mix(in srgb, var(--accent) 13%, transparent), transparent 66%);
   pointer-events: none;
 }
 
@@ -410,29 +535,32 @@ function isExternal(item: AppItem) {
   z-index: 1;
   width: 76px;
   height: 76px;
-  border-radius: 18px;
+  border-radius: 19px;
   box-shadow:
-    0 8px 22px rgba(0, 0, 0, 0.26),
-    0 2px 6px rgba(0, 0, 0, 0.14);
+    0 0 0 1px rgb(0 0 0 / 8%),
+    0 12px 24px -8px rgb(0 0 0 / 30%);
   transition: transform 0.3s ease;
 }
 
 .pf-card:hover .pf-card__icon {
-  transform: translateY(-3px) scale(1.05);
+  transform: translateY(-3px) scale(1.04);
 }
 
+/* 角标做成玻璃胶囊，压在任意颜色的光晕上都稳定 */
 .pf-card__badge {
   position: absolute;
   top: 10px;
   right: 10px;
   z-index: 2;
-  padding: 0.16rem 0.5rem;
+  padding: 0.16rem 0.55rem;
+  border: 1px solid rgb(255 255 255 / 22%);
   border-radius: 999px;
-  font-size: 0.66rem;
+  font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.02em;
   color: #fff;
-  background: color-mix(in srgb, var(--pf-accent) 88%, #000);
+  background: rgb(0 0 0 / 72%);
+  backdrop-filter: blur(8px);
 }
 
 .pf-card__body {
@@ -440,22 +568,34 @@ function isExternal(item: AppItem) {
   flex: 1;
   flex-direction: column;
   gap: 0.3rem;
-  padding: 0.95rem 1.05rem 1.1rem;
+  padding: 14px 16px 16px;
 }
 
 .pf-card__tag {
-  font-size: 0.67rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.66rem;
   font-weight: 700;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--vp-c-text-3);
+}
+
+/* 小圆点用应用自己的主色，把卡片正文和媒体区的氛围连起来 */
+.pf-card__tag::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
 }
 
 .pf-card__title {
   margin: 0;
   padding: 0;
   border: none;
-  font-size: 1.04rem;
+  font-size: 1.02rem;
   font-weight: 700;
   letter-spacing: -0.015em;
   color: var(--vp-c-text-1);
@@ -470,8 +610,8 @@ function isExternal(item: AppItem) {
   flex: 1;
   margin: 0;
   overflow: hidden;
-  font-size: 0.85rem;
-  line-height: 1.6;
+  font-size: 0.84rem;
+  line-height: 1.62;
   color: var(--vp-c-text-2);
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
@@ -482,8 +622,8 @@ function isExternal(item: AppItem) {
   display: inline-flex;
   align-items: center;
   gap: 0.28rem;
-  margin-top: 0.45rem;
-  font-size: 0.82rem;
+  margin-top: 10px;
+  font-size: 0.8rem;
   font-weight: 650;
   color: var(--pf-accent);
 }
@@ -506,10 +646,17 @@ function isExternal(item: AppItem) {
 }
 
 /* ---------- 网站 ---------- */
+
 .pf-sites {
   display: grid;
-  gap: 1.1rem;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 18px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .pf-sites {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .pf-site {
@@ -528,24 +675,24 @@ function isExternal(item: AppItem) {
 }
 
 .pf-site:hover {
-  transform: translateY(-4px);
-  border-color: color-mix(in srgb, var(--pf-accent) 42%, var(--pf-border));
-  box-shadow: 0 14px 32px color-mix(in srgb, var(--vp-c-text-1) 10%, transparent);
-}
-
-.pf-site:focus-visible {
-  outline: 2px solid var(--pf-accent);
-  outline-offset: 3px;
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--pf-accent) 45%, var(--pf-border));
+  box-shadow:
+    0 20px 34px -26px color-mix(in srgb, var(--vp-c-text-1) 65%, transparent),
+    0 3px 8px -5px color-mix(in srgb, var(--vp-c-text-1) 20%, transparent);
 }
 
 .pf-site__cover {
-  aspect-ratio: 16 / 10;
+  position: relative;
+  /* 截图源多为 2.07~2.28:1，用 2.05 裁得最少，也更像一扇浏览器窗口 */
+  aspect-ratio: 2.05 / 1;
   overflow: hidden;
-  background: var(--vp-c-bg-soft);
   border-bottom: 1px solid var(--pf-border);
+  background: var(--vp-c-bg-soft);
 }
 
 .pf-site__cover img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -554,7 +701,22 @@ function isExternal(item: AppItem) {
 }
 
 .pf-site:hover .pf-site__cover img {
-  transform: scale(1.04);
+  transform: scale(1.03);
+}
+
+/* 截图多是浅色页面，深色模式下压暗并把底边融进卡片，避免整块发白 */
+.dark .pf-site__cover img {
+  filter: brightness(0.85) saturate(0.95);
+}
+
+.dark .pf-site__cover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 52%, rgb(0 0 0 / 28%) 100%),
+    rgb(0 0 0 / 14%);
+  pointer-events: none;
 }
 
 .pf-site__body {
@@ -562,13 +724,13 @@ function isExternal(item: AppItem) {
   flex: 1;
   flex-direction: column;
   gap: 0.3rem;
-  padding: 0.95rem 1.05rem 1.1rem;
+  padding: 16px 18px 18px;
 }
 
 .pf-site__tag {
-  font-size: 0.67rem;
+  font-size: 0.66rem;
   font-weight: 700;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--vp-c-text-3);
 }
@@ -577,7 +739,7 @@ function isExternal(item: AppItem) {
   margin: 0;
   padding: 0;
   border: none;
-  font-size: 1.04rem;
+  font-size: 1.06rem;
   font-weight: 700;
   letter-spacing: -0.015em;
   color: var(--vp-c-text-1);
@@ -590,42 +752,47 @@ function isExternal(item: AppItem) {
 .pf-site__desc {
   flex: 1;
   margin: 0;
-  font-size: 0.85rem;
-  line-height: 1.6;
+  font-size: 0.86rem;
+  line-height: 1.62;
   color: var(--vp-c-text-2);
 }
 
 /* ---------- 自媒体 ---------- */
+
 .pf-media {
   display: grid;
-  gap: 1.4rem;
+  gap: 20px;
   align-items: center;
-  padding: 1.35rem 1.5rem;
+  padding: 22px;
   border: 1px solid var(--pf-border);
   border-radius: var(--pf-radius);
   background:
-    radial-gradient(120% 100% at 0% 0%, color-mix(in srgb, #07c160 12%, transparent), transparent 62%),
+    radial-gradient(90% 120% at 0% 0%, color-mix(in srgb, #07c160 11%, transparent), transparent 62%),
     var(--vp-c-bg-soft);
 }
 
 @media (min-width: 768px) {
   .pf-media {
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 400px minmax(0, 1fr);
+    gap: 32px;
+    padding: 24px 28px;
   }
 }
 
 .pf-media__card {
+  display: block;
   width: 100%;
-  max-width: 320px;
+  max-width: 400px;
   height: auto;
-  border-radius: 10px;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px -16px color-mix(in srgb, #0b7a3f 70%, transparent);
 }
 
 .pf-media__copy h3 {
   margin: 0 0 0.45rem;
   padding: 0;
   border: none;
-  font-size: 1.1rem;
+  font-size: 1.12rem;
   font-weight: 700;
   letter-spacing: -0.015em;
   color: var(--vp-c-text-1);
@@ -637,17 +804,44 @@ function isExternal(item: AppItem) {
 
 .pf-media__copy p {
   margin: 0;
-  max-width: 30rem;
-  font-size: 0.92rem;
-  line-height: 1.65;
+  max-width: 32rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
   color: var(--vp-c-text-2);
 }
 
-/* ---------- 深色模式：深底需要更强的光晕才看得出层次 ---------- */
+/* 窄屏单列时 5:3 的媒体区太空，压成横幅比例，图标同步收小 */
+@media (max-width: 559px) {
+  .pf-card__media {
+    aspect-ratio: 16 / 7;
+  }
+
+  .pf-card__icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+  }
+
+  .pf-card__badge {
+    top: 8px;
+    right: 8px;
+    padding: 0.1rem 0.45rem;
+    font-size: 0.62rem;
+  }
+}
+
+/* ---------- 深色模式 ---------- */
+
 .dark .pf-card__glow {
   background:
-    radial-gradient(118% 96% at 50% -12%, color-mix(in srgb, var(--accent) 48%, transparent), transparent 74%),
-    radial-gradient(96% 88% at 50% 118%, color-mix(in srgb, var(--accent) 24%, transparent), transparent 68%);
+    radial-gradient(120% 100% at 50% -10%, color-mix(in srgb, var(--accent) 34%, transparent), transparent 74%),
+    radial-gradient(92% 82% at 50% 112%, color-mix(in srgb, var(--accent) 15%, transparent), transparent 68%);
+}
+
+.dark .pf-card__icon {
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 9%),
+    0 12px 24px -8px rgb(0 0 0 / 55%);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -656,7 +850,8 @@ function isExternal(item: AppItem) {
   .pf-card__icon,
   .pf-site__cover img,
   .pf-card__cta svg,
-  .pf-site__cta svg {
+  .pf-site__cta svg,
+  .pf-section__action svg {
     transition: none;
   }
 
