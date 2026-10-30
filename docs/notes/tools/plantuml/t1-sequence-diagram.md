@@ -1,9 +1,6 @@
 ---
 title: 时序图
 description: "时序图(Sequence Diagram)，又名序列图、循序图，是一种 UML 交互图。它通过描述对象之间发送消息的时间顺序显示多个对象之间的动态协作。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2020-11-10T00:00:00.000Z
 tags:
   - tools

@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: 入门
 description: "Fluent 是 Swift 的 ORM 框架。它利用 Swift 的强大类型系统为数据库提供易于使用的接口。Fluent 通过模型类的创建，读取，更新和删除等操作来管理数据库，而不是直接通过编写 SQL 语句。"
 date: 2020-08-17T00:00:00.000Z

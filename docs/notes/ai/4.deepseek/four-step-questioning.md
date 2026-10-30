@@ -1,9 +1,6 @@
 ---
 title: 四步提问法（黄金公式）
 description: "在信息爆炸的时代，我们每天都面临着海量的知识和繁杂的任务，如何精准地获取所需信息，成为了决定成败的关键。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2025-02-10T00:00:00.000Z
 tags:
   - deepseek

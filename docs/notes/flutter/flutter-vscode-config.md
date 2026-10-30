@@ -4,9 +4,6 @@ description: "有些时候我们需要运行 flutter 的时候指定参数，比
 date: 2022-06-10T00:00:00.000Z
 tags:
   - flutter
-sitemap:
-  exclude: false
-  changefreq: hourly
 createTime: 2024/08/02 09:19:27
 permalink: /flutter/flutter-vscode-config/
 ---

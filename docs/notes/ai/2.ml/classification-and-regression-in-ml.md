@@ -8,9 +8,6 @@ tags:
   - 机器学习
   - 分类
   - 回归
-sitemap:
-  exclude: false
-  changefreq: hourly
 createTime: 2025/02/19 09:10:14
 permalink: /ai/ml/classification-and-regression-in-ml/
 ---

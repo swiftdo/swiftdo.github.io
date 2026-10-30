@@ -1,9 +1,6 @@
 ---
 title: 开篇：认识 DeepSeek 热潮与困境
 description: "在当今信息如潮涌的时代，人们对知识的渴望和便捷解决方案的追求愈发炽热，DeepSeek 仿若一股迅猛的旋风强势登场，迅速成为各个领域热议的焦点。无论是学术的前沿阵地，学者们探索未知理论时；还是职场的拼搏赛场，工作者攻坚棘手难题之际；"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2025-02-10T00:00:00.000Z
 tags:
   - deepseek

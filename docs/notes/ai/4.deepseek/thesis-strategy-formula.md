@@ -1,9 +1,6 @@
 ---
 title: 论文攻坚公式
 description: "在撰写学术论文时，快速有效地完成文献综述与理论突破是每个研究者都面临的挑战。论文攻坚公式提供了一个清晰的框架，通过“预判提问”和“批判分析”的方法，帮助你迅速定位论文的创新点与局限，进而提升论文质量与深度。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2025-03-03T00:00:00.000Z
 tags:
   - deepseek

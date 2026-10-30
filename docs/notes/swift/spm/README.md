@@ -1,9 +1,6 @@
 ---
 title: Swift Packages
 description: "创建可重用的代码，以轻量级的方式组织它，并在 Xcode 项目和其他开发人员之间共享。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2021-12-05T00:00:00.000Z
 tags:
   - swift

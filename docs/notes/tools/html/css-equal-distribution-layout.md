@@ -1,9 +1,6 @@
 ---
 title: 实现CSS等分布局
 description: "在我们写界面的时候，会经常碰到此等分布局。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2023-08-03T00:00:00.000Z
 tags:
   - tools

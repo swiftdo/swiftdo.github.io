@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: Swift 函数式
 description: "以泛型作为参数来构建具体类型的类型"
 date: 2021-3-31

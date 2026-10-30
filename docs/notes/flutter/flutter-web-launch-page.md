@@ -4,9 +4,6 @@ description: "打开站点，首先会出现空白页面，且顶部进度条不
 date: 2022-06-18T00:00:00.000Z
 tags:
   - flutter
-sitemap:
-  exclude: false
-  changefreq: hourly
 createTime: 2024/08/02 09:19:27
 permalink: /flutter/flutter-web-launch-page/
 ---

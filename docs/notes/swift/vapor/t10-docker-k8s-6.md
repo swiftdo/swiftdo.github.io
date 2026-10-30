@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: K8s 使用标签组织pod
 description: "通过标签来组织pod和所有其他Kubernetes对象。通过给这些pod添加标签，可以得到一个更组织化的系统。"
 date: 2024-09-29T00:00:00.000Z

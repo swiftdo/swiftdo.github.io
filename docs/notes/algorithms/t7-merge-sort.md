@@ -1,9 +1,6 @@
 ---
 title: 归并排序
 description: "归并排序是 1945 年由 John von Neumann 发明的，是一种有效的算法，最佳、最差和平均时间复杂度都是 O(n log n)。归并排序算法使用分而治之方法，即将一个大问题分解为较小的问题并解决它们。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2020-08-17T00:00:00.000Z
 tags:
   - 数据结构与算法

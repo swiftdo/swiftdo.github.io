@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: Swift 码了个 JSON 解析器(二)
 description: "我们将开发一个小而完整的 Swift 库，这个库用于处理和序列化 JSON 数据。"
 date: 2021-4-11

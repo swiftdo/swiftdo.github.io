@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: vscode篇
 description: "vscode篇 —— OldBird Swift 笔记"
 date: 2022-01-12T00:00:00.000Z

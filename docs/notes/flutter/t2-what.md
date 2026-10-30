@@ -4,9 +4,6 @@ description: "原文：Flutter, what are Widgets, RenderObjects and Elements?"
 date: 2020-08-17T00:00:00.000Z
 tags:
   - flutter
-sitemap:
-  exclude: false
-  changefreq: hourly
 createTime: 2024/08/02 09:19:27
 permalink: /flutter/t2-what/
 ---

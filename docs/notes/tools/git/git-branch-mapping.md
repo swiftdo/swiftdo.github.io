@@ -1,9 +1,6 @@
 ---
 title: Git分支映射
 description: "本文中 git 操作的目标为建立本地分支与远程分支的映射关系（或者为跟踪关系 track）。 这样使用 git pull 或者 git push 时就不必每次都要指定从远程的哪个分支拉取合并和推送到远程的哪个分支了。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2021-12-15T00:00:00.000Z
 tags:
   - tools

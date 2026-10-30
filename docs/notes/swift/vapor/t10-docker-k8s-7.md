@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: K8s pod 存活探针
 description: "在 Kubernetes 中，存活探针（Liveness Probe）用于检测 Pod 中容器是否处于健康状态。如果探针检测到容器不健康，Kubernetes 会重新启动该容器。通过这种机制，可以确保应用在发生故障时自动恢复。"
 date: 2024-09-29T00:00:00.000Z

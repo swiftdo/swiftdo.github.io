@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: 在Mac上使用Docker Desktop启动 K8s
 description: "当Mac安装完Docker Desktop后，可以启动Docker了，而要启动Kubernetes，需要Enable。"
 date: 2024-09-25T00:00:00.000Z

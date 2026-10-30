@@ -1,9 +1,6 @@
 ---
 title: docsify
 description: "前段日子，对设计模式进行了一个梳理，把梳理的文档整理到了仓库"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2020-08-16T00:00:00.000Z
 tags:
   - tools

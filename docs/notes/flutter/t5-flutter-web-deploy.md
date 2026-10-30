@@ -4,9 +4,6 @@ description: "本文，我们将使用 Github Actions 上构建 Flutter 应用�
 date: 2020-09-22T00:00:00.000Z
 tags:
   - flutter
-sitemap:
-  exclude: false
-  changefreq: hourly
 createTime: 2024/08/02 09:19:27
 permalink: /flutter/t5-flutter-web-deploy/
 ---

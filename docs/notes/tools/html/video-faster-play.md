@@ -1,9 +1,6 @@
 ---
 title: 网课视频加速播放
 description: "网课视频加速播放 —— OldBird 工具 笔记"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2025-03-13T00:00:00.000Z
 tags:
   - tools

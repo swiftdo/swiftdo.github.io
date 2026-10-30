@@ -1,9 +1,6 @@
 ---
 title: 添加 Swift Package 依赖
 description: "通过集成 package 依赖，实现项目之间共享代码，或利用其他开发者的代码。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2022-04-02T00:00:00.000Z
 tags:
   - swift

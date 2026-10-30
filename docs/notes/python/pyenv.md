@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: pyenv 版本管理工具
 description: "Pyenv 是一个 Python 版本管理工具，它可以让您在同一台计算机上安装多个不同版本的 Python，并且可以轻松地在这些版本之间切换。这对于开发人员来说非常有用，因为不同的项目可能需要使用不同版本的 Python。"
 date: 2024-03-19T00:00:00.000Z

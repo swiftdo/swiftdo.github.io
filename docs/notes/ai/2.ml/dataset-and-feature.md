@@ -8,9 +8,6 @@ tags:
   - 机器学习
   - 数据集
   - 特征
-sitemap:
-  exclude: false
-  changefreq: monthly
 createTime: 2025/02/19 10:18:34
 permalink: /ai/ml/dataset-and-feature/
 ---

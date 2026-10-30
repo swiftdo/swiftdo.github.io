@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: 禁止海外ip访问
 description: "只需要国内访问或个别几个国家访问。那就选择白名单，把允许的几个国家加入白名单中，其他全部屏蔽掉即可。"
 date: 2024-12-8

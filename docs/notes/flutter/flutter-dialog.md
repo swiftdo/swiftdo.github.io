@@ -4,9 +4,6 @@ description: "Dialog 在是很常用的一种 UI。那么在 Flutter 中如何�
 date: 2022-04-22T00:00:00.000Z
 tags:
   - flutter
-sitemap:
-  exclude: false
-  changefreq: hourly
 createTime: 2024/08/02 09:19:27
 permalink: /flutter/flutter-dialog/
 ---

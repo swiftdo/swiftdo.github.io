@@ -5,9 +5,6 @@ createTime: 2020/04/01 00:00:00
 permalink: /haskell/
 tags:
   - haskell
-sitemap:
-  exclude: false
-  changefreq: hourly
 ---
 
 Haskell 函数式编程学习笔记，覆盖安装、编辑器配置、包管理与递归类型等内容。

@@ -1,9 +1,6 @@
 ---
 title: 用Xcode创建一个独立的Swift包
 description: "将可执行或可共享的代码捆绑成一个独立的 Swift 包。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2022-05-08T00:00:00.000Z
 tags:
   - swift

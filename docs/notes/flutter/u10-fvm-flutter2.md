@@ -4,9 +4,6 @@ description: "Flutter 2.0 今早发布，web 开发现已在 stable channel 支�
 date: 2021-01-19T00:00:00.000Z
 tags:
   - flutter
-sitemap:
-  exclude: false
-  changefreq: hourly
 createTime: 2024/08/02 09:19:27
 permalink: /flutter/u10-fvm-flutter2/
 ---

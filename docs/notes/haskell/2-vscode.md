@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: 配置编辑器 VSCode
 description: "当我们安装好了 stack 后，我们还需要配置 vscode。"
 date: 2020-4-1

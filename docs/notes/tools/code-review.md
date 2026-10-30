@@ -1,9 +1,6 @@
 ---
 title: 代码评审
 description: "代码走查（Code Review）是软件开发中的一种重要实践，它旨在通过团队成员间的相互检查，提高代码质量、可维护性和一致性。代码走查的主要目标是发现和解决潜在问题、提升代码质量。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2024-12-20T00:00:00.000Z
 tags:
   - code

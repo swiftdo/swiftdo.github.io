@@ -1,9 +1,6 @@
 ---
 title: Git
 description: "在多人协作项目中，如果代码风格统一、代码提交信息的说明准确，那么在后期协作以及 Bug 处理时会更加方便。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2020-08-17T00:00:00.000Z
 tags:
   - tools

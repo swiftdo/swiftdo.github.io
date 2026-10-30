@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: iptables和firewall防火墙区别
 description: "iptables 和 firewalld 都是 Linux 系统中常见的防火墙工具。"
 date: 2024-12-8

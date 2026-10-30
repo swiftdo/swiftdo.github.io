@@ -1,9 +1,6 @@
 ---
 title: Git submodule
 description: "如果，git clone 的时候忘记 --recursive。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2020-08-17T00:00:00.000Z
 tags:
   - tools

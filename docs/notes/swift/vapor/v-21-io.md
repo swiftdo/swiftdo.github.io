@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: swift-nio原理之I/O模型篇
 description: "传统的 HTTP 服务器的原理"
 date: 2020-11-22T00:00:00.000Z

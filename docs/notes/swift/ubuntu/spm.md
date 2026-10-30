@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: spm篇
 description: "Xcode 直接打开这个 Package 的根目录，就会根据 Package.swift 自动生成 Target。"
 date: 2022-01-12T00:00:00.000Z

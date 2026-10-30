@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: Django 模板文件的放置路径
 description: "模板文件有两种, 一种是属于整个项目(project)的模板,一种是属于某个应用(app)的模板。模板文件的放置路径必需正确，否则Django找不到模板容易出现TemplateDoesNotExist的错误。"
 date: 2024-05-09T00:00:00.000Z

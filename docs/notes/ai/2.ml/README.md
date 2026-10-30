@@ -6,9 +6,6 @@ tags:
   - ai
   - ml
   - 机器学习
-sitemap:
-  exclude: false
-  changefreq: hourly
 createTime: 2025/02/18 10:04:35
 permalink: /ai/ml/
 ---

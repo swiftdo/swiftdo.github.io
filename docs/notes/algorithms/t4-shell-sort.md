@@ -1,9 +1,6 @@
 ---
 title: 希尔排序
 description: "希尔排序是插入排序的一种又称“缩小增量排序”，是直接插入排序算法的一种更高效的改进版本，希尔排序是非稳定排序算法，该方法因“D.L.Shell”于 1959 年提出而得名。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2020-08-17T00:00:00.000Z
 tags:
   - 数据结构与算法

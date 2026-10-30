@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: Vapor 源码阅读方法
 description: "Vapor 源码阅读有方法：抓主干，补血肉"
 date: 2020-11-2

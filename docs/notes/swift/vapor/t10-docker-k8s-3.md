@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: K8s 简单的水平扩展
 description: "前文我们已经实现将应用部署到Kubernetes，并通过服务暴露访问。使用 Kubernets 的一个主要好处是可以简单的扩展部署。"
 date: 2024-09-25T00:00:00.000Z

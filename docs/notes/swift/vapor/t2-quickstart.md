@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: 快速上手
 description: "等久了吧？本文会给你好好介绍如何上手 Vapor。"
 date: 2020-08-17T00:00:00.000Z

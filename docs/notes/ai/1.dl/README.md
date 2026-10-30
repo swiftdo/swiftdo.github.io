@@ -6,9 +6,6 @@ tags:
   - ai
   - dl
   - 深度学习
-sitemap:
-  exclude: false
-  changefreq: hourly
 createTime: 2025/07/25 14:11:19
 permalink: /ai/dl/
 ---

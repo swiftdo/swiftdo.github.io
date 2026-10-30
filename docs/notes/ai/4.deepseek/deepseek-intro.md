@@ -1,9 +1,6 @@
 ---
 title: 第一章：DeepSeek 初印象
 description: "DeepSeek 依托前沿且先进的人工智能技术构建而成，仿若一个蕴藏着无尽知识宝藏、拥有超高速运算卓越本领的智慧大脑。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2025-02-10T00:00:00.000Z
 tags:
   - deepseek

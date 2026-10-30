@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: Python 遍历指定目录下所有文件名
 description: "遍历一个目录，上传该目录下的所有图片"
 date: 2021-8-30

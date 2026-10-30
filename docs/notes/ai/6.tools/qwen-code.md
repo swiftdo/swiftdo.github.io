@@ -5,9 +5,6 @@ date: 2025-07-23T00:00:00.000Z
 tags:
   - qwen
   - cli
-sitemap:
-  exclude: false
-  changefreq: hourly
 createTime: 2025/07/23 12:33:14
 permalink: /ai/tools/qwen-code/
 ---

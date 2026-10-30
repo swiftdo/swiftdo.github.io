@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: Vapor XCode运行，设置启动参数
 description: "xcode 设置启动参数"
 date: 2024-10-25T00:00:00.000Z

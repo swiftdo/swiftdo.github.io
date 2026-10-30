@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: poetry 项目的依赖管理和打包工具
 description: "Poetry 是一个 Python 打包和依赖管理工具，旨在简化 Python 包的创建、发布和依赖管理。与传统的 setuptools、pip 和 requirements."
 date: 2024-03-19T00:00:00.000Z

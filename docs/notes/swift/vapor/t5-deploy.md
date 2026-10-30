@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: Docker 部署
 description: "使用 Docker 部署您的 Vapor 应用程序有几个好处"
 date: 2020-08-17T00:00:00.000Z

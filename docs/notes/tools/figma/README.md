@@ -1,9 +1,6 @@
 ---
 title: Figma
 description: "Figma 是一个 基于浏览器 的协作式 UI 设计工具。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 permalink: /tools/figma/
 createTime: 2024/08/02 09:19:27
 ---

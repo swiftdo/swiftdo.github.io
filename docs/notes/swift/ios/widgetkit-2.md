@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: iOS 小组件开发之核心方法调用时机
 description: "在开发 iOS 小组件 (Widget) 时，placeholder、getSnapshot 和 getTimeline 是 WidgetKit 的核心方法。"
 date: 2024-10-22T00:00:00.000Z

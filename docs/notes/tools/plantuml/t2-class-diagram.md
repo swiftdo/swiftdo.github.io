@@ -1,9 +1,6 @@
 ---
 title: 类图
 description: "类图 —— OldBird 工具 笔记"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2020-11-10T00:00:00.000Z
 tags:
   - tools

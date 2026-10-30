@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: iOS 优化角度
 description: "本地图片尽可能改为从网络下载。"
 date: 2020-11-04T00:00:00.000Z

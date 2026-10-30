@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: Python 之 MongoDB 指定大小的随机数据
 description: "从 mongodb 中从符合条件的数据中随机出指定大小的数据"
 date: 2021-8-30

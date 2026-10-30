@@ -4,9 +4,6 @@ description: "感知机算法提出于 1957 年，是对生物神经细胞的简
 date: 2021-02-03T00:00:00.000Z
 tags:
   - ai
-sitemap:
-  exclude: false
-  changefreq: hourly
 createTime: 2024/08/02 09:19:27
 permalink: /ai/dl/t1-gzj/
 ---

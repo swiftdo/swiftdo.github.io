@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: iOS 打包证书制作
 description: "iOS 有两种证书和描述文件"
 date: 2020-10-10T00:00:00.000Z

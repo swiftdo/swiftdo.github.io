@@ -4,9 +4,6 @@ description: "Flutter Widget 截屏，将图片保存在本地并且实现图片
 date: 2022-06-10T00:00:00.000Z
 tags:
   - flutter
-sitemap:
-  exclude: false
-  changefreq: hourly
 createTime: 2024/08/02 09:19:27
 permalink: /flutter/flutter-screenshoot1/
 ---

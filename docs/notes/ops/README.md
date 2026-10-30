@@ -6,9 +6,6 @@ permalink: /ops/
 tags:
   - linux
   - 运维
-sitemap:
-  exclude: false
-  changefreq: hourly
 ---
 
 Linux 运维笔记，记录防火墙、访问控制、SonarQube 等服务部署与排错经验。

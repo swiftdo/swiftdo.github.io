@@ -1,9 +1,6 @@
 ---
 title: 介绍
 description: "详情请看官网 VuePress"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2020-08-17T00:00:00.000Z
 tags:
   - tools

@@ -4,9 +4,6 @@ description: "在 flutter 升级的时候，我们需要更新一些依赖库，
 date: 2022-06-06T00:00:00.000Z
 tags:
   - flutter
-sitemap:
-  exclude: false
-  changefreq: hourly
 createTime: 2024/08/02 09:19:27
 permalink: /flutter/flutter-deps/
 ---

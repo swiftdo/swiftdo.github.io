@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: K8s pod 与节点的关系
 description: "在 Kubernetes 中，节点（Node） 和 Pod 的关系是集群架构的核心，节点是 Kubernetes 运行和管理 Pod 的物理或虚拟计算资源，而 Pod 是运行应用程序的最小单元。"
 date: 2024-09-29T00:00:00.000Z

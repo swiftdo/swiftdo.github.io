@@ -1,9 +1,6 @@
 ---
 title: 将包的依赖关系作为本地包进行编辑
 description: "要编辑一个包，需要将其作为本地包，覆盖依赖关系。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2022-04-02T00:00:00.000Z
 tags:
   - swift

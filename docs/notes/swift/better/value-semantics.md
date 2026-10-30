@@ -1,9 +1,6 @@
 ---
 title: Swift 值语义(一)
 description: "在 Swift 中，一个被不断讨论话题：什么时候使用结构体什么时候使用类？"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2022-05-03T00:00:00.000Z
 tags:
   - swift

@@ -1,9 +1,6 @@
 ---
 title: 通过 Travis 部署
 description: "GitHub Pages 是 GitHub 提供的一个网页寄存服务，于 2008 年推出。可以用于存放静态网页，包括博客、项目文档甚至整本书。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2020-08-17T00:00:00.000Z
 tags:
   - tools

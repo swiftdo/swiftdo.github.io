@@ -1,9 +1,6 @@
 ---
 title: '书单'
 description: "书单 —— OldBird 技术笔记"
-sitemap:
-  exclude: false
-  changefreq: hourly
 createTime: 2024/08/02 09:19:27
 tags:
 - 书单

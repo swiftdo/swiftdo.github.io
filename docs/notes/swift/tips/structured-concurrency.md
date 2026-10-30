@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: 结构化并发?
 description: "结构化并发（Structured Concurrency）是一种编程模型，旨在简化并发代码的编写和管理，并降低并发编程中的一些常见错误。"
 date: 2023-07-31T00:00:00.000Z

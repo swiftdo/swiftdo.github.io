@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: SwiftNIO 实战之序列化
 description: "序列化一般有两个主要目的"
 date: 2020-12-09T00:00:00.000Z

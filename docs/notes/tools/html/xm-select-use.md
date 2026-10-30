@@ -1,9 +1,6 @@
 ---
 title: xm-select 使用指南
 description: "xm-select 使用指南"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2024-10-31T00:00:00.000Z
 tags:
   - tools

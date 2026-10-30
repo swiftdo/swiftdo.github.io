@@ -1,9 +1,6 @@
 ---
 title: 包资源本地化
 description: "确保您的 Swift 包为许多语言环境提供本地化资源。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2022-05-08T00:00:00.000Z
 tags:
   - swift

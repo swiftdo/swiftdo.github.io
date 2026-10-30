@@ -1,9 +1,6 @@
 ---
 title: Flex 布局
 description: "两者区别主要是父容器的宽度，flex 是 100%，而 inline-flex 会根据子元素的宽度适应。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2020-08-17T00:00:00.000Z
 tags:
   - tools

@@ -1,9 +1,6 @@
 ---
 title: 基数排序
 description: "基数排序（Radix sort）是一种非比较型整数排序算法，时间复杂度是 O(n) 。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2020-08-17T00:00:00.000Z
 tags:
   - 数据结构与算法

@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: K8s 中的 pod
 description: "容器间是彼此完全隔离的，但是我们期望的是隔离容器组，而不是单个容器，并让每个容器组内的容器共享一些资源，而不是全部(未完全隔离)。"
 date: 2024-09-29T00:00:00.000Z

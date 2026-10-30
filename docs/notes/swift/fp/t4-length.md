@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: 递归思想求列表长度
 description: "在 haskell 中，列表的长度是这么计算的"
 date: 2021-3-31

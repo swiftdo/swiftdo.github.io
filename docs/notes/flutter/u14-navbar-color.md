@@ -4,9 +4,6 @@ description: "If a particular style is not supported on the platform, selecting 
 date: 2021-06-07T00:00:00.000Z
 tags:
   - flutter
-sitemap:
-  exclude: false
-  changefreq: hourly
 createTime: 2024/08/02 09:19:27
 permalink: /flutter/u14-navbar-color/
 ---

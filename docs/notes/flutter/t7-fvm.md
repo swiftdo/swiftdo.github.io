@@ -4,9 +4,6 @@ description: "使用 Flutter 构建应用程序，我们一般会选用 stable �
 date: 2021-01-19T00:00:00.000Z
 tags:
   - flutter
-sitemap:
-  exclude: false
-  changefreq: hourly
 createTime: 2024/08/02 09:19:27
 permalink: /flutter/t7-fvm/
 ---

@@ -4,9 +4,6 @@ description: "上篇 Flutter2 for Web，写了个博客站点，已上线，我�
 date: 2021-03-21T00:00:00.000Z
 tags:
   - flutter
-sitemap:
-  exclude: false
-  changefreq: hourly
 createTime: 2024/08/02 09:19:27
 permalink: /flutter/u12-flutter-web-02/
 ---

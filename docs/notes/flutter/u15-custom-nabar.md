@@ -4,9 +4,6 @@ description: "SliverAppBar 控件可以实现页面头部区域展开、折叠�
 date: 2021-06-07T00:00:00.000Z
 tags:
   - flutter
-sitemap:
-  exclude: false
-  changefreq: hourly
 createTime: 2024/08/02 09:19:27
 permalink: /flutter/u15-custom-nabar/
 ---

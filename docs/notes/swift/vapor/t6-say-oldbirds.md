@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: 实战：say-oldbirds
 description: "say-oldbirds 是一个类似于留言板的程序，用来让用户发表问候。say-oldbirds 的使用流程非常简单，用户输入问候信息和姓名，按下提交按钮，就可以将问候加入到页面的消息队列中。"
 date: 2020-09-07T00:00:00.000Z

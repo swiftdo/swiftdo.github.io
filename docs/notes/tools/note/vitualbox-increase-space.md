@@ -1,9 +1,6 @@
 ---
 title: 对 VituralBox 虚拟机扩容
 description: "用 gitlab 对内部代码进行私有管理，由于 gitlab 在 MacOS 上的部署太过复杂，所以采用 Ubuntu 虚拟机进行部署。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2022-04-17T00:00:00.000Z
 tags:
   - tools

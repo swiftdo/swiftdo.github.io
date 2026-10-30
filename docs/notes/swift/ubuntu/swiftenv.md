@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: swiftenv篇
 description: "swiftenv 是 Swift 的版本管理器，可以对特定项目指定特定的 Swift 的版本，或者全局切换 Swift 的版本。"
 date: 2022-01-12T00:00:00.000Z

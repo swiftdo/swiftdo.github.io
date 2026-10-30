@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: Pod libwebp 安装失败
 description: "pod SDWebImage/WebP 遇到下面的问题"
 date: 2020-10-10T00:00:00.000Z

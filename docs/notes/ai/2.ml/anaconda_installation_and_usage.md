@@ -6,9 +6,6 @@ tags:
   - ai
   - ml
   - 机器学习
-sitemap:
-  exclude: false
-  changefreq: hourly
 createTime: 2025/02/19 12:59:15
 permalink: /ai/ml/anaconda-installation-and-usage/
 ---

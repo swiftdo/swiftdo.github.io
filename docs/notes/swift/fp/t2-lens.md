@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: Swift Lens
 description: "Lens理解为不可变数据结构的 Getter 跟 Setter."
 date: 2021-3-31

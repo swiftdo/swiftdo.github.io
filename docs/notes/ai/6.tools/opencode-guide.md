@@ -7,9 +7,6 @@ tags:
   - ai
   - cli
   - coding-agent
-sitemap:
-  exclude: false
-  changefreq: hourly
 createTime: 2026/02/26 10:00:00
 permalink: /ai/opencode-guide/
 ---

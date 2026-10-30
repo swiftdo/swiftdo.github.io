@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: 5分钟创建 WechatOpenSDK 1.9.2 版本的pod库
 description: "shell git clone"
 date: 2020-10-10T00:00:00.000Z

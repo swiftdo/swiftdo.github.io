@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: K8s 查看应用程序日志
 description: "容器化的应用程序通常会将日志记录到标准输出和标准错误流，而不是将其写入文件，这就允许用户可以通过简单、标准的方式查看不同应用程序的日志。"
 date: 2024-09-29T00:00:00.000Z

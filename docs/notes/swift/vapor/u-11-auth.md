@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: Vapor 之 auth 概念
 description: "在我们写接口的时候，有个很普通的需求就是"
 date: 2020-11-12T00:00:00.000Z

@@ -6,9 +6,6 @@ tags:
   - ai
   - nlp
   - 自然语言处理
-sitemap:
-  exclude: false
-  changefreq: hourly
 createTime: 2025/07/23 14:16:37
 permalink: /ai/tools/
 ---

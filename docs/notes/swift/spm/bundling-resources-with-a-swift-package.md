@@ -1,9 +1,6 @@
 ---
 title: 使用 Swift 包捆绑资源
 description: "将资源文件添加到您的 Swift 包并在您的代码中访问它们。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2022-05-08T00:00:00.000Z
 tags:
   - swift

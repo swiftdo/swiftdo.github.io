@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: Python 工程化环境配置
 description: "为了更加快速的专业化创建一个 Python 工程。"
 date: 2022-03-19T00:00:00.000Z

@@ -1,7 +1,4 @@
 ---
-sitemap:
-  exclude: false
-  changefreq: hourly
 title: SwiftNIO 实战之TCP粘包/拆包问题
 description: "在 TCP 编程中，无论是服务器还是客户端，当我们读取或者发送消息的时候，都需要考虑 TCP 底层的粘包/拆包机制。"
 date: 2020-11-22T00:00:00.000Z

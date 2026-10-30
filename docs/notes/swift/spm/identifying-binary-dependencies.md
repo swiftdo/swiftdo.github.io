@@ -1,9 +1,6 @@
 ---
 title: 识别二进制依赖
 description: "找出包依赖项是否引用了二进制文件并验证二进制文件的真实性。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2022-04-02T00:00:00.000Z
 tags:
   - swift

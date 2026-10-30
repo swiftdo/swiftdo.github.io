@@ -5,9 +5,6 @@ date: 2022-02-23T00:00:00.000Z
 tags:
   - flutter
   - github
-sitemap:
-  exclude: false
-  changefreq: hourly
 createTime: 2024/08/02 09:19:27
 permalink: /flutter/flutter-color/
 ---

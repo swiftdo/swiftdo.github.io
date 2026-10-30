@@ -1,9 +1,6 @@
 ---
 title: 第五章：为什么你的 AI 助手总是答非所问？
 description: "💡揭秘：不是AI不够聪明，而是你的指令太“高冷”！掌握以下技巧，让AI精准回应你的需求。"
-sitemap:
-  exclude: false
-  changefreq: hourly
 date: 2025-02-10T00:00:00.000Z
 tags:
   - deepseek
