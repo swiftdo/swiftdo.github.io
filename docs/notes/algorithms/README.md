@@ -14,7 +14,7 @@ permalink: /algorithms/
 
 - [ ] 十大经典排序算法
 
-  - [x] [冒泡排序](/algorithms/t1-buble-sort/)
+  - [x] [冒泡排序](/algorithms/t1-bubble-sort/)
   - [x] [选择排序](/algorithms/t2-selection-sort/)
   - [x] [插入排序](/algorithms/t3-insertion-sort/)
   - [x] [希尔排序](/algorithms/t4-shell-sort/)

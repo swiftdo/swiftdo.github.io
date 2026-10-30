@@ -105,10 +105,12 @@ tags:                        # 仅博客文章需要
 
 ## 部署
 
-`./deploy.sh` 一条龙：构建 → rsync 到 `root@106.52.236.186:2002` 的 `/www/wwwroot/oldbird.run`（**自建服务器，不是 GitHub Pages**）→ `git add . && git commit && git push`。
+`./deploy.sh` 一条龙：构建 → rsync 到自建服务器（**不是 GitHub Pages**）→ `git add -A && git commit && git push`。
 
-- 构建或上传失败脚本会中断并提示，先看输出再重试。
-- 历史提交信息惯例是 `update`，保持一致即可；改动较大时可写描述性信息。
+- 构建或上传失败会中止并退出，不会带着半成品上线。
+- 默认 `--delete-after`：服务器上 dist 中已不存在的文件会被删除，用于下线改名/删除的页面；如需保留服务端多余文件，用 `RSYNC_DELETE=0 ./deploy.sh`。
+- 服务器地址、端口、目标目录可用 `DEPLOY_SERVER` / `DEPLOY_PORT` / `DEPLOY_DIR` 覆盖。
+- 历史提交信息惯例是 `update`；改动较大时可写描述性信息。无变更时脚本会跳过提交，不会产生空提交。
 
 ## 排错速查
 

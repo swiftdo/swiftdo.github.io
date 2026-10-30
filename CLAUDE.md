@@ -37,7 +37,8 @@ yarn docs:preview     # 预览构建产物
 
 ## 部署
 
-`./deploy.sh`：`yarn docs:build` → `rsync` 到自建服务器 `root@106.52.236.186:2002:/www/wwwroot/oldbird.run` → `git add . && git commit -m "update" && git push`。
+`./deploy.sh`：`yarn docs:build` → `rsync --delete-after` 到自建服务器 `root@106.52.236.186:2002:/www/wwwroot/oldbird.run` → `git add -A && git commit -m "update" && git push`。
+服务器地址/端口/目录可用 `DEPLOY_SERVER` / `DEPLOY_PORT` / `DEPLOY_DIR` 覆盖；`RSYNC_DELETE=0` 可关闭服务端删除。
 **不是 GitHub Pages**，`swiftdo.github.io` 只是仓库名。
 
 ## 已知提示

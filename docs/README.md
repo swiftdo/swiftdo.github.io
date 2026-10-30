@@ -29,7 +29,6 @@ config:
         - theme: alt
           text: 易起卦
           link: /yiqigua.html
-  - type: custom
   - type: features
     title: 学习主线
     description: 按主题深入，侧边栏可连续阅读

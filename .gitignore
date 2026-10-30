@@ -14,3 +14,9 @@ node_modules
 
 # Yarn 安装状态文件，随环境变化，不应入库
 .yarn/install-state.gz
+
+# 本地编辑器 / 工具状态，不应入库
+.claude/
+.reasonix/
+.superpowers/
+.workbuddy/

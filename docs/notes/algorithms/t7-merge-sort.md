@@ -8,7 +8,7 @@ tags:
   - 数据结构与算法
   - 基础
 createTime: 2024/09/25 17:05:01
-permalink: /algorithms/3kbm070e/
+permalink: /algorithms/t7-merge-sort/
 ---
 
 归并排序是 1945 年由 John von Neumann 发明的，是一种有效的算法，最佳、最差和平均时间复杂度都是 O(n log n)。归并排序算法使用分而治之方法，即将一个大问题分解为较小的问题并解决它们。 归并排序算法可分为 `先拆分` 和 `后合并`。

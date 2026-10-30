@@ -8,7 +8,7 @@ tags:
   - 数据结构与算法
   - 基础
 createTime: 2024/09/25 17:05:01
-permalink: /algorithms/kfl5ikxn/
+permalink: /algorithms/t1-bubble-sort/
 ---
 
 冒泡排序就是重复“从序列右边开始比较相邻两个数字的大小，再根据结果交换两个数字 的位置”这一操作的算法。在这个过程中，数字会像泡泡一样，慢慢从右往左“浮”到序列的 顶端，所以这个算法才被称为“冒泡排序”。

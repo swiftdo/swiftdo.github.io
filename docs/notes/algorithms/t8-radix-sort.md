@@ -8,7 +8,7 @@ tags:
   - 数据结构与算法
   - 基础
 createTime: 2024/09/25 17:05:01
-permalink: /algorithms/emj8201q/
+permalink: /algorithms/t8-radix-sort/
 ---
 
 # 基数排序

@@ -8,7 +8,7 @@ tags:
   - 数据结构与算法
   - 基础
 createTime: 2024/09/25 17:05:01
-permalink: /algorithms/blsmg23h/
+permalink: /algorithms/u1-bucket-sort/
 ---
 
 # 桶排序
