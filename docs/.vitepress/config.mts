@@ -87,6 +87,18 @@ export default defineConfig({
       return !collectSitemapExcluded().has(pathname)
     }),
   },
+  vite: {
+    build: {
+      /**
+       * 默认 500KB 的告警在这个站点上恒为真且没有行动价值：
+       * 唯一超过它的是本地搜索索引（assets/chunks/@localSearchIndexroot.*.js，
+       * 1.8MB 未压缩 / 约 550KB gzip），而它是 VPLocalSearchBox 的异步依赖——
+       * 只有用户真的点开搜索框才会下载，不参与首屏。
+       * 框架与主题 chunk 都在 120KB 上下，阈值放到 2MB 仍拦得住真正的大块回归。
+       */
+      chunkSizeWarningLimit: 2048,
+    },
+  },
 
 /**
  * 旧站 614 条 URL 重定向：构建后为每个来源路径生成一个静态跳转页。
