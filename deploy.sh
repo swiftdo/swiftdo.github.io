@@ -124,9 +124,11 @@ esac
 
 # ---------- 5. 上传 ----------
 step "上传到 $SERVER:$DEPLOY_DIR"
+# 注意：不要把 .DS_Store 加进排除列表——被排除的文件不会删除，
+# 会让只剩 .DS_Store 的旧目录删不掉（cannot delete non-empty directory）。
 RSYNC_ARGS=(-az --human-readable --stats --itemize-changes
             --exclude=/.user.ini --exclude=/.well-known/***
-            --exclude=/.htaccess --exclude=.DS_Store --exclude='*.log')
+            --exclude=/.htaccess --exclude='*.log')
 [ "$RSYNC_DELETE" = 1 ] && RSYNC_ARGS+=(--delete-after)
 [ "$DRY_RUN" = 1 ] && RSYNC_ARGS+=(--dry-run)
 
