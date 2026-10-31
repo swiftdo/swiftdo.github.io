@@ -107,6 +107,11 @@ sitemap: false                            # 正文为空的占位页用，从 si
 （`createContentLoader('article/*/index.md')`）在构建时收集全部文章，按 `date` 倒序渲染。
 URL 直接用 loader 给出的 `url`，不需要额外字段。
 
+- 列表页没有 h2 级别的目录，frontmatter 里写了 `aside: false`，关掉右侧空栏正文才居中。
+- `date` 在 frontmatter 里写 `2025-08-13` 会被 YAML 解析成 Date 对象，`String()` 之后是
+  `Wed Aug 13 2025 ...`。`posts.data.ts` 的 `toISODate()` 统一归一化成 `YYYY-MM-DD`，
+  模板里直接用 `post.date`，不要再 `slice(0, 10)`。
+
 ## public 静态资源
 
 `docs/public/` 下的文件构建时原样复制到站点根，`https://oldbird.run/xxx` 直接可访问
@@ -123,7 +128,42 @@ URL 直接用 loader 给出的 `url`，不需要额外字段。
 - 样式覆盖走 `theme/custom.css`（CSS 变量，含深浅色两套）。组件里的 `--vp-c-*` 变量与 VitePress 同名，可直接复用。
 - `theme/index.ts` 还负责注入 AdSense 脚本（有防重复加载守卫），改动时别破坏这个逻辑。
 - 需要整页加宽的页面用 frontmatter `pageClass`，再在 `custom.css` 里按该类覆盖
-  `.content-container` 的 `max-width`（默认 688px）。用 `:has()` 不可靠，见作品集页。
+  `.content-container` 的 `max-width`（默认 640px，见下节的 `--ob-reading`）。
+
+## 正文版式系统（custom.css）
+
+`theme/custom.css` 开头是一组令牌，正文页、列表页、首页共用：
+
+| 令牌 | 值 | 用途 |
+|---|---|---|
+| `--ob-reading` | `40rem` | 正文行宽（约 40 个汉字换行） |
+| `--ob-gutter` | `3rem` | 正文两侧留白，也是正文与目录的间距 |
+| `--ob-toc` | `14rem` | 右侧目录栏宽 |
+| `--ob-block` / `--ob-block-loose` | `1.25rem` / `1.75rem` | 段落之间 / 代码块表格之间 |
+| `--ob-head` / `--ob-subhead` | `3.5rem` / `2.25rem` | h2、h3 上边距 |
+| `--ob-text-*` | 13 / 16 / 19 / 24px | 小字 / 正文 / h3 / h2 |
+
+版心是固定三段式：正文 640 + 间隔 48 + 目录 224 = 960 居中。1280 以上目录才出现，
+960 以下只剩正文。
+
+改之前先知道这三个坑：
+
+1. **组件样式是 scoped 的。** 编译后带 `[data-v-*]`，权重等于多一个类，
+   `body .VPDoc .content`（0,2,1）打不过 `.VPDoc:not(.has-sidebar) .content[data-v-*]`（0,4,1）。
+   版心宽度这类只能 `!important`，或者用 `.VPDoc.VPDoc` 双类名提权。`.vp-doc h2` 是
+   全局样式，正常权重即可覆盖。
+2. **正文外面还有一层无类名的 `<div>`。** 实际结构是 `.vp-doc > div > 内容`，
+   所以首元素规则要写 `.vp-doc > div:first-child > :first-child`，
+   只写 `.vp-doc > :first-child` 是打不中的。
+3. **`.content` 这个类名被目录复用。** 改正文栏宽必须写 `.container > .content`，
+   否则右侧目录的 `.content` 也会被改宽，目录文字会被截成省略号。
+
+排版上的约定：
+
+- h2 不用 VitePress 那条贯穿栏宽的 `border-top`，改成标题上方 36px 的短线（`h2::before`），
+  章节分界靠 56px 留白 + 短线，不靠横线铺满。
+- 没有 h1 的页面（各集合首页）分两种：首元素是 `<p>` 的按导语处理（字号提一档、颜色降一档）；
+  首元素是 `<h2>` 的直接按标题尺寸渲染，后面的 h2 才是章节。
 
 ## 重定向
 
@@ -176,6 +216,8 @@ RSYNC_DELETE=0 ./deploy.sh # 保留服务端多余文件
 | 侧边栏分组名变成英文 slug | 该目录没有 `index.md`，需要在 `sidebar.ts` 的 `GROUPS` 补显示名 |
 | 侧边栏顺序不对 | 排序看 `title`，纯分组看 `GROUPS` 数组顺序 |
 | 旧文章链接 404 | 在 `redirects.json` 补映射（带/不带尾斜杠两条） |
+| 改了 `custom.css` 不生效 | 目标元素的样式多半是 scoped（带 `[data-v-*]`），需要双类名或 `!important` 提权 |
+| 正文栏宽改了没反应 | 选择器要写 `.container > .content`；`.content` 被右侧目录复用，写宽了目录会被截断 |
 | 点 `public/` 里的 `.html` 显示"页面不存在" | `docs/.env` 的 `VITE_EXTRA_EXTENSIONS` 是否还在、是否包含 `html` |
 | 代码块高亮报错 | Shiki 不认识该语言，改成 `text` 或确认是内置语言 |
 | 缓存导致内容不更新 | 删 `docs/.vitepress/cache` 后重新构建 |

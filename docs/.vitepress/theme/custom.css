@@ -1,11 +1,352 @@
+/**
+ * ─────────────────────────────────────────────────────────────
+ * 版式系统：令牌 + 正文页骨架 + 字体阶梯
+ * ─────────────────────────────────────────────────────────────
+ *
+ * 一套令牌供三类页面共用：
+ *   1. 正文页（article / 各笔记集合）：40rem 行宽、五级字号、统一的垂直节奏
+ *   2. 列表页（blog / 集合首页）：继承正文页的容器与标题阶梯
+ *   3. 首页：保留 1152 展示宽度，字号取自同一组令牌（见文末首页段落）
+ *
+ * 关于 !important：VitePress 的组件样式是 scoped 的，编译后带 [data-v-*]，
+ * 等于多一个类。`body .VPDoc .content`（0,2,1）打不过
+ * `.VPDoc:not(.has-sidebar) .content[data-v-*]`（0,4,1），
+ * 所以版心宽度这几条只能用 !important，每条都注明了它压的是哪条规则。
+ * 排版类规则不用——`.vp-doc h2` 是全局样式，正常权重即可覆盖。
+ */
+
+:root {
+  /* 行宽：40 个汉字换行。中文长文比英文更需要窄栏，688px(43 字) 偏松 */
+  --ob-reading: 40rem;
+  /* 正文与目录之间的空档，也是正文两侧的留白 */
+  --ob-gutter: 3rem;
+  /* 目录栏宽 */
+  --ob-toc: 14rem;
+  /* 垂直节奏，全部用 rem，跟随用户的字号设置缩放 */
+  --ob-block: 1.25rem;      /* 段落 / 列表 / 引用之间 */
+  --ob-block-loose: 1.75rem;/* 代码块、表格这类「块级物件」 */
+  --ob-head: 3.5rem;        /* h2 之上，章节分界 */
+  --ob-subhead: 2.25rem;    /* h3 之上 */
+  /* 字号阶梯，比例约 1.25，共五级 */
+  --ob-text-small: 0.8125rem; /* 13px 目录 / 元信息 */
+  --ob-text-body: 1rem;       /* 16px 正文 */
+  --ob-text-h3: 1.1875rem;    /* 19px */
+  --ob-text-h2: 1.5rem;       /* 24px */
+}
+
+/* ── 版心：正文 640 / 目录 224 / 中间 48，整体居中 ─────────────
+   1280 以上才生效（VitePress 在 1280 才显示右侧目录）。
+   旧版是 container 1104 + 正文 688 + 目录 256：带侧栏的笔记页里，
+   目录离窗口右边只剩 32px（等于贴着屏幕），正文和目录之间却空了 80px。
+   改成固定三段式后，左右留白相等，目录也退回到安全距离。 */
+@media (min-width: 1280px) {
+  body .VPDoc .container {
+    /* 压 .VPDoc:not(.has-sidebar) .container[data-v-*] 的 1104px */
+    max-width: calc(var(--ob-reading) + var(--ob-gutter) * 2 + var(--ob-toc)) !important;
+    justify-content: center;
+  }
+
+  /* 必须是直接子级：`.content` 这个类名在 VitePress 里被目录、侧栏复用，
+     写成 `body .VPDoc .content` 会连右侧目录的 .content 一起改宽 */
+  body .VPDoc .container > .content {
+    /* 压 .VPDoc:not(.has-sidebar) .content[data-v-*] 的 752/784px */
+    max-width: calc(var(--ob-reading) + var(--ob-gutter) * 2) !important;
+    padding-left: var(--ob-gutter) !important;
+    padding-right: var(--ob-gutter) !important;
+  }
+
+  body .VPDoc .aside {
+    /* 压 .aside[data-v-*] 的 max-width 256 / padding-left 32，
+       让目录正好落在 224 宽的位置，与正文间隔 48 */
+    max-width: var(--ob-toc) !important;
+    padding-left: 0 !important;
+  }
+}
+
+/* 行宽：所有断点都是 640，只封顶不撑满，窄屏自然退化成 100%。
+   放在媒体查询外，是为了避免 960px 处正文突然从 688 缩到 640 的跳动。
+   顶部留白同时从 48px 加到 64px，让 h1 成为页面上第一个有分量的东西。 */
+body .VPDoc .content-container {
+  /* 压 .VPDoc.has-aside .content-container[data-v-*] 的 688px */
+  max-width: var(--ob-reading) !important;
+}
+
+@media (min-width: 960px) {
+  body .VPDoc.VPDoc {
+    /* 双类名是为了压 scoped 的 .VPDoc[data-v-*]（0,2,0） */
+    padding-top: 64px;
+  }
+}
+
+/* ── 正文基础 ─────────────────────────────────────────────── */
+
+body .VPDoc .vp-doc {
+  font-size: var(--ob-text-body);
+  /* 中文正文 1.75 偏紧、2.0 偏散，1.8 是长文最稳的一档 */
+  line-height: 1.8;
+  /* 汉字方块之间原本没有字距，加一点点让行内更透气 */
+  letter-spacing: 0.012em;
+  /* 长 URL 与行内代码不撑破栏宽 */
+  overflow-wrap: break-word;
+}
+
+/* markdown 开头常有空行/注释，首元素不留上边距。
+   注意：VitePress 1.6 会把整篇正文再包一层无类名的 <div>，
+   光写 `.vp-doc > :first-child` 是打不中的，两层都要覆盖。 */
+body .VPDoc .vp-doc > :first-child,
+body .VPDoc .vp-doc > div:first-child > :first-child {
+  margin-top: 0;
+}
+
+/* 有些集合首页没有 h1，直接用 h2 当页面标题（如 /swift/swiftui/）。
+   首个标题不该背 56px 的章节上边距，也不该挂章节短线——那样页面一打开
+   就是一道孤零零的短横线。这里索性按标题处理：尺寸对齐真正的 h1，
+   后面的 h2 才是章节。这样这批页面不用改正文也能有正常的标题层级。 */
+body .VPDoc .vp-doc > h2:first-child,
+body .VPDoc .vp-doc > div:first-child > h2:first-child {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.875rem, 1.4rem + 1.6vw, 2.375rem);
+  line-height: 1.22;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+body .VPDoc .vp-doc > h2:first-child::before,
+body .VPDoc .vp-doc > div:first-child > h2:first-child::before {
+  display: none;
+}
+
+/* 各集合首页没有 h1（frontmatter 的 title 只进 <title>，不渲染成标题），
+   正文直接以一句简介开头，看着像半截页面。这类页面把首段当导语处理：
+   字号提一档、颜色降一档、与下文拉开距离——读起来是「这页讲什么」，
+   而不是正文的第一段。有 h1 的页面首元素是标题，不受影响。 */
+body .VPDoc .vp-doc > p:first-child,
+body .VPDoc .vp-doc > div:first-child > p:first-child {
+  margin-bottom: 2rem;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--vp-c-text-2);
+}
+
+/* ── 标题阶梯 ─────────────────────────────────────────────
+   40 / 24 / 19 / 17 / 16：四级标题与正文之间保持可辨识的落差，
+   旧版 h3 20px 与 h2 24px 只差 4px，层级几乎看不出来。 */
+
+body .VPDoc .vp-doc h1 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.875rem, 1.4rem + 1.6vw, 2.375rem);
+  line-height: 1.22;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* h2：去掉 VitePress 那条贯穿栏宽的分割线。
+   长文里每个 h2 都顶一条横线，页面会变成一叠表格；
+   改成标题上方一小段 36px 的短线，既做章节标记又不抢视线。 */
+body .VPDoc .vp-doc h2 {
+  margin: clamp(2.75rem, 4vw, var(--ob-head)) 0 1.25rem;
+  padding-top: 0;
+  border-top: 0;
+  font-size: var(--ob-text-h2);
+  line-height: 1.35;
+  font-weight: 600;
+  letter-spacing: -0.014em;
+}
+
+body .VPDoc .vp-doc h2::before {
+  content: '';
+  display: block;
+  width: 2.25rem;
+  height: 1px;
+  margin-bottom: 1rem;
+  background: color-mix(in srgb, var(--vp-c-text-1) 24%, transparent);
+}
+
+/* 短线上移后，悬浮出现的小锚点要跟着落到文字基线上 */
+body .VPDoc .vp-doc h2 .header-anchor {
+  top: 1rem;
+}
+
+/* 博客列表的条目标题也用 h2，但它不是章节标题：
+   不挂章节短线，也不吃 56px 的章节上边距（条目自己的样式在 blog/index.md） */
+body .VPDoc .vp-doc h2.post-item__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.1875rem;
+  line-height: 1.5;
+}
+
+body .VPDoc .vp-doc h2.post-item__title::before {
+  display: none;
+}
+
+body .VPDoc .vp-doc h3 {
+  margin: var(--ob-subhead) 0 0.75rem;
+  font-size: var(--ob-text-h3);
+  line-height: 1.5;
+  font-weight: 600;
+  letter-spacing: -0.008em;
+}
+
+body .VPDoc .vp-doc h4 {
+  margin: 1.75rem 0 0.5rem;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  font-weight: 600;
+}
+
+/* ── 段落与列表 ───────────────────────────────────────────── */
+
+body .VPDoc .vp-doc p,
+body .VPDoc .vp-doc summary {
+  margin: var(--ob-block) 0;
+  line-height: 1.8;
+  text-wrap: pretty;
+}
+
+body .VPDoc .vp-doc ul,
+body .VPDoc .vp-doc ol {
+  margin: var(--ob-block) 0;
+  padding-left: 1.5rem;
+}
+
+/* 旧版 li 继承的是 24px 行高，和段落 28px 对不上，列表读起来更挤 */
+body .VPDoc .vp-doc li {
+  line-height: 1.8;
+}
+
+body .VPDoc .vp-doc li + li {
+  margin-top: 0.5rem;
+}
+
+body .VPDoc .vp-doc li > ul,
+body .VPDoc .vp-doc li > ol {
+  margin: 0.5rem 0 0;
+}
+
+body .VPDoc .vp-doc li::marker {
+  color: var(--vp-c-text-3);
+}
+
+/* ── 引用、链接、分隔线 ───────────────────────────────────── */
+
+body .VPDoc .vp-doc blockquote {
+  margin: var(--ob-block-loose) 0;
+  padding: 0.15rem 0 0.15rem 1.25rem;
+  border-left: 2px solid color-mix(in srgb, var(--vp-c-brand-1) 40%, var(--vp-c-divider));
+  color: var(--vp-c-text-2);
+}
+
+body .VPDoc .vp-doc blockquote > p {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+
+/* 下划线压到 1px 并把颜色调淡，中文下划线贴着字底会显脏 */
+body .VPDoc .vp-doc a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, var(--vp-c-brand-1) 45%, transparent);
+}
+
+body .VPDoc .vp-doc a:hover {
+  text-decoration-color: currentColor;
+}
+
+body .VPDoc .vp-doc hr {
+  margin: 3rem 0;
+  border-top: 1px solid var(--vp-c-divider);
+}
+
+/* ── 代码与表格 ───────────────────────────────────────────
+   代码块默认 margin 16px，比段落间距还小，视觉上会黏住上下文；
+   这里放宽到 28px，并补一道描边，让块在深浅两种底色上都立得住。 */
+
+body .VPDoc .vp-doc div[class*='language-'] {
+  margin: var(--ob-block-loose) 0;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+}
+
+body .VPDoc .vp-doc :not(pre) > code {
+  padding: 0.15em 0.4em;
+  border-radius: 5px;
+  font-size: 0.875em;
+  /* 等宽字符自带较宽的字面，这里取消正文的汉字字距 */
+  letter-spacing: 0;
+}
+
+body .VPDoc .vp-doc table {
+  margin: var(--ob-block-loose) 0;
+  font-size: 0.9375rem;
+}
+
+body .VPDoc .vp-doc th,
+body .VPDoc .vp-doc td {
+  padding: 0.6rem 0.85rem;
+}
+
+/* ── 右侧目录 ─────────────────────────────────────────────
+   默认 14px/32px 的行高让目录像一串散开的链接；
+   收成 13px/1.6 并加一条竖线标记当前小节，更像阅读辅助而不是导航冗余。 */
+
+body .VPDocAsideOutline .outline-title {
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--vp-c-divider);
+  font-size: var(--ob-text-small);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--vp-c-text-3);
+}
+
+body .VPDocAsideOutline .outline-link {
+  padding: 5px 0 5px 0.75rem;
+  font-size: var(--ob-text-small);
+  line-height: 1.6;
+  color: var(--vp-c-text-2);
+  transition: color 0.2s ease;
+}
+
+body .VPDocAsideOutline .outline-link.nested {
+  padding-left: 1.5rem;
+}
+
+body .VPDocAsideOutline .outline-link:hover,
+body .VPDocAsideOutline .outline-link.active {
+  color: var(--vp-c-text-1);
+}
+
+body .VPDocAsideOutline .outline-link.active {
+  font-weight: 500;
+}
+
+body .VPDocAsideOutline .outline-marker {
+  width: 2px;
+  border-radius: 2px;
+  background-color: var(--vp-c-brand-1);
+}
+
+/* ── 上一篇 / 下一篇 ─────────────────────────────────────── */
+
+body .VPDoc .VPDocFooter {
+  margin-top: 3.5rem;
+}
+
 /* 作品集页需要更宽的画布。
-   注意：宽度限制在 `.VPDoc .content`（未配侧边栏时 752/784px）而不是
-   `.content-container`，只改后者不会生效——旧规则就是踩了这个坑。
+   宽度必须落在 `.VPDoc .content` 上而不是 `.content-container`——VitePress 的
+   688px 上限挂在后者，只改它会不生效，旧规则就是踩了这个坑。
    `.content` 有 32px 内边距，1216 - 64 = 1152，与首页内容区同宽。
-   VitePress 的 `.VPDoc:not(.has-sidebar) .content[data-v-x]` 权重更高，故用 !important。 */
-.page-portfolio .VPDoc .content,
-.page-portfolio .VPDoc .container {
+   注意选择器要带 `.container >`：正文版心那条是
+   `body .VPDoc .container > .content`（0,3,1），少一层会打不过。 */
+.page-portfolio .VPDoc .container,
+.page-portfolio .VPDoc .container > .content {
   max-width: 1216px !important;
+}
+
+/* 作品集是整幅画布，不吃正文 40rem 的行宽上限 */
+.page-portfolio .VPDoc .content-container {
+  max-width: none !important;
 }
 
 /**
