@@ -18,6 +18,7 @@ export const COLLECTIONS = [
   'swift',
   'flutter',
   'ai',
+  'ai-toolbox',
   'python',
   'tools',
   'algorithms',
@@ -44,6 +45,11 @@ const GROUPS: Array<{ dir: string, label: string }> = [
   { dir: 'design-patterns/structural', label: '结构型' },
   { dir: 'design-patterns/behavioral', label: '行为型' },
   { dir: 'ai/gemini-cli', label: 'Gemini CLI' },
+  // AI 工具箱按工具形态分组，新增形态在这里补一行即可
+  { dir: 'ai-toolbox/skill', label: 'Skills' },
+  { dir: 'ai-toolbox/mcp', label: 'MCP' },
+  { dir: 'ai-toolbox/agent', label: 'Agents' },
+  { dir: 'ai-toolbox/cli', label: 'CLI' },
 ]
 
 const GROUP_LABEL = new Map(GROUPS.map(g => [g.dir, g.label]))

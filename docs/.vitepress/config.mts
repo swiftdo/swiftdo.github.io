@@ -338,6 +338,7 @@ buildEnd(siteConfig) {
           { text: 'Vue', link: '/vue/' },
         ],
       },
+      { text: 'AI 工具', link: '/ai-toolbox/' },
       { text: '博客', link: '/blog/' },
       { text: '作品', link: '/result/' },
       { text: '易经', link: '/yijing/' },
