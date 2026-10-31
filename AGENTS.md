@@ -133,7 +133,7 @@ URL 直接用 loader 给出的 `url`，不需要额外字段。
 - 格式：`{ "/old-path": "/new-path/", "/old-path/": "/new-path/" }`，**每条要写带尾斜杠和不带尾斜杠两个 key**。
 - 生成的跳转页带 `noindex, nofollow` 且不进 sitemap，不会产生重复收录。
 - 新增重定向直接改 `redirects.json`，不需要动代码。
-- 同一个 `buildEnd` 还会生成 `rss.xml`（博客文章的 RSS 2.0 feed，按发布日期倒序）；sitemap 的 lastmod 由 `transformItems` 用 git 提交时间覆盖（浅克隆拿不到历史时回退默认值）。
+- 同一个 `buildEnd` 还会生成 `rss.xml`（博客文章的 RSS 2.0 feed，按发布日期倒序）和 `llms.txt`（给 AI 引擎的站点导读，只列顶层板块与博客文章）；sitemap 的 lastmod 由 `transformItems` 用 git 提交时间覆盖（浅克隆拿不到历史时回退默认值）。
 - 注意：config.mts 里的块注释不要出现 `*/` 字样（如 `article/*/index.md`），会把注释提前闭合导致构建失败。
 
 ## TypeScript 约定

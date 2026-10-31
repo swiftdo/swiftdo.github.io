@@ -83,6 +83,47 @@ function xmlEscape(text: string): string {
   return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 }
 
+/** 生成 llms.txt：给 AI 引擎（ChatGPT / Perplexity 等）的站点导读 */
+function buildLlmsTxt(): string {
+  const rels = listMarkdownFiles(DOCS_DIR)
+    .map(full => path.relative(DOCS_DIR, full).split(path.sep).join('/'))
+    .filter(rel => rel.endsWith('index.md'))
+
+  const fmOf = (rel: string) => readFrontmatter(path.join(DOCS_DIR, rel))
+
+  // 顶层板块：swift/、flutter/、blog/ 等（不含首页与文章）
+  const sections = rels
+    .filter(rel => /^[^/]+\/index\.md$/.test(rel) && !rel.startsWith('article/'))
+    .map(rel => ({ url: mdPathToUrl(rel), fm: fmOf(rel) }))
+
+  // 博客文章，按发布日期倒序
+  const articles = rels
+    .filter(rel => rel.startsWith('article/'))
+    .map((rel) => {
+      const fm = fmOf(rel)
+      return { url: mdPathToUrl(rel), fm, date: (fm.date || fm.createTime || '').trim() }
+    })
+    .sort((a, b) => b.date.localeCompare(a.date))
+
+  const sectionLines = sections
+    .map(({ url, fm }) => `- [${fm.title ?? url}](${SITE_HOST}${url}): ${fm.description ?? ''}`)
+  const articleLines = articles
+    .map(({ url, fm, date }) => `- [${fm.title ?? url}](${SITE_HOST}${url})${date ? ` (${date})` : ''}: ${fm.description ?? ''}`)
+
+  return `# OldBird
+
+> OldBird（oldbird.run）是 OldBird 的个人技术博客：Swift、SwiftUI、Flutter、AI、Python、算法与鸿蒙的开发笔记，以及周易学习笔记与个人作品（易起卦等）。内容以中文写成，技术类笔记包含代码示例。
+
+## 板块
+
+${sectionLines.join('\n')}
+
+## 博客文章
+
+${articleLines.join('\n')}
+`
+}
+
 /** 生成博客 RSS 2.0 feed（docs 下的 article 目录，按发布日期倒序） */
 function buildRssXml(): string {
   const items = listMarkdownFiles(DOCS_DIR)
@@ -272,6 +313,8 @@ buildEnd(siteConfig) {
   console.log(`[redirect] 生成 ${written} 个跳转页`)
   fs.writeFileSync(path.join(siteConfig.outDir, 'rss.xml'), buildRssXml(), 'utf8')
   console.log(`[rss] 生成 rss.xml`)
+  fs.writeFileSync(path.join(siteConfig.outDir, 'llms.txt'), buildLlmsTxt(), 'utf8')
+  console.log(`[llms] 生成 llms.txt`)
 },
   themeConfig: {
     logo: '/logo.png',
