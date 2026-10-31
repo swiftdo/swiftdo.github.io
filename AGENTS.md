@@ -77,7 +77,8 @@ sitemap: false                            # 正文为空的占位页用，从 si
 
 - **没有 `permalink` 字段**，URL 由路径决定；写了也不会生效。
 - `createTime` / `date` / `tags` 不是 VitePress 内置字段，仅用于展示或数据加载，不会报错。
-- `sitemap: false` 由 `config.mts` 的 `collectSitemapExcluded()` 识别，从 sitemap.xml 中剔除（现有 46 篇占位页在用）。
+- `sitemap: false` 由 `config.mts` 的 `collectSitemapExcluded()` 识别，从 sitemap.xml 中剔除，同时 `transformPageData` 会给这些页注入 `noindex, nofollow` 拒绝抓取（现有 46 篇占位页在用）。
+- `transformPageData` 还会给每页注入 canonical、OG / Twitter 卡片，并给 `/article/` 下的文章注入 BlogPosting JSON-LD（datePublished 取 `date`，缺省用 `createTime`）。
 - 正文里**不要用相对链接**（`./xxx.md`）。站内链接一律写绝对路径 `/swift/swiftui/alert/`。
 - 构建有死链检查，站内链接写错会直接 fail；`http://localhost:*` 已加入白名单。
 
@@ -132,6 +133,8 @@ URL 直接用 loader 给出的 `url`，不需要额外字段。
 - 格式：`{ "/old-path": "/new-path/", "/old-path/": "/new-path/" }`，**每条要写带尾斜杠和不带尾斜杠两个 key**。
 - 生成的跳转页带 `noindex, nofollow` 且不进 sitemap，不会产生重复收录。
 - 新增重定向直接改 `redirects.json`，不需要动代码。
+- 同一个 `buildEnd` 还会生成 `rss.xml`（博客文章的 RSS 2.0 feed，按发布日期倒序）；sitemap 的 lastmod 由 `transformItems` 用 git 提交时间覆盖（浅克隆拿不到历史时回退默认值）。
+- 注意：config.mts 里的块注释不要出现 `*/` 字样（如 `article/*/index.md`），会把注释提前闭合导致构建失败。
 
 ## TypeScript 约定
 

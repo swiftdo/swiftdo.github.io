@@ -1,6 +1,6 @@
 ---
 layout: home
-title: 技术笔记
+title: Swift · Flutter · AI 技术博客
 hero:
   name: OldBird
   text: 记录 · 实践 · 作品

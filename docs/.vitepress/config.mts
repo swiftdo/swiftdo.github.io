@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { execSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vitepress'
 import { buildSidebar } from './sidebar'
@@ -27,10 +28,99 @@ function assertStaticHtmlNotRouted(): void {
 
 assertStaticHtmlNotRouted()
 
-/** 文件路径 -> 页面 URL：`swift/swiftui/alert/index.md` -> `/swift/swiftui/alert/` */
+const SITE_HOST = 'https://oldbird.run'
+
+/**
+ * 文件路径 -> 页面 URL：`swift/swiftui/alert/index.md` -> `/swift/swiftui/alert/` */
 function pageUrl(full: string): string {
   const rel = path.relative(DOCS_DIR, full).split(path.sep).join('/')
   return `/${rel.replace(/(^|\/)index\.md$/, '$1')}`
+}
+
+/** markdown 路径 -> 页面 URL：`article/foo/index.md` -> `/article/foo/` */
+function mdPathToUrl(rel: string): string {
+  return `/${rel.replace(/index\.md$/, '')}`
+}
+
+/**
+ * 文件 -> git 最后一次修改时间（仓库相对路径 -> ISO 时间串）。
+ * 一次 `git log` 全量扫描，取每个文件在历史中最近一次出现的提交时间。
+ * VitePress 默认的 sitemap lastmod 是构建时刻，每次部署全站「都更新过」，
+ * 这个信号很快会被搜索引擎降权，所以改用真实的提交时间。
+ */
+function collectGitLastmod(): Map<string, string> {
+  const map = new Map<string, string>()
+  try {
+    const out = execSync('git log --format=%cI --name-only', {
+      cwd: DOCS_DIR,
+      encoding: 'utf8',
+      maxBuffer: 64 * 1024 * 1024,
+    })
+    let time = ''
+    for (const line of out.split('\n')) {
+      const trimmed = line.trim()
+      if (/^\d{4}-\d{2}-\d{2}T/.test(trimmed)) {
+        time = trimmed
+        continue
+      }
+      if (!trimmed || time === '' || map.has(trimmed))
+        continue
+      map.set(trimmed, time)
+    }
+  }
+  catch {
+    // 非 git 环境（如 CI 浅克隆）拿不到历史，回退 VitePress 默认行为
+  }
+  return map
+}
+
+/** 页面 URL -> 仓库内文件路径：`/swift/foo/` -> `docs/swift/foo/index.md` */
+function urlToRepoFile(pathname: string): string {
+  return `docs${pathname.replace(/\/$/, '')}/index.md`
+}
+
+function xmlEscape(text: string): string {
+  return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+}
+
+/** 生成博客 RSS 2.0 feed（docs 下的 article 目录，按发布日期倒序） */
+function buildRssXml(): string {
+  const items = listMarkdownFiles(DOCS_DIR)
+    .map(full => path.relative(DOCS_DIR, full).split(path.sep).join('/'))
+    .filter(rel => rel.startsWith('article/') && rel.endsWith('/index.md'))
+    .map((rel) => {
+      const fm = readFrontmatter(path.join(DOCS_DIR, rel))
+      const pubRaw = (fm.date || fm.createTime || '').trim()
+      const pub = pubRaw ? new Date(pubRaw.replace(/\//g, '-')) : undefined
+      return {
+        title: fm.title ?? '未命名',
+        link: `${SITE_HOST}${mdPathToUrl(rel)}`,
+        description: fm.description ?? '',
+        pubDate: pub && !Number.isNaN(pub.getTime()) ? pub.toUTCString() : '',
+      }
+    })
+    .sort((a, b) => b.pubDate.localeCompare(a.pubDate))
+
+  const entries = items.map(item => `    <item>
+      <title>${xmlEscape(item.title)}</title>
+      <link>${xmlEscape(item.link)}</link>
+      <guid isPermaLink="true">${xmlEscape(item.link)}</guid>
+      <description>${xmlEscape(item.description)}</description>
+${item.pubDate ? `      <pubDate>${item.pubDate}</pubDate>\n` : ''}    </item>`).join('\n')
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OldBird 博客</title>
+    <link>${SITE_HOST}/blog/</link>
+    <atom:link href="${SITE_HOST}/rss.xml" rel="self" type="application/rss+xml"/>
+    <description>OldBird 个人技术博客：Swift、Flutter、AI 与工程实践</description>
+    <language>zh-CN</language>
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+${entries}
+  </channel>
+</rss>
+`
 }
 
 /** 收集标注了 sitemap: false 的页面，用于从站点地图中排除 */
@@ -75,6 +165,7 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/favicon.ico' }],
     ['meta', { name: 'google-adsense-account', content: 'ca-pub-4465026491979447' }],
+    ['link', { rel: 'alternate', type: 'application/rss+xml', title: 'OldBird 博客', href: '/rss.xml' }],
   ],
   // 教程正文里的 http://localhost:8080 是示例地址，不是站内页面
   ignoreDeadLinks: 'localhostLinks',
@@ -82,10 +173,68 @@ export default defineConfig({
   sitemap: {
     hostname: 'https://oldbird.run',
     // 正文为空的占位页（SwiftUI API 索引、SwiftPM 文档占位等）标了 sitemap: false
-    transformItems: items => items.filter((item) => {
-      const pathname = new URL(item.url, 'https://oldbird.run').pathname
-      return !collectSitemapExcluded().has(pathname)
-    }),
+    transformItems: (items) => {
+      const excluded = collectSitemapExcluded()
+      const lastmod = collectGitLastmod()
+      return items
+        .filter((item) => {
+          const pathname = new URL(item.url, 'https://oldbird.run').pathname
+          return !excluded.has(pathname)
+        })
+        .map((item) => {
+          const pathname = new URL(item.url, 'https://oldbird.run').pathname
+          const fileTime = lastmod.get(urlToRepoFile(pathname))
+          if (fileTime)
+            item.lastmod = fileTime
+          return item
+        })
+    },
+  },
+  /**
+   * SEO 头部注入（构建时逐页执行）：
+   * 1. OG / Twitter 卡片 —— 社交分享摘要，VitePress 1.x 不自动生成
+   * 2. canonical —— 明确规范地址，避免尾斜杠变体重复收录
+   * 3. sitemap: false 的占位页补 noindex —— 不进 sitemap 之外也拒绝被抓取收录
+   * 4. 博客文章注入 Article JSON-LD 结构化数据
+   */
+  transformPageData(pageData) {
+    const url = `${SITE_HOST}${mdPathToUrl(pageData.relativePath)}`
+    const isArticle = pageData.relativePath.startsWith('article/')
+    const fm = pageData.frontmatter
+
+    fm.head ??= []
+    fm.head.push(
+      ['link', { rel: 'canonical', href: url }],
+      ['meta', { property: 'og:site_name', content: 'OldBird' }],
+      ['meta', { property: 'og:type', content: isArticle ? 'article' : 'website' }],
+      ['meta', { property: 'og:title', content: pageData.title }],
+      ['meta', { property: 'og:description', content: pageData.description }],
+      ['meta', { property: 'og:url', content: url }],
+      ['meta', { property: 'og:image', content: `${SITE_HOST}/logo.png` }],
+      ['meta', { name: 'twitter:card', content: 'summary' }],
+    )
+
+    if (fm.sitemap === 'false' || fm.sitemap === false)
+      fm.head.push(['meta', { name: 'robots', content: 'noindex, nofollow' }])
+
+    if (isArticle) {
+      const raw = fm.date || fm.createTime
+      const published = raw ? new Date(raw).toISOString() : undefined
+      fm.head.push([
+        'script',
+        { type: 'application/ld+json' },
+        JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          headline: pageData.title,
+          ...(pageData.description ? { description: pageData.description } : {}),
+          ...(published ? { datePublished: published } : {}),
+          author: { '@type': 'Person', name: 'OldBird' },
+          mainEntityOfPage: url,
+          image: `${SITE_HOST}/logo.png`,
+        }),
+      ])
+    }
   },
   vite: {
     build: {
@@ -121,6 +270,8 @@ buildEnd(siteConfig) {
     written++
   }
   console.log(`[redirect] 生成 ${written} 个跳转页`)
+  fs.writeFileSync(path.join(siteConfig.outDir, 'rss.xml'), buildRssXml(), 'utf8')
+  console.log(`[rss] 生成 rss.xml`)
 },
   themeConfig: {
     logo: '/logo.png',
