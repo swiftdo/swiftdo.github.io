@@ -1,5 +1,4 @@
 ---
-sitemap: false
 title: Tips
 description: "Tips —— OldBird Swift 笔记"
 date: 2020-08-17T00:00:00.000Z
