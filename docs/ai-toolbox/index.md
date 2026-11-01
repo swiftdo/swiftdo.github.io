@@ -24,6 +24,7 @@ createTime: 2026/10/31 21:30:00
 |---|---|---|---|
 | [andrej-karpathy-skills](/ai-toolbox/skill/andrej-karpathy-skills/) | Skill | 四条行为纪律：先想再写、简洁优先、精准修改、目标驱动 | 2026-10-31 |
 | [dsh-our-free-model](/ai-toolbox/cli/dsh-our-free-model/) | CLI | 免账号白嫖免费模型——这篇是风险说明，不是推荐 | 2026-10-31 |
+| [dsh-superagent](/ai-toolbox/agent/dsh-superagent/) | Agents | DeepSeek 的数字同事原型：准入表 + 带版本的授权，默认只记录不行动 | 2026-11-01 |
 | [hallmark](/ai-toolbox/skill/hallmark/) | Skill | 三层门禁 + 50 份「材料」，每页第一个 CSS 注释是它的印章 | 2026-10-31 |
 | [handraw-style](/ai-toolbox/skill/handraw-style/) | Skill | 365 种画风 + 170 种排版编号化，选定编号出双语提示词 | 2026-10-31 |
 | [huashu-design](/ai-toolbox/skill/huashu-design/) | Skill | 92 种风格库 + 六个候选挑三版，直接出 PPTX / MP4 / 小红书图 | 2026-10-31 |

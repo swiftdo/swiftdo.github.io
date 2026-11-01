@@ -114,6 +114,7 @@ function xmlEscape(text: string): string {
 const TOOLBOX_CATEGORY: Record<string, string> = {
   skill: 'Skills',
   mcp: 'MCP',
+  agent: 'Agents',
   cli: 'CLI',
   app: '应用',
 }
