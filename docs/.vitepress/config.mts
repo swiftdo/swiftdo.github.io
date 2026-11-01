@@ -145,6 +145,55 @@ function collectToolEntries(): ToolEntry[] {
     .sort((a, b) => a.title.localeCompare(b.title, 'zh-CN', { numeric: true }))
 }
 
+/** 没有 index.md 的中间层用它兜底，避免面包屑里出现英文 slug */
+const SECTION_LABEL: Record<string, string> = {
+  article: '博客文章',
+}
+
+/**
+ * 工具评测页的规格表第一行是「仓库」，取它的链接作为这条评测讲述的软件实体。
+ * 引擎靠 about 把「oldbird.run 这篇评测」和 GitHub 上的项目连起来。
+ */
+function toolRepoOf(rel: string): { name: string, url: string } | undefined {
+  try {
+    const text = fs.readFileSync(path.join(DOCS_DIR, rel), 'utf8')
+    const m = /\|\s*仓库\s*\|\s*\[([^\]]+)\]\(([^)]+)\)/.exec(text)
+    return m ? { name: m[1].trim(), url: m[2].trim() } : undefined
+  }
+  catch {
+    return undefined
+  }
+}
+
+/** 面包屑：路径层级就是站点层级，中间层优先用 index.md 的 title */
+function breadcrumbOf(rel: string): Array<Record<string, unknown>> | undefined {
+  const segs = rel.replace(/\/index\.md$/, '').split('/').filter(Boolean)
+  if (segs.length < 2)
+    return undefined
+  const items: Array<Record<string, unknown>> = [
+    { '@type': 'ListItem', position: 1, name: 'OldBird', item: `${SITE_HOST}/` },
+  ]
+  let prefix = ''
+  segs.forEach((seg, index) => {
+    prefix += `${seg}/`
+    const indexFile = path.join(DOCS_DIR, prefix, 'index.md')
+    const exists = fs.existsSync(indexFile)
+    const name = exists
+      ? (readFrontmatter(indexFile).title ?? seg)
+      : (TOOLBOX_CATEGORY[seg] ?? SECTION_LABEL[seg] ?? seg)
+    const isLeaf = index === segs.length - 1
+    // 只有真正有页面的层级才给 item：/article/ 与 /ai-toolbox/mcp/ 这类中间目录没有 index.md，
+    // 挂上链接就是一条指向 404 的面包屑
+    items.push({
+      '@type': 'ListItem',
+      position: index + 2,
+      name,
+      ...(isLeaf || !exists ? {} : { item: `${SITE_HOST}/${prefix}` }),
+    })
+  })
+  return items
+}
+
 /** 生成 llms.txt：给 AI 引擎（ChatGPT / Perplexity 等）的站点导读 */
 function buildLlmsTxt(): string {
   const rels = listMarkdownFiles(DOCS_DIR)
@@ -439,6 +488,7 @@ export default defineConfig({
     if (!isArticle && rel.endsWith('index.md') && rel !== 'index.md' && rel !== 'ai-toolbox/index.md' && !isEmptyPlaceholder) {
       const raw = fm.date || fm.createTime
       const published = raw ? new Date(raw).toISOString() : undefined
+      const repo = isToolPage ? toolRepoOf(rel) : undefined
       fm.head.push([
         'script',
         { type: 'application/ld+json' },
@@ -451,6 +501,16 @@ export default defineConfig({
           ...(modified ? { dateModified: modified } : {}),
           inLanguage: 'zh-CN',
           ...(isToolPage ? { articleSection: TOOLBOX_CATEGORY[rel.split('/')[1]] ?? 'AI 工具' } : {}),
+          ...(repo
+            ? {
+                about: {
+                  '@type': 'SoftwareSourceCode',
+                  name: repo.name,
+                  url: repo.url,
+                  codeRepository: repo.url,
+                },
+              }
+            : {}),
           author: AUTHOR_ENTITY,
           publisher: {
             '@type': 'Organization',
@@ -488,6 +548,20 @@ export default defineConfig({
               url: `${SITE_HOST}${tool.url}`,
             })),
           },
+        }),
+      ])
+    }
+
+    /** 面包屑：首页 → 板块 → 分类 → 本页；让引擎看到层级，而不是一堆平铺的 URL */
+    const crumbs = breadcrumbOf(rel)
+    if (crumbs && !isEmptyPlaceholder) {
+      fm.head.push([
+        'script',
+        { type: 'application/ld+json' },
+        JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: crumbs,
         }),
       ])
     }
