@@ -31,6 +31,25 @@ assertStaticHtmlNotRouted()
 const SITE_HOST = 'https://oldbird.run'
 
 /**
+ * 作者与站点的实体标识。
+ * 各页 JSON-LD 共用同一个 @id，引擎才能把这些页面归并到同一个人、同一个站，
+ * 而不是当成几百个互不相干的匿名页面——这是「被引用时能不能署名到人」的前提。
+ */
+const AUTHOR_ENTITY = {
+  '@type': 'Person',
+  '@id': `${SITE_HOST}/#person`,
+  name: 'OldBird',
+  url: `${SITE_HOST}/result/`,
+  sameAs: ['https://github.com/oheroj'],
+}
+const WEBSITE_ENTITY = {
+  '@type': 'WebSite',
+  '@id': `${SITE_HOST}/#website`,
+  name: 'OldBird',
+  url: `${SITE_HOST}/`,
+}
+
+/**
  * 文件路径 -> 页面 URL：`swift/swiftui/alert/index.md` -> `/swift/swiftui/alert/` */
 function pageUrl(full: string): string {
   const rel = path.relative(DOCS_DIR, full).split(path.sep).join('/')
@@ -48,6 +67,14 @@ function mdPathToUrl(rel: string): string {
  * VitePress 默认的 sitemap lastmod 是构建时刻，每次部署全站「都更新过」，
  * 这个信号很快会被搜索引擎降权，所以改用真实的提交时间。
  */
+let gitLastmodCache: Map<string, string> | null = null
+
+/** 带缓存的版本：transformPageData 逐页调用，不能每次都跑一遍 git log */
+function gitLastmod(): Map<string, string> {
+  gitLastmodCache ??= collectGitLastmod()
+  return gitLastmodCache
+}
+
 function collectGitLastmod(): Map<string, string> {
   const map = new Map<string, string>()
   try {
@@ -361,6 +388,10 @@ export default defineConfig({
     const isArticle = pageData.relativePath.startsWith('article/')
     const fm = pageData.frontmatter
 
+    // 修改时间取 git 提交时间：frontmatter 里没有可靠的手写 dateModified，
+    // 而「这份资料多久没更新」是引擎判断能不能引用的主要信号之一
+    const modified = gitLastmod().get(`docs/${pageData.relativePath}`)
+
     fm.head ??= []
     fm.head.push(
       ['link', { rel: 'canonical', href: url }],
@@ -388,7 +419,8 @@ export default defineConfig({
           headline: pageData.title,
           ...(pageData.description ? { description: pageData.description } : {}),
           ...(published ? { datePublished: published } : {}),
-          author: { '@type': 'Person', name: 'OldBird' },
+          ...(modified ? { dateModified: modified } : {}),
+          author: AUTHOR_ENTITY,
           mainEntityOfPage: url,
           image: `${SITE_HOST}/logo.png`,
         }),
@@ -416,14 +448,16 @@ export default defineConfig({
           headline: pageData.title,
           ...(pageData.description ? { description: pageData.description } : {}),
           ...(published ? { datePublished: published } : {}),
+          ...(modified ? { dateModified: modified } : {}),
           inLanguage: 'zh-CN',
-          author: { '@type': 'Person', name: 'OldBird', url: `${SITE_HOST}/result/` },
+          ...(isToolPage ? { articleSection: TOOLBOX_CATEGORY[rel.split('/')[1]] ?? 'AI 工具' } : {}),
+          author: AUTHOR_ENTITY,
           publisher: {
             '@type': 'Organization',
             name: 'OldBird',
             logo: { '@type': 'ImageObject', url: `${SITE_HOST}/logo.png` },
           },
-          isPartOf: { '@type': 'WebSite', name: 'OldBird', url: `${SITE_HOST}/` },
+          isPartOf: WEBSITE_ENTITY,
           mainEntityOfPage: url,
           image: `${SITE_HOST}/logo.png`,
         }),
