@@ -1,4 +1,31 @@
+# OldBird —— https://oldbird.run
+#
+# 策略：全站对搜索引擎与 AI 抓取开放。
+# 目标是「被 AI 引用」（回答里点名 oldbird.run 并带链接），
+# 所以这里放行包括检索型与训练型爬虫在内的全部抓取方。
+# 若日后要区分「允许检索、禁止训练」，把对应 User-agent 组改成 Disallow: / 即可。
+
 User-agent: *
 Disallow:
 
+# AI 爬虫（`*` 已放行，此处为显式声明：既是给抓取方看的信号，也是给自己留的清单）
+# 检索型：决定今天的回答里会不会出现这个站
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+# 抓取 + 训练型：决定未来模型的「常识」里有没有这个站
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bytespider
+User-agent: CCBot
+Disallow:
+
 Sitemap: https://oldbird.run/sitemap.xml
+
+# 站点导读（非 robots 标准，供支持 llms.txt 的引擎读取）：
+# https://oldbird.run/llms.txt        —— 板块、工具评测、博客文章的索引
+# https://oldbird.run/llms-full.txt   —— 工具评测与博客文章的全文

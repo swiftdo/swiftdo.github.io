@@ -83,6 +83,41 @@ function xmlEscape(text: string): string {
   return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 }
 
+/** AI 工具箱下按目录分组的显示名，与 sidebar.ts 的 GROUPS 保持一致 */
+const TOOLBOX_CATEGORY: Record<string, string> = {
+  skill: 'Skills',
+  mcp: 'MCP',
+  cli: 'CLI',
+  app: '应用',
+}
+
+interface ToolEntry {
+  url: string
+  rel: string
+  title: string
+  description: string
+  category: string
+}
+
+/** 收集 AI 工具箱的收录条目：ai-toolbox/<分类>/<工具>/index.md */
+function collectToolEntries(): ToolEntry[] {
+  return listMarkdownFiles(DOCS_DIR)
+    .map(full => path.relative(DOCS_DIR, full).split(path.sep).join('/'))
+    .filter(rel => /^ai-toolbox\/[^/]+\/[^/]+\/index\.md$/.test(rel))
+    .map((rel) => {
+      const fm = readFrontmatter(path.join(DOCS_DIR, rel))
+      const category = rel.split('/')[1]
+      return {
+        url: mdPathToUrl(rel),
+        rel,
+        title: fm.title ?? rel,
+        description: fm.description ?? '',
+        category: TOOLBOX_CATEGORY[category] ?? category,
+      }
+    })
+    .sort((a, b) => a.title.localeCompare(b.title, 'zh-CN', { numeric: true }))
+}
+
 /** 生成 llms.txt：给 AI 引擎（ChatGPT / Perplexity 等）的站点导读 */
 function buildLlmsTxt(): string {
   const rels = listMarkdownFiles(DOCS_DIR)
@@ -110,6 +145,34 @@ function buildLlmsTxt(): string {
   const articleLines = articles
     .map(({ url, fm, date }) => `- [${fm.title ?? url}](${SITE_HOST}${url})${date ? ` (${date})` : ''}: ${fm.description ?? ''}`)
 
+  /**
+   * 工具评测：按分类分组列出。
+   * 这些页面的判断（哪个工具会卡、边界在哪）是 AI 最不可能自己生成的，
+   * 所以要在索引里列到文章级，而不是只丢一个 /ai-toolbox/ 的入口。
+   */
+  const tools = collectToolEntries()
+  const toolGroups = new Map<string, ToolEntry[]>()
+  for (const tool of tools) {
+    const list = toolGroups.get(tool.category) ?? []
+    list.push(tool)
+    toolGroups.set(tool.category, list)
+  }
+  // 按 TOOLBOX_CATEGORY 的声明顺序输出分组，与侧边栏一致；未声明的分类排在后面
+  const categoryOrder = [
+    ...Object.values(TOOLBOX_CATEGORY),
+    ...[...toolGroups.keys()].filter(k => !Object.values(TOOLBOX_CATEGORY).includes(k)),
+  ]
+  const toolLines = categoryOrder
+    .filter(category => toolGroups.has(category))
+    .map((category) => {
+      const list = toolGroups.get(category)!
+      return [
+        `### ${category}`,
+        ...list.map(t => `- [${t.title}](${SITE_HOST}${t.url}): ${t.description}`),
+      ].join('\n')
+    })
+    .join('\n\n')
+
   return `# OldBird
 
 > OldBird（oldbird.run）是 OldBird 的个人技术博客：Swift、SwiftUI、Flutter、AI、Python、算法与鸿蒙的开发笔记，以及周易学习笔记与个人作品（易起卦等）。内容以中文写成，技术类笔记包含代码示例。
@@ -118,10 +181,65 @@ function buildLlmsTxt(): string {
 
 ${sectionLines.join('\n')}
 
+## AI 工具评测
+
+${toolLines}
+
 ## 博客文章
 
 ${articleLines.join('\n')}
 `
+}
+
+/** 把 markdown 压成可读纯文本：去掉 frontmatter、图片、HTML 标签与引用符号，保留标题、正文与代码块 */
+function mdToPlainText(rel: string): string {
+  const raw = fs.readFileSync(path.join(DOCS_DIR, rel), 'utf8')
+  return raw
+    .replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '')
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/^>\s?/gm, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim()
+}
+
+/**
+ * 生成 llms-full.txt：只收有明确判断的页面（工具评测 + 博客文章）。
+ * 全站 367 页拼起来是几百 KB，没有引擎会真读；这两类才是值得被引用的内容。
+ */
+function buildLlmsFullTxt(): string {
+  const tools = collectToolEntries()
+  const articleRels = listMarkdownFiles(DOCS_DIR)
+    .map(full => path.relative(DOCS_DIR, full).split(path.sep).join('/'))
+    .filter(rel => rel.startsWith('article/') && rel.endsWith('/index.md'))
+    .map((rel) => {
+      const fm = readFrontmatter(path.join(DOCS_DIR, rel))
+      return { rel, url: mdPathToUrl(rel), title: fm.title ?? rel, description: fm.description ?? '', date: (fm.date || fm.createTime || '').trim() }
+    })
+    .sort((a, b) => b.date.localeCompare(a.date))
+
+  const block = (title: string, url: string, description: string, body: string) =>
+    `## ${title}\n\n${description ? `> ${description}\n\n` : ''}${body}\n\n---\n`
+
+  const toolBlocks = tools
+    .map(t => block(t.title, t.url, t.description, mdToPlainText(t.rel)))
+    .join('\n')
+  const articleBlocks = articleRels
+    .map(a => block(a.title, a.url, a.description, mdToPlainText(a.rel)))
+    .join('\n')
+
+  return `# OldBird · 全文
+
+> OldBird（oldbird.run）中文技术博客的完整文本，只含工具评测与博客文章两类有明确判断的内容。
+> 站点索引见 ${SITE_HOST}/llms.txt，全部页面见 ${SITE_HOST}/sitemap.xml。
+> 引用时请保留原文链接；内容以收录当日为准，工具状态可能已经变化。
+
+# 一、AI 工具评测（${tools.length} 篇）
+
+${toolBlocks}
+# 二、博客文章（${articleRels.length} 篇）
+
+${articleBlocks}`
 }
 
 /** 生成博客 RSS 2.0 feed（docs 下的 article 目录，按发布日期倒序） */
@@ -276,6 +394,69 @@ export default defineConfig({
         }),
       ])
     }
+
+    const rel = pageData.relativePath
+    const isEmptyPlaceholder = fm.sitemap === 'false' || fm.sitemap === false
+    const isToolPage = /^ai-toolbox\/[^/]+\/[^/]+\/index\.md$/.test(rel)
+
+    /**
+     * 非文章的内容页补一层 TechArticle / Article。
+     * 之前只有 /article/ 有 JSON-LD，笔记和工具评测页对引擎来说是没有类型的裸 HTML。
+     * 首页与 sitemap:false 的占位页跳过——后者本来就不该被收录。
+     */
+    if (!isArticle && rel.endsWith('index.md') && rel !== 'index.md' && rel !== 'ai-toolbox/index.md' && !isEmptyPlaceholder) {
+      const raw = fm.date || fm.createTime
+      const published = raw ? new Date(raw).toISOString() : undefined
+      fm.head.push([
+        'script',
+        { type: 'application/ld+json' },
+        JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': isToolPage ? 'TechArticle' : 'Article',
+          headline: pageData.title,
+          ...(pageData.description ? { description: pageData.description } : {}),
+          ...(published ? { datePublished: published } : {}),
+          inLanguage: 'zh-CN',
+          author: { '@type': 'Person', name: 'OldBird', url: `${SITE_HOST}/result/` },
+          publisher: {
+            '@type': 'Organization',
+            name: 'OldBird',
+            logo: { '@type': 'ImageObject', url: `${SITE_HOST}/logo.png` },
+          },
+          isPartOf: { '@type': 'WebSite', name: 'OldBird', url: `${SITE_HOST}/` },
+          mainEntityOfPage: url,
+          image: `${SITE_HOST}/logo.png`,
+        }),
+      ])
+    }
+
+    /** AI 工具箱首页：CollectionPage + ItemList，把整份清单一次性交给引擎 */
+    if (rel === 'ai-toolbox/index.md') {
+      const tools = collectToolEntries()
+      fm.head.push([
+        'script',
+        { type: 'application/ld+json' },
+        JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          name: pageData.title,
+          ...(pageData.description ? { description: pageData.description } : {}),
+          url,
+          inLanguage: 'zh-CN',
+          mainEntity: {
+            '@type': 'ItemList',
+            numberOfItems: tools.length,
+            itemListElement: tools.map((tool, index) => ({
+              '@type': 'ListItem',
+              position: index + 1,
+              name: tool.title,
+              description: tool.description,
+              url: `${SITE_HOST}${tool.url}`,
+            })),
+          },
+        }),
+      ])
+    }
   },
   vite: {
     build: {
@@ -315,6 +496,8 @@ buildEnd(siteConfig) {
   console.log(`[rss] 生成 rss.xml`)
   fs.writeFileSync(path.join(siteConfig.outDir, 'llms.txt'), buildLlmsTxt(), 'utf8')
   console.log(`[llms] 生成 llms.txt`)
+  fs.writeFileSync(path.join(siteConfig.outDir, 'llms-full.txt'), buildLlmsFullTxt(), 'utf8')
+  console.log(`[llms] 生成 llms-full.txt`)
 },
   themeConfig: {
     logo: '/logo.png',
