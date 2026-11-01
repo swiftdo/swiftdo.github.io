@@ -1,6 +1,6 @@
 ---
-title: README
-description: "官方公众号 OldBirds"
+title: SwiftUI 指南
+description: "SwiftUI 系统笔记：从 ViewBuilder、属性包装器到布局与基础控件，逐篇配代码示例。"
 createTime: 2024/08/02 09:19:27
 ---
 ## SwiftUI 指南
