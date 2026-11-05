@@ -23,3 +23,4 @@ node_modules
 
 # 本地视觉走查截图（改版式时用来做前后对照，不随代码发布）
 .shots/
+.hotspot/

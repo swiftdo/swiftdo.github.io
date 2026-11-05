@@ -1,0 +1,40 @@
+{
+  "projectRoot": "/Users/laijihua/Desktop/Code/blog/swiftdo.github.io",
+  "sources": [
+    {
+      "id": "sopilot-hottweets",
+      "kind": "rss",
+      "url": "https://sopilot.net/rss/hottweets"
+    },
+    {
+      "id": "anyfeeder",
+      "kind": "rss",
+      "url": "https://plink.anyfeeder.com/woshipm/popular"
+    }
+  ],
+  "articleDir": "docs/article",
+  "draftDir": ".drafts",
+  "target": {
+    "kind": "vitepress",
+    "articleDir": "docs/article",
+    "draftDir": ".drafts"
+  },
+  "digestDir": ".hotspot",
+  "rank": {
+    "halfLifeHours": 24,
+    "limit": 15,
+    "sinceHours": 36,
+    "clusterThreshold": 0.6
+  },
+  "publish": {
+    "maxPerDay": 3,
+    "allowedHosts": [
+      "sopilot.net",
+      "github.com"
+    ]
+  },
+  "deploy": {
+    "script": "./deploy.sh",
+    "build": "yarn build"
+  }
+}
