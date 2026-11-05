@@ -104,12 +104,20 @@ sitemap: false                            # 正文为空的占位页用，从 si
 ## 博客列表
 
 `docs/article/<slug>/index.md` 是文章本体；`docs/blog/index.md` 通过 `posts.data.ts`
-（`createContentLoader('article/*/index.md')`）在构建时收集全部文章，按 `date` 倒序渲染。
+（`createContentLoader('article/*/index.md')`）在构建时收集全部文章。
 URL 直接用 loader 给出的 `url`，不需要额外字段。
 
 - 列表页没有 h2 级别的目录，frontmatter 里写了 `aside: false`，关掉右侧空栏正文才居中。
+- **显示日期与排序时间是两件事**，都由 `docs/.vitepress/post-date.ts` 给出：
+  - `displayDate(fm)` → `YYYY-MM-DD`，只用于显示；
+  - `sortKey(fm)` → `YYYY-MM-DD HH:mm:ss`，**排序用**：优先 `createTime`（带时刻），
+    没有才退回 `date` 并补 `00:00:00`。
+  - 四处渲染共用这一份：`blog/posts.data.ts`（列表与首页最近）、`config.mts` 的
+    llms 索引 / llms-full 文章块 / RSS `pubDate`。四处都按 `sortKey` **倒序**。
+  - 为什么不能只按 `date` 排：`date` 只到天，同一天发的几篇全部并列，并列就退化成
+    文件发现顺序 —— 站上表现为「顺序不对，不是按时间排的么」。`createTime` 才是真实时刻。
 - `date` 在 frontmatter 里写 `2025-08-13` 会被 YAML 解析成 Date 对象，`String()` 之后是
-  `Wed Aug 13 2025 ...`。`posts.data.ts` 的 `toISODate()` 统一归一化成 `YYYY-MM-DD`，
+  `Wed Aug 13 2025 ...`。`post-date.ts` 已经处理 Date 与 `2025/08/13 09:21:29` 两种写法，
   模板里直接用 `post.date`，不要再 `slice(0, 10)`。
 - 文章页的日期与标签由 `config.mts` 的 `articleMetaPlugin` 在构建时插到首个 `h1` 之后；
   没有可见 `h1` 的旧文章会先用 frontmatter 的 `title` 补一个 `h1`。正文末尾的「继续阅读」

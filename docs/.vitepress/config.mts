@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vitepress'
 import { buildSidebar } from './sidebar'
 import { listMarkdownFiles, readFrontmatter } from './frontmatter'
+import { displayDate, sortKey } from './post-date'
 
 const DOCS_DIR = fileURLToPath(new URL('..', import.meta.url))
 
@@ -209,13 +210,14 @@ function buildLlmsTxt(): string {
     .map(rel => ({ url: mdPathToUrl(rel), fm: fmOf(rel) }))
 
   // 博客文章，按发布日期倒序
+  // 排序用 createTime 的完整时刻，显示仍用 date（见 post-date.ts：同一天的多篇不能并列）
   const articles = rels
     .filter(rel => rel.startsWith('article/'))
     .map((rel) => {
       const fm = fmOf(rel)
-      return { url: mdPathToUrl(rel), fm, date: (fm.date || fm.createTime || '').trim() }
+      return { url: mdPathToUrl(rel), fm, date: displayDate(fm), sort: sortKey(fm) }
     })
-    .sort((a, b) => b.date.localeCompare(a.date))
+    .sort((a, b) => b.sort.localeCompare(a.sort))
 
   const sectionLines = sections
     .map(({ url, fm }) => `- [${fm.title ?? url}](${SITE_HOST}${url}): ${fm.description ?? ''}`)
@@ -291,9 +293,16 @@ function buildLlmsFullTxt(): string {
     .filter(rel => rel.startsWith('article/') && rel.endsWith('/index.md'))
     .map((rel) => {
       const fm = readFrontmatter(path.join(DOCS_DIR, rel))
-      return { rel, url: mdPathToUrl(rel), title: fm.title ?? rel, description: fm.description ?? '', date: (fm.date || fm.createTime || '').trim() }
+      return {
+        rel,
+        url: mdPathToUrl(rel),
+        title: fm.title ?? rel,
+        description: fm.description ?? '',
+        date: displayDate(fm),
+        sort: sortKey(fm),
+      }
     })
-    .sort((a, b) => b.date.localeCompare(a.date))
+    .sort((a, b) => b.sort.localeCompare(a.sort))
 
   const block = (title: string, url: string, description: string, body: string) =>
     `## ${title}\n\n${description ? `> ${description}\n\n` : ''}${body}\n\n---\n`
@@ -326,16 +335,18 @@ function buildRssXml(): string {
     .filter(rel => rel.startsWith('article/') && rel.endsWith('/index.md'))
     .map((rel) => {
       const fm = readFrontmatter(path.join(DOCS_DIR, rel))
-      const pubRaw = (fm.date || fm.createTime || '').trim()
-      const pub = pubRaw ? new Date(pubRaw.replace(/\//g, '-')) : undefined
+      const stamp = sortKey(fm)
+      const pub = new Date(stamp.replace(' ', 'T'))
       return {
         title: fm.title ?? '未命名',
         link: `${SITE_HOST}${mdPathToUrl(rel)}`,
         description: fm.description ?? '',
-        pubDate: pub && !Number.isNaN(pub.getTime()) ? pub.toUTCString() : '',
+        // pubDate 精确到秒，同一天发的几篇在阅读器里也分得出先后
+        pubDate: Number.isNaN(pub.getTime()) ? '' : pub.toUTCString(),
+        sort: stamp,
       }
     })
-    .sort((a, b) => b.pubDate.localeCompare(a.pubDate))
+    .sort((a, b) => b.sort.localeCompare(a.sort))
 
   const entries = items.map(item => `    <item>
       <title>${xmlEscape(item.title)}</title>
