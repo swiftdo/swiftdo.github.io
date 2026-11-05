@@ -6,11 +6,12 @@ date: 2025-08-13
 tags:
     - GPT-5
     - openai
+pageClass: article-prompts
 ---
 
 
 
-# GPT-5 提示指南
+# GPT-5 提示词指南
 
 > 原文：[https://cookbook.openai.com/examples/gpt-5/gpt-5_prompting_guide](https://cookbook.openai.com/examples/gpt-5/gpt-5_prompting_guide)
 

@@ -1,30 +1,7 @@
 <script setup lang="ts">
-const topics = [
-  {
-    title: 'Swift',
-    desc: 'SwiftUI · Vapor · SPM · iOS',
-    href: '/swift/',
-    kicker: '主线',
-  },
-  {
-    title: 'Flutter',
-    desc: '跨平台 · 渲染 · 部署 · 鸿蒙',
-    href: '/flutter/',
-    kicker: '主线',
-  },
-  {
-    title: 'AI',
-    desc: '机器学习 · DeepSeek · 工具实践',
-    href: '/ai/',
-    kicker: '主线',
-  },
-  {
-    title: '易经',
-    desc: '周易 · 六爻 · 梅花易数',
-    href: '/yijing/',
-    kicker: '特色',
-  },
-]
+import { data as posts } from '../../../blog/posts.data'
+
+const recent = posts.slice(0, 4)
 
 const shortcuts = [
   { text: '算法', href: '/algorithms/' },
@@ -37,55 +14,18 @@ const shortcuts = [
 
 <template>
   <div class="home-showcase">
-    <section class="home-showcase__topics" aria-labelledby="home-topics-title">
-      <header class="home-showcase__head">
-        <p class="home-showcase__eyebrow">Start here</p>
-        <h2 id="home-topics-title">从这里开始</h2>
-        <p class="home-showcase__lead">按主线进入笔记，或先看作品与产品。</p>
-      </header>
-
-      <div class="home-showcase__grid">
-        <a
-          v-for="(item, index) in topics"
-          :key="item.href"
-          class="topic"
-          :href="item.href"
-        >
-          <span class="topic__meta">
-            <span class="topic__index">{{ String(index + 1).padStart(2, '0') }}</span>
-            <span class="topic__kicker">{{ item.kicker }}</span>
-          </span>
-          <strong class="topic__title">{{ item.title }}</strong>
-          <span class="topic__desc">{{ item.desc }}</span>
-          <span class="topic__cta">
-            进入专题
-            <span class="topic__arrow" aria-hidden="true">→</span>
-          </span>
-        </a>
-      </div>
-
-      <nav class="home-showcase__shortcuts" aria-label="更多入口">
-        <a
-          v-for="item in shortcuts"
-          :key="item.href"
-          :href="item.href"
-        >{{ item.text }}</a>
-      </nav>
-    </section>
-
-    <section class="home-showcase__product" aria-label="产品推荐">
+    <section class="home-showcase__product" aria-labelledby="home-product-title">
       <div class="product">
         <div class="product__media">
           <img
             class="product__img"
             src="/app-yiqigua.webp"
-            alt="易起卦应用截图"
+            alt="易起卦应用图标"
             loading="lazy"
           />
         </div>
         <div class="product__body">
-          <p class="product__eyebrow">Product</p>
-          <h3 class="product__title">易起卦</h3>
+          <h2 id="home-product-title" class="product__title">易起卦</h2>
           <p class="product__desc">
             六爻起卦与排盘 App：不解卦，提供 AI 提示词模板方便提问；支持一键起卦、卦例学习与本地记录。
           </p>
@@ -97,6 +37,36 @@ const shortcuts = [
         </div>
       </div>
     </section>
+
+    <section class="home-showcase__recent" aria-labelledby="home-recent-title">
+      <header class="home-showcase__head">
+        <h2 id="home-recent-title">最近更新</h2>
+        <p class="home-showcase__lead">新写下的笔记与观察，按发布时间排列。</p>
+      </header>
+
+      <ol class="recent-list">
+        <li v-for="post in recent" :key="post.url">
+          <a class="recent-item" :href="post.url">
+            <time class="recent-item__date" :datetime="post.date">{{ post.date }}</time>
+            <span class="recent-item__title">{{ post.title }}</span>
+            <span class="recent-item__arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      </ol>
+
+      <a class="recent-more" href="/blog/">查看全部文章 <span aria-hidden="true">→</span></a>
+    </section>
+
+    <nav class="home-showcase__shortcuts" aria-labelledby="home-shortcuts-title">
+      <h2 id="home-shortcuts-title" class="home-showcase__shortcuts-title">更多入口</h2>
+      <div class="home-showcase__shortcuts-list">
+        <a
+          v-for="item in shortcuts"
+          :key="item.href"
+          :href="item.href"
+        >{{ item.text }}</a>
+      </div>
+    </nav>
   </div>
 </template>
 
@@ -116,24 +86,9 @@ const shortcuts = [
   margin: 0 auto;
 }
 
-.home-showcase__topics {
-  margin-top: 72px;
-  padding-top: 40px;
-  border-top: 1px solid var(--hs-hairline);
-}
-
 .home-showcase__head {
   display: grid;
-  gap: 6px;
-}
-
-.home-showcase__eyebrow {
-  margin: 0;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--hs-brand);
+  gap: 7px;
 }
 
 .home-showcase__head h2 {
@@ -159,110 +114,107 @@ const shortcuts = [
   color: var(--hs-muted);
 }
 
-/* 目录式索引：四条细线分隔，比再排一组卡片更轻，也避免与上方图标卡重复 */
-.home-showcase__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  margin-top: 30px;
-}
-
-@media (min-width: 640px) {
-  .home-showcase__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 30px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .home-showcase__grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-.topic {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding: 16px 2px 20px;
+.home-showcase__recent {
+  margin-top: 64px;
+  padding-top: 40px;
   border-top: 1px solid var(--hs-hairline);
+}
+
+/* 最近更新用日志式单列：日期与标题一眼扫完，不与上方四张专题卡重复 */
+.recent-list {
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.recent-list li + li {
+  border-top: 1px solid var(--hs-hairline);
+}
+
+.recent-item {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  min-height: 56px;
+  padding: 10px 2px;
   color: inherit;
   text-decoration: none !important;
-  transition: border-color 0.25s ease;
 }
 
-.topic__meta {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 3px;
-}
-
-.topic__index {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+.recent-item__date {
+  font-size: 0.8rem;
+  color: var(--hs-muted);
   font-variant-numeric: tabular-nums;
-  color: var(--hs-brand);
 }
 
-.topic__kicker {
-  font-size: 0.68rem;
+.recent-item__title {
+  font-size: 1rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
-  color: var(--vp-c-text-3);
-}
-
-.topic__title {
-  font-size: 1.12rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  line-height: 1.5;
   color: var(--hs-ink);
   transition: color 0.2s ease;
 }
 
-.topic__desc {
-  flex: 1;
-  font-size: 0.83rem;
-  line-height: 1.65;
-  color: var(--hs-muted);
-}
-
-.topic__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  margin-top: 10px;
-  font-size: 0.8rem;
-  font-weight: 600;
+.recent-item__arrow {
   color: var(--hs-brand);
-}
-
-.topic__arrow {
   transition: transform 0.22s ease;
 }
 
-.topic:hover {
-  border-top-color: color-mix(in srgb, var(--hs-brand) 45%, var(--hs-hairline));
-}
-
-.topic:hover .topic__title {
+.recent-item:hover .recent-item__title {
   color: var(--hs-brand);
 }
 
-.topic:hover .topic__arrow {
+.recent-item:hover .recent-item__arrow {
   transform: translateX(4px);
 }
 
+.recent-item:focus-visible {
+  outline: 2px solid var(--hs-brand);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.recent-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  margin-top: 8px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--hs-brand);
+  text-decoration: none !important;
+}
+
+.recent-more:hover {
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+}
+
 .home-showcase__shortcuts {
+  margin-top: 48px;
+}
+
+.home-showcase__shortcuts-title {
+  margin: 0 0 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--hs-muted);
+}
+
+.home-showcase__shortcuts-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 22px;
 }
 
 .home-showcase__shortcuts a {
-  padding: 5px 12px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 14px;
   border: 1px solid var(--hs-hairline);
   border-radius: 999px;
   font-size: 0.78rem;
@@ -284,7 +236,7 @@ const shortcuts = [
 /* ── 产品卡：全站唯一使用金色的区块，作为「产品」语义的固定色 ── */
 
 .home-showcase__product {
-  margin-top: 56px;
+  margin-top: 64px;
 }
 
 .product {
@@ -346,15 +298,6 @@ const shortcuts = [
   object-fit: contain;
 }
 
-.product__eyebrow {
-  margin: 0 0 6px;
-  font-size: 0.66rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--hs-gold);
-}
-
 .product__title {
   margin: 0 0 8px;
   padding: 0;
@@ -393,7 +336,6 @@ const shortcuts = [
     align-items: center;
   }
 
-  .product__eyebrow,
   .product__title,
   .product__desc {
     grid-column: 1;
@@ -401,7 +343,7 @@ const shortcuts = [
 
   .product__actions {
     grid-column: 2;
-    grid-row: 1 / span 3;
+    grid-row: 1 / span 2;
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
@@ -462,7 +404,6 @@ const shortcuts = [
   background-color: color-mix(in srgb, var(--hs-gold) 8%, transparent);
 }
 
-.topic:focus-visible,
 .home-showcase__shortcuts a:focus-visible,
 .product__btn:focus-visible {
   outline: 2px solid var(--hs-brand);
@@ -471,21 +412,32 @@ const shortcuts = [
 }
 
 @media (max-width: 639px) {
-  .home-showcase__topics {
-    margin-top: 56px;
+  .home-showcase__product {
+    margin-top: 48px;
+  }
+
+  .home-showcase__recent {
+    margin-top: 52px;
     padding-top: 32px;
   }
 
-  .home-showcase__product {
-    margin-top: 44px;
+  .recent-item {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4px 12px;
+    min-height: 60px;
+    padding: 12px 2px;
+  }
+
+  .recent-item__date {
+    grid-column: 1 / -1;
+    font-size: 0.75rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .topic,
-  .topic__title,
-  .topic__arrow,
-  .topic:hover .topic__arrow,
+  .recent-item__title,
+  .recent-item__arrow,
+  .recent-item:hover .recent-item__arrow,
   .product__btn,
   .product__btn--primary:hover {
     transform: none;

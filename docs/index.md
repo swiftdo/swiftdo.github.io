@@ -4,11 +4,11 @@ title: Swift · Flutter · AI 技术博客
 hero:
   name: OldBird
   text: 记录 · 实践 · 作品
-  tagline: Swift、Flutter、AI 与易经——把学习沉淀成笔记，把兴趣做成产品。
+  tagline: Swift、Flutter、AI 与易经——<span class="tagline-keep">把学习沉淀成笔记</span>，<span class="tagline-keep">把兴趣做成产品</span>。
   actions:
     - theme: brand
-      text: 探索笔记
-      link: /swift/
+      text: 开始阅读
+      link: /blog/
     - theme: alt
       text: 作品集
       link: /result/

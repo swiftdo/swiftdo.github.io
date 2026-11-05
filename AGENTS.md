@@ -111,6 +111,12 @@ URL 直接用 loader 给出的 `url`，不需要额外字段。
 - `date` 在 frontmatter 里写 `2025-08-13` 会被 YAML 解析成 Date 对象，`String()` 之后是
   `Wed Aug 13 2025 ...`。`posts.data.ts` 的 `toISODate()` 统一归一化成 `YYYY-MM-DD`，
   模板里直接用 `post.date`，不要再 `slice(0, 10)`。
+- 文章页的日期与标签由 `config.mts` 的 `articleMetaPlugin` 在构建时插到首个 `h1` 之后；
+  没有可见 `h1` 的旧文章会先用 frontmatter 的 `title` 补一个 `h1`。正文末尾的「继续阅读」
+  由 `theme/components/ArticleMore.vue` 通过 `doc-after` 插槽渲染。两者都只作用于
+  `article/` 下的页面，不需要在每篇文章里手写。
+- 提示词、模板这类散文型代码块较多的文章，在 frontmatter 加 `pageClass: article-prompts`，
+  `custom.css` 会把该页代码块改成自动换行；普通源码页仍保持横向滚动。
 
 ## public 静态资源
 

@@ -297,7 +297,7 @@ body .VPDocAsideOutline .outline-title {
   font-size: var(--ob-text-small);
   font-weight: 600;
   letter-spacing: 0.08em;
-  color: var(--vp-c-text-3);
+  color: var(--vp-c-text-2);
 }
 
 body .VPDocAsideOutline .outline-link {
@@ -486,7 +486,13 @@ body .VPHome .VPHero .tagline {
   line-height: 1.8;
   font-weight: 400;
   white-space: normal;
+  text-wrap: balance;
   color: var(--vp-c-text-2);
+}
+
+/* 中文断行不认词：把两个短语锁住，避免「学/习」「笔/记」被拆到两行 */
+body .VPHome .VPHero .tagline .tagline-keep {
+  white-space: nowrap;
 }
 
 body .VPHome .VPHero .actions {
@@ -736,4 +742,78 @@ body .VPHome .VPFeature:hover .link-text-icon {
     transform: none;
     transition: none;
   }
+}
+
+/* ── 触控目标 ───────────────────────────────────────────────
+   移动端二级导航项只有 32px 高，扩到 44px；
+   主题开关保持 40×22 的视觉尺寸，用负 inset 的伪元素把可点区域
+   扩到 44×44，不改变导航栏布局。 */
+@media (max-width: 959px) {
+  body .VPNavScreen .VPNavScreenMenuGroupLink {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
+
+body .VPSwitch::before {
+  content: '';
+  position: absolute;
+  inset: -11px -2px;
+  border-radius: 999px;
+}
+
+/* ── 文章元信息 ─────────────────────────────────────────────
+   build 时插到首个 h1 之后（见 config.mts 的 articleMetaPlugin）。
+   日期与标签用 text-2，避免小字号元信息掉到 3:1。 */
+body .VPDoc .vp-doc .article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin: -0.5rem 0 1.75rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--vp-c-text-2);
+}
+
+body .VPDoc .vp-doc .article-meta time {
+  font-variant-numeric: tabular-nums;
+}
+
+body .VPDoc .vp-doc .article-meta__sep {
+  color: var(--vp-c-text-3);
+}
+
+body .VPDoc .vp-doc .article-meta__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body .VPDoc .vp-doc .article-meta__tags li,
+body .VPDoc .vp-doc .article-meta__tags li + li {
+  margin: 0;
+  padding: 2px 8px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--vp-c-text-2);
+}
+
+/* ── 提示词模板换行 ─────────────────────────────────────────
+   散文式提示词不是代码，不该横向拖三屏。给对应文章加
+   `pageClass: article-prompts`，只影响这类页面的代码块。 */
+body .article-prompts .vp-doc div[class*='language-'] pre,
+body .article-prompts .vp-doc div[class*='language-'] code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+body .article-prompts .vp-doc div[class*='language-'] pre {
+  overflow-x: hidden;
 }

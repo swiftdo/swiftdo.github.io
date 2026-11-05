@@ -394,6 +394,79 @@ const FOOTER_MESSAGE = `<a style="text-decoration:none; display: inline-block;" 
 </a>
 `
 
+function toISODate(value: unknown): string {
+  if (value instanceof Date && !Number.isNaN(value.getTime()))
+    return value.toISOString().slice(0, 10)
+  const text = String(value ?? '').trim()
+  if (!text)
+    return ''
+  return /^\d{4}[/-]\d{1,2}[/-]\d{1,2}/.test(text)
+    ? text.replace(/\//g, '-').slice(0, 10)
+    : text
+}
+
+/**
+ * 文章头部元信息：build 时插到首个 h1 之后。
+ * 用 html_block 而不是前端组件，避免在 .vp-doc 里塞一个需要 hydration 的浮层。
+ */
+function articleMetaHtml(frontmatter: Record<string, unknown>): string {
+  const date = toISODate(frontmatter.date ?? frontmatter.createTime)
+  const tags = Array.isArray(frontmatter.tags)
+    ? frontmatter.tags.map(String).filter(Boolean)
+    : []
+  if (!date && tags.length === 0)
+    return ''
+
+  const dateHtml = date ? `<time datetime="${date}">${date}</time>` : ''
+  const tagsHtml = tags.length
+    ? `<ul class="article-meta__tags">${tags.map(tag => `<li>${xmlEscape(tag)}</li>`).join('')}</ul>`
+    : ''
+  const separator = dateHtml && tagsHtml
+    ? '<span class="article-meta__sep" aria-hidden="true">·</span>'
+    : ''
+
+  return `<div class="article-meta">${dateHtml}${separator}${tagsHtml}</div>`
+}
+
+function articleMetaPlugin(md: any): void {
+  md.core.ruler.push('ob_article_meta', (state: any) => {
+    const relativePath = state.env?.relativePath
+    if (!relativePath || !/^article\/[^/]+\/index\.md$/.test(relativePath))
+      return
+
+    const frontmatter = state.env?.frontmatter ?? {}
+    const html = articleMetaHtml(frontmatter)
+    if (!html)
+      return
+
+    const tokens = state.tokens
+    const headingOpen = tokens.findIndex(
+      (token: any) => token.type === 'heading_open' && token.tag === 'h1',
+    )
+
+    // 有 h1 的页面插在标题后；没有 h1 的旧文章补一个可见标题，再插元信息
+    let insertAt = 0
+    let content = html
+    if (headingOpen >= 0) {
+      let headingClose = headingOpen + 1
+      while (headingClose < tokens.length && tokens[headingClose].type !== 'heading_close')
+        headingClose++
+      if (headingClose >= tokens.length)
+        return
+      insertAt = headingClose + 1
+    }
+    else {
+      const title = String(frontmatter.title ?? '').trim()
+      if (title)
+        content = `<h1 class="article-title">${xmlEscape(title)}</h1>${content}`
+    }
+
+    const token = new state.Token('html_block', '', 0)
+    token.content = content
+    tokens.splice(insertAt, 0, token)
+  })
+}
+
 export default defineConfig({
   lang: 'zh-CN',
   title: 'OldBird',
@@ -406,6 +479,9 @@ export default defineConfig({
   // 教程正文里的 http://localhost:8080 是示例地址，不是站内页面
   ignoreDeadLinks: 'localhostLinks',
   lastUpdated: true,
+  markdown: {
+    config: articleMetaPlugin,
+  },
   sitemap: {
     hostname: 'https://oldbird.run',
     // 正文为空的占位页（SwiftUI API 索引、SwiftPM 文档占位等）标了 sitemap: false
