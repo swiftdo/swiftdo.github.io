@@ -797,12 +797,33 @@ body .VPDoc .vp-doc .article-meta__tags {
 body .VPDoc .vp-doc .article-meta__tags li,
 body .VPDoc .vp-doc .article-meta__tags li + li {
   margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+/* 标签是链接：pill 挂在 a 上，整块都是点击区域（见 config.mts 的 articleMetaHtml） */
+body .VPDoc .vp-doc .article-meta__tags .article-meta__tag {
+  display: inline-block;
   padding: 2px 8px;
   border: 1px solid var(--vp-c-divider);
   border-radius: 999px;
-  font-size: 0.75rem;
-  line-height: 1.5;
   color: var(--vp-c-text-2);
+  text-decoration: none !important;
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+body .VPDoc .vp-doc .article-meta__tags .article-meta__tag:hover,
+body .VPDoc .vp-doc .article-meta__tags .article-meta__tag:focus-visible {
+  color: var(--vp-c-brand-1);
+  border-color: var(--vp-c-brand-1);
+  background-color: var(--vp-c-bg-soft);
+}
+
+body .VPDoc .vp-doc .article-meta__tags .article-meta__tag:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 2px;
 }
 
 /* ── 提示词模板换行 ─────────────────────────────────────────

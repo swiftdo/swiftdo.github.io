@@ -6,6 +6,7 @@ export interface Post {
   url: string
   description: string
   date: string
+  tags: string[]
 }
 
 declare const data: Post[]
@@ -28,6 +29,9 @@ export default createContentLoader('article/*/index.md', {
           url,
           description: frontmatter.description ?? '',
           date: displayDate(fm),
+          tags: Array.isArray(frontmatter.tags)
+            ? frontmatter.tags.map(String).map(tag => tag.trim()).filter(Boolean)
+            : [],
           sort: sortKey(fm),
         }
       })

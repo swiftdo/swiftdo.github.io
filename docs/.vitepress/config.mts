@@ -6,6 +6,7 @@ import { defineConfig } from 'vitepress'
 import { buildSidebar } from './sidebar'
 import { listMarkdownFiles, readFrontmatter } from './frontmatter'
 import { displayDate, sortKey } from './post-date'
+import { tagSlug } from './tag-slug'
 
 const DOCS_DIR = fileURLToPath(new URL('..', import.meta.url))
 
@@ -419,6 +420,7 @@ function toISODate(value: unknown): string {
 /**
  * 文章头部元信息：build 时插到首个 h1 之后。
  * 用 html_block 而不是前端组件，避免在 .vp-doc 里塞一个需要 hydration 的浮层。
+ * 标签是可点击链接，指向 /tag/ 总览页里对应的锚点；锚点规则由 tag-slug.ts 统一。
  */
 function articleMetaHtml(frontmatter: Record<string, unknown>): string {
   const date = toISODate(frontmatter.date ?? frontmatter.createTime)
@@ -430,7 +432,14 @@ function articleMetaHtml(frontmatter: Record<string, unknown>): string {
 
   const dateHtml = date ? `<time datetime="${date}">${date}</time>` : ''
   const tagsHtml = tags.length
-    ? `<ul class="article-meta__tags">${tags.map(tag => `<li>${xmlEscape(tag)}</li>`).join('')}</ul>`
+    ? `<ul class="article-meta__tags">${tags.map((tag) => {
+        const slug = tagSlug(tag)
+        const href = slug ? `/tag/#${encodeURIComponent(slug)}` : '/tag/'
+        // target="_self" 让 VitePress router 跳过拦截（它只接管没有 target 的同源链接）。
+        // SPA 切换时页面高度仍在变，hash 滚动会停在上一个分组；整页加载由浏览器
+        // 直接定位锚点，中文 hash 也能准确落到对应分组。
+        return `<li><a class="article-meta__tag" href="${xmlEscape(href)}" target="_self">${xmlEscape(tag)}</a></li>`
+      }).join('')}</ul>`
     : ''
   const separator = dateHtml && tagsHtml
     ? '<span class="article-meta__sep" aria-hidden="true">·</span>'
