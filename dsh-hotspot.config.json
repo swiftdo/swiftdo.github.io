@@ -2,14 +2,14 @@
   "projectRoot": "/Users/laijihua/Desktop/Code/blog/swiftdo.github.io",
   "sources": [
     {
-      "id": "sopilot-hottweets",
-      "kind": "rss",
-      "url": "https://sopilot.net/rss/hottweets"
-    },
-    {
       "id": "anyfeeder",
       "kind": "rss",
       "url": "https://plink.anyfeeder.com/woshipm/popular"
+    },
+    {
+      "id": "36kr",
+      "kind": "rss",
+      "url": "https://36kr.com/feed"
     }
   ],
   "articleDir": "docs/article",
