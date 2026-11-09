@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="680" height="400" role="img" aria-labelledby="ddpd-title ddpd-desc">
+  <title id="ddpd-title">Diagram Design 的渐进式披露流程</title>
+  <desc id="ddpd-desc">从只有名字与描述，到加载 SKILL.md 路由，再到按需只读取一份类型参考，最后交付单个 HTML 文件；全图按 4px 网格、单一强调色、1px 发丝线、无阴影的规则绘制。</desc>
+  <defs>
+    <marker id="ddpd-arw" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8b8b96"/>
+    </marker>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .hd { fill: #2d3142; font-size: 22px; font-weight: 700; }
+      .sub { fill: #71717a; font-size: 12px; }
+      .tag { fill: #8b8b96; font-size: 10px; letter-spacing: 1px; }
+      .name { fill: #2d3142; font-size: 14px; font-weight: 700; }
+      .line { fill: #52525b; font-size: 11.5px; }
+      .note { fill: #52525b; font-size: 12px; }
+      .legend { fill: #71717a; font-size: 11px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="400" fill="#f5f5f5"/>
+
+  <text class="serif hd" x="32" y="48">45 种类型，每次只读几份文件</text>
+  <text class="t sub" x="32" y="72">渐进式披露：启动时只有名字与描述，命中请求后才逐层加载规则</text>
+
+  <g>
+    <rect x="32" y="108" width="136" height="144" rx="6" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <text class="t tag" x="44" y="132">01 / IDLE</text>
+    <text class="t name" x="44" y="156">未被触发</text>
+    <line x1="44" y1="168" x2="156" y2="168" stroke="#e4e4e8" stroke-width="1"/>
+    <text class="t line" x="44" y="192">只有 name 与</text>
+    <text class="t line" x="44" y="214">description 可见</text>
+    <text class="t line" x="44" y="236">类型名即触发词</text>
+  </g>
+
+  <g>
+    <rect x="196" y="108" width="136" height="144" rx="6" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <text class="t tag" x="208" y="132">02 / ROUTE</text>
+    <text class="t name" x="208" y="156">请求命中</text>
+    <line x1="208" y1="168" x2="320" y2="168" stroke="#e4e4e8" stroke-width="1"/>
+    <text class="t line" x="208" y="192">载入 SKILL.md</text>
+    <text class="t line" x="208" y="214">28,869 B 的 router</text>
+    <text class="t line" x="208" y="236">先声明，再落笔</text>
+  </g>
+
+  <g>
+    <rect x="360" y="108" width="136" height="144" rx="6" fill="#fdf3f0" stroke="#bf4520" stroke-width="1"/>
+    <text class="t tag" x="372" y="132" fill="#bf4520">03 / ON DEMAND</text>
+    <text class="t name" x="372" y="156">按需加载</text>
+    <line x1="372" y1="168" x2="484" y2="168" stroke="#e8cdc4" stroke-width="1"/>
+    <text class="t line" x="372" y="192">只读 1 份 type-*.md</text>
+    <text class="t line" x="372" y="214">加 style-guide.md</text>
+    <text class="t line" x="372" y="236">复杂才加语义层</text>
+  </g>
+
+  <g>
+    <rect x="524" y="108" width="124" height="144" rx="6" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <text class="t tag" x="536" y="132">04 / OUTPUT</text>
+    <text class="t name" x="536" y="156">交付</text>
+    <line x1="536" y1="168" x2="636" y2="168" stroke="#e4e4e8" stroke-width="1"/>
+    <text class="t line" x="536" y="192">一个 .html 文件</text>
+    <text class="t line" x="536" y="214">内联 CSS + SVG</text>
+    <text class="t line" x="536" y="236">默认无 JS，离线</text>
+  </g>
+
+  <line x1="168" y1="180" x2="192" y2="180" stroke="#8b8b96" stroke-width="1" marker-end="url(#ddpd-arw)"/>
+  <line x1="332" y1="180" x2="356" y2="180" stroke="#8b8b96" stroke-width="1" marker-end="url(#ddpd-arw)"/>
+  <line x1="496" y1="180" x2="520" y2="180" stroke="#8b8b96" stroke-width="1" marker-end="url(#ddpd-arw)"/>
+
+  <rect x="32" y="280" width="616" height="64" rx="6" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+  <text class="t note" x="48" y="306">这张图按它的规则画：坐标与间距全为 4 的倍数 · 1px 发丝线 · 无阴影</text>
+  <text class="t note" x="48" y="328">· 全图只有一个强调色 · 节点不超过 9 个 · 图例固定在底部</text>
+
+  <text class="t legend" x="32" y="372">图例</text>
+  <rect x="72" y="362" width="12" height="12" rx="2" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+  <text class="t legend" x="92" y="372">普通规则层</text>
+  <rect x="176" y="362" width="12" height="12" rx="2" fill="#fdf3f0" stroke="#bf4520" stroke-width="1"/>
+  <text class="t legend" x="196" y="372">焦点：按需加载</text>
+  <line x1="304" y1="368" x2="336" y2="368" stroke="#8b8b96" stroke-width="1" marker-end="url(#ddpd-arw)"/>
+  <text class="t legend" x="344" y="372">上下文逐层展开</text>
+  <text class="t legend" x="648" y="372" text-anchor="end">SOURCE: README / ADR 0004</text>
+</svg>

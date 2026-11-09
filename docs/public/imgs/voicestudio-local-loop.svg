@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" role="img" aria-label="VoiceStudio 本地闭环：输入经桌面壳与本地 API、模型引擎，产出音频，全程不经过云端">
+  <defs>
+    <marker id="arw" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8b8b96"/>
+    </marker>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .h { fill: #fafafa; font-size: 15px; font-weight: 700; }
+      .s { fill: #a1a1aa; font-size: 12px; }
+      .cap { fill: #71717a; font-size: 12px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="400" rx="18" fill="#111114"/>
+
+  <text class="t" x="32" y="43" fill="#fafafa" font-size="20" font-weight="700">VoiceStudio 本地闭环</text>
+  <text class="t cap" x="32" y="68">一份输入到一份音频，中间不经过任何云端服务</text>
+
+  <g>
+    <rect x="32" y="100" width="200" height="152" rx="12" fill="#1c1c21" stroke="#34343c"/>
+    <circle cx="54" cy="130" r="5" fill="#a78bfa"/>
+    <text class="t h" x="68" y="135">输入</text>
+    <text class="t s" x="52" y="170">文本脚本</text>
+    <text class="t s" x="52" y="193">5–15 秒参考音频</text>
+    <text class="t s" x="52" y="216">视频 / 录音文件</text>
+  </g>
+
+  <g>
+    <rect x="262" y="100" width="200" height="152" rx="12" fill="#1c1c21" stroke="#34343c"/>
+    <circle cx="284" cy="130" r="5" fill="#60a5fa"/>
+    <text class="t h" x="298" y="135">桌面壳 + 本地 API</text>
+    <text class="t s" x="282" y="170">Electron / React</text>
+    <text class="t s" x="282" y="193">FastAPI 127.0.0.1:3900</text>
+    <text class="t s" x="282" y="216">OpenAI 兼容接口 / MCP</text>
+  </g>
+
+  <g>
+    <rect x="492" y="100" width="200" height="152" rx="12" fill="#1c1c21" stroke="#34343c"/>
+    <circle cx="514" cy="130" r="5" fill="#34d399"/>
+    <text class="t h" x="528" y="135">模型与引擎</text>
+    <text class="t s" x="512" y="170">Model Manager 按需下载</text>
+    <text class="t s" x="512" y="193">OmniVoice / WhisperX</text>
+    <text class="t s" x="512" y="216">GGUF · CUDA / Metal</text>
+  </g>
+
+  <g>
+    <rect x="722" y="100" width="200" height="152" rx="12" fill="#1c1c21" stroke="#34343c"/>
+    <circle cx="744" cy="130" r="5" fill="#fbbf24"/>
+    <text class="t h" x="758" y="135">输出</text>
+    <text class="t s" x="742" y="170">克隆语音 / 设计音色</text>
+    <text class="t s" x="742" y="193">多语配音 / 转写</text>
+    <text class="t s" x="742" y="216">故事 / 有声书</text>
+  </g>
+
+  <line x1="234" y1="176" x2="258" y2="176" stroke="#8b8b96" stroke-width="2" marker-end="url(#arw)"/>
+  <line x1="464" y1="176" x2="488" y2="176" stroke="#8b8b96" stroke-width="2" marker-end="url(#arw)"/>
+  <line x1="694" y1="176" x2="718" y2="176" stroke="#8b8b96" stroke-width="2" marker-end="url(#arw)"/>
+
+  <rect x="32" y="278" width="896" height="62" rx="12" fill="#18181d" stroke="#2a2a31" stroke-dasharray="5 4"/>
+  <text class="t" x="52" y="306" fill="#d4d4d8" font-size="14">全程本机运行 · 无需账号 · 模型按需下载 · 使用统计需明确同意</text>
+  <text class="t cap" x="52" y="329">虚线之外：Pro 多机 GPU 任务分发 / Cloud 托管 API（尚未上线），都不属于这条本地闭环</text>
+
+  <text class="t cap" x="32" y="372">示意图为本文绘制，依据仓库文档与官网许可说明整理</text>
+</svg>

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 416" width="680" height="416" role="img" aria-labelledby="kpd-title kpd-desc">
+  <title id="kpd-title">外科式修改与顺手重构的 diff 对比</title>
+  <desc id="kpd-desc">同一个「修好空邮箱导致校验器崩溃」的需求：左边是常见的顺手重构，额外改了注释、docstring、引号和无关的校验；右边只改动修复所必需的三行，其余保持原样。</desc>
+  <defs>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .lab { fill: #8b8f9a; font-size: 10px; letter-spacing: 1px; }
+      .code { fill: #3a3d45; font-size: 10.5px; }
+      .del { fill: #b4543c; font-size: 10.5px; }
+      .add { fill: #2f7d5b; font-size: 10.5px; }
+      .keep { fill: #9a9ea8; font-size: 10.5px; }
+      .foot { fill: #52565f; font-size: 12px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="416" fill="#f7f7f5"/>
+
+  <text class="serif hd" x="32" y="46">同一处 bug，两种 diff</text>
+  <text class="t sub" x="32" y="70">用户只说了一句：「修好空邮箱导致校验器崩溃」</text>
+
+  <g>
+    <rect x="32" y="96" width="296" height="248" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <rect x="32" y="96" width="296" height="32" rx="6" fill="#fdf0ec"/>
+    <rect x="32" y="120" width="296" height="8" fill="#fdf0ec"/>
+    <text class="t lab" x="48" y="117" fill="#b4543c">✕ 常见做法 · DRIVE-BY REFACTORING</text>
+    <text class="mono del" x="48" y="152">- # Check email format</text>
+    <text class="mono add" x="48" y="172">+ """Validate user data."""</text>
+    <text class="mono add" x="48" y="192">+ email = user_data.get('email','').strip()</text>
+    <text class="mono del" x="48" y="212">- if not user_data.get('email'):</text>
+    <text class="mono add" x="48" y="232">+ if not email or '.' not in ...:</text>
+    <text class="mono add" x="48" y="252">+ if len(username) &lt; 3:   # 无人要求</text>
+    <text class="mono add" x="48" y="272">+ def upload(file: str) -&gt; bool:</text>
+    <text class="mono keep" x="48" y="292">  改注释、加 docstring、改引号、</text>
+    <text class="mono keep" x="48" y="310">  加用户名校验与类型注解 ……</text>
+    <text class="mono del" x="48" y="332">共 12 行改动，只有 2 行与 bug 有关</text>
+  </g>
+
+  <g>
+    <rect x="352" y="96" width="296" height="248" rx="6" fill="#f5faf7" stroke="#2f7d5b" stroke-width="1"/>
+    <rect x="352" y="96" width="296" height="32" rx="6" fill="#e6f1ea"/>
+    <rect x="352" y="120" width="296" height="8" fill="#e6f1ea"/>
+    <text class="t lab" x="368" y="117" fill="#2f7d5b">✓ 规则要求 · SURGICAL CHANGES</text>
+    <text class="mono keep" x="368" y="152">  # Check email format</text>
+    <text class="mono del" x="368" y="172">- if not user_data.get('email'):</text>
+    <text class="mono add" x="368" y="192">+ email = user_data.get('email', '')</text>
+    <text class="mono add" x="368" y="212">+ if not email or not email.strip():</text>
+    <text class="mono keep" x="368" y="232">      raise ValueError("Email required")</text>
+    <text class="mono keep" x="368" y="252">  # Basic email validation</text>
+    <text class="mono del" x="368" y="272">- if '@' not in user_data['email']:</text>
+    <text class="mono add" x="368" y="292">+ if '@' not in email:</text>
+    <text class="mono keep" x="368" y="312">      raise ValueError("Invalid email")</text>
+    <text class="mono add" x="368" y="332">引号、注释、用户名部分一字未动</text>
+  </g>
+
+  <g>
+    <rect x="32" y="360" width="616" height="40" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <text class="t foot" x="48" y="385">检验标准：每一行改动都要能直接追溯到用户的请求；看到无关的死代码，提一句，别顺手删。</text>
+  </g>
+</svg>

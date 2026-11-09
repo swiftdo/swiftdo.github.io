@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 424" width="680" height="424" role="img" aria-labelledby="kpp-title kpp-desc">
+  <title id="kpp-title">Star 增长曲线与代码冻结的时间线</title>
+  <desc id="kpp-desc">仓库从 1 月底约三千 Star 增长到 11 月 8 日约 23 万 Star，但最后一次提交停在 4 月 20 日，此后近七个月没有新提交，Star 仍在增长；下方列出 231203 Star、20 KB 仓库、9 个纯文本文件、28 次提交、0 个 LICENSE 文件。</desc>
+  <defs>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .ax { fill: #8b8f9a; font-size: 10.5px; }
+      .vl { fill: #23262e; font-size: 12px; font-weight: 700; }
+      .num { fill: #23262e; font-size: 19px; font-weight: 700; }
+      .cap { fill: #6f7480; font-size: 10.5px; }
+      .anno { fill: #c0492b; font-size: 11px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="424" fill="#f7f7f5"/>
+
+  <text class="serif hd" x="32" y="46">23 万 Star，20 KB</text>
+  <text class="t sub" x="32" y="70">代码在 4 月 20 日就停了，Star 曲线还在涨</text>
+
+  <rect x="222" y="96" width="426" height="184" fill="#eeefec"/>
+  <text class="t anno" x="236" y="114">此后 0 次提交 · Star 仍在增长</text>
+
+  <line x1="56" y1="280" x2="648" y2="280" stroke="#c9cbd1" stroke-width="1"/>
+  <line x1="56" y1="96" x2="56" y2="280" stroke="#c9cbd1" stroke-width="1"/>
+  <line x1="56" y1="202" x2="648" y2="202" stroke="#e0e1e5" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="56" y1="122" x2="648" y2="122" stroke="#e0e1e5" stroke-width="1" stroke-dasharray="4 4"/>
+  <text class="t ax" x="28" y="206">100K</text>
+  <text class="t ax" x="36" y="126">230K</text>
+  <text class="t ax" x="44" y="284">0</text>
+
+  <path d="M 56 278 C 120 277 170 274 199 276 C 226 258 236 214 242 202 C 300 176 380 150 460 138 C 530 128 590 124 632 121"
+        fill="none" stroke="#c0492b" stroke-width="2.4" stroke-linecap="round"/>
+
+  <circle cx="56" cy="278" r="3.5" fill="#c0492b"/>
+  <circle cx="199" cy="276" r="3.5" fill="#c0492b"/>
+  <circle cx="242" cy="202" r="3.5" fill="#c0492b"/>
+  <circle cx="632" cy="121" r="4.5" fill="#c0492b"/>
+
+  <text class="t vl" x="56" y="268">3,178</text>
+  <text class="t ax" x="56" y="296">1/31</text>
+  <text class="t vl" x="176" y="268">10K</text>
+  <text class="t ax" x="176" y="296">4/11</text>
+  <text class="t vl" x="248" y="194">100K</text>
+  <text class="t ax" x="248" y="296">5/2</text>
+  <text class="t vl" x="548" y="112">230,672</text>
+  <text class="t ax" x="600" y="296">11/8</text>
+
+  <line x1="218" y1="96" x2="218" y2="280" stroke="#c0492b" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <text class="t anno" x="224" y="272">最后一次 push · 4/20</text>
+
+  <g>
+    <rect x="32" y="312" width="112" height="88" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <text class="t num" x="44" y="348">231K</text>
+    <text class="t cap" x="44" y="370">Star（11/9）</text>
+    <text class="t cap" x="44" y="386">22,990 Fork</text>
+  </g>
+  <g>
+    <rect x="158" y="312" width="112" height="88" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <text class="t num" x="170" y="348">20 KB</text>
+    <text class="t cap" x="170" y="370">整个仓库体积</text>
+    <text class="t cap" x="170" y="386">全是 Markdown</text>
+  </g>
+  <g>
+    <rect x="284" y="312" width="112" height="88" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <text class="t num" x="296" y="348">9</text>
+    <text class="t cap" x="296" y="370">个文件，全是文本</text>
+    <text class="t cap" x="296" y="386">没有可执行代码</text>
+  </g>
+  <g>
+    <rect x="410" y="312" width="112" height="88" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <text class="t num" x="422" y="348">28</text>
+    <text class="t cap" x="422" y="370">次提交</text>
+    <text class="t cap" x="422" y="386">七个月未更新</text>
+  </g>
+  <g>
+    <rect x="536" y="312" width="112" height="88" rx="6" fill="#fbf1ed" stroke="#c0492b" stroke-width="1"/>
+    <text class="t num" x="548" y="348" fill="#c0492b">0</text>
+    <text class="t cap" x="548" y="370">个 LICENSE 文件</text>
+    <text class="t cap" x="548" y="386">README 却写 MIT</text>
+  </g>
+</svg>

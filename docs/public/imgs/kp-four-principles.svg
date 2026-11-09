@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 448" width="680" height="448" role="img" aria-labelledby="kp4-title kp4-desc">
+  <title id="kp4-title">三条抱怨与四条规则的对应关系</title>
+  <desc id="kp4-desc">Karpathy 指出的三类编码 Agent 通病，分别对应 Think Before Coding、Simplicity First、Surgical Changes 三条规则；第四条 Goal-Driven Execution 不对应抱怨，而是来自他关于给成功标准的正向观察。</desc>
+  <defs>
+    <marker id="kp4-arw" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8b8f9a"/>
+    </marker>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .lab { fill: #8b8f9a; font-size: 10px; letter-spacing: 1px; }
+      .sym { fill: #33363e; font-size: 13px; font-weight: 600; }
+      .sym2 { fill: #6f7480; font-size: 11px; }
+      .rule { fill: #23262e; font-size: 14px; font-weight: 700; }
+      .test { fill: #6f7480; font-size: 11px; }
+      .foot { fill: #52565f; font-size: 12px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="448" fill="#f7f7f5"/>
+
+  <text class="serif hd" x="32" y="46">三条抱怨，四条规则</text>
+  <text class="t sub" x="32" y="70">前三条是一一对应的解药；第四条不是治病，是放大模型本来就很擅长的事</text>
+
+  <g>
+    <rect x="32" y="96" width="248" height="72" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <rect x="32" y="96" width="4" height="72" rx="2" fill="#b4543c"/>
+    <text class="t lab" x="48" y="118">抱怨 01</text>
+    <text class="t sym" x="48" y="140">替你做错误假设，一路跑下去</text>
+    <text class="t sym2" x="48" y="158">不问澄清、不呈现权衡、该反驳时不反驳</text>
+  </g>
+  <line x1="284" y1="132" x2="308" y2="132" stroke="#8b8f9a" stroke-width="1" marker-end="url(#kp4-arw)"/>
+  <g>
+    <rect x="312" y="96" width="336" height="72" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <text class="t rule" x="328" y="122">1 · Think Before Coding</text>
+    <text class="t test" x="328" y="144">明说假设 · 歧义时列出多种解读 · 困惑就停下来问</text>
+    <text class="t test" x="328" y="160">自检：有没有默默替用户选了一个解释？</text>
+  </g>
+
+  <g>
+    <rect x="32" y="180" width="248" height="72" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <rect x="32" y="180" width="4" height="72" rx="2" fill="#b4543c"/>
+    <text class="t lab" x="48" y="202">抱怨 02</text>
+    <text class="t sym" x="48" y="224">把代码和 API 搞复杂</text>
+    <text class="t sym2" x="48" y="242">100 行能写完偏写 1000 行，死代码不清</text>
+  </g>
+  <line x1="284" y1="216" x2="308" y2="216" stroke="#8b8f9a" stroke-width="1" marker-end="url(#kp4-arw)"/>
+  <g>
+    <rect x="312" y="180" width="336" height="72" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <text class="t rule" x="328" y="206">2 · Simplicity First</text>
+    <text class="t test" x="328" y="228">不写没要求的功能、抽象、灵活性与兜底</text>
+    <text class="t test" x="328" y="244">自检：资深工程师会说这过于复杂吗？</text>
+  </g>
+
+  <g>
+    <rect x="32" y="264" width="248" height="72" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <rect x="32" y="264" width="4" height="72" rx="2" fill="#b4543c"/>
+    <text class="t lab" x="48" y="286">抱怨 03</text>
+    <text class="t sym" x="48" y="308">顺手改动无关的注释与代码</text>
+    <text class="t sym2" x="48" y="326">明明与任务正交，也要动一下</text>
+  </g>
+  <line x1="284" y1="300" x2="308" y2="300" stroke="#8b8f9a" stroke-width="1" marker-end="url(#kp4-arw)"/>
+  <g>
+    <rect x="312" y="264" width="336" height="72" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <text class="t rule" x="328" y="290">3 · Surgical Changes</text>
+    <text class="t test" x="328" y="312">不顺手重构、不改风格、只清理自己造成的孤儿</text>
+    <text class="t test" x="328" y="328">自检：每一行改动都能追溯到用户请求吗？</text>
+  </g>
+
+  <g>
+    <rect x="32" y="352" width="616" height="72" rx="6" fill="#fbf1ed" stroke="#c0492b" stroke-width="1"/>
+    <text class="t rule" x="48" y="378" fill="#c0492b">4 · Goal-Driven Execution　←　不对应任何抱怨</text>
+    <text class="t foot" x="48" y="400">来自 Karpathy 的正向观察：LLM 极擅长「循环直到达成具体目标」。</text>
+    <text class="t foot" x="48" y="416">所以别给它步骤，给它成功标准与验证点，让它自己跑完。</text>
+  </g>
+</svg>
