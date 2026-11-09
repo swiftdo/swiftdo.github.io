@@ -17,12 +17,14 @@ createTime: 2026/10/31 21:30:00
 | Agents | 能自己拆任务、调工具、跑多步流程的执行体 |
 | CLI | 命令行或编辑器插件形态的 AI 工具 |
 | 应用 | 桌面或 Web 形态的完整产品，装上就得换一部分工作习惯 |
+| DSH | DeepSeek Harness 专属生态：插件、配置与实操实践 |
 
 ## 收录清单
 
 | 工具 | 分类 | 一句话 | 收录 |
 |---|---|---|---|
 | [andrej-karpathy-skills](/ai-toolbox/skill/andrej-karpathy-skills/) | Skill | 四条行为纪律：先想再写、简洁优先、精准修改、目标驱动 | 2026-10-31 |
+| [dsh-desktop-plugins](/ai-toolbox/dsh/plugins/) | DSH | 10 款核心第三方插件深度盘点：模型接入、上下文治理、记忆与工作流增强 | 2026-11-09 |
 | [dsh-our-free-model](/ai-toolbox/cli/dsh-our-free-model/) | CLI | 免账号白嫖免费模型——这篇是风险说明，不是推荐 | 2026-10-31 |
 | [dsh-superagent](/ai-toolbox/agent/dsh-superagent/) | Agents | DeepSeek 的数字同事原型：准入表 + 带版本的授权，默认只记录不行动 | 2026-11-01 |
 | [hallmark](/ai-toolbox/skill/hallmark/) | Skill | 三层门禁 + 50 份「材料」，每页第一个 CSS 注释是它的印章 | 2026-10-31 |

@@ -119,6 +119,7 @@ const TOOLBOX_CATEGORY: Record<string, string> = {
   agent: 'Agents',
   cli: 'CLI',
   app: '应用',
+  dsh: 'DSH',
 }
 
 interface ToolEntry {

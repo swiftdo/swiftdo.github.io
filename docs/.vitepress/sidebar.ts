@@ -51,6 +51,7 @@ const GROUPS: Array<{ dir: string, label: string }> = [
   { dir: 'ai-toolbox/agent', label: 'Agents' },
   { dir: 'ai-toolbox/cli', label: 'CLI' },
   { dir: 'ai-toolbox/app', label: '应用' },
+  { dir: 'ai-toolbox/dsh', label: 'DSH' },
 ]
 
 const GROUP_LABEL = new Map(GROUPS.map(g => [g.dir, g.label]))
