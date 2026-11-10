@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" width="680" height="420" role="img" aria-labelledby="f52d-title f52d-desc">
+  <title id="f52d-title">同一个底座，两种权限</title>
+  <desc id="f52d-desc">Claude Fable 5.2 与 Mythos 5.2 共享同一底层模型。Fable 带网络安全与生物领域护栏，向所有用户开放；命中高风险请求时回退到旧模型回答。Mythos 移除部分护栏，仅向通过验证项目的机构开放。</desc>
+  <defs>
+    <marker id="f52d-arw" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8b8f9a"/>
+    </marker>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .lab { fill: #8b8f9a; font-size: 10px; letter-spacing: 1px; }
+      .base { fill: #23262e; font-size: 15px; font-weight: 700; }
+      .card { fill: #23262e; font-size: 15px; font-weight: 700; }
+      .line { fill: #52565f; font-size: 11.5px; }
+      .note { fill: #6f7480; font-size: 11px; }
+      .accent { fill: #b4543c; }
+      .foot { fill: #52565f; font-size: 11.5px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="420" fill="#f7f7f5"/>
+
+  <text class="serif hd" x="32" y="44">同一个底座，两种权限</text>
+  <text class="t sub" x="32" y="68">Fable 5.2 与 Mythos 5.2 是同一份权重；差别只在护栏与谁能用</text>
+
+  <g>
+    <rect x="32" y="92" width="616" height="56" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <rect x="32" y="92" width="4" height="56" rx="2" fill="#b4543c"/>
+    <text class="t lab" x="50" y="112">ONE MODEL · MYTHOS-CLASS</text>
+    <text class="t base" x="50" y="134">同一底层模型，能力层级在 Opus 之上</text>
+  </g>
+
+  <path d="M 226 148 L 226 172 L 180 172 L 180 192" fill="none" stroke="#8b8f9a" stroke-width="1" marker-end="url(#f52d-arw)"/>
+  <path d="M 454 148 L 454 172 L 500 172 L 500 192" fill="none" stroke="#8b8f9a" stroke-width="1" marker-end="url(#f52d-arw)"/>
+  <text class="t note" x="256" y="168">公开发布</text>
+  <text class="t note" x="356" y="168">审核后开放</text>
+
+  <g>
+    <rect x="32" y="196" width="296" height="152" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <rect x="32" y="196" width="296" height="4" rx="2" fill="#b4543c"/>
+    <text class="t lab" x="48" y="220">面向所有用户</text>
+    <text class="t card" x="48" y="242">Fable 5.2 · 带护栏</text>
+    <text class="t line" x="48" y="266">拦截渗透测试、漏洞利用、</text>
+    <text class="t line" x="48" y="284">研究生物学等高风险请求</text>
+    <text class="t line" x="48" y="306">命中后回退 Opus 4.8 / Opus 5</text>
+    <text class="t line" x="48" y="324">误拦比 5.1 少约 55%</text>
+    <text class="t note" x="48" y="342">全平台 · claude-fable-5-2</text>
+  </g>
+
+  <g>
+    <rect x="352" y="196" width="296" height="152" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <rect x="352" y="196" width="296" height="4" rx="2" fill="#6f7480"/>
+    <text class="t lab" x="368" y="220">仅向通过审核的机构</text>
+    <text class="t card" x="368" y="242">Mythos 5.2 · 少护栏</text>
+    <text class="t line" x="368" y="266">移除部分网络安全、</text>
+    <text class="t line" x="368" y="284">生物领域的防护限制</text>
+    <text class="t line" x="368" y="306">Cyber / Life Sciences 验证项目</text>
+    <text class="t line" x="368" y="324">企业版可走 Claude Security</text>
+    <text class="t note" x="368" y="342">fast mode 仅限验证项目成员</text>
+  </g>
+
+  <line x1="32" y1="368" x2="648" y2="368" stroke="#dcdde2" stroke-width="1"/>
+  <text class="t foot" x="32" y="390">命名：Fable 源自拉丁 fabula「被讲述之物」，与希腊 mythos 同源；2026-06 Fable 5 → 09 5.1 → 11 5.2</text>
+  <text class="t note" x="32" y="408">依据 Anthropic 2026-11-09 官方发布公告绘制；护栏回退与误拦比例均为官方早期测试口径</text>
+</svg>

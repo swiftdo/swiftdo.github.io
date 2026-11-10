@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 510" width="680" height="510" role="img" aria-labelledby="f52b-title f52b-desc">
+  <title id="f52b-title">分数涨得最猛的，都是要跑很久的任务</title>
+  <desc id="f52b-desc">Fable 5.1 到 5.2 的官方跑分对比。长任务与多轮工具调用类提升 16 到 37 个百分点，而一轮可答完的电脑操作与知识工作类只提升 4 到 6 个百分点。数据为 Anthropic 自测。</desc>
+  <defs>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .lab { fill: #8b8f9a; font-size: 10px; letter-spacing: 1px; }
+      .name { fill: #33363e; font-size: 12px; font-weight: 600; }
+      .v1 { fill: #8b8f9a; font-size: 10px; }
+      .v2 { fill: #b4543c; font-size: 10px; font-weight: 600; }
+      .delta { fill: #b4543c; font-size: 12px; font-weight: 700; }
+      .delta2 { fill: #8b8f9a; font-size: 12px; font-weight: 700; }
+      .foot { fill: #52565f; font-size: 11.5px; }
+      .note { fill: #6f7480; font-size: 11px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="510" fill="#f7f7f5"/>
+
+  <text class="serif hd" x="32" y="42">分数涨得最猛的，都是要跑很久的任务</text>
+  <text class="t sub" x="32" y="66">Fable 5.1 → 5.2，Anthropic 自测；灰为 5.1，赭红为 5.2</text>
+
+  <rect x="452" y="82" width="10" height="9" fill="#c9ccd3"/>
+  <text class="t v1" x="468" y="91">5.1</text>
+  <rect x="510" y="82" width="10" height="9" fill="#b4543c"/>
+  <text class="t v1" x="526" y="91">5.2</text>
+  <text class="t lab" x="570" y="91">Δ pp</text>
+
+  <line x1="32" y1="104" x2="648" y2="104" stroke="#dcdde2" stroke-width="1"/>
+  <text class="t lab" x="32" y="118">长任务 · 多轮工具调用</text>
+
+  <g>
+    <text class="t name" x="32" y="139">RoboDojo Sim · 机器人</text>
+    <rect x="200" y="124" width="99.4" height="9" rx="2" fill="#c9ccd3"/>
+    <text class="t v1" x="305" y="132">27.6</text>
+    <rect x="200" y="137" width="233.6" height="9" rx="2" fill="#b4543c"/>
+    <text class="t v2" x="440" y="145">64.9</text>
+    <text class="t delta" x="648" y="139" text-anchor="end">+37.3</text>
+  </g>
+  <g>
+    <text class="t name" x="32" y="187">Chartography · 读图</text>
+    <rect x="200" y="172" width="161.3" height="9" rx="2" fill="#c9ccd3"/>
+    <text class="t v1" x="367" y="180">44.8</text>
+    <rect x="200" y="185" width="264.2" height="9" rx="2" fill="#b4543c"/>
+    <text class="t v2" x="470" y="193">73.4</text>
+    <text class="t delta" x="648" y="187" text-anchor="end">+28.6</text>
+  </g>
+  <g>
+    <text class="t name" x="32" y="235">Remote Labor Index · 远程工作</text>
+    <rect x="200" y="220" width="64.4" height="9" rx="2" fill="#c9ccd3"/>
+    <text class="t v1" x="270" y="228">17.9</text>
+    <rect x="200" y="233" width="148.7" height="9" rx="2" fill="#b4543c"/>
+    <text class="t v2" x="355" y="241">41.3</text>
+    <text class="t delta" x="648" y="235" text-anchor="end">+23.4</text>
+  </g>
+  <g>
+    <text class="t name" x="32" y="283">FrontierCode 2.0 · 编程</text>
+    <rect x="200" y="268" width="116.6" height="9" rx="2" fill="#c9ccd3"/>
+    <text class="t v1" x="323" y="276">32.4</text>
+    <rect x="200" y="281" width="176.8" height="9" rx="2" fill="#b4543c"/>
+    <text class="t v2" x="383" y="289">49.1</text>
+    <text class="t delta" x="648" y="283" text-anchor="end">+16.7</text>
+  </g>
+
+  <line x1="32" y1="310" x2="648" y2="310" stroke="#dcdde2" stroke-width="1"/>
+  <text class="t lab" x="32" y="326">一轮就能答完的题</text>
+
+  <g>
+    <text class="t name" x="32" y="351">OSWorld 2.1 · 电脑操作</text>
+    <rect x="200" y="336" width="300.6" height="9" rx="2" fill="#c9ccd3"/>
+    <text class="t v1" x="507" y="344">83.5</text>
+    <rect x="200" y="349" width="321.5" height="9" rx="2" fill="#b4543c"/>
+    <text class="t v2" x="528" y="357">89.3</text>
+    <text class="t delta2" x="648" y="351" text-anchor="end">+5.8</text>
+  </g>
+  <g>
+    <text class="t name" x="32" y="399">AA-Briefcase · 知识工作</text>
+    <rect x="200" y="384" width="221.4" height="9" rx="2" fill="#c9ccd3"/>
+    <text class="t v1" x="427" y="392">61.5</text>
+    <rect x="200" y="397" width="238" height="9" rx="2" fill="#b4543c"/>
+    <text class="t v2" x="444" y="405">66.1</text>
+    <text class="t delta2" x="648" y="399" text-anchor="end">+4.6</text>
+  </g>
+
+  <line x1="32" y1="428" x2="648" y2="428" stroke="#dcdde2" stroke-width="1"/>
+  <text class="t foot" x="32" y="450">两项没夺冠：AutomationBench 51.4% 低于 Gemini 4 Carbon 53.9%；AA-Briefcase Elo 1785 低于 Opus 5.5 1800</text>
+  <text class="t note" x="32" y="470">口径：护栏开启、取各模型最高 effort，RoboDojo 为内部运行，费马大定理对比为单次运行</text>
+  <text class="t note" x="32" y="490">第三方 Artificial Analysis：max 档每任务约 $26.5，约为 Opus 5.5 max 档的 2.6 倍</text>
+</svg>
