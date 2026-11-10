@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" width="680" height="440" role="img" aria-labelledby="smg-title smg-desc">
+  <title id="smg-title">Autopilot 的四道验收闸</title>
+  <desc id="smg-desc">doctor 检查 Node、FFmpeg 与字体，缺失即失败而不是生成无声片；validate 按真实音频时长校验镜头覆盖与媒体存在；approve 只承认用户复核样片后写下的指纹记录，明确禁止 Agent 依据自身技术检查签字；render 在旁白或全局设置变动后要求重审。四道闸合起来把「看起来做完了」挡在交付之外。</desc>
+  <defs>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .hd { fill: #2d3142; font-size: 22px; font-weight: 700; }
+      .sub { fill: #71717a; font-size: 12px; }
+      .tag { fill: #8b8b96; font-size: 9px; letter-spacing: 1px; }
+      .name { fill: #2d3142; font-size: 13px; font-weight: 700; }
+      .blk { fill: #8b4a3a; font-size: 10.5px; }
+      .pas { fill: #3f5a4a; font-size: 10.5px; }
+      .foot { fill: #52525b; font-size: 10.5px; }
+    </style>
+  </defs>
+
+  <rect width="680" height="440" fill="#f5f5f5"/>
+
+  <text class="serif hd" x="32" y="46">它真正对准的不是画面，是 Agent 的谎</text>
+  <text class="t sub" x="32" y="70">四道闸把「看起来做完了」挡在交付之外</text>
+
+  <g>
+    <rect x="32" y="100" width="616" height="64" rx="4" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <text class="t tag" x="44" y="122">01 / DOCTOR</text>
+    <text class="t name" x="44" y="144">环境闸</text>
+    <text class="t blk" x="200" y="126">拦：Node 20、FFmpeg、字体缺一样就跑不起来</text>
+    <text class="t pas" x="200" y="148">放：宁可报错失败，也不静默生成一条无声片</text>
+  </g>
+
+  <g>
+    <rect x="32" y="176" width="616" height="64" rx="4" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <text class="t tag" x="44" y="198">02 / VALIDATE</text>
+    <text class="t name" x="44" y="220">格式闸</text>
+    <text class="t blk" x="200" y="202">拦：镜头有空隙、超出配音长度、引用了不存在的图</text>
+    <text class="t pas" x="200" y="224">放：按真实音频时长算，不按剧本里的计划时长</text>
+  </g>
+
+  <g>
+    <rect x="32" y="252" width="616" height="64" rx="4" fill="#fdf3f0" stroke="#bf4520" stroke-width="1"/>
+    <text class="t tag" x="44" y="274" fill="#bf4520">03 / APPROVE</text>
+    <text class="t name" x="44" y="296">人工闸</text>
+    <text class="t blk" x="200" y="278">拦：Agent 拿自己的技术自检当用户签字</text>
+    <text class="t pas" x="200" y="300">放：只认人复核过样片后写下的那条指纹记录</text>
+  </g>
+
+  <g>
+    <rect x="32" y="328" width="616" height="64" rx="4" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <text class="t tag" x="44" y="350">04 / RENDER</text>
+    <text class="t name" x="44" y="372">缓存闸</text>
+    <text class="t blk" x="200" y="354">拦：旁白或全局设置改过，却沿用旧的批准</text>
+    <text class="t pas" x="200" y="376">放：只补拍后面的镜头，不必重审已确认的样片</text>
+  </g>
+
+  <text class="t foot" x="32" y="418">approve 那一步的说明写得很直白：Never run approve based on your own technical checks.</text>
+</svg>

@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" width="680" height="420" role="img" aria-labelledby="sm2-title sm2-desc">
+  <title id="sm2-title">stickman-video-director 的两条模式分流</title>
+  <desc id="sm2-desc">同一个 Skill 下，A 导演模式只产出导演提案与逐镜十秒提示词，成片在外部视频生成器与剪辑软件里完成；B 自动驾驶模式把剧本写成 project.json，由本地 canvas 逐帧渲染、FFmpeg 编码成 MP4，并附 SRT 字幕与验收报告。两条流水线共享安装方式，但契约互不继承。</desc>
+  <defs>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .hd { fill: #2d3142; font-size: 22px; font-weight: 700; }
+      .sub { fill: #71717a; font-size: 12px; }
+      .tag { fill: #8b8b96; font-size: 9.5px; letter-spacing: 1px; }
+      .name { fill: #2d3142; font-size: 13px; font-weight: 700; }
+      .line { fill: #52525b; font-size: 10.5px; }
+      .note { fill: #71717a; font-size: 11px; }
+      .lane { fill: #2d3142; font-size: 11px; font-weight: 700; }
+      .deliv { fill: #8b8b96; font-size: 10px; }
+    </style>
+  </defs>
+
+  <rect width="680" height="420" fill="#f5f5f5"/>
+
+  <text class="serif hd" x="32" y="46">同一个 Skill，两套不互通的契约</text>
+  <text class="t sub" x="32" y="70">共享的只有安装方式：A 交提示词，B 才碰像素</text>
+
+  <g>
+    <rect x="32" y="88" width="616" height="128" rx="6" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <text class="t lane" x="44" y="110">A · DIRECTOR 导演模式</text>
+    <text class="t deliv" x="636" y="110" text-anchor="end">交付：分镜表 + 逐镜提示词</text>
+    <line x1="44" y1="120" x2="636" y2="120" stroke="#e4e4e8" stroke-width="1"/>
+
+    <g>
+      <rect x="44" y="130" width="139" height="76" rx="4" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+      <text class="t tag" x="56" y="148">01 / INPUT</text>
+      <text class="t name" x="56" y="168">一份源料</text>
+      <text class="t line" x="56" y="185">话题、文章、链接</text>
+      <text class="t line" x="56" y="199">或整篇脚本</text>
+    </g>
+    <g>
+      <rect x="195" y="130" width="139" height="76" rx="4" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+      <text class="t tag" x="207" y="148">02 / PROPOSAL</text>
+      <text class="t name" x="207" y="168">导演提案</text>
+      <text class="t line" x="207" y="185">五段叙事弧</text>
+      <text class="t line" x="207" y="199">等你一句批准</text>
+    </g>
+    <g>
+      <rect x="346" y="130" width="139" height="76" rx="4" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+      <text class="t tag" x="358" y="148">03 / PROMPTS</text>
+      <text class="t name" x="358" y="168">逐镜提示词</text>
+      <text class="t line" x="358" y="185">每段 10 秒</text>
+      <text class="t line" x="358" y="199">N = 时长 ÷ 10</text>
+    </g>
+    <g>
+      <rect x="497" y="130" width="139" height="76" rx="4" fill="#fdf3f0" stroke="#bf4520" stroke-width="1"/>
+      <text class="t tag" x="509" y="148" fill="#bf4520">04 / OUTSIDE</text>
+      <text class="t name" x="509" y="168">外部出片</text>
+      <text class="t line" x="509" y="185">Flow / Runway</text>
+      <text class="t line" x="509" y="199">自己剪成片</text>
+    </g>
+  </g>
+
+  <g>
+    <rect x="32" y="228" width="616" height="128" rx="6" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <text class="t lane" x="44" y="250">B · AUTOPILOT 自动驾驶</text>
+    <text class="t deliv" x="636" y="250" text-anchor="end">交付：MP4 + SRT + 验收报告</text>
+    <line x1="44" y1="260" x2="636" y2="260" stroke="#e4e4e8" stroke-width="1"/>
+
+    <g>
+      <rect x="44" y="270" width="139" height="76" rx="4" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+      <text class="t tag" x="56" y="288">01 / SCRIPT</text>
+      <text class="t name" x="56" y="308">剧本与资产</text>
+      <text class="t line" x="56" y="325">角色卡、场景图</text>
+      <text class="t line" x="56" y="339">旁白先录好</text>
+    </g>
+    <g>
+      <rect x="195" y="270" width="139" height="76" rx="4" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+      <text class="t tag" x="207" y="288">02 / PREVIEW</text>
+      <text class="t name" x="207" y="308">20 秒样片</text>
+      <text class="t line" x="207" y="325">带声音与字幕</text>
+      <text class="t line" x="207" y="339">真解码看过才算</text>
+    </g>
+    <g>
+      <rect x="346" y="270" width="139" height="76" rx="4" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+      <text class="t tag" x="358" y="288">03 / APPROVE</text>
+      <text class="t name" x="358" y="308">人工签字</text>
+      <text class="t line" x="358" y="325">绑定样片指纹</text>
+      <text class="t line" x="358" y="339">Agent 不能代签</text>
+    </g>
+    <g>
+      <rect x="497" y="270" width="139" height="76" rx="4" fill="#fdf3f0" stroke="#bf4520" stroke-width="1"/>
+      <text class="t tag" x="509" y="288" fill="#bf4520">04 / RENDER</text>
+      <text class="t name" x="509" y="308">本地逐帧</text>
+      <text class="t line" x="509" y="325">canvas 画、系统编码</text>
+      <text class="t line" x="509" y="339">不占 GPU</text>
+    </g>
+  </g>
+
+  <text class="t note" x="32" y="384">A 的成品在你的剪辑软件里；B 的成品在项目目录的 output/ 里。两条路线共用一套安装，但不共用任何制作规则。</text>
+</svg>

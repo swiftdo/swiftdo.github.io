@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" width="680" height="440" role="img" aria-labelledby="sms-title sms-desc">
+  <title id="sms-title">十一套画风与 Star 里程碑</title>
+  <desc id="sms-desc">A 系列七套用于导演模式，B 系列五套用于自动驾驶模式，A7 仍标注为待解锁未发布。每套画风自带角色锚点、字幕版式、默认声线与音效规则。底部标出 1000、3000、5000、7500、10000 五档 Star 门槛，当前 5295 颗星已越过 5000 档。</desc>
+  <defs>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .hd { fill: #2d3142; font-size: 22px; font-weight: 700; }
+      .sub { fill: #71717a; font-size: 12px; }
+      .tag { fill: #8b8b96; font-size: 9px; letter-spacing: 1px; }
+      .name { fill: #2d3142; font-size: 12.5px; font-weight: 700; }
+      .note { fill: #71717a; font-size: 9.5px; }
+      .foot { fill: #52525b; font-size: 10px; }
+    </style>
+  </defs>
+
+  <rect width="680" height="440" fill="#f5f5f5"/>
+
+  <text class="serif hd" x="32" y="46">十一套画风，一个契约库</text>
+  <text class="t sub" x="32" y="70">每套画风自带角色锚点、字幕版式、默认声线与音效规则，互不继承</text>
+
+  <g>
+    <rect x="33" y="104" width="146" height="82" rx="4" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <text class="t tag" x="45" y="124">A1</text>
+    <text class="t name" x="45" y="146">经典黑白</text>
+    <text class="t note" x="45" y="164">白底黑线 / 黑底白线</text>
+    <text class="t note" x="45" y="177">科学、心理、拆解</text>
+  </g>
+  <g>
+    <rect x="189" y="104" width="146" height="82" rx="4" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <text class="t tag" x="201" y="124">A2</text>
+    <text class="t name" x="201" y="146">现代毛线帽</text>
+    <text class="t note" x="201" y="164">红帽黄衣，纯白棚拍</text>
+    <text class="t note" x="201" y="177">AI 工具、教程</text>
+  </g>
+  <g>
+    <rect x="345" y="104" width="146" height="82" rx="4" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <text class="t tag" x="357" y="124">A3</text>
+    <text class="t name" x="357" y="146">史前洞穴</text>
+    <text class="t note" x="357" y="164">兽皮装，土色场景</text>
+    <text class="t note" x="357" y="177">职场讽刺、寓言</text>
+  </g>
+  <g>
+    <rect x="501" y="104" width="146" height="82" rx="4" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <text class="t tag" x="513" y="124">A4</text>
+    <text class="t name" x="513" y="146">治愈故事</text>
+    <text class="t note" x="513" y="164">彩色 2D 场景，主动换场</text>
+    <text class="t note" x="513" y="177">温柔日常、情感</text>
+  </g>
+
+  <g>
+    <rect x="33" y="196" width="146" height="82" rx="4" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <text class="t tag" x="45" y="216">A5</text>
+    <text class="t name" x="45" y="238">历史卡通</text>
+    <text class="t note" x="45" y="256">白圆头 + 粗墨线 + 时代服</text>
+    <text class="t note" x="45" y="269">江户、古埃及趣闻</text>
+  </g>
+  <g>
+    <rect x="189" y="196" width="146" height="82" rx="4" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <text class="t tag" x="201" y="216">A6</text>
+    <text class="t name" x="201" y="238">琥珀黑色</text>
+    <text class="t note" x="201" y="256">琥珀光 + 深紫阴影</text>
+    <text class="t note" x="201" y="269">what-if、现代寓言</text>
+  </g>
+  <g>
+    <rect x="345" y="196" width="146" height="82" rx="4" fill="#f5f5f5" stroke="#c9c9cf" stroke-width="1" stroke-dasharray="4 3"/>
+    <text class="t tag" x="357" y="216">A7</text>
+    <text class="t name" x="357" y="238" fill="#8b8b96">未交付</text>
+    <text class="t note" x="357" y="256">门槛写明 5,000★ 解锁</text>
+    <text class="t note" x="357" y="269">README 仍写 coming soon</text>
+  </g>
+  <g>
+    <rect x="501" y="196" width="146" height="82" rx="4" fill="#ffffff" stroke="#bf4520" stroke-width="1"/>
+    <text class="t tag" x="513" y="216" fill="#bf4520">B1</text>
+    <text class="t name" x="513" y="238">极简手绘</text>
+    <text class="t note" x="513" y="256">近白纸感、极淡网格、三格图集</text>
+    <text class="t note" x="513" y="269">解说、科普</text>
+  </g>
+
+  <g>
+    <rect x="33" y="288" width="146" height="82" rx="4" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <text class="t tag" x="45" y="308">B2</text>
+    <text class="t name" x="45" y="330">彩色手绘</text>
+    <text class="t note" x="45" y="348">暖纸底，无网格，象牙色字幕条</text>
+    <text class="t note" x="45" y="361">心理、睡眠、习惯</text>
+  </g>
+  <g>
+    <rect x="189" y="288" width="146" height="82" rx="4" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <text class="t tag" x="201" y="308">B3</text>
+    <text class="t name" x="201" y="330">复古电视</text>
+    <text class="t note" x="201" y="348">暗场、扫描线、柔光晕</text>
+    <text class="t note" x="201" y="361">模拟质感、怀旧</text>
+  </g>
+  <g>
+    <rect x="345" y="288" width="146" height="82" rx="4" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <text class="t tag" x="357" y="308">B4</text>
+    <text class="t name" x="357" y="330">求生惊悚</text>
+    <text class="t note" x="357" y="348">首帧出声、连续环境底音</text>
+    <text class="t note" x="357" y="361">深夜规则、都市传说</text>
+  </g>
+  <g>
+    <rect x="501" y="288" width="146" height="82" rx="4" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <text class="t tag" x="513" y="308">B5</text>
+    <text class="t name" x="513" y="330">角色解说</text>
+    <text class="t note" x="513" y="348">角落主持人 + 代码渲染</text>
+    <text class="t note" x="513" y="361">用知名角色需授权</text>
+  </g>
+
+  <line x1="32" y1="392" x2="648" y2="392" stroke="#d9d9de" stroke-width="1"/>
+  <text class="t foot" x="32" y="412">1,000 → 导演模式　3,000 → 自动驾驶　5,000 → 新画风 + 批量剪辑　7,500 → 脚本文库　10,000 → Web Studio</text>
+  <text class="t foot" x="32" y="430">今天 5,295 颗星：5,000 这道门槛数字上已经过了，A7 还写在 coming soon。</text>
+</svg>

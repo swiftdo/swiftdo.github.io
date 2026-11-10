@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 500" width="680" height="500" role="img" aria-labelledby="smp-title smp-desc">
+  <title id="smp-title">Autopilot 模式的本地渲染管线</title>
+  <desc id="smp-desc">project.json 声明镜头、图层与关键帧，validate 校验时长与媒体是否存在，@napi-rs/canvas 按 1280 设计单位逐帧绘制并用 smoothstep 插值关键帧，最后交给 FFmpeg 编码出 MP4、SRT 与联系表。下方示意镜头必须首尾相接覆盖整条音轨，以及火柴人全部动作来自一张三格姿态图集。</desc>
+  <defs>
+    <marker id="smp-arw" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#b8b8bd"/>
+    </marker>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .hd { fill: #2d3142; font-size: 22px; font-weight: 700; }
+      .sub { fill: #71717a; font-size: 12px; }
+      .tag { fill: #8b8b96; font-size: 9px; letter-spacing: 1px; }
+      .name { fill: #2d3142; font-size: 12.5px; font-weight: 700; }
+      .line { fill: #52525b; font-size: 10px; }
+      .note { fill: #52525b; font-size: 11px; }
+      .tick { fill: #a1a1aa; font-size: 8.5px; }
+      .cap { fill: #bf4520; font-size: 9.5px; }
+    </style>
+  </defs>
+
+  <rect width="680" height="500" fill="#f5f5f5"/>
+
+  <text class="serif hd" x="32" y="46">画面是画出来的，不是生成的</text>
+  <text class="t sub" x="32" y="70">一份声明式 JSON 走完校验、逐帧绘制、编码三步，模型只负责出插图和配音</text>
+
+  <g>
+    <rect x="32" y="104" width="142" height="88" rx="5" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <text class="t tag" x="44" y="122">01 / DECLARE</text>
+    <text class="t name" x="44" y="144">project.json</text>
+    <text class="t line" x="44" y="164">shots · layers</text>
+    <text class="t line" x="44" y="178">keys · captions</text>
+  </g>
+  <path d="M178,148 L185,148" stroke="#b8b8bd" stroke-width="1" marker-end="url(#smp-arw)"/>
+
+  <g>
+    <rect x="190" y="104" width="142" height="88" rx="5" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <text class="t tag" x="202" y="122">02 / GATE</text>
+    <text class="t name" x="202" y="144">validate</text>
+    <text class="t line" x="202" y="164">镜头无空隙</text>
+    <text class="t line" x="202" y="178">媒体必须存在</text>
+  </g>
+  <path d="M336,148 L343,148" stroke="#b8b8bd" stroke-width="1" marker-end="url(#smp-arw)"/>
+
+  <g>
+    <rect x="348" y="104" width="142" height="88" rx="5" fill="#fdf3f0" stroke="#bf4520" stroke-width="1"/>
+    <text class="t tag" x="360" y="122" fill="#bf4520">03 / PAINT</text>
+    <text class="t name" x="360" y="144">napi-rs/canvas</text>
+    <text class="t line" x="360" y="164">按帧号算关键帧</text>
+    <text class="t line" x="360" y="178">smoothstep 插值</text>
+  </g>
+  <path d="M494,148 L501,148" stroke="#b8b8bd" stroke-width="1" marker-end="url(#smp-arw)"/>
+
+  <g>
+    <rect x="506" y="104" width="142" height="88" rx="5" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <text class="t tag" x="518" y="122">04 / ENCODE</text>
+    <text class="t name" x="518" y="144">FFmpeg</text>
+    <text class="t line" x="518" y="164">MP4 · SRT · VTT</text>
+    <text class="t line" x="518" y="178">联系表 · 报告</text>
+  </g>
+
+  <text class="t note" x="32" y="230">设计坐标系 1280 × 720 单位：镜头必须首尾相接盖满整条音轨</text>
+
+  <g>
+    <rect x="32" y="250" width="356" height="200" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <rect x="32" y="419" width="356" height="31" fill="#faf4f1"/>
+    <line x1="32" y1="419" x2="388" y2="419" stroke="#bf4520" stroke-width="1" stroke-dasharray="3 3"/>
+
+    <line x1="94" y1="250" x2="94" y2="419" stroke="#e4e4e8" stroke-width="1"/>
+    <line x1="134" y1="250" x2="134" y2="419" stroke="#e4e4e8" stroke-width="1"/>
+    <line x1="204" y1="250" x2="204" y2="419" stroke="#e4e4e8" stroke-width="1"/>
+    <line x1="267" y1="250" x2="267" y2="419" stroke="#e4e4e8" stroke-width="1"/>
+    <line x1="315" y1="250" x2="315" y2="419" stroke="#e4e4e8" stroke-width="1"/>
+
+    <text class="t tick" x="63" y="268" text-anchor="middle">0–2.9</text>
+    <text class="t tick" x="114" y="268" text-anchor="middle">–4.7</text>
+    <text class="t tick" x="169" y="268" text-anchor="middle">–7.9</text>
+    <text class="t tick" x="235" y="268" text-anchor="middle">–10.8</text>
+    <text class="t tick" x="291" y="268" text-anchor="middle">–13.1</text>
+    <text class="t tick" x="351" y="268" text-anchor="middle">–16.4s</text>
+
+    <text class="t cap" x="44" y="440">底部 110 单位留空：字幕独占，不与画面抢</text>
+  </g>
+
+  <text class="t note" x="32" y="478">没有 gap、没有 overlap——靠代码算，不靠 Agent 自觉。</text>
+
+  <text class="t note" x="408" y="230">火柴人的全部动作</text>
+
+  <g>
+    <rect x="408" y="250" width="240" height="112" fill="#ffffff" stroke="#d9d9de" stroke-width="1"/>
+    <line x1="488" y1="250" x2="488" y2="362" stroke="#e4e4e8" stroke-width="1"/>
+    <line x1="568" y1="250" x2="568" y2="362" stroke="#e4e4e8" stroke-width="1"/>
+    <rect x="490" y="254" width="76" height="104" fill="none" stroke="#bf4520" stroke-width="1" stroke-dasharray="3 3"/>
+
+    <g stroke="#52525b" stroke-width="1.2" fill="none" stroke-linecap="round">
+      <circle cx="448" cy="278" r="10"/>
+      <path d="M448,288 L448,316"/>
+      <path d="M448,294 L434,310 M448,294 L462,310"/>
+      <path d="M448,316 L438,340 M448,316 L458,340"/>
+    </g>
+    <g stroke="#bf4520" stroke-width="1.4" fill="none" stroke-linecap="round">
+      <circle cx="528" cy="278" r="10"/>
+      <path d="M528,288 L528,316"/>
+      <path d="M528,294 L512,278 M528,294 L544,278"/>
+      <path d="M528,316 L518,340 M528,316 L538,340"/>
+    </g>
+    <g stroke="#52525b" stroke-width="1.2" fill="none" stroke-linecap="round">
+      <circle cx="608" cy="276" r="10"/>
+      <path d="M608,286 L608,314"/>
+      <path d="M608,292 L594,304 M608,292 L622,300"/>
+      <path d="M608,314 L594,338 M608,314 L622,336"/>
+    </g>
+
+    <text class="t tag" x="448" y="358" text-anchor="middle">POSE 0</text>
+    <text class="t tag" x="528" y="358" text-anchor="middle" fill="#bf4520">POSE 1</text>
+    <text class="t tag" x="608" y="358" text-anchor="middle">POSE 2</text>
+  </g>
+
+  <text class="t note" x="408" y="384">一张 PNG 横向切三格，取第 n 格就是第 n 个姿势。</text>
+  <text class="t note" x="408" y="402">一致性来自这张图集，不来自提示词里那串形容词。</text>
+
+  <text class="t sub" x="408" y="440">所以 B1 里角色只能在这三个姿势之间切换——</text>
+  <text class="t sub" x="408" y="458">这既是它稳定的原因，也是它动作的天花板。</text>
+</svg>
