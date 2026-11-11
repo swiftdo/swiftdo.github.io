@@ -286,7 +286,7 @@ function mdToPlainText(rel: string): string {
 
 /**
  * 生成 llms-full.txt：只收有明确判断的页面（工具评测 + 博客文章）。
- * 全站 367 页拼起来是几百 KB，没有引擎会真读；这两类才是值得被引用的内容。
+ * 全站 388 页拼起来是几百 KB，没有引擎会真读；这两类才是值得被引用的内容。
  */
 function buildLlmsFullTxt(): string {
   const tools = collectToolEntries()
@@ -398,6 +398,20 @@ function redirectPage(target: string): string {
 </head>
 <body><p>正在跳转到 <a href="${target}">${target}</a>…</p></body>
 </html>`
+}
+
+/**
+ * 跳转落点是否真的存在。
+ * redirects.json 是旧站的历史映射，其中有几十条指向的页面在迁移时并没有跟过来——
+ * 给它们生成跳转页，等于做一张 canonical 指向 404 的空壳，比直接 404 更糟。
+ * 先按页面目录找 index.html，再按 public 静态文件找。
+ */
+function builtTargetExists(outDir: string, target: string): boolean {
+  const clean = target.split('#')[0].split('?')[0].replace(/^\/+|\/+$/g, '')
+  if (!clean)
+    return fs.existsSync(path.join(outDir, 'index.html'))
+  return fs.existsSync(path.join(outDir, clean, 'index.html'))
+    || fs.existsSync(path.join(outDir, clean))
 }
 
 const FOOTER_MESSAGE = `<a style="text-decoration:none; display: inline-block;" target="_blank" href="https://beian.miit.gov.cn/">赣ICP备2021010021号-1</a>
@@ -688,16 +702,38 @@ buildEnd(siteConfig) {
     return
   const redirects: Record<string, string> = JSON.parse(fs.readFileSync(redirectsFile, 'utf8'))
   let written = 0
+  const dropped: string[] = []
+  const conflicts: string[] = []
+  const dirs = new Set<string>()
   for (const [from, to] of Object.entries(redirects)) {
     const clean = from.replace(/^\/+|\/+$/g, '')
     if (!clean)
       continue
+    // 来源路径如果本身就是一个真实页面，写跳转页会把页面覆盖掉，且构建不报错。
+    // 目前 0 冲突，这道判断是防止以后补映射时踩到。
+    if (fs.existsSync(path.join(DOCS_DIR, clean, 'index.md'))) {
+      conflicts.push(clean)
+      continue
+    }
+    if (!builtTargetExists(siteConfig.outDir, to)) {
+      dropped.push(to)
+      continue
+    }
+    dirs.add(clean)
     const dir = path.join(siteConfig.outDir, clean)
     fs.mkdirSync(dir, { recursive: true })
     fs.writeFileSync(path.join(dir, 'index.html'), redirectPage(to), 'utf8')
     written++
   }
-  console.log(`[redirect] 生成 ${written} 个跳转页`)
+  console.log(`[redirect] 生成 ${written} 条跳转（${dirs.size} 个路径）`)
+  if (conflicts.length)
+    console.warn(`[redirect] 跳过 ${conflicts.length} 条来源与真实页面冲突的映射：${conflicts.slice(0, 5).join('、')}`)
+  if (dropped.length) {
+    const unique = [...new Set(dropped)].sort()
+    console.warn(
+      `[redirect] 跳过 ${dropped.length} 条目标不存在的映射（${unique.length} 个落点）：${unique.slice(0, 5).join('、')}${unique.length > 5 ? ' 等' : ''}`,
+    )
+  }
   fs.writeFileSync(path.join(siteConfig.outDir, 'rss.xml'), buildRssXml(), 'utf8')
   console.log(`[rss] 生成 rss.xml`)
   fs.writeFileSync(path.join(siteConfig.outDir, 'llms.txt'), buildLlmsTxt(), 'utf8')
@@ -729,6 +765,7 @@ buildEnd(siteConfig) {
       },
       { text: 'AI 工具', link: '/ai-toolbox/' },
       { text: '博客', link: '/blog/' },
+      { text: '书单', link: '/book/' },
       { text: '作品', link: '/result/' },
       { text: '易经', link: '/yijing/' },
       { text: '针灸', link: '/acupuncture/' },

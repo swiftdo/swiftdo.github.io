@@ -12,12 +12,9 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "preview": "vitepress preview docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "preview": "vitepress preview docs"
   },
   "devDependencies": {
-    "http-server": "^14.1.1",
     "typescript": "^5.9.3",
     "vitepress": "1.6.4",
     "vue": "^3.5.44"

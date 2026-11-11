@@ -612,5 +612,9 @@
   "/vue/lpj9r3z1": "/vue/vue-component/",
   "/vue/lpj9r3z1/": "/vue/vue-component/",
   "/ai/6-tools/openskills": "/ai/openskills/",
-  "/ai/6-tools/openskills/": "/ai/openskills/"
+  "/ai/6-tools/openskills/": "/ai/openskills/",
+  "/ai/gemini-cli/basic-usage": "/ai-toolbox/cli/gemini-cli/basic-usage/",
+  "/ai/gemini-cli/basic-usage/": "/ai-toolbox/cli/gemini-cli/basic-usage/",
+  "/ai/agent-skills": "/ai-toolbox/agent/agent-skills/",
+  "/ai/agent-skills/": "/ai-toolbox/agent/agent-skills/"
 }

@@ -39,7 +39,7 @@ docs/swift/swiftui/alert/index.md -> /swift/swiftui/alert/
 
 - 新增页面 = 建目录 + `index.md`，目录名即 URL 段，全小写 kebab-case。
 - 别写成 `foo.md`，那会得到 `/foo.html`，与全站尾斜杠风格不一致。
-- 不要开 `cleanUrls`，那会丢掉尾斜杠，让 392 个已收录 URL 失效。
+- 不要开 `cleanUrls`，那会丢掉尾斜杠，让 388 个已收录 URL 失效。
 - 移动已有页面要在 `redirects.json` 补旧链接。
 
 ## 内容约定
@@ -48,7 +48,7 @@ docs/swift/swiftui/alert/index.md -> /swift/swiftui/alert/
 - **站内链接一律写绝对路径**（`/swift/swiftui/alert/`），相对链接会导致构建报 dead link。
 - 一个页面一个目录，文件名固定 `index.md`；侧边栏顺序按 `title` 自然排序。
 - 无 `index.md` 的纯分组目录，显示名与顺序在 `sidebar.ts` 的 `GROUPS` 里声明。
-- `sitemap: false` 可将空占位页排除出 sitemap（现有 46 篇在用）。
+- `sitemap: false` 可将空占位页排除出 sitemap（目前仅 1 篇在用，多数旧薄页并未标记）。
 
 ## 部署
 

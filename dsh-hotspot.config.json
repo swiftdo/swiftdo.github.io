@@ -36,5 +36,16 @@
   "deploy": {
     "script": "./deploy.sh",
     "build": "yarn build"
-  }
+  },
+  "disabledBuiltins": [
+    "people-headlines",
+    "ifanr",
+    "geekpark",
+    "ithome",
+    "xueqiu-hot",
+    "jiqizhixin",
+    "arxiv-cs-ai",
+    "producthunt",
+    "tldr-ai"
+  ]
 }

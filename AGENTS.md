@@ -30,14 +30,14 @@ swiftdo.github.io/
 │   │   └── theme/
 │   │       ├── index.ts      # 主题入口：注册组件、挂载 AdSense
 │   │       ├── custom.css    # 样式覆盖
-│   │       └── components/   # HomeShowcase、Portfolio、YiqiguaDocAddon、YiqiguaPromo
+│   │       └── components/   # ArticleMore、HomeShowcase、Portfolio、YiqiguaDocAddon、YiqiguaPromo
 │   ├── .env                  # VITE_EXTRA_EXTENSIONS：让 .html 直链不被 SPA 路由拦截
 │   ├── public/               # 静态资源，原样复制到站点根（图片、推广页、ads.txt）
 │   ├── index.md              # 首页（layout: home）
 │   ├── article/              # 博客文章，一篇一个目录
 │   ├── blog/                 # 博客列表页 + posts.data.ts
 │   ├── book/  result/        # 书单、作品集
-│   └── {swift,flutter,ai,...}/   # 14 个笔记集合
+│   └── {swift,flutter,ai,...}/   # 15 个笔记集合（见 sidebar.ts 的 COLLECTIONS）
 ├── deploy.sh
 └── package.json
 ```
@@ -53,12 +53,12 @@ docs/swift/swiftui/alert/index.md -> /swift/swiftui/alert/
 docs/swift/swiftui/alert.md  -> /swift/swiftui/alert.html   ← 别这么放
 ```
 
-所以站内 392 个带尾斜杠的 URL（`/swift/swiftui/action-sheet/`）由**目录结构本身**保证，
+所以站内 388 个带尾斜杠的 URL（`/swift/swiftui/action-sheet/`）由**目录结构本身**保证，
 不再有 `permalink` frontmatter、也没有 rewrites。改 URL 的唯一方式就是移动/重命名目录。
 
 - **新增页面**：建目录 + `index.md`，目录名就是 URL 段。目录名全小写 kebab-case。
 - **不要**把页面写成 `foo.md`，那会得到 `/foo.html`，与全站 URL 风格不一致。
-- 不要开 `cleanUrls: true`，那会丢掉尾斜杠，等于让 392 个已收录 URL 全部失效。
+- 不要开 `cleanUrls: true`，那会丢掉尾斜杠，等于让这 388 个已收录 URL 全部失效。
 - 移动已有页面记得在 `redirects.json` 补旧链接。
 
 ## Frontmatter 规范
@@ -77,7 +77,7 @@ sitemap: false                            # 正文为空的占位页用，从 si
 
 - **没有 `permalink` 字段**，URL 由路径决定；写了也不会生效。
 - `createTime` / `date` / `tags` 不是 VitePress 内置字段，仅用于展示或数据加载，不会报错。
-- `sitemap: false` 由 `config.mts` 的 `collectSitemapExcluded()` 识别，从 sitemap.xml 中剔除，同时 `transformPageData` 会给这些页注入 `noindex, nofollow` 拒绝抓取（现有 46 篇占位页在用）。
+- `sitemap: false` 由 `config.mts` 的 `collectSitemapExcluded()` 识别，从 sitemap.xml 中剔除，同时 `transformPageData` 会给这些页注入 `noindex, nofollow` 拒绝抓取。**目前只有 1 篇在用**（`draft/personal-agent`）；大量正文近乎为空的历史页面并未标记，仍在 sitemap 里。
 - `transformPageData` 还会给每页注入 canonical、OG / Twitter 卡片，并给 `/article/` 下的文章注入 BlogPosting JSON-LD（datePublished 取 `date`，缺省用 `createTime`）。
 - 正文里**不要用相对链接**（`./xxx.md`）。站内链接一律写绝对路径 `/swift/swiftui/alert/`。
 - 构建有死链检查，站内链接写错会直接 fail；`http://localhost:*` 已加入白名单。
@@ -176,8 +176,12 @@ URL 直接用 loader 给出的 `url`，不需要额外字段。
 
 - h2 不用 VitePress 那条贯穿栏宽的 `border-top`，改成标题上方 36px 的短线（`h2::before`），
   章节分界靠 56px 留白 + 短线，不靠横线铺满。
-- 没有 h1 的页面（各集合首页）分两种：首元素是 `<p>` 的按导语处理（字号提一档、颜色降一档）；
-  首元素是 `<h2>` 的直接按标题尺寸渲染，后面的 h2 才是章节。
+- 没有 h1 的页面分两种情况，别混为一谈：
+  - **15 个集合首页是刻意不带 h1 的**：首元素是 `<p>` 的按导语处理（字号提一档、颜色降一档）；
+    首元素是 `<h2>` 的直接按标题尺寸渲染，后面的 h2 才是章节。
+  - **另有约 260 篇旧笔记页没有可见 h1**，是主题迁移的遗留：theme-plume 会把 frontmatter 的
+    `title` 自动渲染成页面标题，VitePress 不会。目前只有 `/article/` 下的文章由
+    `articleMetaPlugin` 回填 h1，其余页面既没有 h1 也没有回填。
 
 ## 重定向
 
@@ -187,7 +191,8 @@ URL 直接用 loader 给出的 `url`，不需要额外字段。
 - 格式：`{ "/old-path": "/new-path/", "/old-path/": "/new-path/" }`，**每条要写带尾斜杠和不带尾斜杠两个 key**。
 - 生成的跳转页带 `noindex, nofollow` 且不进 sitemap，不会产生重复收录。
 - 新增重定向直接改 `redirects.json`，不需要动代码。
-- 同一个 `buildEnd` 还会生成 `rss.xml`（博客文章的 RSS 2.0 feed，按发布日期倒序）和 `llms.txt`（给 AI 引擎的站点导读，只列顶层板块与博客文章）；sitemap 的 lastmod 由 `transformItems` 用 git 提交时间覆盖（浅克隆拿不到历史时回退默认值）。
+- 同一个 `buildEnd` 还会生成 `rss.xml`（博客文章的 RSS 2.0 feed，按发布日期倒序）、`llms.txt`（给 AI 引擎的站点导读：顶层板块 + AI 工具评测按分类列到文章级 + 博客文章）和 `llms-full.txt`（只收工具评测与博客文章的全文）；sitemap 的 lastmod 由 `transformItems` 用 git 提交时间覆盖（浅克隆拿不到历史时回退默认值）。
+- 跳转目标不存在的映射会被跳过并打一行 warn（`redirects.json` 是旧站历史，其中约 41 个落点在迁移时没有跟过来），不要为了「条数好看」把它们补回去。
 - 注意：config.mts 里的块注释不要出现 `*/` 字样（如 `article/*/index.md`），会把注释提前闭合导致构建失败。
 
 ## TypeScript 约定
