@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 556" width="680" height="556" role="img" aria-labelledby="g4c-bench-title g4c-bench-desc">
+  <title id="g4c-bench-title">九项里赢六项，输的三项都不小</title>
+  <desc id="g4c-bench-desc">Google 官方跑分表中 Gemini 4 Carbon 与 Gemini 4 Argon、最强外部模型的逐项对比。Carbon 在通用指数、终端任务、长上下文、自动化、漏洞利用、模拟经营六项第一；在 FrontierSWE 2、OSWorld-2.1 输给 GPT-6 Astra 与 Claude Opus 5.5，在数学基准 RiemannBench 上输给自家上一代 Argon。</desc>
+  <defs>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .th { fill: #8b8f9a; font-size: 10px; letter-spacing: 1px; }
+      .name { fill: #33363e; font-size: 12px; font-weight: 600; }
+      .win { fill: #b4543c; font-size: 12.5px; font-weight: 700; }
+      .lose { fill: #6f7480; font-size: 12.5px; }
+      .mid { fill: #52565f; font-size: 12px; }
+      .opp { fill: #33363e; font-size: 11.5px; font-weight: 600; }
+      .oppn { fill: #8b8f9a; font-size: 10px; }
+      .foot { fill: #52565f; font-size: 11.5px; }
+      .note { fill: #6f7480; font-size: 11px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="556" fill="#f7f7f5"/>
+
+  <text class="serif hd" x="32" y="42">九项里赢六项，输的三项都不小</text>
+  <text class="t sub" x="32" y="66">Carbon 与自家 Argon、最强外部模型的逐项对照；分数取自 Google 官方评测表</text>
+
+  <rect x="32" y="82" width="3" height="9" rx="1.5" fill="#b4543c"/>
+  <text class="t th" x="42" y="91">该项第一</text>
+  <rect x="102" y="82" width="3" height="9" rx="1.5" fill="#c9ccd3"/>
+  <text class="t th" x="112" y="91">不是第一</text>
+
+  <line x1="32" y1="104" x2="648" y2="104" stroke="#dcdde2" stroke-width="1"/>
+  <text class="t th" x="40" y="120">基准</text>
+  <text class="t th" x="452" y="120" text-anchor="end">CARBON</text>
+  <text class="t th" x="512" y="120" text-anchor="end">ARGON</text>
+  <text class="t th" x="620" y="120" text-anchor="end">最强对手</text>
+
+  <g>
+    <rect x="32" y="130" width="3" height="9" rx="1.5" fill="#b4543c"/>
+    <text class="t name" x="48" y="139">AA 智能指数 v5.0 · 通用</text>
+    <text class="t win" x="452" y="139" text-anchor="end">59</text>
+    <text class="t mid" x="512" y="139" text-anchor="end">50</text>
+    <text class="t opp" x="556" y="139" text-anchor="end">58</text>
+    <text class="t oppn" x="562" y="139">Opus 5.5</text>
+    <line x1="32" y1="152" x2="648" y2="152" stroke="#e6e7ea" stroke-width="1"/>
+  </g>
+
+  <g>
+    <rect x="32" y="170" width="3" height="9" rx="1.5" fill="#b4543c"/>
+    <text class="t name" x="48" y="179">Terminal-Bench 4.0 · 终端任务</text>
+    <text class="t win" x="452" y="179" text-anchor="end">65.2</text>
+    <text class="t mid" x="512" y="179" text-anchor="end">57.1</text>
+    <text class="t opp" x="556" y="179" text-anchor="end">59.6</text>
+    <text class="t oppn" x="562" y="179">Opus 5.5</text>
+    <line x1="32" y1="192" x2="648" y2="192" stroke="#e6e7ea" stroke-width="1"/>
+  </g>
+
+  <g>
+    <rect x="32" y="210" width="3" height="9" rx="1.5" fill="#b4543c"/>
+    <text class="t name" x="48" y="219">GraphWalks 256k–1M · 长上下文</text>
+    <text class="t win" x="452" y="219" text-anchor="end">96.2</text>
+    <text class="t mid" x="512" y="219" text-anchor="end">84.2</text>
+    <text class="t opp" x="556" y="219" text-anchor="end">71.8</text>
+    <text class="t oppn" x="562" y="219">GPT-6 Astra</text>
+    <line x1="32" y1="232" x2="648" y2="232" stroke="#e6e7ea" stroke-width="1"/>
+  </g>
+
+  <g>
+    <rect x="32" y="250" width="3" height="9" rx="1.5" fill="#b4543c"/>
+    <text class="t name" x="48" y="259">AutomationBench · 自动化</text>
+    <text class="t win" x="452" y="259" text-anchor="end">53.9</text>
+    <text class="t mid" x="512" y="259" text-anchor="end">51.3</text>
+    <text class="t opp" x="556" y="259" text-anchor="end">42.5</text>
+    <text class="t oppn" x="562" y="259">GPT-6 Astra</text>
+    <line x1="32" y1="272" x2="648" y2="272" stroke="#e6e7ea" stroke-width="1"/>
+  </g>
+
+  <g>
+    <rect x="32" y="290" width="3" height="9" rx="1.5" fill="#b4543c"/>
+    <text class="t name" x="48" y="299">ExploitGym · 漏洞利用</text>
+    <text class="t win" x="452" y="299" text-anchor="end">54.8</text>
+    <text class="t mid" x="512" y="299" text-anchor="end">42.0</text>
+    <text class="t opp" x="556" y="299" text-anchor="end">42.4</text>
+    <text class="t oppn" x="562" y="299">GPT-6 Astra</text>
+    <line x1="32" y1="312" x2="648" y2="312" stroke="#e6e7ea" stroke-width="1"/>
+  </g>
+
+  <g>
+    <rect x="32" y="330" width="3" height="9" rx="1.5" fill="#b4543c"/>
+    <text class="t name" x="48" y="339">Vending-Bench 2 · 经营余额（美元）</text>
+    <text class="t win" x="452" y="339" text-anchor="end">16,484</text>
+    <text class="t mid" x="512" y="339" text-anchor="end">13,718</text>
+    <text class="t opp" x="556" y="339" text-anchor="end">15,515</text>
+    <text class="t oppn" x="562" y="339">GPT-6 Astra</text>
+    <line x1="32" y1="352" x2="648" y2="352" stroke="#dcdde2" stroke-width="1"/>
+  </g>
+
+  <g>
+    <rect x="32" y="370" width="3" height="9" rx="1.5" fill="#c9ccd3"/>
+    <text class="t name" x="48" y="379">FrontierSWE 2 · 智能体编程</text>
+    <text class="t lose" x="452" y="379" text-anchor="end">61.2</text>
+    <text class="t mid" x="512" y="379" text-anchor="end">55.0</text>
+    <text class="t opp" x="556" y="379" text-anchor="end">65.5</text>
+    <text class="t oppn" x="562" y="379">GPT-6 Astra</text>
+    <line x1="32" y1="392" x2="648" y2="392" stroke="#e6e7ea" stroke-width="1"/>
+  </g>
+
+  <g>
+    <rect x="32" y="410" width="3" height="9" rx="1.5" fill="#c9ccd3"/>
+    <text class="t name" x="48" y="419">OSWorld-2.1 · 电脑操作</text>
+    <text class="t lose" x="452" y="419" text-anchor="end">81.5</text>
+    <text class="t mid" x="512" y="419" text-anchor="end">74.7</text>
+    <text class="t opp" x="556" y="419" text-anchor="end">87.2</text>
+    <text class="t oppn" x="562" y="419">Opus 5.5</text>
+    <line x1="32" y1="432" x2="648" y2="432" stroke="#e6e7ea" stroke-width="1"/>
+  </g>
+
+  <g>
+    <rect x="32" y="450" width="3" height="9" rx="1.5" fill="#c9ccd3"/>
+    <text class="t name" x="48" y="459">RiemannBench · 数学</text>
+    <text class="t lose" x="452" y="459" text-anchor="end">72.0</text>
+    <text class="t mid" x="512" y="459" text-anchor="end">76.0</text>
+    <text class="t opp" x="556" y="459" text-anchor="end">76.0</text>
+    <text class="t oppn" x="562" y="459">Argon（自家）</text>
+  </g>
+
+  <line x1="32" y1="480" x2="648" y2="480" stroke="#dcdde2" stroke-width="1"/>
+  <text class="t foot" x="32" y="500">赢的地方集中在「跑得久、工具多、文档厚」：终端、长上下文、自动化、漏洞利用</text>
+  <text class="t foot" x="32" y="518">输的三项里，最刺眼的是数学——72 分低于上一代 Argon 的 76 分</text>
+  <text class="t note" x="32" y="538">数据来源：Google DeepMind 官方评测表（2026-11），厂商自测口径；Fable 5.2 未列入该表</text>
+</svg>

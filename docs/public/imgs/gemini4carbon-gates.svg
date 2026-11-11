@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 432" width="680" height="432" role="img" aria-labelledby="g4c-gates-title g4c-gates-desc">
+  <title id="g4c-gates-title">一份权重，四道门</title>
+  <desc id="g4c-gates-desc">Gemini 4 Carbon 不是一次性公开发布，而是按身份分批放行：2026 年 10 月 28 日起仅通过 Fairwind 计划开放给网络安全防守方，11 月 10 日起开放给付费开发者、企业和 Google AI Ultra 订阅用户，免费与低档订阅用户尚无时间表。</desc>
+  <defs>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .date { fill: #33363e; font-size: 11px; font-weight: 700; }
+      .lab { fill: #8b8f9a; font-size: 10px; letter-spacing: 1px; }
+      .who { fill: #23262e; font-size: 13.5px; font-weight: 700; }
+      .line { fill: #52565f; font-size: 11.5px; }
+      .tag { fill: #b4543c; font-size: 10.5px; font-weight: 700; }
+      .tag2 { fill: #8b8f9a; font-size: 10.5px; font-weight: 700; }
+      .foot { fill: #52565f; font-size: 11.5px; }
+      .note { fill: #6f7480; font-size: 11px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="432" fill="#f7f7f5"/>
+
+  <text class="serif hd" x="32" y="44">一份权重，四道门</text>
+  <text class="t sub" x="32" y="68">Carbon 没有一次性公开发布，而是按身份分批放行</text>
+
+  <g>
+    <rect x="32" y="92" width="616" height="64" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <rect x="32" y="92" width="4" height="64" rx="2" fill="#c9ccd3"/>
+    <text class="t lab" x="52" y="112">第一阶段</text>
+    <text class="t date" x="52" y="132">10/28 — 11/10</text>
+    <text class="t who" x="168" y="114">Fairwind 计划 · 网络安全防守方</text>
+    <text class="t line" x="168" y="134">仅限受邀的安全团队，用来找漏洞、验补丁</text>
+    <text class="t tag2" x="624" y="114" text-anchor="end">已结束 · 约 13 天</text>
+  </g>
+
+  <g>
+    <rect x="32" y="168" width="616" height="64" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <rect x="32" y="168" width="4" height="64" rx="2" fill="#b4543c"/>
+    <text class="t lab" x="52" y="188">第二阶段</text>
+    <text class="t date" x="52" y="208">11/10 起</text>
+    <text class="t who" x="168" y="190">付费开发者与企业</text>
+    <text class="t line" x="168" y="210">API · Google AI Studio · Gemini for Business</text>
+    <text class="t tag" x="624" y="190" text-anchor="end">开放中</text>
+  </g>
+
+  <g>
+    <rect x="32" y="244" width="616" height="64" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <rect x="32" y="244" width="4" height="64" rx="2" fill="#b4543c"/>
+    <text class="t lab" x="52" y="264">第三阶段</text>
+    <text class="t date" x="52" y="284">11/10 起</text>
+    <text class="t who" x="168" y="266">Google AI Ultra 订阅用户</text>
+    <text class="t line" x="168" y="286">Gemini 应用 · 搜索 AI Mode · Antigravity</text>
+    <text class="t tag" x="624" y="266" text-anchor="end">开放中</text>
+  </g>
+
+  <g>
+    <rect x="32" y="320" width="616" height="64" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1" stroke-dasharray="4 4"/>
+    <rect x="32" y="320" width="4" height="64" rx="2" fill="#dcdde2"/>
+    <text class="t lab" x="52" y="340">尚未放行</text>
+    <text class="t date" x="52" y="360">无时间表</text>
+    <text class="t who" x="168" y="342">免费用户与低档订阅</text>
+    <text class="t line" x="168" y="362">官方公告未提及，也未承诺会开放</text>
+    <text class="t tag2" x="624" y="342" text-anchor="end">待定</text>
+  </g>
+
+  <line x1="32" y1="404" x2="648" y2="404" stroke="#dcdde2" stroke-width="1"/>
+  <text class="t note" x="32" y="422">依据 Google 官方公告与 The Verge 报道（2026-11-10 美东 / 11-11 北京时间）绘制；日期为北京时间</text>
+</svg>

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 384" width="680" height="384" role="img" aria-labelledby="g4c-swarm-title g4c-swarm-desc">
+  <title id="g4c-swarm-title">一个提示词，一支团队</title>
+  <desc id="g4c-swarm-desc">Google Antigravity 的 /swarm 预览版结构：单个提示词进入后，由 Gemini 4 Carbon 承担编排、架构设计与审计等最吃推理的角色，把具体执行分派到多个相互隔离的并行工作区，交给更轻更快的模型，并用对抗性验证器检查每一次变更。</desc>
+  <defs>
+    <marker id="g4c-arw" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8b8f9a"/>
+    </marker>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .lab { fill: #8b8f9a; font-size: 10px; letter-spacing: 1px; }
+      .card { fill: #23262e; font-size: 14px; font-weight: 700; }
+      .line { fill: #52565f; font-size: 11.5px; }
+      .small { fill: #6f7480; font-size: 11px; }
+      .foot { fill: #52565f; font-size: 11.5px; }
+      .note { fill: #6f7480; font-size: 11px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="384" fill="#f7f7f5"/>
+
+  <text class="serif hd" x="32" y="44">一个提示词，一支团队</text>
+  <text class="t sub" x="32" y="68">Carbon 只干最吃推理的活，其余分给更轻的模型，变更有验证器把关</text>
+
+  <g>
+    <rect x="32" y="108" width="120" height="72" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <text class="t lab" x="48" y="130">输入</text>
+    <text class="t card" x="48" y="152">一条提示词</text>
+    <text class="t small" x="48" y="170">/swarm</text>
+  </g>
+
+  <path d="M 152 144 L 188 144" fill="none" stroke="#8b8f9a" stroke-width="1" marker-end="url(#g4c-arw)"/>
+
+  <g>
+    <rect x="196" y="92" width="192" height="104" rx="6" fill="#ffffff" stroke="#b4543c" stroke-width="1"/>
+    <rect x="196" y="92" width="4" height="104" rx="2" fill="#b4543c"/>
+    <text class="t lab" x="214" y="114">编排层</text>
+    <text class="t card" x="214" y="138">Gemini 4 Carbon</text>
+    <text class="t line" x="214" y="160">架构设计 · 任务拆解</text>
+    <text class="t line" x="214" y="178">跨模块协调 · 审计</text>
+  </g>
+
+  <path d="M 388 144 L 412 144" fill="none" stroke="#8b8f9a" stroke-width="1"/>
+  <path d="M 412 116 L 412 244" fill="none" stroke="#8b8f9a" stroke-width="1"/>
+  <path d="M 412 116 L 436 116" fill="none" stroke="#8b8f9a" stroke-width="1" marker-end="url(#g4c-arw)"/>
+  <path d="M 412 180 L 436 180" fill="none" stroke="#8b8f9a" stroke-width="1" marker-end="url(#g4c-arw)"/>
+  <path d="M 412 244 L 436 244" fill="none" stroke="#8b8f9a" stroke-width="1" marker-end="url(#g4c-arw)"/>
+
+  <g>
+    <rect x="440" y="88" width="208" height="56" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <text class="t line" x="456" y="112">并行工作区 A</text>
+    <text class="t small" x="456" y="130">更轻更快的模型 · 隔离环境</text>
+  </g>
+
+  <g>
+    <rect x="440" y="152" width="208" height="56" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <text class="t line" x="456" y="176">并行工作区 B</text>
+    <text class="t small" x="456" y="194">改一个包，不动别人的分支</text>
+  </g>
+
+  <g>
+    <rect x="440" y="216" width="208" height="56" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <text class="t line" x="456" y="240">并行工作区 C</text>
+    <text class="t small" x="456" y="258">构建 → 验证 → 自己修错</text>
+  </g>
+
+  <path d="M 440 252 L 392 252" fill="none" stroke="#8b8f9a" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#g4c-arw)"/>
+
+  <g>
+    <rect x="196" y="236" width="192" height="64" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <text class="t lab" x="214" y="258">守门</text>
+    <text class="t line" x="214" y="278">对抗性验证器</text>
+    <text class="t small" x="214" y="293">每个变更都要被反驳一次</text>
+  </g>
+
+  <line x1="32" y1="324" x2="648" y2="324" stroke="#dcdde2" stroke-width="1"/>
+  <text class="t foot" x="32" y="344">卖点不是「一个更聪明的模型」，是「一个模型 + 一群子智能体 + 一套验收」</text>
+  <text class="t note" x="32" y="364">依据 Google 官方公告与 Antigravity 文档（2026-11-10）绘制；/swarm 为预览版，角色分配方式以官方描述为准</text>
+</svg>
