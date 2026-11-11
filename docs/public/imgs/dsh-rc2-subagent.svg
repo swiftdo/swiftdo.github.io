@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="680" height="400" role="img" aria-labelledby="d2s3-t d2s3-d">
+  <title id="d2s3-t">子代理从匿名扁平到具名多层</title>
+  <desc id="d2s3-d">左边是 rc.1 的形态：主 Agent 拉起若干没有名字、不能嵌套的子代理，只能在同层等待结果。右边是 rc.2 的形态：子代理有名字、可以再往下分层，一层失败可重试，并共享成员与任务面板。</desc>
+  <defs>
+    <marker id="d2s3-arw" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8b8f9a"/>
+    </marker>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .lab { fill: #8b8f9a; font-size: 10px; letter-spacing: 1px; }
+      .node { fill: #23262e; font-size: 12px; font-weight: 600; }
+      .node-s { fill: #52565f; font-size: 11px; }
+      .cap { fill: #8b8f9a; font-size: 11px; }
+      .cap-g { fill: #2f7d5b; font-size: 11px; }
+      .band { fill: #52565f; font-size: 11.5px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="400" fill="#f7f7f5"/>
+
+  <text class="serif hd" x="32" y="44">子代理从「叫得动」到「管得住」</text>
+  <text class="t sub" x="32" y="68">rc.1 修的是等待，rc.2 改的是结构：具名、可分层、失败可重试</text>
+
+  <text class="t lab" x="32" y="102">V0.2.2-RC.1 · 扁平</text>
+  <rect x="88" y="120" width="160" height="36" rx="5" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+  <text class="t node" x="168" y="143" text-anchor="middle">主 Agent</text>
+
+  <path d="M168,156 L168,178" stroke="#c9ccd3" stroke-width="1"/>
+  <path d="M96,178 L240,178" stroke="#c9ccd3" stroke-width="1"/>
+  <path d="M96,178 L96,196" stroke="#c9ccd3" stroke-width="1"/>
+  <path d="M168,178 L168,196" stroke="#c9ccd3" stroke-width="1"/>
+  <path d="M240,178 L240,196" stroke="#c9ccd3" stroke-width="1"/>
+
+  <rect x="64" y="196" width="64" height="28" rx="5" fill="#f0f0ee" stroke="#dcdde2" stroke-width="1"/>
+  <text class="t node-s" x="96" y="214" text-anchor="middle">子代理</text>
+  <rect x="136" y="196" width="64" height="28" rx="5" fill="#f0f0ee" stroke="#dcdde2" stroke-width="1"/>
+  <text class="t node-s" x="168" y="214" text-anchor="middle">子代理</text>
+  <rect x="208" y="196" width="64" height="28" rx="5" fill="#f0f0ee" stroke="#dcdde2" stroke-width="1"/>
+  <text class="t node-s" x="240" y="214" text-anchor="middle">子代理</text>
+
+  <text class="t cap" x="168" y="252" text-anchor="middle">没有名字，也不能再分层</text>
+  <text class="t cap" x="168" y="272" text-anchor="middle">结果只能同层轮询着等</text>
+
+  <line x1="312" y1="196" x2="364" y2="196" stroke="#8b8f9a" stroke-width="1" marker-end="url(#d2s3-arw)"/>
+  <text class="t lab" x="338" y="184" text-anchor="middle">改名</text>
+
+  <text class="t lab" x="376" y="102" fill="#2f7d5b">V0.2.2-RC.2 · 具名 + 多层</text>
+  <rect x="436" y="120" width="152" height="36" rx="5" fill="#f3f8f5" stroke="#2f7d5b" stroke-width="1"/>
+  <text class="t node" x="512" y="143" text-anchor="middle">主 Agent</text>
+
+  <path d="M512,156 L512,178" stroke="#9dc4ae" stroke-width="1"/>
+  <path d="M452,178 L572,178" stroke="#9dc4ae" stroke-width="1"/>
+  <path d="M452,178 L452,196" stroke="#9dc4ae" stroke-width="1"/>
+  <path d="M572,178 L572,196" stroke="#9dc4ae" stroke-width="1"/>
+
+  <rect x="400" y="196" width="104" height="30" rx="5" fill="#ffffff" stroke="#2f7d5b" stroke-width="1"/>
+  <text class="t node-s" x="452" y="216" text-anchor="middle">Researcher</text>
+  <rect x="520" y="196" width="104" height="30" rx="5" fill="#ffffff" stroke="#2f7d5b" stroke-width="1"/>
+  <text class="t node-s" x="572" y="216" text-anchor="middle">Reviewer</text>
+
+  <path d="M572,226 L572,248" stroke="#9dc4ae" stroke-width="1"/>
+  <rect x="528" y="248" width="88" height="28" rx="5" fill="#ffffff" stroke="#2f7d5b" stroke-width="1"/>
+  <text class="t node-s" x="572" y="266" text-anchor="middle">Tester</text>
+
+  <text class="t cap-g" x="512" y="296" text-anchor="middle">名字用来指派人，层数用来收窄任务</text>
+
+  <rect x="32" y="316" width="616" height="56" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+  <text class="t band" x="48" y="340">AgentTeam 按会话开启，成员与任务面板共用一份；中断工具默认关闭。</text>
+  <text class="t band" x="48" y="360">共享同一份会话存储的进程必须一起升级，否则新旧两侧认不出对方。</text>
+</svg>

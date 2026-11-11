@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 380" width="680" height="380" role="img" aria-labelledby="d2s4-t d2s4-d">
+  <title id="d2s4-t">0.2.2-rc.2 的四道权限边界</title>
+  <desc id="d2s4-d">四条边界里三条在放开、一条在收紧：Office 文档解析移出沙箱、LiveShare 下 PTC 可越出分享目录、Web Fetch 不再拒绝非公网地址，只有 Windows 额外目录授权缩小到文件工具。</desc>
+  <defs>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .idx { fill: #b9bcc4; font-size: 11px; }
+      .k { fill: #23262e; font-size: 13px; font-weight: 600; }
+      .d { fill: #6f7480; font-size: 11px; }
+      .chip-o { fill: #b4543c; font-size: 10.5px; font-weight: 600; }
+      .chip-c { fill: #2f7d5b; font-size: 10.5px; font-weight: 600; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="380" fill="#f7f7f5"/>
+
+  <text class="serif hd" x="32" y="44">这一版放开了三道边界，收紧了一道</text>
+  <text class="t sub" x="32" y="68">release notes 里写得很短，但它们决定的东西比功能多</text>
+
+  <g>
+    <rect x="32" y="96" width="616" height="58" rx="5" fill="#ffffff" stroke="#e2e3e7" stroke-width="1"/>
+    <rect x="32" y="96" width="3" height="58" fill="#b4543c"/>
+    <text class="t mono idx" x="48" y="118">01</text>
+    <text class="t k" x="74" y="120">Office 文档解析改在主进程跑</text>
+    <text class="t d" x="74" y="140">命令行沙箱保护不到它——官方把这句话直接写在了变更说明里</text>
+    <rect x="580" y="112" width="52" height="22" rx="11" fill="#fbf0ec" stroke="#b4543c" stroke-width="1"/>
+    <text class="t chip-o" x="606" y="127" text-anchor="middle">放开</text>
+  </g>
+
+  <g>
+    <rect x="32" y="164" width="616" height="58" rx="5" fill="#ffffff" stroke="#e2e3e7" stroke-width="1"/>
+    <rect x="32" y="164" width="3" height="58" fill="#b4543c"/>
+    <text class="t mono idx" x="48" y="186">02</text>
+    <text class="t k" x="74" y="188">LiveShare 下 PTC 能读到分享目录之外</text>
+    <text class="t d" x="74" y="208">原话只有一句：仅应分享给可信任的人</text>
+    <rect x="580" y="180" width="52" height="22" rx="11" fill="#fbf0ec" stroke="#b4543c" stroke-width="1"/>
+    <text class="t chip-o" x="606" y="195" text-anchor="middle">放开</text>
+  </g>
+
+  <g>
+    <rect x="32" y="232" width="616" height="58" rx="5" fill="#ffffff" stroke="#e2e3e7" stroke-width="1"/>
+    <rect x="32" y="232" width="3" height="58" fill="#b4543c"/>
+    <text class="t mono idx" x="48" y="254">03</text>
+    <text class="t k" x="74" y="256">Web Fetch 不再拒绝非公网地址</text>
+    <text class="t d" x="74" y="276">rc.1 起生效，可用于代理与内网；出口限制随之下放给部署方</text>
+    <rect x="580" y="248" width="52" height="22" rx="11" fill="#fbf0ec" stroke="#b4543c" stroke-width="1"/>
+    <text class="t chip-o" x="606" y="263" text-anchor="middle">放开</text>
+  </g>
+
+  <g>
+    <rect x="32" y="300" width="616" height="58" rx="5" fill="#f3f8f5" stroke="#2f7d5b" stroke-width="1"/>
+    <rect x="32" y="300" width="3" height="58" fill="#2f7d5b"/>
+    <text class="t mono idx" x="48" y="322" fill="#7fae95">04</text>
+    <text class="t k" x="74" y="324">Windows 额外目录授权只到文件工具</text>
+    <text class="t d" x="74" y="344">不扩大终端与 PTC 的访问范围——四条里唯一收紧的一条</text>
+    <rect x="580" y="316" width="52" height="22" rx="11" fill="#e8f2ec" stroke="#2f7d5b" stroke-width="1"/>
+    <text class="t chip-c" x="606" y="331" text-anchor="middle">收紧</text>
+  </g>
+</svg>

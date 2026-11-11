@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 424" width="680" height="424" role="img" aria-labelledby="d2s2-t d2s2-d">
+  <title id="d2s2-t">Git 工作树在 0.2.2-rc.2 里形成的审阅回路</title>
+  <desc id="d2s2-d">三段式回路：会话跑在独立工作树里隔离运行；在差异视图中按分支、提交、文件类型审阅并标记已读；结果直接在 DSH 内结掉 GitHub 评审并更新分支，已审阅进度回流到本地差异。底部提示归档会话会默认清理工作树。</desc>
+  <defs>
+    <marker id="d2s2-arw" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8b8f9a"/>
+    </marker>
+    <marker id="d2s2-arw-g" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#2f7d5b"/>
+    </marker>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .lab { fill: #8b8f9a; font-size: 10px; letter-spacing: 1px; }
+      .big { fill: #23262e; font-size: 14.5px; font-weight: 700; }
+      .li { fill: #52565f; font-size: 11.5px; }
+      .loop { fill: #2f7d5b; font-size: 11px; }
+      .warn { fill: #b4543c; font-size: 12px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="424" fill="#f7f7f5"/>
+
+  <text class="serif hd" x="32" y="44">工作树不再只是隔离，它成了一个审阅回路</text>
+  <text class="t sub" x="32" y="68">rc.2 把「看 diff」补成了「走完一次评审」：范围、差异、回写，最后进度回到本地</text>
+
+  <g>
+    <rect x="32" y="120" width="186" height="130" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <text class="t lab" x="48" y="146">01 · 隔离</text>
+    <text class="t big" x="48" y="172">独立工作树</text>
+    <line x1="48" y1="186" x2="202" y2="186" stroke="#e6e6ea" stroke-width="1"/>
+    <text class="t li" x="48" y="208">会话跑在自己的目录</text>
+    <text class="t li" x="48" y="230">不碰你正在编辑的那份</text>
+  </g>
+
+  <line x1="220" y1="185" x2="243" y2="185" stroke="#8b8f9a" stroke-width="1" marker-end="url(#d2s2-arw)"/>
+
+  <g>
+    <rect x="247" y="120" width="186" height="130" rx="6" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <text class="t lab" x="263" y="146">02 · 审阅</text>
+    <text class="t big" x="263" y="172">按维度看差异</text>
+    <line x1="263" y1="186" x2="417" y2="186" stroke="#e6e6ea" stroke-width="1"/>
+    <text class="t li" x="263" y="208">分支 / 提交 / 文件类型</text>
+    <text class="t li" x="263" y="230">逐文件导航、已读标记</text>
+  </g>
+
+  <line x1="435" y1="185" x2="458" y2="185" stroke="#8b8f9a" stroke-width="1" marker-end="url(#d2s2-arw)"/>
+
+  <g>
+    <rect x="462" y="120" width="186" height="130" rx="6" fill="#f3f8f5" stroke="#2f7d5b" stroke-width="1"/>
+    <text class="t lab" x="478" y="146" fill="#2f7d5b">03 · 回写</text>
+    <text class="t big" x="478" y="172">直接在 DSH 结 PR</text>
+    <line x1="478" y1="186" x2="632" y2="186" stroke="#cfe0d6" stroke-width="1"/>
+    <text class="t li" x="478" y="208">处理 GitHub 评审</text>
+    <text class="t li" x="478" y="230">更新分支、同步进度</text>
+  </g>
+
+  <path d="M555,252 L555,282 L125,282 L125,254" fill="none" stroke="#2f7d5b" stroke-width="1" marker-end="url(#d2s2-arw-g)"/>
+  <rect x="236" y="270" width="212" height="24" fill="#f7f7f5"/>
+  <text class="t loop" x="342" y="287" text-anchor="middle">已审阅进度回流到本地差异</text>
+
+  <g>
+    <rect x="32" y="312" width="616" height="66" rx="6" fill="#fbf5f2" stroke="#b4543c" stroke-width="1"/>
+    <text class="t warn" x="48" y="338">归档会话现在默认清理工作树：分支与提交保留，本地目录不保留。</text>
+    <text class="t li" x="48" y="360">想留住目录，要在归档前关掉清理；自定义配置和 Forge 插件另需迁移。</text>
+  </g>
+</svg>
