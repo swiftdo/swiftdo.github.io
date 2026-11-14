@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 356" width="680" height="356" role="img" aria-labelledby="d3s4-t d3s4-d">
+  <title id="d3s4-t">Windows 更新失败的原因：状态提示窗的工作目录钉住了安装目录</title>
+  <desc id="d3s4-d">修复前，状态提示窗 rundll32 继承安装目录作为工作目录，安装器替换时无法重命名安装目录，更新失败且应用没有重新打开。修复后，状态窗以 Windows 系统目录为工作目录，安装目录可以被正常改名，改动只有 4 行。</desc>
+  <defs>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .lab { fill: #8b8f9a; font-size: 10px; letter-spacing: 1px; }
+      .bx { fill: #3d4149; font-size: 10.5px; }
+      .sm { fill: #8b8f9a; font-size: 9.5px; }
+      .note { fill: #52565f; font-size: 11px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="356" fill="#f7f7f5"/>
+
+  <text class="serif hd" x="32" y="44">一个进程的工作目录，挡住了整次更新</text>
+  <text class="t sub" x="32" y="68">状态提示窗继承安装目录作为工作目录 → 安装器改名安装目录时被拒 → 更新失败，应用没能自己重开</text>
+
+  <!-- 修复前 -->
+  <rect x="32" y="94" width="292" height="182" rx="6" fill="#ffffff" stroke="#e6d3cc" stroke-width="1"/>
+  <text class="t lab" x="48" y="118" fill="#b4543c">修复前</text>
+
+  <rect x="56" y="136" width="106" height="44" rx="3" fill="#f2f1ec" stroke="#c9ccd3" stroke-width="1"/>
+  <text class="t bx" x="109" y="163" text-anchor="middle">安装目录</text>
+
+  <line x1="166" y1="158" x2="196" y2="158" stroke="#b4543c" stroke-width="1"/>
+  <line x1="196" y1="158" x2="188" y2="154" stroke="#b4543c" stroke-width="1"/>
+  <line x1="196" y1="158" x2="188" y2="162" stroke="#b4543c" stroke-width="1"/>
+  <text class="t sm" x="181" y="148" text-anchor="middle" fill="#b4543c">改名</text>
+
+  <rect x="200" y="136" width="106" height="44" rx="3" fill="#f7f7f5" stroke="#dcd9d1" stroke-width="1" stroke-dasharray="3 3"/>
+  <text class="t bx" x="253" y="163" text-anchor="middle" fill="#8b8f9a">安装目录.old</text>
+
+  <text class="t sm" x="253" y="196" text-anchor="middle" fill="#b4543c">✕ 目标被占用，进不去</text>
+
+  <rect x="56" y="212" width="196" height="26" rx="3" fill="#fdf1ed" stroke="#e6c9be" stroke-width="1"/>
+  <text class="t bx" x="68" y="229" fill="#a4462f">rundll32 · CWD = 安装目录</text>
+  <line x1="109" y1="212" x2="109" y2="180" stroke="#e6c9be" stroke-width="1" stroke-dasharray="2 2"/>
+
+  <!-- 修复后 -->
+  <rect x="356" y="94" width="292" height="182" rx="6" fill="#ffffff" stroke="#cfe0d6" stroke-width="1"/>
+  <text class="t lab" x="372" y="118" fill="#2f7d5b">修复后</text>
+
+  <rect x="380" y="136" width="106" height="44" rx="3" fill="#f2f1ec" stroke="#c9ccd3" stroke-width="1"/>
+  <text class="t bx" x="433" y="163" text-anchor="middle">安装目录</text>
+
+  <line x1="490" y1="158" x2="520" y2="158" stroke="#2f7d5b" stroke-width="1"/>
+  <line x1="520" y1="158" x2="512" y2="154" stroke="#2f7d5b" stroke-width="1"/>
+  <line x1="520" y1="158" x2="512" y2="162" stroke="#2f7d5b" stroke-width="1"/>
+  <text class="t sm" x="505" y="148" text-anchor="middle" fill="#2f7d5b">改名</text>
+
+  <rect x="524" y="136" width="106" height="44" rx="3" fill="#f7f7f5" stroke="#dcd9d1" stroke-width="1" stroke-dasharray="3 3"/>
+  <text class="t bx" x="577" y="163" text-anchor="middle" fill="#52565f">安装目录.old</text>
+
+  <text class="t sm" x="577" y="196" text-anchor="middle" fill="#2f7d5b">✓ 目录空出来了</text>
+
+  <rect x="380" y="212" width="216" height="26" rx="3" fill="#eef5f0" stroke="#cfe0d6" stroke-width="1"/>
+  <text class="t bx" x="392" y="229" fill="#2f7d5b">rundll32 · CWD = System32</text>
+
+  <line x1="32" y1="298" x2="648" y2="298" stroke="#e3e1db" stroke-width="1"/>
+  <text class="t mono" x="32" y="322" fill="#3d4149" font-size="11">CreateProcessW(…, lpCurrentDirectory = GetSystemDirectoryW())</text>
+  <text class="t note" x="32" y="344" fill="#6f7480">改动 4 行。测试不断言这个参数 —— 它在窗口活着时真的把安装目录改名两次，窗口一死就判失败。</text>
+</svg>

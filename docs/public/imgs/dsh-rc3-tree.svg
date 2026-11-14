@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 424" width="680" height="424" role="img" aria-labelledby="d3s2-t d3s2-d">
+  <title id="d3s2-t">官网导出的分叉消息树如何压成 DSH 的线性会话日志</title>
+  <desc id="d3s2-d">左侧是官网导出的消息树：消息靠 parent_id 相连，重新生成会分叉，虚线圈标出 current_message_id。右侧是 DSH 的 Session，只追加线性日志。导入器从 current_message_id 回溯到根再反转，另一条分支整条丢弃，一个官网会话只产出一个 Session。</desc>
+  <defs>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .lab { fill: #8b8f9a; font-size: 10px; letter-spacing: 1px; }
+      .nd { fill: #23262e; font-size: 10px; font-weight: 700; }
+      .an { fill: #6f7480; font-size: 10px; }
+      .chip { fill: #3d4149; font-size: 10.5px; }
+      .note { fill: #52565f; font-size: 11px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="424" fill="#f7f7f5"/>
+
+  <text class="serif hd" x="32" y="44">一条分叉的树，压成一条日志</text>
+  <text class="t sub" x="32" y="68">官网导出的 messages 靠 parent_id 连成树；DSH 的 Session 是只追加的线性日志</text>
+
+  <text class="t lab" x="32" y="94">导出 · 消息树</text>
+  <text class="t lab" x="380" y="94">DSH · SESSION 日志</text>
+
+  <!-- 主链 -->
+  <g stroke="#b9bdc6" stroke-width="1" fill="none">
+    <line x1="78" y1="122" x2="118" y2="122"/>
+    <line x1="146" y1="122" x2="186" y2="122"/>
+    <line x1="214" y1="122" x2="254" y2="122"/>
+    <line x1="132" y1="136" x2="132" y2="208" stroke-dasharray="3 3"/>
+  </g>
+
+  <circle cx="64" cy="122" r="14" fill="#ffffff" stroke="#23262e" stroke-width="1.2"/>
+  <text class="t nd" x="64" y="126" text-anchor="middle">U1</text>
+
+  <circle cx="132" cy="122" r="14" fill="#ffffff" stroke="#23262e" stroke-width="1.2"/>
+  <text class="t nd" x="132" y="126" text-anchor="middle">A1</text>
+
+  <circle cx="200" cy="122" r="14" fill="#ffffff" stroke="#23262e" stroke-width="1.2"/>
+  <text class="t nd" x="200" y="126" text-anchor="middle">U2</text>
+
+  <circle cx="268" cy="122" r="14" fill="#ffffff" stroke="#2f7d5b" stroke-width="1.6"/>
+  <circle cx="268" cy="122" r="20" fill="none" stroke="#2f7d5b" stroke-width="1" stroke-dasharray="2 3"/>
+  <text class="t nd" x="268" y="126" text-anchor="middle">A2</text>
+
+  <!-- 旁支 -->
+  <circle cx="132" cy="222" r="14" fill="#f7f7f5" stroke="#a8adb8" stroke-width="1" stroke-dasharray="3 3"/>
+  <text class="t nd" x="132" y="226" text-anchor="middle" fill="#a8adb8">A1′</text>
+  <line x1="146" y1="222" x2="228" y2="222" stroke="#b4543c" stroke-width="1" stroke-dasharray="3 3"/>
+  <text class="t an" x="236" y="226" fill="#b4543c">整条丢弃</text>
+  <text class="t an" x="148" y="180" fill="#a8adb8">重新生成 → 分叉</text>
+
+  <text class="t an" x="32" y="164">虚线圈 = current_message_id，用户最后看到的那条</text>
+  <text class="t an" x="32" y="270" fill="#b4543c">一个官网会话只产出一个 Session：分叉的另一半没有地方放。</text>
+
+  <!-- 线性日志 -->
+  <g>
+    <rect x="380" y="108" width="212" height="24" rx="4" fill="#eceae4" stroke="#dcd9d1" stroke-width="1"/>
+    <text class="mono chip" x="390" y="124">header · createdAt</text>
+
+    <rect x="380" y="150" width="212" height="24" rx="4" fill="#ffffff" stroke="#c9ccd3" stroke-width="1"/>
+    <text class="mono chip" x="390" y="166">user/message</text>
+
+    <rect x="380" y="192" width="212" height="24" rx="4" fill="#ffffff" stroke="#c9ccd3" stroke-width="1"/>
+    <text class="mono chip" x="390" y="208">assistant/message</text>
+
+    <rect x="380" y="234" width="212" height="24" rx="4" fill="#ffffff" stroke="#c9ccd3" stroke-width="1"/>
+    <text class="mono chip" x="390" y="250">user/message</text>
+
+    <rect x="380" y="276" width="212" height="24" rx="4" fill="#ffffff" stroke="#2f7d5b" stroke-width="1.2"/>
+    <text class="mono chip" x="390" y="292">assistant/message</text>
+
+    <g stroke="#a8adb8" stroke-width="1">
+      <line x1="486" y1="132" x2="486" y2="148"/><line x1="486" y1="174" x2="486" y2="190"/>
+      <line x1="486" y1="216" x2="486" y2="232"/><line x1="486" y1="258" x2="486" y2="274"/>
+      <line x1="486" y1="300" x2="486" y2="318" stroke-dasharray="3 3"/>
+    </g>
+    <text class="t an" x="496" y="326">恢复后从这里继续追加</text>
+  </g>
+
+  <line x1="32" y1="352" x2="648" y2="352" stroke="#e3e1db" stroke-width="1"/>
+  <text class="t note" x="32" y="378">selectBranch()：从 current_message_id 沿 parent_id 回溯到根，反转 —— 只这一条链进日志。</text>
+  <text class="t note" x="32" y="400">字段缺失时取 id 最大的消息：子消息 id 恒大于父消息，所以它一定是叶子，不会切到半截。</text>
+</svg>

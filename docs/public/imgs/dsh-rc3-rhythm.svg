@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 322" width="680" height="322" role="img" aria-labelledby="d3s5-t d3s5-d">
+  <title id="d3s5-t">DeepSeek Harness 自 8 月 17 日以来的 39 个发布</title>
+  <desc id="d3s5-d">从 2026 年 8 月 17 日到 11 月 13 日共 88 天，发布 39 个版本，全部标记为 pre-release，没有一个正式版。npm 的 latest 标签仍停在 11 月 4 日的 0.2.2-rc.1，最新版本 0.2.2-rc.3 挂在 next 标签下。</desc>
+  <defs>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .lab { fill: #8b8f9a; font-size: 10px; letter-spacing: 1px; }
+      .mo { fill: #8b8f9a; font-size: 10px; }
+      .note { fill: #52565f; font-size: 11px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="322" fill="#f7f7f5"/>
+
+  <text class="serif hd" x="32" y="44">88 天，39 个版本，0 个正式版</text>
+  <text class="t sub" x="32" y="68">从 8 月 17 日第一个 GitHub Release 算起；每个点是一次发布，全部标着 Pre-release</text>
+
+  <g>
+    <circle cx="48" cy="100" r="3.5" fill="#2f7d5b"/><text class="t mo" x="57" y="104">rc</text>
+    <circle cx="88" cy="100" r="3.5" fill="#c9ccd3"/><text class="t mo" x="97" y="104">alpha</text>
+    <circle cx="146" cy="100" r="4.5" fill="#b4543c"/><text class="t mo" x="156" y="104">npm latest 实际指向的版本</text>
+  </g>
+
+  <line x1="48" y1="180" x2="632" y2="180" stroke="#dcd9d1" stroke-width="1"/>
+
+  <circle cx="48.0" cy="180" r="3.5" fill="#2f7d5b"><title>0.1.0-rc.7</title></circle>
+  <circle cx="61.1" cy="180" r="3.5" fill="#2f7d5b"><title>0.1.0-rc.8</title></circle>
+  <circle cx="74.2" cy="180" r="3.5" fill="#2f7d5b"><title>0.1.1-rc.1</title></circle>
+  <circle cx="78.2" cy="180" r="3.5" fill="#2f7d5b"><title>0.1.1-rc.2</title></circle>
+  <circle cx="113.6" cy="180" r="3" fill="#c9ccd3"><title>0.1.2-alpha.1</title></circle>
+  <circle cx="133.3" cy="180" r="3" fill="#c9ccd3"><title>0.1.2-alpha.2</title></circle>
+  <circle cx="139.9" cy="180" r="3" fill="#c9ccd3"><title>0.1.2-alpha.3</title></circle>
+  <circle cx="146.4" cy="180" r="3" fill="#c9ccd3"><title>0.1.2-alpha.4</title></circle>
+  <circle cx="153.0" cy="180" r="3" fill="#c9ccd3"><title>0.1.2-alpha.5</title></circle>
+  <circle cx="159.6" cy="180" r="3.5" fill="#2f7d5b"><title>0.1.2-rc.1</title></circle>
+  <circle cx="166.1" cy="180" r="3" fill="#c9ccd3"><title>0.1.3-alpha.1</title></circle>
+  <circle cx="185.8" cy="180" r="3" fill="#c9ccd3"><title>0.1.3-alpha.2</title></circle>
+  <circle cx="192.4" cy="180" r="3" fill="#c9ccd3"><title>0.1.5-alpha.1</title></circle>
+  <circle cx="198.9" cy="180" r="3" fill="#c9ccd3"><title>0.1.5-alpha.2</title></circle>
+  <circle cx="205.5" cy="180" r="3.5" fill="#2f7d5b"><title>0.1.5-rc.1</title></circle>
+  <circle cx="209.5" cy="180" r="3.5" fill="#2f7d5b"><title>0.1.5-rc.2</title></circle>
+  <circle cx="238.3" cy="180" r="3" fill="#c9ccd3"><title>0.1.6-alpha.1</title></circle>
+  <circle cx="251.4" cy="180" r="3" fill="#c9ccd3"><title>0.1.6-alpha.2</title></circle>
+  <circle cx="284.2" cy="180" r="3" fill="#c9ccd3"><title>0.1.7-alpha.1</title></circle>
+  <circle cx="288.2" cy="180" r="3" fill="#c9ccd3"><title>0.1.7-alpha.2</title></circle>
+  <circle cx="292.2" cy="180" r="3.5" fill="#2f7d5b"><title>0.1.7-rc.1</title></circle>
+  <circle cx="297.3" cy="180" r="3.5" fill="#2f7d5b"><title>0.1.7-rc.2</title></circle>
+  <circle cx="323.6" cy="180" r="3.5" fill="#2f7d5b"><title>0.2.0-rc.1</title></circle>
+  <circle cx="330.2" cy="180" r="3.5" fill="#2f7d5b"><title>0.2.0-rc.2</title></circle>
+  <circle cx="356.4" cy="180" r="3" fill="#c9ccd3"><title>0.2.1-alpha.1</title></circle>
+  <circle cx="395.8" cy="180" r="3" fill="#c9ccd3"><title>0.2.1-alpha.2</title></circle>
+  <circle cx="428.6" cy="180" r="3" fill="#c9ccd3"><title>0.2.1-alpha.3</title></circle>
+  <circle cx="435.1" cy="180" r="3" fill="#c9ccd3"><title>0.2.1-alpha.4</title></circle>
+  <circle cx="441.7" cy="180" r="3" fill="#c9ccd3"><title>0.2.1-alpha.5</title></circle>
+  <circle cx="448.3" cy="180" r="3.5" fill="#2f7d5b"><title>0.2.1-rc.1</title></circle>
+  <circle cx="452.3" cy="180" r="3.5" fill="#2f7d5b"><title>0.2.1-rc.2</title></circle>
+  <circle cx="487.6" cy="180" r="3.5" fill="#2f7d5b"><title>0.2.1-rc.3</title></circle>
+  <circle cx="520.4" cy="180" r="3.5" fill="#2f7d5b"><title>0.2.1-rc.4</title></circle>
+  <circle cx="524.4" cy="180" r="3" fill="#c9ccd3"><title>0.2.2-alpha.2</title></circle>
+  <circle cx="533.6" cy="180" r="3.5" fill="#2f7d5b"><title>0.2.1-rc.5</title></circle>
+  <circle cx="559.8" cy="180" r="3" fill="#c9ccd3"><title>0.2.2-alpha.3</title></circle>
+  <circle cx="566.4" cy="180" r="4.5" fill="#b4543c"><title>0.2.2-rc.1</title></circle>
+  <circle cx="612.3" cy="180" r="3.5" fill="#2f7d5b"><title>0.2.2-rc.2</title></circle>
+  <circle cx="625.4" cy="180" r="5.5" fill="#2f7d5b"><title>0.2.2-rc.3</title></circle>
+
+  <g stroke="#dcd9d1" stroke-width="1">
+    <line x1="48" y1="184" x2="48" y2="190"/>
+    <line x1="146" y1="180" x2="146" y2="186"/>
+    <line x1="344" y1="180" x2="344" y2="186"/>
+    <line x1="547" y1="180" x2="547" y2="186"/>
+    <line x1="632" y1="184" x2="632" y2="190"/>
+  </g>
+  <text class="t mo" x="48" y="204" text-anchor="middle">08-17</text>
+  <text class="t mo" x="146" y="204" text-anchor="middle">09-01</text>
+  <text class="t mo" x="344" y="204" text-anchor="middle">10-01</text>
+  <text class="t mo" x="547" y="204" text-anchor="middle">11-01</text>
+  <text class="t mo" x="632" y="204" text-anchor="end">11-13</text>
+
+  <g>
+    <line x1="566" y1="190" x2="566" y2="216" stroke="#b4543c" stroke-width="1" stroke-dasharray="2 2"/>
+    <circle cx="566" cy="180" r="4.5" fill="#b4543c"/>
+    <circle cx="566" cy="180" r="8" fill="none" stroke="#b4543c" stroke-width="1" stroke-dasharray="2 3"/>
+    <text class="t note" x="566" y="232" text-anchor="end" fill="#a4462f">npx 装到的是 11-04 的 0.2.2-rc.1</text>
+  </g>
+
+  <g>
+    <line x1="625" y1="172" x2="625" y2="152" stroke="#2f7d5b" stroke-width="1" stroke-dasharray="2 2"/>
+    <circle cx="625" cy="180" r="5.5" fill="#2f7d5b"/>
+    <text class="t note" x="625" y="146" text-anchor="end" fill="#2f7d5b">0.2.2-rc.3（11-13，本版）</text>
+  </g>
+
+  <line x1="32" y1="258" x2="648" y2="258" stroke="#e3e1db" stroke-width="1"/>
+  <text class="t note" x="32" y="282">0.1.0 走到 rc.8，0.2.1 走到 rc.5 —— 这个仓库不忌讳把候选版排到第五个以后。</text>
+  <text class="t note" x="32" y="304" fill="#6f7480">所以 rc.3 之后再出一个 rc.4，比「它就是最终版」更符合它过去 88 天的习惯。</text>
+</svg>

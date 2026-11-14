@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 392" width="680" height="412" role="img" aria-labelledby="d3s3-t d3s3-d">
+  <title id="d3s3-t">官网导出的 fragment 在导入时的三类去向</title>
+  <desc id="d3s3-d">REQUEST、THINK、RESPONSE、TOOL_SEARCH、TOOL_OPEN、READ_LINK 会被映射成事件并进入模型上下文；被排除的回答与内容过滤撤回的轮次只在界面上留一条固定错误码，内容不进上下文；提示横幅、免责声明、页内查找、图搜等界面装饰直接丢弃。</desc>
+  <defs>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .lab { fill: #8b8f9a; font-size: 10px; letter-spacing: 1px; }
+      .it { fill: #3d4149; font-size: 10.5px; }
+      .mo { fill: #6f7480; font-size: 9.5px; }
+      .note { fill: #52565f; font-size: 11px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="392" fill="#f7f7f5"/>
+
+  <text class="serif hd" x="32" y="44">难点不是搬过来，是决定什么不搬</text>
+  <text class="t sub" x="32" y="68">官网导出的 fragment 分三类去向，分类依据只有一条：它是不是模型真的说过的话</text>
+
+  <!-- 第一列 -->
+  <rect x="32" y="96" width="200" height="216" rx="6" fill="#ffffff" stroke="#cfe0d6" stroke-width="1"/>
+  <text class="t lab" x="46" y="120" fill="#2f7d5b">进模型上下文</text>
+  <text class="t it" x="46" y="150"><tspan class="mo">REQUEST</tspan> → user/message</text>
+  <text class="t it" x="46" y="176"><tspan class="mo">THINK</tspan> → reasoning 块</text>
+  <text class="t it" x="46" y="202"><tspan class="mo">RESPONSE</tspan> → text 块</text>
+  <text class="t it" x="46" y="228"><tspan class="mo">TOOL_SEARCH</tspan> → web_search</text>
+  <text class="t it" x="46" y="254"><tspan class="mo">TOOL_OPEN</tspan> → web_fetch</text>
+  <text class="t it" x="46" y="280"><tspan class="mo">READ_LINK</tspan> → 纯文本链接行</text>
+
+  <!-- 第二列 -->
+  <rect x="240" y="96" width="200" height="216" rx="6" fill="#ffffff" stroke="#e6d3cc" stroke-width="1"/>
+  <text class="t lab" x="254" y="120" fill="#b4543c">只留标记，不进上下文</text>
+  <text class="t it" x="254" y="150">非 FINISHED 的回答</text>
+  <text class="t it" x="254" y="164"><tspan class="mo">↳ turn/end 固定错误码</tspan></text>
+  <text class="t it" x="254" y="196">模板回答</text>
+  <text class="t it" x="254" y="210"><tspan class="mo">↳ 错误信息就是模板正文</tspan></text>
+  <text class="t it" x="254" y="242">内容过滤撤回</text>
+  <text class="t it" x="254" y="256"><tspan class="mo">↳ 整轮不写事件，提问也丢</tspan></text>
+  <line x1="254" y1="272" x2="426" y2="272" stroke="#f0e4e0" stroke-width="1"/>
+  <text class="t note" x="254" y="292" fill="#8b8f9a" font-size="10">写进日志，就会重新发给模型</text>
+
+  <!-- 第三列 -->
+  <rect x="448" y="96" width="200" height="216" rx="6" fill="#ffffff" stroke="#e3e1db" stroke-width="1"/>
+  <text class="t lab" x="462" y="120">直接丢弃</text>
+  <text class="t it" x="462" y="150"><tspan class="mo">TIP</tspan> 提示横幅</text>
+  <text class="t it" x="462" y="171"><tspan class="mo">CONTENT_RISK</tspan> 免责声明</text>
+  <text class="t it" x="462" y="194"><tspan class="mo">TOOL_FIND</tspan> 页内查找</text>
+  <text class="t it" x="462" y="217"><tspan class="mo">TOOL_IMAGE_SEARCH</tspan> 图搜</text>
+  <text class="t it" x="462" y="240"><tspan class="mo">PARTIAL_FILE_READ</tspan> 部分读取</text>
+  <text class="t it" x="462" y="263">url 为空的 <tspan class="mo">TOOL_OPEN</tspan></text>
+  <text class="t it" x="462" y="286"><tspan class="mo">READ_LINK</tspan> 的加密正文</text>
+
+  <line x1="32" y1="332" x2="648" y2="332" stroke="#e3e1db" stroke-width="1"/>
+  <text class="t note" x="32" y="356">第三列大多是官网界面的装饰 —— 搬进上下文，就成了模型从没说过的话。</text>
+  <text class="t note" x="32" y="376" fill="#6f7480">错误码是固定字符串，来自导出的文本只出现在说明里，不会变成可执行语义。</text>
+</svg>
