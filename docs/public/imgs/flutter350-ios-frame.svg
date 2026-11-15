@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 390" width="680" height="390" role="img" aria-labelledby="f350f-title f350f-desc">
+  <title id="f350f-title">触摸事件到建帧的时序变化</title>
+  <desc id="f350f-desc">对比两行时序。3.49 及以前：触摸事件到达后要等到下一个刷新周期才建帧，延迟整整一帧。3.50：事件立即交给框架，在同一刷新周期内建帧。对应 60Hz 设备快 16 毫秒、120Hz ProMotion 设备快 8 毫秒。</desc>
+  <defs>
+    <marker id="f350f-arw" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8b8f9a"/>
+    </marker>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .rl { fill: #23262e; font-size: 12.5px; font-weight: 700; }
+      .rs { fill: #8b8f9a; font-size: 10px; }
+      .bx { fill: #4a4e57; font-size: 10.5px; }
+      .note { fill: #6f7480; font-size: 10.5px; }
+      .acc { fill: #c0492b; font-size: 10.5px; font-weight: 700; }
+      .num { fill: #23262e; font-size: 17px; font-weight: 700; }
+      .cap { fill: #8b8f9a; font-size: 10px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="390" fill="#f7f7f5"/>
+
+  <text class="t hd" x="32" y="46">一帧，8 到 16 毫秒</text>
+  <text class="t sub" x="32" y="70">触摸事件到达后，3.50 在同一个刷新周期里就开始建帧</text>
+
+  <text class="t rl" x="32" y="128">3.49</text>
+  <text class="t rs" x="32" y="145">及以前</text>
+
+  <rect x="116" y="106" width="70" height="34" fill="#e6e7e4"/>
+  <text class="t bx" x="151" y="128" text-anchor="middle">事件</text>
+
+  <line x1="186" y1="123" x2="248" y2="123" stroke="#8b8f9a" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#f350f-arw)"/>
+  <text class="t acc" x="217" y="112" text-anchor="middle">等 1 帧</text>
+
+  <rect x="250" y="106" width="78" height="34" fill="#f2ded8" stroke="#d9b3a8" stroke-width="1"/>
+  <text class="t bx" x="289" y="128" text-anchor="middle">建帧</text>
+
+  <text class="t note" x="344" y="128">下一刷新周期才把这一笔算进去</text>
+
+  <line x1="32" y1="184" x2="648" y2="184" stroke="#dcdde2" stroke-width="1" stroke-dasharray="5 4"/>
+
+  <text class="t rl" x="32" y="226">3.50</text>
+
+  <rect x="116" y="204" width="70" height="34" fill="#e6e7e4"/>
+  <text class="t bx" x="151" y="226" text-anchor="middle">事件</text>
+
+  <rect x="186" y="204" width="70" height="34" fill="#f2ded8" stroke="#d9b3a8" stroke-width="1"/>
+  <text class="t bx" x="221" y="226" text-anchor="middle">建帧</text>
+
+  <text class="t acc" x="264" y="226">同一周期，间隔为 0</text>
+  <text class="t note" x="264" y="244">事件同步交给框架，不再等下一个 vblank</text>
+
+  <g>
+    <rect x="32" y="274" width="196" height="62" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <text class="t num" x="48" y="306">−16 ms</text>
+    <text class="t cap" x="48" y="324">60Hz 设备</text>
+  </g>
+  <g>
+    <rect x="242" y="274" width="196" height="62" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <text class="t num" x="258" y="306">−8 ms</text>
+    <text class="t cap" x="258" y="324">120Hz ProMotion</text>
+  </g>
+  <g>
+    <rect x="452" y="274" width="196" height="62" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <text class="t num" x="468" y="306">−1 帧</text>
+    <text class="t cap" x="468" y="324">iPhone 6s 起的硬件实测</text>
+  </g>
+
+  <text class="t note" x="32" y="364">改的是引擎在触摸之后的帧调度：事件立即交给框架，赶在同一个刷新周期内建帧。</text>
+  <text class="t note" x="32" y="382">延迟能不能感知，取决于你的触摸回调里有没有重活——它省掉的是排队的那一帧。</text>
+</svg>

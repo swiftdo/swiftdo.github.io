@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="680" height="400" role="img" aria-labelledby="f350c-title f350c-desc">
+  <title id="f350c-title">平台通道与 FFIgen/JNIgen 的调用路径对比</title>
+  <desc id="f350c-desc">上排是 MethodChannel 旧路径：Dart 先做消息编码，经平台线程转发，再由原生侧解码，每次调用一进一出两次编解码，接口只能是异步。下排是 3.50 转稳的 FFIgen 与 JNIgen：Dart 直接调用原生 API，无消息序列化，支持同步调用和后台 isolate 调用。</desc>
+  <defs>
+    <marker id="f350c-arw" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8b8f9a"/>
+    </marker>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .mono { font-family: "SF Mono", Menlo, Consolas, monospace; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .ln { fill: #23262e; font-size: 12px; font-weight: 700; }
+      .bx { fill: #23262e; font-size: 11px; }
+      .note { fill: #6f7480; font-size: 10.5px; }
+      .acc { fill: #c0492b; font-size: 11px; font-weight: 700; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="400" fill="#f7f7f5"/>
+
+  <text class="t hd" x="32" y="46">一次调用，两种走法</text>
+  <text class="t sub" x="32" y="70">平台通道要过一遍消息编解码；FFIgen / JNIgen 不走通道</text>
+
+  <text class="t ln" x="32" y="104">MethodChannel · 旧路径</text>
+
+  <rect x="32" y="116" width="72" height="48" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+  <text class="t bx" x="68" y="145" text-anchor="middle">Dart</text>
+
+  <rect x="132" y="116" width="84" height="48" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+  <text class="t bx" x="174" y="145" text-anchor="middle">消息编码</text>
+
+  <rect x="244" y="116" width="96" height="48" fill="#f2ded8" stroke="#d9b3a8" stroke-width="1"/>
+  <text class="t bx" x="292" y="145" text-anchor="middle">平台线程</text>
+
+  <rect x="368" y="116" width="84" height="48" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+  <text class="t bx" x="410" y="145" text-anchor="middle">消息解码</text>
+
+  <rect x="480" y="116" width="88" height="48" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+  <text class="t bx" x="524" y="145" text-anchor="middle">Kotlin/Swift</text>
+
+  <line x1="104" y1="140" x2="128" y2="140" stroke="#8b8f9a" stroke-width="1.4" marker-end="url(#f350c-arw)"/>
+  <line x1="216" y1="140" x2="240" y2="140" stroke="#8b8f9a" stroke-width="1.4" marker-end="url(#f350c-arw)"/>
+  <line x1="340" y1="140" x2="364" y2="140" stroke="#8b8f9a" stroke-width="1.4" marker-end="url(#f350c-arw)"/>
+  <line x1="452" y1="140" x2="476" y2="140" stroke="#8b8f9a" stroke-width="1.4" marker-end="url(#f350c-arw)"/>
+
+  <text class="t note" x="32" y="186">每次调用一进一出两次编解码 · 接口只能 async · 跨 isolate 要另做处理</text>
+
+  <line x1="32" y1="204" x2="648" y2="204" stroke="#dcdde2" stroke-width="1" stroke-dasharray="5 4"/>
+
+  <text class="t ln" x="32" y="236">FFIgen / JNIgen · 3.50 起 stable</text>
+
+  <rect x="32" y="248" width="72" height="48" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+  <text class="t bx" x="68" y="277" text-anchor="middle">Dart</text>
+
+  <line x1="104" y1="272" x2="296" y2="272" stroke="#c0492b" stroke-width="1.8" marker-end="url(#f350c-arw)"/>
+  <text class="t acc" x="200" y="264" text-anchor="middle">直接调用（可同步）</text>
+
+  <rect x="300" y="248" width="170" height="48" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+  <text class="t bx" x="385" y="277" text-anchor="middle">Kotlin / Swift / C</text>
+
+  <rect x="500" y="242" width="148" height="60" fill="#f2f2ef" stroke="#dcdde2" stroke-width="1"/>
+  <text class="t note" x="514" y="262">无消息序列化</text>
+  <text class="t note" x="514" y="279">支持同步调用</text>
+  <text class="t note" x="514" y="296">可在后台 isolate 调用</text>
+
+  <text class="t note" x="32" y="322">Pigeon 新增原生互操作模式（preview），内部就用这两套生成类型安全绑定</text>
+
+  <text class="t note" x="32" y="354">边界没变：FFIgen 管 C 与 Objective-C，JNIgen 管 Java/Kotlin（含 Android 系统 API 与自定义库）。</text>
+  <text class="t note" x="32" y="376">通道没被删掉，只是从「默认答案」降成了「兼容答案」。</text>
+</svg>

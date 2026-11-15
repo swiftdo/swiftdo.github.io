@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" width="680" height="420" role="img" aria-labelledby="f350d-title f350d-desc">
+  <title id="f350d-title">Flutter 3.50 中三条同时开始倒计时的迁移</title>
+  <desc id="f350d-desc">三张卡片：CocoaPods 回退转向 Swift Package Manager，CocoaPods trunk 于 2026 年 12 月转为只读；插件手动应用 Kotlin Gradle Plugin 转向 AGP 内置 Kotlin，AGP 10 下未迁移将构建失败；Intel Mac 构建转向 Apple Silicon，未来版本将硬性要求。</desc>
+  <defs>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .mono { font-family: "SF Mono", Menlo, Consolas, monospace; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .ct { fill: #23262e; font-size: 13px; font-weight: 700; }
+      .cd { fill: #6f7480; font-size: 11.5px; }
+      .bd { fill: #c0492b; font-size: 12.5px; font-weight: 700; }
+      .bc { fill: #8b8f9a; font-size: 10.5px; }
+      .ft { fill: #8b8f9a; font-size: 10.5px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="420" fill="#f7f7f5"/>
+
+  <text class="t hd" x="32" y="46">三条旧账，同时到期</text>
+  <text class="t sub" x="32" y="70">3.50 没有给任何一条延长宽限期</text>
+
+  <g>
+    <rect x="32" y="92" width="616" height="84" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <rect x="32" y="92" width="3" height="84" fill="#c0492b"/>
+    <text class="t ct" x="52" y="118">CocoaPods 回退 → Swift Package Manager</text>
+    <text class="t cd" x="52" y="140">剪掉 SwiftPM，从「可以」变成「每条 CLI 命令警告一次」</text>
+    <text class="t cd" x="52" y="160">退出开关与 CocoaPods 回退路径都会被移除</text>
+    <text class="t bd" x="632" y="122" text-anchor="end">2026-12</text>
+    <text class="t bc" x="632" y="142" text-anchor="end">trunk 转只读</text>
+  </g>
+
+  <g>
+    <rect x="32" y="190" width="616" height="84" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <rect x="32" y="190" width="3" height="84" fill="#c9cbd1"/>
+    <text class="t ct" x="52" y="216">手动 KGP → AGP Built-in Kotlin</text>
+    <text class="t cd" x="52" y="238">含 Android 代码的插件必须迁到内置 Kotlin</text>
+    <text class="t cd" x="52" y="258">未迁移者：pub.dev 分数下调，AGP 10 下构建失败</text>
+    <text class="t bd" x="632" y="220" text-anchor="end">AGP 10</text>
+    <text class="t bc" x="632" y="240" text-anchor="end">构建失败</text>
+  </g>
+
+  <g>
+    <rect x="32" y="288" width="616" height="84" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <rect x="32" y="288" width="3" height="84" fill="#c9cbd1"/>
+    <text class="t ct" x="52" y="314">Intel Mac → Apple Silicon</text>
+    <text class="t cd" x="52" y="336">已不在 Intel 硬件上跑测试，构建时警告一次</text>
+    <text class="t cd" x="52" y="356">未来版本将要求 Apple Silicon 才能构建 iOS / macOS</text>
+    <text class="t bd" x="632" y="318" text-anchor="end">未来版本</text>
+    <text class="t bc" x="632" y="338" text-anchor="end">硬性要求</text>
+  </g>
+
+  <text class="t ft" x="32" y="400">三条都写在 3.50 的发布说明里，属于「现在就排期」那一类，不是「以后再说」。</text>
+</svg>

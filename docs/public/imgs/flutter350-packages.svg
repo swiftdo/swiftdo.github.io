@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="680" height="400" role="img" aria-labelledby="f350p-title f350p-desc">
+  <title id="f350p-title">Material 与 Cupertino 从 package:flutter 中拆出为独立包</title>
+  <desc id="f350p-desc">左侧是原来的 package:flutter，内含 material.dart、cupertino.dart 与本地化委托，三者同版本同仓库；右侧拆成 package:material_ui、package:cupertino_ui 与 flutter_localizations 三个独立包。迁移命令为 dart fix --apply --code=migrate_design_widgets，旧 import 仍能编译但已标记废弃。</desc>
+  <defs>
+    <marker id="f350p-arw" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8b8f9a"/>
+    </marker>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .mono { font-family: "SF Mono", Menlo, Consolas, monospace; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .pk { fill: #23262e; font-size: 11px; }
+      .pn { fill: #8b8f9a; font-size: 10px; }
+      .cap { fill: #6f7480; font-size: 10.5px; }
+      .lbl { fill: #c0492b; font-size: 11px; font-weight: 700; }
+      .cm { fill: #23262e; font-size: 12.5px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="400" fill="#f7f7f5"/>
+
+  <text class="t hd" x="32" y="46">一个包，拆成三个</text>
+  <text class="t sub" x="32" y="70">设计语言不再属于框架本体，而是三个可以各自演进的包</text>
+
+  <rect x="32" y="96" width="208" height="176" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+  <text class="t mono pk" x="48" y="122">package:flutter</text>
+  <line x1="48" y1="134" x2="224" y2="134" stroke="#e6e7e4" stroke-width="1"/>
+  <text class="t mono pk" x="48" y="160">material.dart</text>
+  <text class="t mono pk" x="48" y="186">cupertino.dart</text>
+  <text class="t mono pk" x="48" y="212">localizations 委托</text>
+  <text class="t cap" x="48" y="248">同一个版本号，同一个仓库</text>
+
+  <line x1="248" y1="184" x2="296" y2="184" stroke="#8b8f9a" stroke-width="1.6" marker-end="url(#f350p-arw)"/>
+  <text class="t lbl" x="272" y="168" text-anchor="middle">拆</text>
+
+  <g>
+    <rect x="304" y="96" width="238" height="48" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <text class="t mono pk" x="320" y="116">package:material_ui</text>
+    <text class="t pn" x="320" y="133">Material 3 组件</text>
+  </g>
+  <g>
+    <rect x="304" y="160" width="238" height="48" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+    <text class="t mono pk" x="320" y="180">package:cupertino_ui</text>
+    <text class="t pn" x="320" y="197">iOS 风格组件</text>
+  </g>
+  <g>
+    <rect x="304" y="224" width="238" height="48" fill="#f2f2ef" stroke="#dcdde2" stroke-width="1"/>
+    <text class="t mono pk" x="320" y="244">package:flutter_localizations</text>
+    <text class="t pn" x="320" y="261">本地化委托同步迁出</text>
+  </g>
+
+  <text class="t lbl" x="304" y="88">3.47 发 1.0 · 3.50 起废弃旧入口</text>
+
+  <text class="t cap" x="32" y="292">官方给出的唯一迁移入口</text>
+  <rect x="32" y="302" width="616" height="44" fill="#eeefec"/>
+  <text class="t mono cm" x="48" y="330">dart fix --apply --code=migrate_design_widgets</text>
+
+  <text class="t cap" x="32" y="368">flutter create 的新项目已默认导入 package:material_ui；旧 import 还能编译，只是标了 deprecated。</text>
+  <text class="t cap" x="32" y="386">注意：dart fix 改得动 import，改不动你在 ThemeExtension、自定义 delegate 里留下的耦合。</text>
+</svg>
