@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 286" width="680" height="286" role="img" aria-labelledby="ax1-t ax1-d">
+  <title id="ax1-t">Astryx 是内部系统在开源栈上的重写，不是把内部系统搬出来</title>
+  <desc id="ax1-d">左侧列出内部 xDesign 八年留下的三样东西：150 多个组件的广度、统一的命名与 prop 约定、约一半更新来自内部构建者社区。右侧列出在 AI 时代失效的三样东西：自研内部栈不在模型的分布内、想改外观必须 fork 或包一层、文档只服务人。</desc>
+  <defs>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .pt { fill: #23262e; font-size: 12px; font-weight: 700; }
+      .it { fill: #52565f; font-size: 11.5px; }
+      .tag { fill: #8b8f9a; font-size: 9.5px; letter-spacing: 1px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="286" fill="#f7f7f5"/>
+
+  <text class="serif hd" x="32" y="44">开源出来的不是那套系统，是它的重写版</text>
+  <text class="t sub" x="32" y="68">内部叫 xDesign，跑了八年；Astryx 是同一批人在开源栈上重建的第二个版本</text>
+
+  <rect x="32" y="92" width="292" height="168" fill="#ffffff" stroke="#e3e0d8" stroke-width="1"/>
+  <rect x="32" y="92" width="3" height="168" fill="#2f7d5b"/>
+  <text class="t tag" x="52" y="118">带过来的</text>
+  <text class="t pt" x="52" y="142">八年攒下的广度与约定</text>
+  <text class="t it" x="52" y="174">· 150+ 个组件，覆盖后台工具的边角</text>
+  <text class="t it" x="52" y="196">· 表格、日期选择、向导这类硬骨头都在</text>
+  <text class="t it" x="52" y="218">· 命名、prop、组合一致，学会几个能猜其余</text>
+  <text class="t it" x="52" y="240">· 约一半更新由内部构建者贡献</text>
+
+  <rect x="356" y="92" width="292" height="168" fill="#ffffff" stroke="#e3e0d8" stroke-width="1"/>
+  <rect x="356" y="92" width="3" height="168" fill="#b4543c"/>
+  <text class="t tag" x="376" y="118">扔掉的</text>
+  <text class="t pt" x="376" y="142">在模型手里不管用的部分</text>
+  <text class="t it" x="376" y="174">· 自研内部栈，不在模型的分布里</text>
+  <text class="t it" x="376" y="196">· 想改外观就得 fork 或包一层</text>
+  <text class="t it" x="376" y="218">· 文档只写给人读，agent 无从下手</text>
+  <text class="t it" x="376" y="240">· 只在 Meta 内网成立的那套构建链</text>
+
+  <text class="t" x="32" y="278" font-size="10.5" fill="#8b8f9a">依据：how-astryx-works（2026-06-29）与 README。重写的理由就一句——AI 在分布内表现好，内部系统不在分布里</text>
+</svg>

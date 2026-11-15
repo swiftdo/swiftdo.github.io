@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 472" width="680" height="472" role="img" aria-labelledby="ocrr-t ocrr-d">
+  <title id="ocrr-t">Open Code Review 的规则四层优先级链</title>
+  <desc id="ocrr-d">规则按四层优先级查找：命令行 --rule 最高，其次仓库内的 .opencodereview/rule.json，再次用户目录下的 rule.json，最后回落到随二进制内置的 system_rules.json。前一层没有匹配项才继续往下找，内置层永远存在，因此每个文件总能拿到一段规则文本。</desc>
+  <defs>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .n { fill: #b9bcc4; font-size: 22px; font-weight: 700; }
+      .bt { fill: #23262e; font-size: 12px; font-weight: 600; }
+      .bp { fill: #52565f; font-size: 10.5px; }
+      .side { fill: #6f7480; font-size: 10.5px; }
+      .note { fill: #8b8f9a; font-size: 10.5px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="472" fill="#f7f7f5"/>
+
+  <text class="serif hd" x="32" y="42">规则不是提示词，是一张查找表</text>
+  <text class="t sub" x="32" y="66">每个文件按四层顺序找，第一个命中的那段文字就是发给模型的 {{system_rule}}</text>
+
+  <!-- 1 -->
+  <rect x="32" y="96" width="404" height="66" rx="4" fill="#ffffff" stroke="#2f7d5b" stroke-width="1"/>
+  <text class="mono n" x="48" y="136">01</text>
+  <text class="t bt" x="86" y="123">--rule 命令行</text>
+  <text class="mono bp" x="86" y="143">ocr review --rule …</text>
+  <text class="t side" x="456" y="135">临时覆盖，优先级最高</text>
+
+  <line x1="234" y1="162" x2="234" y2="174" stroke="#b9bcc4" stroke-width="1"/>
+  <path d="M231 172 L237 172 L234 178 Z" fill="#b9bcc4"/>
+
+  <!-- 2 -->
+  <rect x="32" y="180" width="404" height="66" rx="4" fill="#ffffff" stroke="#2f7d5b" stroke-width="1"/>
+  <text class="mono n" x="48" y="220">02</text>
+  <text class="t bt" x="86" y="207">仓库内项目配置</text>
+  <text class="mono bp" x="86" y="227">&lt;repo&gt;/.opencodereview/rule.json</text>
+  <text class="t side" x="456" y="219">可提交，团队共享</text>
+
+  <line x1="234" y1="246" x2="234" y2="258" stroke="#b9bcc4" stroke-width="1"/>
+  <path d="M231 256 L237 256 L234 262 Z" fill="#b9bcc4"/>
+
+  <!-- 3 -->
+  <rect x="32" y="264" width="404" height="66" rx="4" fill="#ffffff" stroke="#dcdde2" stroke-width="1"/>
+  <text class="mono n" x="48" y="304">03</text>
+  <text class="t bt" x="86" y="291">本机全局偏好</text>
+  <text class="mono bp" x="86" y="311">~/.opencodereview/rule.json</text>
+  <text class="t side" x="456" y="303">所有仓库都继承</text>
+
+  <line x1="234" y1="330" x2="234" y2="342" stroke="#b9bcc4" stroke-width="1"/>
+  <path d="M231 340 L237 340 L234 346 Z" fill="#b9bcc4"/>
+
+  <!-- 4 -->
+  <rect x="32" y="348" width="404" height="66" rx="4" fill="#f2f2f0" stroke="#dcdde2" stroke-width="1"/>
+  <text class="mono n" x="48" y="388">04</text>
+  <text class="t bt" x="86" y="375">内置系统规则</text>
+  <text class="mono bp" x="86" y="395">system_rules.json（嵌在二进制里）</text>
+  <text class="t side" x="456" y="387">40+ 语言，永远有兜底</text>
+
+  <line x1="32" y1="434" x2="648" y2="434" stroke="#dcdde2" stroke-width="1"/>
+  <text class="t note" x="32" y="456">兜底规则来自内置层，所以任何文件都不会「没有规则可依」；前三层文件不存在时静默跳过，不报错。</text>
+</svg>

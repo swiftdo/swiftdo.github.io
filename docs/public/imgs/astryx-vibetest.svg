@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 352" width="680" height="352" role="img" aria-labelledby="ax4-t ax4-d">
+  <title id="ax4-t">两夜 vibe test 记分卡：好的一夜 98 比 95，差的一夜 77 比 95</title>
+  <desc id="ax4-d">左卡是 2026-07-10 的夜间评测，Astryx 98 分、基线 95 分，五个维度里正确性、无障碍、代码质量、可维护性满分，效率 88。右卡是 2026-06-28 的夜间评测，Astryx 77 分输给基线 95 分，只有正确性塌到 2 分，其余四项仍在 90 以上。说明整夜成绩可以被一个维度拖垮。</desc>
+  <defs>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .tag { fill: #8b8f9a; font-size: 9.5px; letter-spacing: 0.6px; }
+      .big { fill: #23262e; font-size: 34px; font-weight: 700; }
+      .cmp { fill: #6f7480; font-size: 10.5px; }
+      .dim { fill: #52565f; font-size: 11px; }
+      .num { fill: #6f7480; font-size: 10.5px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="352" fill="#f7f7f5"/>
+
+  <text class="serif hd" x="32" y="44">它给 agent 的产出打了一年的分，包括输的那些夜</text>
+  <text class="t sub" x="32" y="68">每晚同一套提示词跑四个靶子：Astryx、Astryx + Tailwind、shadcn + Tailwind、纯 HTML</text>
+
+  <rect x="32" y="92" width="296" height="232" fill="#ffffff" stroke="#e3e0d8" stroke-width="1"/>
+  <text class="t tag" x="52" y="116">2026-07-10 · 好的一夜</text>
+  <text class="serif big" x="52" y="158">98</text>
+  <text class="t cmp" x="106" y="156">分，基线 95</text>
+  <text class="t cmp" x="52" y="180" fill="#2f7d5b" font-weight="700">赢 3 分 · 六维里四维满分</text>
+
+  <text class="t dim" x="52" y="208">正确性</text>
+  <rect x="118" y="200" width="112" height="7" fill="#e3e0d8"/>
+  <rect x="118" y="200" width="112" height="7" fill="#2f7d5b"/>
+  <text class="t num" x="292" y="208" text-anchor="end">100</text>
+
+  <text class="t dim" x="52" y="230">无障碍</text>
+  <rect x="118" y="222" width="112" height="7" fill="#e3e0d8"/>
+  <rect x="118" y="222" width="112" height="7" fill="#2f7d5b"/>
+  <text class="t num" x="292" y="230" text-anchor="end">100</text>
+
+  <text class="t dim" x="52" y="252">代码质量</text>
+  <rect x="118" y="244" width="112" height="7" fill="#e3e0d8"/>
+  <rect x="118" y="244" width="112" height="7" fill="#2f7d5b"/>
+  <text class="t num" x="292" y="252" text-anchor="end">100</text>
+
+  <text class="t dim" x="52" y="274">效率</text>
+  <rect x="118" y="266" width="112" height="7" fill="#e3e0d8"/>
+  <rect x="118" y="266" width="99" height="7" fill="#8b8f9a"/>
+  <text class="t num" x="292" y="274" text-anchor="end">88</text>
+
+  <text class="t dim" x="52" y="296">可维护性</text>
+  <rect x="118" y="288" width="112" height="7" fill="#e3e0d8"/>
+  <rect x="118" y="288" width="112" height="7" fill="#2f7d5b"/>
+  <text class="t num" x="292" y="296" text-anchor="end">100</text>
+
+  <rect x="352" y="92" width="296" height="232" fill="#ffffff" stroke="#e3e0d8" stroke-width="1"/>
+  <text class="t tag" x="372" y="116">2026-06-28 · 差的一夜</text>
+  <text class="serif big" x="372" y="158">77</text>
+  <text class="t cmp" x="426" y="156">分，基线 95</text>
+  <text class="t cmp" x="372" y="180" fill="#b4543c" font-weight="700">输 18 分 · 只塌了一个维度</text>
+
+  <text class="t dim" x="372" y="208">正确性</text>
+  <rect x="438" y="200" width="128" height="7" fill="#e3e0d8"/>
+  <rect x="438" y="200" width="4" height="7" fill="#b4543c"/>
+  <text class="t num" x="612" y="208" text-anchor="end" fill="#b4543c" font-weight="700">2</text>
+
+  <text class="t dim" x="372" y="230">无障碍</text>
+  <rect x="438" y="222" width="128" height="7" fill="#e3e0d8"/>
+  <rect x="438" y="222" width="125" height="7" fill="#2f7d5b"/>
+  <text class="t num" x="612" y="230" text-anchor="end">98</text>
+
+  <text class="t dim" x="372" y="252">代码质量</text>
+  <rect x="438" y="244" width="128" height="7" fill="#e3e0d8"/>
+  <rect x="438" y="244" width="127" height="7" fill="#2f7d5b"/>
+  <text class="t num" x="612" y="252" text-anchor="end">99</text>
+
+  <text class="t dim" x="372" y="274">效率</text>
+  <rect x="438" y="266" width="128" height="7" fill="#e3e0d8"/>
+  <rect x="438" y="266" width="116" height="7" fill="#2f7d5b"/>
+  <text class="t num" x="612" y="274" text-anchor="end">91</text>
+
+  <text class="t dim" x="372" y="296">可维护性</text>
+  <rect x="438" y="288" width="128" height="7" fill="#e3e0d8"/>
+  <rect x="438" y="288" width="123" height="7" fill="#2f7d5b"/>
+  <text class="t num" x="612" y="296" text-anchor="end">96</text>
+
+  <text class="t" x="32" y="342" font-size="10.5" fill="#8b8f9a">数据：官方 Vibe Test 博客与 Vibe-Test-Scores wiki。设计维度仍是 WIP，不计入总分</text>
+</svg>

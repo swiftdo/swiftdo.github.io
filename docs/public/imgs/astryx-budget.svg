@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 334" width="680" height="334" role="img" aria-labelledby="ax2-t ax2-d">
+  <title id="ax2-t">把主题文档整份倒进上下文要 4.2 万 token，而两次按需检索约 2.6K</title>
+  <desc id="ax2-d">上半部分是一条横跨全图的红色长条，代表 docs theme 一次返回的 42,000 个 token，注释说 agent 读完就放弃这个库。下半部分是绿色短条，代表 search 后再取 component 两次回答合计约 2.6K token。一条虚线标出单次回答 1.5K token 的上限。横轴为对数刻度，标注 1K、3K、10K、30K。</desc>
+  <defs>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .cmd { fill: #23262e; font-size: 10px; }
+      .note { fill: #52565f; font-size: 11px; }
+      .ax { fill: #8b8f9a; font-size: 9.5px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="334" fill="#f7f7f5"/>
+
+  <text class="serif hd" x="32" y="44">设计系统最难的部分，变成了上下文预算</text>
+  <text class="t sub" x="32" y="68">同一条 CLI，两种问法：一次性倒给你，还是让 agent 自己一勺一勺取（横轴为对数刻度）</text>
+
+  <text class="t ax" x="201" y="92" text-anchor="middle">1.5K</text>
+
+  <rect x="150" y="106" width="471" height="30" fill="#b4543c" opacity="0.85"/>
+  <text class="t cmd" x="32" y="125">docs theme</text>
+  <text class="t" x="608" y="125" font-size="12" font-weight="700" fill="#ffffff" text-anchor="end">42,000 tokens</text>
+  <text class="t note" x="150" y="154">把这一个子命令的文档整份倒进上下文，agent 读完就放弃这个库（issue #2182）</text>
+
+  <rect x="150" y="192" width="120" height="30" fill="#2f7d5b" opacity="0.9"/>
+  <text class="t cmd" x="32" y="211">search → component</text>
+  <text class="t" x="280" y="211" font-size="12" font-weight="700" fill="#2f7d5b">≈2.6K</text>
+  <text class="t note" x="150" y="240">两次回答问清一件事：先搜到名字，再取那一个组件的 props</text>
+
+  <line x1="201" y1="98" x2="201" y2="258" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.85"/>
+  <line x1="201" y1="98" x2="201" y2="258" stroke="#b4543c" stroke-width="1" stroke-dasharray="4 4" opacity="0.5"/>
+
+  <text class="t note" x="32" y="262" font-size="10.5" fill="#8b8f9a">关键不在工具而在这条虚线：别名表把「success message」接到 Toast，要搜的东西才搜得到，命中率 70% → 95%+</text>
+
+  <line x1="150" y1="276" x2="638" y2="276" stroke="#dcd9d1" stroke-width="1"/>
+  <g>
+    <line x1="150" y1="276" x2="150" y2="281" stroke="#c9ccd3"/>
+    <text class="t ax" x="150" y="293" text-anchor="middle">1K</text>
+    <line x1="289" y1="276" x2="289" y2="281" stroke="#c9ccd3"/>
+    <text class="t ax" x="289" y="293" text-anchor="middle">3K</text>
+    <line x1="440" y1="276" x2="440" y2="281" stroke="#c9ccd3"/>
+    <text class="t ax" x="440" y="293" text-anchor="middle">10K</text>
+    <line x1="578" y1="276" x2="578" y2="281" stroke="#c9ccd3"/>
+    <text class="t ax" x="578" y="293" text-anchor="middle">30K</text>
+  </g>
+
+  <text class="t" x="32" y="322" font-size="10.5" fill="#8b8f9a">数据：CLI vs MCP 六变体实验（issue #2306），7 条提示词、10 分制人工/模型混合评分</text>
+</svg>

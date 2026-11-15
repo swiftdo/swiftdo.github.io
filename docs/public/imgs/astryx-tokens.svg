@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 344" width="680" height="344" role="img" aria-labelledby="ax3-t ax3-d">
+  <title id="ax3-t">六种向 agent 交付文档的方案：得分与 token 消耗</title>
+  <desc id="ax3-d">六个变体按得分排序。CLI 加 search 得 9.6 分、整轮消耗 2 万 token；MCP Hybrid 9.3 分、3.5 万；CLI 全量 8.7 分、6.3 万；MCP 六工具 8.6 分、1.7 万；只给搜索 7.0 分、1.5 万；MCP Concierge 5.7 分、6 千。得分最高的路径并非 token 最少的路径，而是够用且不爆预算的那条。</desc>
+  <defs>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .row { fill: #23262e; font-size: 11.5px; }
+      .val { fill: #6f7480; font-size: 10px; }
+      .sc { fill: #23262e; font-size: 13px; font-weight: 700; }
+      .col { fill: #8b8f9a; font-size: 9.5px; letter-spacing: 1px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="344" fill="#f7f7f5"/>
+
+  <text class="serif hd" x="32" y="44">六种问法，只有一条既省又准</text>
+  <text class="t sub" x="32" y="68">条越长越费 token，右边的分数才是结果；省到极致反而听不懂问题</text>
+
+  <text class="t col" x="32" y="100">交付方式</text>
+  <text class="t col" x="158" y="100">7 条提示词的累计 token</text>
+  <text class="t col" x="648" y="100" text-anchor="end">得分 / 10</text>
+  <line x1="158" y1="108" x2="158" y2="308" stroke="#dcd9d1" stroke-width="1"/>
+
+  <rect x="158" y="118" width="121" height="16" fill="#2f7d5b"/>
+  <text class="t row" x="32" y="130">CLI + search</text>
+  <text class="t val" x="287" y="130">20K</text>
+  <text class="t sc" x="648" y="131" text-anchor="end">9.6</text>
+
+  <rect x="158" y="152" width="211" height="16" fill="#2f7d5b" opacity="0.62"/>
+  <text class="t row" x="32" y="164">MCP Hybrid</text>
+  <text class="t val" x="377" y="164">35K</text>
+  <text class="t sc" x="648" y="165" text-anchor="end">9.3</text>
+
+  <rect x="158" y="186" width="380" height="16" fill="#8b8f9a" opacity="0.5"/>
+  <text class="t row" x="32" y="198">CLI（全量直投）</text>
+  <text class="t val" x="546" y="198">63K</text>
+  <text class="t sc" x="648" y="199" text-anchor="end">8.7</text>
+
+  <rect x="158" y="220" width="103" height="16" fill="#8b8f9a" opacity="0.5"/>
+  <text class="t row" x="32" y="232">MCP 六工具</text>
+  <text class="t val" x="269" y="232">17K</text>
+  <text class="t sc" x="648" y="233" text-anchor="end">8.6</text>
+
+  <rect x="158" y="254" width="91" height="16" fill="#b4543c" opacity="0.55"/>
+  <text class="t row" x="32" y="266">只给搜索</text>
+  <text class="t val" x="257" y="266">15K</text>
+  <text class="t sc" x="648" y="267" text-anchor="end">7.0</text>
+
+  <rect x="158" y="288" width="36" height="16" fill="#b4543c" opacity="0.55"/>
+  <text class="t row" x="32" y="300">Concierge</text>
+  <text class="t val" x="202" y="300">6K</text>
+  <text class="t sc" x="648" y="301" text-anchor="end">5.7</text>
+
+  <line x1="32" y1="322" x2="648" y2="322" stroke="#e3e0d8" stroke-width="1"/>
+  <text class="t" x="32" y="338" font-size="10.5" fill="#8b8f9a">数据：issue #2306，6 个变体 × 7 条最难类别提示词。Concierge 只用 6K token，但 5.7 分——省下的都赔在答不对上</text>
+</svg>

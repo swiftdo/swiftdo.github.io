@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 352" width="680" height="352" role="img" aria-labelledby="ax5-t ax5-d">
+  <title id="ax5-t">同一份 reset，加不加 cascade layer，结果相反且都没有报错</title>
+  <desc id="ax5-d">上半部分：没有 @layer 时，零权重的星号 reset 输给类选择器，组件显示正常。下半部分：有了 @layer 后，一条没有进任何层的顶层 @import reset 会排在所有命名层之上，与权重无关，于是组件 padding 全部归零、外观塌掉，而浏览器不报任何错。</desc>
+  <defs>
+    <style>
+      .t { font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .serif { font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif; }
+      .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+      .hd { fill: #23262e; font-size: 21px; font-weight: 700; }
+      .sub { fill: #6f7480; font-size: 12px; }
+      .tag { fill: #8b8f9a; font-size: 9.5px; letter-spacing: 1px; }
+      .code { fill: #23262e; font-size: 10px; }
+      .note { fill: #52565f; font-size: 10.5px; }
+      .verd { font-size: 12px; font-weight: 700; }
+      .lyr { font-size: 9.5px; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="352" fill="#f7f7f5"/>
+
+  <text class="serif hd" x="32" y="44">reset 从无害变成通吃，只差一个 @layer</text>
+  <text class="t sub" x="32" y="68">同一份 CSS，结果相反，而且两种情况浏览器都不报错——官方迁移文档点名这是最常见的翻车点</text>
+
+  <rect x="32" y="88" width="616" height="88" fill="#ffffff" stroke="#e3e0d8" stroke-width="1"/>
+  <text class="t tag" x="48" y="112">没有 @layer</text>
+  <text class="mono code" x="48" y="138">* { padding: 0 }</text>
+  <text class="mono code" x="168" y="138">vs</text>
+  <text class="mono code" x="190" y="138">.btn { padding: 12px }</text>
+  <text class="t note" x="48" y="160">权重说话：星号选择器权重 0，输给类选择器</text>
+  <text class="t verd" x="404" y="138" fill="#2f7d5b">组件正常</text>
+  <text class="t note" x="404" y="160">经典的 reset 行为，谁都不觉得有问题</text>
+
+  <rect x="32" y="188" width="616" height="132" fill="#ffffff" stroke="#e3e0d8" stroke-width="1"/>
+  <text class="t tag" x="48" y="212">有了 @layer</text>
+  <text class="mono code" x="48" y="238">@layer reset, astryx-base;</text>
+  <text class="t note" x="48" y="266">旧 reset 是顶层 @import，没被送进任何层</text>
+  <text class="t note" x="48" y="288">它因此排在所有命名层之上，与权重无关</text>
+
+  <text class="t lyr" x="404" y="198" fill="#8b8f9a">优先级：上高下低</text>
+  <rect x="404" y="204" width="228" height="22" fill="#b4543c" opacity="0.16" stroke="#b4543c" stroke-width="1"/>
+  <text class="t lyr" x="416" y="219" fill="#8b3a22" font-weight="700">无层（顶层 @import 的 reset）</text>
+  <rect x="404" y="230" width="228" height="22" fill="#eceae4"/>
+  <text class="t lyr" x="416" y="245" fill="#52565f">astryx-base 命名层</text>
+  <rect x="404" y="256" width="228" height="22" fill="#eceae4"/>
+  <text class="t lyr" x="416" y="271" fill="#52565f">reset 命名层（原本该待的地方）</text>
+  <text class="t verd" x="404" y="302" fill="#b4543c">padding 归零，组件塌，无报错</text>
+
+  <text class="t" x="32" y="342" font-size="10.5" fill="#8b8f9a">官方给的体检法：渲染一个按钮，断言 getComputedStyle(btn).paddingInline 不是 "0px"</text>
+</svg>
